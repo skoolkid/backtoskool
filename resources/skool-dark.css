@@ -1,0 +1,6 @@
+table.timetable th, table.lesson th {
+  background-color: #775533;
+}
+table.timetable td, table.lesson td {
+  background-color: #442200;
+}

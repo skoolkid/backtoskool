@@ -1,0 +1,49 @@
+; Copyright 2008-2013, 2015 Richard Dymond (rjdymond@gmail.com)
+
+@start
+; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
+; Copyright 2008-2013, 2015 Richard Dymond (this disassembly)
+@org=33204
+
+; Start
+;
+; We jump here from the load routine at #R32815@load.
+c33204 LD SP,23806   ; Put the stack somewhere safe
+ 33207 EI            ; Enable interrupts
+ 33208 LD HL,16384   ; {Copy the top character line of the display file (8x32
+ 33211 LD DE,20640   ; bytes) to the third character line from the bottom
+ 33214 CALL 20709    ; }
+ 33217 LD H,183      ; {Fill in the second character line from the bottom with
+ 33219 LD DE,20672   ; the necessary code
+ 33222 CALL 20709    ; }
+ 33225 LD DE,23808   ;
+ 33228 CALL 21746    ; Prepare 23808 to 24063
+ 33231 CALL 21746    ; Prepare 24064 to 24319
+ 33234 CALL 21746    ; Prepare 24320 to 24575
+ 33237 LD DE,32768   ; {Copy 256 bytes from 58112 to 32768
+ 33240 LD BC,256     ;
+@nowarn
+ 33243 LD HL,58112   ;
+ 33246 LDIR          ; }
+ 33248 LD H,97       ; {Move 7936 bytes from 24832 down to 24576
+ 33250 LD D,96       ;
+ 33252 LD B,31       ;
+ 33254 LDIR          ; }
+ 33256 LD B,252      ;
+@label=LOOP
+ 33258 LD (DE),A     ; {Zero out addresses 32512 to 32763 (the
+ 33259 INC E         ; #LINK:GameStatusBuffer(game status buffer))
+ 33260 DJNZ 33258    ; }
+ 33262 LD DE,33024   ; {Prepare to copy 256 bytes from 23296 to 33024 (thus
+ 33265 LD HL,23296   ; overwriting this routine)
+ 33268 INC B         ; }
+ 33269 JP 21920      ;
+@end
+
+r20709 main
+
+r21746 main
+
+r21920 main
+
+r63189 main

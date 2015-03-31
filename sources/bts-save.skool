@@ -1,0 +1,290 @@
+; Copyright 2001, 2008-2013, 2015 Richard Dymond (rjdymond@gmail.com)
+
+; Display file
+d16642 DEFB 24,60,0,60,64,126,60,124,0,60,8,60,60,60
+ 16674 DEFB 60,60,0,64,60,60,120,0,36,0,0,60,36,60
+ 16688 DEFB 60,120,126
+ 16706 DEFB 60,60,0,64,60,60,120,0,36,0,0,60,36,60
+ 16720 DEFB 60,120,126,0,24,60,60,60,8
+ 16738 DEFB 60,60,0,124,60,68,126,0,60,60,60,60,126
+ 16752 DEFB 60,60,0,0,124,60,68,126,0,60,60,60,60,24,0,8
+ 16768 DEFB 126
+ 16802 DEFB 60,126,0,126,60,124,0,0,0,24,0,254,60
+ 16816 DEFB 60,60,0,0,124,126,126,124,0,60,0,24,0,60
+ 16832 DEFB 124,60,66,60,126,0,126,60,0,0,66,126,66,254
+ 16866 DEFB 60,126,0,124,60,66,60,126,0,60,126,60
+ 16898 DEFB 40,70,0,66,64,64,66,66,0,66,24,66,66,70
+ 16930 DEFB 66,70,0,64,66,66,68,0,36,120,28,66,36,66
+ 16944 DEFB 66,68,64
+ 16962 DEFB 66,70,0,64,66,66,68,0,36,56,28,66,36,66
+ 16976 DEFB 66,68,64,0,40,64,66,66,24
+ 16994 DEFB 66,66,0,66,66,72,64,0,66,66,66,66,2
+ 17008 DEFB 66,70,0,0,66,66,72,64,0,66,66,66,66,40,0,24
+ 17024 DEFB 64
+ 17058 DEFB 66,64,0,64,66,66,0,56,0,40,0,16,66
+ 17072 DEFB 66,70,0,0,66,64,64,66,0,70,0,40,0,70
+ 17088 DEFB 66,66,66,64,64,0,64,70,0,0,98,64,36,16,0,56
+ 17122 DEFB 66,2,16,66,66,66,64,64,0,66,64,70
+ 17154 DEFB 8,74,0,64,64,124,66,66,0,2,40,60,12,74
+ 17186 DEFB 2,74,0,64,66,66,66,0,0,68,32,12,0,64
+ 17200 DEFB 66,66,124
+ 17218 DEFB 12,74,0,64,66,66,66,0,0,64,32,12,0,64
+ 17232 DEFB 66,66,124,0,8,124,12,60,40
+ 17250 DEFB 12,12,0,66,66,112,124,0,2,66,12,60,4
+ 17264 DEFB 60,74,16,0,66,66,112,124,0,2,66,12,66,8,0,40
+ 17280 DEFB 124
+ 17314 DEFB 12,124,0,124,66,66,0,4,62,8,0,16,66
+ 17328 DEFB 2,74,16,0,124,124,124,66,0,74,0,8,0,74,16
+ 17344 DEFB 66,66,66,60,124,0,124,74,16,0,82,124,24,16,0,4
+ 17378 DEFB 12,4,8,66,66,66,60,124,0,2,124,74
+ 17410 DEFB 8,82,0,64,64,64,126,124,0,60,72,66,2,82
+ 17442 DEFB 60,82,0,64,66,126,66,0,0,68,32,2,0,64
+ 17456 DEFB 66,66,64
+ 17474 DEFB 2,82,0,64,66,126,66,0,0,56,32,2,0,64
+ 17488 DEFB 66,66,64,0,8,66,2,66,72
+ 17506 DEFB 2,2,0,124,66,72,64,0,60,62,2,66,8
+ 17520 DEFB 66,82,0,0,124,66,72,64,0,60,62,2,62,8,0,72
+ 17536 DEFB 2
+ 17570 DEFB 2,2,0,64,66,124,0,60,0,8,0,16,66
+ 17584 DEFB 60,82,0,0,66,64,64,124,0,82,0,8,0,82
+ 17600 DEFB 124,126,66,2,64,0,2,82,0,0,74,64,24,16,0,60
+ 17634 DEFB 2,8,4,124,126,66,2,64,0,60,2,82
+ 17666 DEFB 8,98,0,66,64,64,66,68,0,64,126,66,66,98
+ 17698 DEFB 64,98,0,64,66,66,68,0,0,120,32,66,0,66
+ 17712 DEFB 66,68,64
+ 17730 DEFB 66,98,0,64,66,66,68,0,0,4,32,66,0,66
+ 17744 DEFB 66,68,64,0,8,66,66,66,126
+ 17762 DEFB 66,66,0,64,66,68,64,0,64,2,66,66,16,8
+ 17776 DEFB 66,98,0,0,64,66,68,64,0,64,2,66,2,8,8,126
+ 17792 DEFB 66
+ 17826 DEFB 66,66,0,64,66,68,0,68,62,8,0,16,66
+ 17840 DEFB 64,98,0,0,66,64,64,64,0,98,24,8,8,98
+ 17856 DEFB 64,66,66,66,64,0,66,98,0,0,70,64,36,16,0,68
+ 17890 DEFB 66,16,8,64,66,66,66,64,0,64,66,98
+ 17922 DEFB 62,60,0,60,126,126,66,66,0,126,8,60,60,60
+ 17954 DEFB 126,60,0,126,60,66,120,0,0,64,32,60,0,60
+ 17968 DEFB 60,120,126
+ 17986 DEFB 60,60,0,126,60,66,120,0,0,120,28,60,0,60
+ 18000 DEFB 60,120,126,0,62,60,60,60,8
+ 18018 DEFB 60,60,0,64,60,66,126,0,126,60,60,60,16,8
+ 18032 DEFB 60,60,16,0,64,60,66,126,0,126,60,60,60,62,8,8
+ 18048 DEFB 60
+ 18082 DEFB 60,60,0,64,60,66,0,60,0,62,0,16,60
+ 18096 DEFB 126,60,16,0,124,126,126,64,0,60,24,62,8,60,16
+ 18112 DEFB 64,66,60,60,126,0,60,60,16,0,66,126,66,16,0,60
+ 18146 DEFB 60,16,16,64,66,60,60,126,0,126,60,60
+ 18219 DEFB 64
+ 18287 DEFB 16
+ 18302 DEFB 16
+ 18364 DEFB 16
+ 18690 DEFB 8,60,0,124,60,66,120,60,66,62,126,126,0,66
+ 18704 DEFB 60,124,0,60,60,60,24,60
+ 18946 DEFB 24,70,0,66,66,98,68,66,102,8,4,64,0,66
+ 18960 DEFB 64,66,0,66,66,70,40,66
+ 19202 DEFB 40,74,0,66,66,82,66,66,90,8,8,124,0,66
+ 19216 DEFB 60,66,0,12,12,74,8,12
+ 19458 DEFB 72,82,0,124,126,74,66,66,66,8,16,64,0,66
+ 19472 DEFB 2,124,0,2,2,82,8,2
+ 19714 DEFB 126,98,0,68,66,70,68,66,66,8,32,64,0,66
+ 19728 DEFB 66,68,0,66,66,98,8,66
+ 19970 DEFB 8,60,0,66,66,66,120,60,66,62,126,126,0,60
+ 19984 DEFB 60,66,0,60,60,60,62,60
+; K
+ 20704 DEFB 255
+ 20960 DEFB 187
+ 21216 DEFB 183
+ 21472 DEFB 143
+ 21728 DEFB 183
+ 21984 DEFB 187
+ 22240 DEFB 189
+ 22496 DEFB 255
+; Attribute file
+ 22528 DEFS 768,56
+ 23264 DEFB 184
+ 23265 DEFS 31,56
+
+@start
+; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
+; Copyright 2001, 2008-2013, 2015 Richard Dymond (this disassembly)
+@org=33013
+
+; Save Back to Skool to tape
+;
+; #UDGTABLE
+; { #SCR(saver.gif) | This is the program used to save the fast code block for
+; Back to Skool. See '#FACT#saverPokes()' for a discussion of the two POKES
+; that appear in line 33 of the program. }
+; TABLE#
+; .
+; The fast code block consists of two sections of data. The first section
+; contains the 16573 bytes of data for addresses 16384-32956. The second
+; section contains 65535 bytes of data starting at address 32971, moving
+; forward in steps of 23 bytes, and ending at 32925.
+; .
+; Note that the last three bytes in the first section (addresses 32954-32956)
+; are actually loaded into addresses 32902, 32925 and 32948 by the
+; #R32815@load(load routine). Note also that the last byte in the second
+; section, for address 32925, is not loaded by the #R32815@load(load routine).
+@nowarn
+c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
+ 33016 LD (23833),HL ; Store this address where it will be popped off the stack
+                     ; by the #R32815@load(load routine)
+ 33019 EXX           ; {Prepare #REGbc' for saving the second section of data
+ 33020 LD BC,23      ;
+ 33023 EXX           ; }
+ 33024 LD IX,16384   ; {16384 to 32956 will be saved first
+ 33028 LD DE,16572   ; }
+ 33031 LD A,255      ; A flag byte of 255 (the first byte saved) indicates a
+                     ; data block
+ 33033 LD HL,3224    ; This constant will give a leader tone of about 2 seconds
+ 33036 EX AF,AF'     ;
+ 33037 INC DE        ; {Adjust the length and start address to allow for the
+ 33038 DEC IX        ; flag byte}
+ 33040 DI            ; Disable interrupts
+ 33041 LD A,2        ; MIC on, border red
+ 33043 LD B,A        ;
+; First create the 2-second leader tone.
+@label=LEADER
+*33044 DJNZ 33044    ;
+ 33046 OUT (254),A   ;
+ 33048 XOR 15        ;
+ 33050 LD B,164      ;
+ 33052 DEC L         ;
+ 33053 JR NZ,33044   ;
+ 33055 DEC B         ;
+ 33056 DEC H         ;
+ 33057 JP P,33044    ;
+; Then create the sync pulse.
+ 33060 LD B,47       ;
+@label=SYNC1
+*33062 DJNZ 33062    ;
+ 33064 OUT (254),A   ;
+ 33066 LD A,13       ;
+ 33068 LD B,55       ;
+@label=SYNC2
+*33070 DJNZ 33070    ;
+ 33072 OUT (254),A   ;
+; It's time to save the first byte, which will be the flag byte (255).
+ 33074 LD BC,6670    ; #REGb=26 (timing constant), #REGc=14 (MIC off, border
+                     ; yellow)
+ 33077 EX AF,AF'     ; #REGa=255
+ 33078 LD L,A        ; #REGl=255
+ 33079 JP 33091      ; Jump forward to save the flag byte
+; This is the main byte-saving loop.
+@label=B1_LOOP
+*33082 LD A,D        ; {In the analagous ROM routine, the second instruction
+ 33083 LD A,D        ; here is 'OR E', to check whether it's time to save the
+                     ; last byte (the parity byte)}
+ 33084 JR Z,33098    ; This jump (to save the parity byte) is never made
+ 33086 LD L,(IX+0)   ; Fetch the next byte to be saved
+@label=B1_LOOP_P
+*33089 LD A,H        ; #REGa=current parity byte
+ 33090 XOR L         ; Update this for the next byte to be saved
+@label=B1_START
+*33091 LD H,A        ; #REGh=new parity byte
+ 33092 LD A,1        ; #REGa=1 (MIC on, border blue)
+ 33094 SCF           ; Set the carry flag (which will act as the marker bit)
+ 33095 JP 33121      ; Jump forward to save the byte
+; This section of code, if it were used, would save the parity byte.
+@label=B1_PARITY
+*33098 LD L,H        ; Pick up the parity byte in #REGl
+ 33099 JR 33089      ; Save it
+; This is the bit-saving loop for the first section of data (16384-32956).
+@label=B1_BIT2
+*33101 LD A,C        ; #REGa=14 (MIC off, border yellow) for the second pass
+ 33102 BIT 7,B       ; Set the zero flag to indicate that this is the second
+                     ; pass through the loop
+@label=B1_BIT1
+*33104 DJNZ 33104    ;
+ 33106 JR NC,33112   ; Jump if we are saving a '0'
+ 33108 LD B,32       ;
+@label=B1_SET
+*33110 DJNZ 33110    ;
+@label=B1_OUT
+*33112 OUT (254),A   ;
+ 33114 LD B,29       ; Set the timing constant for the second pass
+ 33116 JR NZ,33101   ; Jump back for the second pass if we've just done the
+                     ; first
+ 33118 DEC B         ;
+ 33119 XOR A         ; Clear the carry flag
+ 33120 INC A         ; #REGa=1 (MIC on, border blue)
+@label=B1_8BITS
+*33121 RL L          ; Move the bit to be saved into the carry flag, and the
+                     ; marker bit leftwards
+ 33123 JP NZ,33104   ; Jump unless we've saved all 8 bits of the byte
+; A byte from the first section (16384-32956) has just been saved. Are there
+; any more left?
+ 33126 DEC DE        ; Decrease the length counter
+ 33127 INC IX        ; Move to the next byte to be saved
+ 33129 LD B,16       ; Set the timing constant for the first bit of the next
+                     ; byte
+ 33131 LD A,127      ; {Return if the BREAK key is being pressed
+ 33133 IN A,(254)    ;
+ 33135 RRA           ;
+ 33136 RET NC        ; }
+ 33137 LD A,D        ; {Have we saved 16384 to 32956 yet?
+ 33138 INC A         ; }
+ 33139 JP NZ,33082   ; Jump back if not
+; Now a further 65535 bytes are saved: starting at 32971, moving forward in
+; steps of 23 bytes, and ending at 32925.
+@label=B2_LOOP
+*33142 LD A,D        ; {#REGix=32957 and #REGde=65535 the first time we get
+ 33143 OR E          ; here}
+ 33144 JR Z,33158    ; Jump if we have now saved 32971 onwards
+ 33146 LD L,(IX+14)  ; #REGix+14=32971 the first time we get here
+ 33149 LD A,H        ; #REGa=current parity byte
+ 33150 XOR L         ; Update this for the next byte to be saved
+ 33151 LD H,A        ; #REGh=new parity byte
+ 33152 LD A,1        ; #REGa=1 (MIC on, border blue)
+ 33154 SCF           ; Set the carry flag (which will act as the marker bit)
+ 33155 JP 33181      ; Jump forward to save the byte
+; This is where we come when all 82108 bytes have been saved.
+@label=DONE
+*33158 LD L,0        ;
+ 33160 RET           ;
+; This is the bit-saving loop for the second section of data.
+@label=B2_BIT2
+*33161 LD A,C        ; #REGa=14 (MIC off, border yellow) for the second pass
+ 33162 BIT 7,B       ; Set the zero flag to indicate that this is the second
+                     ; pass through the loop
+@label=B2_BIT1
+*33164 DJNZ 33164    ;
+ 33166 JR NC,33172   ; Jump if we are saving a '0'
+ 33168 LD B,32       ;
+@label=B2_SET
+*33170 DJNZ 33170    ;
+@label=B2_OUT
+*33172 OUT (254),A   ;
+ 33174 LD B,29       ; Set the timing constant for the second pass
+ 33176 JR NZ,33161   ; Jump back for the second pass if we've just done the
+                     ; first
+ 33178 DEC B         ;
+ 33179 XOR A         ; Clear the carry flag
+ 33180 INC A         ; #REGa=1 (MIC on, border blue)
+@label=B2_8BITS
+*33181 RL L          ; Move the bit to be saved into the carry flag, and the
+                     ; marker bit leftwards
+ 33183 JP NZ,33164   ; Jump unless we've saved all 8 bits of the byte
+; A byte from the second section has just been saved. Are there any more left?
+ 33186 DEC DE        ; Decrease the length counter
+ 33187 EXX           ; {Move forward 23 bytes to the next byte to be saved
+ 33188 ADD IX,BC     ;
+ 33190 EXX           ; }
+ 33191 LD B,16       ; Set the timing constant for the first bit of the next
+                     ; byte
+ 33193 LD A,127      ; {These instructions check the BREAK key but do not act
+ 33195 IN A,(254)    ; on the result
+ 33197 RRA           ; }
+ 33198 JP 33142      ; Save the next byte
+@end
+; The last 5 bytes of the first section saved make important changes to the
+; #R32815@load(load routine) when the game is being loaded:
+v32952 JR NZ,32893   ; This will replace the 'JR NZ,32907' at 32952, and kick
+                     ; off the loading of 65537 bytes from 32902 onwards (in
+                     ; steps of 23, all the way round to 32902 again)
+v32954 DEFB 32       ; This byte will replace the 49 at 32902, changing the
+                     ; instruction there from 'LD SP,23833' to 'JR NZ,32929'
+v32955 DEFB 221      ; This byte will be loaded into 32925 (which already
+                     ; contains 221)
+v32956 DEFB 173      ; This byte will be loaded into 32948 (which already
+                     ; contains 173)

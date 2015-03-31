@@ -1,0 +1,58 @@
+; tap2sna.py file for Back to Skool. Run:
+;
+;   $ tap2sna.py @back_to_skool.t2s
+;
+; to create a Z80 snapshot.
+
+ftp://ftp.worldofspectrum.org/pub/sinclair/games/b/BackToSkool.tzx.zip
+back_to_skool.z80
+--ram load=3,16384,16570     # 16384-32953
+--ram load=3,32902,,23       # 32902-end STEP 23
+--ram move=16384,32,20640
+--ram move=16640,32,20896
+--ram move=16896,32,21152
+--ram move=17152,32,21408
+--ram move=17408,32,21664
+--ram move=17664,32,21920
+--ram move=17920,32,22176
+--ram move=18176,32,22432
+--ram move=46848,32,20672
+--ram move=47104,32,20928
+--ram move=47360,32,21184
+--ram move=47616,32,21440
+--ram move=47872,32,21696
+--ram move=48128,32,21952
+--ram move=48384,32,22208
+--ram move=48640,32,22464
+--ram move=48896,32,23808
+--ram move=49152,32,23840
+--ram move=49408,32,23872
+--ram move=49664,32,23904
+--ram move=49920,32,23936
+--ram move=50176,32,23968
+--ram move=50432,32,24000
+--ram move=50688,32,24032
+--ram move=50944,32,24064
+--ram move=51200,32,24096
+--ram move=51456,32,24128
+--ram move=51712,32,24160
+--ram move=51968,32,24192
+--ram move=52224,32,24224
+--ram move=52480,32,24256
+--ram move=52736,32,24288
+--ram move=52992,32,24320
+--ram move=53248,32,24352
+--ram move=53504,32,24384
+--ram move=53760,32,24416
+--ram move=54016,32,24448
+--ram move=54272,32,24480
+--ram move=54528,32,24512
+--ram move=54784,32,24544
+--ram move=58112,256,32768
+--ram move=24832,7936,24576
+--ram move=23296,256,33024
+--ram poke=32512-32763,0
+--ram poke=22528-23295,9     # INK 1: PAPER 1
+--ram poke=29131,80          # 29130 LD L,80
+--ram poke=29135,45          # 29135 DEC L
+--reg pc=21932               # Start at 21932

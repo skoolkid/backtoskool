@@ -1,0 +1,12 @@
+table.mgrid td {
+  border-color: #ffffff;
+}
+table.asm {
+  background-color: #193300;
+}
+table.boxData td {
+  background-color: #669933;
+}
+table.boxData th {
+  background-color: #99cc66;
+}

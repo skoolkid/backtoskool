@@ -1,0 +1,19 @@
+table.cbuffer th, table.keytable th {
+  background-color: #7fb24c;
+}
+table.cbuffer td, table.keytable td {
+  background-color: #336600;
+}
+td.keyPurpose {
+  color: #ffbebe;
+}
+table.asgrid td, table.gallery td {
+  border-color: #ffffff;
+}
+div.B {
+  background-color: #00002e;
+}
+div.H {
+  color: #00002e;
+  background-color: #ffffff;
+}

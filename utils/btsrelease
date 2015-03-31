@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -e # Abort on errors
+
+if [[ -z $BACKTOSKOOL_HOME ]]; then
+  echo "Error: BACKTOSKOOL_HOME not defined."
+  exit 1
+fi
+if [[ ! -d $BACKTOSKOOL_HOME ]]; then
+  echo "Error: directory not found: $BACKTOSKOOL_HOME"
+  exit 1
+fi
+
+if [[ -z $SKOOLKIT_HOME ]]; then
+  echo "Error: SKOOLKIT_HOME not defined."
+  exit 1
+fi
+if [[ ! -d $SKOOLKIT_HOME ]]; then
+  echo "Error: directory not found: $SKOOLKIT_HOME"
+  exit 1
+fi
+
+GAME=bts
+GAMEDIR=back_to_skool
+GAMENAME="Back to Skool"
+SKOOLDIR=$BACKTOSKOOL_HOME/sources
+SKOOLFILES=$(echo bts{,-load,-save,-start}.skool)
+REFFILE=$BACKTOSKOOL_HOME/sources/$GAME.ref
+MKDTARBALL="$BACKTOSKOOL_HOME/utils/mkdtarball"
+SRCDIR=sources
+SRCFILES=$(echo COPYING backtoskool.py bts{{,-bugs,-changelog,-data,-facts,-glossary,-graphics,-pages,-pokes}.ref,{,-load,-save,-start}.skool} {bts,microsphere,skool}{,-dark,-green,-plum}.css microsphere.{js,py})
+DHOME=$BACKTOSKOOL_HOME
+GHREPO=backtoskool
+GHHTMLOPTS=""
+GHGAMEDIR=.
+
+. $SKOOLKIT_HOME/tools/drelease-functions
+
+parse_args $*

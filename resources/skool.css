@@ -1,0 +1,19 @@
+table.tiles {
+  border-collapse: collapse;
+}
+table.tiles td {
+  border-width: 0;
+  padding: 3px;
+}
+table.lesson th, table.timetable th {
+  background-color: #88aacc;
+}
+table.lesson td, table.timetable td {
+  background-color: #bbddff;
+}
+table.lesson {
+  margin-top: 10px;
+}
+td.lessonType, td.lessonAddress {
+  text-align: center;
+}

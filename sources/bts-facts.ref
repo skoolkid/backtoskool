@@ -1,0 +1,236 @@
+; Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
+
+[Fact:boy10:The importance of little boy no. 10]
+In demo mode, ERIC bases his every move on where little boy no. 10 is and what he's doing (see the routine at #R62483). One corollary of this important role is that little boy no. 10 is in all of ERIC's classes (if he weren't, ERIC would be guilty of truancy in demo mode). In fact, little boy no. 10 is the only character besides EINSTEIN who joins ERIC for every class.
+
+[Fact:skoolTunes:Skool tunes]
+The tune that plays just before a game (or demo mode) starts is <a class="link" href="http://en.wikipedia.org/wiki/Nobody_Knows_the_Trouble_I've_Seen">Nobody Knows the Trouble I've Seen</a>. The tune that plays when ERIC opens the safe is <a class="link" href="http://en.wikipedia.org/wiki/Here_We_Go_Round_the_Mulberry_Bush">Here We Go Round the Mulberry Bush</a>.
+
+[Fact:saverPokes:BASIC saver POKEs]
+There are two POKEs in line 33 of the #R33013@save(BASIC saver program) that saves the fast code block to tape:
+
+POKE 29387,80: POKE 29391,45
+
+These POKEs set the instruction at #R29130 to 'LD L,80' and the instruction at #R29135 to 'DEC L'. (The contents of addresses 24832-32767 are shifted down by 256 bytes to 24576 by the startup routine at #R33204@start before the game starts.) Which makes one wonder what these instructions were before they were POKEd.
+
+As it turns out, some tapes of Back to Skool were released that are missing line 33 in the BASIC saver program, and contain 79 at address 29387 (29131) and 44 at address 29391 (29135); with these values, the corresponding section of code looks like this:
+
+#TABLE(asm,address-1,instruction,comment-11)
+{ 29124 | IN A,(31)  | }
+{ 29126 | AND 31     | Any input from the joystick? }
+{ 29128 | JR Z,29154 | Jump if not }
+{ 29130 | LD L,79    | 79='O' (LEFT) }
+{ 29132 | RRCA       | }
+{ 29133 | JR C,29151 | Jump if the joystick was moved right }
+{ 29135 | INC L      | #REGl=80='P' (RIGHT) }
+{ 29136 | RRCA       | }
+{ 29137 | JR C,29151 | Jump if the joystick was moved left }
+TABLE#
+
+This code makes ERIC move left when the Kempston joystick is moved right, and vice versa. Which is clearly a bug, and indicates that line 33 of the BASIC saver program is nothing more nor less than a bugfix.
+
+[Fact:assemblyWait:MR WACKER waits for ERIC]
+Like time, MR WACKER waits for no man - except when it's assembly and the man (or boy) is ERIC. In fact, MR WACKER will dutifully wait on stage, silent and motionless, until ERIC has arrived in the vicinity of the assembly hall, before delivering his detention speech.
+
+To verify this curious phenomenon, proceed as follows. When the bell rings for assembly, go to the right end of the dinner hall and stand so that the stairs leading down to the stage are just visible at the far right of the screen. Now keep an eye on MR WACKER; when he decides that it's time to start assembly and begins his descent down those stairs, move left until the screen has scrolled twice and the stage is no longer in view. Then wait a bit - long enough for MR WACKER to have reached the stage and begun his speech. After that, move right until the screen scrolls once and brings MR WACKER back into view. MR WACKER will be standing on the stage, and only when the screen stops scrolling will he begin his detention speech.
+
+(Hanging around on the outskirts of the assembly hall during assembly is a fine way to get lines, so you might want to use the #POKE#noLines(no lines POKE) before trying this for yourself.)
+
+The reason for this uncharacteristically patient behaviour is the routine at #R62032, which makes MR WACKER stand on the stage doing nothing until he comes into view (or the bell rings for the next lesson, whichever happens first).
+
+[Fact:lesson43:Lesson 43, where art thou?]
+Lesson #LESSON43 (MR WITHIT - YELLOW ROOM) does not appear anywhere in the #R46528(main timetable). But it is a perfectly good lesson. If you want to try it out:
+
+POKE #R46544,43
+
+This removes the first PLAYTIME that normally takes place when starting the game for the first time and replaces it with lesson 43.
+
+[Fact:teacherRooms:Teachers and classrooms]
+MR WITHIT is the only teacher who teaches ERIC in all three classrooms. See his #R51493(personal timetable).
+
+MR ROCKITT never teaches in the Blue Room, and never teaches ERIC anywhere except in the Science Lab. See his #R51749(personal timetable).
+
+MR CREAK never teaches in the Science Lab. See his #R52005(personal timetable).
+
+[Fact:timetableStats:Timetable stats]
+There are 64 periods in the #R46528(main timetable): 16 playtimes, 8 assemblies, 2 dinner periods, and 38 lesson periods (when ERIC is supposed to be in either a classroom or the Revision Library).
+
+In the 38 lesson periods, ERIC is scheduled to be in the Science Lab 15 times, the Blue Room 7 times, the Yellow Room 7 times, and the Revision Library 9 times.
+
+ERIC has 11 classes with MR ROCKITT, 10 classes with MR CREAK, and 8 classes with MR WITHIT.
+
+ERIC has 11 classes with MR ROCKITT in the Science Lab (which is more than any other teacher/classroom combination), but only one class with MR WITHIT in the Yellow Room.
+
+MR WACKER is on dinner duty for one of the dinner periods, and MR WITHIT is on duty for the other one.
+
+MR CREAK is the busiest teacher: he teaches a class in 37 of the 38 lesson periods (lesson #LESSON42 being the only time he takes a break). MR WITHIT is the laziest teacher, teaching a class in only 29 periods.
+
+MR ROCKITT teaches most often in the Science Lab (28 times),  MR CREAK teaches most often in the Yellow Room (23 times), and MR WITHIT teaches most often in the Blue Room (18 times).
+
+MR WACKER spends 21 of the lesson periods (including 4 of the 9 Revision Library periods) pacing up and down in his study, and the remaining 17 lesson periods on a tour of the boys' skool, oscillating between the cloak room, the assembly hall stage, and his study.
+
+Every boy is taught at least 4 times by each teacher, and at least 4 times in each classroom. In addition, every boy has at least one lesson period in the Revision Library, though little boy no. 9 has only one period there (lesson #LESSON42), while all the others have at least three.
+
+ANGELFACE spends more lesson periods in the Revision Library than any other boy (14 periods compared to ERIC's 9).
+
+In the 38 lesson periods, MISS TAKE teaches 24 times in the top-floor classroom and 14 times in the middle-floor classroom.
+
+HAYLEY has only one lesson period in a classroom with no teacher (lesson #LESSON42 in the top-floor classroom); each of the other little girls has at least three such lesson periods.
+
+[Fact:playtimeProbabilities:Playtime probabilities]
+Little boys 4-10 spend every playtime (of which there are 16 in the #R46528(main timetable)) walking around from one #R25815(randomly chosen location) to another; little boys 1-3, however, each spend two of these playtimes walking up and down in the Revision Library until the bell rings.
+
+Like little boys 4-10, all the little girls spend every playtime on a random walkabout; HAYLEY, however, spends 12 playtimes on random walkabouts, and 4 playtimes walking up and down in the kitchen in the girls' skool until the bell rings.
+
+MISS TAKE spends 9 playtimes walking up and down in the kitchen in the girls' skool, and the remaining 7 on random walkabouts.
+
+BOY WANDER spends two playtimes writing on the boards in the girls' skool, 4 writing on the boards in the boys' skool, and the remaining 10 on random walkabouts.
+
+ANGELFACE spends 9 playtimes #R58844(stalking HAYLEY), and the remaining 7 on random walkabouts.
+
+[Fact:teachersFreshAir:Teachers and fresh air]
+The only time MR ROCKITT, MR CREAK and MISS TAKE will leave their respective skools is when they are chasing ERIC; if ERIC never gave them reason to chase, they would be permanently skoolbound. So do your bit to give these teachers some exercise and fresh air by playing truant once in a while.
+
+[Fact:unusedDoor:The usable unused door]
+Though the left study door is never used in a normal game, there is support built in for opening and closing it (see #R56893, for example). To bring the door into service, try #POKE#leftStudyDoor(these POKEs).
+
+[Fact:bottomlessBoxes:Bottomless boxes]
+Play area tiles 1, 11, 21 and 30 in base page 144 are unused:
+
+#UDGTABLE(gallery)
+{ #UDG36865,56,,256 | #UDG36875,56,,256 | #UDG36885,56,,256 | #UDG36894,56,,256 }
+{ 1 | 11 | 21 | 30 }
+TABLE#
+
+However, there is evidence that they were used at one time and were later discarded. The evidence lies in columns 88-92 of the play area, which contain tiles mostly from the tail end of base page 136 and the beginning of base page 144. The usage of tiles from base page 144 in each column is as follows:
+
+#TABLE(boxData,centre)
+{ =h x | =h Tiles used }
+{ 88   | 0, 2-5, 40 }
+{ 89   | 6-10, 12, 13, 40 }
+{ 90   | 14-20, 40 }
+{ 91   | 22-29, 40 }
+{ 92   | 31-45 }
+TABLE#
+
+Note the gaps where tiles 1, 11, 21 and 30 seem to be missing from columns 88-91, and tile 40 is present instead. Furthermore, tile 40 is used at the same y-coordinate (14) in each of those columns. So what would the relevant region of the play area - on the middle floor next to the window at the right end of the boys' skool - look like if tiles 1, 11, 21 and 30 were used instead of tile 40? Here are the 'before' and 'after' pictures:
+
+#PUSHS
+#UDGTABLE(gallery)
+{ #CALL:play_area(bottomless_boxes1,86,9,8,8,2) | #POKES44626,1;44627,11;44628,21;44629,30 #CALL:play_area(bottomless_boxes2,86,9,8,8,2) }
+{ Before | After }
+TABLE#
+
+To my eye, the 'after' picture looks nicer: the bottoms of the boxes (or whatever those objects are) no longer look as if they've been chopped off.
+
+So why were tiles 1, 11, 21 and 30 left unused? Probably because when they <em>are</em> used, the bottoms of the boxes appear under the feet of any characters walking past, which looks a bit wrong:
+
+#CALL:hide_chars()
+#CALL:place_char(210,88,10)
+#UDGTABLE
+{ #CALL:play_area(bottomless_boxes3,86,9,8,8,2,1) }
+TABLE#
+#POPS
+
+To use tiles 1, 11, 21 and 30:
+
+POKE 44626,1: POKE 44627,11: POKE 44628,21: POKE 44629,30
+
+[Fact:slashDot:Slash dot]
+The '/' (slash) character in the Back to Skool font has a bit missing:
+
+#UDGTABLE
+{ #CALL:font(55087,1,4,slash_dot) }
+TABLE#
+
+Interestingly, the corresponding bit is also missing from the slash character in the version of Skool Daze that was released by Alternative Software Ltd in 1987, but it is present in the original 1984 release by Microsphere.
+
+To complete the symmetry, the '\' (backslash) character has the same bit missing:
+
+#UDGTABLE
+{ #CALL:font(55132,1,4,backslash_dot) }
+TABLE#
+
+[Fact:invisibleStatues:Invisible statues]
+Depending on which part of the play area is currently on-screen, the character-moving routine at #R25296 will skip certain minor characters, thus giving a performance boost to the other characters. Don't let the fact that there are immobilised kids off-screen to the left or right distract ERIC from his mission, though.
+
+[Fact:fastWays:Fast ways from A to B]
+As if being immobilised while off-screen were not enough, those same minor characters are occasionally teleported to their destinations too. After scrolling the screen right (as ERIC approaches or goes deeper into the boys' skool), the routine at #R25080 considers teleporting little girls 1-7; after scrolling the screen left (as ERIC leaves the boys' skool or approaches the girls' skool), the routine at #R25026 considers teleporting little boys 1-8. And just before the bell rings for a new lesson, the routine at #R63309 considers teleporting little girls 1-7 and little boys 1-8.
+
+[Fact:mouseMetamorphosis:Mouse metamorphosis]
+After ERIC has obtained the Science Lab storeroom key, the mouse's days are numbered. The next time it goes into hiding will be the last: it will never re-emerge. Instead, its character buffer is appropriated by the frog, which then appears at its initial location in the storeroom (see #R31372).
+
+[Fact:apprehensiveAmphibian:The apprehensive amphibian]
+You may have noticed that the frog is a tricky fellow to catch, and the reason is that it's programmed to be wary of ERIC. If ERIC is not close to the frog, it will decide to keep still three times out of four. But as soon as ERIC gets close, the frog will make a move (turn round or take a hop). See #R30906.
+
+[Fact:pitchImperfect:Pitch imperfect]
+Unlike the theme tune and the tune that plays when ERIC opens the safe, the other sound effects in the game are played with interrupts enabled, which means they are affected by keys being held down. This is especially noticeable with the bell and the lines-giving sounds, which are somewhat longer than the others. To make them even longer:
+
+<div>POKE #R32489,80 (bell)</div>
+<div>POKE #R29793(29795),0: POKE #R29818(29820),0 (lines-giving sounds)</div>
+
+Now put ERIC up to mischief in front of a teacher, or wait for the bell to ring, and see if you can detect the change in pitch as you hold down various keys.
+
+[Fact:closedDoorAndCaretaker:Between a closed door and a caretaker]
+When ALBERT tells MR WACKER that ERIC is escaping, MR WACKER comes hurrying to the scene. However, if ERIC stands one step away from the skool door, MR WACKER will stand on the other side without opening it, continually giving ERIC lines for not being in class while at the same time preventing him from getting there.
+
+#PUSHS
+#CALL:hide_chars()
+#CALL:place_char(200,93,17,210)
+#CALL:place_char(210,96,17,130)
+#CALL:place_char(205,100,17,127)
+#UDGTABLE
+{ #CALL:play_area(trapped,92,15,12,6,2,1) }
+TABLE#
+#POPS
+
+[Fact:pointsForAPOrAP:Points for a punching or a pelleting]
+ANGELFACE is unique among the cast of characters in that if ERIC knocks him over with a punch or a catapult pellet, 30 points are awarded (see #R30773 and #R30796). No points are awarded for knocking anyone else over in this fashion.
+
+[Fact:bullySwotConker:ANGELFACE and EINSTEIN are conkerable]
+If EINSTEIN or ANGELFACE is hit by a conker, he is knocked out, you get 100 points, and a unique sound effect is played. See the section of code at #R29943.
+
+[Fact:bullyHeroine:ANGELFACE hates HAYLEY]
+During some playtimes, ANGELFACE specifically hunts down HAYLEY for the sole purpose of hitting her (see command list #R58844(44)). Which is bad, because ERIC's chances of scoring a kiss diminish every time HAYLEY hits the floor (see below).
+
+[Fact:violenceAndKisses:Violence and kisses]
+Every time HAYLEY is knocked down (by ANGELFACE's or ERIC's fist, or by BOY WANDER's catapult pellet, or by the conker), her #R32738(kiss counter) is decreased by one (see the section of code at #R30155), thus making her less likely to pucker up in future. The lesson here is to look after your girlfriend!
+
+[Fact:heroineLines:HAYLEY's lines count too]
+If HAYLEY is given lines - for being the nearest main kid to a downed teacher - they are added to ERIC's total. See #R29716.
+
+[Fact:hungryHayley:Hungry HAYLEY?]
+In lesson #LESSON45 (MR WITHIT - SCIENCE LAB), HAYLEY is on her own in the dinner hall. Is she hungry, or waiting for a tryst with ERIC?
+
+[Fact:lostLinesMessage:The lost lines message]
+Recall Skool Daze, where you could sit on the stairs and be given lines for it. Seems so long ago, eh? Well, even though you can't sit on the stairs in Back to Skool (or be given lines for  it), you may find consolation in evidence that suggests it was possible at some point while the game was being developed: the lost lines message at #R60480. Unused, but never purged. Feel any better now?
+
+[Fact:pelletVsLid:ERIC's pellet v. water v. plant v. desk lid]
+RAM is in short supply in Back to Skool. For example, ERIC's catapult pellet is forced to share its character buffer with plants, desk lids, and water/sherry fired from the pistol. One consequence of this is that ERIC cannot open a desk lid immediately after firing his catapult. Another is that ERIC cannot fire his catapult immediately after firing his water pistol, or while waiting for a watered plant to grow. Yet another is that he cannot fire his water pistol while his catapult pellet is still airborne.
+
+[Fact:pelletVsStinkbomb:BOY WANDER's pellet v. stinkbomb]
+As already mentioned, RAM is in short supply in Back to Skool. So much so that BOY WANDER's pellet is forced to share its character buffer with the stinkbomb cloud. However, unlike ERIC's pellet, which is allowed to complete its flight before giving up its buffer to some other object, BOY WANDER's pellet can be terminated immediately by dropping a stinkbomb. Try it and see: find the stinkbombs, then hang around BOY WANDER. When he lets rip with the catapult, drop a stinkbomb and watch the pellet die young. See #R57910.
+
+[Fact:allAboutMice:All about mice]
+Did I mention that RAM is in short supply in Back to Skool? So much so that when ERIC releases a mouse, instead of using a character buffer of its own, it hijacks the character buffer of one of the boys: little boy no. 9, little boy no. 10, BOY WANDER, ANGELFACE or EINSTEIN. See #R31502.
+
+The hijacking will only happen if the boy is far enough away from the girls' skool at the time of release, though, which is safe because mice can only be released in the girls' skool. See #R31462.
+
+How do the boys get their buffers back? Unlike the 'main' mouse in the game - which shares its buffer with the frog, again owing to RAM limitations - mice released by ERIC eventually die (either from old age, or by ERIC leaving the vicinity of the girls' skool). When a released mouse expires, the character whose buffer it hijacked will rematerialise at x-coordinate 32 on whichever floor the mouse was on when it passed away. That is deep enough into the boys skool that you will never notice it happening. No matter how fast you run from the girls' skool after releasing a bunch of mice, they'll all be dead before you reach the far left end of the boys' skool. See #R31254.
+
+Don't bother trying to catch any of the mice released by ERIC: they cannot be re-caught. Only the 'main' mouse (using buffer 212) can ever be caught. See #R31573.
+
+The aforementioned 'main' mouse always begins life in a new game at coordinates (17,3) in the Blue Room (see #R54305).
+
+One more thing: when ERIC catches a mouse, a new one is supposed to materialise somewhere else off-screen. However, because of a #BUG#rematerialisingMouse in the mouse placement code, the new mouse can sometimes be spotted appearing on-screen out of thin air at x-coordinate 10, 88 or 170.
+
+[Fact:conkerAndClock:The conker and the clock]
+Ever stood at the top-floor window of the boys' skool (as ERIC, naturally), getting more and more frustrated because time is running out for you to knock ALBERT out with a conker and get the sherry before the bell rings? Then you may find some relief in the knowledge that you will have plenty of time to visit the girls' skool and fill up the pistol with the contents of MISS TAKE's wine stash, no matter how long it took you to give ALBERT a concussion. Why? Because when you do manage to land the fateful nut on ALBERT's bonce, the skool clock is magically wound back, thus delaying the onset of the next lesson. See the section of code at #R30145.
+
+[Fact:wackerAndClock:WACKER and the clock]
+When assembly finishes (that is, when MR WACKER has finished speaking), the skool clock's MSB is set to 1, which means the bell will ring soon after, no matter how early MR WACKER arrived at the stage to deliver his detention speech. See #R62032.
+
+[Fact:inferiorCatapult:Inferior catapult]
+The catapult in Back to Skool is not quite so handy as the one in Skool Daze. In both games, the catapult's range is the same (13 spaces), but in Back to Skool, its 'hit zone' is shorter (the last 4 spaces of the range instead of the last 7). So in Back to Skool, ERIC has to be further away from his target in order to hit it.
+
+To adjust the hit zone (and the range) of the catapult, see #POKE#superCatty(these POKEs).

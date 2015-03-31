@@ -1,0 +1,380 @@
+; Copyright 2008-2012 Richard Dymond (rjdymond@gmail.com)
+
+[Lessons]
+37=MR CREAK - BLUE ROOM
+38=MR CREAK - BLUE ROOM
+39=MR CREAK - YELLOW ROOM
+40=MR CREAK - YELLOW ROOM
+41=MR WITHIT - BLUE ROOM
+42=MR WITHIT - BLUE ROOM
+43=MR WITHIT - YELLOW ROOM
+44=MR WITHIT - YELLOW ROOM
+45=MR WITHIT - SCIENCE LAB
+46=MR WITHIT - SCIENCE LAB
+47=MR ROCKITT - SCIENCE LAB
+48=MR ROCKITT - SCIENCE LAB
+49=MR ROCKITT - SCIENCE LAB
+50=DINNER (MR WACKER)
+51=DINNER (MR WITHIT)
+52=ASSEMBLY
+53=REVISION LIBRARY
+54=REVISION LIBRARY
+55=PLAYTIME
+56=PLAYTIME
+57=PLAYTIME
+58=PLAYTIME
+59=PLAYTIME
+
+[AnimatoryStates]
+0=ERIC standing/walking (phase 1)
+1=ERIC walking (midstride) (phase 2)
+2=ERIC standing/walking (phase 3)
+3=ERIC walking (midstride) (phase 4)
+4=ERIC sitting (as on a chair)
+5=ERIC sitting (as on the floor)
+6=ERIC lying on his back
+7=ERIC with his arm up (as if writing or jumping)
+8=ERIC hitting (phase 1)
+9=ERIC hitting (phase 2)
+10=ERIC firing his catapult (phase 1)
+11=ERIC firing his catapult (phase 2)
+12=ERIC riding the bike (phase 1)
+13=ERIC riding the bike (phase 2)
+14=ERIC firing the water pistol
+15=ERIC kissing HAYLEY
+16=BOY WANDER standing/walking (phase 1)
+17=BOY WANDER walking (midstride) (phase 2)
+18=BOY WANDER standing/walking (phase 3)
+19=BOY WANDER walking (midstride) (phase 4)
+20=BOY WANDER sitting (as on a chair)
+21=BOY WANDER sitting (as on the floor)
+22=BOY WANDER lying on his back
+23=BOY WANDER with his arm up (as if writing)
+24=Bike lying on the floor
+25=Bike standing upright
+26=BOY WANDER firing his catapult (phase 1)
+27=BOY WANDER firing his catapult (phase 2)
+28=Frog sitting on the floor
+29=Frog in the air (phase 1)
+30=Frog in the air (phase 2)
+31=Drop of water/sherry falling from a cup
+32=ANGELFACE standing/walking (phase 1)
+33=ANGELFACE walking (midstride) (phase 2)
+34=ANGELFACE standing/walking (phase 3)
+35=ANGELFACE walking (midstride) (phase 4)
+36=ANGELFACE sitting (as on a chair)
+37=ANGELFACE sitting (as on the floor)
+38=ANGELFACE lying on his back
+39=ERIC bending over
+40=ANGELFACE hitting (phase 1)
+41=ANGELFACE hitting (phase 2)
+42=Flower half-grown
+43=Flower fully grown
+44=Desk lid (empty)
+45=Desk lid (with pistol)
+46=Desk lid (with stinkbombs)
+47=Free mouse
+48=EINSTEIN standing/walking (phase 1)
+49=EINSTEIN walking (midstride) (phase 2)
+50=EINSTEIN standing/walking (phase 3)
+51=EINSTEIN walking (midstride) (phase 4)
+52=EINSTEIN sitting (as on a chair)
+53=EINSTEIN sitting (as on the floor)
+54=EINSTEIN lying on his back
+55=Conker
+56=HAYLEY standing/walking (phase 1)
+57=HAYLEY walking (midstride) (phase 2)
+58=HAYLEY standing/walking (phase 3)
+59=HAYLEY walking (midstride) (phase 4)
+60=HAYLEY sitting (as on a chair)
+61=HAYLEY sitting (as on the floor)
+62=HAYLEY lying on her back
+63=HAYLEY with her arm up (as if hitting ERIC)
+64=Boy standing/walking (phase 1)
+65=Boy walking (midstride) (phase 2)
+66=Boy standing/walking (phase 3)
+67=Boy walking (midstride) (phase 4)
+68=Boy sitting (as on a chair)
+69=Boy sitting (as on the floor)
+70=Boy lying on his back
+71=Stinkbomb cloud phases 1 and 2
+72=Girl standing/walking (phase 1)
+73=Girl walking (midstride) (phase 2)
+74=Girl standing/walking (phase 3)
+75=Girl walking (midstride) (phase 4)
+76=Girl sitting (as on a chair)
+77=Girl sitting (as on the floor)
+78=Girl lying on her back
+79=Catapult pellet
+80=MR WACKER standing/walking (phase 1)
+81=MR WACKER walking (midstride) (phase 2)
+82=MR WACKER standing/walking (phase 3)
+83=MR WACKER walking (midstride) (phase 4)
+84=Water fired from the pistol (phase 1)
+85=Unused
+86=MR WACKER sitting (as on the floor)
+87=MR WACKER with his arm up
+88=MR WITHIT standing/walking (phase 1)
+89=MR WITHIT walking (midstride) (phase 2)
+90=MR WITHIT standing/walking (phase 3)
+91=MR WITHIT walking (midstride) (phase 4)
+92=Water fired from the pistol (phase 2)
+93=Unused
+94=MR WITHIT sitting (as on the floor)
+95=MR WITHIT with his arm up
+96=MR ROCKITT standing/walking (phase 1)
+97=MR ROCKITT walking (midstride) (phase 2)
+98=MR ROCKITT standing/walking (phase 3)
+99=MR ROCKITT walking (midstride) (phase 4)
+100=Water fired from the pistol (unused)
+101=Unused
+102=MR ROCKITT sitting (as on the floor)
+103=MR ROCKITT with his arm up
+104=MR CREAK standing/walking (phase 1)
+105=MR CREAK walking (midstride) (phase 2)
+106=MR CREAK standing/walking (phase 3)
+107=MR CREAK walking (midstride) (phase 4)
+108=Water fired from the pistol (phase 3)
+109=Unused
+110=MR CREAK sitting (as on the floor)
+111=MR CREAK with his arm up
+112=MISS TAKE standing/walking (phase 1)
+113=MISS TAKE walking (midstride) (phase 2)
+114=MISS TAKE standing/walking (phase 3)
+115=MISS TAKE walking (midstride) (phase 4)
+116=Water fired from the pistol (phase 4)
+117=Unused
+118=MISS TAKE sitting (as on the floor)
+119=MISS TAKE with her arm up
+120=ALBERT standing/walking (phase 1)
+121=ALBERT walking (midstride) (phase 2)
+122=ALBERT standing/walking (phase 3)
+123=ALBERT walking (midstride) (phase 4)
+124=Water fired from the pistol (phase 5+)
+125=Unused
+126=ALBERT lying on his back
+127=ALBERT with his arm up
+
+[Characters]
+183=Little girl no. 1
+184=Little girl no. 2
+185=Little girl no. 3
+186=Little girl no. 4
+187=Little girl no. 5
+188=Little girl no. 6
+189=Little girl no. 7
+190=Little boy no. 1
+191=Little boy no. 2
+192=Little boy no. 3
+193=Little boy no. 4
+194=Little boy no. 5
+195=Little boy no. 6
+196=Little boy no. 7
+197=Little boy no. 8
+198=Little boy no. 9
+199=Little boy no. 10
+200=MR WACKER
+201=MR WITHIT
+202=MR ROCKITT
+203=MR CREAK
+204=MISS TAKE
+205=ALBERT
+206=BOY WANDER
+207=ANGELFACE
+208=EINSTEIN
+209=HAYLEY
+210=ERIC
+211=Bike
+212=Frog; mouse
+213=BOY WANDER's pellet; stinkbomb cloud
+214=ERIC's pellet; water/sherry; plant; conker; desk lid
+
+[KeypressRoutines]
+23863=Throw away water pistol
+23887=Jump
+24133=Write
+24263=Hit
+24296=Fire catapult
+24348=Kiss
+28436=Right
+28460=Left
+28484=Up
+28576=Down
+28992=Drop stinkbomb
+29574=Mount bike
+57637=Catch mouse/frog
+57893=Release mice
+62423=Sit
+63898=Fire water pistol
+
+[CharBuf:0]
+Animatory state
+
+[CharBuf:1,2]
+Location (x, y)
+
+[CharBuf:3]
+LSB of the primary command routine address (see #R25296)
+
+ERIC's post-midstride animatory state (see #R28114, #R28160)
+
+[CharBuf:4]
+MSB of the primary command routine address (see #R25296)
+
+ERIC's post-midstride x-coordinate (see #R28114, #R28160)
+
+[CharBuf:5]
+Destination x-coordinate (see #R25700)
+
+ERIC's post-midstride y-coordinate (see #R28114, #R28160)
+
+[CharBuf:6]
+Destination y-coordinate (see #R25700)
+
+Walkabout event identifier (see #R31969)
+
+[CharBuf:7]
+Number of mini-walkabouts remaining (see #R31969)
+
+[CharBuf:8]
+Unused
+
+[CharBuf:9,10]
+Interruptible subcommand routine address (see #R25296)
+
+[CharBuf:11]
+LSB of the address of the next character in the message being written into a graphic buffer (buffer #R54784(214) only; see #R27419)
+
+LSB of the address of the next character in the message being written on a blackboard or spoken (see #R26318)
+
+Number of steps left to be ascended (see #R25656) or descended (see #R25677)
+
+Number of movements remaining to wipe the blackboard (see #R26639)
+
+Intermediate destination x-coordinate (see #R25581)
+
+[CharBuf:12]
+MSB of the address of the next character in the message being written into a graphic buffer (buffer #R54784(214) only; see #R27419)
+
+MSB of the address of the next character in the message being written on a blackboard or spoken (see #R26318)
+
+Number of paces remaining until the next command list restart request check (see #R25581)
+
+x-coordinate of the column of the blackboard being wiped (see #R26639)
+
+[CharBuf:13]
+LSB of the address of the next character in the submessage being written on a blackboard or spoken (see #R26318)
+
+y-coordinate of the top row of the blackboard being wiped (see #R26639)
+
+[CharBuf:14]
+MSB of the address of the next character in the submessage being written on a blackboard or spoken (see #R26318)
+
+Identifier of the blackboard being wiped (see #R26639)
+
+[CharBuf:15]
+LSB of the address of the next character in the sub-submessage being written on a blackboard or spoken (see #R26318)
+
+Animatory state of the character whose buffer is being borrowed by a mouse (see #R31254, #R31502)
+
+Post-midstride y-coordinate increment to use while chasing ERIC (see #R25944)
+
+[CharBuf:16]
+MSB of the address of the next character in the sub-submessage being written on a blackboard or spoken (see #R26318)
+
+Counter determining the lifespan of a mouse released by ERIC (see #R31254, #R31502)
+
+[CharBuf:17,18]
+Uninterruptible subcommand routine address (see #R25296)
+
+[CharBuf:19]
+Identifier of the door or window being opened or closed (see #R29052)
+
+MR WACKER's x-coordinate before he goes to open a window (see #R63586)
+
+HAYLEY's pre-kiss x-coordinate (see #R24328, #R24348)
+
+Distance remaining for the mouse to travel before hiding or considering a change of direction (see #R31254)
+
+Counter determining how much longer the character will stay down after being knocked over (see #R30102) or knocked out of a chair (see #R26224)
+
+Distance remaining for the pellet to travel (see #R30380)
+
+Counter determining how much longer the female character should continue jumping up and down (see #R31078)
+
+Counter determining how much longer the desk lid should stay up (see #R62178)
+
+Counter determining how much longer the stinkbomb cloud will stick around (see #R63586)
+
+Water/sherry animation phase identifier (see #R63915)
+
+Counter determining the phases of growth of a watered plant (see #R64077)
+
+[CharBuf:20]
+Open/close parameter for the door or window being opened or closed (see #R29052)
+
+MR WACKER's animatory state before he goes to open a window (see #R63586)
+
+HAYLEY's pre-kiss animatory state (see #R24328, #R24348)
+
+Counter determining when the mouse should hide (see #R31254)
+
+Pre-knockout animatory state (see #R30102)
+
+ANGELFACE's pre-punch animatory state (see #R30739)
+
+BOY WANDER's pre-fire animatory state (see #R30555)
+
+x-coordinate at which the plant will appear when it starts growing (see #R64077)
+
+[CharBuf:21]
+Counter determining when the mouse should come out of hiding (see #R31254, #R31502)
+
+0 if the frightened female is jumping up and down, or 1 if she's standing on a chair (see #R31092)
+
+x-coordinate of the window MR WACKER will open after smelling a stinkbomb (see #R63586, #R63801)
+
+[CharBuf:22]
+x-coordinate of the mouse when it last hid (see #R31254, #R31502)
+
+Identifier of the window MR WACKER will open after smelling a stinkbomb (see #R63586, #R63801)
+
+[CharBuf:23,24]
+Continual subcommand routine address (see #R25296)
+
+[CharBuf:25,26]
+Address reached in the command list
+
+[CharBuf:27,28]
+Start address of the command list
+
+[CharBuf:29]
+Various flags; initially populated by #R62910 with a copy of byte 35 of the character's buffer:
+#TABLE(default,centre)
+{ =h Bit(s) | =h Meaning if set }
+{ 0         | Restart the command list at the next opportunity (see #R25296) }
+{ 1-2       | Unused }
+{ 3         | Character is a candidate for immediate transportation to his destination (set by #R63309; checked and reset by #R25134; also reset by #R25296) }
+{ 4         | Unused (always reset, but checked by #R25296; if set, it would make the character run until the current primary command has terminated) }
+{ 5         | Character is an adult (see #R25296) }
+{ 6         | Character is not human (see #R25296) }
+{ 7         | Character is running (see #R25296) }
+TABLE#
+
+[CharBuf:30]
+Walking speed change delay counter (see #R25296); initialised to bits 0-3 of the character number (see #R62910)
+
+[CharBuf:31]
+Unused
+
+[CharBuf:32]
+Initial animatory state (see #R62910)
+
+[CharBuf:33,34]
+Initial location (see #R62910)
+
+[CharBuf:35]
+Initial flags for byte 29 (see #R62910)
+
+[CharBuf:36]
+Random location table identifier (see #R25815)

@@ -1,0 +1,155 @@
+; Copyright 2008-2014 Richard Dymond (rjdymond@gmail.com)
+
+[Config]
+SkoolFile=bts.skool
+HtmlWriterClass=:backtoskool.BackToSkoolHtmlWriter
+GameDir=back_to_skool
+
+[Game]
+Game=Back to Skool
+Logo=#UDGARRAY8,31,,8;59200-59335-1-64(/images/logo|Back to Skool)
+GameStatusBufferIncludes=32648,32650,32652,32654,32656
+StyleSheet=skoolkit.css;microsphere.css;skool.css;bts.css
+Release=The complete Back to Skool RAM disassembly 20140614
+Copyright=&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).
+
+[Links]
+DataMap=[Data] (just the data)
+Graphics=Other graphics
+MemoryMap=[Everything] (routines, data, text and unused addresses)
+MessagesMap=[Messages] (just the text)
+RoutinesMap=[Routines] (just the routines)
+CommandLists=Command lists
+MainTimetable=Main timetable
+load-Index=Loading code
+save-Index=Save code
+start-Index=Startup code
+PlayArea=Play area
+PlayAreaTiles=Play area tiles
+InitialAnimatoryStates=Initial animatory states and locations
+AnimatoryStates=Animatory states
+AnimatoryStateTiles=Animatory state tiles
+CharacterBuffers=Character buffers
+MainTimetable=Main timetable
+PersonalTimetables=Personal timetables
+LessonIndex=Lessons
+CommandLists=Command lists
+Keys=Keypress table
+
+[Titles]
+load-Index=Loading code
+save-Index=Save code
+start-Index=Startup code
+PlayArea=Play area
+PlayAreaTiles=Play area tiles
+InitialAnimatoryStates=Initial animatory states and locations
+AnimatoryStates=Animatory states
+AnimatoryStateTiles=Animatory state tiles
+CharacterBuffers=Character buffers
+MainTimetable=Main timetable
+PersonalTimetables=Personal timetables
+LessonIndex=Lessons
+CommandLists=Command lists
+Keys=Keypress table
+Lesson37=Lesson 37
+Lesson38=Lesson 38
+Lesson39=Lesson 39
+Lesson40=Lesson 40
+Lesson41=Lesson 41
+Lesson42=Lesson 42
+Lesson43=Lesson 43
+Lesson44=Lesson 44
+Lesson45=Lesson 45
+Lesson46=Lesson 46
+Lesson47=Lesson 47
+Lesson48=Lesson 48
+Lesson49=Lesson 49
+Lesson50=Lesson 50
+Lesson51=Lesson 51
+Lesson52=Lesson 52
+Lesson53=Lesson 53
+Lesson54=Lesson 54
+Lesson55=Lesson 55
+Lesson56=Lesson 56
+Lesson57=Lesson 57
+Lesson58=Lesson 58
+Lesson59=Lesson 59
+
+[PageHeaders]
+load-Index=Loading code
+load-Asm-c=Load routines
+save-Index=Save code
+save-Asm-c=Save routine
+start-Index=Startup code
+start-Asm-c=Startup routine
+
+[Paths]
+PlayAreaImagePath=images/play_area
+AnimatoryStateImagePath=images/animatory_states
+MutableImagePath=images/mutables
+Graphics=graphics/graphics.html
+PlayArea=graphics/playarea.html
+PlayAreaTiles=graphics/patiles/patiles.html
+InitialAnimatoryStates=graphics/asstart.html
+AnimatoryStates=graphics/as.html
+AnimatoryStateTiles=graphics/astiles/astiles.html
+CharacterBuffers=buffers/cbuffer.html
+Keys=tables/keys.html
+PersonalTimetables=lessons/timetables.html
+LessonIndex=lessons/index.html
+Lesson37=lessons/37.html
+Lesson38=lessons/38.html
+Lesson39=lessons/39.html
+Lesson40=lessons/40.html
+Lesson41=lessons/41.html
+Lesson42=lessons/42.html
+Lesson43=lessons/43.html
+Lesson44=lessons/44.html
+Lesson45=lessons/45.html
+Lesson46=lessons/46.html
+Lesson47=lessons/47.html
+Lesson48=lessons/48.html
+Lesson49=lessons/49.html
+Lesson50=lessons/50.html
+Lesson51=lessons/51.html
+Lesson52=lessons/52.html
+Lesson53=lessons/53.html
+Lesson54=lessons/54.html
+Lesson55=lessons/55.html
+Lesson56=lessons/56.html
+Lesson57=lessons/57.html
+Lesson58=lessons/58.html
+Lesson59=lessons/59.html
+
+[OtherCode:load]
+Source=bts-load.skool
+
+[OtherCode:save]
+Source=bts-save.skool
+
+[OtherCode:start]
+Source=bts-start.skool
+
+[Index:Graphics:Graphics]
+PlayArea
+PlayAreaTiles
+InitialAnimatoryStates
+AnimatoryStates
+AnimatoryStateTiles
+Graphics
+GraphicGlitches
+
+[Index:DataTables:Data tables and buffers]
+GameStatusBuffer
+CharacterBuffers
+MainTimetable
+PersonalTimetables
+LessonIndex
+CommandLists
+Keys
+
+[MemoryMap:MessagesMap]
+Intro=The LSB and MSB of the address of message number N can be found at (N+#R65024) and (N+#R65280) respectively (when 0&lt;=N&lt;=111 or 128&lt;=N&lt;=207), or in the message address table at #R20724 (when N=244, 246, 248, 250 or 252).
+
+[MemoryMap:UnusedMap]
+Write=0

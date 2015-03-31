@@ -1,0 +1,310 @@
+; Copyright 2008-2013, 2015 Richard Dymond (rjdymond@gmail.com)
+
+[Bug:fire:Catapult animation]
+When ERIC fires his catapult, he should go through the following sequence of animation phases:
+
+#UDGTABLE
+{ #CALL:as_img(128) | #CALL:as_img(138) | #CALL:as_img(139) | #CALL:as_img(138) | #CALL:as_img(128) }
+TABLE#
+
+However, the fourth phase in this sequence (lowering the arm after firing) is omitted. See #R24296.
+
+POKE 24327,215
+
+[Bug:kiss:Gate kiss]
+When ERIC kisses HAYLEY, he moves one space forward (see #R24348). This allows ERIC to pass through the skool gate if he kisses HAYLEY from behind it while it's shut.
+
+[Bug:plant:Wrong plant pot]
+If ERIC is standing on a plant pot when a fully grown plant in another pot dies, he will fall to the ground. This is because the routine at #R64077 checks whether ERIC is standing on a plant pot when a plant dies, but doesn't check whether it's the plant pot that contains the plant.
+
+[Bug:rematerialisingMouse:Rematerialising mouse]
+The section of code at #R31607 is responsible for bringing a new free mouse into the game when ERIC has just caught one. The apparent intention is that the new free mouse will begin life at an x-coordinate (chosen from 10, 88 and 170) that is currently off-screen, so that you won't notice it appearing out of thin air. However, the code is careless with the #REGhl register pair, with the result that it is possible for a new free mouse to show up at any of these x-coordinates, regardless of which portion of the play area is currently on-screen.
+
+<div>POKE #R31622(31623),239</div>
+<div>POKE #R31641(31642),220</div>
+<div>POKE #R31649(31650),212</div>
+
+[Bug:assemblyDuty:Beyond the call of assembly duty]
+MR WITHIT takes assembly duty far too seriously. That he goes looking for ERIC if said boy is absent from the assembly hall we can understand (even if we don't approve). But if assembly has finished, it seems only fair that MR WITHIT should end the chase and leave ERIC alone. No such luck, though.
+
+To witness MR WITHIT's somewhat sickening sense of duty in this regard, proceed as follows. Show up for assembly, sit down, and wait until MR WACKER arrives on stage. When MR WACKER starts speaking, stand up and head for the skool door (to the right). MR WITHIT will begin the chase, as expected. However, instead of giving up when MR WACKER has finished speaking, MR WITHIT will continue to hover around ERIC until the bell rings. (MR WITHIT does at least stop giving ERIC lines at regular intervals after MR WACKER has finished speaking, though. But that just makes the hovering feel rather creepy.)
+
+[Bug:assemblySit:Assembly sitting confusion]
+During assembly, if ERIC is standing a teacher will scream 'SIT FACING THE STAGE', but if he's sitting down facing left (away from the stage), a teacher will scream 'NOW SIT DOWN'. This is the wrong way round.
+
+POKE #R32205,32
+
+[Bug:assemblySit2:More assembly sitting confusion]
+Usually, the kids will sit down for assembly soon after the MSB of the lesson clock reaches 10 (see #R61658), in good time for MR WACKER's arrival on stage - which he doesn't bother to head off for until the MSB of the lesson clock reaches 8 (see #R63501). However, careful examination of the routine at #R61658 reveals that not only must the MSB of the lesson clock have reached 10, but MR WITHIT must have arrived in the assembly hall too, otherwise the kids will not sit down. In fact, they will continue to walk around aimlessly in the assembly hall while MR WACKER is delivering his detention speech. And if MR WITHIT arrives late enough, the kids will carry on walking around aimlessly in the assembly hall even after MR WACKER has left the stage (instead of heading off to some random location, as they would normally do).
+
+To witness the kids' confusion about when to sit, try making MR WITHIT late for assembly by knocking him over with a catapult pellet four or five times before he reaches the assembly hall. Then go and stand just behind MR ROCKITT and MR CREAK - who should have reached the assembly hall by now - with the stage in view at the far right of the screen. With luck, you'll be able to keep MR WITHIT out of the assembly hall with a few more well-aimed catapult pellets while watching (a) the kids wander around aimlessly instead of sitting down, and (b) MR WACKER deliver his detention speech and then leave, apparently unfazed by the lack of attention.
+
+[Bug:albertBusy:Keeping ALBERT busy]
+After closing the skool door, ALBERT paces up and down underneath the tree while keeping an eye out for ERIC. If ERIC jumps out of the window and makes a beeline for the girls' skool, ALBERT will raise his arm, thus blocking the path to MISS TAKE's sherry. Now this behaviour makes sense during lessons, but not during playtime. However, if ERIC stands his ground after being caught by ALBERT, the caretaker will never budge. Even after the lesson ends and the bell rings for playtime. Which means it will be up to one of the teachers to open the skool door (if MR WACKER hasn't done so already after being alerted) and the skool gate.
+
+If you want to check this for yourself but can't bear to wait for playtime to come, try the POKEs that enable ERIC to #POKE#ringBell(ring the bell).
+
+[Bug:wackerBusy:Keeping MR WACKER busy]
+After closing the skool door, ALBERT paces up and down underneath the tree while keeping an eye out for ERIC. If ERIC jumps out of the window and makes a beeline for the girls' skool, ALBERT will raise the alarm, whereupon MR WACKER will come rushing to ERIC's side to make sure the truant gets back to skool and stays there. Now this behaviour makes sense during lessons, but not during playtime. However, if ERIC jumps out of the window during a lesson, stands patiently up against the skool door so as not to catch ALBERT's attention, and then rushes towards him just after the bell rings for playtime, ALBERT will raise his arm and the alarm. Which means MR WACKER will come looking for ERIC and shadow him until playtime is over.
+
+If you want to check this for yourself but can't bear to wait for playtime to come, try the POKEs that enable ERIC to #POKE#ringBell(ring the bell).
+
+[Bug:waitingForEinstein:Waiting for EINSTEIN]
+Before wiping the board and getting a lesson under way, ERIC's teacher will wait for EINSTEIN to sit down first: see #R61512. This makes sense at the beginning of a lesson, but that same routine is called several times during the course of a lesson (see #R61696) to check whether ERIC is present, which means that the teacher will also stop whatever he's doing and wait for EINSTEIN to sit down before continuing on those occasions too. This is not really noticeable except during lessons where there is no question-and-answer session taking place between the teacher and the swot, and the teacher is pacing up and down in front of the blackboard instead. During those lessons, the call to #R61512 is made each time the teacher has reached the point where he is just about to turn round; if EINSTEIN is not sitting in a chair at that time (because ERIC has pushed him out of his seat, for example), the teacher will wait until EINSTEIN is back in his seat before turning round.
+
+This phenomenon can be made more readily reproducible and observable by using the following POKEs:
+
+<div>POKE #R26226(26227),20 (to lengthen the delay before a dethroned character rises)</div>
+<div>POKE #R61944(61945),0 (to make every lesson a non-question-and-answer lesson)</div>
+
+[Bug:seat:Undethronable ERIC]
+ERIC doesn't get pushed to the floor when someone sits in his seat (see #R26175).
+
+<div>POKE 26211,54</div>
+<div>POKE 26212,128</div>
+
+[Bug:whatsInTheDesk:What's in the desk?]
+The desk lid animatory state that is used when ERIC finds the water pistol makes it look as if the desk contains stinkbombs:
+
+#UDGTABLE
+{ #CALL:as_img(45) }
+TABLE#
+
+And the desk lid animatory state that is used when ERIC finds the stinkbombs (shown below on the left) makes it look as if the desk contains a mouse (shown on the right):
+
+#UDGTABLE
+{ #CALL:as_img(46) | #CALL:as_img(175) }
+TABLE#
+
+At the very least, these desk lid animatory states should be used the other way round. Since the relevant section of code at #R62259 is not amenable to POKEing to fix this, we need to swap the tile references for the desk lid animatory states themselves:
+
+<div>POKE 56749,83</div>
+<div>POKE 56750,84</div>
+
+[Bug:farLeft:Far left scrolling]
+If ERIC is at the far left of the boys' skool (x-coordinate 0) facing right, and 'C', 'D', 'G', 'K', 'T' or 'U' is pressed, the screen scrolls left, pushing ERIC out of view; the screen then scrolls left again with every step ERIC takes (see #R28160).
+
+<div>POKE 28193,198</div>
+<div>POKE 28194,21</div>
+<div>POKE 28195,240</div>
+
+[Bug:talkGarbage:Talking garbage]
+If one character is speaking while a second is waiting to speak, and the screen scrolls so that the speaking character is shifted out of view, the second character may start talking garbage. What happens is that the character who was speaking first is tricked into thinking that his speech bubble is still on-screen, and the two characters end up sharing the bubble opened by the second character.
+
+To see how the first character is tricked, consider the case where MR CREAK is at the Blue Room door, telling the kids to sit down, and MR WITHIT is at the Yellow Room door, waiting for MR CREAK to finish speaking:
+
+<div>0) MR CREAK is under control of the entry point at #R27182 (speaking); MR WITHIT is under control of the entry point at #R27165 (waiting to speak).</div>
+<div>1) The screen scrolls left, taking MR CREAK and his speech bubble out of view.</div>
+<div>2) #R25248 (update display) is called from the main loop; this calls #R26849, which sets #R32760 to 0 (indicating that the bubble is no longer on-screen).</div>
+<div>3) MR WITHIT begins execution of the entry point at #R27165; this detects that #R32760 is now 0, and so calls #R26958 to open the speech bubble, which:</div>
+<div>&#160; a) sets #R32760 to some non-zero value (indicating that the bubble is on-screen), and</div>
+<div>&#160; b) updates #R32762 to the current leftmost column on-screen.</div>
+<div>4) MR CREAK begins execution of the entry point at #R27182; this first calls #R26849, which:</div>
+<div>&#160; a) detects the non-zero value in #R32760, and</div>
+<div>&#160; b) fails to detect that the screen has scrolled, because MR WITHIT updated #R32762,</div>
+<div>thus fooling MR CREAK into thinking that his speech bubble is still on-screen.</div>
+<div>5) MR CREAK and MR WITHIT share the speech bubble, taking turns rolling message characters into it until one of them finishes.</div>
+
+[Bug:pelletHover:Hovering pellet]
+If a catapult pellet bounces off a teacher's head on the top floor, it never hits the ceiling; instead it hovers just below the ceiling briefly before disappearing (see #R30459).
+
+<div>POKE 30474,250</div>
+<div>POKE 30475,207</div>
+<div>POKE 30476,116</div>
+
+[Bug:pelletWall:Pellet through the wall]
+If ERIC stands against the far wall of the Science Lab storeroom while facing it, and then fires his catapult, the pellet will travel through the wall. See the routine at #R28315 (which lets ERIC reach x-coordinate 63 - rather too close to that far wall), and the routine at #R30292 (which takes that far wall to be at x-coordinate 62).
+
+<div>POKE 28375,62 (to stop ERIC at x-coordinate 62 instead of 63), or...</div>
+<div>POKE 30348,63 (to check for the wall in front of the pellet at x-coordinate 63 instead of 62)</div>
+
+[Bug:pelletDoor:Pellet through the door]
+If ERIC stands against the right study door while facing it, and then fires his catapult, the pellet will travel through the door. See the routine at #R30292, which checks for the presence of the right study door at x-coordinate 84 in front of the pellet. But when ERIC is standing up against the door, he is already at x-coordinate 84, which is where the pellet will be launched from; so at launch time, the x-coordinate of the spot in front of the pellet is 83, and the door check fails.
+
+[Bug:conkerMD:Conker of mass destruction]
+The section of code at #R29943 was probably meant to check whether any of the four main kids besides ERIC has been hit by the falling conker. However, because the #REGb and #REGd registers are not properly initialised before calling the routine at #R27820, every character (including the non-human objects) is treated as a potential target.
+
+One consequence of this bug is that it's possible to knock out the little boys with the conker. Not all that interesting, I suppose.
+
+Another consequence of this bug is that it's possible to 'knock out' the bike. But, of course, there is no 'knocked out bike' sprite; instead, an airborne frog (specifically, animatory state #AS30 or #AS158, depending on which way the bike is facing) is displayed. Which is rather more interesting. (And easy to verify, too, since the bike is not a moving target. Just park it at the base of the tree and get firing through the top-floor window.)
+
+Unfortunately, owing to a technicality, the other non-human objects - mouse, frog, BOY WANDER's pellet etc. - are not vulnerable to the conker's destructive effects. (That technicality being that each is controlled by a routine whose address is stored in bytes 17 and 18 of the character buffer, so they are passed over by the routine at #R27820.) Oh well.
+
+[Bug:noBlackboardTales:No blackboard tales]
+EINSTEIN never tells tales on ERIC or BOY WANDER for writing on the blackboard. This is because the section of code at #R61852 calls #R26453 to collect the ID of the blackboard that the teacher is standing beside, but that routine returns early (with an invalid blackboard ID in #REGb) because the teacher is not standing within a threshold of 4 spaces of the left edge of the board. Instead, the routine at #R28658 should be called, which collects the ID of the blackboard within a threshold of 12 spaces:
+
+POKE 61853,242: POKE 61854,111
+
+But this reveals another bug in the section of code at #R61852: instead of placing the message number for the name of the character EINSTEIN is grassing up (#R61345(27) or #R61397(31)) into #R32656, it places the character number (206 or 210) there, which means EINSTEIN ends up saying either:
+
+'Please Sir I cannot tell a lie . . 714 wrote on the board'
+
+('714' being message #R64884(206)) or:
+
+'Please Sir I cannot tell a lie . . X wrote on the board'
+
+where 'X' is the textual representation of whatever happens to be at address 20289 (in the display file) at the time of grassing (20289 being equal to PEEK (210+#R65024) + 256 * PEEK (210+#R65280), which is how the address of message 210 would be determined if it existed).
+
+[Bug:doubleWipe:Double wipe]
+If ERIC leaves class at some point after the teacher has started wiping the board, but returns while EINSTEIN is telling the teacher that he's absent, the teacher will give ERIC or EINSTEIN lines, and then start wiping the board again (see #R61899), without first walking to the right edge of the board. This means that either:
+
+<div>(a) the lesson will resume with the teacher standing near the doorway (if the class is in the Yellow Room or the Science Lab), or</div>
+<div>(b) the teacher will walk through the far left wall of the boys' skool, conduct the rest of the lesson from behind the wall until the bell rings, and later reappear through the far right wall of the girls' skool (if the class is in the Blue Room).</div>
+
+You can confirm (b) by making use of the #BUG#farLeft(far left scroll bug) to scroll the screen left until the girls' skool is in view. Or you can follow the teacher through the 'no man's land' between the two skools by using the POKEs given #POKE#throughWalls(here) (which enable ERIC to walk through walls).
+
+[Bug:tripleWipe:Triple wipe]
+If you exploit the #BUG#doubleWipe(double wipe bug) twice in one lesson - to make the teacher wipe the board for a third time - some of the play area graphics become corrupted. Specifically, the non-blackboard tiles at the following locations are wiped blank and show up as black squares:
+
+<div>y=2: x=15, 18, 21, 34, 37, 43, 46, 49, 85</div>
+<div>y=3: x=27, 85, 183</div>
+<div>y=4: x=30, 183</div>
+<div>y=5: x=12, 14, 16, 18, 20, 51, 53, 55, 57, 59, 132, 169, 171, 173, 175, 177, 183</div>
+<div>y=6: x=40, 132 (at the level of the top floor)</div>
+<div>y=7: x=132</div>
+<div>y=8: x=14, 15, 132</div>
+<div>y=9: x=15, 132</div>
+<div>y=10: x=15, 132</div>
+<div>y=11: x=6, 15</div>
+<div>y=12: x=4, 15, 34, 132</div>
+<div>y=13: x=6, 8, 10, 12 (at the level of the middle floor)</div>
+<div>y=14: x=62, 102, 184, 185</div>
+<div>y=15: x=62, 86</div>
+<div>y=16: x=12, 14, 86</div>
+<div>y=17: x=86</div>
+<div>y=18: x=39, 86</div>
+<div>y=19: x=21 (just above the level of the bottom floor)</div>
+
+#PUSHS
+#POKES32871,255,8,256;32879,255,8,256;32881,255,8,256;32889,255,8,256;32893,255,8,256;32895,255,8,256
+#POKES32901,255,8,256;32903,255,8,256;32957,255,8,256;32965,255,8,256;33014,255,8,256;33022,255,8,256
+#UDGTABLE
+{ #CALL:play_area(triple_wipe1,0,0,96,21,1,0,8) }
+{ #CALL:play_area(triple_wipe2,96,0,96,21,1,0,8) }
+TABLE#
+#POPS
+
+This happens because the board-wiping routine (#R26639) calls #R28658 to collect information about the blackboard, which in turn calls #R26453. That routine returns early (with bogus blackboard coordinates in #REGde) because the teacher is not standing at a blackboard, but #R26639 carries on regardless, and the teacher ends up wiping a non-existent blackboard at the non-existent location (58,211), with the result that certain non-blackboard tiles end up getting wiped instead.
+
+This bug can be hard to reproduce because the bell usually rings before you get a chance to make the teacher begin the third wipe; to improve your chances, try the #POKE#lessonLength(lesson length POKEs) to extend the lesson.
+
+[Bug:665360Lines:YOU HAVE 665360 LINES ERIC]
+If ERIC has 10000 lines or more, but manages to jump up to the safe (while holding the key) before MR WACKER comes to expel him, he will move on to the next year; what's more, ERIC will not risk expulsion again until the lines total has rolled over the maximum 655300 mark back round to zero, and then past 10000 again.
+
+The reason for this is that the routine at #R29643 sends MR WACKER on his way to expel ERIC only when the lines total reaches or exceeds 10000 for the first time, and moving on to the next year makes MR WACKER completely forget his expulsion duties.
+
+[Bug:deceptiveDoorways:Deceptive doorways]
+It would be reasonable to assume that the doorway to a classroom in the boys' skool marks the boundary beyond which ERIC may be regarded as either absent from or present in that class (depending on which side of the boundary he stands). But it is not so.
+
+For example, the Blue Room extends beyond its doorway, such that ERIC is regarded as present when he is standing anywhere up to and including x-coordinate 23 (even though he appears to be entirely outside the classroom at that location):
+
+#PUSHS
+#CALL:hide_chars()
+#CALL:place_char(210,23,3)
+#UDGTABLE
+{ #CALL:play_area(deceptive_doorways1,16,0,16,7,2,1,8) }
+TABLE#
+#POPS
+
+So ERIC can stand here during a class in the Blue Room without EINSTEIN telling on him for being absent, or stand here during Revision Library and be told to GET ALONG NOW.
+
+Similarly, the Yellow Room extends beyond its right-hand doorway, all the way up to and including x-coordinate 63:
+
+#PUSHS
+#CALL:hide_chars()
+#CALL:place_char(210,63,3)
+#UDGTABLE
+{ #CALL:play_area(deceptive_doorways2,56,0,16,7,2,1,8) }
+TABLE#
+#POPS
+
+However, the Yellow Room has its left boundary at x-coordinate 41, so if ERIC stands at x-coordinate 40, he is regarded as absent (even though he appears to be entirely inside the classroom):
+
+#PUSHS
+#CALL:hide_chars()
+#CALL:place_char(210,40,3)
+#UDGTABLE
+{ #CALL:play_area(deceptive_doorways3,32,0,16,7,2,1,8) }
+TABLE#
+#POPS
+
+(Try standing here while waiting for the lesson in the Yellow Room to begin; EINSTEIN will tell the teacher that ERIC is absent, and the teacher will go looking for him.)
+
+Likewise, the left boundary of the Science Lab is at x-coordinate 31, a little to the right of its doorway. Which means that if ERIC stands at x-coordinate 30, he is regarded as absent (again, even though he appears to be entirely inside the classroom):
+
+#PUSHS
+#CALL:hide_chars()
+#CALL:place_char(210,30,10)
+#UDGTABLE
+{ #CALL:play_area(deceptive_doorways4,24,7,16,7,2,1,8) }
+TABLE#
+#POPS
+
+To adjust the real boundaries of the classrooms so that they are more closely aligned with the apparent boundaries, see the location identifier tables at #R47676 (top floor) and #R47932 (middle floor).
+
+[Bug:speechQueue:Speech queue hogs]
+ERIC's teacher and EINSTEIN can hog the 'speech queue' for several rounds of a question-and-answer session, making the other teachers wait a long time - sometimes until after the bell has rung - before they can tell the kids to sit down or what to do during the lesson.
+
+The reason this can happen is that there actually is no speech queue. That is, there is no mechanism for recording whose 'turn' it is to speak next.
+
+Consider the case where ERIC is being taught by MR CREAK in the Yellow Room, and MR ROCKITT is teaching in the Science Lab:
+
+<ul>
+<li>MR CREAK is asking a question</li>
+<li>EINSTEIN is waiting for MR CREAK to finish speaking</li>
+<li>MR ROCKITT is standing at the blackboard, waiting to tell the kids what to do</li>
+</ul>
+
+When MR CREAK finishes speaking, the character-moving routine at #R25296 considers moving the following characters (after MR CREAK) in this order:
+
+<ul>
+<li>MISS TAKE</li>
+<li>ALBERT</li>
+<li>BOY WANDER</li>
+<li>ANGELFACE</li>
+<li>EINSTEIN</li>
+</ul>
+
+A character will be moved if bit 7 of byte 29 of his buffer is set (which is true for kids half the time on average, and true for teachers only when they're running), or if byte 30 of his buffer (which is decremented on each pass through the character-moving routine) holds an even number. If either of these is true for EINSTEIN, he will get to speak next. When he's finished answering MR CREAK's question, the character-moving routine considers moving the following characters (after EINSTEIN) in this order:
+
+<ul>
+<li>HAYLEY</li>
+<li>little girls</li>
+<li>little boys</li>
+<li>MR WACKER</li>
+<li>MR WITHIT</li>
+<li>MR ROCKITT</li>
+<li>MR CREAK</li>
+</ul>
+
+If, on MR ROCKITT's turn, byte 30 of his buffer holds an odd number, he will not be moved, and will therefore not start speaking before MR CREAK. If, on MR CREAK's turn, byte 30 of his buffer holds an even number, he will be moved and therefore start speaking before MR ROCKITT's next turn.
+
+Thus MR ROCKITT could spend quite a while waiting at the blackboard before telling the kids what to do, all depending on the contents of byte 30 of his, MR CREAK's and EINSTEIN's buffers (and also bit 7 of byte 29 of EINSTEIN's buffer) on their turns to be moved.
+
+[Bug:jumpAbsent:Jump out of class]
+If ERIC jumps continuously (hold 'J' down) during class, EINSTEIN will tell the teacher that ERIC is absent.
+
+This is a consequence of the zero flag being set upon entry to the routine at #R28085, which forces an early return with #REGd=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'CP 52' instruction at #R61515.
+
+POKE 28086,254
+
+[Bug:jumpDinner:Jump into the dinner hall]
+During dinner, go to the Yellow Room or the Science Lab, directly above the dinner hall. When the teacher on dinner duty comes and finds ERIC there, jump (press 'J'). The teacher will then return to the dinner hall, tricked into thinking that ERIC is back there too.
+
+This is another consequence of the zero flag being set upon entry to the routine at #R28085, which forces an early return with #REGd=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'BIT 0,(HL)' instruction at #R61608.
+
+POKE 28086,254
+
+[Bug:jumpAssembly:Jump into the assembly hall]
+During assembly, go to the area between the Yellow Room and the head's study. When MR WITHIT comes and finds ERIC there, jump (press 'J'). MR WITHIT will then return to the assembly hall, tricked into thinking that ERIC is back there too.
+
+This is yet another consequence of the zero flag being set upon entry to the routine at #R28085, which forces an early return with #REGd=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'BIT 0,(HL)' instruction at #R61608.
+
+POKE 28086,254
+
+[Bug:jump4Spaces:One more jump bug]
+Play truant during class, somewhere on the top or middle floor. (The toilets are an ideal spot.) As ERIC's teacher approaches, start jumping continuously (hold 'J' down). When the teacher reaches the spot four spaces away from ERIC, you might see him turn round briefly, and then turn round again to continue the approach towards ERIC. The reason the teacher turns round is that he is tricked into thinking that ERIC is on the bottom floor, and so starts heading for the nearest staircase.
+
+This is one more (less dramatic) consequence of the zero flag being set upon entry to the routine at #R28085, which forces an early return with #REGd=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'CP 4' instruction at #R25986.
+
+POKE 28086,254

@@ -1,0 +1,125 @@
+#!/bin/bash -e
+
+D_VERSIONS=(
+  20140614
+  20131222
+  20121119
+  20120718
+  20120627
+  20120411
+  20120201
+  20111117
+  20111031
+)
+
+declare -A SK_VERSIONS
+SK_VERSIONS=(
+  [20110510]=2.2
+  [20110403]=2.1
+  [20101123]=2.0
+  [20101111]=1.4
+  [20100723]=1.3
+  [20100503]=1.2
+  [20100225]=1.1
+  [20100128]=1.0
+)
+
+if (($# < 2)); then
+  echo "Usage: $(basename $0) VERSION SKOOLKIT_VERSION"
+  echo ""
+  echo "  Attempts to build a specific version of the Back to Skool disassembly using a"
+  echo "  specific version of SkoolKit."
+  echo ""
+  echo "  VERSION must be one of:"
+  echo ""
+  for v in ${D_VERSIONS[@]} ${!SK_VERSIONS[@]}; do
+    echo "    $v"
+  done | sort -r | column -c 80
+  echo ""
+  echo "  Environment variables:"
+  echo "    DISASSEMBLY_ARCHIVE - directory containing disassembly release tarballs"
+  echo "    SKOOLKIT_ARCHIVE - directory containing SkoolKit release tarballs"
+  exit 1
+fi
+
+if [[ -z $SKOOLKIT_ARCHIVE ]]; then
+    echo 'SKOOLKIT_ARCHIVE is not set; aborting'
+    exit 1
+fi
+if [[ ! -d $SKOOLKIT_ARCHIVE ]]; then
+    echo "SKOOLKIT_ARCHIVE=$SKOOLKIT_ARCHIVE: directory not found"
+    exit 1
+fi
+
+if [[ -z $DISASSEMBLY_ARCHIVE ]]; then
+    echo 'DISASSEMBLY_ARCHIVE is not set; aborting'
+    exit 1
+fi
+if [[ ! -d $DISASSEMBLY_ARCHIVE ]]; then
+    echo "DISASSEMBLY_ARCHIVE=$DISASSEMBLY_ARCHIVE: directory not found"
+    exit 1
+fi
+
+D_VERSION=$1
+SK_VERSION=$2
+
+odir=bts-$D_VERSION-$SK_VERSION
+rm -rf $odir
+mkdir $odir
+cd $odir
+
+SK_DIR=skoolkit-$SK_VERSION
+tar xf $SKOOLKIT_ARCHIVE/$SK_DIR.tar.*
+SK_BUILD_DIR=${SK_DIR}-build
+mv $SK_DIR $SK_BUILD_DIR
+
+if (($D_VERSION >= 20111031)); then
+  # Sources distributed separately from SkoolKit
+  D_DIR=bts-disassembly-$D_VERSION
+  tar xf $DISASSEMBLY_ARCHIVE/$D_DIR.tar.*
+  cd $SK_BUILD_DIR
+  find . -name '*.skool' -delete
+  find . -name '*.ref' -delete
+  cp -p ../$D_DIR/sources/*.skool .
+  cp -p ../$D_DIR/sources/*.ref .
+  cp -p ../$D_DIR/sources/*.css .
+  cp -p ../$D_DIR/sources/*.js .
+  [[ -d skoolkit ]] && cp -p ../$D_DIR/skoolkit/*.py skoolkit
+else
+  # Sources distributed with SkoolKit
+  D_SK_VERSION=${SK_VERSIONS[$D_VERSION]}
+  if [[ -z $D_SK_VERSION ]]; then
+    echo "Disassembly version not recognised: $D_VERSION"
+    exit 1
+  fi
+  D_SK_DIR=skoolkit-$D_SK_VERSION
+  tar xf $SKOOLKIT_ARCHIVE/$D_SK_DIR.tar.*
+  D_DIR=$D_SK_DIR-src
+  mv $D_SK_DIR $D_DIR
+  cd $SK_BUILD_DIR
+  find . -name '*.skool' -delete
+  find . -name '*.ref' -delete
+  # sd.ref is required for the Skool Disassemblies home page (SkoolKit 2.0 - 2.1.2)
+  for f in bts{,-load,-save,-start}.skool {load,save,start}.skool {bts,sd,changelog,skool}.ref skool.js; do
+    find ../$D_DIR -name $f -exec cp -p {} . \;
+  done
+  if [[ -d skoolkit ]] && [[ -f ../$D_DIR/skoolkit/microsphere.py ]]; then
+    cp -p ../$D_DIR/skoolkit/{microsphere,backtoskool}.py skoolkit
+  fi
+fi
+
+SK_VERSION_INT=$(echo $SK_VERSION | tr -d . )0
+SK_VERSION_INT=${SK_VERSION_INT:0:3}
+
+if (($SK_VERSION_INT >= 302)); then
+  # Show timings in SkoolKit 3.0.2+
+  OPTS=-t
+fi
+
+if (($SK_VERSION_INT >= 220)); then
+  # SkoolKit 2.2+
+  ./skool2html.py $OPTS -d ../html bts.skool
+else
+  # SkoolKit 1.0 - 2.1.2
+  ./skool2html.py -b ../html
+fi

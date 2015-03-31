@@ -1,0 +1,551 @@
+; Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
+
+[PageContent:PlayArea]
+<div>#CALL:play_area(play_area,0,0,192,21,2,0,8)</div>
+
+[Page:PlayAreaTiles]
+JavaScript=microsphere.js
+
+[PageContent:PlayAreaTiles]
+<p>Click a tile to see the following info:</p>
+<table>
+<tr>
+<td>
+<div class="B">
+<div class="H">(x,y)=(25,14)</div>
+<table>
+<tr>
+<td><img alt="25,14" src="80ba38.png"/></td>
+<td>
+<i>Q_addr</i>=(x,181)=46361, <i>Q</i>=24<br/>
+<i>ref_addr</i>=(<i>Q</i>,y+160)=44568<br/>
+<i>ref</i>=186, <i>udg_page</i>=128<br/>
+<i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)=32954<br/>
+<i>attr</i>=56
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+<p>where:</p>
+<ul>
+<li><i>Q</i> is the 'Q value' for the tile (located at <i>Q_addr</i>)</li>
+<li><i>ref</i> is the UDG reference for the tile (located at <i>ref_addr</i>)</li>
+<li><i>udg_page</i> is the base page for the tile graphic data (128, 136, 144 or 152)</li>
+<li><i>udg_addr</i> is the base address of the tile graphic data (<i>ref</i>+256*<i>udg_page</i>)</li>
+<li><i>attr</i> is the tile's attribute byte</li>
+</ul>
+<p>
+For an explanation of the Q value and how it is used to determine <i>udg_page</i> and the attribute byte (<i>attr</i>) for a tile, see #R24684.
+</p>
+<p>
+The eight graphic bytes for a tile are located thus:
+</p>
+<table class="default">
+<tr><th>Address</th><th>Contents</th></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>)=<i>udg_addr</i></td><td>Graphic byte 1/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+256</td><td>Graphic byte 2/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+512</td><td>Graphic byte 3/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+768</td><td>Graphic byte 4/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+1024</td><td>Graphic byte 5/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+1280</td><td>Graphic byte 6/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+1536</td><td>Graphic byte 7/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+1792</td><td>Graphic byte 8/8</td></tr>
+</table>
+<p>
+Any given tile (identified by <i>udg_addr</i>) may appear at more than one location in the play area.
+</p>
+#CALL:play_area_tiles(192,21)
+#CALL:mutable_tiles(doors,56893,57344,56832,57405,64000,56320)
+#CALL:mutable_tiles(windows,55296,55808)
+#CALL:mutable_tiles(tree,57856)
+#CALL:mutable_tiles(cups,56694,56699,56950,56955,57206,57211,57462,57467)
+
+[Template:play_area_tiles]
+<table class="tiles">
+{rows}
+</table>
+
+[Template:play_area_tile_row]
+<tr>
+{tiles}
+</tr>
+
+[Template:play_area_tile]
+<td><div class="T" onclick="s('{prefix}{tile.x}x{tile.y}')"><img alt="{tile.x},{tile.y}" src="{img_fname}"/></div><div id="{prefix}{tile.x}x{tile.y}" class="B P" onclick="h(this)"><div class="H">(x,y)=({tile.x},{tile.y})</div><table><tr><td><img alt="{tile.x},{tile.y}" src="{img_fname}"/></td><td><i>Q_addr</i>=(x,181)={tile.q_addr}, <i>Q</i>={tile.q}<br/><i>ref_addr</i>=(<i>Q</i>,y+160)={tile.ref_addr}<br/><i>ref</i>={tile.ref}, <i>udg_page</i>={tile.udg_page}<br/><i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)={tile.udg_addr}<br/><i>attr</i>={tile.attr}</td></tr></table></div></td>
+
+[Template:play_area_tile_blank]
+<td></td>
+
+[Template:doors]
+<h3>Doors (open)</h3>
+<table class="mgrid">
+<tr>
+<td>
+{doors[0]}
+</td>
+<td>
+{doors[1]}
+</td>
+<td>
+{doors[2]}
+</td>
+<td>
+{doors[3]}
+</td>
+<td>
+{doors[4]}
+</td>
+<td>
+{doors[5]}
+</td>
+</tr>
+</table>
+
+[Template:windows]
+<h3>Windows (open)</h3>
+<table class="mgrid">
+<tr>
+<td>
+{windows[0]}
+</td>
+<td>
+{windows[1]}
+</td>
+</tr>
+</table>
+
+[Template:tree]
+<h3>Tree (with bike attached)</h3>
+<table class="mgrid">
+<tr>
+<td>
+{tree[0]}
+</td>
+</tr>
+</table>
+
+[Template:cups]
+<h3>Cups</h3>
+<table>
+<tr>
+<td>
+<table class="mgrid">
+<tr>
+<td>
+{cups[0]}
+</td>
+<td>
+{cups[1]}
+</td>
+</tr>
+</table>
+</td>
+<td>Leftmost cup on the shelf in the boys' skool (water/sherry)</td>
+</tr>
+<tr>
+<td>
+<table class="mgrid">
+<tr>
+<td>
+{cups[2]}
+</td>
+<td>
+{cups[3]}
+</td>
+</tr>
+</table>
+</td>
+<td>Middle cup on the shelf in the boys' skool (water/sherry)</td>
+</tr>
+<tr>
+<td>
+<table class="mgrid">
+<tr>
+<td>
+{cups[4]}
+</td>
+<td>
+{cups[5]}
+</td>
+</tr>
+</table>
+</td>
+<td>Rightmost cup on the shelf in the boys' skool (water/sherry)</td>
+</tr>
+<tr>
+<td>
+<table class="mgrid">
+<tr>
+<td>
+{cups[6]}
+</td>
+<td>
+{cups[7]}
+</td>
+</tr>
+</table>
+</td>
+<td>Cup on the shelf in the girls' skool (water/sherry)</td>
+</tr>
+</table>
+
+[PageContent:InitialAnimatoryStates]
+#PUSHS
+#CALL:adjust_mutable(57405)
+#CALL:adjust_mutable(64000)
+#CALL:adjust_mutable(57856)
+<div>#CALL:play_area(initial_as,0,0,192,21,2,1,8)</div>
+#POPS
+
+[PageContent:AnimatoryStates]
+<table class="animatoryStates">
+#CALL:animatory_states()
+</table>
+
+[Template:animatory_state_row]
+<tr>
+<td><a name="{state_l}"></a>{img_l}</td>
+<td><a name="{state_r}"></a>{img_r}</td>
+<td>{state_l}, {state_r}: {desc}</td>
+</tr>
+
+[Page:AnimatoryStateTiles]
+JavaScript=microsphere.js
+
+[PageContent:AnimatoryStateTiles]
+<div>
+<p>Click a tile in the gallery below to see the following info:</p>
+<table>
+<tr>
+<td>
+<div class="B">
+<div class="H">0: row 1, column 1</div>
+<table>
+<tr>
+<td><img alt="0:1,1" src="b762.png"/></td>
+<td>
+<i>lsb</i>=128, <i>ref_page</i>=220<br/>
+<i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)=56448<br/>
+<i>ref</i>=98, <i>udg_page</i>=183<br/>
+<i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)=46946
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+<p>where:</p>
+<ul>
+<li><i>lsb</i> is the animatory state + 128 (128-255)</li>
+<li><i>ref_page</i> is the page containing the UDG reference for the tile (215-226)</li>
+<li><i>ref_addr</i> is the address of the UDG reference (<i>lsb</i>+256*<i>ref_page</i>)</li>
+<li><i>ref</i> is the UDG reference at <i>ref_addr</i> (0, 73-255)</li>
+<li><i>udg_page</i> is the base page for the tile graphic data (183 or 199)</li>
+<li><i>udg_addr</i> is the base address of the tile graphic data (<i>ref</i>+256*<i>udg_page</i>)</li>
+</ul>
+<p>
+The graphic for an animatory state is made up of 12 tiles in a 3x4 grid:
+</p>
+<table class="asgrid">
+<tr><td>0</td><td>4</td><td>8</td></tr>
+<tr><td>1</td><td>5</td><td>9</td></tr>
+<tr><td>2</td><td>6</td><td>10</td></tr>
+<tr><td>3</td><td>7</td><td>11</td></tr>
+</table>
+<p>
+Each tile has a UDG reference (<i>ref</i>) located at (<i>lsb</i>,T+215), where T is the tile number (0-11).
+</p>
+<p>
+The eight graphic bytes and eight mask bytes for a tile are located thus:
+</p>
+<table class="default">
+<tr><th>Address</th><th>Contents</th></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>)=<i>udg_addr</i></td><td>Graphic byte 1/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+256</td><td>Mask byte 1/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+512</td><td>Graphic byte 2/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+768</td><td>Mask byte 2/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+1024</td><td>Graphic byte 3/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+1280</td><td>Mask byte 3/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+1536</td><td>Graphic byte 4/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+1792</td><td>Mask byte 4/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+8)=<i>udg_addr</i>+2048</td><td>Graphic byte 5/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+9)=<i>udg_addr</i>+2304</td><td>Mask byte 5/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+10)=<i>udg_addr</i>+2560</td><td>Graphic byte 6/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+11)=<i>udg_addr</i>+2816</td><td>Mask byte 6/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+12)=<i>udg_addr</i>+3072</td><td>Graphic byte 7/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+13)=<i>udg_addr</i>+3328</td><td>Mask byte 7/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+14)=<i>udg_addr</i>+3584</td><td>Graphic byte 8/8</td></tr>
+<tr><td>(<i>ref</i>,<i>udg_page</i>+15)=<i>udg_addr</i>+3840</td><td>Mask byte 8/8</td></tr>
+</table>
+<p>
+The 'null' UDG (<i>ref</i>=0) is always taken to be blank (eight zeroes); its graphic data is not looked up at (0,183) or (0,199).
+</p>
+<p>
+Any given tile (identified by <i>udg_addr</i>) may appear in more than one animatory state (and in more than one place in a single animatory state).
+</p>
+<p>
+The tiles for animatory states 128-255 are not stored separately; the tiles for animatory state N>=128 are obtained by flipping the tiles for animatory state N-128 (see #R24576).
+</p>
+</div>
+<table class="asTiles">
+#CALL:astiles()
+</table>
+
+[Template:astiles_row]
+<tr>
+{frames}
+<td>{desc}</td>
+</tr>
+
+[Template:astiles_frame_4x3]
+<td>
+<table class="A">
+<tr>
+<td>{tiles[0]}</td>
+<td>{tiles[1]}</td>
+<td>{tiles[2]}</td>
+</tr>
+<tr>
+<td>{tiles[3]}</td>
+<td>{tiles[4]}</td>
+<td>{tiles[5]}</td>
+</tr>
+<tr>
+<td>{tiles[6]}</td>
+<td>{tiles[7]}</td>
+<td>{tiles[8]}</td>
+</tr>
+<tr>
+<td>{tiles[9]}</td>
+<td>{tiles[10]}</td>
+<td>{tiles[11]}</td>
+</tr>
+</table>
+</td>
+
+[Template:astile]
+<div class="T" onclick="s('{bubble_id}')"><img alt="{state}:{row},{column}" src="{img_fname}"/></div><div id="{bubble_id}" class="B P" onclick="h(this)"><div class="H">{state}: row {row}, column {column}</div><table><tr><td><img alt="{state}:{row},{column}" src="{img_fname}"/></td><td><i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/><i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/><i>ref</i>={tile.ref}, <i>udg_page</i>={tile.udg_page}<br/><i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)={tile.udg_addr}</td></tr></table></div>
+
+[Template:astile_null]
+<div class="T" onclick="s('{bubble_id}')"><img alt="{state}:{row},{column}" src="{img_fname}"/></div><div id="{bubble_id}" class="B P" onclick="h(this)"><div class="H">{state}: row {row}, column {column}</div><table><tr><td><img alt="{state}:{row},{column}" src="{img_fname}"/></td><td><i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/><i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/><i>ref</i>=0</td></tr></table></div>
+
+[PageContent:CharacterBuffers]
+<p>The character buffers occupy bytes 0-36 in pages 183-214. The buffers in pages 198, 199, 206, 207 and 208 may be used by mice released by ERIC.</p>
+#CALL:cast()
+#CALL:cbuffer()
+
+[Template:cast]
+#TABLE(cbuffer,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter)
+{{ =h Page | =h Address | =h Character      |  | =h Page | =h Address | =h Character      |  | =h Page | =h Address | =h Character }}
+{{ 183     | #R46848    | {characters[183]} |  | 194     | #R49664    | {characters[194]} |  | 205     | #R52480    | {characters[205]} }}
+{{ 184     | #R47104    | {characters[184]} |  | 195     | #R49920    | {characters[195]} |  | 206     | #R52736    | {characters[206]} }}
+{{ 185     | #R47360    | {characters[185]} |  | 196     | #R50176    | {characters[196]} |  | 207     | #R52992    | {characters[207]} }}
+{{ 186     | #R47616    | {characters[186]} |  | 197     | #R50432    | {characters[197]} |  | 208     | #R53248    | {characters[208]} }}
+{{ 187     | #R47872    | {characters[187]} |  | 198     | #R50688    | {characters[198]} |  | 209     | #R53504    | {characters[209]} }}
+{{ 188     | #R48128    | {characters[188]} |  | 199     | #R50944    | {characters[199]} |  | 210     | #R53760    | {characters[210]} }}
+{{ 189     | #R48384    | {characters[189]} |  | 200     | #R51200    | {characters[200]} |  | 211     | #R54016    | {characters[211]} }}
+{{ 190     | #R48640    | {characters[190]} |  | 201     | #R51456    | {characters[201]} |  | 212     | #R54272    | {characters[212]} }}
+{{ 191     | #R48896    | {characters[191]} |  | 202     | #R51712    | {characters[202]} |  | 213     | #R54528    | {characters[213]} }}
+{{ 192     | #R49152    | {characters[192]} |  | 203     | #R51968    | {characters[203]} |  | 214     | #R54784    | {characters[214]} }}
+{{ 193     | #R49408    | {characters[193]} |  | 204     | #R52224    | {characters[204]} }}
+TABLE#
+
+[Template:cbuffer]
+<p>The bytes in each character buffer are used as follows:</p>
+<table class="cbuffer">
+<tr>
+<th>Byte(s)</th>
+<th>Contents</th>
+</tr>
+{m_cbuffer_bytes}
+</table>
+
+[Template:cbuffer_bytes]
+<tr>
+<td class="cbufBytes" rowspan="{rowspan}">{bytes}</td>
+{t_cbuffer_desc}
+</tr>
+{m_cbuffer_desc_row}
+
+[Template:cbuffer_desc_row]
+<tr>
+{t_cbuffer_desc}
+</tr>
+
+[Template:cbuffer_desc]
+<td class="cbufByteDesc">
+{desc}
+</td>
+
+[Page:MainTimetable]
+Content=asm/46528.html
+
+[PageContent:PersonalTimetables]
+<table class="timetable">
+<tr>
+<th>No.</th>
+<th>Character</th>
+</tr>
+#CALL:personal_timetables()
+</table>
+
+[Template:personal_timetable]
+<tr>
+<td class="ptCharNum">#R{address}({num})</td>
+<td class="ptCharName">{name}</td>
+</tr>
+
+[PageContent:LessonIndex]
+<table class="lesson">
+<tr>
+<th>ID</th>
+<th>Lesson</th>
+</tr>
+#CALL:lesson_index()
+</table>
+
+[Template:lesson_type]
+<tr>
+<td class="lessonType">#LESSON{type}</td>
+<td class="lesson">{description}</td>
+</tr>
+
+[PageContent:Lesson37]
+#CALL:lesson(37)
+
+[PageContent:Lesson38]
+#CALL:lesson(38)
+
+[PageContent:Lesson39]
+#CALL:lesson(39)
+
+[PageContent:Lesson40]
+#CALL:lesson(40)
+
+[PageContent:Lesson41]
+#CALL:lesson(41)
+
+[PageContent:Lesson42]
+#CALL:lesson(42)
+
+[PageContent:Lesson43]
+#CALL:lesson(43)
+
+[PageContent:Lesson44]
+#CALL:lesson(44)
+
+[PageContent:Lesson45]
+#CALL:lesson(45)
+
+[PageContent:Lesson46]
+#CALL:lesson(46)
+
+[PageContent:Lesson47]
+#CALL:lesson(47)
+
+[PageContent:Lesson48]
+#CALL:lesson(48)
+
+[PageContent:Lesson49]
+#CALL:lesson(49)
+
+[PageContent:Lesson50]
+#CALL:lesson(50)
+
+[PageContent:Lesson51]
+#CALL:lesson(51)
+
+[PageContent:Lesson52]
+#CALL:lesson(52)
+
+[PageContent:Lesson53]
+#CALL:lesson(53)
+
+[PageContent:Lesson54]
+#CALL:lesson(54)
+
+[PageContent:Lesson55]
+#CALL:lesson(55)
+
+[PageContent:Lesson56]
+#CALL:lesson(56)
+
+[PageContent:Lesson57]
+#CALL:lesson(57)
+
+[PageContent:Lesson58]
+#CALL:lesson(58)
+
+[PageContent:Lesson59]
+#CALL:lesson(59)
+
+[Template:lesson]
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-{prev_lesson[exists]}">Prev: <a class="link" href="{prev_lesson[href]}">{prev_lesson[num]}</a></span></td>
+<td class="up">Up: #LINK:LessonIndex(Index)</td>
+<td class="next"><span class="next-{next_lesson[exists]}">Next: <a class="link" href="{next_lesson[href]}">{next_lesson[num]}</a></span></td>
+</tr>
+</table>
+<div class="description">Lesson {lesson[num]}: {lesson[desc]}</div>
+<table class="lesson">
+<tr>
+<th>Character</th>
+<th>Address</th>
+<th>Command list</th>
+</tr>
+{m_timetable}
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-{prev_lesson[exists]}">Prev: <a class="link" href="{prev_lesson[href]}">{prev_lesson[num]}</a></span></td>
+<td class="up">Up: #LINK:LessonIndex(Index)</td>
+<td class="next"><span class="next-{next_lesson[exists]}">Next: <a class="link" href="{next_lesson[href]}">{next_lesson[num]}</a></span></td>
+</tr>
+</table>
+
+[Template:timetable]
+<tr>
+<td class="lessonCharacter">#R{pt_address}({character_num}) - {character}</td>
+<td class="lessonAddress">{lesson_address}</td>
+<td class="lesson">#R{cl_address}({cl_num}) - {cl_desc}</td>
+</tr>
+
+[Page:CommandLists]
+Content=asm/59392.html
+
+[PageContent:Keys]
+<div class="details">
+<div>Key = CHR$(Index + 48)</div>
+<div>Address = Index + #R58624</div>
+<div>Offset = PEEK(Address)</div>
+<div>Lookup = Offset + 58624 (points to an entry in the table at #R58704)</div>
+<div>Routine = address at (Lookup, Lookup + 1)</div>
+</div>
+<table class="keytable">
+<tr>
+<th>Index</th>
+<th>Key</th>
+<th>Address</th>
+<th>Offset</th>
+<th>Lookup</th>
+<th>Routine</th>
+<th>Purpose</th>
+</tr>
+#CALL:keypress_table_rows()
+</table>
+
+[Template:keypress_table_row]
+<tr>
+<td class="keyIndex">{index}</td>
+<td class="key">{key}</td>
+<td class="keyAddress">{address}</td>
+<td class="keyOffset">{offset}</td>
+<td class="keyAddress">{lookup}</td>
+<td class="keyAddress">{routine}</td>
+<td class="keyPurpose">{purpose}</td>
+</tr>

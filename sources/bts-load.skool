@@ -1,0 +1,323 @@
+; Copyright 2001, 2008-2013, 2015 Richard Dymond (rjdymond@gmail.com)
+
+d16643 DEFB 60,0,124,60,66,120,60,66,62,126,126,0,66
+ 16656 DEFB 60,124,0,60,60,126,60,8,0,0,124,126,66,0,0,16
+ 16673 DEFB 62,126,0,0,0,254,66,126,66
+ 16688 DEFB 36,0,60,60,0,60,66,124,0,0,36,0,124,60,66,60
+ 16704 DEFB 126,0,66,126,66,0,0,20,60,254,0,254,60,124
+ 16720 DEFB 36
+ 16899 DEFB 70,16,66,66,98,68,66,102,8,4,64,0,66
+ 16912 DEFB 64,66,0,66,66,2,66,24,0,0,66,64,102,0,68,16
+ 16929 DEFB 8,64,0,64,0,16,66,64,98
+ 16944 DEFB 126,0,66,66,0,64,66,66,0,60,126,0,66,66,66,64
+ 16960 DEFB 64,0,98,64,66,0,64,40,66,16,0,16,66,66,0,68
+ 16976 DEFB 126
+ 17155 DEFB 74,8,66,66,82,66,66,90,8,8,124,0,66
+ 17168 DEFB 60,66,0,2,12,4,66,40,16,0,66,124,90,0,40,16
+ 17185 DEFB 8,124,0,32,0,16,126,124,82
+ 17200 DEFB 36,0,64,66,0,60,66,124,0,68,36,0,66,66,66,60
+ 17216 DEFB 124,0,82,124,66,0,32,0,66,16,0,16,66,124,0,84
+ 17232 DEFB 36
+ 17411 DEFB 82,4,124,126,74,66,66,66,8,16,64,0,66
+ 17424 DEFB 2,124,0,60,2,8,62,72,0,0,124,64,66,0,16,16
+ 17441 DEFB 8,64,0,16,0,16,66,64,74
+ 17456 DEFB 36,0,78,66,0,2,66,66,0,68,36,0,124,126,66,2
+ 17472 DEFB 64,0,74,64,66,0,16,0,126,16,0,16,126,66,0,84
+ 17488 DEFB 36
+ 17667 DEFB 98,8,68,66,70,68,66,66,8,32,64,0,66
+ 17680 DEFB 66,68,0,64,66,16,2,126,0,0,68,64,66,0,40
+ 17697 DEFB 8,64,0,8,0,16,66,64,70
+ 17712 DEFB 126,0,66,66,0,66,66,66,0,60,126,0,64,66,66,66
+ 17728 DEFB 64,0,70,64,90,0,8,0,66,16,0,16,66,66,0,84
+ 17744 DEFB 126
+ 17923 DEFB 60,16,66,66,66,120,60,66,62,126,126,0,60
+ 17936 DEFB 60,66,0,126,60,16,60,8,16,0,66,126,66,0,68,16
+ 17953 DEFB 62,64,0,4,0,16,66,126,66
+ 17968 DEFB 36,0,60,60,0,60,60,124,0,4,36,0,64,66,60,60
+ 17984 DEFB 126,0,66,126,36,0,4,0,66,16,0,16,66,124,0,40
+ 18000 DEFB 36
+ 18233 DEFB 56
+; ?K
+ 20704 DEFB 255,255
+ 20960 DEFB 195,187
+ 21216 DEFB 189,183
+ 21472 DEFB 251,143
+ 21728 DEFB 247,183
+ 21984 DEFB 255,187
+ 22240 DEFB 247,189
+ 22496 DEFB 255,255
+; Attribute file
+ 22528 DEFS 736,56
+ 23264 DEFB 184,184
+ 23266 DEFS 30,56
+
+; After the program 'bak2skool' has loaded, this is where it all starts...
+;
+; #UDGTABLE
+; { #SCR(loader.gif) | This is the initial loader program for Back to Skool (as
+; it appears after doing 'POKE 23762,0' to change the INK for the BASIC listing
+; from white to black). Don't be fooled by the 'RANDOMIZE USR 23794': the
+; floating point number stored underneath is actually 23831. }
+; TABLE#
+; .
+; Entering the code here from BASIC means that #REGc=23 (the LSB of 23831);
+; this value is used later on in the routine at #R32815.
+c23831 DI            ; Disable interrupts
+ 23832 LD B,49       ;
+ 23834 LD DE,65487   ;
+ 23837 CALL 24046    ;
+; And so begins the misdirection.
+*24046 POP HL        ; #REGhl=23840
+ 24047 ADD HL,DE     ; #REGhl=23791
+ 24048 PUSH HL       ;
+ 24049 LD DE,7       ;
+ 24052 ADD HL,DE     ; #REGhl=23798
+ 24053 RET           ; Jump to 23791
+; Undo some code obfuscation before continuing.
+*23791 LD A,(HL)     ; {Do some XORing on the 49 bytes from 23798 to 23846
+ 23792 XOR H         ;
+ 23793 XOR L         ;
+ 23794 LD (HL),A     ;
+ 23795 INC HL        ;
+ 23796 DJNZ 23791    ; }
+; After the XORing:
+*23798 EXX           ;
+ 23799 EX (SP),HL    ; #REGhl'=11563
+ 23800 LD A,H        ; #REGa=45
+ 23801 AND L         ; #REGa=41
+ 23802 ADD A,L       ; #REGa=84
+ 23803 ADD A,L       ; #REGa=127
+ 23804 LD H,A        ; #REGh'=127
+ 23805 ADD A,78      ; #REGa=205
+ 23807 LD L,A        ; #REGhl'=32717
+ 23808 EXX           ;
+ 23809 LD HL,23551   ; {INK 1: PAPER 1
+*23812 LD (HL),9     ;
+ 23814 DEC HL        ;
+ 23815 BIT 3,H       ;
+ 23817 JR NZ,23812   ; }
+*23819 LD (HL),0     ; {Clear the display file
+ 23821 DEC HL        ;
+ 23822 BIT 6,H       ;
+ 23824 JR NZ,23819   ; }
+ 23826 INC E         ; {#REGde=9
+ 23827 INC E         ; }
+ 23828 CALL 24046    ;
+; More misdirection.
+!24046 POP HL        ; #REGhl=23831
+ 24047 ADD HL,DE     ; #REGhl=23840
+ 24048 PUSH HL       ;
+ 24049 LD DE,7       ;
+ 24052 ADD HL,DE     ; #REGhl=23847
+ 24053 RET           ; Jump to 23840
+; Undo some more code obfuscation before continuing.
+*23840 LD A,(HL)     ; {Do some XORing and RLCing on the 217 bytes from 23847
+ 23841 XOR E         ; to 24063
+ 23842 RLCA          ;
+ 23843 LD (HL),A     ;
+ 23844 INC L         ;
+ 23845 JR NZ,23840   ; }
+; After the XORing and RLCing:
+*23847 PUSH HL       ; #REGhl=23808
+ 23848 EXX           ;
+ 23849 POP DE        ; #REGde'=23808
+ 23850 EX DE,HL      ; #REGde'=32717
+ 23851 LD BC,255     ; {Copy 255 bytes from 23808-24062 to 32717-32971
+ 23854 LDIR          ; }
+ 23856 LD E,A        ; #REGe'=47
+ 23857 EX DE,HL      ; #REGhl'=32815
+ 23858 JP (HL)       ; Jump to #R32815
+
+@start
+; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
+; Copyright 2001, 2008-2013, 2015 Richard Dymond (this disassembly)
+@org=32768
+
+; Collect one bit from tape
+;
+; Used by the routine at #R32815.
+@label=EDGE2
+c32768 INC SP        ; {Place the address 0 on the stack above the current
+ 32769 INC SP        ; return address, so the Spectrum will reset if there's a
+ 32770 EX (SP),HL    ; loading error
+ 32771 LD H,0        ;
+ 32773 LD L,H        ;
+ 32774 EX (SP),HL    ;
+ 32775 DEC SP        ;
+ 32776 DEC SP        ; }
+ 32777 LD A,6        ;
+ 32779 CALL 32785    ; Listen for one edge
+ 32782 RET NC        ; Return if no edge was found within the time limit
+; This entry point is also used by the routine at #R32815.
+@label=EDGE1
+*32783 LD A,11       ; {Wait a bit
+@label=DELAY
+*32785 DEC A         ;
+ 32786 JR NZ,32785   ; }
+ 32788 AND A         ; Reset the carry flag
+@label=SAMPLE
+*32789 INC B         ; Have we run out of time to find an edge?
+ 32790 RET Z         ; Return with the carry flag reset if so
+ 32791 LD A,127      ; {Collect an EAR port reading in bit 6 of #REGa
+ 32793 IN A,(254)    ; }
+ 32795 RRA           ; Move it to bit 5 of #REGa
+ 32796 AND A         ; In the analogous ROM routine, the instruction here is
+                     ; 'RET NC', causing a return if BREAK was pressed; in this
+                     ; routine, that behaviour is disabled (pressing BREAK does
+                     ; nothing)
+ 32797 XOR C         ; {Compare this EAR port reading with the previous one
+ 32798 AND 32        ; }
+ 32800 JR Z,32789    ; Jump back if they are the same (i.e. no edge was found)
+ 32802 LD A,C        ; {Alternate the border colour
+ 32803 CPL           ;
+ 32804 LD C,A        ;
+ 32805 AND 7         ;
+ 32807 OR 8          ;
+ 32809 OUT (254),A   ; }
+ 32811 SCF           ; Signal: an edge was found within the time limit
+ 32812 RET           ; Return with #REGb indicating the time taken to find the
+                     ; edge
+
+i32813 DEFS 2
+
+; Fast load the main code block
+;
+; Continues from #R23831.
+@nowarn
+@label=BTSLOAD
+c32815 LD SP,33020   ; Put the stack somewhere safe
+ 32818 LD IX,16384   ; The fast code block starts loading at address 16384 (the
+                     ; start of the display file)
+@nowarn
+ 32822 LD DE,49152   ; Set #REGde (the byte counter) to a high enough value
+                     ; that it won't reach 0 before the first 16570 bytes
+                     ; (16384-32953) have been loaded
+ 32825 LD A,255      ; We expect the first byte loaded (the flag byte) to be
+                     ; 255
+ 32827 SCF           ; In the analogous ROM routine, setting the carry flag
+                     ; would indicate that we want to LOAD rather than VERIFY;
+                     ; here, this flag is not used
+ 32828 INC D         ; Reset the zero flag, indicating that we haven't loaded
+                     ; the first byte of the data block (the flag byte) yet
+ 32829 EX AF,AF'     ; Save these flags
+ 32830 DEC D         ; Restore the value of #REGde
+ 32831 DI            ; Disable interrupts
+ 32832 LD A,15       ; {BORDER 7
+ 32834 OUT (254),A   ; }
+ 32836 IN A,(254)    ; Collect an initial EAR port reading into bit 6 of #REGa
+ 32838 RRA           ; Move it to bit 5 of #REGa
+ 32839 AND 32        ; Clear the extraneous bits (0-4 and 6-7)
+ 32841 OR 2          ; The border will turn red when the first edge is found
+ 32843 LD C,A        ; #REGc will hold the border colour
+ 32844 CP A          ; Set the zero flag to avoid returning at the next
+                     ; instruction
+@label=BREAK
+*32845 RET NZ        ; In the analogous ROM routine, this instruction would
+                     ; return if the BREAK key is being pressed; here, the zero
+                     ; flag is always set
+@label=START
+*32846 CALL 32783    ; Listen for an edge
+ 32849 JR NC,32845   ; Jump back to listen again if no edge was found within
+                     ; the time limit
+; An edge was found. Wait a bit and then listen again.
+ 32851 LD HL,1045    ; {Wait for about one second
+@label=WAIT
+*32854 DJNZ 32854    ;
+ 32856 DEC HL        ;
+ 32857 LD A,H        ;
+ 32858 OR L          ;
+ 32859 JR NZ,32854   ; }
+ 32861 CALL 32768    ; Are the edges still coming?
+ 32864 JR NC,32845   ; Jump back if not
+; Check whether the signal is a leader tone.
+@label=LEADER
+*32866 LD B,156      ; {256 double edges arriving within a specific time limit
+ 32868 CALL 32768    ; constitute a valid leader tone
+ 32871 JR NC,32845   ;
+ 32873 LD A,198      ;
+ 32875 CP B          ;
+ 32876 JR NC,32846   ;
+ 32878 INC H         ;
+ 32879 JR NZ,32866   ; }
+; This looks like a leader tone. Now listen for the first edge of the data
+; block.
+@label=SYNC
+*32881 LD B,201      ; {Is the leader tone still there?
+ 32883 CALL 32783    ; }
+ 32886 JR NC,32845   ; Jump back if not
+ 32888 LD A,B        ; {Have we found the first edge of the data block?
+ 32889 CP 212        ; }
+ 32891 JR NC,32881   ; Jump back if not
+; The first edge of the data block has been detected.
+ 32893 CALL 32783    ; Look for the second edge of the data block
+ 32896 RET NC        ; Reset the Spectrum if it can't be found
+; Prepare to load the data block.
+ 32897 LD A,C        ; {The border will alternate between blue and yellow for
+ 32898 XOR 3         ; the data block
+ 32900 LD C,A        ; }
+ 32901 LD H,0        ; Initialise the parity byte to 0
+ 32903 LD B,225      ; Set the timing constant for the flag byte
+ 32905 JR 32931      ; Jump forward to load the flag byte
+; This is the byte-loading loop. The first byte loaded is the flag byte.
+@label=LOOP
+*32907 EX AF,AF'     ; Restore the flags
+ 32908 JR NZ,32915   ; Jump if the first byte (the flag byte) has just been
+                     ; collected
+ 32910 LD (IX+0),L   ; Load the byte read from tape into memory
+ 32913 JR 32925      ;
+@label=FLAG
+*32915 RL C          ; Save the carry flag in bit 0 of #REGc temporarily
+ 32917 XOR L         ; #REGl=first byte of the data block (the flag byte)
+ 32918 RET NZ        ; Reset the Spectrum if it wasn't 255
+ 32919 LD A,C        ; {Restore the carry flag
+ 32920 RRA           ; }
+ 32921 LD C,A        ; Restore #REGc
+ 32922 INC DE        ; Compensate for the 'DEC DE' below
+ 32923 JR 32927      ; Jump forward to start loading bytes into memory
+@label=NEXT
+*32925 INC IX        ; #REGix=next address to load the byte from tape into
+@label=DECBCNT
+*32927 DEC DE        ; Decrease the byte counter
+ 32928 EX AF,AF'     ; Save the flags (the zero flag is now set)
+; This inner loop loads the eight bits of a byte one-by-one from the tape into
+; the #REGl register.
+@label=INNERLOOP
+*32929 LD B,227      ; Set the timing constant
+@label=MARKER
+*32931 LD L,1        ; Get ready to load eight bits from the tape
+@label=EIGHTBITS
+*32933 CALL 32768    ; Load one bit from the tape
+ 32936 RET NC        ; Reset the Spectrum if there was a loading error
+ 32937 LD A,237      ; {Set the carry flag if a '1' was read from the tape, or
+ 32939 CP B          ; reset it if a '0' was read}
+ 32940 RL L          ; Move the bit into the #REGl register
+ 32942 LD B,225      ; Set the timing constant for the next bit
+ 32944 JP NC,32933   ; Jump unless eight bits have been loaded
+; A full byte has just been read from the tape.
+ 32947 LD A,H        ; {Update the (ultimately unused) parity byte against the
+ 32948 XOR L         ; byte just read from the tape
+ 32949 LD H,A        ; }
+ 32950 LD A,D        ; {Set the zero flag if the the byte counter has reached 0
+ 32951 OR E          ; (which never happens)}
+ 32952 JR NZ,32907   ; Jump back to load another byte from the tape
+ 32954 RET           ; (We never get here)
+@end
+; When the computer has loaded up to 32953, the instruction at 32952 is changed
+; thus:
+a32952 JR NZ,32893   ;
+; At this stage, 32893 reads as follows:
+a32893 LD (IX-52),L  ; POKE 32902,32
+a32896 EXX           ;
+a32897 ADD IX,BC     ; Add 23 to #REGix
+a32899 EXX           ;
+a32900 SET 7,L       ;
+; The POKE at 32893 above changes the instruction at 32902 from 'LD SP,23833'
+; to:
+a32902 JR NZ,32929   ; Jump forward to load the next byte from the tape
+; Now 65536 more bytes are loaded, the last of which is at 32902 (even though
+; there is one more byte, 32925, left on the tape: see the
+; #R33013@save(save routine)). Then 32902 reads as follows:
+v32902 LD SP,23833   ; Point the stack pointer at the game start address that
+                     ; was placed at 23833 by the #R33013@save(save routine)
+v32905 LD D,H        ;
+v32906 RET           ; To (23833)=#R33204@start
