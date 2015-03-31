@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 23907</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="23887.html">23887</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#23907">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="24027.html">24027</a></span></td>
+</tr>
+</table>
+<div class="description">23907: Deal with ERIC when he's jumping</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Called by the routine at <a class="link" href="63405.html">63405</a> when bit 0 at <a class="link" href="32763.html">32763</a> is set (by the routine at <a class="link" href="23887.html">23887</a>). Checks whether ERIC has jumped onto a plant pot, up to the safe, or up to the drinks cabinet.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23907"></a>23907</td>
+<td class="instruction">LD HL,32755</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32755.html">32755</a> holds ERIC's main action timer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23910"></a>23910</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Is it time for ERIC to land?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23911"></a>23911</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23912"></a>23912</td>
+<td class="instruction">LD L,251</td>
+<td class="comment-11" rowspan="2">Reset all of ERIC's status flags at <a class="link" href="32763.html">32763</a> (ERIC is no longer doing anything special)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23914"></a>23914</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23916"></a>23916</td>
+<td class="instruction">LD H,210</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23918"></a>23918</td>
+<td class="instruction">CALL <a class="link" href="63878.html">63878</a></td>
+<td class="comment-11" rowspan="1">Set the zero flag if ERIC is in the same position as a plant pot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23921"></a>23921</td>
+<td class="instruction">LD A,2</td>
+<td class="comment-11" rowspan="1">Bit 1 set at <a class="link" href="32763.html">32763</a>: make the routine at <a class="link" href="63405.html">63405</a> inspect ERIC's other status flags at <a class="link" href="32749.html">32749</a>; bit 1 set at <a class="link" href="32749.html">32749</a>: ERIC is standing on a plant pot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23923"></a>23923</td>
+<td class="instruction">JR NZ,23940</td>
+<td class="comment-11" rowspan="1">Jump if ERIC's not in the same position as a plant pot</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="23925"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="24263.html">24263</a> with <span class="register">A</span>=0.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23925"></a>23925</td>
+<td class="instruction">LD DE,32763</td>
+<td class="comment-11" rowspan="2">Set or reset the appropriate status flags at <a class="link" href="32763.html">32763</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23928"></a>23928</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23929"></a>23929</td>
+<td class="instruction">LD E,237</td>
+<td class="comment-11" rowspan="2">Set or reset the appropriate status flags at <a class="link" href="32749.html">32749</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23931"></a>23931</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23932"></a>23932</td>
+<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23935"></a>23935</td>
+<td class="instruction">AND 128</td>
+<td class="comment-11" rowspan="1">Restore ERIC's animatory state to <a class="link" href="../graphics/as.html#0">0</a> (facing left) or <a class="link" href="../graphics/as.html#128">128</a> (facing right) as appropriate</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="23937"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="23887.html">23887</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23937"></a>23937</td>
+<td class="instruction">JP <a class="link" href="62178.html#62231">62231</a></td>
+<td class="comment-11" rowspan="1">Update ERIC's animatory state and update the SRB</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="23940"></a>
+<div class="comments">
+<div class="paragraph">
+ERIC has jumped, but not onto a plant pot.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23940"></a>23940</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23941"></a>23941</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23942"></a>23942</td>
+<td class="instruction">SUB L</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23943"></a>23943</td>
+<td class="instruction">JR Z,23953</td>
+<td class="comment-11" rowspan="1">Jump if ERIC jumped while on the top floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23945"></a>23945</td>
+<td class="instruction">LD H,210</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23947"></a>23947</td>
+<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23950"></a>23950</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Increment ERIC's y-coordinate, bringing him back to the floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23951"></a>23951</td>
+<td class="instruction">JR 23935</td>
+<td class="comment-11" rowspan="1">Restore ERIC's animatory state and update the SRB</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="23953"></a>
+<div class="comments">
+<div class="paragraph">
+ERIC jumped while on the top floor. Up to the drinks cabinet?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23953"></a>23953</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23954"></a>23954</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23955"></a>23955</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="7">Now <span class="register">A</span>=x-coordinate of ERIC's raised arm</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23956"></a>23956</td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23957"></a>23957</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23958"></a>23958</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23959"></a>23959</td>
+<td class="instruction">CPL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23960"></a>23960</td>
+<td class="instruction">INC A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23961"></a>23961</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23962"></a>23962</td>
+<td class="instruction">LD HL,32756</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32756.html">32756</a> holds the door/window status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23965"></a>23965</td>
+<td class="instruction">CP 190</td>
+<td class="comment-11" rowspan="1">Did ERIC jump up to the drinks cabinet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23967"></a>23967</td>
+<td class="instruction">JR C,23996</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23969"></a>23969</td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-11" rowspan="1">Is the drinks cabinet door open?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23971"></a>23971</td>
+<td class="instruction">JR Z,23945</td>
+<td class="comment-11" rowspan="1">Just bring ERIC back to the floor if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="23973"></a>
+<div class="comments">
+<div class="paragraph">
+ERIC has jumped up to the drinks cabinet, and it's open. But has he got the water pistol?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23973"></a>23973</td>
+<td class="instruction">LD L,235</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32747.html">32747</a> (which holds the inventory flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23975"></a>23975</td>
+<td class="instruction">BIT 4,(HL)</td>
+<td class="comment-11" rowspan="1">Has ERIC already got a sherry-filled water pistol?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23977"></a>23977</td>
+<td class="instruction">JR NZ,23945</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23979"></a>23979</td>
+<td class="instruction">BIT 3,(HL)</td>
+<td class="comment-11" rowspan="1">Has ERIC got a water-filled water pistol?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23981"></a>23981</td>
+<td class="instruction">JR Z,23945</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23983"></a>23983</td>
+<td class="instruction">SET 4,(HL)</td>
+<td class="comment-11" rowspan="1">Signal: ERIC now has a sherry-filled water pistol</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23985"></a>23985</td>
+<td class="instruction">CALL <a class="link" href="31746.html">31746</a></td>
+<td class="comment-11" rowspan="1">Print the inventory</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23988"></a>23988</td>
+<td class="instruction">LD HL,534</td>
+<td class="comment-11" rowspan="2">Make a sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23991"></a>23991</td>
+<td class="instruction">CALL <a class="link" href="62094.html#62150">62150</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23994"></a>23994</td>
+<td class="instruction">JR 23945</td>
+<td class="comment-11" rowspan="1">Bring ERIC back to the floor</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="23996"></a>
+<div class="comments">
+<div class="paragraph">
+ERIC has jumped, but not onto a plant pot or up to the drinks cabinet. Up to the safe?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23996"></a>23996</td>
+<td class="instruction">CP 81</td>
+<td class="comment-11" rowspan="1">Did ERIC jump up to the safe in WACKER's study?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23998"></a>23998</td>
+<td class="instruction">JR NZ,23945</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24000"></a>24000</td>
+<td class="instruction">LD L,235</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32747.html">32747</a> (which holds the inventory flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24002"></a>24002</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Has ERIC got the safe key?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24004"></a>24004</td>
+<td class="instruction">JR Z,23945</td>
+<td class="comment-11" rowspan="1">Just bring ERIC back to the floor if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="24006"></a>
+<div class="comments">
+<div class="paragraph">
+ERIC has jumped up to the safe, and he has the safe key. Celebration time.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24006"></a>24006</td>
+<td class="instruction">LD L,222</td>
+<td class="comment-11" rowspan="2">Set <a class="link" href="32734.html">32734</a> to 1 so the game will be restarted instead of going into demo mode</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24008"></a>24008</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24009"></a>24009</td>
+<td class="instruction">LD A,200</td>
+<td class="comment-11" rowspan="2">Add 2000 to the score and print it</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24011"></a>24011</td>
+<td class="instruction">CALL <a class="link" href="29621.html">29621</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24014"></a>24014</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a class="link" href="65007.html">0</a>: 'ONTO THE NEXT YEAR'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24015"></a>24015</td>
+<td class="instruction">CALL <a class="link" href="32433.html#32478">32478</a></td>
+<td class="comment-11" rowspan="1">Print this in the lesson box and ring the bell</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24018"></a>24018</td>
+<td class="instruction">LD HL,56363</td>
+<td class="comment-11" rowspan="2">Play the up-a-year tune</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24021"></a>24021</td>
+<td class="instruction">CALL <a class="link" href="24477.html#24485">24485</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24024"></a>24024</td>
+<td class="instruction">JP <a class="link" href="63189.html">63189</a></td>
+<td class="comment-11" rowspan="1">Restart the game</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="23887.html">23887</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#23907">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="24027.html">24027</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

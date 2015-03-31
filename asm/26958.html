@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 26958</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="26941.html">26941</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#26958">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="27109.html">27109</a></span></td>
+</tr>
+</table>
+<div class="description">26958: Print the speech bubble</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="27144.html">27144</a>. Returns with the carry flag set if the character about to speak is off-screen.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Number of the character about to speak (200-204, 208)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="26958"></a>26958</td>
+<td class="instruction">LD A,(32767)</td>
+<td class="comment-11" rowspan="2"><span class="register">B</span>=leftmost column of the play area on screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26961"></a>26961</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26962"></a>26962</td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Byte 1 holds the character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26964"></a>26964</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=x-coordinate of the character's head (and therefore of the speech bubble lip when it's printed)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26965"></a>26965</td>
+<td class="instruction">INC A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26966"></a>26966</td>
+<td class="instruction">SUB B</td>
+<td class="comment-11" rowspan="2">Return with the carry flag set if the character's head is off-screen to the left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26967"></a>26967</td>
+<td class="instruction">RET C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26968"></a>26968</td>
+<td class="instruction">CP 32</td>
+<td class="comment-11" rowspan="3">Return with the carry flag set if the character's head is off-screen to the right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26970"></a>26970</td>
+<td class="instruction">CCF</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26971"></a>26971</td>
+<td class="instruction">RET C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26972"></a>26972</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">0&lt;=<span class="register">C</span>&lt;=31 (screen x-coordinate of the character's head)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26973"></a>26973</td>
+<td class="instruction">AND 7</td>
+<td class="comment-11" rowspan="4">Point <span class="register">DE</span> at an entry in the 8-byte table at <a class="link" href="57720.html">57720</a>, whose contents are (128, 64, 32, 16, 8, 4, 2, 1)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26975"></a>26975</td>
+<td class="instruction">ADD A,120</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26977"></a>26977</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26978"></a>26978</td>
+<td class="instruction">LD D,225</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26980"></a>26980</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="2">The bit set in <span class="register">A</span> corresponds to the bit that needs to be set in the SRB byte for the lip of the speech bubble; store it in <a class="link" href="32761.html">32761</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26981"></a>26981</td>
+<td class="instruction">LD (32761),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26984"></a>26984</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=screen column for lip of speech bubble (0-31)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26985"></a>26985</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="5">Set <span class="register">E</span> to 0, 1, 2 or 3 (quarter of the screen in which the bubble will be printed)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26986"></a>26986</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26987"></a>26987</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26988"></a>26988</td>
+<td class="instruction">AND 3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26990"></a>26990</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26991"></a>26991</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character about to speak</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26992"></a>26992</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=2, which byte holds the character's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26993"></a>26993</td>
+<td class="instruction">CP 208</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=0 for EINSTEIN, -1 for a teacher</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26995"></a>26995</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26996"></a>26996</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the lip of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26997"></a>26997</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26998"></a>26998</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="5">Compute the LSB of the address of the SRB byte corresponding to the location of the speech bubble lip and store it in <a class="link" href="32760.html">32760</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="26999"></a>26999</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27000"></a>27000</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27001"></a>27001</td>
+<td class="instruction">ADD A,E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27002"></a>27002</td>
+<td class="instruction">LD (32760),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27005"></a>27005</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="2">Put the current column of the play area at the far left of the screen into <a class="link" href="32762.html">32762</a> for later use by the routine at <a class="link" href="26849.html">26849</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27006"></a>27006</td>
+<td class="instruction">LD (32762),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27009"></a>27009</td>
+<td class="instruction">LD H,11</td>
+<td class="comment-11" rowspan="7"><span class="register">HL</span>=attribute file address for the lip of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27011"></a>27011</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27012"></a>27012</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27013"></a>27013</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27014"></a>27014</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27015"></a>27015</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27016"></a>27016</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27017"></a>27017</td>
+<td class="instruction">LD DE,39136</td>
+<td class="comment-11" rowspan="1"><a class="link" href="39136.html">39136</a>: Lip UDG</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27020"></a>27020</td>
+<td class="instruction">CALL <a class="link" href="26941.html">26941</a></td>
+<td class="comment-11" rowspan="1">Print the lip of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27023"></a>27023</td>
+<td class="instruction">LD BC,65504</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-32</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27026"></a>27026</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-11" rowspan="1">Up a line</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27027"></a>27027</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Store this attribute file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27028"></a>27028</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="4"><span class="register">HL</span>=attribute file address for the top left corner of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27029"></a>27029</td>
+<td class="instruction">AND 248</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27031"></a>27031</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27032"></a>27032</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27033"></a>27033</td>
+<td class="instruction">LD DE,39392</td>
+<td class="comment-11" rowspan="1"><a class="link" href="39392.html">39392</a>: Top left corner UDG</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27036"></a>27036</td>
+<td class="instruction">CALL <a class="link" href="26941.html">26941</a></td>
+<td class="comment-11" rowspan="1">Print the top left corner of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27039"></a>27039</td>
+<td class="instruction">LD C,6</td>
+<td class="comment-11" rowspan="1">There are 6 UDGs in the top middle section of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="27041"></a>27041</td>
+<td class="instruction">LD DE,39648</td>
+<td class="comment-11" rowspan="1"><a class="link" href="39648.html">39648</a>: Top-middle section UDG</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27044"></a>27044</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27045"></a>27045</td>
+<td class="instruction">CALL <a class="link" href="26941.html">26941</a></td>
+<td class="comment-11" rowspan="1">Print a top-middle section UDG</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27048"></a>27048</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27049"></a>27049</td>
+<td class="instruction">JR NZ,27041</td>
+<td class="comment-11" rowspan="1">Jump back until all of the top middle section has been printed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27051"></a>27051</td>
+<td class="instruction">LD DE,39904</td>
+<td class="comment-11" rowspan="1"><a class="link" href="39904.html">39904</a>: Top right corner UDG</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27054"></a>27054</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27055"></a>27055</td>
+<td class="instruction">CALL <a class="link" href="26941.html">26941</a></td>
+<td class="comment-11" rowspan="1">Print the top right corner of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27058"></a>27058</td>
+<td class="instruction">LD C,25</td>
+<td class="comment-11" rowspan="2"><span class="register">HL</span>=attribute file address for bottom left corner of speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27060"></a>27060</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27061"></a>27061</td>
+<td class="instruction">LD DE,40160</td>
+<td class="comment-11" rowspan="1"><a class="link" href="40160.html">40160</a>: Bottom left corner UDG</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27064"></a>27064</td>
+<td class="instruction">CALL <a class="link" href="26941.html">26941</a></td>
+<td class="comment-11" rowspan="1">Print the bottom left corner of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27067"></a>27067</td>
+<td class="instruction">LD C,6</td>
+<td class="comment-11" rowspan="1">There are 6 UDGs in the bottom middle section of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="27069"></a>27069</td>
+<td class="instruction">LD DE,40416</td>
+<td class="comment-11" rowspan="1"><a class="link" href="40416.html">40416</a>: Bottom-middle section UDG</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27072"></a>27072</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27073"></a>27073</td>
+<td class="instruction">CALL <a class="link" href="26941.html">26941</a></td>
+<td class="comment-11" rowspan="1">Print a bottom-middle section UDG</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27076"></a>27076</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27077"></a>27077</td>
+<td class="instruction">JR NZ,27069</td>
+<td class="comment-11" rowspan="1">Jump back until all of the bottom middle section has been printed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27079"></a>27079</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27080"></a>27080</td>
+<td class="instruction">LD DE,40672</td>
+<td class="comment-11" rowspan="1"><a class="link" href="40672.html">40672</a>: Bottom right corner UDG</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27083"></a>27083</td>
+<td class="instruction">CALL <a class="link" href="26941.html">26941</a></td>
+<td class="comment-11" rowspan="1">Print the bottom right corner of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27086"></a>27086</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Retrieve the attribute file address for the spot above the lip of the speech bubble</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27087"></a>27087</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="7">Set <span class="register">HL</span> to the address of the bottom pixel line of the character square above the lip</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27088"></a>27088</td>
+<td class="instruction">AND 11</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27090"></a>27090</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27091"></a>27091</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27092"></a>27092</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27093"></a>27093</td>
+<td class="instruction">ADD A,7</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27095"></a>27095</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27096"></a>27096</td>
+<td class="instruction">LD (HL),66</td>
+<td class="comment-11" rowspan="1">'Open' the part above the lip (previously closed by a middle section UDG)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27098"></a>27098</td>
+<td class="instruction">LD HL,23360</td>
+<td class="comment-11" rowspan="4">Clear the first 64 bytes at <a class="link" href="23296.html">23296</a> (which will be used as a buffer for the speech text graphic data by the routine at <a class="link" href="27144.html">27144</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="27101"></a>27101</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27102"></a>27102</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27104"></a>27104</td>
+<td class="instruction">JR NZ,27101</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27106"></a>27106</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27107"></a>27107</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="2">Return with the carry flag reset to signal that the speech bubble has been printed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27108"></a>27108</td>
+<td class="instruction">RET</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="26941.html">26941</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#26958">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="27109.html">27109</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

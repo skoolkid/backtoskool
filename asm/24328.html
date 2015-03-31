@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 24328</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="24296.html">24296</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#24328">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="24348.html">24348</a></span></td>
+</tr>
+</table>
+<div class="description">24328: Make HAYLEY hit ERIC</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of HAYLEY's buffer by the routine at <a class="link" href="24348.html">24348</a> when ERIC has tried to steal one kiss too many.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">95 (MSB of the address of this routine)</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">209 (HAYLEY)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="24328"></a>24328</td>
+<td class="instruction">LD (32755),A</td>
+<td class="comment-11" rowspan="1">Place a large value into ERIC's main action timer at <a class="link" href="32755.html">32755</a> to ensure that he will not have time to escape HAYLEY's fist</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24331"></a>24331</td>
+<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for HAYLEY's current animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24334"></a>24334</td>
+<td class="instruction">LD L,20</td>
+<td class="comment-11" rowspan="2">Store HAYLEY's current animatory state in byte 20 of her buffer for the time being</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24336"></a>24336</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24337"></a>24337</td>
+<td class="instruction">OR 7</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a class="link" href="../graphics/as.html#63">63/191</a>: HAYLEY with her arm up (as if hitting ERIC)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24339"></a>24339</td>
+<td class="instruction">CALL <a class="link" href="30534.html">30534</a></td>
+<td class="comment-11" rowspan="1">Update HAYLEY's animatory state, update the SRB, and return to <a class="link" href="24328.html#24342">24342</a> (below) next time</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="24342"></a>24342</td>
+<td class="instruction">CALL <a class="link" href="29896.html#29993">29993</a></td>
+<td class="comment-11" rowspan="1">Knock ERIC over</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24345"></a>24345</td>
+<td class="instruction">JP <a class="link" href="30643.html#30650">30650</a></td>
+<td class="comment-11" rowspan="1">Restore HAYLEY's original animatory state and update the SRB</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="24296.html">24296</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#24328">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="24348.html">24348</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 63878</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63861.html">63861</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63878">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63898.html">63898</a></span></td>
+</tr>
+</table>
+<div class="description">63878: Check for the presence of a plant pot</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="23907.html">23907</a> and <a class="link" href="64077.html">64077</a>. Returns with the zero flag set if either ERIC or the recently ejected contents of the water pistol are on top of a plant pot:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th>Location</th>
+<th>Plant pot</th>
+</tr>
+<tr>
+<td class="centre">91,2</td>
+<td>Near the top-floor window</td>
+</tr>
+<tr>
+<td class="centre">93,9</td>
+<td>Near the middle-floor window</td>
+</tr>
+<tr>
+<td class="centre">132,16</td>
+<td>To the left of the skool gate</td>
+</tr>
+<tr>
+<td class="centre">135,16</td>
+<td>To the right of the skool gate</td>
+</tr>
+</table>
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">210 (ERIC) or 214 (water/sherry)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63878"></a>63878</td>
+<td class="instruction">LD DE,40956</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the plant-pot y-coordinate table at <a class="link" href="40956.html">40956</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63881"></a>63881</td>
+<td class="instruction">LD L,2</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63883"></a>63883</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the plant pot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63884"></a>63884</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Does this match the character's y-coordinate?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63885"></a>63885</td>
+<td class="instruction">JR NZ,63893</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63887"></a>63887</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63888"></a>63888</td>
+<td class="instruction">DEC D</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the plant-pot x-coordinate table at <a class="link" href="40700.html">40700</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63889"></a>63889</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the plant pot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63890"></a>63890</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Does this match the character's x-coordinate?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63891"></a>63891</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63892"></a>63892</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> back at the plant-pot y-coordinate table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63893"></a>63893</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Next plant pot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63894"></a>63894</td>
+<td class="instruction">JR NZ,63881</td>
+<td class="comment-11" rowspan="1">Jump back until all four plant pots have been checked</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63896"></a>63896</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Reset the zero flag to indicate the lack of any plant pot here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63897"></a>63897</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63861.html">63861</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63878">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63898.html">63898</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

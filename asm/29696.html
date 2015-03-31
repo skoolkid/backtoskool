@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 29696</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29693.html">29693</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29696">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29716.html">29716</a></span></td>
+</tr>
+</table>
+<div class="description">29696: Calculate appropriate coordinates for a message box</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="29716.html">29716</a>, <a class="link" href="29896.html">29896</a> and <a class="link" href="62668.html">62668</a>. Returns with the coordinates of the messenger's head in <span class="register">DE</span>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Messenger's character number (200-205)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29696"></a>29696</td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29698"></a>29698</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29699"></a>29699</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=x-coordinate of the character's head</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29700"></a>29700</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29701"></a>29701</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29702"></a>29702</td>
+<td class="instruction">AND 7</td>
+<td class="comment-11" rowspan="1">Keep only bits 0-2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29704"></a>29704</td>
+<td class="instruction">CP 6</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the character is sitting on the floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29706"></a>29706</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-11" rowspan="1">The y-coordinate offset should be 0 if the character is standing</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29708"></a>29708</td>
+<td class="instruction">JR NZ,29711</td>
+<td class="comment-11" rowspan="1">Jump if character is standing</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29710"></a>29710</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (one level lower if the character is sitting on the floor)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29711"></a>29711</td>
+<td class="instruction">LD L,2</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29713"></a>29713</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-11" rowspan="1">Add the character's y-coordinate and the offset</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29714"></a>29714</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=y-coordinate of the character's head</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29715"></a>29715</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29693.html">29693</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29696">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29716.html">29716</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

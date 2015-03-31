@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 61658</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="61657.html">61657</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#61658">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="61693.html">61693</a></span></td>
+</tr>
+</table>
+<div class="description">61658: Control a teacher during assembly</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by command list <a class="link" href="59788.html">80</a>. Makes the teacher stand still until the period is nearly over, and also perform assembly duty (if the teacher is MR WITHIT).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Teacher's character number (201-203)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="61658"></a>61658</td>
+<td class="instruction">LD A,(32740)</td>
+<td class="comment-11" rowspan="1">Collect the MSB of the lesson clock (which starts off at 16)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61661"></a>61661</td>
+<td class="instruction">CP 2</td>
+<td class="comment-11" rowspan="1">Has the teacher been standing still long enough (the routine at <a class="link" href="62032.html">62032</a> sets the MSB of the lesson clock to 1 after MR WACKER has finished his detention speech)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61663"></a>61663</td>
+<td class="instruction">JP C,<a class="link" href="25484.html">25484</a></td>
+<td class="comment-11" rowspan="1">Move to the next command in the command list if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61666"></a>61666</td>
+<td class="instruction">CP 11</td>
+<td class="comment-11" rowspan="1">Is it time for the kids to sit down for assembly yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61668"></a>61668</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61669"></a>61669</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61670"></a>61670</td>
+<td class="instruction">CP 201</td>
+<td class="comment-11" rowspan="1">Is this MR WITHIT (who does assembly duty)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61672"></a>61672</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61673"></a>61673</td>
+<td class="instruction">LD DE,32640</td>
+<td class="comment-11" rowspan="4">Set bits 6 (ERIC should be here now) and 7 (time to sit down: this is checked by command lists <a class="link" href="57942.html">20</a>, <a class="link" href="59151.html">40</a> and <a class="link" href="58862.html">88</a>) at <a class="link" href="32640.html">32640</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61676"></a>61676</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61677"></a>61677</td>
+<td class="instruction">OR 192</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61679"></a>61679</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61680"></a>61680</td>
+<td class="instruction">LD A,(32740)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=MSB of the lesson clock</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61683"></a>61683</td>
+<td class="instruction">CP 10</td>
+<td class="comment-11" rowspan="1">Is it time to find ERIC if he's absent?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61685"></a>61685</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61686"></a>61686</td>
+<td class="instruction">CALL <a class="link" href="32021.html">32021</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in the assembly hall?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61689"></a>61689</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61690"></a>61690</td>
+<td class="instruction">JP <a class="link" href="61631.html#61648">61648</a></td>
+<td class="comment-11" rowspan="1">Go and find him otherwise</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="61657.html">61657</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#61658">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="61693.html">61693</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

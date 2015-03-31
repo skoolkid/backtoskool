@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Data at 46336</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="46335.html">46335</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#46336">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="46528.html">46528</a></span></td>
+</tr>
+</table>
+<div class="description">46336: Play area column pointers (Q values)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="24684.html">24684</a>. Each byte (Q value) here corresponds to one of the 192 columns of the play area (x-coordinates 0-191). The Q value for an x-coordinate uniquely determines the appearance of the corresponding column of the play area; in other words, play area columns that have the same Q value are identical in appearance.
+</div>
+<div class="paragraph">
+The first 32 Q values correspond to x-coordinates 0-31. In this range, x-coordinates 11 and 13 have the same Q value (11), and x-coordinates 28 and 29 have the same Q value (27).
+</div>
+<div class="paragraph">
+<table>
+<tr>
+<td><img alt="qvalues1" src="../images/play_area/qvalues1.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46336"></a>46336</td>
+<td class="instruction">DEFB 0,1,2,3,4,5,6,7</td>
+<td class="comment-11" rowspan="4">0&lt;=x&lt;=31</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46344"></a>46344</td>
+<td class="instruction">DEFB 8,9,10,11,12,11,13,14</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46352"></a>46352</td>
+<td class="instruction">DEFB 15,16,17,18,19,20,21,22</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46360"></a>46360</td>
+<td class="instruction">DEFB 23,24,25,26,27,27,28,29</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="46368"></a>
+<div class="comments">
+<div class="paragraph">
+The next 32 Q values correspond to x-coordinates 32-63. No two x-coordinates in this range have the same Q value.
+</div>
+<div class="paragraph">
+<table>
+<tr>
+<td><img alt="qvalues2" src="../images/play_area/qvalues2.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46368"></a>46368</td>
+<td class="instruction">DEFB 30,31,32,33,34,35,36,37</td>
+<td class="comment-11" rowspan="4">32&lt;=x&lt;=63</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46376"></a>46376</td>
+<td class="instruction">DEFB 38,39,40,41,42,43,44,45</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46384"></a>46384</td>
+<td class="instruction">DEFB 46,47,48,49,50,51,52,53</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46392"></a>46392</td>
+<td class="instruction">DEFB 54,55,56,57,58,59,60,61</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="46400"></a>
+<div class="comments">
+<div class="paragraph">
+The next 32 Q values correspond to x-coordinates 64-95. In this range, x-coordinates 64, 66 and 68 have the same Q value (62), and x-coordinates 65, 67 and 69 have the same Q value (63).
+</div>
+<div class="paragraph">
+<table>
+<tr>
+<td><img alt="qvalues3" src="../images/play_area/qvalues3.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46400"></a>46400</td>
+<td class="instruction">DEFB 62,63,62,63,62,63,64,65</td>
+<td class="comment-11" rowspan="4">64&lt;=x&lt;=95</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46408"></a>46408</td>
+<td class="instruction">DEFB 66,67,68,69,70,71,72,73</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46416"></a>46416</td>
+<td class="instruction">DEFB 74,75,76,77,78,79,80,81</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46424"></a>46424</td>
+<td class="instruction">DEFB 82,83,84,85,86,87,88,89</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="46432"></a>
+<div class="comments">
+<div class="paragraph">
+The next 32 Q values correspond to x-coordinates 96-127. In this range, x-coordinates 110, 112-120 and 122-127 have the same Q value (104).
+</div>
+<div class="paragraph">
+<table>
+<tr>
+<td><img alt="qvalues4" src="../images/play_area/qvalues4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46432"></a>46432</td>
+<td class="instruction">DEFB 90,91,92,93,94,95,96,97</td>
+<td class="comment-11" rowspan="4">96&lt;=x&lt;=127</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46440"></a>46440</td>
+<td class="instruction">DEFB 98,99,100,101,102,103,104,105</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46448"></a>46448</td>
+<td class="instruction">DEFB 104,104,104,104,104,104,104,104</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46456"></a>46456</td>
+<td class="instruction">DEFB 104,106,104,104,104,104,104,104</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="46464"></a>
+<div class="comments">
+<div class="paragraph">
+The next 32 Q values correspond to x-coordinates 128-159. In this range, x-coordinates 128-130, 138-146 and 148-157 have the same Q value (104).
+</div>
+<div class="paragraph">
+<table>
+<tr>
+<td><img alt="qvalues5" src="../images/play_area/qvalues5.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46464"></a>46464</td>
+<td class="instruction">DEFB 104,104,104,107,108,109,110,111</td>
+<td class="comment-11" rowspan="4">128&lt;=x&lt;=159</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46472"></a>46472</td>
+<td class="instruction">DEFB 112,113,104,104,104,104,104,104</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46480"></a>46480</td>
+<td class="instruction">DEFB 104,104,104,114,104,104,104,104</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46488"></a>46488</td>
+<td class="instruction">DEFB 104,104,104,104,104,104,115,116</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="46496"></a>
+<div class="comments">
+<div class="paragraph">
+The next 32 Q values correspond to x-coordinates 160-191. In this range, x-coordinates 169, 171, 173 and 175 have the same Q value (126), and x-coordinates 170, 172 and 174 have the same Q value (127).
+</div>
+<div class="paragraph">
+<table>
+<tr>
+<td><img alt="qvalues6" src="../images/play_area/qvalues6.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46496"></a>46496</td>
+<td class="instruction">DEFB 117,118,119,120,121,122,123,124</td>
+<td class="comment-11" rowspan="4">160&lt;=x&lt;=191</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46504"></a>46504</td>
+<td class="instruction">DEFB 125,126,127,126,127,126,127,126</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46512"></a>46512</td>
+<td class="instruction">DEFB 128,129,130,131,132,133,134,135</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="46520"></a>46520</td>
+<td class="instruction">DEFB 136,137,138,139,140,141,142,143</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="46335.html">46335</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#46336">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="46528.html">46528</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

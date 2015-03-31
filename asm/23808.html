@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 23808</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="23296.html">23296</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#23808">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="23843.html">23843</a></span></td>
+</tr>
+</table>
+<div class="description">23808: Deal with ERIC while he's falling (2)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Continues from <a class="link" href="64460.html">64460</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Descent table entry (see <a class="link" href="64460.html#tables">64460</a>)</td>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">0 if ERIC's facing left, 128 if he's facing right</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Same as <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">ERIC's y-coordinate</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">ERIC's x-coordinate</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">210 (ERIC)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23808"></a>23808</td>
+<td class="instruction">AND 15</td>
+<td class="comment-11" rowspan="1">Retain only bits 0-3 (the animatory state)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23810"></a>23810</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=ERIC's new animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23811"></a>23811</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1">Store this in <span class="register">B</span> for now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23812"></a>23812</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=descent table entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23813"></a>23813</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Is ERIC ascending (bit 7 of <span class="register">C</span> set)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23814"></a>23814</td>
+<td class="instruction">JR NC,23817</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23816"></a>23816</td>
+<td class="instruction">DEC D</td>
+<td class="comment-11" rowspan="1">Move ERIC up a level</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23817"></a>23817</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Is ERIC descending (bit 6 of <span class="register">C</span> set)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23818"></a>23818</td>
+<td class="instruction">JR NC,23821</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23820"></a>23820</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Move ERIC down a level</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23821"></a>23821</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Should ERIC move forward one space (bit 5 of <span class="register">C</span> set)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23822"></a>23822</td>
+<td class="instruction">JR NC,23829</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23824"></a>23824</td>
+<td class="instruction">BIT 7,B</td>
+<td class="comment-11" rowspan="1">Is ERIC facing right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23826"></a>23826</td>
+<td class="instruction">JR NZ,23838</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23828"></a>23828</td>
+<td class="instruction">DEC E</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23829"></a>23829</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Should ERIC move backwards one space (bit 4 of <span class="register">C</span> set)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23830"></a>23830</td>
+<td class="instruction">JR NC,23839</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23832"></a>23832</td>
+<td class="instruction">DEC E</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23833"></a>23833</td>
+<td class="instruction">BIT 7,B</td>
+<td class="comment-11" rowspan="1">Is ERIC facing right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23835"></a>23835</td>
+<td class="instruction">JR NZ,23839</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23837"></a>23837</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23838"></a>23838</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Now <span class="register">E</span>=ERIC's new x-coordinate, <span class="register">D</span>=ERIC's new y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="23839"></a>23839</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's new animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="23840"></a>23840</td>
+<td class="instruction">JP <a class="link" href="28160.html#28172">28172</a></td>
+<td class="comment-11" rowspan="1">Update ERIC's animatory state and location, update the SRB make a sound effect, and scroll the screen if necessary</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="23296.html">23296</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#23808">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="23843.html">23843</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

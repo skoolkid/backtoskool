@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 62770</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62768.html">62768</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62770">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62794.html">62794</a></span></td>
+</tr>
+</table>
+<div class="description">62770: Set MR WACKER on his way to expel ERIC</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="29643.html">29643</a> (when ERIC has 10000 or more lines) and <a class="link" href="64460.html">64460</a> (when ERIC has jumped out of the top-floor window).
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62770"></a>62770</td>
+<td class="instruction">LD HL,32640</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32640.html">32640</a> holds various game status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62773"></a>62773</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-11" rowspan="1">Is MR WACKER already looking for ERIC (to expel him)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62775"></a>62775</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62776"></a>62776</td>
+<td class="instruction">SET 1,(HL)</td>
+<td class="comment-11" rowspan="1">Signal: MR WACKER is looking for ERIC (to expel him)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62778"></a>62778</td>
+<td class="instruction">LD L,228</td>
+<td class="comment-11" rowspan="2">Set the MSB of the lesson clock at <a class="link" href="32739.html">32739</a> to 255, so that the lesson will not end until ERIC's expelled</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62780"></a>62780</td>
+<td class="instruction">LD (HL),255</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62782"></a>62782</td>
+<td class="instruction">LD HL,51227</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 27 of MR WACKER's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62785"></a>62785</td>
+<td class="instruction">LD (HL),48</td>
+<td class="comment-11" rowspan="3">Place the address of the command list at <a class="link" href="62768.html">62768</a> (which contains the single routine address <a class="link" href="62815.html">62815</a>) into bytes 27 and 28 of MR WACKER's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62787"></a>62787</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62788"></a>62788</td>
+<td class="instruction">LD (HL),245</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62790"></a>62790</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Set bit 0 of byte 29 of MR WACKER's buffer, triggering a command list restart (at <a class="link" href="62768.html">62768</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62791"></a>62791</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62793"></a>62793</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62768.html">62768</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62770">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62794.html">62794</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

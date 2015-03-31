@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 29856</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29836.html">29836</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29856">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29895.html">29895</a></span></td>
+</tr>
+</table>
+<div class="description">29856: Check whether any adults were hit by the pellet, water, sherry or conker</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="29896.html">29896</a>. Returns with the zero flag set if a character was hit, and the stricken character's number in <span class="register">B</span>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Pellet/water/sherry/conker's coordinates</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Pellet/water/sherry/conker's character number (213 or 214)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29856"></a>29856</td>
+<td class="instruction">LD B,6</td>
+<td class="comment-11" rowspan="1">There are six adult characters</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="29858"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="30380.html">30380</a> with <span class="register">B</span>=5 (only five of the adults are pelletable) and <span class="register">H</span>=213/214 (BOY WANDER's or ERIC's pellet).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29858"></a>29858</td>
+<td class="instruction">LD C,H</td>
+<td class="comment-11" rowspan="1">Save the projectile's character number in <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29859"></a>29859</td>
+<td class="instruction">LD H,200</td>
+<td class="comment-11" rowspan="1">200=MR WACKER</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29861"></a>29861</td>
+<td class="instruction">LD L,2</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the potential target's character buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29863"></a>29863</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=projectile's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29864"></a>29864</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Does it match the y-coordinate of the character?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29865"></a>29865</td>
+<td class="instruction">JR NZ,29889</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29867"></a>29867</td>
+<td class="instruction">LD L,0</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29869"></a>29869</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29870"></a>29870</td>
+<td class="instruction">AND 135</td>
+<td class="comment-11" rowspan="2">Is the character sitting on the floor facing left (already struck)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29872"></a>29872</td>
+<td class="instruction">CP 6</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29874"></a>29874</td>
+<td class="instruction">JR Z,29881</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29876"></a>29876</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=-1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29877"></a>29877</td>
+<td class="instruction">CP 134</td>
+<td class="comment-11" rowspan="1">Is the character sitting on the floor facing right (already struck)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29879"></a>29879</td>
+<td class="instruction">JR Z,29882</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29881"></a>29881</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29882"></a>29882</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=-1 if the character is sitting on the floor facing right, 0 if he's standing, or 1 if he's sitting on the floor facing left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29883"></a>29883</td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Byte 1 of the character's buffer holds his x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29885"></a>29885</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=x-coordinate of the character's head</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29886"></a>29886</td>
+<td class="instruction">CP E</td>
+<td class="comment-11" rowspan="1">Does it match the x-coordinate of the projectile?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29887"></a>29887</td>
+<td class="instruction">JR Z,29892</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29889"></a>29889</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Next potential target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29890"></a>29890</td>
+<td class="instruction">DJNZ 29861</td>
+<td class="comment-11" rowspan="1">Jump back to consider any remaining characters</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29892"></a>29892</td>
+<td class="instruction">LD B,H</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=number of the character who was hit by the projectile (if any)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29893"></a>29893</td>
+<td class="instruction">LD H,C</td>
+<td class="comment-11" rowspan="1">Restore the projectile's character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29894"></a>29894</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if a character was hit</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29836.html">29836</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29856">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29895.html">29895</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

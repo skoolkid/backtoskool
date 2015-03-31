@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 25525</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="25520.html">25520</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#25525">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="25533.html">25533</a></span></td>
+</tr>
+</table>
+<div class="description">25525: Set the interruptible subcommand (unused)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+This routine is not used. It drops the return address from the stack and copies it into bytes 9 and 10 of the character's buffer (thus setting the interruptible subcommand), and then jumps to the routine whose address is in <span class="register">BC</span>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">BC</td>
+<td class="register-desc">Routine address</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (183-214)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="25525"></a>25525</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25526"></a>25526</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Drop the return address from the stack into <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25527"></a>25527</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Push the routine address in <span class="register">BC</span> onto the stack</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25528"></a>25528</td>
+<td class="instruction">LD C,L</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25529"></a>25529</td>
+<td class="instruction">LD L,9</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25531"></a>25531</td>
+<td class="instruction">JR <a class="link" href="25503.html#25514">25514</a></td>
+<td class="comment-11" rowspan="1">Copy the return address into bytes 9 and 10 of the character's buffer, and jump to the routine whose address was in <span class="register">BC</span> on entering this routine</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="25520.html">25520</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#25525">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="25533.html">25533</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

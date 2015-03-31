@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 28658</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28657.html">28657</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28658">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28672.html">28672</a></span></td>
+</tr>
+</table>
+<div class="description">28658: Collect the identifier and coordinates of a blackboard that will be wiped</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="26639.html">26639</a> to collect information about the blackboard that is going to be wiped by a teacher. Returns with <span class="register">B</span> holding the blackboard identifier (the LSB of <a class="link" href="32596.html">32596</a>, <a class="link" href="32602.html">32602</a>, <a class="link" href="32608.html">32608</a>, <a class="link" href="32614.html">32614</a> or <a class="link" href="32620.html">32620</a>), and <span class="register">DE</span> holding the coordinates of the top left-hand square of the board.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Teacher's character number (201-204)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28658"></a>28658</td>
+<td class="instruction">LD A,12</td>
+<td class="comment-11" rowspan="2">Change the instruction at <a class="link" href="26453.html#26476">26476</a> to ADD A,12 (for the purpose of this routine, a teacher is considered to be standing next to a blackboard if he's within 12 spaces to the right of its left edge)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28660"></a>28660</td>
+<td class="instruction">LD (26477),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28663"></a>28663</td>
+<td class="instruction">CALL <a class="link" href="26453.html">26453</a></td>
+<td class="comment-11" rowspan="1">Collect information about the blackboard the teacher is standing next to</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28666"></a>28666</td>
+<td class="instruction">LD A,4</td>
+<td class="comment-11" rowspan="2">Change the instruction at <a class="link" href="26453.html#26476">26476</a> back to ADD A,4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28668"></a>28668</td>
+<td class="instruction">LD (26477),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28671"></a>28671</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28657.html">28657</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28658">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28672.html">28672</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

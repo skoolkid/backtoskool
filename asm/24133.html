@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 24133</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="24132.html">24132</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#24133">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="24175.html">24175</a></span></td>
+</tr>
+</table>
+<div class="description">24133: 'W' pressed - write on a blackboard</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this routine is found in the table of keypress handling routines at <a class="link" href="58704.html">58704</a>. It is called from the main loop at <a class="link" href="63210.html">63210</a> when 'W' is pressed.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="24133"></a>24133</td>
+<td class="instruction">LD H,210</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24135"></a>24135</td>
+<td class="instruction">CALL <a class="link" href="26453.html">26453</a></td>
+<td class="comment-11" rowspan="1">Collect info about the board ERIC's standing at (if any)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24138"></a>24138</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if ERIC's not standing at a blackboard</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24139"></a>24139</td>
+<td class="instruction">LD HL,32728</td>
+<td class="comment-11" rowspan="2">Copy the blackboard identifier (84, 90, 96, 102 or 108) from <span class="register">B</span> to <a class="link" href="32728.html">32728</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24142"></a>24142</td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24143"></a>24143</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">While ERIC is writing on the board, <a class="link" href="32727.html">32727</a> will be used to store the ASCII code of the last character written; initialise this with something other than 13 (ENTER)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24144"></a>24144</td>
+<td class="instruction">LD (HL),L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24145"></a>24145</td>
+<td class="instruction">LD L,B</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of the blackboard's buffer, which usually holds the number of the next clean pixel column</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24146"></a>24146</td>
+<td class="instruction">LD (HL),1</td>
+<td class="comment-11" rowspan="1">ERIC will start writing at pixel column 1 (regardless of what's already been written on the board)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24148"></a>24148</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=number of the character who last wrote on this board, or 0 if it's clean</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24149"></a>24149</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24150"></a>24150</td>
+<td class="instruction">LD (HL),210</td>
+<td class="comment-11" rowspan="1">Signal: ERIC wrote on this board</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24152"></a>24152</td>
+<td class="instruction">LD B,4</td>
+<td class="comment-11" rowspan="1">There are 4 digits or letters in the bike and storeroom combinations</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24154"></a>24154</td>
+<td class="instruction">CPL</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=128 if the board is clean, 0 otherwise</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24155"></a>24155</td>
+<td class="instruction">AND 128</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="24157"></a>24157</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="3">Prepare 4 spaces in bytes 2-5 of the blackboard buffer for combination letters/numbers, with bit 7 set if the board is clean</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24158"></a>24158</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24159"></a>24159</td>
+<td class="instruction">DJNZ 24157</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24161"></a>24161</td>
+<td class="instruction">LD L,251</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32763.html">32763</a> (ERIC's status flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24163"></a>24163</td>
+<td class="instruction">LD (HL),16</td>
+<td class="comment-11" rowspan="1">Set bit 4: ERIC is writing on a blackboard</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="24165"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="24175.html">24175</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="24165"></a>24165</td>
+<td class="instruction">LD H,210</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24167"></a>24167</td>
+<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24170"></a>24170</td>
+<td class="instruction">OR 7</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a class="link" href="../graphics/as.html#7">7/135</a>: ERIC with his arm up (as if writing on a board)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="24172"></a>24172</td>
+<td class="instruction">JP <a class="link" href="62178.html#62231">62231</a></td>
+<td class="comment-11" rowspan="1">Update ERIC's animatory state and location and update the SRB</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="24132.html">24132</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#24133">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="24175.html">24175</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

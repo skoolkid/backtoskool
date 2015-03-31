@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 28029</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28002.html">28002</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28029">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28067.html">28067</a></span></td>
+</tr>
+</table>
+<div class="description">28029: Check for main kids near a teacher</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="30102.html">30102</a>. Returns with the character number of the nearest main kid (or 0 if none of them was close enough) in <span class="register">A</span>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Teacher's character number (200-204)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28029"></a>28029</td>
+<td class="instruction">CALL <a class="link" href="27886.html">27886</a></td>
+<td class="comment-11" rowspan="1">Get the lower and upper x-coordinates of the teacher's range of vision in <span class="register">C</span> and <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28032"></a>28032</td>
+<td class="instruction">LD L,0</td>
+<td class="comment-11" rowspan="1">Default assumption: no kids nearby</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28034"></a>28034</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28035"></a>28035</td>
+<td class="instruction">LD H,206</td>
+<td class="comment-11" rowspan="1">206=BOY WANDER</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28037"></a>28037</td>
+<td class="instruction">LD BC,1535</td>
+<td class="comment-11" rowspan="1"><span class="register">B'</span>=5 (main kids including ERIC), <span class="register">C'</span>=255 (initial value for the distance of the nearest main kid)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28040"></a>28040</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28041"></a>28041</td>
+<td class="instruction">CALL <a class="link" href="27954.html">27954</a></td>
+<td class="comment-11" rowspan="1">Find the first main kid within range (if any)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28044"></a>28044</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Set the zero flag if we've checked all the main kids</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28045"></a>28045</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number of the nearest kid so far, or 0 if there are none</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28046"></a>28046</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if we've finished checking all the main kids</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28047"></a>28047</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28048"></a>28048</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28049"></a>28049</td>
+<td class="instruction">SUB E</td>
+<td class="comment-11" rowspan="1">Subtract the x-coordinate of the kid</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28050"></a>28050</td>
+<td class="instruction">JR NC,28054</td>
+<td class="comment-11" rowspan="1">Jump if the kid's to the left of teacher</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28052"></a>28052</td>
+<td class="instruction">NEG</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28054"></a>28054</td>
+<td class="instruction">CP C</td>
+<td class="comment-11" rowspan="1">Is this kid closer to the teacher than the last?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28055"></a>28055</td>
+<td class="instruction">JR NC,28062</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28057"></a>28057</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1"><span class="register">C'</span>=distance from the teacher of the nearest kid found so far</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28058"></a>28058</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number of this kid</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28059"></a>28059</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28060"></a>28060</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1">Store the character number of the nearest kid in <span class="register">L</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28061"></a>28061</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28062"></a>28062</td>
+<td class="instruction">CALL <a class="link" href="27954.html#27981">27981</a></td>
+<td class="comment-11" rowspan="1">Find the next main kid within range (if any)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28065"></a>28065</td>
+<td class="instruction">JR 28044</td>
+<td class="comment-11" rowspan="1">Jump back to compare distances</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28002.html">28002</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28029">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28067.html">28067</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 29613</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29574.html">29574</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29613">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29621.html">29621</a></span></td>
+</tr>
+</table>
+<div class="description">29613: Print the score, lines total or hi-score (1)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="29621.html">29621</a> and <a class="link" href="62910.html">62910</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Number/10</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Display file address</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29613"></a>29613</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29614"></a>29614</td>
+<td class="instruction">CALL <a class="link" href="27572.html">27572</a></td>
+<td class="comment-11" rowspan="1">Generate ASCII codes for the digits in the decimal rendering of the number in <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29617"></a>29617</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Get the display file address in <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29618"></a>29618</td>
+<td class="instruction">JP <a class="link" href="27497.html">27497</a></td>
+<td class="comment-11" rowspan="1">Print the number on the screen</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29574.html">29574</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29613">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29621.html">29621</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

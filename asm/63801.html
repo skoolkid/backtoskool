@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 63801</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63744.html">63744</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63801">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63861.html">63861</a></span></td>
+</tr>
+</table>
+<div class="description">63801: Deal with MR WACKER's journey to a window</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Continues from <a class="link" href="63586.html">63586</a>. Controls MR WACKER as he walks from the vicinity of the stinkbomb cloud over to the nearest closed window, opens it, and walks back again.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">200 (MR WACKER)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63801"></a>63801</td>
+<td class="instruction">LD L,21</td>
+<td class="comment-11" rowspan="2">Pick up the x-coordinate of the window to be opened from byte 21 of MR WACKER's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63803"></a>63803</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63804"></a>63804</td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Byte 1 of MR WACKER's buffer holds his current x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63806"></a>63806</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Has MR WACKER reached the window yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63807"></a>63807</td>
+<td class="instruction">JP NZ,<a class="link" href="25581.html#25632">25632</a></td>
+<td class="comment-11" rowspan="1">Keep going if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63810"></a>63810</td>
+<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for MR WACKER's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63813"></a>63813</td>
+<td class="instruction">OR 7</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of MR WACKER with his arm up</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63815"></a>63815</td>
+<td class="instruction">CALL <a class="link" href="30534.html">30534</a></td>
+<td class="comment-11" rowspan="1">Place address <a class="link" href="63801.html#63818">63818</a> (below) into bytes 17 and 18 of MR WACKER's buffer and update his animatory state</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63818"></a>
+<div class="comments">
+<div class="paragraph">
+The address of this entry point is placed into bytes 17 and 18 of MR WACKER's buffer by the instruction above when he has reached the window that needs opening.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63818"></a>63818</td>
+<td class="instruction">LD L,17</td>
+<td class="comment-11" rowspan="2">Replace the address of this entry point in bytes 17 and 18 of MR WACKER's buffer with <a class="link" href="63801.html#63830">63830</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63820"></a>63820</td>
+<td class="instruction">LD (HL),86</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63822"></a>63822</td>
+<td class="instruction">LD B,1</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=1 (open window)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63824"></a>63824</td>
+<td class="instruction">LD L,22</td>
+<td class="comment-11" rowspan="2">Pick up the window identifier (64/128) from byte 22 of MR WACKER's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63826"></a>63826</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63827"></a>63827</td>
+<td class="instruction">JP <a class="link" href="28855.html#28863">28863</a></td>
+<td class="comment-11" rowspan="1">Open the window and lower MR WACKER's arm</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63830"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used after the window has been opened.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63830"></a>63830</td>
+<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for MR WACKER's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63833"></a>63833</td>
+<td class="instruction">XOR 128</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of MR WACKER facing left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63835"></a>63835</td>
+<td class="instruction">CALL <a class="link" href="30534.html">30534</a></td>
+<td class="comment-11" rowspan="1">Place address <a class="link" href="63801.html#63838">63838</a> (below) into bytes 17 and 18 of MR WACKER's buffer and update his animatory state</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63838"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used after MR WACKER has turned round to begin his return journey from the window.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63838"></a>63838</td>
+<td class="instruction">LD L,0</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of MR WACKER's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63840"></a>63840</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is MR WACKER midstride?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63842"></a>63842</td>
+<td class="instruction">JP NZ,<a class="link" href="25581.html#25597">25597</a></td>
+<td class="comment-11" rowspan="1">Finish his stride if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63845"></a>63845</td>
+<td class="instruction">LD L,19</td>
+<td class="comment-11" rowspan="2">Byte 19 stores MR WACKER's x-coordinate before he went off to the  window; pick this up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63847"></a>63847</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63848"></a>63848</td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Byte 1 of MR WACKER's buffer holds his x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63850"></a>63850</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is MR WACKER at his pre-window-opening position?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63851"></a>63851</td>
+<td class="instruction">JP NZ,<a class="link" href="25581.html#25632">25632</a></td>
+<td class="comment-11" rowspan="1">Continue his return journey if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63854"></a>
+<div class="comments">
+<div class="paragraph">
+MR WACKER has now returned to the spot where the stinkbomb first offended his nostrils.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63854"></a>63854</td>
+<td class="instruction">LD L,18</td>
+<td class="comment-11" rowspan="2">Remove the routine address (<a class="link" href="63801.html#63838">63838</a> above) from bytes 17 and 18 of MR WACKER's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63856"></a>63856</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63858"></a>63858</td>
+<td class="instruction">JP <a class="link" href="30102.html#30112">30112</a></td>
+<td class="comment-11" rowspan="1">Restore MR WACKER's original animatory state and update SRB</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63744.html">63744</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63801">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63861.html">63861</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

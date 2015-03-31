@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 33013</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="save-Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Save routine</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-0">Prev: <a class="link" href=""></a></span></td>
+<td class="up">Up: <a class="link" href="save.html#33013">Map</a></td>
+<td class="next"><span class="next-0">Next: <a class="link" href=""></a></span></td>
+</tr>
+</table>
+<div class="description">33013: Save Back to Skool to tape</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+<table>
+<tr>
+<td><img alt="saver" src="../images/scr/saver.gif" /></td>
+<td>This is the program used to save the fast code block for Back to Skool. See '<a class="link" href="../reference/facts.html#saverPokes">BASIC saver POKEs</a>' for a discussion of the two POKES that appear in line 33 of the program.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The fast code block consists of two sections of data. The first section contains the 16573 bytes of data for addresses 16384-32956. The second section contains 65535 bytes of data starting at address 32971, moving forward in steps of 23 bytes, and ending at 32925.
+</div>
+<div class="paragraph">
+Note that the last three bytes in the first section (addresses 32954-32956) are actually loaded into addresses 32902, 32925 and 32948 by the <a class="link" href="../load/32815.html">load routine</a>. Note also that the last byte in the second section, for address 32925, is not loaded by the <a class="link" href="../load/32815.html">load routine</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33013"></a>33013</td>
+<td class="instruction">LD HL,33204</td>
+<td class="comment-11" rowspan="1"><a class="link" href="../start/33204.html">33204</a> is where the game starts after loading</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33016"></a>33016</td>
+<td class="instruction">LD (23833),HL</td>
+<td class="comment-11" rowspan="1">Store this address where it will be popped off the stack by the <a class="link" href="../load/32815.html">load routine</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33019"></a>33019</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="3">Prepare <span class="register">BC'</span> for saving the second section of data</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33020"></a>33020</td>
+<td class="instruction">LD BC,23</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33023"></a>33023</td>
+<td class="instruction">EXX</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33024"></a>33024</td>
+<td class="instruction">LD IX,16384</td>
+<td class="comment-11" rowspan="2">16384 to 32956 will be saved first</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33028"></a>33028</td>
+<td class="instruction">LD DE,16572</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33031"></a>33031</td>
+<td class="instruction">LD A,255</td>
+<td class="comment-11" rowspan="1">A flag byte of 255 (the first byte saved) indicates a data block</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33033"></a>33033</td>
+<td class="instruction">LD HL,3224</td>
+<td class="comment-11" rowspan="1">This constant will give a leader tone of about 2 seconds</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33036"></a>33036</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33037"></a>33037</td>
+<td class="instruction">INC DE</td>
+<td class="comment-11" rowspan="2">Adjust the length and start address to allow for the flag byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33038"></a>33038</td>
+<td class="instruction">DEC IX</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33040"></a>33040</td>
+<td class="instruction">DI</td>
+<td class="comment-11" rowspan="1">Disable interrupts</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33041"></a>33041</td>
+<td class="instruction">LD A,2</td>
+<td class="comment-11" rowspan="1">MIC on, border red</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33043"></a>33043</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33044"></a>
+<div class="comments">
+<div class="paragraph">
+First create the 2-second leader tone.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33044"></a>33044</td>
+<td class="instruction">DJNZ 33044</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33046"></a>33046</td>
+<td class="instruction">OUT (254),A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33048"></a>33048</td>
+<td class="instruction">XOR 15</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33050"></a>33050</td>
+<td class="instruction">LD B,164</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33052"></a>33052</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33053"></a>33053</td>
+<td class="instruction">JR NZ,33044</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33055"></a>33055</td>
+<td class="instruction">DEC B</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33056"></a>33056</td>
+<td class="instruction">DEC H</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33057"></a>33057</td>
+<td class="instruction">JP P,33044</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33060"></a>
+<div class="comments">
+<div class="paragraph">
+Then create the sync pulse.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33060"></a>33060</td>
+<td class="instruction">LD B,47</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33062"></a>33062</td>
+<td class="instruction">DJNZ 33062</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33064"></a>33064</td>
+<td class="instruction">OUT (254),A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33066"></a>33066</td>
+<td class="instruction">LD A,13</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33068"></a>33068</td>
+<td class="instruction">LD B,55</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33070"></a>33070</td>
+<td class="instruction">DJNZ 33070</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33072"></a>33072</td>
+<td class="instruction">OUT (254),A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33074"></a>
+<div class="comments">
+<div class="paragraph">
+It's time to save the first byte, which will be the flag byte (255).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33074"></a>33074</td>
+<td class="instruction">LD BC,6670</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=26 (timing constant), <span class="register">C</span>=14 (MIC off, border yellow)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33077"></a>33077</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=255</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33078"></a>33078</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=255</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33079"></a>33079</td>
+<td class="instruction">JP 33091</td>
+<td class="comment-11" rowspan="1">Jump forward to save the flag byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33082"></a>
+<div class="comments">
+<div class="paragraph">
+This is the main byte-saving loop.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33082"></a>33082</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="2">In the analagous ROM routine, the second instruction here is 'OR E', to check whether it's time to save the last byte (the parity byte)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33083"></a>33083</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33084"></a>33084</td>
+<td class="instruction">JR Z,33098</td>
+<td class="comment-11" rowspan="1">This jump (to save the parity byte) is never made</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33086"></a>33086</td>
+<td class="instruction">LD L,(IX+0)</td>
+<td class="comment-11" rowspan="1">Fetch the next byte to be saved</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33089"></a>33089</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=current parity byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33090"></a>33090</td>
+<td class="instruction">XOR L</td>
+<td class="comment-11" rowspan="1">Update this for the next byte to be saved</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33091"></a>33091</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=new parity byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33092"></a>33092</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (MIC on, border blue)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33094"></a>33094</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag (which will act as the marker bit)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33095"></a>33095</td>
+<td class="instruction">JP 33121</td>
+<td class="comment-11" rowspan="1">Jump forward to save the byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33098"></a>
+<div class="comments">
+<div class="paragraph">
+This section of code, if it were used, would save the parity byte.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33098"></a>33098</td>
+<td class="instruction">LD L,H</td>
+<td class="comment-11" rowspan="1">Pick up the parity byte in <span class="register">L</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33099"></a>33099</td>
+<td class="instruction">JR 33089</td>
+<td class="comment-11" rowspan="1">Save it</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33101"></a>
+<div class="comments">
+<div class="paragraph">
+This is the bit-saving loop for the first section of data (16384-32956).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33101"></a>33101</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=14 (MIC off, border yellow) for the second pass</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33102"></a>33102</td>
+<td class="instruction">BIT 7,B</td>
+<td class="comment-11" rowspan="1">Set the zero flag to indicate that this is the second pass through the loop</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33104"></a>33104</td>
+<td class="instruction">DJNZ 33104</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33106"></a>33106</td>
+<td class="instruction">JR NC,33112</td>
+<td class="comment-11" rowspan="1">Jump if we are saving a '0'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33108"></a>33108</td>
+<td class="instruction">LD B,32</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33110"></a>33110</td>
+<td class="instruction">DJNZ 33110</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33112"></a>33112</td>
+<td class="instruction">OUT (254),A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33114"></a>33114</td>
+<td class="instruction">LD B,29</td>
+<td class="comment-11" rowspan="1">Set the timing constant for the second pass</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33116"></a>33116</td>
+<td class="instruction">JR NZ,33101</td>
+<td class="comment-11" rowspan="1">Jump back for the second pass if we've just done the first</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33118"></a>33118</td>
+<td class="instruction">DEC B</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33119"></a>33119</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1">Clear the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33120"></a>33120</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (MIC on, border blue)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33121"></a>33121</td>
+<td class="instruction">RL L</td>
+<td class="comment-11" rowspan="1">Move the bit to be saved into the carry flag, and the marker bit leftwards</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33123"></a>33123</td>
+<td class="instruction">JP NZ,33104</td>
+<td class="comment-11" rowspan="1">Jump unless we've saved all 8 bits of the byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33126"></a>
+<div class="comments">
+<div class="paragraph">
+A byte from the first section (16384-32956) has just been saved. Are there any more left?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33126"></a>33126</td>
+<td class="instruction">DEC DE</td>
+<td class="comment-11" rowspan="1">Decrease the length counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33127"></a>33127</td>
+<td class="instruction">INC IX</td>
+<td class="comment-11" rowspan="1">Move to the next byte to be saved</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33129"></a>33129</td>
+<td class="instruction">LD B,16</td>
+<td class="comment-11" rowspan="1">Set the timing constant for the first bit of the next byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33131"></a>33131</td>
+<td class="instruction">LD A,127</td>
+<td class="comment-11" rowspan="4">Return if the BREAK key is being pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33133"></a>33133</td>
+<td class="instruction">IN A,(254)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33135"></a>33135</td>
+<td class="instruction">RRA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33136"></a>33136</td>
+<td class="instruction">RET NC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33137"></a>33137</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="2">Have we saved 16384 to 32956 yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33138"></a>33138</td>
+<td class="instruction">INC A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33139"></a>33139</td>
+<td class="instruction">JP NZ,33082</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33142"></a>
+<div class="comments">
+<div class="paragraph">
+Now a further 65535 bytes are saved: starting at 32971, moving forward in steps of 23 bytes, and ending at 32925.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33142"></a>33142</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="2"><span class="register">IX</span>=32957 and <span class="register">DE</span>=65535 the first time we get here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33143"></a>33143</td>
+<td class="instruction">OR E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33144"></a>33144</td>
+<td class="instruction">JR Z,33158</td>
+<td class="comment-11" rowspan="1">Jump if we have now saved 32971 onwards</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33146"></a>33146</td>
+<td class="instruction">LD L,(IX+14)</td>
+<td class="comment-11" rowspan="1"><span class="register">IX</span>+14=32971 the first time we get here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33149"></a>33149</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=current parity byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33150"></a>33150</td>
+<td class="instruction">XOR L</td>
+<td class="comment-11" rowspan="1">Update this for the next byte to be saved</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33151"></a>33151</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=new parity byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33152"></a>33152</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (MIC on, border blue)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33154"></a>33154</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag (which will act as the marker bit)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33155"></a>33155</td>
+<td class="instruction">JP 33181</td>
+<td class="comment-11" rowspan="1">Jump forward to save the byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33158"></a>
+<div class="comments">
+<div class="paragraph">
+This is where we come when all 82108 bytes have been saved.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33158"></a>33158</td>
+<td class="instruction">LD L,0</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33160"></a>33160</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33161"></a>
+<div class="comments">
+<div class="paragraph">
+This is the bit-saving loop for the second section of data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33161"></a>33161</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=14 (MIC off, border yellow) for the second pass</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33162"></a>33162</td>
+<td class="instruction">BIT 7,B</td>
+<td class="comment-11" rowspan="1">Set the zero flag to indicate that this is the second pass through the loop</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33164"></a>33164</td>
+<td class="instruction">DJNZ 33164</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33166"></a>33166</td>
+<td class="instruction">JR NC,33172</td>
+<td class="comment-11" rowspan="1">Jump if we are saving a '0'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33168"></a>33168</td>
+<td class="instruction">LD B,32</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33170"></a>33170</td>
+<td class="instruction">DJNZ 33170</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33172"></a>33172</td>
+<td class="instruction">OUT (254),A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33174"></a>33174</td>
+<td class="instruction">LD B,29</td>
+<td class="comment-11" rowspan="1">Set the timing constant for the second pass</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33176"></a>33176</td>
+<td class="instruction">JR NZ,33161</td>
+<td class="comment-11" rowspan="1">Jump back for the second pass if we've just done the first</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33178"></a>33178</td>
+<td class="instruction">DEC B</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33179"></a>33179</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1">Clear the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33180"></a>33180</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=1 (MIC on, border blue)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="33181"></a>33181</td>
+<td class="instruction">RL L</td>
+<td class="comment-11" rowspan="1">Move the bit to be saved into the carry flag, and the marker bit leftwards</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33183"></a>33183</td>
+<td class="instruction">JP NZ,33164</td>
+<td class="comment-11" rowspan="1">Jump unless we've saved all 8 bits of the byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="33186"></a>
+<div class="comments">
+<div class="paragraph">
+A byte from the second section has just been saved. Are there any more left?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33186"></a>33186</td>
+<td class="instruction">DEC DE</td>
+<td class="comment-11" rowspan="1">Decrease the length counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33187"></a>33187</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="3">Move forward 23 bytes to the next byte to be saved</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33188"></a>33188</td>
+<td class="instruction">ADD IX,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33190"></a>33190</td>
+<td class="instruction">EXX</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33191"></a>33191</td>
+<td class="instruction">LD B,16</td>
+<td class="comment-11" rowspan="1">Set the timing constant for the first bit of the next byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33193"></a>33193</td>
+<td class="instruction">LD A,127</td>
+<td class="comment-11" rowspan="3">These instructions check the BREAK key but do not act on the result</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33195"></a>33195</td>
+<td class="instruction">IN A,(254)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33197"></a>33197</td>
+<td class="instruction">RRA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="33198"></a>33198</td>
+<td class="instruction">JP 33142</td>
+<td class="comment-11" rowspan="1">Save the next byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="32952"></a>
+<div class="comments">
+<div class="paragraph">
+The last 5 bytes of the first section saved make important changes to the <a class="link" href="../load/32815.html">load routine</a> when the game is being loaded:
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="32952"></a>32952</td>
+<td class="instruction">JR NZ,32893</td>
+<td class="comment-11" rowspan="1">This will replace the 'JR NZ,32907' at 32952, and kick off the loading of 65537 bytes from 32902 onwards (in steps of 23, all the way round to 32902 again)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="32954"></a>32954</td>
+<td class="instruction">DEFB 32</td>
+<td class="comment-11" rowspan="1">This byte will replace the 49 at 32902, changing the instruction there from 'LD SP,23833' to 'JR NZ,32929'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="32955"></a>32955</td>
+<td class="instruction">DEFB 221</td>
+<td class="comment-11" rowspan="1">This byte will be loaded into 32925 (which already contains 221)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="32956"></a>32956</td>
+<td class="instruction">DEFB 173</td>
+<td class="comment-11" rowspan="1">This byte will be loaded into 32948 (which already contains 173)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-0">Prev: <a class="link" href=""></a></span></td>
+<td class="up">Up: <a class="link" href="save.html#33013">Map</a></td>
+<td class="next"><span class="next-0">Next: <a class="link" href=""></a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

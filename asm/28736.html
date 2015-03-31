@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 28736</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28735.html">28735</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28736">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28767.html">28767</a></span></td>
+</tr>
+</table>
+<div class="description">28736: Open or close a door or window</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="28855.html">28855</a>, <a class="link" href="28877.html">28877</a> and <a class="link" href="29681.html">29681</a>. On entry, <span class="register">A</span> holds the door/window identifier:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th>ID</th>
+<th>Door/window</th>
+</tr>
+<tr>
+<td class="centre">1</td>
+<td>Left study door</td>
+</tr>
+<tr>
+<td class="centre">2</td>
+<td>Right study door</td>
+</tr>
+<tr>
+<td class="centre">4</td>
+<td>Science Lab storeroom door</td>
+</tr>
+<tr>
+<td class="centre">8</td>
+<td>Boys' skool door</td>
+</tr>
+<tr>
+<td class="centre">16</td>
+<td>Skool gate</td>
+</tr>
+<tr>
+<td class="centre">32</td>
+<td>Drinks cabinet door</td>
+</tr>
+<tr>
+<td class="centre">64</td>
+<td>Top floor window</td>
+</tr>
+<tr>
+<td class="centre">128</td>
+<td>Middle floor window</td>
+</tr>
+</table>
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Door/window identifier (see table above)</td>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">0 (close it) or 1 (open it)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28736"></a>28736</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28737"></a>28737</td>
+<td class="instruction">LD HL,32756</td>
+<td class="comment-11" rowspan="1"><a class="link" href="32756.html">32756</a> holds the doors flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28740"></a>28740</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Copy the door identifier to <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28741"></a>28741</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the doors flags in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28742"></a>28742</td>
+<td class="instruction">OR C</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28743"></a>28743</td>
+<td class="instruction">DEC B</td>
+<td class="comment-11" rowspan="1">Are we opening the door/window?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28744"></a>28744</td>
+<td class="instruction">JR Z,28747</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28746"></a>28746</td>
+<td class="instruction">XOR C</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28747"></a>28747</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Restore the doors flags with the appropriate bit set or reset</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28748"></a>28748</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=door identifier</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28749"></a>28749</td>
+<td class="instruction">LD HL,57685</td>
+<td class="comment-11" rowspan="5">Point <span class="register">HL</span> at the appropriate entry in the doors and windows table at <a class="link" href="57686.html">57686</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28752"></a>28752</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28753"></a>28753</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28754"></a>28754</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28755"></a>28755</td>
+<td class="instruction">JR NC,28752</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28757"></a>28757</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the MSB of the entry in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28758"></a>28758</td>
+<td class="instruction">ADC A,B</td>
+<td class="comment-11" rowspan="1">Add 1 if opening the door/window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28759"></a>28759</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the LSB of the entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28760"></a>28760</td>
+<td class="instruction">LD L,(HL)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">L</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28761"></a>28761</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="1">Now <span class="register">HL</span>=address from the doors and windows table (+256 if opening)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28762"></a>28762</td>
+<td class="instruction">CALL <a class="link" href="27672.html">27672</a></td>
+<td class="comment-11" rowspan="1">Alter UDG references in the play area and update the SRB for the newly opened or closed door/window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28765"></a>28765</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28766"></a>28766</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28735.html">28735</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28736">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28767.html">28767</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

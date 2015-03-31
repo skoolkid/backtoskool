@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 25026</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="25012.html">25012</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#25026">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="25080.html">25080</a></span></td>
+</tr>
+</table>
+<div class="description">25026: Scroll the screen left 8 columns</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="28160.html">28160</a> and <a class="link" href="62910.html">62910</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="25026"></a>25026</td>
+<td class="instruction">LD B,8</td>
+<td class="comment-11" rowspan="1">8 columns will be scrolled on</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="25028"></a>25028</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Save the column counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25029"></a>25029</td>
+<td class="instruction">LD HL,22529</td>
+<td class="comment-11" rowspan="4">First shift the attributes one place to the left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25032"></a>25032</td>
+<td class="instruction">LD DE,22528</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25035"></a>25035</td>
+<td class="instruction">LD BC,671</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25038"></a>25038</td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25040"></a>25040</td>
+<td class="instruction">CALL <a class="link" href="63553.html">63553</a></td>
+<td class="comment-11" rowspan="1">Scroll the display file one character square to the left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25043"></a>25043</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="2">Adjust the leftmost column of the play area now on screen (held at <a class="link" href="32767.html">32767</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25044"></a>25044</td>
+<td class="instruction">LD (32767),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25047"></a>25047</td>
+<td class="instruction">LD HL,5151</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=20 (bottom row of the screen), <span class="register">L</span>=31 (column at the far right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="25050"></a>25050</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25051"></a>25051</td>
+<td class="instruction">CALL <a class="link" href="24684.html">24684</a></td>
+<td class="comment-11" rowspan="1">Print the play area character square at row <span class="register">H</span>, column <span class="register">L</span>=31</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25054"></a>25054</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25055"></a>25055</td>
+<td class="instruction">DEC H</td>
+<td class="comment-11" rowspan="1">Next row up</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25056"></a>25056</td>
+<td class="instruction">JP P,25050</td>
+<td class="comment-11" rowspan="1">Jump back until all 21 squares in the column have been printed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25059"></a>25059</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Restore the column counter to <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25060"></a>25060</td>
+<td class="instruction">DJNZ 25028</td>
+<td class="comment-11" rowspan="1">Jump back until 8 columns have been scrolled on</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="25062"></a>
+<div class="comments">
+<div class="paragraph">
+The screen has been scrolled left 8 columns. Check whether any of the minor characters may be teleported without us noticing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25062"></a>25062</td>
+<td class="instruction">LD A,(32767)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25065"></a>25065</td>
+<td class="instruction">LD B,5</td>
+<td class="comment-11" rowspan="2">5 little boys, starting with 193=little boy no. 4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25067"></a>25067</td>
+<td class="instruction">LD H,193</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25069"></a>25069</td>
+<td class="instruction">CP 120</td>
+<td class="comment-11" rowspan="1">Is the skool gate in the middle of the screen?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25071"></a>25071</td>
+<td class="instruction">JR Z,<a class="link" href="25080.html#25134">25134</a></td>
+<td class="comment-11" rowspan="1">Jump if so (to consider teleporting little boys 4-8)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25073"></a>25073</td>
+<td class="instruction">CP 80</td>
+<td class="comment-11" rowspan="1">Is the boys' skool door in the middle of the screen?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25075"></a>25075</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25076"></a>25076</td>
+<td class="instruction">LD H,190</td>
+<td class="comment-11" rowspan="1">190=little boy no. 1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="25078"></a>25078</td>
+<td class="instruction">JR <a class="link" href="25080.html#25132">25132</a></td>
+<td class="comment-11" rowspan="1">Consider teleporting little boys 1-3</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="25012.html">25012</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#25026">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="25080.html">25080</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

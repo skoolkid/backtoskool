@@ -1,0 +1,22 @@
+table.mgrid {
+  border-collapse: collapse;
+}
+table.mgrid td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000000;
+  padding: 5px;
+}
+table.mgrid table.tiles td {
+  border-width: 0;
+  padding: 3px;
+}
+table.asm {
+  background-color: #ddeeff;
+}
+table.boxData td {
+  background-color: #99bbdd;
+}
+table.boxData th {
+  background-color: #7799bb;
+}

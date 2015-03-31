@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 30102</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30096.html">30096</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30102">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30202.html">30202</a></span></td>
+</tr>
+</table>
+<div class="description">30102: Deal with a character who has been knocked over</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of the stricken character's buffer by the routine at <a class="link" href="29896.html">29896</a>. It knocks the character to the floor, makes him give lines to any nearby kids (if he's a teacher), and then makes him get up.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (183-209)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30102"></a>30102</td>
+<td class="instruction">LD L,19</td>
+<td class="comment-11" rowspan="1">Byte 19 of the character's buffer holds the knockout delay counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30104"></a>30104</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Has the character already got up?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30105"></a>30105</td>
+<td class="instruction">JP Z,<a class="link" href="25484.html#25492">25492</a></td>
+<td class="comment-11" rowspan="1">Terminate this uninterruptible subcommand if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30108"></a>30108</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=knockout delay counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30109"></a>30109</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1">Is it time for the character to get up yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30110"></a>30110</td>
+<td class="instruction">JR NZ,30121</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30112"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="63801.html">63801</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30112"></a>30112</td>
+<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30115"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="28978.html">28978</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30115"></a>30115</td>
+<td class="instruction">LD L,20</td>
+<td class="comment-11" rowspan="1">Byte 20 of the character's buffer holds the pre-knockout animatory state saved earlier</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30117"></a>30117</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30118"></a>30118</td>
+<td class="instruction">JP <a class="link" href="24880.html">24880</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30121"></a>
+<div class="comments">
+<div class="paragraph">
+It's not time for the character to get up yet.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30121"></a>30121</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="2">Jump forward unless the knockout delay counter has reached 2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30122"></a>30122</td>
+<td class="instruction">JR NZ,30137</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30124"></a>30124</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30125"></a>30125</td>
+<td class="instruction">CP 205</td>
+<td class="comment-11" rowspan="1">Is it ALBERT?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30127"></a>30127</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30128"></a>30128</td>
+<td class="instruction">LD A,(32740)</td>
+<td class="comment-11" rowspan="1">Pick up the MSB of the lesson clock</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30131"></a>30131</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is the lesson nearly over?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30132"></a>30132</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30133"></a>30133</td>
+<td class="instruction">LD L,19</td>
+<td class="comment-11" rowspan="2">Set the knockout delay counter to 3 so that ALBERT will not get up until the lesson's almost over</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30135"></a>30135</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30136"></a>30136</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30137"></a>
+<div class="comments">
+<div class="paragraph">
+The knockout delay counter has not reached 2 yet. Is it time to knock the character down?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30137"></a>30137</td>
+<td class="instruction">CP 15</td>
+<td class="comment-11" rowspan="1">Is it time for the character to fall over?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30139"></a>30139</td>
+<td class="instruction">JR NZ,30180</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30141"></a>30141</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30142"></a>30142</td>
+<td class="instruction">LD DE,32740</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the MSB of the lesson clock</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30145"></a>30145</td>
+<td class="instruction">CP 205</td>
+<td class="comment-11" rowspan="1">Was ALBERT struck?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30147"></a>30147</td>
+<td class="instruction">JR NZ,30155</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30149"></a>30149</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="3">Add 12 to the MSB of the lesson clock if ALBERT was knocked down, thus giving ERIC some extra time to work with</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30150"></a>30150</td>
+<td class="instruction">ADD A,12</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30152"></a>30152</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30153"></a>30153</td>
+<td class="instruction">JR 30167</td>
+<td class="comment-11" rowspan="1">Knock ALBERT down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30155"></a>30155</td>
+<td class="instruction">CP 209</td>
+<td class="comment-11" rowspan="1">Was HAYLEY struck?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30157"></a>30157</td>
+<td class="instruction">JR NZ,30167</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30159"></a>30159</td>
+<td class="instruction">LD E,226</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=<a class="link" href="32738.html">32738</a> (kiss counter)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30161"></a>30161</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30162"></a>30162</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Are there any kisses left?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30163"></a>30163</td>
+<td class="instruction">JR Z,30167</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30165"></a>30165</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="2">Otherwise decrease the kiss counter by 1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30166"></a>30166</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30167"></a>
+<div class="comments">
+<div class="paragraph">
+Knock the character down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30167"></a>30167</td>
+<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30170"></a>30170</td>
+<td class="instruction">LD L,20</td>
+<td class="comment-11" rowspan="2">Store the character's current animatory state in byte 20 of the buffer for retrieval later (when the character gets up)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30172"></a>30172</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30173"></a>30173</td>
+<td class="instruction">AND 248</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=animatory state of the character sitting or lying on the floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30175"></a>30175</td>
+<td class="instruction">ADD A,6</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30177"></a>30177</td>
+<td class="instruction">JP <a class="link" href="24880.html">24880</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30180"></a>
+<div class="comments">
+<div class="paragraph">
+It's not time to knock the character down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30180"></a>30180</td>
+<td class="instruction">CP 8</td>
+<td class="comment-11" rowspan="1">Is it time for a felled teacher to give lines?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30182"></a>30182</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30183"></a>30183</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30184"></a>30184</td>
+<td class="instruction">CP 200</td>
+<td class="comment-11" rowspan="4">Return if it's not a teacher</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30186"></a>30186</td>
+<td class="instruction">RET C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30187"></a>30187</td>
+<td class="instruction">CP 205</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30189"></a>30189</td>
+<td class="instruction">RET NC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30190"></a>30190</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30191"></a>30191</td>
+<td class="instruction">CALL <a class="link" href="28029.html">28029</a></td>
+<td class="comment-11" rowspan="1">Find the main kid who is closest to the teacher and within lines-giving range (if any)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30194"></a>30194</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30195"></a>30195</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is there a main kid close enough to the felled teacher?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30196"></a>30196</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30197"></a>30197</td>
+<td class="instruction">LD B,15</td>
+<td class="comment-11" rowspan="1">Message <a class="link" href="59905.html">15</a>: NOW DON'T DO IT AGAIN</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30199"></a>30199</td>
+<td class="instruction">JP <a class="link" href="29716.html">29716</a></td>
+<td class="comment-11" rowspan="1">Give lines to the nearest main kid</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30096.html">30096</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30102">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30202.html">30202</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

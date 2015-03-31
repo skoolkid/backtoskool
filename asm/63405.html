@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 63405</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63404.html">63404</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63405">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63446.html">63446</a></span></td>
+</tr>
+</table>
+<div class="description">63405: Deal with ERIC</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="63210.html">63210</a>. Deals with ERIC when any of the bits at <a class="link" href="32763.html">32763</a> (ERIC's primary status flags) are set, indicating that ERIC is doing something other than standing or walking:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th>Bit</th>
+<th>Set by</th>
+<th>Meaning if set</th>
+<th>Handler</th>
+</tr>
+<tr>
+<td class="centre">0</td>
+<td class="centre"><a class="link" href="23887.html">23887</a></td>
+<td>ERIC is jumping</td>
+<td class="centre"><a class="link" href="23907.html">23907</a></td>
+</tr>
+<tr>
+<td class="centre">1</td>
+<td class="centre"><a class="link" href="23907.html">23907</a>, <a class="link" href="28305.html">28305</a>, <a class="link" href="29574.html">29574</a></td>
+<td>Examine the secondary status flags at <a class="link" href="32749.html">32749</a></td>
+<td class="centre"></td>
+</tr>
+<tr>
+<td class="centre">2</td>
+<td class="centre"><a class="link" href="62094.html">62094</a>, <a class="link" href="62423.html">62423</a>, <a class="link" href="64460.html">64460</a></td>
+<td>ERIC is sitting or lying down</td>
+<td class="centre"><a class="link" href="62178.html">62178</a></td>
+</tr>
+<tr>
+<td class="centre">3</td>
+<td class="centre"><a class="link" href="57637.html">57637</a></td>
+<td>ERIC is bending over, dropping a stinkbomb etc.</td>
+<td class="centre"><a class="link" href="57669.html">57669</a></td>
+</tr>
+<tr>
+<td class="centre">4</td>
+<td class="centre"><a class="link" href="24133.html">24133</a></td>
+<td>ERIC is writing on a blackboard</td>
+<td class="centre"><a class="link" href="24175.html">24175</a></td>
+</tr>
+<tr>
+<td class="centre">5</td>
+<td class="centre"><a class="link" href="24247.html">24247</a></td>
+<td>ERIC is firing, hitting or kissing</td>
+<td class="centre"><a class="link" href="24237.html">24237</a></td>
+</tr>
+<tr>
+<td class="centre">6</td>
+<td class="centre"><a class="link" href="62815.html">62815</a>, <a class="link" href="64460.html">64460</a></td>
+<td>MR WACKER is expelling ERIC</td>
+<td class="centre"></td>
+</tr>
+<tr>
+<td class="centre">7</td>
+<td class="centre"><a class="link" href="26175.html">26175</a>, <a class="link" href="29896.html">29896</a></td>
+<td>ERIC has been knocked over</td>
+<td class="centre"><a class="link" href="62094.html">62094</a></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+If bit 1 at <a class="link" href="32763.html">32763</a> is set, we examine ERIC's secondary status flags at <a class="link" href="32749.html">32749</a>:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th>Bit</th>
+<th>Set by</th>
+<th>Meaning if set</th>
+<th>Handler</th>
+</tr>
+<tr>
+<td class="centre">0</td>
+<td class="centre"><a class="link" href="29462.html">29462</a></td>
+<td>ERIC is riding the bike</td>
+<td class="centre"><a class="link" href="29278.html">29278</a></td>
+</tr>
+<tr>
+<td class="centre">1</td>
+<td class="centre"><a class="link" href="23907.html">23907</a></td>
+<td>ERIC is standing on a plant or plant pot</td>
+<td class="centre"><a class="link" href="64316.html">64316</a></td>
+</tr>
+<tr>
+<td class="centre">2</td>
+<td class="centre"><a class="link" href="64242.html">64242</a>, <a class="link" href="64259.html">64259</a>, <a class="link" href="64316.html">64316</a></td>
+<td>ERIC is stepping off a plant, a plant pot, or the stage</td>
+<td class="centre"><a class="link" href="64259.html">64259</a></td>
+</tr>
+<tr>
+<td class="centre">3</td>
+<td class="centre"><a class="link" href="64259.html">64259</a>, <a class="link" href="64316.html">64316</a></td>
+<td>ERIC is falling and will land on his feet</td>
+<td class="centre"><a class="link" href="64416.html">64416</a></td>
+</tr>
+<tr>
+<td class="centre">4</td>
+<td class="centre"><a class="link" href="29194.html">29194</a>, <a class="link" href="29278.html">29278</a>, <a class="link" href="64077.html">64077</a></td>
+<td>ERIC is falling and will not land on his feet</td>
+<td class="centre"><a class="link" href="64460.html">64460</a></td>
+</tr>
+<tr>
+<td class="centre">5</td>
+<td class="centre"><a class="link" href="64259.html">64259</a></td>
+<td>ERIC has stepped out of the top-floor window</td>
+<td class="centre"><a class="link" href="23859.html">23859</a></td>
+</tr>
+<tr>
+<td class="centre">6</td>
+<td class="centre"><a class="link" href="29194.html">29194</a></td>
+<td>ERIC is falling from the saddle of the bike</td>
+<td class="centre"><a class="link" href="23843.html">23843</a></td>
+</tr>
+<tr>
+<td class="centre">7</td>
+<td class="centre"><a class="link" href="29278.html">29278</a></td>
+<td>ERIC is standing on the saddle of the bike</td>
+<td class="centre"><a class="link" href="29462.html">29462</a></td>
+</tr>
+</table>
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">127</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63405"></a>63405</td>
+<td class="instruction">LD L,237</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32749.html">32749</a> (ERIC's secondary status flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63407"></a>63407</td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-11" rowspan="1">Has ERIC stepped out of the top-floor window?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63409"></a>63409</td>
+<td class="instruction">JR Z,63418</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63411"></a>63411</td>
+<td class="instruction">LD A,(53760)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63414"></a>63414</td>
+<td class="instruction">CP 134</td>
+<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#134">134</a>: Is ERIC lying on his back, facing right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63416"></a>63416</td>
+<td class="instruction">JR NZ,63431</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63418"></a>63418</td>
+<td class="instruction">LD L,251</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32763.html">32763</a> (ERIC's status flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63420"></a>63420</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-11" rowspan="1">Is MR WACKER expelling ERIC?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63422"></a>63422</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so (ERIC is incapacitated)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63423"></a>63423</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-11" rowspan="1">Bit 1 at <a class="link" href="32763.html">32763</a> is set if we need to look at <a class="link" href="32749.html">32749</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63425"></a>63425</td>
+<td class="instruction">LD D,211</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63427"></a>63427</td>
+<td class="instruction">JR Z,63433</td>
+<td class="comment-11" rowspan="1">Jump unless we need to look at <a class="link" href="32749.html">32749</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63429"></a>63429</td>
+<td class="instruction">LD L,237</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32749.html">32749</a> (ERIC's secondary status flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63431"></a>63431</td>
+<td class="instruction">LD D,213</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63433"></a>63433</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Copy the contents of <a class="link" href="32763.html">32763</a> or <a class="link" href="32749.html">32749</a> to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="63434"></a>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">D</span>=211 and <span class="register">A</span>=(<a class="link" href="32763.html">32763</a>) if bit 1 at <a class="link" href="32763.html">32763</a> is reset; otherwise <span class="register">D</span>=213 and <span class="register">A</span>=(<a class="link" href="32749.html">32749</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63434"></a>63434</td>
+<td class="instruction">LD E,68</td>
+<td class="comment-11" rowspan="4">Point <span class="register">DE</span> at the appropriate entry in the table of handler routine address LSBs (at <a class="link" href="54076.html">54076</a> or <a class="link" href="54588.html">54588</a>), depending on which bit of <span class="register">A</span> is set</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="63436"></a>63436</td>
+<td class="instruction">DEC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63437"></a>63437</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63438"></a>63438</td>
+<td class="instruction">JR NC,63436</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63440"></a>63440</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Transfer the table entry address to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63441"></a>63441</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="3">Collect the handler routine address from the table entry into <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63442"></a>63442</td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63443"></a>63443</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63444"></a>63444</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Transfer this handler routine address to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="63445"></a>63445</td>
+<td class="instruction">JP (HL)</td>
+<td class="comment-11" rowspan="1">Jump to the handler routine</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="63404.html">63404</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#63405">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="63446.html">63446</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

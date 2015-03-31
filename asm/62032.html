@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 62032</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62028.html">62028</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62032">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62092.html">62092</a></span></td>
+</tr>
+</table>
+<div class="description">62032: Make MR WACKER put the kids in detention</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by command list <a class="link" href="59699.html">72</a>. Builds a detention message (using a random noun and verb) and makes MR WACKER deliver it.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">200 (MR WACKER)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62032"></a>62032</td>
+<td class="instruction">LD A,(32767)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62035"></a>62035</td>
+<td class="instruction">CP 48</td>
+<td class="comment-11" rowspan="1">Is the stage off-screen to the right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62037"></a>62037</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62038"></a>62038</td>
+<td class="instruction">CP 88</td>
+<td class="comment-11" rowspan="1">Is the stage off-screen to the left?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62040"></a>62040</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62041"></a>62041</td>
+<td class="instruction">CALL <a class="link" href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62044"></a>62044</td>
+<td class="instruction">LD DE,32652</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a class="link" href="32652.html">10</a>, which will be the verb</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62047"></a>62047</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1">Save the random number in <span class="register">L</span> briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62048"></a>62048</td>
+<td class="instruction">AND 7</td>
+<td class="comment-11" rowspan="3">Store the verb message number (<a class="link" href="60911.html">144</a>, <a class="link" href="59901.html">145</a>, <a class="link" href="61091.html">146</a>, <a class="link" href="61103.html">147</a>, <a class="link" href="61111.html">148</a>, <a class="link" href="61141.html">149</a>, <a class="link" href="61157.html">150</a> or <a class="link" href="61166.html">151</a>) at <a class="link" href="32652.html">32652</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62050"></a>62050</td>
+<td class="instruction">ADD A,144</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62052"></a>62052</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62053"></a>62053</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1">Restore the random number to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62054"></a>62054</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="4">Set <span class="register">A</span> to another random number from 0 to 7</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62055"></a>62055</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62056"></a>62056</td>
+<td class="instruction">RRCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62057"></a>62057</td>
+<td class="instruction">AND 7</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62059"></a>62059</td>
+<td class="instruction">LD E,142</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a class="link" href="32654.html">11</a>, which will be the noun</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62061"></a>62061</td>
+<td class="instruction">ADD A,152</td>
+<td class="comment-11" rowspan="2">Store the noun message number (<a class="link" href="61175.html">152</a>, <a class="link" href="61184.html">153</a>, <a class="link" href="61195.html">154</a>, <a class="link" href="61208.html">155</a>, <a class="link" href="61222.html">156</a>, <a class="link" href="61226.html">157</a>, <a class="link" href="61245.html">158</a> or <a class="link" href="61258.html">159</a>) at <a class="link" href="32654.html">32654</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62063"></a>62063</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62064"></a>62064</td>
+<td class="instruction">LD E,96</td>
+<td class="comment-11" rowspan="1">Message <a class="link" href="60861.html">96</a>: YOU'RE ALL IN DETENTION...</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62066"></a>62066</td>
+<td class="instruction">LD BC,27144</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a class="link" href="27144.html">27144</a> (make character speak) and then return to <a class="link" href="62032.html#62072">62072</a> (below)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62069"></a>62069</td>
+<td class="instruction">CALL <a class="link" href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="62072"></a>
+<div class="comments">
+<div class="paragraph">
+Control of MR WACKER resumes here when he has finished delivering the detention message.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="62072"></a>62072</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Save MR WACKER's character number in <span class="register">D</span> briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62073"></a>62073</td>
+<td class="instruction">LD HL,32640</td>
+<td class="comment-11" rowspan="3">Reset bit 6 (ERIC no longer has to be in the assembly hall) and bit 7 (the kids can stand up now) at <a class="link" href="32640.html">32640</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62076"></a>62076</td>
+<td class="instruction">RES 7,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62078"></a>62078</td>
+<td class="instruction">RES 6,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62080"></a>62080</td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="4"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62081"></a>62081</td>
+<td class="instruction">NOP</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62082"></a>62082</td>
+<td class="instruction">NOP</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62083"></a>62083</td>
+<td class="instruction">NOP</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62084"></a>62084</td>
+<td class="instruction">LD L,228</td>
+<td class="comment-11" rowspan="2">Set the MSB of the lesson clock to 1 so that the bell will ring soon</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62086"></a>62086</td>
+<td class="instruction">LD (HL),1</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62088"></a>62088</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Restore MR WACKER's character number (200) to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="62089"></a>62089</td>
+<td class="instruction">JP <a class="link" href="25484.html">25484</a></td>
+<td class="comment-11" rowspan="1">Move to the next command in the command list</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="62028.html">62028</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#62032">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="62092.html">62092</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

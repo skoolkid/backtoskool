@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 28216</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28214.html">28214</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28216">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28239.html">28239</a></span></td>
+</tr>
+</table>
+<div class="description">28216: Turn ERIC round</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="28436.html">28436</a>, <a class="link" href="28460.html">28460</a>, <a class="link" href="28484.html">28484</a>, <a class="link" href="28576.html">28576</a> and <a class="link" href="64316.html">64316</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28216"></a>28216</td>
+<td class="instruction">CALL <a class="link" href="29012.html">29012</a></td>
+<td class="comment-11" rowspan="1">Make a sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28219"></a>28219</td>
+<td class="instruction">LD A,(32753)</td>
+<td class="comment-11" rowspan="1">Collect the keypress offset of the last keypress from <a class="link" href="32753.html">32753</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28222"></a>28222</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-11" rowspan="1">Bit 3 of <span class="register">A</span> is reset if an upper case key was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28224"></a>28224</td>
+<td class="instruction">LD HL,1024</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=4 (fast), <span class="register">L</span>=0 (not midstride)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28227"></a>28227</td>
+<td class="instruction">JR Z,28231</td>
+<td class="comment-11" rowspan="1">Jump if an upper case (fast) key was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28229"></a>28229</td>
+<td class="instruction">LD H,9</td>
+<td class="comment-11" rowspan="1">9=slow</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28231"></a>28231</td>
+<td class="instruction">LD (32754),HL</td>
+<td class="comment-11" rowspan="1">Initialise ERIC's main action timer at <a class="link" href="32755.html">32755</a> to 4 (fast) or 9 (slow), and reset the midstride/mid-action timer at <a class="link" href="32754.html">32754</a> to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28234"></a>28234</td>
+<td class="instruction">LD H,210</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28236"></a>28236</td>
+<td class="instruction">JP <a class="link" href="25581.html#25648">25648</a></td>
+<td class="comment-11" rowspan="1">Turn ERIC round</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28214.html">28214</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28216">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28239.html">28239</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

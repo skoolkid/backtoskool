@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 61512</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="61510.html">61510</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#61512">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="61533.html">61533</a></span></td>
+</tr>
+</table>
+<div class="description">61512: Check whether ERIC and EINSTEIN are in class</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="61696.html">61696</a>. If EINSTEIN is in class, this routine returns to the caller with the zero flag set if and only if ERIC is present too. If EINSTEIN is not yet sitting down in class, it makes the teacher wait until he shows up.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Teacher's character number (201-203)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="61512"></a>61512</td>
+<td class="instruction">LD A,(53248)</td>
+<td class="comment-11" rowspan="1">Pick up EINSTEIN's current animatory state in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61515"></a>61515</td>
+<td class="instruction">CP 52</td>
+<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#52">52</a>: Is EINSTEIN sitting down (i.e. in class)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61517"></a>61517</td>
+<td class="instruction">JP Z,<a class="link" href="32021.html">32021</a></td>
+<td class="comment-11" rowspan="1">Check on ERIC if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61520"></a>61520</td>
+<td class="instruction">LD DE,65533</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=-3</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61523"></a>61523</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Drop the return address from the stack into <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61524"></a>61524</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="3">Set <span class="register">DE</span> to the address of the CALL <a class="link" href="61512.html">61512</a> instruction in the calling routine</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61525"></a>61525</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61526"></a>61526</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61527"></a>61527</td>
+<td class="instruction">LD L,3</td>
+<td class="comment-11" rowspan="4">Place this address into bytes 3 and 4 of the teacher's buffer, so that we keep returning here (and the teacher stands still) until EINSTEIN arrives in class</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61529"></a>61529</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61530"></a>61530</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61531"></a>61531</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="61532"></a>61532</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return to the character-moving routine at <a class="link" href="25296.html">25296</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="61510.html">61510</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#61512">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="61533.html">61533</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

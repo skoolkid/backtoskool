@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 21664</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="21494.html">21494</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#21664">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="21746.html">21746</a></span></td>
+</tr>
+</table>
+<div class="description">21664: Set the input method, change the characters' names, and start the game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Continues from <a class="link" href="21425.html">21425</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="21664"></a>21664</td>
+<td class="instruction">CALL <a class="link" href="29118.html#29154">29154</a></td>
+<td class="comment-11" rowspan="2">Wait for a keypress, and collect its ASCII code in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21667"></a>21667</td>
+<td class="instruction">JR Z,21664</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21669"></a>21669</td>
+<td class="instruction">OR 32</td>
+<td class="comment-11" rowspan="1">Convert the keypress to lower case</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21671"></a>21671</td>
+<td class="instruction">CP 99</td>
+<td class="comment-11" rowspan="1">Was 'c' (Cursor) pressed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21673"></a>21673</td>
+<td class="instruction">JR Z,21705</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21675"></a>21675</td>
+<td class="instruction">CP 110</td>
+<td class="comment-11" rowspan="1">Was 'n' (None) pressed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21677"></a>21677</td>
+<td class="instruction">JR Z,21705</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21679"></a>21679</td>
+<td class="instruction">CP 107</td>
+<td class="comment-11" rowspan="1">Was 'k' (Kempston) pressed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21681"></a>21681</td>
+<td class="instruction">JR NZ,21690</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21683"></a>21683</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-11" rowspan="2">Set <a class="link" href="32748.html">32748</a> to 1: using Kempston</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21685"></a>21685</td>
+<td class="instruction">LD (32748),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21688"></a>21688</td>
+<td class="instruction">JR 21705</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="21690"></a>21690</td>
+<td class="instruction">CP 105</td>
+<td class="comment-11" rowspan="1">Was 'i' (Int2) pressed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21692"></a>21692</td>
+<td class="instruction">JR NZ,21664</td>
+<td class="comment-11" rowspan="1">Jump back to wait for another keypress if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21694"></a>21694</td>
+<td class="instruction">LD HL,21494</td>
+<td class="comment-11" rowspan="4">Copy the 10-byte table at <a class="link" href="21494.html">21494</a> into the keypress offset table at <a class="link" href="58624.html">58624</a> if Int2 is being used</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21697"></a>21697</td>
+<td class="instruction">LD DE,58624</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21700"></a>21700</td>
+<td class="instruction">LD BC,10</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21703"></a>21703</td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="21705"></a>
+<div class="comments">
+<div class="paragraph">
+The input method has been established. Now prepare the screen for the cast of characters.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="21705"></a>21705</td>
+<td class="instruction">LD HL,46849</td>
+<td class="comment-11" rowspan="9">Draw a line (the catwalk) across the screen, and set byte 1 of each character's buffer (which holds the character's x-coordinate) to a number between 1 and 32 (so that they are off-screen: the column of the play area at the far left of the screen, stored at <a class="link" href="32767.html">32767</a>, was set to 128 earlier on)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21708"></a>21708</td>
+<td class="instruction">LD DE,18560</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21711"></a>21711</td>
+<td class="instruction">LD B,32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21713"></a>21713</td>
+<td class="instruction">LD A,255</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="21715"></a>21715</td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21716"></a>21716</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21717"></a>21717</td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21718"></a>21718</td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21719"></a>21719</td>
+<td class="instruction">DJNZ 21715</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21721"></a>21721</td>
+<td class="instruction">LD HL,53762</td>
+<td class="comment-11" rowspan="2">Set byte 2 of ERIC's character buffer (which holds his y-coordinate) to 8; this will be the y-coordinate of the characters as they proceed along the catwalk</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21724"></a>21724</td>
+<td class="instruction">LD (HL),8</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21726"></a>21726</td>
+<td class="instruction">LD A,248</td>
+<td class="comment-11" rowspan="1">Message <a class="link" href="22223.html">248</a>: 'THE CHARACTERS'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21728"></a>21728</td>
+<td class="instruction">LD HL,16448</td>
+<td class="comment-11" rowspan="2">Print this message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21731"></a>21731</td>
+<td class="instruction">CALL <a class="link" href="20665.html#20668">20668</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21734"></a>21734</td>
+<td class="instruction">CALL <a class="link" href="21152.html">21152</a></td>
+<td class="comment-11" rowspan="1">Display the main characters and let the user change their names</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="21737"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="21920.html">21920</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="21737"></a>21737</td>
+<td class="instruction">LD HL,20650</td>
+<td class="comment-11" rowspan="2">Do the POKEs specified by the table at <a class="link" href="20650.html">20650</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21740"></a>21740</td>
+<td class="instruction">CALL <a class="link" href="21408.html">21408</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="21743"></a>21743</td>
+<td class="instruction">JP <a class="link" href="63189.html">63189</a></td>
+<td class="comment-11" rowspan="1">Start the game</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="21494.html">21494</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#21664">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="21746.html">21746</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

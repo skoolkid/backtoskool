@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 27110</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="27109.html">27109</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#27110">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="27143.html">27143</a></span></td>
+</tr>
+</table>
+<div class="description">27110: Place a font character bitmap into a message graphic buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="27419.html">27419</a> and <a class="link" href="27144.html">27144</a>. Appends a font character bitmap (corresponding to the ASCII code in <span class="register">A</span>) to the existing contents of a message graphic buffer.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">ASCII code</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Pixel columns remaining in the buffer</td>
+</tr>
+<tr>
+<td class="register">HL'</td>
+<td class="register-desc">Buffer address</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="27110"></a>27110</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=ASCII code (32-127)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27111"></a>27111</td>
+<td class="instruction">LD D,215</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the appropriate entry in the table of font character bitmap widths at <a class="link" href="55072.html">55072</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27113"></a>27113</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=width of the font character in pixels (1-5)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27114"></a>27114</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1">Store this in <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="27115"></a>27115</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27116"></a>27116</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=bit pattern for one pixel column of the font character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27117"></a>27117</td>
+<td class="instruction">CALL 27125</td>
+<td class="comment-11" rowspan="1">Slide this into the message buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27120"></a>27120</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1">One fewer pixel column remaining in the message buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27121"></a>27121</td>
+<td class="instruction">DJNZ 27115</td>
+<td class="comment-11" rowspan="1">Jump back until all pixel columns for the font character have been copied into the message buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27123"></a>27123</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1">One fewer pixel column remaining in the message buffer</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="27124"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="27419.html">27419</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="27124"></a>27124</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0 (blank pixel column)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="27125"></a>27125</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27126"></a>27126</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27127"></a>27127</td>
+<td class="instruction">LD C,8</td>
+<td class="comment-11" rowspan="1">8 pixels per column</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="27129"></a>27129</td>
+<td class="instruction">LD B,32</td>
+<td class="comment-11" rowspan="1">32 (during startup) or 8 bytes per pixel row (this instruction is set to LD B,8 before the game starts; see <a class="link" href="21408.html">21408</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27131"></a>27131</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Push a pixel into the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="27132"></a>27132</td>
+<td class="instruction">RL (HL)</td>
+<td class="comment-11" rowspan="3">Drag the pixel into the message buffer and shove the existing pixels one place to the left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27134"></a>27134</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27135"></a>27135</td>
+<td class="instruction">DJNZ 27132</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27137"></a>27137</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27138"></a>27138</td>
+<td class="instruction">JR NZ,27129</td>
+<td class="comment-11" rowspan="1">Jump back to collect the next pixel up</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27140"></a>27140</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the address of the last byte in the message buffer to <span class="register">HL'</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27141"></a>27141</td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="27142"></a>27142</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="27109.html">27109</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#27110">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="27143.html">27143</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

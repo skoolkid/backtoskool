@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 30205</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30202.html">30202</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30205">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30229.html">30229</a></span></td>
+</tr>
+</table>
+<div class="description">30205: Check whether a pellet has hit a cup</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by routine at <a class="link" href="30229.html">30229</a>. Returns with the zero flag set if the pellet is about to hit a cup.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Pellet's character number (213 or 214)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30205"></a>30205</td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the pellet's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30207"></a>30207</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=pellet's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30208"></a>30208</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30209"></a>30209</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=pellet's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30210"></a>30210</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="2">Adjust the coordinates for comparison with those of the cup</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30211"></a>30211</td>
+<td class="instruction">INC D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30212"></a>30212</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=pellet's (adjusted) y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30213"></a>30213</td>
+<td class="instruction">CP 14</td>
+<td class="comment-11" rowspan="1">All the cups have a y-coordinate of 14</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30215"></a>30215</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return with the zero flag reset if the pellet's not at the right height to hit a cup</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30216"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="29462.html">29462</a> with <span class="register">E</span> holding the x-coordinate of ERIC's hand as he jumps off the saddle of the bike.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30216"></a>30216</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the pellet or ERIC's hand</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="30217"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="64077.html">64077</a> with <span class="register">A</span> holding the x-coordinate of the stream of water or sherry fired from the waterpistol.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="30217"></a>30217</td>
+<td class="instruction">CP 25</td>
+<td class="comment-11" rowspan="1">Has the leftmost cup on the shelf in the boys' skool been hit?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30219"></a>30219</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30220"></a>30220</td>
+<td class="instruction">CP 27</td>
+<td class="comment-11" rowspan="1">Has the middle cup on the shelf in the boys' skool been hit?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30222"></a>30222</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30223"></a>30223</td>
+<td class="instruction">CP 30</td>
+<td class="comment-11" rowspan="1">Has the rightmost cup on the shelf in the boys' skool been hit?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30225"></a>30225</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30226"></a>30226</td>
+<td class="instruction">CP 186</td>
+<td class="comment-11" rowspan="1">Has the cup on the shelf in the girls' skool been hit?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="30228"></a>30228</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="30202.html">30202</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#30205">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="30229.html">30229</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

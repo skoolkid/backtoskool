@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 29178</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29118.html">29118</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29178">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29192.html">29192</a></span></td>
+</tr>
+</table>
+<div class="description">29178: Get the keypress offset of the last key pressed</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a class="link" href="29278.html">29278</a>, <a class="link" href="29462.html">29462</a>, <a class="link" href="62483.html">62483</a> and <a class="link" href="64316.html">64316</a>. Returns with the zero flag set if no game keys were pressed. Otherwise returns with <span class="register">A</span> holding the value from the <a class="link" href="58624.html">keypress offset table</a> corresponding to the last key pressed. This offset (an even number from 80 to 120) points at an entry in the keypress address table at <a class="link" href="58704.html">58704</a>. Each entry in that table is the address of the routine for handling a keypress.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="29178"></a>29178</td>
+<td class="instruction">CALL <a class="link" href="29118.html">29118</a></td>
+<td class="comment-11" rowspan="1">Collect the ASCII code of the last key pressed in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29181"></a>29181</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if no key was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29182"></a>29182</td>
+<td class="instruction">SUB 48</td>
+<td class="comment-11" rowspan="1">We're only interested in keys with codes 48 onwards</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29184"></a>29184</td>
+<td class="instruction">JR C,<a class="link" href="29118.html#29176">29176</a></td>
+<td class="comment-11" rowspan="1">Jump if none of these was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29186"></a>29186</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the relevant entry in the keypress offset table at <a class="link" href="58624.html">58624</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29187"></a>29187</td>
+<td class="instruction">LD H,229</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29189"></a>29189</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the offset from that table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29190"></a>29190</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the offset is 0 (i.e. not a game key)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="29191"></a>29191</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="29118.html">29118</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#29178">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="29192.html">29192</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

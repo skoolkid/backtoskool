@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 20896</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="20724.html">20724</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#20896">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="20956.html">20956</a></span></td>
+</tr>
+</table>
+<div class="description">20896: Change a character's name</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a class="link" href="21152.html">21152</a>. Waits for keypresses while a character's name is being changed, and prints them as they are typed. Returns when ENTER is pressed.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Message number of the character's name (21-31)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="20896"></a>20896</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="6">Collect the start address of the message (the character's name) into <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20897"></a>20897</td>
+<td class="instruction">LD H,254</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20899"></a>20899</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20900"></a>20900</td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20901"></a>20901</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20902"></a>20902</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20903"></a>20903</td>
+<td class="instruction">LD BC,3072</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=12, <span class="register">C</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="20906"></a>20906</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-11" rowspan="3">Blank out the current name (12 bytes)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20907"></a>20907</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20908"></a>20908</td>
+<td class="instruction">DJNZ 20906</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="20910"></a>20910</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the message number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20911"></a>20911</td>
+<td class="instruction">LD HL,20544</td>
+<td class="comment-11" rowspan="1">20544=display file address at which to print the name</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20914"></a>20914</td>
+<td class="instruction">CALL <a class="link" href="20665.html#20668">20668</a></td>
+<td class="comment-11" rowspan="1">Print the name built up so far</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="20917"></a>20917</td>
+<td class="instruction">CALL <a class="link" href="29118.html#29154">29154</a></td>
+<td class="comment-11" rowspan="2">Wait for a keypress</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20920"></a>20920</td>
+<td class="instruction">JR Z,20917</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20922"></a>20922</td>
+<td class="instruction">CP 13</td>
+<td class="comment-11" rowspan="1">Set the zero flag if ENTER was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20924"></a>20924</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=keypress code</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20925"></a>20925</td>
+<td class="instruction">JR NZ,20929</td>
+<td class="comment-11" rowspan="1">Jump unless ENTER was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20927"></a>20927</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the message number to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20928"></a>20928</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the new name entered</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="20929"></a>
+<div class="comments">
+<div class="paragraph">
+A key was pressed, and it wasn't ENTER. Place the ASCII code in the right slot of the message area corresponding to the character's name.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="20929"></a>20929</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the message number to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20930"></a>20930</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="5">Collect the start address of the message (the character's name) into <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20931"></a>20931</td>
+<td class="instruction">LD H,254</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20933"></a>20933</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20934"></a>20934</td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20935"></a>20935</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20936"></a>20936</td>
+<td class="instruction">LD HL,11</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20939"></a>20939</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Store the message number in <span class="register">C</span> briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20940"></a>20940</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the last byte in the message area for the character's name</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20941"></a>20941</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up this last byte in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20942"></a>20942</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is the message area already full?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20943"></a>20943</td>
+<td class="instruction">JR NZ,20953</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20945"></a>20945</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=start address of the message area</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20946"></a>20946</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="20947"></a>20947</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="4">Point <span class="register">HL</span> at the first unused slot in the message area</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20948"></a>20948</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20949"></a>20949</td>
+<td class="instruction">AND A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20950"></a>20950</td>
+<td class="instruction">JR NZ,20947</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20952"></a>20952</td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-11" rowspan="1">Place the letter just entered into this slot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="20953"></a>20953</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1">Restore the message number to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="20954"></a>20954</td>
+<td class="instruction">JR 20910</td>
+<td class="comment-11" rowspan="1">Print the letter and collect another</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="20724.html">20724</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#20896">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="20956.html">20956</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Back to Skool: Routine at 28484</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../microsphere.css" />
+<link rel="stylesheet" type="text/css" href="../skool.css" />
+<link rel="stylesheet" type="text/css" href="../bts.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28460.html">28460</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28484">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28576.html">28576</a></span></td>
+</tr>
+</table>
+<div class="description">28484: 'Q' pressed - up</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this routine is found in the table of keypress handling routines at <a class="link" href="58704.html">58704</a>. It is called from the main loop at <a class="link" href="63210.html">63210</a> when 'Q' or '7' is pressed.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28484"></a>28484</td>
+<td class="instruction">CALL <a class="link" href="28240.html">28240</a></td>
+<td class="comment-11" rowspan="1">Check whether ERIC is on a staircase</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28487"></a>28487</td>
+<td class="instruction">LD L,0</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28489"></a>28489</td>
+<td class="instruction">JR C,28569</td>
+<td class="comment-11" rowspan="1">Jump if ERIC's on a staircase</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28491"></a>28491</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Check the 'direction' bit of ERIC's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28493"></a>28493</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28494"></a>28494</td>
+<td class="instruction">JR Z,28540</td>
+<td class="comment-11" rowspan="1">Jump if ERIC's facing left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28496"></a>28496</td>
+<td class="instruction">CP 10</td>
+<td class="comment-11" rowspan="1">Is ERIC on the middle floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28498"></a>28498</td>
+<td class="instruction">JR Z,28535</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28500"></a>28500</td>
+<td class="instruction">CP 14</td>
+<td class="comment-11" rowspan="1">Is ERIC on the assembly hall stage?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28502"></a>28502</td>
+<td class="instruction">JR Z,28530</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28504"></a>28504</td>
+<td class="instruction">CP 17</td>
+<td class="comment-11" rowspan="1">Is ERIC on the bottom floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28506"></a>28506</td>
+<td class="instruction">JP NZ,<a class="link" href="28436.html#28449">28449</a></td>
+<td class="comment-11" rowspan="1">Move ERIC one space to the right if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28509"></a>28509</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28510"></a>28510</td>
+<td class="instruction">CP 176</td>
+<td class="comment-11" rowspan="1">176=bottom of the stairs leading up to the middle floor of the girls' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28512"></a>28512</td>
+<td class="instruction">JR NZ,28506</td>
+<td class="comment-11" rowspan="1">Jump if ERIC is not at that point</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28514"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a class="link" href="28315.html">28315</a>, <a class="link" href="28436.html">28436</a> and <a class="link" href="28460.html">28460</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28514"></a>28514</td>
+<td class="instruction">DEC D</td>
+<td class="comment-11" rowspan="1">Up a stair</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28515"></a>28515</td>
+<td class="instruction">LD B,D</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=ERIC's post-midstride y-coordinate</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28516"></a>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a class="link" href="28576.html">28576</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28516"></a>28516</td>
+<td class="instruction">LD A,(53760)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28519"></a>28519</td>
+<td class="instruction">LD C,E</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=ERIC's current x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28520"></a>28520</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-11" rowspan="1">Is ERIC facing left?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28522"></a>28522</td>
+<td class="instruction">JR Z,28526</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28524"></a>28524</td>
+<td class="instruction">INC C</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28525"></a>28525</td>
+<td class="instruction">INC C</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28526"></a>28526</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=ERIC's post-midstride x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28527"></a>28527</td>
+<td class="instruction">JP <a class="link" href="28114.html">28114</a></td>
+<td class="comment-11" rowspan="1">Put ERIC midstride</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28530"></a>
+<div class="comments">
+<div class="paragraph">
+ERIC is on the assembly hall stage, facing right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28530"></a>28530</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28531"></a>28531</td>
+<td class="instruction">CP 81</td>
+<td class="comment-11" rowspan="1">81=bottom of the stairs leading up from the stage to the middle floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28533"></a>28533</td>
+<td class="instruction">JR 28512</td>
+<td class="comment-11" rowspan="1">Move ERIC up a stair if he's here</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28535"></a>
+<div class="comments">
+<div class="paragraph">
+ERIC is on the middle floor, facing right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28535"></a>28535</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28536"></a>28536</td>
+<td class="instruction">CP 19</td>
+<td class="comment-11" rowspan="1">19=bottom of the stairs leading up to the Revision Library</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28538"></a>28538</td>
+<td class="instruction">JR 28512</td>
+<td class="comment-11" rowspan="1">Move ERIC up a stair if he's here</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28540"></a>
+<div class="comments">
+<div class="paragraph">
+ERIC is facing left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28540"></a>28540</td>
+<td class="instruction">CP 10</td>
+<td class="comment-11" rowspan="1">Is ERIC on the middle floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28542"></a>28542</td>
+<td class="instruction">JR NZ,28556</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28544"></a>28544</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28545"></a>28545</td>
+<td class="instruction">CP 91</td>
+<td class="comment-11" rowspan="1">91=bottom of the stairs leading up to the head's study</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28547"></a>28547</td>
+<td class="instruction">JR Z,28514</td>
+<td class="comment-11" rowspan="1">Move ERIC up a stair if he's here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28549"></a>28549</td>
+<td class="instruction">CP 186</td>
+<td class="comment-11" rowspan="1">186=bottom of the stairs leading up to the top floor of the girls' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28551"></a>28551</td>
+<td class="instruction">JP NZ,<a class="link" href="28460.html#28473">28473</a></td>
+<td class="comment-11" rowspan="1">Move ERIC one space left if he's not here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28554"></a>28554</td>
+<td class="instruction">JR 28514</td>
+<td class="comment-11" rowspan="1">Otherwise move him up a stair</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28556"></a>28556</td>
+<td class="instruction">CP 17</td>
+<td class="comment-11" rowspan="1">Is ERIC on the bottom floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28558"></a>28558</td>
+<td class="instruction">JR NZ,28551</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28560"></a>28560</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28561"></a>28561</td>
+<td class="instruction">CP 22</td>
+<td class="comment-11" rowspan="1">22=bottom of the stairs leading up to the middle floor at the far left of the boys' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28563"></a>28563</td>
+<td class="instruction">JR Z,28514</td>
+<td class="comment-11" rowspan="1">Move ERIC up a stair if he's here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28565"></a>28565</td>
+<td class="instruction">CP 83</td>
+<td class="comment-11" rowspan="1">83=bottom of the stairs leading up to the assembly hall stage</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28567"></a>28567</td>
+<td class="instruction">JR 28551</td>
+<td class="comment-11" rowspan="1">Move ERIC up a stair if he's here</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<a name="28569"></a>
+<div class="comments">
+<div class="paragraph">
+ERIC is on a staircase.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><a name="28569"></a>28569</td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-11" rowspan="2">Set the carry flag if ERIC is facing the wrong way to ascend the stairs</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28570"></a>28570</td>
+<td class="instruction">RLA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28571"></a>28571</td>
+<td class="instruction">JP C,<a class="link" href="28216.html">28216</a></td>
+<td class="comment-11" rowspan="1">Turn ERIC round if he's facing the wrong way</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><a name="28574"></a>28574</td>
+<td class="instruction">JR 28514</td>
+<td class="comment-11" rowspan="1">Make ERIC go up a stair otherwise</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a class="link" href="28460.html">28460</a></span></td>
+<td class="up">Up: <a class="link" href="../maps/all.html#28484">Map</a></td>
+<td class="next"><span class="next-1">Next: <a class="link" href="28576.html">28576</a></span></td>
+</tr>
+</table>
+<div class="footer">
+<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+</div>
+</body>
+</html>
