@@ -22,9 +22,7 @@ fi
 GAME=bts
 GAMEDIR=back_to_skool
 GAMENAME="Back to Skool"
-SKOOLDIR=$BACKTOSKOOL_HOME/sources
 SKOOLFILES=$(echo bts{,-load,-save,-start}.skool)
-REFFILE=$BACKTOSKOOL_HOME/sources/$GAME.ref
 SRCDIR=sources
 SRCFILES=$(echo COPYING backtoskool.py bts{{,-bugs,-changelog,-data,-facts,-glossary,-graphics,-pages,-pokes}.ref,{,-load,-save,-start}.skool} {bts,microsphere,skool}{,-dark,-green,-plum}.css microsphere.{js,py})
 DHOME=$BACKTOSKOOL_HOME
