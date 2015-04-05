@@ -37,8 +37,6 @@ Using ref files: {srcdir}/bts.ref, {srcdir}/bts-bugs.ref, {srcdir}/bts-changelog
 Parsing {srcdir}/bts.skool
 Creating directory {odir}/back_to_skool
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/back_to_skool/skoolkit.css
-Copying ../resources/microsphere.css to {odir}/back_to_skool/microsphere.css
-Copying ../resources/skool.css to {odir}/back_to_skool/skool.css
 Copying ../resources/bts.css to {odir}/back_to_skool/bts.css
   Writing disassembly files in back_to_skool/asm
   Writing back_to_skool/maps/all.html

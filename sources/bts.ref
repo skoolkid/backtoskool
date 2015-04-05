@@ -9,7 +9,7 @@ GameDir=back_to_skool
 Game=Back to Skool
 Logo=#UDGARRAY8,31,,8;59200-59335-1-64(/images/logo|Back to Skool)
 GameStatusBufferIncludes=32648,32650,32652,32654,32656
-StyleSheet=skoolkit.css;microsphere.css;skool.css;bts.css
+StyleSheet=skoolkit.css;bts.css
 Release=The complete Back to Skool RAM disassembly 20140614
 Copyright=&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).
 

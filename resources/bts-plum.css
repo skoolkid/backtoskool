@@ -1,3 +1,28 @@
+table.cbuffer th, table.keytable th {
+  background-color: #b24c7f;
+}
+table.cbuffer td, table.keytable td {
+  background-color: #660033;
+}
+td.keyPurpose {
+  color: #bebeff;
+}
+table.asgrid td, table.gallery td {
+  border-color: #ffffff;
+}
+div.B {
+  background-color: #002e00;
+}
+div.H {
+  color: #002e00;
+  background-color: #ffffff;
+}
+table.timetable th, table.lesson th {
+  background-color: #b24c7f;
+}
+table.timetable td, table.lesson td {
+  background-color: #660033;
+}
 table.mgrid td {
   border-color: #ffffff;
 }
