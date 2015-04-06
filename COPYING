@@ -1,6 +1,6 @@
-The SkoolKit extension modules (skoolkit/*.py), scripts and any other code used
-to build the Back to Skool disassembly are licensed under the GNU General
-Public License, version 3. To view a copy of this licence, visit
+The SkoolKit extension module (skoolkit/backtoskool.py), scripts and any other
+code used to build the Back to Skool disassembly are licensed under the GNU
+General Public License, version 3. To view a copy of this licence, visit
 
   http://www.gnu.org/licenses/
 

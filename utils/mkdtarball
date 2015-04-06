@@ -76,9 +76,8 @@ EOF
 
 copying() {
   cat <<EOF
-The SkoolKit extension modules (microsphere.py and backtoskool.py) are licensed
-under the GNU General Public License, version 3. To view a copy of this
-licence, visit
+The SkoolKit extension module (backtoskool.py) is licensed under the GNU
+General Public License, version 3. To view a copy of this licence, visit
 
   http://www.gnu.org/licenses/
 
@@ -123,7 +122,9 @@ fi
 
 # Copy all files required to build the disassembly into the 'src' directory
 rm -rf src
-cp -a $BACKTOSKOOL_HOME/sources src
+mkdir src
+cp -p $BACKTOSKOOL_HOME/sources/*.skool src
+cp -p $BACKTOSKOOL_HOME/sources/*.ref src
 cp -p $BACKTOSKOOL_HOME/skoolkit/*.py src
 cp -p $BACKTOSKOOL_HOME/resources/* src
 
