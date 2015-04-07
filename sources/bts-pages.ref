@@ -4,7 +4,7 @@
 <div>#CALL:play_area(play_area,0,0,192,21,2,0,8)</div>
 
 [Page:PlayAreaTiles]
-JavaScript=microsphere.js
+JavaScript=tiles.js
 
 [PageContent:PlayAreaTiles]
 <p>Click a tile to see the following info:</p>
@@ -213,7 +213,7 @@ Any given tile (identified by <i>udg_addr</i>) may appear at more than one locat
 </tr>
 
 [Page:AnimatoryStateTiles]
-JavaScript=microsphere.js
+JavaScript=tiles.js
 
 [PageContent:AnimatoryStateTiles]
 <div>

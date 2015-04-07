@@ -46,7 +46,7 @@ Copying ../resources/bts.css to {odir}/back_to_skool/bts.css
   Writing back_to_skool/buffers/gbuffer.html
   Writing back_to_skool/graphics/graphics.html
   Writing back_to_skool/graphics/playarea.html
-  Copying ../resources/microsphere.js to {odir}/back_to_skool/microsphere.js
+  Copying ../resources/tiles.js to {odir}/back_to_skool/tiles.js
   Writing back_to_skool/graphics/patiles/patiles.html
   Writing back_to_skool/graphics/asstart.html
   Writing back_to_skool/graphics/as.html
