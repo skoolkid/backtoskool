@@ -5,7 +5,9 @@
 
 Documented a bug: #BUG#665360Lines() (thanks Welling)
 
-Added a trivia entry: #FACT#pointsForAPOrAP()
+Added trivia entries:
+  #FACT#initialPlaytimes()
+  #FACT#pointsForAPOrAP()
 
 [Changelog:20140614]
 -
