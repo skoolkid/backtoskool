@@ -101,6 +101,15 @@ When demo mode or a new game starts, the timetable index is always #R46528#46528
 
 When demo mode starts for the first time after the game has loaded, the timetable index is #R46536(200). When a new game is started as soon as possible after the game has loaded, the timetable index is #R46544(208).
 
+[Fact:playtimeDistribution:Playtime distribution]
+Understandably, ERIC is always eager for playtime to come, but the number of non-playtime periods (lessons, Revision Library, dinner and assembly) he has to tolerate between each break varies between two and four throughout the #R46528(main timetable).
+
+#LIST
+{ There are two periods between playtimes at timetable indexes #R46533(198-199) and #R46549(214-215) }
+{ There are four periods between playtimes at timetable indexes #R46528#46528(193-196) and #R46544(209-212) }
+{ There are three periods between all the other playtimes }
+LIST#
+
 [Fact:teachersFreshAir:Teachers and fresh air]
 The only time MR ROCKITT, MR CREAK and MISS TAKE will leave their respective skools is when they are chasing ERIC; if ERIC never gave them reason to chase, they would be permanently skoolbound. So do your bit to give these teachers some exercise and fresh air by playing truant once in a while.
 
