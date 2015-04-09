@@ -45,6 +45,14 @@ POKE #R46544,43
 
 This removes the first PLAYTIME that normally takes place when starting the game for the first time and replaces it with lesson 43.
 
+[Fact:invulnerableMoments:Invulnerable moments]
+ERIC can usually throw a punch or fire his catapult and be confident that the impact will send one of the kids or teachers tumbling. However, on certain occasions, certain characters are invulnerable to ERIC's violence. Those characters and occasions are as follows:
+
+#LIST
+{ Any boy, when he's looking for a seat in a classroom (because he's under the control of the uninterruptible subcommand routine at #R26263) }
+{ MR WACKER, when he's on his way to open a window (because he's under the control of the uninterruptible subcommand routine at #R63733) }
+LIST#
+
 [Fact:teacherRooms:Teachers and classrooms]
 MR WITHIT is the only teacher who teaches ERIC in all three classrooms. See his #R51493(personal timetable).
 
