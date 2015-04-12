@@ -19,6 +19,9 @@ from skoolkit.image import ImageWriter
 from skoolkit.snapshot import get_snapshot
 from skoolkit.skoolhtml import Udg as BaseUdg, Frame
 
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BTS_Z80 = '{}/build/back_to_skool.z80'.format(parent_dir)
+
 BLACKBOARDS = {
     'br': {
         'geometry': (10, 5, 2, 2),
@@ -276,12 +279,11 @@ def run(snafile, imgfname, options):
 # Begin
 ###############################################################################
 parser = argparse.ArgumentParser(
-    usage='btsimage.py [options] SNAPSHOT FILE.{png,gif}',
-    description="Create an image from a snapshot of Back to Skool.",
+    usage='btsimage.py [options] FILE.{png,gif}',
+    description="Create an image of the skool in Back to Skool.",
     formatter_class=argparse.RawTextHelpFormatter,
     add_help=False
 )
-parser.add_argument('snapshot', help=argparse.SUPPRESS, nargs='?')
 parser.add_argument('imgfname', help=argparse.SUPPRESS, nargs='?')
 group = parser.add_argument_group('Options')
 group.add_argument('-b', dest='blackboard', metavar='BOARD',
@@ -317,6 +319,6 @@ group.add_argument('-w', dest='text', metavar='BOARD:TEXT', action='append', def
                         "-b option for a list of board identifiers (this option may be\n"
                         "used multiple times)")
 namespace, unknown_args = parser.parse_known_args()
-if unknown_args or not namespace.snapshot or not namespace.imgfname:
+if unknown_args or not namespace.imgfname:
     parser.exit(2, parser.format_help())
-run(namespace.snapshot, namespace.imgfname, namespace)
+run(BTS_Z80, namespace.imgfname, namespace)
