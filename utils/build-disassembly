@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
 D_VERSIONS=(
+  20150415
   20140614
   20131222
   20121119
@@ -84,7 +85,8 @@ if (($D_VERSION >= 20111031)); then
   cp -p ../$D_DIR/sources/*.ref .
   cp -p ../$D_DIR/sources/*.css .
   cp -p ../$D_DIR/sources/*.js .
-  [[ -d skoolkit ]] && cp -p ../$D_DIR/skoolkit/*.py skoolkit
+  [[ -d skoolkit ]] && [[ -d ../$D_DIR/skoolkit ]] && cp -p ../$D_DIR/skoolkit/*.py skoolkit
+  find ../$D_DIR/sources -name '*.py' -exec cp -p {} . \;
 else
   # Sources distributed with SkoolKit
   D_SK_VERSION=${SK_VERSIONS[$D_VERSION]}

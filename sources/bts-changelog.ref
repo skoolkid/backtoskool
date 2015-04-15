@@ -1,6 +1,6 @@
 ; Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
 
-[Changelog:YYYYMMDD]
+[Changelog:20150415]
 -
 
 Documented a bug: #BUG#665360Lines() (thanks Welling)

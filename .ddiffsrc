@@ -1,6 +1,6 @@
 # rc file for disassembly-diff, skooldiff and write-files
 
-OLD_VERSION=20140614
-SK_OLD_VERSION=4.0
+OLD_VERSION=20150415
+SK_OLD_VERSION=4.3
 SKOOL=$BACKTOSKOOL_HOME/sources/bts.skool
 SNAPSHOT=$BACKTOSKOOL_HOME/build/back_to_skool.z80

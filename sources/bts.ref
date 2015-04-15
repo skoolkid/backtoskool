@@ -1,4 +1,4 @@
-; Copyright 2008-2014 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
 SkoolFile=bts.skool
@@ -10,8 +10,8 @@ Game=Back to Skool
 Logo=#UDGARRAY8,31,,8;59200-59335-1-64(/images/logo|Back to Skool)
 GameStatusBufferIncludes=32648,32650,32652,32654,32656
 StyleSheet=skoolkit.css;bts.css
-Release=The complete Back to Skool RAM disassembly 20140614
-Copyright=&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).
+Release=The complete Back to Skool RAM disassembly 20150415
+Copyright=&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).
 
 [Links]
 DataMap=[Data] (just the data)
