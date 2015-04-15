@@ -7,15 +7,13 @@
 <title>Back to Skool: Trivia</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../microsphere.css" />
-<link rel="stylesheet" type="text/css" href="../skool.css" />
 <link rel="stylesheet" type="text/css" href="../bts.css" />
 
 </head>
 <body class="Facts">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Trivia</td>
 </tr>
 </table>
@@ -25,9 +23,12 @@
 <li><a class="link" href="#saverPokes">BASIC saver POKEs</a></li>
 <li><a class="link" href="#assemblyWait">MR WACKER waits for ERIC</a></li>
 <li><a class="link" href="#lesson43">Lesson 43, where art thou?</a></li>
+<li><a class="link" href="#invulnerableMoments">Invulnerable moments</a></li>
 <li><a class="link" href="#teacherRooms">Teachers and classrooms</a></li>
 <li><a class="link" href="#timetableStats">Timetable stats</a></li>
 <li><a class="link" href="#playtimeProbabilities">Playtime probabilities</a></li>
+<li><a class="link" href="#initialPlaytimes">Initial playtimes</a></li>
+<li><a class="link" href="#playtimeDistribution">Playtime distribution</a></li>
 <li><a class="link" href="#teachersFreshAir">Teachers and fresh air</a></li>
 <li><a class="link" href="#unusedDoor">The usable unused door</a></li>
 <li><a class="link" href="#bottomlessBoxes">Bottomless boxes</a></li>
@@ -38,6 +39,7 @@
 <li><a class="link" href="#apprehensiveAmphibian">The apprehensive amphibian</a></li>
 <li><a class="link" href="#pitchImperfect">Pitch imperfect</a></li>
 <li><a class="link" href="#closedDoorAndCaretaker">Between a closed door and a caretaker</a></li>
+<li><a class="link" href="#pointsForAPOrAP">Points for a punching or a pelleting</a></li>
 <li><a class="link" href="#bullySwotConker">ANGELFACE and EINSTEIN are conkerable</a></li>
 <li><a class="link" href="#bullyHeroine">ANGELFACE hates HAYLEY</a></li>
 <li><a class="link" href="#violenceAndKisses">Violence and kisses</a></li>
@@ -83,49 +85,49 @@ As it turns out, some tapes of Back to Skool were released that are missing line
 <div class="paragraph">
 <table class="asm">
 <tr>
-<td class="address-1">29124</td>
-<td class="instruction">IN A,(31)</td>
-<td class="comment-11"></td>
+<td class="address-1" colspan="1" rowspan="1">29124</td>
+<td class="instruction" colspan="1" rowspan="1">IN A,(31)</td>
+<td class="comment-11" colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="address-1">29126</td>
-<td class="instruction">AND 31</td>
-<td class="comment-11">Any input from the joystick?</td>
+<td class="address-1" colspan="1" rowspan="1">29126</td>
+<td class="instruction" colspan="1" rowspan="1">AND 31</td>
+<td class="comment-11" colspan="1" rowspan="1">Any input from the joystick?</td>
 </tr>
 <tr>
-<td class="address-1">29128</td>
-<td class="instruction">JR Z,29154</td>
-<td class="comment-11">Jump if not</td>
+<td class="address-1" colspan="1" rowspan="1">29128</td>
+<td class="instruction" colspan="1" rowspan="1">JR Z,29154</td>
+<td class="comment-11" colspan="1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="address-1">29130</td>
-<td class="instruction">LD L,79</td>
-<td class="comment-11">79='O' (LEFT)</td>
+<td class="address-1" colspan="1" rowspan="1">29130</td>
+<td class="instruction" colspan="1" rowspan="1">LD L,79</td>
+<td class="comment-11" colspan="1" rowspan="1">79='O' (LEFT)</td>
 </tr>
 <tr>
-<td class="address-1">29132</td>
-<td class="instruction">RRCA</td>
-<td class="comment-11"></td>
+<td class="address-1" colspan="1" rowspan="1">29132</td>
+<td class="instruction" colspan="1" rowspan="1">RRCA</td>
+<td class="comment-11" colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="address-1">29133</td>
-<td class="instruction">JR C,29151</td>
-<td class="comment-11">Jump if the joystick was moved right</td>
+<td class="address-1" colspan="1" rowspan="1">29133</td>
+<td class="instruction" colspan="1" rowspan="1">JR C,29151</td>
+<td class="comment-11" colspan="1" rowspan="1">Jump if the joystick was moved right</td>
 </tr>
 <tr>
-<td class="address-1">29135</td>
-<td class="instruction">INC L</td>
-<td class="comment-11"><span class="register">L</span>=80='P' (RIGHT)</td>
+<td class="address-1" colspan="1" rowspan="1">29135</td>
+<td class="instruction" colspan="1" rowspan="1">INC L</td>
+<td class="comment-11" colspan="1" rowspan="1"><span class="register">L</span>=80='P' (RIGHT)</td>
 </tr>
 <tr>
-<td class="address-1">29136</td>
-<td class="instruction">RRCA</td>
-<td class="comment-11"></td>
+<td class="address-1" colspan="1" rowspan="1">29136</td>
+<td class="instruction" colspan="1" rowspan="1">RRCA</td>
+<td class="comment-11" colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="address-1">29137</td>
-<td class="instruction">JR C,29151</td>
-<td class="comment-11">Jump if the joystick was moved left</td>
+<td class="address-1" colspan="1" rowspan="1">29137</td>
+<td class="instruction" colspan="1" rowspan="1">JR C,29151</td>
+<td class="comment-11" colspan="1" rowspan="1">Jump if the joystick was moved left</td>
 </tr>
 </table>
 </div>
@@ -162,8 +164,21 @@ POKE <a class="link" href="../asm/46528.html#46544">46544</a>,43
 This removes the first PLAYTIME that normally takes place when starting the game for the first time and replaces it with lesson 43.
 </div>
 </div>
-<div><a name="teacherRooms"></a></div>
+<div><a name="invulnerableMoments"></a></div>
 <div class="box box-2">
+<div class="box-title">Invulnerable moments</div>
+<div class="paragraph">
+ERIC can usually throw a punch or fire his catapult and be confident that the impact will send one of the kids or teachers tumbling. However, on certain occasions, certain characters are invulnerable to ERIC's violence. Those characters and occasions are as follows:
+</div>
+<div class="paragraph">
+<ul class="">
+<li>Any boy, when he's looking for a seat in a classroom (because he's under the control of the uninterruptible subcommand routine at <a class="link" href="../asm/26263.html">26263</a>)</li>
+<li>MR WACKER, when he's on his way to open a window (because he's under the control of the uninterruptible subcommand routine at <a class="link" href="../asm/63586.html#63733">63733</a>)</li>
+</ul>
+</div>
+</div>
+<div><a name="teacherRooms"></a></div>
+<div class="box box-1">
 <div class="box-title">Teachers and classrooms</div>
 <div class="paragraph">
 MR WITHIT is the only teacher who teaches ERIC in all three classrooms. See his <a class="link" href="../asm/51493.html">personal timetable</a>.
@@ -176,7 +191,7 @@ MR CREAK never teaches in the Science Lab. See his <a class="link" href="../asm/
 </div>
 </div>
 <div><a name="timetableStats"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Timetable stats</div>
 <div class="paragraph">
 There are 64 periods in the <a class="link" href="../asm/46528.html">main timetable</a>: 16 playtimes, 8 assemblies, 2 dinner periods, and 38 lesson periods (when ERIC is supposed to be in either a classroom or the Revision Library).
@@ -216,7 +231,7 @@ HAYLEY has only one lesson period in a classroom with no teacher (lesson <a clas
 </div>
 </div>
 <div><a name="playtimeProbabilities"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Playtime probabilities</div>
 <div class="paragraph">
 Little boys 4-10 spend every playtime (of which there are 16 in the <a class="link" href="../asm/46528.html">main timetable</a>) walking around from one <a class="link" href="../asm/25815.html">randomly chosen location</a> to another; little boys 1-3, however, each spend two of these playtimes walking up and down in the Revision Library until the bell rings.
@@ -234,22 +249,46 @@ BOY WANDER spends two playtimes writing on the boards in the girls' skool, 4 wri
 ANGELFACE spends 9 playtimes <a class="link" href="../asm/58844.html">stalking HAYLEY</a>, and the remaining 7 on random walkabouts.
 </div>
 </div>
-<div><a name="teachersFreshAir"></a></div>
+<div><a name="initialPlaytimes"></a></div>
+<div class="box box-2">
+<div class="box-title">Initial playtimes</div>
+<div class="paragraph">
+When demo mode or a new game starts, the timetable index is always <a class="link" href="../asm/46528.html#46528">192</a>, <a class="link" href="../asm/46528.html#46536">200</a>, <a class="link" href="../asm/46528.html#46544">208</a>, <a class="link" href="../asm/46528.html#46552">216</a>, <a class="link" href="../asm/46528.html#46560">224</a>, <a class="link" href="../asm/46528.html#46568">232</a>, <a class="link" href="../asm/46528.html#46576">240</a> or <a class="link" href="../asm/46528.html#46584">248</a> (which are all playtime, of course).
+</div>
+<div class="paragraph">
+When demo mode starts for the first time after the game has loaded, the timetable index is <a class="link" href="../asm/46528.html#46536">200</a>. When a new game is started as soon as possible after the game has loaded, the timetable index is <a class="link" href="../asm/46528.html#46544">208</a>.
+</div>
+</div>
+<div><a name="playtimeDistribution"></a></div>
 <div class="box box-1">
+<div class="box-title">Playtime distribution</div>
+<div class="paragraph">
+Understandably, ERIC is always eager for playtime to come, but the number of non-playtime periods (lessons, Revision Library, dinner and assembly) he has to tolerate between each break varies between two and four throughout the <a class="link" href="../asm/46528.html">main timetable</a>.
+</div>
+<div class="paragraph">
+<ul class="">
+<li>There are two periods between playtimes at timetable indexes <a class="link" href="../asm/46528.html#46533">198-199</a> and <a class="link" href="../asm/46528.html#46549">214-215</a></li>
+<li>There are four periods between playtimes at timetable indexes <a class="link" href="../asm/46528.html#46528">193-196</a> and <a class="link" href="../asm/46528.html#46544">209-212</a></li>
+<li>There are three periods between all the other playtimes</li>
+</ul>
+</div>
+</div>
+<div><a name="teachersFreshAir"></a></div>
+<div class="box box-2">
 <div class="box-title">Teachers and fresh air</div>
 <div class="paragraph">
 The only time MR ROCKITT, MR CREAK and MISS TAKE will leave their respective skools is when they are chasing ERIC; if ERIC never gave them reason to chase, they would be permanently skoolbound. So do your bit to give these teachers some exercise and fresh air by playing truant once in a while.
 </div>
 </div>
 <div><a name="unusedDoor"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">The usable unused door</div>
 <div class="paragraph">
 Though the left study door is never used in a normal game, there is support built in for opening and closing it (see <a class="link" href="../asm/56893.html">56893</a>, for example). To bring the door into service, try <a class="link" href="pokes.html#leftStudyDoor">these POKEs</a>.
 </div>
 </div>
 <div><a name="bottomlessBoxes"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Bottomless boxes</div>
 <div class="paragraph">
 Play area tiles 1, 11, 21 and 30 in base page 144 are unused:
@@ -257,16 +296,16 @@ Play area tiles 1, 11, 21 and 30 in base page 144 are unused:
 <div class="paragraph">
 <table class="gallery">
 <tr>
-<td><img alt="udg36865_56x4" src="../images/udgs/udg36865_56x4.png" /></td>
-<td><img alt="udg36875_56x4" src="../images/udgs/udg36875_56x4.png" /></td>
-<td><img alt="udg36885_56x4" src="../images/udgs/udg36885_56x4.png" /></td>
-<td><img alt="udg36894_56x4" src="../images/udgs/udg36894_56x4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="udg36865_56x4" src="../images/udgs/udg36865_56x4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="udg36875_56x4" src="../images/udgs/udg36875_56x4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="udg36885_56x4" src="../images/udgs/udg36885_56x4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="udg36894_56x4" src="../images/udgs/udg36894_56x4.png" /></td>
 </tr>
 <tr>
-<td>1</td>
-<td>11</td>
-<td>21</td>
-<td>30</td>
+<td class="" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">11</td>
+<td class="" colspan="1" rowspan="1">21</td>
+<td class="" colspan="1" rowspan="1">30</td>
 </tr>
 </table>
 </div>
@@ -276,28 +315,28 @@ However, there is evidence that they were used at one time and were later discar
 <div class="paragraph">
 <table class="boxData">
 <tr>
-<th>x</th>
-<th>Tiles used</th>
+<th colspan="1" rowspan="1">x</th>
+<th colspan="1" rowspan="1">Tiles used</th>
 </tr>
 <tr>
-<td class="centre">88</td>
-<td>0, 2-5, 40</td>
+<td class="centre" colspan="1" rowspan="1">88</td>
+<td class="" colspan="1" rowspan="1">0, 2-5, 40</td>
 </tr>
 <tr>
-<td class="centre">89</td>
-<td>6-10, 12, 13, 40</td>
+<td class="centre" colspan="1" rowspan="1">89</td>
+<td class="" colspan="1" rowspan="1">6-10, 12, 13, 40</td>
 </tr>
 <tr>
-<td class="centre">90</td>
-<td>14-20, 40</td>
+<td class="centre" colspan="1" rowspan="1">90</td>
+<td class="" colspan="1" rowspan="1">14-20, 40</td>
 </tr>
 <tr>
-<td class="centre">91</td>
-<td>22-29, 40</td>
+<td class="centre" colspan="1" rowspan="1">91</td>
+<td class="" colspan="1" rowspan="1">22-29, 40</td>
 </tr>
 <tr>
-<td class="centre">92</td>
-<td>31-45</td>
+<td class="centre" colspan="1" rowspan="1">92</td>
+<td class="" colspan="1" rowspan="1">31-45</td>
 </tr>
 </table>
 </div>
@@ -307,12 +346,12 @@ Note the gaps where tiles 1, 11, 21 and 30 seem to be missing from columns 88-91
 <div class="paragraph">
 <table class="gallery">
 <tr>
-<td><img alt="bottomless_boxes1" src="../images/play_area/bottomless_boxes1.png" /></td>
-<td> <img alt="bottomless_boxes2" src="../images/play_area/bottomless_boxes2.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="bottomless_boxes1" src="../images/play_area/bottomless_boxes1.png" /></td>
+<td class="" colspan="1" rowspan="1"> <img alt="bottomless_boxes2" src="../images/play_area/bottomless_boxes2.png" /></td>
 </tr>
 <tr>
-<td>Before</td>
-<td>After</td>
+<td class="" colspan="1" rowspan="1">Before</td>
+<td class="" colspan="1" rowspan="1">After</td>
 </tr>
 </table>
 </div>
@@ -323,9 +362,9 @@ To my eye, the 'after' picture looks nicer: the bottoms of the boxes (or whateve
 So why were tiles 1, 11, 21 and 30 left unused? Probably because when they <em>are</em> used, the bottoms of the boxes appear under the feet of any characters walking past, which looks a bit wrong:
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="bottomless_boxes3" src="../images/play_area/bottomless_boxes3.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="bottomless_boxes3" src="../images/play_area/bottomless_boxes3.png" /></td>
 </tr>
 </table>
 </div>
@@ -337,15 +376,15 @@ POKE 44626,1: POKE 44627,11: POKE 44628,21: POKE 44629,30
 </div>
 </div>
 <div><a name="slashDot"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Slash dot</div>
 <div class="paragraph">
 The '/' (slash) character in the Back to Skool font has a bit missing:
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="slash_dot" src="../images/font/slash_dot.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="slash_dot" src="../images/font/slash_dot.png" /></td>
 </tr>
 </table>
 </div>
@@ -356,43 +395,43 @@ Interestingly, the corresponding bit is also missing from the slash character in
 To complete the symmetry, the '\' (backslash) character has the same bit missing:
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="backslash_dot" src="../images/font/backslash_dot.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="backslash_dot" src="../images/font/backslash_dot.png" /></td>
 </tr>
 </table>
 </div>
 </div>
 <div><a name="invisibleStatues"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Invisible statues</div>
 <div class="paragraph">
 Depending on which part of the play area is currently on-screen, the character-moving routine at <a class="link" href="../asm/25296.html">25296</a> will skip certain minor characters, thus giving a performance boost to the other characters. Don't let the fact that there are immobilised kids off-screen to the left or right distract ERIC from his mission, though.
 </div>
 </div>
 <div><a name="fastWays"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Fast ways from A to B</div>
 <div class="paragraph">
 As if being immobilised while off-screen were not enough, those same minor characters are occasionally teleported to their destinations too. After scrolling the screen right (as ERIC approaches or goes deeper into the boys' skool), the routine at <a class="link" href="../asm/25080.html">25080</a> considers teleporting little girls 1-7; after scrolling the screen left (as ERIC leaves the boys' skool or approaches the girls' skool), the routine at <a class="link" href="../asm/25026.html">25026</a> considers teleporting little boys 1-8. And just before the bell rings for a new lesson, the routine at <a class="link" href="../asm/63309.html">63309</a> considers teleporting little girls 1-7 and little boys 1-8.
 </div>
 </div>
 <div><a name="mouseMetamorphosis"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Mouse metamorphosis</div>
 <div class="paragraph">
 After ERIC has obtained the Science Lab storeroom key, the mouse's days are numbered. The next time it goes into hiding will be the last: it will never re-emerge. Instead, its character buffer is appropriated by the frog, which then appears at its initial location in the storeroom (see <a class="link" href="../asm/31254.html#31372">31372</a>).
 </div>
 </div>
 <div><a name="apprehensiveAmphibian"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">The apprehensive amphibian</div>
 <div class="paragraph">
 You may have noticed that the frog is a tricky fellow to catch, and the reason is that it's programmed to be wary of ERIC. If ERIC is not close to the frog, it will decide to keep still three times out of four. But as soon as ERIC gets close, the frog will make a move (turn round or take a hop). See <a class="link" href="../asm/30906.html">30906</a>.
 </div>
 </div>
 <div><a name="pitchImperfect"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Pitch imperfect</div>
 <div class="paragraph">
 Unlike the theme tune and the tune that plays when ERIC opens the safe, the other sound effects in the game are played with interrupts enabled, which means they are affected by keys being held down. This is especially noticeable with the bell and the lines-giving sounds, which are somewhat longer than the others. To make them even longer:
@@ -406,17 +445,24 @@ Now put ERIC up to mischief in front of a teacher, or wait for the bell to ring,
 </div>
 </div>
 <div><a name="closedDoorAndCaretaker"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Between a closed door and a caretaker</div>
 <div class="paragraph">
 When ALBERT tells MR WACKER that ERIC is escaping, MR WACKER comes hurrying to the scene. However, if ERIC stands one step away from the skool door, MR WACKER will stand on the other side without opening it, continually giving ERIC lines for not being in class while at the same time preventing him from getting there.
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="trapped" src="../images/play_area/trapped.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="trapped" src="../images/play_area/trapped.png" /></td>
 </tr>
 </table>
+</div>
+</div>
+<div><a name="pointsForAPOrAP"></a></div>
+<div class="box box-2">
+<div class="box-title">Points for a punching or a pelleting</div>
+<div class="paragraph">
+ANGELFACE is unique among the cast of characters in that if ERIC knocks him over with a punch or a catapult pellet, 30 points are awarded (see <a class="link" href="../asm/30739.html#30773">30773</a> and <a class="link" href="../asm/30786.html#30796">30796</a>). No points are awarded for knocking anyone else over in this fashion.
 </div>
 </div>
 <div><a name="bullySwotConker"></a></div>
@@ -522,9 +568,9 @@ To adjust the hit zone (and the range) of the catapult, see <a class="link" href
 </div>
 </div>
 <div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
 </div>
 </body>
 </html>

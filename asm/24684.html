@@ -7,15 +7,13 @@
 <title>Back to Skool: Routine at 24684</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../microsphere.css" />
-<link rel="stylesheet" type="text/css" href="../skool.css" />
 <link rel="stylesheet" type="text/css" href="../bts.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
@@ -40,47 +38,47 @@ The play area graphic data is laid out across pages 128 to 181:
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Page(s)</th>
-<th>Bytes</th>
-<th>Contents</th>
+<th colspan="1" rowspan="1">Page(s)</th>
+<th colspan="1" rowspan="1">Bytes</th>
+<th colspan="1" rowspan="1">Contents</th>
 </tr>
 <tr>
-<td class="centre">128-135</td>
-<td class="centre">0-255</td>
-<td>Skool graphic data</td>
+<td class="centre" colspan="1" rowspan="1">128-135</td>
+<td class="centre" colspan="1" rowspan="1">0-255</td>
+<td class="" colspan="1" rowspan="1">Skool graphic data</td>
 </tr>
 <tr>
-<td class="centre">136-143</td>
-<td class="centre">0-255</td>
-<td>Skool graphic data</td>
+<td class="centre" colspan="1" rowspan="1">136-143</td>
+<td class="centre" colspan="1" rowspan="1">0-255</td>
+<td class="" colspan="1" rowspan="1">Skool graphic data</td>
 </tr>
 <tr>
-<td class="centre">144-151</td>
-<td class="centre">0-255</td>
-<td>Skool graphic data (except bytes 1, 11, 21, 30)</td>
+<td class="centre" colspan="1" rowspan="1">144-151</td>
+<td class="centre" colspan="1" rowspan="1">0-255</td>
+<td class="" colspan="1" rowspan="1">Skool graphic data (except bytes 1, 11, 21, 30)</td>
 </tr>
 <tr>
-<td class="centre">152-159</td>
-<td class="centre">0-249</td>
-<td>Skool graphic data (except bytes 224-239)</td>
+<td class="centre" colspan="1" rowspan="1">152-159</td>
+<td class="centre" colspan="1" rowspan="1">0-249</td>
+<td class="" colspan="1" rowspan="1">Skool graphic data (except bytes 224-239)</td>
 </tr>
 <tr>
-<td class="centre" rowspan="3">160-180</td>
-<td class="centre">0-143</td>
-<td>LSBs of tile base addresses</td>
+<td class="centre" colspan="1" rowspan="3">160-180</td>
+<td class="centre" colspan="1" rowspan="1">0-143</td>
+<td class="" colspan="1" rowspan="1">LSBs of tile base addresses</td>
 </tr>
 <tr>
-<td class="centre">144-179</td>
-<td>Tile MSB indicator bit-pairs (see below)</td>
+<td class="centre" colspan="1" rowspan="1">144-179</td>
+<td class="" colspan="1" rowspan="1">Tile MSB indicator bit-pairs (see below)</td>
 </tr>
 <tr>
-<td class="centre">180-251</td>
-<td>Tile BRIGHT/PAPER attribute nibbles</td>
+<td class="centre" colspan="1" rowspan="1">180-251</td>
+<td class="" colspan="1" rowspan="1">Tile BRIGHT/PAPER attribute nibbles</td>
 </tr>
 <tr>
-<td class="centre">181</td>
-<td class="centre">0-191</td>
-<td>Q (0&lt;=Q&lt;=143; see below)</td>
+<td class="centre" colspan="1" rowspan="1">181</td>
+<td class="centre" colspan="1" rowspan="1">0-191</td>
+<td class="" colspan="1" rowspan="1">Q (0&lt;=Q&lt;=143; see below)</td>
 </tr>
 </table>
 </div>
@@ -102,24 +100,24 @@ To summarise, then, the attributes and graphic data for the tile at skool locati
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Data</th>
-<th>Look at...</th>
+<th colspan="1" rowspan="1">Data</th>
+<th colspan="1" rowspan="1">Look at...</th>
 </tr>
 <tr>
-<td>BRIGHT/PAPER</td>
-<td>Nibble Q of bytes 180-251 in page Y+160 (or Y+161 if nibble Q in page Y+160 is 0)</td>
+<td class="" colspan="1" rowspan="1">BRIGHT/PAPER</td>
+<td class="" colspan="1" rowspan="1">Nibble Q of bytes 180-251 in page Y+160 (or Y+161 if nibble Q in page Y+160 is 0)</td>
 </tr>
 <tr>
-<td>INK</td>
-<td>0 if nibble Q in page Y+160 is not 0; 1, 2 or 3 as explained above otherwise</td>
+<td class="" colspan="1" rowspan="1">INK</td>
+<td class="" colspan="1" rowspan="1">0 if nibble Q in page Y+160 is not 0; 1, 2 or 3 as explained above otherwise</td>
 </tr>
 <tr>
-<td>Tile LSB</td>
-<td>Byte Q in page Y+160</td>
+<td class="" colspan="1" rowspan="1">Tile LSB</td>
+<td class="" colspan="1" rowspan="1">Byte Q in page Y+160</td>
 </tr>
 <tr>
-<td>Tile MSB</td>
-<td>Bit-pair Q of bytes 144-179 in page Y+160</td>
+<td class="" colspan="1" rowspan="1">Tile MSB</td>
+<td class="" colspan="1" rowspan="1">Bit-pair Q of bytes 144-179 in page Y+160</td>
 </tr>
 </table>
 </div>
@@ -1000,9 +998,9 @@ This entry point is used by the routine at <a class="link" href="26941.html">269
 </tr>
 </table>
 <div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
 </div>
 </body>
 </html>

@@ -7,15 +7,13 @@
 <title>Back to Skool: Bugs</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../microsphere.css" />
-<link rel="stylesheet" type="text/css" href="../skool.css" />
 <link rel="stylesheet" type="text/css" href="../bts.css" />
 
 </head>
 <body class="Bugs">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Bugs</td>
 </tr>
 </table>
@@ -41,6 +39,7 @@
 <li><a class="link" href="#noBlackboardTales">No blackboard tales</a></li>
 <li><a class="link" href="#doubleWipe">Double wipe</a></li>
 <li><a class="link" href="#tripleWipe">Triple wipe</a></li>
+<li><a class="link" href="#665360Lines">YOU HAVE 665360 LINES ERIC</a></li>
 <li><a class="link" href="#deceptiveDoorways">Deceptive doorways</a></li>
 <li><a class="link" href="#speechQueue">Speech queue hogs</a></li>
 <li><a class="link" href="#jumpAbsent">Jump out of class</a></li>
@@ -55,13 +54,13 @@
 When ERIC fires his catapult, he should go through the following sequence of animation phases:
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="Animatory state 128" src="../images/animatory_states/as128_120x2m.png" /></td>
-<td><img alt="Animatory state 138" src="../images/animatory_states/as138_120x2m.png" /></td>
-<td><img alt="Animatory state 139" src="../images/animatory_states/as139_120x2m.png" /></td>
-<td><img alt="Animatory state 138" src="../images/animatory_states/as138_120x2m.png" /></td>
-<td><img alt="Animatory state 128" src="../images/animatory_states/as128_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 128" src="../images/animatory_states/as128_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 138" src="../images/animatory_states/as138_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 139" src="../images/animatory_states/as139_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 138" src="../images/animatory_states/as138_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 128" src="../images/animatory_states/as128_120x2m.png" /></td>
 </tr>
 </table>
 </div>
@@ -180,9 +179,9 @@ ERIC doesn't get pushed to the floor when someone sits in his seat (see <a class
 The desk lid animatory state that is used when ERIC finds the water pistol makes it look as if the desk contains stinkbombs:
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="Animatory state 45" src="../images/animatory_states/as045_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 45" src="../images/animatory_states/as045_120x2m.png" /></td>
 </tr>
 </table>
 </div>
@@ -190,10 +189,10 @@ The desk lid animatory state that is used when ERIC finds the water pistol makes
 And the desk lid animatory state that is used when ERIC finds the stinkbombs (shown below on the left) makes it look as if the desk contains a mouse (shown on the right):
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="Animatory state 46" src="../images/animatory_states/as046_120x2m.png" /></td>
-<td><img alt="Animatory state 175" src="../images/animatory_states/as175_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 46" src="../images/animatory_states/as046_120x2m.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="Animatory state 175" src="../images/animatory_states/as175_120x2m.png" /></td>
 </tr>
 </table>
 </div>
@@ -352,12 +351,12 @@ If you exploit the <a class="link" href="bugs.html#doubleWipe">double wipe bug</
 <div>y=19: x=21 (just above the level of the bottom floor)</div>
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="triple_wipe1" src="../images/play_area/triple_wipe1.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="triple_wipe1" src="../images/play_area/triple_wipe1.png" /></td>
 </tr>
 <tr>
-<td><img alt="triple_wipe2" src="../images/play_area/triple_wipe2.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="triple_wipe2" src="../images/play_area/triple_wipe2.png" /></td>
 </tr>
 </table>
 </div>
@@ -368,8 +367,18 @@ This happens because the board-wiping routine (<a class="link" href="../asm/2663
 This bug can be hard to reproduce because the bell usually rings before you get a chance to make the teacher begin the third wipe; to improve your chances, try the <a class="link" href="pokes.html#lessonLength">lesson length POKEs</a> to extend the lesson.
 </div>
 </div>
-<div><a name="deceptiveDoorways"></a></div>
+<div><a name="665360Lines"></a></div>
 <div class="box box-2">
+<div class="box-title">YOU HAVE 665360 LINES ERIC</div>
+<div class="paragraph">
+If ERIC has 10000 lines or more, but manages to jump up to the safe (while holding the key) before MR WACKER comes to expel him, he will move on to the next year; what's more, ERIC will not risk expulsion again until the lines total has rolled over the maximum 655300 mark back round to zero, and then past 10000 again.
+</div>
+<div class="paragraph">
+The reason for this is that the routine at <a class="link" href="../asm/29643.html">29643</a> sends MR WACKER on his way to expel ERIC only when the lines total reaches or exceeds 10000 for the first time, and moving on to the next year makes MR WACKER completely forget his expulsion duties.
+</div>
+</div>
+<div><a name="deceptiveDoorways"></a></div>
+<div class="box box-1">
 <div class="box-title">Deceptive doorways</div>
 <div class="paragraph">
 It would be reasonable to assume that the doorway to a classroom in the boys' skool marks the boundary beyond which ERIC may be regarded as either absent from or present in that class (depending on which side of the boundary he stands). But it is not so.
@@ -378,9 +387,9 @@ It would be reasonable to assume that the doorway to a classroom in the boys' sk
 For example, the Blue Room extends beyond its doorway, such that ERIC is regarded as present when he is standing anywhere up to and including x-coordinate 23 (even though he appears to be entirely outside the classroom at that location):
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="deceptive_doorways1" src="../images/play_area/deceptive_doorways1.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="deceptive_doorways1" src="../images/play_area/deceptive_doorways1.png" /></td>
 </tr>
 </table>
 </div>
@@ -391,9 +400,9 @@ So ERIC can stand here during a class in the Blue Room without EINSTEIN telling 
 Similarly, the Yellow Room extends beyond its right-hand doorway, all the way up to and including x-coordinate 63:
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="deceptive_doorways2" src="../images/play_area/deceptive_doorways2.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="deceptive_doorways2" src="../images/play_area/deceptive_doorways2.png" /></td>
 </tr>
 </table>
 </div>
@@ -401,9 +410,9 @@ Similarly, the Yellow Room extends beyond its right-hand doorway, all the way up
 However, the Yellow Room has its left boundary at x-coordinate 41, so if ERIC stands at x-coordinate 40, he is regarded as absent (even though he appears to be entirely inside the classroom):
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="deceptive_doorways3" src="../images/play_area/deceptive_doorways3.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="deceptive_doorways3" src="../images/play_area/deceptive_doorways3.png" /></td>
 </tr>
 </table>
 </div>
@@ -414,9 +423,9 @@ However, the Yellow Room has its left boundary at x-coordinate 41, so if ERIC st
 Likewise, the left boundary of the Science Lab is at x-coordinate 31, a little to the right of its doorway. Which means that if ERIC stands at x-coordinate 30, he is regarded as absent (again, even though he appears to be entirely inside the classroom):
 </div>
 <div class="paragraph">
-<table>
+<table class="">
 <tr>
-<td><img alt="deceptive_doorways4" src="../images/play_area/deceptive_doorways4.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="deceptive_doorways4" src="../images/play_area/deceptive_doorways4.png" /></td>
 </tr>
 </table>
 </div>
@@ -425,7 +434,7 @@ To adjust the real boundaries of the classrooms so that they are more closely al
 </div>
 </div>
 <div><a name="speechQueue"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Speech queue hogs</div>
 <div class="paragraph">
 ERIC's teacher and EINSTEIN can hog the 'speech queue' for several rounds of a question-and-answer session, making the other teachers wait a long time - sometimes until after the bell has rung - before they can tell the kids to sit down or what to do during the lesson.
@@ -477,7 +486,7 @@ Thus MR ROCKITT could spend quite a while waiting at the blackboard before telli
 </div>
 </div>
 <div><a name="jumpAbsent"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Jump out of class</div>
 <div class="paragraph">
 If ERIC jumps continuously (hold 'J' down) during class, EINSTEIN will tell the teacher that ERIC is absent.
@@ -490,7 +499,7 @@ POKE 28086,254
 </div>
 </div>
 <div><a name="jumpDinner"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Jump into the dinner hall</div>
 <div class="paragraph">
 During dinner, go to the Yellow Room or the Science Lab, directly above the dinner hall. When the teacher on dinner duty comes and finds ERIC there, jump (press 'J'). The teacher will then return to the dinner hall, tricked into thinking that ERIC is back there too.
@@ -503,7 +512,7 @@ POKE 28086,254
 </div>
 </div>
 <div><a name="jumpAssembly"></a></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Jump into the assembly hall</div>
 <div class="paragraph">
 During assembly, go to the area between the Yellow Room and the head's study. When MR WITHIT comes and finds ERIC there, jump (press 'J'). MR WITHIT will then return to the assembly hall, tricked into thinking that ERIC is back there too.
@@ -516,7 +525,7 @@ POKE 28086,254
 </div>
 </div>
 <div><a name="jump4Spaces"></a></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">One more jump bug</div>
 <div class="paragraph">
 Play truant during class, somewhere on the top or middle floor. (The toilets are an ideal spot.) As ERIC's teacher approaches, start jumping continuously (hold 'J' down). When the teacher reaches the spot four spaces away from ERIC, you might see him turn round briefly, and then turn round again to continue the approach towards ERIC. The reason the teacher turns round is that he is tricked into thinking that ERIC is on the bottom floor, and so starts heading for the nearest staircase.
@@ -529,9 +538,9 @@ POKE 28086,254
 </div>
 </div>
 <div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
 </div>
 </body>
 </html>

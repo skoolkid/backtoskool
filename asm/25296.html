@@ -7,15 +7,13 @@
 <title>Back to Skool: Routine at 25296</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../microsphere.css" />
-<link rel="stylesheet" type="text/css" href="../skool.css" />
 <link rel="stylesheet" type="text/css" href="../bts.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
@@ -131,20 +129,20 @@ It's the turn of one of the little girls (183-189), or one of the first 8 little
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>X</th>
-<th>Skip</th>
+<th colspan="1" rowspan="1">X</th>
+<th colspan="1" rowspan="1">Skip</th>
 </tr>
 <tr>
-<td class="centre">X&lt;=72</td>
-<td>girls 1-7 (183-189)</td>
+<td class="centre" colspan="1" rowspan="1">X&lt;=72</td>
+<td class="" colspan="1" rowspan="1">girls 1-7 (183-189)</td>
 </tr>
 <tr>
-<td class="centre">80&lt;=X&lt;=112</td>
-<td>girls 4-7 and boys 1-3 (187-192)</td>
+<td class="centre" colspan="1" rowspan="1">80&lt;=X&lt;=112</td>
+<td class="" colspan="1" rowspan="1">girls 4-7 and boys 1-3 (187-192)</td>
 </tr>
 <tr>
-<td class="centre">X&gt;=120</td>
-<td>boys 1-8 (190-197)</td>
+<td class="centre" colspan="1" rowspan="1">X&gt;=120</td>
+<td class="" colspan="1" rowspan="1">boys 1-8 (190-197)</td>
 </tr>
 </table>
 </div>
@@ -553,36 +551,36 @@ The character shall be moved. From this point, the following steps are taken:
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Step</th>
-<th>Action</th>
+<th colspan="1" rowspan="1">Step</th>
+<th colspan="1" rowspan="1">Action</th>
 </tr>
 <tr>
-<td class="centre">1</td>
-<td>If there is an uninterruptible subcommand routine address in bytes 17 and 18 of the character's buffer, jump to it</td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">If there is an uninterruptible subcommand routine address in bytes 17 and 18 of the character's buffer, jump to it</td>
 </tr>
 <tr>
-<td class="centre">2</td>
-<td>If there is a continual subcommand routine address in bytes 23 and 24 of the character's buffer, call it (and then return to step 3)</td>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">If there is a continual subcommand routine address in bytes 23 and 24 of the character's buffer, call it (and then return to step 3)</td>
 </tr>
 <tr>
-<td class="centre">3</td>
-<td>If there is an interruptible subcommand routine address in bytes 9 and 10 of the character's buffer, jump to it</td>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">If there is an interruptible subcommand routine address in bytes 9 and 10 of the character's buffer, jump to it</td>
 </tr>
 <tr>
-<td class="centre">4</td>
-<td>Restart the command list if bit 0 of byte 29 of the character's buffer is set (and carry on to step 5)</td>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Restart the command list if bit 0 of byte 29 of the character's buffer is set (and carry on to step 5)</td>
 </tr>
 <tr>
-<td class="centre">5</td>
-<td>If there is a primary command routine address in bytes 3 and 4 of the character's buffer, jump to it</td>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">If there is a primary command routine address in bytes 3 and 4 of the character's buffer, jump to it</td>
 </tr>
 <tr>
-<td class="centre">6</td>
-<td>Remove any continual subcommand routine address from bytes 23 and 24 of the character's buffer</td>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">Remove any continual subcommand routine address from bytes 23 and 24 of the character's buffer</td>
 </tr>
 <tr>
-<td class="centre">7</td>
-<td>Collect the next primary command routine address from the command list, place it into bytes 3 and 4 of the character's buffer, and jump to it</td>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">Collect the next primary command routine address from the command list, place it into bytes 3 and 4 of the character's buffer, and jump to it</td>
 </tr>
 </table>
 </div>
@@ -592,100 +590,100 @@ The address of one of the following uninterruptible subcommand routines (or an e
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Address</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Description</th>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="24328.html">24328</a></td>
-<td>Make HAYLEY hit ERIC</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="24328.html">24328</a></td>
+<td class="" colspan="1" rowspan="1">Make HAYLEY hit ERIC</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="26224.html">26224</a></td>
-<td>Deal with a character who's been dethroned (1)</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="26224.html">26224</a></td>
+<td class="" colspan="1" rowspan="1">Deal with a character who's been dethroned (1)</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="26239.html">26239</a></td>
-<td>Deal with a character who's been dethroned (2)</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="26239.html">26239</a></td>
+<td class="" colspan="1" rowspan="1">Deal with a character who's been dethroned (2)</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="26263.html">26263</a></td>
-<td>Deal with a character who is looking for a seat</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="26263.html">26263</a></td>
+<td class="" colspan="1" rowspan="1">Deal with a character who is looking for a seat</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="27904.html#27941">27941</a></td>
-<td>Make a boy sit still until assembly is finished</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="27904.html#27941">27941</a></td>
+<td class="" colspan="1" rowspan="1">Make a boy sit still until assembly is finished</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="28855.html">28855</a></td>
-<td>Make a character open or close a door</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="28855.html">28855</a></td>
+<td class="" colspan="1" rowspan="1">Make a character open or close a door</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="29194.html">29194</a></td>
-<td>Control the bike when ERIC's not sitting on the saddle</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="29194.html">29194</a></td>
+<td class="" colspan="1" rowspan="1">Control the bike when ERIC's not sitting on the saddle</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="29896.html">29896</a></td>
-<td>Control the descent of the water, sherry or conker</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="29896.html">29896</a></td>
+<td class="" colspan="1" rowspan="1">Control the descent of the water, sherry or conker</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="30102.html">30102</a></td>
-<td>Deal with a character who has been knocked over</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="30102.html">30102</a></td>
+<td class="" colspan="1" rowspan="1">Deal with a character who has been knocked over</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="30380.html">30380</a></td>
-<td>Control the flight of a catapult pellet</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="30380.html">30380</a></td>
+<td class="" colspan="1" rowspan="1">Control the flight of a catapult pellet</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="30643.html">30643</a></td>
-<td>Deal with BOY WANDER when he is firing</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="30643.html">30643</a></td>
+<td class="" colspan="1" rowspan="1">Deal with BOY WANDER when he is firing</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="30739.html">30739</a></td>
-<td>Deal with ANGELFACE when he is hitting</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="30739.html">30739</a></td>
+<td class="" colspan="1" rowspan="1">Deal with ANGELFACE when he is hitting</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="30804.html">30804</a></td>
-<td>Deal with the frog when it has been knocked out of a cup</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="30804.html">30804</a></td>
+<td class="" colspan="1" rowspan="1">Deal with the frog when it has been knocked out of a cup</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="30906.html">30906</a></td>
-<td>Control the frog</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="30906.html">30906</a></td>
+<td class="" colspan="1" rowspan="1">Control the frog</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="31078.html">31078</a></td>
-<td>Control a female character while she's standing on a chair or jumping (1)</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="31078.html">31078</a></td>
+<td class="" colspan="1" rowspan="1">Control a female character while she's standing on a chair or jumping (1)</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="31092.html">31092</a></td>
-<td>Make a female character stand on a chair or start jumping</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="31092.html">31092</a></td>
+<td class="" colspan="1" rowspan="1">Make a female character stand on a chair or start jumping</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="31254.html">31254</a></td>
-<td>Control a mouse</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="31254.html">31254</a></td>
+<td class="" colspan="1" rowspan="1">Control a mouse</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="53796.html">53796</a></td>
-<td>Make a character do nothing</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="53796.html">53796</a></td>
+<td class="" colspan="1" rowspan="1">Make a character do nothing</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62178.html#62386">62386</a></td>
-<td>Control an open desk lid</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62178.html#62386">62386</a></td>
+<td class="" colspan="1" rowspan="1">Control an open desk lid</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63586.html#63627">63627</a></td>
-<td>Control a stinkbomb cloud</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63586.html#63627">63627</a></td>
+<td class="" colspan="1" rowspan="1">Control a stinkbomb cloud</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63586.html#63733">63733</a></td>
-<td>Make MR WACKER find a window to open after smelling a stinkbomb</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63586.html#63733">63733</a></td>
+<td class="" colspan="1" rowspan="1">Make MR WACKER find a window to open after smelling a stinkbomb</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63915.html#63960">63960</a></td>
-<td>Control water fired from the pistol</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63915.html#63960">63960</a></td>
+<td class="" colspan="1" rowspan="1">Control water fired from the pistol</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="64077.html#64175">64175</a></td>
-<td>Control a watered plant</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="64077.html#64175">64175</a></td>
+<td class="" colspan="1" rowspan="1">Control a watered plant</td>
 </tr>
 </table>
 </div>
@@ -695,24 +693,24 @@ The address of one of the following continual subcommand routines (or an entry p
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Address</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Description</th>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="30555.html">30555</a></td>
-<td>Make BOY WANDER fire his catapult now and then</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="30555.html">30555</a></td>
+<td class="" colspan="1" rowspan="1">Make BOY WANDER fire his catapult now and then</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62668.html">62668</a></td>
-<td>Make ALBERT keep an eye out for ERIC during lessons</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62668.html">62668</a></td>
+<td class="" colspan="1" rowspan="1">Make ALBERT keep an eye out for ERIC during lessons</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63455.html">63455</a></td>
-<td>Make ANGELFACE stalk HAYLEY</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63455.html">63455</a></td>
+<td class="" colspan="1" rowspan="1">Make ANGELFACE stalk HAYLEY</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63492.html">63492</a></td>
-<td>Make ANGELFACE or BOY WANDER hit or fire now and then</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63492.html">63492</a></td>
+<td class="" colspan="1" rowspan="1">Make ANGELFACE or BOY WANDER hit or fire now and then</td>
 </tr>
 </table>
 </div>
@@ -722,48 +720,48 @@ The address of one of the following interruptible subcommand routines (or an ent
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Address</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Description</th>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="25581.html">25581</a></td>
-<td>Guide a character to an intermediate destination</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="25581.html">25581</a></td>
+<td class="" colspan="1" rowspan="1">Guide a character to an intermediate destination</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="25656.html">25656</a></td>
-<td>Guide a character up a staircase</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="25656.html">25656</a></td>
+<td class="" colspan="1" rowspan="1">Guide a character up a staircase</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="25677.html">25677</a></td>
-<td>Guide a character down a staircase</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="25677.html">25677</a></td>
+<td class="" colspan="1" rowspan="1">Guide a character down a staircase</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="26639.html">26639</a></td>
-<td>Make a teacher wipe a blackboard</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="26639.html">26639</a></td>
+<td class="" colspan="1" rowspan="1">Make a teacher wipe a blackboard</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="26752.html">26752</a></td>
-<td>Make a character write on a blackboard</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="26752.html">26752</a></td>
+<td class="" colspan="1" rowspan="1">Make a character write on a blackboard</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="27144.html">27144</a></td>
-<td>Make a character speak</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="27144.html">27144</a></td>
+<td class="" colspan="1" rowspan="1">Make a character speak</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="32379.html">32379</a></td>
-<td>Make MISS TAKE chase ERIC (2)</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="32379.html">32379</a></td>
+<td class="" colspan="1" rowspan="1">Make MISS TAKE chase ERIC (2)</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="61463.html">61463</a></td>
-<td>Make EINSTEIN speak</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="61463.html">61463</a></td>
+<td class="" colspan="1" rowspan="1">Make EINSTEIN speak</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="61595.html">61595</a></td>
-<td>Make a teacher find the truant ERIC</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="61595.html">61595</a></td>
+<td class="" colspan="1" rowspan="1">Make a teacher find the truant ERIC</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62794.html">62794</a></td>
-<td>Make MR WACKER find the truant ERIC</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62794.html">62794</a></td>
+<td class="" colspan="1" rowspan="1">Make MR WACKER find the truant ERIC</td>
 </tr>
 </table>
 </div>
@@ -916,28 +914,28 @@ If we get here, that means there's no uninterruptible subcommand routine address
 <div class="paragraph">
 <table class="default">
 <tr>
-<th>Routine</th>
-<th>Occasion</th>
+<th colspan="1" rowspan="1">Routine</th>
+<th colspan="1" rowspan="1">Occasion</th>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="32062.html">32062</a></td>
-<td>MISS TAKE needs to chase ERIC out of the girls' skool</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="32062.html">32062</a></td>
+<td class="" colspan="1" rowspan="1">MISS TAKE needs to chase ERIC out of the girls' skool</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="61595.html">61595</a></td>
-<td>A teacher must find the absent ERIC during class, dinner or assembly</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="61595.html">61595</a></td>
+<td class="" colspan="1" rowspan="1">A teacher must find the absent ERIC during class, dinner or assembly</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62668.html">62668</a></td>
-<td>MR WACKER must find the truant ERIC</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62668.html">62668</a></td>
+<td class="" colspan="1" rowspan="1">MR WACKER must find the truant ERIC</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="62770.html">62770</a></td>
-<td>MR WACKER must find and expel ERIC</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="62770.html">62770</a></td>
+<td class="" colspan="1" rowspan="1">MR WACKER must find and expel ERIC</td>
 </tr>
 <tr>
-<td class="centre"><a class="link" href="63309.html">63309</a></td>
-<td>Lesson has ended</td>
+<td class="centre" colspan="1" rowspan="1"><a class="link" href="63309.html">63309</a></td>
+<td class="" colspan="1" rowspan="1">Lesson has ended</td>
 </tr>
 </table>
 </div>
@@ -1138,9 +1136,9 @@ This entry point is used by the routine at <a class="link" href="63447.html">634
 </tr>
 </table>
 <div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20140614</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2014 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://pyskool.ca/?page_id=177">SkoolKit</a> 4.0.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
 </div>
 </body>
 </html>
