@@ -37,7 +37,7 @@ Using ref files: {srcdir}/bts.ref, {srcdir}/bts-bugs.ref, {srcdir}/bts-changelog
 Parsing {srcdir}/bts.skool
 Creating directory {odir}/back_to_skool
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/back_to_skool/skoolkit.css
-Copying ../resources/bts.css to {odir}/back_to_skool/bts.css
+Copying ../sources/bts.css to {odir}/back_to_skool/bts.css
   Writing disassembly files in back_to_skool/asm
   Writing back_to_skool/maps/all.html
   Writing back_to_skool/maps/routines.html
@@ -46,7 +46,7 @@ Copying ../resources/bts.css to {odir}/back_to_skool/bts.css
   Writing back_to_skool/buffers/gbuffer.html
   Writing back_to_skool/graphics/graphics.html
   Writing back_to_skool/graphics/playarea.html
-  Copying ../resources/tiles.js to {odir}/back_to_skool/tiles.js
+  Copying ../sources/tiles.js to {odir}/back_to_skool/tiles.js
   Writing back_to_skool/graphics/patiles/patiles.html
   Writing back_to_skool/graphics/asstart.html
   Writing back_to_skool/graphics/as.html
@@ -207,7 +207,7 @@ class AsmTestCase(DisassembliesTestCase):
     def _write_asm(self, options, skoolfile, writer=None):
         args = [options, skoolfile]
         if writer:
-            writer_spec = '../skoolkit:{}'.format(writer)
+            writer_spec = '../sources:{}'.format(writer)
             args.insert(0, '-W {}'.format(writer_spec))
         output, stderr = self.run_skoolkit_command(skool2asm.main, ' '.join(args), err_lines=True)
         self.assertTrue(stderr[0].startswith('Parsed {}'.format(skoolfile)))
@@ -284,8 +284,7 @@ class HtmlTestCase(DisassembliesTestCase):
     def _write_html(self, options, writer, ref_file, exp_output):
         shutil.rmtree(self.odir, True)
 
-        main_options = '-W ../skoolkit:{}'.format(writer)
-        main_options += ' -S ../resources'
+        main_options = '-W ../sources:{}'.format(writer)
         main_options += ' -d {}'.format(self.odir)
         args = '{} {} ../{}'.format(main_options, options, ref_file)
         output, error = self.run_skoolkit_command(skool2html.main, args)
