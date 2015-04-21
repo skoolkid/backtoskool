@@ -1,63 +1,87 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import sys
 import os
 
-def write_tests(superclass_name, class_name, options_list, games):
-    print('from btstest import {}'.format(superclass_name))
-    print('')
-    print('class {}({}):'.format(class_name, superclass_name))
-    for game in games:
-        for options in options_list:
-            method_name_suffix = options.replace('-', '_').replace(' ', '')
-            method_name = 'test_{}{}'.format(game, method_name_suffix)
-            print("    def {}(self):".format(method_name))
-            print("        self.write_{}('{}')".format(game, options))
-            print("")
-
-def get_asm_options_list():
-    options_list = []
-    for b in ('', '-D', '-H'):
-        for c in ('', '-l', '-u'):
-            for f in ('', '-f 1', '-f 2', '-f 3'):
-                for p in ('', '-s', '-r'):
-                    options_list.append('{} {} {} {}'.format(b, c, f, p).strip())
-    return options_list
-
-def get_ctl_options_list():
-    options_list = []
-    for w in ('', '-w b', '-w bt', '-w btd', '-w btdr', '-w btdrm', '-w btdrms', '-w btdrmsc'):
-        for h in ('', '-h'):
-            for a in ('', '-a'):
-                for b in ('', '-b'):
-                    options_list.append('{} {} {} {}'.format(w, h, a, b).strip())
-    return options_list
-
-def get_html_options_list():
-    options_list = []
-    for b in ('', '-D', '-H'):
-        for c in ('', '-u', '-l'):
-            options_list.append('{} {}'.format(b, c).strip())
-    return options_list
-
-TEST_TYPES = {
-    'asm': get_asm_options_list(),
-    'ctl': get_ctl_options_list(),
-    'html': get_html_options_list(),
-    'sft': ('', '-h', '-b', '-h -b')
-}
-
-###############################################################################
-# Begin
-###############################################################################
-if not (len(sys.argv) == 2 and sys.argv[1] in TEST_TYPES):
-    sys.stderr.write("Usage: {} asm|ctl|html|sft\n".format(os.path.basename(sys.argv[0])))
+SKOOLKIT_HOME = os.environ.get('SKOOLKIT_HOME')
+if not SKOOLKIT_HOME:
+    sys.stderr.write('SKOOLKIT_HOME is not set; aborting\n')
     sys.exit(1)
-test_type = sys.argv[1]
-superclass_name = '{}TestCase'.format(test_type.capitalize())
-class_name = 'BackToSkool{}Test'.format(test_type.capitalize())
-if test_type == 'asm':
-    games = ['bts' + suffix for suffix in ('', '_load', '_save', '_start')]
-else:
-    games = ['bts']
-write_tests(superclass_name, class_name, TEST_TYPES[test_type], games)
+if not os.path.isdir(SKOOLKIT_HOME):
+    sys.stderr.write('SKOOLKIT_HOME={}: directory not found\n'.format(SKOOLKIT_HOME))
+    sys.exit(1)
+sys.path.insert(0, '{}/tools'.format(SKOOLKIT_HOME))
+from testwriter import write_tests
+
+SKOOL = '../sources/bts.skool'
+
+SNAPSHOT = '../build/back_to_skool.z80'
+
+OUTPUT = """Creating directory {odir}
+Using skool file: ../sources/bts.skool
+Using ref files: ../sources/bts.ref, ../sources/bts-bugs.ref, ../sources/bts-changelog.ref, ../sources/bts-data.ref, ../sources/bts-facts.ref, ../sources/bts-glossary.ref, ../sources/bts-graphics.ref, ../sources/bts-pages.ref, ../sources/bts-pokes.ref
+Parsing ../sources/bts.skool
+Creating directory {odir}/back_to_skool
+Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/back_to_skool/skoolkit.css
+Copying ../sources/bts.css to {odir}/back_to_skool/bts.css
+  Writing disassembly files in back_to_skool/asm
+  Writing back_to_skool/maps/all.html
+  Writing back_to_skool/maps/routines.html
+  Writing back_to_skool/maps/data.html
+  Writing back_to_skool/maps/messages.html
+  Writing back_to_skool/buffers/gbuffer.html
+  Writing back_to_skool/graphics/graphics.html
+  Writing back_to_skool/graphics/playarea.html
+  Copying ../sources/tiles.js to {odir}/back_to_skool/tiles.js
+  Writing back_to_skool/graphics/patiles/patiles.html
+  Writing back_to_skool/graphics/asstart.html
+  Writing back_to_skool/graphics/as.html
+  Writing back_to_skool/graphics/astiles/astiles.html
+  Writing back_to_skool/buffers/cbuffer.html
+  Writing back_to_skool/lessons/timetables.html
+  Writing back_to_skool/lessons/index.html
+  Writing back_to_skool/lessons/37.html
+  Writing back_to_skool/lessons/38.html
+  Writing back_to_skool/lessons/39.html
+  Writing back_to_skool/lessons/40.html
+  Writing back_to_skool/lessons/41.html
+  Writing back_to_skool/lessons/42.html
+  Writing back_to_skool/lessons/43.html
+  Writing back_to_skool/lessons/44.html
+  Writing back_to_skool/lessons/45.html
+  Writing back_to_skool/lessons/46.html
+  Writing back_to_skool/lessons/47.html
+  Writing back_to_skool/lessons/48.html
+  Writing back_to_skool/lessons/49.html
+  Writing back_to_skool/lessons/50.html
+  Writing back_to_skool/lessons/51.html
+  Writing back_to_skool/lessons/52.html
+  Writing back_to_skool/lessons/53.html
+  Writing back_to_skool/lessons/54.html
+  Writing back_to_skool/lessons/55.html
+  Writing back_to_skool/lessons/56.html
+  Writing back_to_skool/lessons/57.html
+  Writing back_to_skool/lessons/58.html
+  Writing back_to_skool/lessons/59.html
+  Writing back_to_skool/tables/keys.html
+  Writing back_to_skool/graphics/glitches.html
+  Writing back_to_skool/reference/changelog.html
+  Writing back_to_skool/reference/bugs.html
+  Writing back_to_skool/reference/facts.html
+  Writing back_to_skool/reference/glossary.html
+  Writing back_to_skool/reference/pokes.html
+  Parsing ../sources/bts-load.skool
+    Writing back_to_skool/load/load.html
+    Writing disassembly files in back_to_skool/load
+  Parsing ../sources/bts-save.skool
+    Writing back_to_skool/save/save.html
+    Writing disassembly files in back_to_skool/save
+  Parsing ../sources/bts-start.skool
+    Writing back_to_skool/start/start.html
+    Writing disassembly files in back_to_skool/start
+  Writing back_to_skool/index.html"""
+
+HTML_WRITER = '../sources:backtoskool.BackToSkoolHtmlWriter'
+
+ASM_WRITER = '../sources:backtoskool.BackToSkoolAsmWriter'
+
+write_tests(SKOOL, SNAPSHOT, OUTPUT, HTML_WRITER, ASM_WRITER)
