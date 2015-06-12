@@ -6,8 +6,8 @@
 
 http://www.worldofspectrum.org/pub/sinclair/games/b/BackToSkool.tzx.zip
 back_to_skool.z80
---ram load=3,16384,16570     # 16384-32953
---ram load=3,32902,,23       # 32902-end STEP 23
+--ram load=4,16384,16570     # 16384-32953
+--ram load=4,32902,,23       # 32902-end STEP 23
 --ram move=16384,32,20640
 --ram move=16640,32,20896
 --ram move=16896,32,21152
