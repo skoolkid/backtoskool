@@ -104,7 +104,7 @@ c23831 DI            ; Disable interrupts
  23827 INC E         ; }
  23828 CALL 24046    ;
 ; More misdirection.
-!24046 POP HL        ; #REGhl=23831
+*24046 POP HL        ; #REGhl=23831
  24047 ADD HL,DE     ; #REGhl=23840
  24048 PUSH HL       ;
  24049 LD DE,7       ;
@@ -304,20 +304,20 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
 @end
 ; When the computer has loaded up to 32953, the instruction at 32952 is changed
 ; thus:
-a32952 JR NZ,32893   ;
+ 32952 JR NZ,32893   ;
 ; At this stage, 32893 reads as follows:
-a32893 LD (IX-52),L  ; POKE 32902,32
-a32896 EXX           ;
-a32897 ADD IX,BC     ; Add 23 to #REGix
-a32899 EXX           ;
-a32900 SET 7,L       ;
+ 32893 LD (IX-52),L  ; POKE 32902,32
+ 32896 EXX           ;
+ 32897 ADD IX,BC     ; Add 23 to #REGix
+ 32899 EXX           ;
+ 32900 SET 7,L       ;
 ; The POKE at 32893 above changes the instruction at 32902 from 'LD SP,23833'
 ; to:
-a32902 JR NZ,32929   ; Jump forward to load the next byte from the tape
+ 32902 JR NZ,32929   ; Jump forward to load the next byte from the tape
 ; Now 65536 more bytes are loaded, the last of which is at 32902 (even though
 ; there is one more byte, 32925, left on the tape: see the
 ; #R33013@save(save routine)). Then 32902 reads as follows:
-v32902 LD SP,23833   ; Point the stack pointer at the game start address that
+ 32902 LD SP,23833   ; Point the stack pointer at the game start address that
                      ; was placed at 23833 by the #R33013@save(save routine)
-v32905 LD D,H        ;
-v32906 RET           ; To (23833)=#R33204@start
+ 32905 LD D,H        ;
+ 32906 RET           ; To (23833)=#R33204@start

@@ -47,7 +47,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         for t in range(min_tap, max_tap + 1, 2):
             address = tap_address_table + t - min_tap
             tap_address = self.snapshot[address] + 256 * self.snapshot[address + 1]
-            tap_entry = self.entries.get(tap_address)
+            tap_entry = self.get_entry(tap_address)
             if tap_entry:
                 sep_index = tap_entry.description.index(':')
                 self.tap_descs[t] = tap_entry.description[sep_index + 1:].strip()
