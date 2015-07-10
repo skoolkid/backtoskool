@@ -16,8 +16,7 @@ SKOOL = '../sources/bts.skool'
 
 SNAPSHOT = '../build/back_to_skool.z80'
 
-OUTPUT = """Creating directory {odir}
-Using skool file: ../sources/bts.skool
+OUTPUT = """Using skool file: ../sources/bts.skool
 Using ref files: ../sources/bts.ref, ../sources/bts-bugs.ref, ../sources/bts-changelog.ref, ../sources/bts-data.ref, ../sources/bts-facts.ref, ../sources/bts-glossary.ref, ../sources/bts-graphics.ref, ../sources/bts-pages.ref, ../sources/bts-pokes.ref
 Parsing ../sources/bts.skool
 Creating directory {odir}/back_to_skool
