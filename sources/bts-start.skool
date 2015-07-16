@@ -22,7 +22,6 @@ c33204 LD SP,23806   ; Put the stack somewhere safe
  33234 CALL 21746    ; Prepare 24320 to 24575
  33237 LD DE,32768   ; {Copy 256 bytes from 58112 to 32768
  33240 LD BC,256     ;
-@nowarn
  33243 LD HL,58112   ;
  33246 LDIR          ; }
  33248 LD H,97       ; {Move 7936 bytes from 24832 down to 24576

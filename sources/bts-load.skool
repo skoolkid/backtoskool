@@ -183,12 +183,10 @@ i32813 DEFS 2
 ; Fast load the main code block
 ;
 ; Continues from #R23831.
-@nowarn
 @label=BTSLOAD
 c32815 LD SP,33020   ; Put the stack somewhere safe
  32818 LD IX,16384   ; The fast code block starts loading at address 16384 (the
                      ; start of the display file)
-@nowarn
  32822 LD DE,49152   ; Set #REGde (the byte counter) to a high enough value
                      ; that it won't reach 0 before the first 16570 bytes
                      ; (16384-32953) have been loaded
