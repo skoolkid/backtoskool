@@ -207,8 +207,8 @@ Any given tile (identified by <i>udg_addr</i>) may appear at more than one locat
 
 [Template:animatory_state_row]
 <tr>
-<td><a name="{state_l}"></a>{img_l}</td>
-<td><a name="{state_r}"></a>{img_r}</td>
+<td id="{state_l}">{img_l}</td>
+<td id="{state_r}">{img_r}</td>
 <td>{state_l}, {state_r}: {desc}</td>
 </tr>
 
