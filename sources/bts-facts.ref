@@ -4,7 +4,7 @@
 In demo mode, ERIC bases his every move on where little boy no. 10 is and what he's doing (see the routine at #R62483). One corollary of this important role is that little boy no. 10 is in all of ERIC's classes (if he weren't, ERIC would be guilty of truancy in demo mode). In fact, little boy no. 10 is the only character besides EINSTEIN who joins ERIC for every class.
 
 [Fact:skoolTunes:Skool tunes]
-The tune that plays just before a game (or demo mode) starts is <a class="link" href="http://en.wikipedia.org/wiki/Nobody_Knows_the_Trouble_I've_Seen">Nobody Knows the Trouble I've Seen</a>. The tune that plays when ERIC opens the safe is <a class="link" href="http://en.wikipedia.org/wiki/Here_We_Go_Round_the_Mulberry_Bush">Here We Go Round the Mulberry Bush</a>.
+The tune that plays just before a game (or demo mode) starts is <a href="http://en.wikipedia.org/wiki/Nobody_Knows_the_Trouble_I've_Seen">Nobody Knows the Trouble I've Seen</a>. The tune that plays when ERIC opens the safe is <a href="http://en.wikipedia.org/wiki/Here_We_Go_Round_the_Mulberry_Bush">Here We Go Round the Mulberry Bush</a>.
 
 [Fact:saverPokes:BASIC saver POKEs]
 There are two POKEs in line 33 of the #R33013@save(BASIC saver program) that saves the fast code block to tape:

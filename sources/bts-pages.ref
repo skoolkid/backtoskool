@@ -486,9 +486,9 @@ Content=asm/46528.html
 [Template:lesson]
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-{prev_lesson[exists]}">Prev: <a class="link" href="{prev_lesson[href]}">{prev_lesson[num]}</a></span></td>
+<td class="prev"><span class="prev-{prev_lesson[exists]}">Prev: <a href="{prev_lesson[href]}">{prev_lesson[num]}</a></span></td>
 <td class="up">Up: #LINK:LessonIndex(Index)</td>
-<td class="next"><span class="next-{next_lesson[exists]}">Next: <a class="link" href="{next_lesson[href]}">{next_lesson[num]}</a></span></td>
+<td class="next"><span class="next-{next_lesson[exists]}">Next: <a href="{next_lesson[href]}">{next_lesson[num]}</a></span></td>
 </tr>
 </table>
 <div class="description">Lesson {lesson[num]}: {lesson[desc]}</div>
@@ -502,9 +502,9 @@ Content=asm/46528.html
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-{prev_lesson[exists]}">Prev: <a class="link" href="{prev_lesson[href]}">{prev_lesson[num]}</a></span></td>
+<td class="prev"><span class="prev-{prev_lesson[exists]}">Prev: <a href="{prev_lesson[href]}">{prev_lesson[num]}</a></span></td>
 <td class="up">Up: #LINK:LessonIndex(Index)</td>
-<td class="next"><span class="next-{next_lesson[exists]}">Next: <a class="link" href="{next_lesson[href]}">{next_lesson[num]}</a></span></td>
+<td class="next"><span class="next-{next_lesson[exists]}">Next: <a href="{next_lesson[href]}">{next_lesson[num]}</a></span></td>
 </tr>
 </table>
 
