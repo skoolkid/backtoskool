@@ -122,13 +122,10 @@ Lesson58=lessons/58.html
 Lesson59=lessons/59.html
 
 [OtherCode:load]
-Source=bts-load.skool
 
 [OtherCode:save]
-Source=bts-save.skool
 
 [OtherCode:start]
-Source=bts-start.skool
 
 [Index:Graphics:Graphics]
 PlayArea

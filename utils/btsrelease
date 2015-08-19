@@ -22,8 +22,8 @@ fi
 GAME=bts
 GAMEDIR=back_to_skool
 GAMENAME="Back to Skool"
-SKOOLFILES=$(echo bts{,-load,-save,-start}.skool)
-SRCFILES=$(echo COPYING backtoskool.py bts{{,-bugs,-changelog,-data,-facts,-glossary,-graphics,-pages,-pokes}.ref,{,-load,-save,-start}.skool,{,-dark,-green,-plum}.css} tiles.js)
+SKOOLFILES=$(echo {bts,load,save,start}.skool)
+SRCFILES=$(echo COPYING backtoskool.py bts{,-bugs,-changelog,-data,-facts,-glossary,-graphics,-pages,-pokes}.ref {bts,load,save,start}.skool bts{,-dark,-green,-plum}.css tiles.js)
 DHOME=$BACKTOSKOOL_HOME
 GHREPO=backtoskool
 GHHTMLOPTS=""

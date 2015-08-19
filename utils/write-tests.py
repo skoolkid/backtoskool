@@ -68,13 +68,13 @@ Copying ../sources/bts.css to {odir}/back_to_skool/bts.css
   Writing back_to_skool/reference/facts.html
   Writing back_to_skool/reference/glossary.html
   Writing back_to_skool/reference/pokes.html
-  Parsing ../sources/bts-load.skool
+  Parsing ../sources/load.skool
     Writing back_to_skool/load/load.html
     Writing disassembly files in back_to_skool/load
-  Parsing ../sources/bts-save.skool
+  Parsing ../sources/save.skool
     Writing back_to_skool/save/save.html
     Writing disassembly files in back_to_skool/save
-  Parsing ../sources/bts-start.skool
+  Parsing ../sources/start.skool
     Writing back_to_skool/start/start.html
     Writing disassembly files in back_to_skool/start
   Writing back_to_skool/index.html"""
