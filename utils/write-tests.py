@@ -17,7 +17,7 @@ SKOOL = '../sources/bts.skool'
 SNAPSHOT = '../build/back_to_skool.z80'
 
 OUTPUT = """Using skool file: ../sources/bts.skool
-Using ref files: ../sources/bts.ref, ../sources/bts-bugs.ref, ../sources/bts-changelog.ref, ../sources/bts-data.ref, ../sources/bts-facts.ref, ../sources/bts-glossary.ref, ../sources/bts-graphics.ref, ../sources/bts-pages.ref, ../sources/bts-pokes.ref
+Using ref files: ../sources/bts.ref, ../sources/bugs.ref, ../sources/changelog.ref, ../sources/data.ref, ../sources/facts.ref, ../sources/glossary.ref, ../sources/graphics.ref, ../sources/pages.ref, ../sources/pokes.ref
 Parsing ../sources/bts.skool
 Creating directory {odir}/back_to_skool
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/back_to_skool/skoolkit.css

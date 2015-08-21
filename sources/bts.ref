@@ -1,7 +1,7 @@
 ; Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
-SkoolFile=bts.skool
+RefFiles=bugs.ref;changelog.ref;data.ref;facts.ref;glossary.ref;graphics.ref;pages.ref;pokes.ref
 HtmlWriterClass=:backtoskool.BackToSkoolHtmlWriter
 GameDir=back_to_skool
 
