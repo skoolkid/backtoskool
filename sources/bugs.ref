@@ -32,7 +32,7 @@ To witness MR WITHIT's somewhat sickening sense of duty in this regard, proceed 
 [Bug:assemblySit:Assembly sitting confusion]
 During assembly, if ERIC is standing a teacher will scream 'SIT FACING THE STAGE', but if he's sitting down facing left (away from the stage), a teacher will scream 'NOW SIT DOWN'. This is the wrong way round.
 
-POKE #R32205,32
+POKE #R32205(32205),32
 
 [Bug:assemblySit2:More assembly sitting confusion]
 Usually, the kids will sit down for assembly soon after the MSB of the lesson clock reaches 10 (see #R61658), in good time for MR WACKER's arrival on stage - which he doesn't bother to head off for until the MSB of the lesson clock reaches 8 (see #R63501). However, careful examination of the routine at #R61658 reveals that not only must the MSB of the lesson clock have reached 10, but MR WITHIT must have arrived in the assembly hall too, otherwise the kids will not sit down. In fact, they will continue to walk around aimlessly in the assembly hall while MR WACKER is delivering his detention speech. And if MR WITHIT arrives late enough, the kids will carry on walking around aimlessly in the assembly hall even after MR WACKER has left the stage (instead of heading off to some random location, as they would normally do).

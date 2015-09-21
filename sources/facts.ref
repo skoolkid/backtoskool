@@ -41,7 +41,7 @@ The reason for this uncharacteristically patient behaviour is the routine at #R6
 [Fact:lesson43:Lesson 43, where art thou?]
 Lesson #LESSON43 (MR WITHIT - YELLOW ROOM) does not appear anywhere in the #R46528(main timetable). But it is a perfectly good lesson. If you want to try it out:
 
-POKE #R46544,43
+POKE #R46544(46544),43
 
 This removes the first PLAYTIME that normally takes place when starting the game for the first time and replaces it with lesson 43.
 
@@ -188,7 +188,7 @@ You may have noticed that the frog is a tricky fellow to catch, and the reason i
 [Fact:pitchImperfect:Pitch imperfect]
 Unlike the theme tune and the tune that plays when ERIC opens the safe, the other sound effects in the game are played with interrupts enabled, which means they are affected by keys being held down. This is especially noticeable with the bell and the lines-giving sounds, which are somewhat longer than the others. To make them even longer:
 
-<div>POKE #R32489,80 (bell)</div>
+<div>POKE #R32489(32489),80 (bell)</div>
 <div>POKE #R29793(29795),0: POKE #R29818(29820),0 (lines-giving sounds)</div>
 
 Now put ERIC up to mischief in front of a teacher, or wait for the bell to ring, and see if you can detect the change in pitch as you hold down various keys.

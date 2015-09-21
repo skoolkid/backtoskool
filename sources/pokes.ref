@@ -3,25 +3,25 @@
 [Poke:infiniteLines:Infinite lines]
 To stop MR WACKER expelling ERIC after 10000 lines:
 
-POKE #R62770,201
+POKE #R62770(62770),201
 
 [Poke:noLines:No lines]
 To prevent teachers from giving lines to ERIC or anyone else:
 
-POKE #R29716,201
+POKE #R29716(29716),201
 
 [Poke:someLines:Some lines]
 If 'Infinite lines' or 'No lines' makes things too easy, use a selection of these POKEs that disable lines-giving for specific infractions:
 
-DON'T BE LATE AGAIN/STAY TILL I DISMISS YOU - POKE #R61810,1
+DON'T BE LATE AGAIN/STAY TILL I DISMISS YOU - POKE #R61810(61810),1
 
-DON'T HIT YOUR MATES - POKE #R24282,1 (when ERIC throws a punch)
+DON'T HIT YOUR MATES - POKE #R24282(24282),1 (when ERIC throws a punch)
 
-DON'T HIT YOUR MATES - POKE #R61844,1 (when EINSTEIN says 'ERIC hit me')
+DON'T HIT YOUR MATES - POKE #R61844(61844),1 (when EINSTEIN says 'ERIC hit me')
 
 DON'T RIDE BIKES IN HERE - POKE #R32088(32089),0
 
-DON'T TOUCH BLACKBOARDS - POKE #R24199,201
+DON'T TOUCH BLACKBOARDS - POKE #R24199(24199),201
 
 GET ALONG NOW/COME ALONG YOU MONSTER/DON'T KEEP ME WAITING - POKE #R32171(32172),22
 
@@ -29,19 +29,19 @@ GET BACK TO SCHOOL - POKE #R32148(32149),0
 
 GET OFF THE FLOOR - POKE #R32125(32126),133 (when ERIC is sitting on the floor outside the assembly hall or lying down, and it's too soon to be told to GET ALONG NOW)
 
-GET OFF THE FLOOR - POKE #R32162,201 (when it's time to GET ALONG NOW)
+GET OFF THE FLOOR - POKE #R32162(32162),201 (when it's time to GET ALONG NOW)
 
 GET OFF THE PLANTS - POKE #R32080(32081),0
 
-NO CATAPULTS - POKE #R24306,1
+NO CATAPULTS - POKE #R24306(24306),1
 
-NO STINKBOMBS - POKE #R63636,24
+NO STINKBOMBS - POKE #R63636(63636),24
 
-NO WATERPISTOLS - POKE #R63947,1
+NO WATERPISTOLS - POKE #R63947(63947),1
 
-NOW DON'T DO IT AGAIN - POKE #R30196,201
+NOW DON'T DO IT AGAIN - POKE #R30196(30196),201
 
-NOW SIT DOWN - POKE #R32230,201
+NOW SIT DOWN - POKE #R32230(32230),201
 
 SIT FACING THE STAGE - POKE #R32205(32206),7
 
@@ -64,16 +64,16 @@ POKE 29652,48: POKE 29653,248: POKE 60962,50
 [Poke:silentSnitch:Silent snitch]
 To make sure that EINSTEIN never tells tales:
 
-POKE #R61831,24
+POKE #R61831(61831),24
 
 Alternatively, to make the teacher always give lines to EINSTEIN for telling tales:
 
-POKE #R61492,24
+POKE #R61492(61492),24
 
 [Poke:silentCaretaker:Silent caretaker]
 To prevent ALBERT from alerting MR WACKER when he spots ERIC trying to escape:
 
-POKE #R62723,195
+POKE #R62723(62723),195
 
 [Poke:lessonLength:Lesson length]
 Normally the lesson clock (at #R32739) counts down from 4096 (16*256) to 0, at which point the bell rings. To make the lesson clock count down from N*256 to 0 instead:
@@ -103,7 +103,7 @@ POKE #R63504(63505),W
 [Poke:ringBell:Ring the bell]
 To put ERIC in charge of ringing the bell:
 
-<div>POKE #R58652,96 (points 'L' at the unused slot at #R58720 in the table of keypress handling routines)</div>
+<div>POKE #R58652(58652),96 (points 'L' at the unused slot at #R58720 in the table of keypress handling routines)</div>
 <div>POKE 58720,122: POKE 58721,229 (sets the keypress-handling routine for 'L' to #R58746)</div>
 <div>POKE 58746,33: POKE 58747,1: POKE 58748,0 (LD HL,1)</div>
 <div>POKE 58749,34: POKE 58750,227: POKE 58751,127 (LD (#R32739),HL)</div>
@@ -114,11 +114,11 @@ Now whenever 'L' (upper case) is pressed, the bell will ring and the next lesson
 [Poke:alwaysRun:Always run]
 Normally 'q', 'a', 'o' and 'p' make ERIC walk, and 'Q', 'A', 'O' and 'P' make him run. To make ERIC always run, regardless of whether SHIFT is held down:
 
-POKE #R28144,24: POKE #R28227,24
+POKE #R28144(28144),24: POKE #R28227(28227),24
 
 Or, to make ERIC walk when SHIFT is held down and run when it isn't:
 
-POKE #R28144,32: POKE #R28227,32
+POKE #R28144(28144),32: POKE #R28227(28227),32
 
 [Poke:infiniteKisses:Infinite kisses]
 To make HAYLEY amenable to any number of kisses:
@@ -145,15 +145,15 @@ POKE #R30440(30441),6
 [Poke:unhideBike:Unhide the bike]
 Before ERIC writes the bike combination on a blackboard, the bike is actually hiding at x-coordinate 224. To change the bike's initial x-coordinate from 224 to X (so that it's visible from the start of the game):
 
-POKE #R54049,X
+POKE #R54049(54049),X
 
 Any choice of X in the range 0-189 will bring the bike into view.
 
 [Poke:freeTheFrog:Free the frog]
 To make the frog visible and catchable from the start of the game:
 
-<div>POKE #R54304,#AS28 (initial animatory state)</div>
-<div>POKE #R54305,48: POKE 54306,10 (initial location: Science Lab)</div>
+<div>POKE #R54304(54304),#AS28 (initial animatory state)</div>
+<div>POKE #R54305(54305),48: POKE 54306,10 (initial location: Science Lab)</div>
 <div>POKE #R63072(63073),186: POKE 63074,120 (controlling routine: #R30906)</div>
 
 Note that this means there will be no mice in the game.
@@ -163,44 +163,44 @@ No one ever opens the left study door in Back to Skool, but that's only because 
 
 Modify the route for anyone on the top floor on the left side of the door and going to the other side of the door (e.g. from the Yellow Room to the top-floor window) so that they go through the door:
 
-POKE #R48449,#R51012(199)
+POKE #R48449(48449),#R51012(199)
 
 Modify the route for anyone on the top floor on the right side of the door and going to the other side of the door (e.g. from the head's study to the Revision Library) so that they go through the door:
 
-POKE #R49724,#R48452(189)
+POKE #R49724(49724),#R48452(189)
 
 Modify the route for anyone on the middle floor of the boys' skool near the window and going to anywhere on the top floor to the left of the door so that they first go up the stairs to the head's study:
 
-POKE #R49468,#R50756(198)
+POKE #R49468(49468),#R50756(198)
 
 Modify the route for anyone on the assembly hall stage going to anywhere on the top floor to the left of the door so that they first go up the stairs towards the middle-floor window:
 
-POKE #R49212,#R50244(196)
+POKE #R49212(49212),#R50244(196)
 
 [Poke:throughDoors:Walk through doors]
 To enable ERIC to walk through specific doors:
 
-<div>POKE #R28336,24 (left study door)</div>
-<div>POKE #R28343,24 (right study door)</div>
-<div>POKE #R28387,24 (Science Lab storeroom door)</div>
-<div>POKE #R28408,24 (skool door)</div>
-<div>POKE #R28415,24 (skool gate)</div>
+<div>POKE #R28336(28336),24 (left study door)</div>
+<div>POKE #R28343(28343),24 (right study door)</div>
+<div>POKE #R28387(28387),24 (Science Lab storeroom door)</div>
+<div>POKE #R28408(28408),24 (skool door)</div>
+<div>POKE #R28415(28415),24 (skool gate)</div>
 
 [Poke:throughWalls:Walk through walls too]
 To enable ERIC to walk through any wall or door (or ALBERT):
 
-<div>POKE #R28315,24</div>
+<div>POKE #R28315(28315),24</div>
 <div>POKE 28316,31</div>
 
 And ride the bike through any wall or door (or ALBERT):
 
-<div>POKE #R28672,167</div>
+<div>POKE #R28672(28672),167</div>
 <div>POKE 28673,201</div>
 
 But now when ERIC walks or rides the bike through the far left wall in the boys' skool or the far right wall in the girls' skool, you lose sight of him. To make the screen scroll however far left or right ERIC goes (and therefore reveal the 'no man's land' between the two skools):
 
-<div>POKE #R28191,0</div>
-<div>POKE #R28203,0</div>
+<div>POKE #R28191(28191),0</div>
+<div>POKE #R28203(28203),0</div>
 
 But this also reveals a limitation of the routine at #R24880: the SRB is not updated correctly when the leftmost column of the skool on screen is 232, 240 or 248. To fix this:
 
