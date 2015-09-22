@@ -1,9 +1,6 @@
 GAME=bts
-GAMEDIR=back_to_skool
 GAMENAME="Back to Skool"
-REFFILE=bts.ref
-SKOOLFILES=$(echo {bts,load,save,start}.skool)
-SRCFILES=$(echo $SKOOLFILES {bts,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {bts,dark,green,plum}.css tiles.js backtoskool.py COPYING)
+SRCFILES=$(echo {bts,load,save,start}.skool {bts,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {bts,dark,green,plum}.css tiles.js backtoskool.py COPYING)
 GHREPO=backtoskool
 GHHTMLOPTS=""
 SKOOL2BINOPTS=-i
