@@ -1,6 +1,4 @@
 GAME=bts
-GAMENAME="Back to Skool"
 SRCFILES=$(echo {bts,load,save,start}.skool {bts,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {bts,dark,green,plum}.css tiles.js backtoskool.py COPYING)
-GHREPO=backtoskool
 GHHTMLOPTS=""
 SKOOL2BINOPTS=-i
