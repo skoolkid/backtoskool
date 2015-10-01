@@ -1,4 +1,4 @@
 GAME=bts
+GHTHEME=dark
 SRCFILES=$(echo {bts,load,save,start}.skool {bts,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {bts,dark,green,plum}.css tiles.js backtoskool.py COPYING)
-GHHTMLOPTS=""
 SKOOL2BINOPTS=-i
