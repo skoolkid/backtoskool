@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 28436</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28315.html">28315</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28436">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28460.html">28460</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28315.html">28315</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28436">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28460.html">28460</a></span></td>
 </tr>
 </table>
 <div class="description">28436: 'P' pressed - right</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this routine is found in the table of keypress handling routines at <a class="link" href="58704.html">58704</a>. It is called from the main loop at <a class="link" href="63210.html">63210</a> when 'P' or '8' is pressed.
+The address of this routine is found in the table of keypress handling routines at <a href="58704.html">58704</a>. It is called from the main loop at <a href="63210.html">63210</a> when 'P' or '8' is pressed.
 </div>
 </div>
 <table class="input-0">
@@ -49,59 +45,59 @@ The address of this routine is found in the table of keypress handling routines 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28436"></a>28436</td>
+<td class="address-2"><span id="28436"></span>28436</td>
 <td class="instruction">LD A,(53760)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28439"></a>28439</td>
+<td class="address-1"><span id="28439"></span>28439</td>
 <td class="instruction">BIT 7,A</td>
 <td class="comment-11" rowspan="1">Is ERIC facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28441"></a>28441</td>
-<td class="instruction">JP Z,<a class="link" href="28216.html">28216</a></td>
+<td class="address-1"><span id="28441"></span>28441</td>
+<td class="instruction">JP Z,<a href="28216.html">28216</a></td>
 <td class="comment-11" rowspan="1">Turn ERIC round if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28444"></a>28444</td>
-<td class="instruction">CALL <a class="link" href="28240.html">28240</a></td>
+<td class="address-1"><span id="28444"></span>28444</td>
+<td class="instruction">CALL <a href="28240.html">28240</a></td>
 <td class="comment-11" rowspan="1">Is ERIC on a staircase?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28447"></a>28447</td>
+<td class="address-1"><span id="28447"></span>28447</td>
 <td class="instruction">JR C,28453</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28449"></a>
+<span id="28449"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a class="link" href="28484.html">28484</a> and <a class="link" href="28576.html">28576</a>.
+This entry point is used by the routines at <a href="28484.html">28484</a> and <a href="28576.html">28576</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28449"></a>28449</td>
+<td class="address-2"><span id="28449"></span>28449</td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=x-coordinate of the spot in front of ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28450"></a>28450</td>
-<td class="instruction">JP <a class="link" href="28315.html">28315</a></td>
+<td class="address-1"><span id="28450"></span>28450</td>
+<td class="instruction">JP <a href="28315.html">28315</a></td>
 <td class="comment-11" rowspan="1">Check for walls and closed doors in ERIC's path</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28453"></a>
+<span id="28453"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC is on a staircase.
@@ -111,34 +107,34 @@ ERIC is on a staircase.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28453"></a>28453</td>
+<td class="address-2"><span id="28453"></span>28453</td>
 <td class="instruction">RLA</td>
 <td class="comment-11" rowspan="1">Does the staircase ERIC's on go up and to the right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28454"></a>28454</td>
-<td class="instruction">JP C,<a class="link" href="28484.html#28514">28514</a></td>
+<td class="address-1"><span id="28454"></span>28454</td>
+<td class="instruction">JP C,<a href="28484.html#28514">28514</a></td>
 <td class="comment-11" rowspan="1">Go up a stair if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28457"></a>28457</td>
-<td class="instruction">JP <a class="link" href="28576.html#28606">28606</a></td>
+<td class="address-1"><span id="28457"></span>28457</td>
+<td class="instruction">JP <a href="28576.html#28606">28606</a></td>
 <td class="comment-11" rowspan="1">Otherwise go down a stair</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28315.html">28315</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28436">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28460.html">28460</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28315.html">28315</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28436">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28460.html">28460</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

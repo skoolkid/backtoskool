@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 32000</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31998.html">31998</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#32000">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="32021.html">32021</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31998.html">31998</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32000">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32021.html">32021</a></span></td>
 </tr>
 </table>
 <div class="description">32000: Get the identifier for ERIC's location</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="32021.html">32021</a>, <a class="link" href="32032.html">32032</a> and <a class="link" href="62094.html">62094</a>. Returns with the carry flag set if ERIC's on the stage or a forbidden staircase (though this flag is ignored by the callers), and the location identifier (0-8) in <span class="register">A</span>. See the routine at <a class="link" href="25554.html">25554</a> for a description of the location identifiers.
+Used by the routines at <a href="32021.html">32021</a>, <a href="32032.html">32032</a> and <a href="62094.html">62094</a>. Returns with the carry flag set if ERIC's on the stage or a forbidden staircase (though this flag is ignored by the callers), and the location identifier (0-8) in <span class="register">A</span>. See the routine at <a href="25554.html">25554</a> for a description of the location identifiers.
 </div>
 </div>
 <table class="input-0">
@@ -49,31 +45,31 @@ Used by the routines at <a class="link" href="32021.html">32021</a>, <a class="l
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="32000"></a>32000</td>
-<td class="instruction">CALL <a class="link" href="25534.html">25534</a></td>
+<td class="address-2"><span id="32000"></span>32000</td>
+<td class="instruction">CALL <a href="25534.html">25534</a></td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=ERIC's y-coordinate (or the y-coordinate of the floor he's closest to if his feet are not on the floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32003"></a>32003</td>
+<td class="address-1"><span id="32003"></span>32003</td>
 <td class="instruction">LD BC,47419</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=185; <span class="register">C</span>=59</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32006"></a>32006</td>
-<td class="instruction">CALL <a class="link" href="25554.html#25557">25557</a></td>
+<td class="address-1"><span id="32006"></span>32006</td>
+<td class="instruction">CALL <a href="25554.html#25557">25557</a></td>
 <td class="comment-11" rowspan="1">Collect the identifier for ERIC's location (0-8) in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32009"></a>32009</td>
+<td class="address-1"><span id="32009"></span>32009</td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if ERIC's on the top, middle or bottom floor</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="32010"></a>
+<span id="32010"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC's not on the top, middle or bottom floor. He must be on a staircase or the assembly hall stage.
@@ -83,70 +79,70 @@ ERIC's not on the top, middle or bottom floor. He must be on a staircase or the 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32010"></a>32010</td>
+<td class="address-1"><span id="32010"></span>32010</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32011"></a>32011</td>
+<td class="address-1"><span id="32011"></span>32011</td>
 <td class="instruction">SUB 48</td>
 <td class="comment-11" rowspan="6">Return with <span class="register">A</span>=0 (forbidden zone) and the carry flag set if <span class="register">E</span>&gt;=48 (ERIC must be on the stage, or a staircase he's not allowed on)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32013"></a>32013</td>
+<td class="address-1"><span id="32013"></span>32013</td>
 <td class="instruction">CP 192</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32015"></a>32015</td>
+<td class="address-1"><span id="32015"></span>32015</td>
 <td class="instruction">SBC A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32016"></a>32016</td>
+<td class="address-1"><span id="32016"></span>32016</td>
 <td class="instruction">INC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32017"></a>32017</td>
+<td class="address-1"><span id="32017"></span>32017</td>
 <td class="instruction">SCF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32018"></a>32018</td>
+<td class="address-1"><span id="32018"></span>32018</td>
 <td class="instruction">RET Z</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32019"></a>32019</td>
+<td class="address-1"><span id="32019"></span>32019</td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-11" rowspan="2">Otherwise return with <span class="register">A</span>=2 and the carry flag reset (ERIC's on one of the staircases at the far left of the boys' skool)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32020"></a>32020</td>
+<td class="address-1"><span id="32020"></span>32020</td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31998.html">31998</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#32000">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="32021.html">32021</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31998.html">31998</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32000">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32021.html">32021</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

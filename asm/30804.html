@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 30804</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30786.html">30786</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30804">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30906.html">30906</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30786.html">30786</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30804">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30906.html">30906</a></span></td>
 </tr>
 </table>
 <div class="description">30804: Deal with the frog when it has been knocked out of a cup</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 the frog's buffer by the routine at <a class="link" href="30229.html">30229</a> when a catapult pellet has knocked the frog out of a cup. It controls the frog up to the point where it hits the floor, and deals with any collision with MISS TAKE's head on the way.
+The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 the frog's buffer by the routine at <a href="30229.html">30229</a> when a catapult pellet has knocked the frog out of a cup. It controls the frog up to the point where it hits the floor, and deals with any collision with MISS TAKE's head on the way.
 </div>
 </div>
 <table class="input-0">
@@ -49,157 +45,157 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30804"></a>30804</td>
+<td class="address-2"><span id="30804"></span>30804</td>
 <td class="instruction">LD A,(32747)</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32747.html">32747</a> holds the inventory flags</td>
+<td class="comment-11" rowspan="1"><a href="32747.html">32747</a> holds the inventory flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30807"></a>30807</td>
+<td class="address-1"><span id="30807"></span>30807</td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Has ERIC got the safe key already?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30808"></a>30808</td>
+<td class="address-1"><span id="30808"></span>30808</td>
 <td class="instruction">JR C,30889</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30810"></a>30810</td>
+<td class="address-1"><span id="30810"></span>30810</td>
 <td class="instruction">LD HL,52224</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of MISS TAKE's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30813"></a>30813</td>
+<td class="address-1"><span id="30813"></span>30813</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=MISS TAKE's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30814"></a>30814</td>
+<td class="address-1"><span id="30814"></span>30814</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30815"></a>30815</td>
+<td class="address-1"><span id="30815"></span>30815</td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=MISS TAKE's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30816"></a>30816</td>
+<td class="address-1"><span id="30816"></span>30816</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30817"></a>30817</td>
+<td class="address-1"><span id="30817"></span>30817</td>
 <td class="instruction">CP 118</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#118">118</a>: Is MISS TAKE sitting on the floor facing left?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#118">118</a>: Is MISS TAKE sitting on the floor facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30819"></a>30819</td>
+<td class="address-1"><span id="30819"></span>30819</td>
 <td class="instruction">JR Z,30829</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30821"></a>30821</td>
+<td class="address-1"><span id="30821"></span>30821</td>
 <td class="instruction">CP 246</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#246">246</a>: Is she sitting on the floor facing right?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#246">246</a>: Is she sitting on the floor facing right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30823"></a>30823</td>
+<td class="address-1"><span id="30823"></span>30823</td>
 <td class="instruction">LD A,252</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=-4</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30825"></a>30825</td>
+<td class="address-1"><span id="30825"></span>30825</td>
 <td class="instruction">JR NZ,30832</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30827"></a>30827</td>
+<td class="address-1"><span id="30827"></span>30827</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30828"></a>30828</td>
+<td class="address-1"><span id="30828"></span>30828</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30829"></a>30829</td>
+<td class="address-2"><span id="30829"></span>30829</td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Now <span class="register">E</span>=x-coordinate the frog would have to be at to be in line with MISS TAKE's head as she sits on the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30830"></a>30830</td>
+<td class="address-1"><span id="30830"></span>30830</td>
 <td class="instruction">LD A,253</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=-3</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30832"></a>30832</td>
+<td class="address-2"><span id="30832"></span>30832</td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate the frog would have to be at to be level with MISS TAKE's head</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30833"></a>30833</td>
+<td class="address-1"><span id="30833"></span>30833</td>
 <td class="instruction">LD H,212</td>
 <td class="comment-11" rowspan="1">212=frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30835"></a>30835</td>
+<td class="address-1"><span id="30835"></span>30835</td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Compare with the frog's current y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30836"></a>30836</td>
+<td class="address-1"><span id="30836"></span>30836</td>
 <td class="instruction">JR NZ,30889</td>
 <td class="comment-11" rowspan="1">Jump if the frog has not reached the level of MISS TAKE's head</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30838"></a>30838</td>
+<td class="address-1"><span id="30838"></span>30838</td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30839"></a>30839</td>
+<td class="address-1"><span id="30839"></span>30839</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=frog's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30840"></a>30840</td>
+<td class="address-1"><span id="30840"></span>30840</td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1">Compare with the x-coordinate of MISS TAKE's head</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30841"></a>30841</td>
+<td class="address-1"><span id="30841"></span>30841</td>
 <td class="instruction">JR NZ,30889</td>
 <td class="comment-11" rowspan="1">Jump if they don't match</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="30843"></a>
+<span id="30843"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC's pellet has knocked the frog out of the cup and onto MISS TAKE's head. Celebrate!
@@ -209,157 +205,157 @@ ERIC's pellet has knocked the frog out of the cup and onto MISS TAKE's head. Cel
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30843"></a>30843</td>
+<td class="address-1"><span id="30843"></span>30843</td>
 <td class="instruction">LD HL,32747</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32747.html">32747</a> holds the inventory flags</td>
+<td class="comment-11" rowspan="1"><a href="32747.html">32747</a> holds the inventory flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30846"></a>30846</td>
+<td class="address-1"><span id="30846"></span>30846</td>
 <td class="instruction">SET 0,(HL)</td>
 <td class="comment-11" rowspan="1">Give ERIC the safe key</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30848"></a>30848</td>
+<td class="address-1"><span id="30848"></span>30848</td>
 <td class="instruction">LD A,200</td>
 <td class="comment-11" rowspan="2">Add 2000 to the score and print it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30850"></a>30850</td>
-<td class="instruction">CALL <a class="link" href="29621.html">29621</a></td>
+<td class="address-1"><span id="30850"></span>30850</td>
+<td class="instruction">CALL <a href="29621.html">29621</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30853"></a>30853</td>
+<td class="address-1"><span id="30853"></span>30853</td>
 <td class="instruction">LD HL,768</td>
 <td class="comment-11" rowspan="11">Make the safe-key-getting celebratory sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30856"></a>30856</td>
+<td class="address-2"><span id="30856"></span>30856</td>
 <td class="instruction">LD D,1</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30858"></a>30858</td>
+<td class="address-1"><span id="30858"></span>30858</td>
 <td class="instruction">LD A,L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30859"></a>30859</td>
+<td class="address-1"><span id="30859"></span>30859</td>
 <td class="instruction">AND 63</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30861"></a>30861</td>
+<td class="address-1"><span id="30861"></span>30861</td>
 <td class="instruction">INC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30862"></a>30862</td>
+<td class="address-1"><span id="30862"></span>30862</td>
 <td class="instruction">LD B,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30863"></a>30863</td>
+<td class="address-1"><span id="30863"></span>30863</td>
 <td class="instruction">LD C,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30864"></a>30864</td>
+<td class="address-1"><span id="30864"></span>30864</td>
 <td class="instruction">SET 4,C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30866"></a>30866</td>
-<td class="instruction">CALL <a class="link" href="29836.html">29836</a></td>
+<td class="address-1"><span id="30866"></span>30866</td>
+<td class="instruction">CALL <a href="29836.html">29836</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30869"></a>30869</td>
+<td class="address-1"><span id="30869"></span>30869</td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30870"></a>30870</td>
+<td class="address-1"><span id="30870"></span>30870</td>
 <td class="instruction">JR NZ,30856</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30872"></a>30872</td>
+<td class="address-1"><span id="30872"></span>30872</td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="3"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30873"></a>30873</td>
+<td class="address-1"><span id="30873"></span>30873</td>
 <td class="instruction">NOP</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30874"></a>30874</td>
+<td class="address-1"><span id="30874"></span>30874</td>
 <td class="instruction">NOP</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30875"></a>30875</td>
-<td class="instruction">CALL <a class="link" href="31746.html">31746</a></td>
+<td class="address-1"><span id="30875"></span>30875</td>
+<td class="instruction">CALL <a href="31746.html">31746</a></td>
 <td class="comment-11" rowspan="1">Print the inventory (which now includes the safe key)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30878"></a>30878</td>
+<td class="address-1"><span id="30878"></span>30878</td>
 <td class="instruction">LD H,212</td>
 <td class="comment-11" rowspan="1">212=frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30880"></a>30880</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-1"><span id="30880"></span>30880</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30883"></a>30883</td>
+<td class="address-1"><span id="30883"></span>30883</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1">Move the frog one space to the left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30884"></a>30884</td>
+<td class="address-1"><span id="30884"></span>30884</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a class="link" href="../graphics/as.html#29">29</a>: frog facing left, airborne (phase 1)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">29</a>: frog facing left, airborne (phase 1)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30885"></a>30885</td>
+<td class="address-2"><span id="30885"></span>30885</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Make the frog fall one level</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30886"></a>30886</td>
-<td class="instruction">JP <a class="link" href="24880.html">24880</a></td>
+<td class="address-2"><span id="30886"></span>30886</td>
+<td class="instruction">JP <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update the frog's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="30889"></a>
+<span id="30889"></span>
 <div class="comments">
 <div class="paragraph">
 The frog is still above the floor, but not in contact with MISS TAKE's head.
@@ -369,74 +365,74 @@ The frog is still above the floor, but not in contact with MISS TAKE's head.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30889"></a>30889</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-2"><span id="30889"></span>30889</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30892"></a>30892</td>
+<td class="address-1"><span id="30892"></span>30892</td>
 <td class="instruction">BIT 4,D</td>
 <td class="comment-11" rowspan="1">Is the frog about to hit the floor (<span class="register">D</span>=16)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30894"></a>30894</td>
+<td class="address-1"><span id="30894"></span>30894</td>
 <td class="instruction">JR Z,30885</td>
 <td class="comment-11" rowspan="1">Jump if not (to make it fall another level)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30896"></a>30896</td>
+<td class="address-1"><span id="30896"></span>30896</td>
 <td class="instruction">CP 28</td>
-<td class="comment-11" rowspan="1">The frog's animatory state will be <a class="link" href="../graphics/as.html#29">29</a> if it bounced off MISS TAKE's head</td>
+<td class="comment-11" rowspan="1">The frog's animatory state will be <a href="../graphics/as.html#29">29</a> if it bounced off MISS TAKE's head</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30898"></a>30898</td>
+<td class="address-1"><span id="30898"></span>30898</td>
 <td class="instruction">LD A,28</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#28">28</a>=frog sitting still, facing left</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#28">28</a>=frog sitting still, facing left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30900"></a>30900</td>
+<td class="address-1"><span id="30900"></span>30900</td>
 <td class="instruction">JR NZ,30886</td>
 <td class="comment-11" rowspan="1">Jump if the frog bounced off MISS TAKE's head</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30902"></a>30902</td>
+<td class="address-1"><span id="30902"></span>30902</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=17 (bottom floor)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="30903"></a>
+<span id="30903"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="30906.html">30906</a>.
+This entry point is used by the routine at <a href="30906.html">30906</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30903"></a>30903</td>
-<td class="instruction">CALL <a class="link" href="30534.html">30534</a></td>
-<td class="comment-11" rowspan="1">Update the frog's animatory state and location and then resume control at <a class="link" href="30906.html">30906</a></td>
+<td class="address-2"><span id="30903"></span>30903</td>
+<td class="instruction">CALL <a href="30534.html">30534</a></td>
+<td class="comment-11" rowspan="1">Update the frog's animatory state and location and then resume control at <a href="30906.html">30906</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30786.html">30786</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30804">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30906.html">30906</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30786.html">30786</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30804">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30906.html">30906</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

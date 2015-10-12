@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 24175</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="24133.html">24133</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#24175">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="24236.html">24236</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="24133.html">24133</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#24175">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="24236.html">24236</a></span></td>
 </tr>
 </table>
 <div class="description">24175: Deal with ERIC when he's writing on a blackboard</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-This routine is called by the routine at <a class="link" href="63405.html">63405</a> when bit 4 at <a class="link" href="32763.html">32763</a> is set (by the routine at <a class="link" href="24133.html">24133</a>).
+This routine is called by the routine at <a href="63405.html">63405</a> when bit 4 at <a href="32763.html">32763</a> is set (by the routine at <a href="24133.html">24133</a>).
 </div>
 </div>
 <table class="input-0">
@@ -49,208 +45,208 @@ This routine is called by the routine at <a class="link" href="63405.html">63405
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="24175"></a>24175</td>
+<td class="address-2"><span id="24175"></span>24175</td>
 <td class="instruction">LD HL,32755</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32755.html">32755</a> holds ERIC's main action timer</td>
+<td class="comment-11" rowspan="1"><a href="32755.html">32755</a> holds ERIC's main action timer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24178"></a>24178</td>
+<td class="address-1"><span id="24178"></span>24178</td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Is it time to deal with ERIC yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24179"></a>24179</td>
+<td class="address-1"><span id="24179"></span>24179</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24180"></a>24180</td>
+<td class="address-1"><span id="24180"></span>24180</td>
 <td class="instruction">LD HL,53760</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24183"></a>24183</td>
+<td class="address-1"><span id="24183"></span>24183</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24184"></a>24184</td>
+<td class="address-1"><span id="24184"></span>24184</td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Is ERIC's arm up?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24185"></a>24185</td>
+<td class="address-1"><span id="24185"></span>24185</td>
 <td class="instruction">JR NC,24204</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24187"></a>24187</td>
-<td class="instruction">CALL <a class="link" href="62178.html#62221">62221</a></td>
+<td class="address-1"><span id="24187"></span>24187</td>
+<td class="instruction">CALL <a href="62178.html#62221">62221</a></td>
 <td class="comment-11" rowspan="1">Make a sound effect and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24190"></a>24190</td>
+<td class="address-1"><span id="24190"></span>24190</td>
 <td class="instruction">LD HL,32727</td>
-<td class="comment-11" rowspan="2">Copy the code of the last key pressed from <a class="link" href="32727.html">32727</a> to <span class="register">A</span></td>
+<td class="comment-11" rowspan="2">Copy the code of the last key pressed from <a href="32727.html">32727</a> to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24193"></a>24193</td>
+<td class="address-1"><span id="24193"></span>24193</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24194"></a>24194</td>
+<td class="address-1"><span id="24194"></span>24194</td>
 <td class="instruction">CP 13</td>
 <td class="comment-11" rowspan="1">Was ENTER pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24196"></a>24196</td>
-<td class="instruction">JP Z,<a class="link" href="24028.html">24028</a></td>
+<td class="address-1"><span id="24196"></span>24196</td>
+<td class="instruction">JP Z,<a href="24028.html">24028</a></td>
 <td class="comment-11" rowspan="1">Compare ERIC's scribblings with the bike and storeroom combinations if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24199"></a>24199</td>
+<td class="address-1"><span id="24199"></span>24199</td>
 <td class="instruction">LD A,86</td>
-<td class="comment-11" rowspan="1">Message <a class="link" href="60638.html">86</a>: DON'T TOUCH BLACKBOARDS</td>
+<td class="comment-11" rowspan="1">Message <a href="60638.html">86</a>: DON'T TOUCH BLACKBOARDS</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24201"></a>24201</td>
-<td class="instruction">JP <a class="link" href="63586.html#63640">63640</a></td>
+<td class="address-1"><span id="24201"></span>24201</td>
+<td class="instruction">JP <a href="63586.html#63640">63640</a></td>
 <td class="comment-11" rowspan="1">Make any teacher within range give ERIC lines</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="24204"></a>24204</td>
-<td class="instruction">CALL <a class="link" href="29118.html">29118</a></td>
+<td class="address-2"><span id="24204"></span>24204</td>
+<td class="instruction">CALL <a href="29118.html">29118</a></td>
 <td class="comment-11" rowspan="1">Get the ASCII code of the last keypress in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24207"></a>24207</td>
+<td class="address-1"><span id="24207"></span>24207</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if no keys were pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24208"></a>24208</td>
+<td class="address-1"><span id="24208"></span>24208</td>
 <td class="instruction">LD HL,32727</td>
-<td class="comment-11" rowspan="2">Store this keypress code in <a class="link" href="32727.html">32727</a> (so it can be collected on the next pass through this routine)</td>
+<td class="comment-11" rowspan="2">Store this keypress code in <a href="32727.html">32727</a> (so it can be collected on the next pass through this routine)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24211"></a>24211</td>
+<td class="address-1"><span id="24211"></span>24211</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24212"></a>24212</td>
+<td class="address-1"><span id="24212"></span>24212</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2"><span class="register">L</span>=identifier of the board ERIC is writing on (84, 90, 96, 102 or 108)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24213"></a>24213</td>
+<td class="address-1"><span id="24213"></span>24213</td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24214"></a>24214</td>
+<td class="address-1"><span id="24214"></span>24214</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the blackboard buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24215"></a>24215</td>
+<td class="address-1"><span id="24215"></span>24215</td>
 <td class="instruction">LD B,4</td>
 <td class="comment-11" rowspan="1">There are 4 slots available in the blackboard buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="24217"></a>24217</td>
+<td class="address-2"><span id="24217"></span>24217</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next slot</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24218"></a>24218</td>
+<td class="address-1"><span id="24218"></span>24218</td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is this slot in the blackboard buffer available to store the keypress?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24220"></a>24220</td>
+<td class="address-1"><span id="24220"></span>24220</td>
 <td class="instruction">JR NZ,24226</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24222"></a>24222</td>
+<td class="address-1"><span id="24222"></span>24222</td>
 <td class="instruction">DJNZ 24217</td>
 <td class="comment-11" rowspan="1">Otherwise check the remaining slots</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24224"></a>24224</td>
+<td class="address-1"><span id="24224"></span>24224</td>
 <td class="instruction">JR 24227</td>
 <td class="comment-11" rowspan="1">Jump if there were no remaining slots</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="24226"></a>24226</td>
+<td class="address-2"><span id="24226"></span>24226</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Store the keypress code in the blackboard buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="24227"></a>24227</td>
+<td class="address-2"><span id="24227"></span>24227</td>
 <td class="instruction">CP 13</td>
 <td class="comment-11" rowspan="1">Set the zero flag if ENTER was pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24229"></a>24229</td>
+<td class="address-1"><span id="24229"></span>24229</td>
 <td class="instruction">LD H,210</td>
 <td class="comment-11" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24231"></a>24231</td>
-<td class="instruction">CALL NZ,<a class="link" href="26513.html#26516">26516</a></td>
+<td class="address-1"><span id="24231"></span>24231</td>
+<td class="instruction">CALL NZ,<a href="26513.html#26516">26516</a></td>
 <td class="comment-11" rowspan="1">Write a character on the board unless ENTER was pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24234"></a>24234</td>
-<td class="instruction">JR <a class="link" href="24133.html#24165">24165</a></td>
+<td class="address-1"><span id="24234"></span>24234</td>
+<td class="instruction">JR <a href="24133.html#24165">24165</a></td>
 <td class="comment-11" rowspan="1">Raise ERIC's arm and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="24133.html">24133</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#24175">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="24236.html">24236</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="24133.html">24133</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#24175">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="24236.html">24236</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

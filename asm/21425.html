@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 21425</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="21419.html">21419</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#21425">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="21492.html">21492</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="21419.html">21419</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#21425">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="21492.html">21492</a></span></td>
 </tr>
 </table>
 <div class="description">21425: Clear the screen and request the input method (keyboard, joystick, Int2)</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="21920.html">21920</a>.
+Used by the routine at <a href="21920.html">21920</a>.
 </div>
 </div>
 <table class="input-0">
@@ -49,208 +45,208 @@ Used by the routine at <a class="link" href="21920.html">21920</a>.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="21425"></a>21425</td>
+<td class="address-2"><span id="21425"></span>21425</td>
 <td class="instruction">LD BC,640</td>
 <td class="comment-11" rowspan="5">INK 0: PAPER 6 for the top 20 lines of screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21428"></a>21428</td>
+<td class="address-1"><span id="21428"></span>21428</td>
 <td class="instruction">LD DE,22529</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21431"></a>21431</td>
+<td class="address-1"><span id="21431"></span>21431</td>
 <td class="instruction">LD HL,22528</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21434"></a>21434</td>
+<td class="address-1"><span id="21434"></span>21434</td>
 <td class="instruction">LD (HL),48</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21436"></a>21436</td>
+<td class="address-1"><span id="21436"></span>21436</td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21438"></a>21438</td>
+<td class="address-1"><span id="21438"></span>21438</td>
 <td class="instruction">LD C,128</td>
 <td class="comment-11" rowspan="3">INK 6: PAPER 6 for the bottom 4 lines of screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21440"></a>21440</td>
+<td class="address-1"><span id="21440"></span>21440</td>
 <td class="instruction">LD (HL),54</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21442"></a>21442</td>
+<td class="address-1"><span id="21442"></span>21442</td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21444"></a>21444</td>
-<td class="instruction">CALL <a class="link" href="21419.html">21419</a></td>
+<td class="address-1"><span id="21444"></span>21444</td>
+<td class="instruction">CALL <a href="21419.html">21419</a></td>
 <td class="comment-11" rowspan="1">Make a short beep</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21447"></a>21447</td>
+<td class="address-1"><span id="21447"></span>21447</td>
 <td class="instruction">LD H,64</td>
 <td class="comment-11" rowspan="5">Clear the top two-thirds of the display file</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21449"></a>21449</td>
+<td class="address-1"><span id="21449"></span>21449</td>
 <td class="instruction">LD D,H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21450"></a>21450</td>
+<td class="address-1"><span id="21450"></span>21450</td>
 <td class="instruction">LD (HL),L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21451"></a>21451</td>
+<td class="address-1"><span id="21451"></span>21451</td>
 <td class="instruction">LD B,16</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21453"></a>21453</td>
+<td class="address-1"><span id="21453"></span>21453</td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="21455"></a>21455</td>
+<td class="address-2"><span id="21455"></span>21455</td>
 <td class="instruction">LD B,160</td>
 <td class="comment-11" rowspan="8">Clear the remainder of the screen, except the bottom 3 lines (which contain machine code)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="21457"></a>21457</td>
+<td class="address-2"><span id="21457"></span>21457</td>
 <td class="instruction">LD (HL),C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21458"></a>21458</td>
+<td class="address-1"><span id="21458"></span>21458</td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21459"></a>21459</td>
+<td class="address-1"><span id="21459"></span>21459</td>
 <td class="instruction">DJNZ 21457</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21461"></a>21461</td>
+<td class="address-1"><span id="21461"></span>21461</td>
 <td class="instruction">LD L,B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21462"></a>21462</td>
+<td class="address-1"><span id="21462"></span>21462</td>
 <td class="instruction">INC H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21463"></a>21463</td>
+<td class="address-1"><span id="21463"></span>21463</td>
 <td class="instruction">BIT 3,H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21465"></a>21465</td>
+<td class="address-1"><span id="21465"></span>21465</td>
 <td class="instruction">JR Z,21455</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21467"></a>21467</td>
+<td class="address-1"><span id="21467"></span>21467</td>
 <td class="instruction">LD A,128</td>
 <td class="comment-11" rowspan="2">Set the column of the play area at the far left of the screen to 128</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21469"></a>21469</td>
+<td class="address-1"><span id="21469"></span>21469</td>
 <td class="instruction">LD (32767),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21472"></a>21472</td>
+<td class="address-1"><span id="21472"></span>21472</td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21473"></a>21473</td>
-<td class="instruction">CALL <a class="link" href="20640.html">20640</a></td>
+<td class="address-1"><span id="21473"></span>21473</td>
+<td class="instruction">CALL <a href="20640.html">20640</a></td>
 <td class="comment-11" rowspan="1">Clear character buffer 214 (for no good reason)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21476"></a>21476</td>
+<td class="address-1"><span id="21476"></span>21476</td>
 <td class="instruction">LD A,246</td>
-<td class="comment-11" rowspan="1">Message <a class="link" href="22176.html">246</a>: 'None/Cursor/Kempston/Int2? (N,C,K or I)'</td>
+<td class="comment-11" rowspan="1">Message <a href="22176.html">246</a>: 'None/Cursor/Kempston/Int2? (N,C,K or I)'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21478"></a>21478</td>
+<td class="address-1"><span id="21478"></span>21478</td>
 <td class="instruction">LD HL,16448</td>
 <td class="comment-11" rowspan="2">Print this message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21481"></a>21481</td>
-<td class="instruction">CALL <a class="link" href="20665.html#20668">20668</a></td>
+<td class="address-1"><span id="21481"></span>21481</td>
+<td class="instruction">CALL <a href="20665.html#20668">20668</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21484"></a>21484</td>
+<td class="address-1"><span id="21484"></span>21484</td>
 <td class="instruction">LD HL,23611</td>
 <td class="comment-11" rowspan="2">Clear bit 5 at 23611, ready for future keypresses</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21487"></a>21487</td>
+<td class="address-1"><span id="21487"></span>21487</td>
 <td class="instruction">RES 5,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="21489"></a>21489</td>
-<td class="instruction">JP <a class="link" href="21664.html">21664</a></td>
+<td class="address-1"><span id="21489"></span>21489</td>
+<td class="instruction">JP <a href="21664.html">21664</a></td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="21419.html">21419</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#21425">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="21492.html">21492</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="21419.html">21419</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#21425">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="21492.html">21492</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

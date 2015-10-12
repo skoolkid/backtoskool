@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 26304</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26303.html">26303</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26304">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26318.html">26318</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26303.html">26303</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26304">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26318.html">26318</a></span></td>
 </tr>
 </table>
 <div class="description">26304: Make a character find a seat</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command lists <a class="link" href="51516.html">0</a>, <a class="link" href="51772.html">2</a>, <a class="link" href="52028.html">4</a>, <a class="link" href="52284.html">6</a>, <a class="link" href="52540.html">8</a>, <a class="link" href="58768.html">32</a>, <a class="link" href="58779.html">34</a>, <a class="link" href="59488.html">46</a>, <a class="link" href="59499.html">48</a>, <a class="link" href="59519.html">50</a>, <a class="link" href="59530.html">52</a>, <a class="link" href="59801.html">82</a>, <a class="link" href="59812.html">84</a> and <a class="link" href="59823.html">86</a>. Makes a character start looking for a seat.
+Used by command lists <a href="51516.html">0</a>, <a href="51772.html">2</a>, <a href="52028.html">4</a>, <a href="52284.html">6</a>, <a href="52540.html">8</a>, <a href="58768.html">32</a>, <a href="58779.html">34</a>, <a href="59488.html">46</a>, <a href="59499.html">48</a>, <a href="59519.html">50</a>, <a href="59530.html">52</a>, <a href="59801.html">82</a>, <a href="59812.html">84</a> and <a href="59823.html">86</a>. Makes a character start looking for a seat.
 </div>
 </div>
 <table class="input-1">
@@ -52,58 +48,58 @@ Used by command lists <a class="link" href="51516.html">0</a>, <a class="link" h
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26304"></a>26304</td>
+<td class="address-2"><span id="26304"></span>26304</td>
 <td class="instruction">LD L,4</td>
 <td class="comment-11" rowspan="2">Remove the address of this primary command routine from bytes 3 and 4 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26306"></a>26306</td>
+<td class="address-1"><span id="26306"></span>26306</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26308"></a>26308</td>
+<td class="address-1"><span id="26308"></span>26308</td>
 <td class="instruction">LD L,18</td>
-<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a class="link" href="26263.html">26263</a> (make character look for a seat) into bytes 17 and 18 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="26263.html">26263</a> (make character look for a seat) into bytes 17 and 18 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26310"></a>26310</td>
+<td class="address-1"><span id="26310"></span>26310</td>
 <td class="instruction">LD (HL),102</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26312"></a>26312</td>
+<td class="address-1"><span id="26312"></span>26312</td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26313"></a>26313</td>
+<td class="address-1"><span id="26313"></span>26313</td>
 <td class="instruction">LD (HL),151</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26315"></a>26315</td>
-<td class="instruction">JP <a class="link" href="26263.html">26263</a></td>
+<td class="address-1"><span id="26315"></span>26315</td>
+<td class="instruction">JP <a href="26263.html">26263</a></td>
 <td class="comment-11" rowspan="1">Start looking for a seat</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26303.html">26303</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26304">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26318.html">26318</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26303.html">26303</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26304">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26318.html">26318</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

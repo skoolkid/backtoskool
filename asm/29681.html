@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 29681</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29643.html">29643</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29681">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29693.html">29693</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29643.html">29643</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29681">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29693.html">29693</a></span></td>
 </tr>
 </table>
 <div class="description">29681: Open the Science Lab storeroom door if ERIC has the key</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="28315.html">28315</a>. Opens the Science Lab storeroom door if ERIC is facing it, has the key, and is trying to move forwards.
+Used by the routine at <a href="28315.html">28315</a>. Opens the Science Lab storeroom door if ERIC is facing it, has the key, and is trying to move forwards.
 </div>
 </div>
 <table class="input-1">
@@ -52,52 +48,52 @@ Used by the routine at <a class="link" href="28315.html">28315</a>. Opens the Sc
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29681"></a>29681</td>
+<td class="address-2"><span id="29681"></span>29681</td>
 <td class="instruction">LD L,235</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32747.html">32747</a> (inventory flags)</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32747.html">32747</a> (inventory flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29683"></a>29683</td>
+<td class="address-1"><span id="29683"></span>29683</td>
 <td class="instruction">BIT 1,(HL)</td>
 <td class="comment-11" rowspan="1">Has ERIC got the storeroom key?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29685"></a>29685</td>
+<td class="address-1"><span id="29685"></span>29685</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29686"></a>29686</td>
+<td class="address-1"><span id="29686"></span>29686</td>
 <td class="instruction">LD B,1</td>
 <td class="comment-11" rowspan="1">1=open (as opposed to 0=close)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29688"></a>29688</td>
+<td class="address-1"><span id="29688"></span>29688</td>
 <td class="instruction">LD A,4</td>
 <td class="comment-11" rowspan="1">4=Science Lab storeroom door identifier</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29690"></a>29690</td>
-<td class="instruction">JP <a class="link" href="28736.html">28736</a></td>
+<td class="address-1"><span id="29690"></span>29690</td>
+<td class="instruction">JP <a href="28736.html">28736</a></td>
 <td class="comment-11" rowspan="1">Open the storeroom door</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29643.html">29643</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29681">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29693.html">29693</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29643.html">29643</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29681">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29693.html">29693</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

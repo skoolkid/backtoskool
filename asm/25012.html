@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 25012</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="25011.html">25011</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#25012">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="25026.html">25026</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="25011.html">25011</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25012">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25026.html">25026</a></span></td>
 </tr>
 </table>
 <div class="description">25012: Update the SRB for a character's current animatory state and location</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by many routines. Updates the <a class="link" href="32512.html">screen refresh buffer</a> (SRB) for a character's current animatory state and location. Returns with the character's current coordinates in <span class="register">DE</span> and animatory state in <span class="register">A</span>.
+Used by many routines. Updates the <a href="32512.html">screen refresh buffer</a> (SRB) for a character's current animatory state and location. Returns with the character's current coordinates in <span class="register">DE</span> and animatory state in <span class="register">A</span>.
 </div>
 </div>
 <table class="input-1">
@@ -52,82 +48,82 @@ Used by many routines. Updates the <a class="link" href="32512.html">screen refr
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="25012"></a>25012</td>
+<td class="address-2"><span id="25012"></span>25012</td>
 <td class="instruction">LD L,2</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25014"></a>25014</td>
+<td class="address-1"><span id="25014"></span>25014</td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=character's y-coordinate (0-17)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25015"></a>25015</td>
+<td class="address-1"><span id="25015"></span>25015</td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25016"></a>25016</td>
+<td class="address-1"><span id="25016"></span>25016</td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=character's x-coordinate (0-189)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25017"></a>25017</td>
+<td class="address-1"><span id="25017"></span>25017</td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25018"></a>25018</td>
+<td class="address-1"><span id="25018"></span>25018</td>
 <td class="instruction">LD C,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">C</span>=character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25019"></a>25019</td>
+<td class="address-1"><span id="25019"></span>25019</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save the character's coordinates briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25020"></a>25020</td>
-<td class="instruction">CALL <a class="link" href="24880.html#24888">24888</a></td>
+<td class="address-1"><span id="25020"></span>25020</td>
+<td class="instruction">CALL <a href="24880.html#24888">24888</a></td>
 <td class="comment-11" rowspan="1">Set the appropriate bits in the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25023"></a>25023</td>
+<td class="address-1"><span id="25023"></span>25023</td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore the character's coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25024"></a>25024</td>
+<td class="address-1"><span id="25024"></span>25024</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25025"></a>25025</td>
+<td class="address-1"><span id="25025"></span>25025</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="25011.html">25011</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#25012">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="25026.html">25026</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="25011.html">25011</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25012">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25026.html">25026</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

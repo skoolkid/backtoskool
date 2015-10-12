@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 61487</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="61463.html">61463</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#61487">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="61510.html">61510</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="61463.html">61463</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61487">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="61510.html">61510</a></span></td>
 </tr>
 </table>
 <div class="description">61487: Make a teacher give lines to EINSTEIN or the kid he grassed up</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="61696.html">61696</a>. Makes a teacher give lines to EINSTEIN (for telling tales) 84 times out of 256, or give lines to the kid EINSTEIN grassed up (if any) the rest of the time.
+Used by the routine at <a href="61696.html">61696</a>. Makes a teacher give lines to EINSTEIN (for telling tales) 84 times out of 256, or give lines to the kid EINSTEIN grassed up (if any) the rest of the time.
 </div>
 </div>
 <table class="input-1">
@@ -60,104 +56,104 @@ Used by the routine at <a class="link" href="61696.html">61696</a>. Makes a teac
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="61487"></a>61487</td>
-<td class="instruction">CALL <a class="link" href="25233.html">25233</a></td>
+<td class="address-2"><span id="61487"></span>61487</td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61490"></a>61490</td>
+<td class="address-1"><span id="61490"></span>61490</td>
 <td class="instruction">CP 84</td>
 <td class="comment-11" rowspan="1">Shall we give lines to EINSTEIN for telling tales?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61492"></a>61492</td>
+<td class="address-1"><span id="61492"></span>61492</td>
 <td class="instruction">JR C,61500</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61494"></a>61494</td>
+<td class="address-1"><span id="61494"></span>61494</td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character number of the kid to give lines to</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61495"></a>61495</td>
+<td class="address-1"><span id="61495"></span>61495</td>
 <td class="instruction">CP 208</td>
 <td class="comment-11" rowspan="1">Was EINSTEIN telling the teacher that ERIC is not in class?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61497"></a>61497</td>
+<td class="address-1"><span id="61497"></span>61497</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so (there is no scapegoat to give lines to)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61498"></a>61498</td>
+<td class="address-1"><span id="61498"></span>61498</td>
 <td class="instruction">JR 61504</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="61500"></a>61500</td>
+<td class="address-2"><span id="61500"></span>61500</td>
 <td class="instruction">LD A,208</td>
 <td class="comment-11" rowspan="1">208=EINSTEIN</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61502"></a>61502</td>
+<td class="address-1"><span id="61502"></span>61502</td>
 <td class="instruction">LD B,85</td>
-<td class="comment-11" rowspan="1">Message <a class="link" href="60626.html">85</a>: DON'T TELL TALES</td>
+<td class="comment-11" rowspan="1">Message <a href="60626.html">85</a>: DON'T TELL TALES</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="61504"></a>
+<span id="61504"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point also is used by the routine at <a class="link" href="61696.html">61696</a>.
+This entry point also is used by the routine at <a href="61696.html">61696</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="61504"></a>61504</td>
+<td class="address-2"><span id="61504"></span>61504</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61505"></a>61505</td>
-<td class="instruction">CALL <a class="link" href="29716.html">29716</a></td>
+<td class="address-1"><span id="61505"></span>61505</td>
+<td class="instruction">CALL <a href="29716.html">29716</a></td>
 <td class="comment-11" rowspan="1">Give lines to EINSTEIN or the kid he grassed up</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61508"></a>61508</td>
+<td class="address-1"><span id="61508"></span>61508</td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61509"></a>61509</td>
+<td class="address-1"><span id="61509"></span>61509</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="61463.html">61463</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#61487">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="61510.html">61510</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="61463.html">61463</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61487">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="61510.html">61510</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

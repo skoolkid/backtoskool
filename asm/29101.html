@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 29101</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29094.html">29094</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29101">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29117.html">29117</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29094.html">29094</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29101">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29117.html">29117</a></span></td>
 </tr>
 </table>
 <div class="description">29101: Move the bike if it's obstructing the skool gate</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-This is a branch of the routine at <a class="link" href="29052.html">29052</a>.
+This is a branch of the routine at <a href="29052.html">29052</a>.
 </div>
 </div>
 <table class="input-1">
@@ -52,58 +48,58 @@ This is a branch of the routine at <a class="link" href="29052.html">29052</a>.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29101"></a>29101</td>
+<td class="address-2"><span id="29101"></span>29101</td>
 <td class="instruction">CP 16</td>
 <td class="comment-11" rowspan="1">Is the skool gate being opened or closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29103"></a>29103</td>
-<td class="instruction">JR NZ,<a class="link" href="29052.html#29087">29087</a></td>
+<td class="address-1"><span id="29103"></span>29103</td>
+<td class="instruction">JR NZ,<a href="29052.html#29087">29087</a></td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29105"></a>29105</td>
+<td class="address-1"><span id="29105"></span>29105</td>
 <td class="instruction">LD A,(54017)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=bike's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29108"></a>29108</td>
+<td class="address-1"><span id="29108"></span>29108</td>
 <td class="instruction">CP 133</td>
 <td class="comment-11" rowspan="1">Is the bike to the left of the skool gate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29110"></a>29110</td>
-<td class="instruction">JR C,<a class="link" href="29052.html#29087">29087</a></td>
+<td class="address-1"><span id="29110"></span>29110</td>
+<td class="instruction">JR C,<a href="29052.html#29087">29087</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29112"></a>29112</td>
+<td class="address-1"><span id="29112"></span>29112</td>
 <td class="instruction">LD DE,4488</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=136, <span class="register">D</span>=17</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29115"></a>29115</td>
-<td class="instruction">JR <a class="link" href="29052.html#29078">29078</a></td>
+<td class="address-1"><span id="29115"></span>29115</td>
+<td class="instruction">JR <a href="29052.html#29078">29078</a></td>
 <td class="comment-11" rowspan="1">Move the bike if it's obstructing the skool gate</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29094.html">29094</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29101">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29117.html">29117</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29094.html">29094</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29101">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29117.html">29117</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

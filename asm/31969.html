@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 31969</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31952.html">31952</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31969">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31998.html">31998</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31952.html">31952</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31969">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31998.html">31998</a></span></td>
 </tr>
 </table>
 <div class="description">31969: Make a character walk up and down a few times or until a certain time</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command lists <a class="link" href="53820.html">18</a>, <a class="link" href="58828.html">42</a> and <a class="link" href="58844.html">44</a> to make a character walk about a fixed location until a specified time, or until a certain number of walkabouts have been performed.
+Used by command lists <a href="53820.html">18</a>, <a href="58828.html">42</a> and <a href="58844.html">44</a> to make a character walk about a fixed location until a specified time, or until a certain number of walkabouts have been performed.
 </div>
 </div>
 <table class="input-1">
@@ -52,94 +48,94 @@ Used by command lists <a class="link" href="53820.html">18</a>, <a class="link" 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31969"></a>31969</td>
+<td class="address-2"><span id="31969"></span>31969</td>
 <td class="instruction">LD L,6</td>
 <td class="comment-11" rowspan="2">Collect the event ID (always 0, denoting the end of the lesson) and the maximum walkabout count from the command list and copy them into bytes 6 and 7 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31971"></a>31971</td>
-<td class="instruction">CALL <a class="link" href="25188.html">25188</a></td>
+<td class="address-1"><span id="31971"></span>31971</td>
+<td class="instruction">CALL <a href="25188.html">25188</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31974"></a>31974</td>
+<td class="address-2"><span id="31974"></span>31974</td>
 <td class="instruction">LD L,7</td>
 <td class="comment-11" rowspan="2">Decrease the walkabout counter at byte 7 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31976"></a>31976</td>
+<td class="address-1"><span id="31976"></span>31976</td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31977"></a>31977</td>
+<td class="address-1"><span id="31977"></span>31977</td>
 <td class="instruction">JR NZ,31993</td>
 <td class="comment-11" rowspan="1">If the character has not yet performed the maximum number of walkabouts, check whether the specified time has arrived</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31979"></a>31979</td>
+<td class="address-1"><span id="31979"></span>31979</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Set the walkabout counter back to 1 to ensure that we return to this execution path next time (to check whether the character has returned to the walkabout origin)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31980"></a>31980</td>
+<td class="address-1"><span id="31980"></span>31980</td>
 <td class="instruction">LD L,5</td>
 <td class="comment-11" rowspan="1">Byte 5 holds the x-coordinate of the walkabout origin</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31982"></a>31982</td>
-<td class="instruction">CALL <a class="link" href="31915.html#31924">31924</a></td>
+<td class="address-1"><span id="31982"></span>31982</td>
+<td class="instruction">CALL <a href="31915.html#31924">31924</a></td>
 <td class="comment-11" rowspan="1">Reset the carry flag if the character is at the walkabout origin</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31985"></a>31985</td>
-<td class="instruction">JP NC,<a class="link" href="25484.html">25484</a></td>
+<td class="address-2"><span id="31985"></span>31985</td>
+<td class="instruction">JP NC,<a href="25484.html">25484</a></td>
 <td class="comment-11" rowspan="1">Move to the next command in the command list if the specified time has arrived or the character has completed all his walkabouts</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31988"></a>31988</td>
-<td class="instruction">CALL <a class="link" href="25503.html">25503</a></td>
-<td class="comment-11" rowspan="1">Otherwise send the character off to another walkabout destination via the routine at <a class="link" href="25581.html">25581</a>, and return to the instruction at <a class="link" href="31969.html#31991">31991</a> (below) when done</td>
+<td class="address-1"><span id="31988"></span>31988</td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-11" rowspan="1">Otherwise send the character off to another walkabout destination via the routine at <a href="25581.html">25581</a>, and return to the instruction at <a href="31969.html#31991">31991</a> (below) when done</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31991"></a>31991</td>
+<td class="address-2"><span id="31991"></span>31991</td>
 <td class="instruction">JR 31974</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31993"></a>31993</td>
-<td class="instruction">CALL <a class="link" href="31915.html">31915</a></td>
+<td class="address-2"><span id="31993"></span>31993</td>
+<td class="instruction">CALL <a href="31915.html">31915</a></td>
 <td class="comment-11" rowspan="1">Reset the carry flag if the specified time has arrived and the character is at the walkabout origin</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31996"></a>31996</td>
+<td class="address-1"><span id="31996"></span>31996</td>
 <td class="instruction">JR 31985</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31952.html">31952</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31969">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31998.html">31998</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31952.html">31952</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31969">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31998.html">31998</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

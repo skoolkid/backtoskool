@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 30739</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30706.html">30706</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30739">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30785.html">30785</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30706.html">30706</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30739">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30785.html">30785</a></span></td>
 </tr>
 </table>
 <div class="description">30739: Deal with ANGELFACE when he is hitting</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of ANGELFACE's buffer by the routine at <a class="link" href="30706.html">30706</a>. It controls ANGELFACE from the beginning to the end of the swing, and knocks over any unfortunate kid whose face comes into contact with the fist.
+The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of ANGELFACE's buffer by the routine at <a href="30706.html">30706</a>. It controls ANGELFACE from the beginning to the end of the swing, and knocks over any unfortunate kid whose face comes into contact with the fist.
 </div>
 </div>
 <table class="input-1">
@@ -52,158 +48,158 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30739"></a>30739</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-2"><span id="30739"></span>30739</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ANGELFACE's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30742"></a>30742</td>
+<td class="address-1"><span id="30742"></span>30742</td>
 <td class="instruction">LD L,20</td>
 <td class="comment-11" rowspan="2">Store ANGELFACE's current (pre-punch) animatory state in byte 20 of his buffer temporarily</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30744"></a>30744</td>
+<td class="address-1"><span id="30744"></span>30744</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30745"></a>30745</td>
+<td class="address-1"><span id="30745"></span>30745</td>
 <td class="instruction">AND 240</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30747"></a>30747</td>
+<td class="address-1"><span id="30747"></span>30747</td>
 <td class="instruction">ADD A,8</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a class="link" href="../graphics/as.html#40">40 or 168</a>: ANGELFACE raising his arm</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#40">40 or 168</a>: ANGELFACE raising his arm</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30749"></a>30749</td>
-<td class="instruction">CALL <a class="link" href="30534.html">30534</a></td>
-<td class="comment-11" rowspan="1">Update ANGELFACE's animatory state and return to <a class="link" href="30739.html#30752">30752</a> (below) next time</td>
+<td class="address-1"><span id="30749"></span>30749</td>
+<td class="instruction">CALL <a href="30534.html">30534</a></td>
+<td class="comment-11" rowspan="1">Update ANGELFACE's animatory state and return to <a href="30739.html#30752">30752</a> (below) next time</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="30752"></a>
+<span id="30752"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="24263.html">24263</a> to check whether ERIC has hit anyone.
+This entry point is used by the routine at <a href="24263.html">24263</a> to check whether ERIC has hit anyone.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30752"></a>30752</td>
+<td class="address-2"><span id="30752"></span>30752</td>
 <td class="instruction">LD B,2</td>
 <td class="comment-11" rowspan="2">Is there anyone 2 spaces in front of the puncher and facing him?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30754"></a>30754</td>
-<td class="instruction">CALL <a class="link" href="30664.html">30664</a></td>
+<td class="address-1"><span id="30754"></span>30754</td>
+<td class="instruction">CALL <a href="30664.html">30664</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30757"></a>30757</td>
+<td class="address-1"><span id="30757"></span>30757</td>
 <td class="instruction">JR C,30778</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30759"></a>30759</td>
-<td class="instruction">CALL <a class="link" href="29896.html#29987">29987</a></td>
+<td class="address-1"><span id="30759"></span>30759</td>
+<td class="instruction">CALL <a href="29896.html#29987">29987</a></td>
 <td class="comment-11" rowspan="1">Knock the punched character over</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30762"></a>30762</td>
+<td class="address-1"><span id="30762"></span>30762</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"><span class="register">H</span>=puncher's character number, <span class="register">D</span>=victim's character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30763"></a>30763</td>
+<td class="address-1"><span id="30763"></span>30763</td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=puncher's character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30764"></a>30764</td>
+<td class="address-1"><span id="30764"></span>30764</td>
 <td class="instruction">CP 210</td>
 <td class="comment-11" rowspan="1">Was ERIC the assailant?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30766"></a>30766</td>
+<td class="address-1"><span id="30766"></span>30766</td>
 <td class="instruction">JR NZ,30778</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30768"></a>30768</td>
+<td class="address-1"><span id="30768"></span>30768</td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=victim's character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30769"></a>30769</td>
+<td class="address-1"><span id="30769"></span>30769</td>
 <td class="instruction">CP 207</td>
 <td class="comment-11" rowspan="1">Did ERIC knock ANGELFACE over?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30771"></a>30771</td>
+<td class="address-1"><span id="30771"></span>30771</td>
 <td class="instruction">JR NZ,30778</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30773"></a>30773</td>
+<td class="address-1"><span id="30773"></span>30773</td>
 <td class="instruction">LD A,3</td>
 <td class="comment-11" rowspan="2">ERIC has punched ANGELFACE; add 30 to the score and print it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30775"></a>30775</td>
-<td class="instruction">CALL <a class="link" href="29621.html">29621</a></td>
+<td class="address-1"><span id="30775"></span>30775</td>
+<td class="instruction">CALL <a href="29621.html">29621</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30778"></a>30778</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-2"><span id="30778"></span>30778</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the punching character's current animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30781"></a>30781</td>
+<td class="address-1"><span id="30781"></span>30781</td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the punching character with his fist fully raised</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30782"></a>30782</td>
-<td class="instruction">JP <a class="link" href="30643.html#30647">30647</a></td>
+<td class="address-1"><span id="30782"></span>30782</td>
+<td class="instruction">JP <a href="30643.html#30647">30647</a></td>
 <td class="comment-11" rowspan="1">Update the punching character's animatory state, then start the process of lowering the puncher's arm (if it was ANGELFACE)</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30706.html">30706</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30739">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30785.html">30785</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30706.html">30706</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30739">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30785.html">30785</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

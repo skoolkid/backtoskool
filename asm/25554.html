@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 25554</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="25534.html">25534</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#25554">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="25581.html">25581</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="25534.html">25534</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25554">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25581.html">25581</a></span></td>
 </tr>
 </table>
 <div class="description">25554: Get the play area region identifier for a given location</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="25700.html">25700</a>, <a class="link" href="25843.html">25843</a> and <a class="link" href="32379.html">32379</a>. The value returned in <span class="register">A</span> (corresponding to the location in <span class="register">DE</span>) is as follows:
+Used by the routines at <a href="25700.html">25700</a>, <a href="25843.html">25843</a> and <a href="32379.html">32379</a>. The value returned in <span class="register">A</span> (corresponding to the location in <span class="register">DE</span>) is as follows:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -73,7 +69,7 @@ Used by the routines at <a class="link" href="25700.html">25700</a>, <a class="l
 </table>
 </div>
 <div class="paragraph">
-<span id="ericLocTable" /> Or if the entry point at <a class="link" href="25554.html#25557">25557</a> is used (for ERIC's location):
+<span id="ericLocTable" /> Or if the entry point at <a href="25554.html#25557">25557</a> is used (for ERIC's location):
 </div>
 <div class="paragraph">
 <table class="default">
@@ -146,47 +142,47 @@ The carry flag is set upon return to the caller of this routine if the coordinat
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="25554"></a>25554</td>
-<td class="instruction">CALL <a class="link" href="28067.html">28067</a></td>
+<td class="address-2"><span id="25554"></span>25554</td>
+<td class="instruction">CALL <a href="28067.html">28067</a></td>
 <td class="comment-11" rowspan="1">Divert back to the calling routine with <span class="register">A</span>=192 and the carry flag reset if the character is on the assembly hall stage; otherwise return here with <span class="register">B</span>=182 and <span class="register">C</span>=59</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="25557"></a>
+<span id="25557"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="32000.html">32000</a> with ERIC's coordinates in <span class="register">DE</span>, <span class="register">B</span>=185, and <span class="register">C</span>=59.
+This entry point is used by the routine at <a href="32000.html">32000</a> with ERIC's coordinates in <span class="register">DE</span>, <span class="register">B</span>=185, and <span class="register">C</span>=59.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="25557"></a>25557</td>
+<td class="address-2"><span id="25557"></span>25557</td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="25558"></a>25558</td>
+<td class="address-2"><span id="25558"></span>25558</td>
 <td class="instruction">INC B</td>
 <td class="comment-11" rowspan="3">Set <span class="register">B</span> to 183 (186) if <span class="register">D</span>&lt;=6 (top floor), 184 (187) if 7&lt;=<span class="register">D</span>&lt;=13 (middle floor), or 185 (188) if 14&lt;=<span class="register">D</span>&lt;=18 (bottom floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25559"></a>25559</td>
+<td class="address-1"><span id="25559"></span>25559</td>
 <td class="instruction">SUB 7</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25561"></a>25561</td>
+<td class="address-1"><span id="25561"></span>25561</td>
 <td class="instruction">JR NC,25558</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="25563"></a>
+<span id="25563"></span>
 <div class="comments">
 <div class="paragraph">
 Now <span class="register">BC</span> will be used to index one of the skool region tables that contain the location identifiers:
@@ -198,27 +194,27 @@ Now <span class="register">BC</span> will be used to index one of the skool regi
 <th colspan="1" rowspan="1">Region</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="46908.html">46908</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="46908.html">46908</a></td>
 <td class="" colspan="1" rowspan="1">Top floor</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="47164.html">47164</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="47164.html">47164</a></td>
 <td class="" colspan="1" rowspan="1">Middle floor</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="47420.html">47420</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="47420.html">47420</a></td>
 <td class="" colspan="1" rowspan="1">Bottom floor</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="47676.html">47676</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="47676.html">47676</a></td>
 <td class="" colspan="1" rowspan="1">Top floor (ERIC)</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="47932.html">47932</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="47932.html">47932</a></td>
 <td class="" colspan="1" rowspan="1">Middle floor (ERIC)</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1"><a class="link" href="48188.html">48188</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="48188.html">48188</a></td>
 <td class="" colspan="1" rowspan="1">Bottom floor (ERIC)</td>
 </tr>
 </table>
@@ -228,106 +224,106 @@ Now <span class="register">BC</span> will be used to index one of the skool regi
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25563"></a>25563</td>
+<td class="address-1"><span id="25563"></span>25563</td>
 <td class="instruction">CP 252</td>
 <td class="comment-11" rowspan="1">Does <span class="register">D</span>=3, 10 or 17 (top, middle, bottom floor)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25565"></a>25565</td>
+<td class="address-1"><span id="25565"></span>25565</td>
 <td class="instruction">JR Z,25571</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25567"></a>25567</td>
+<td class="address-1"><span id="25567"></span>25567</td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: <span class="register">D</span> does not correspond exactly to the top, middle or bottom floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25568"></a>25568</td>
+<td class="address-1"><span id="25568"></span>25568</td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="3"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25569"></a>25569</td>
+<td class="address-1"><span id="25569"></span>25569</td>
 <td class="instruction">NOP</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25570"></a>25570</td>
+<td class="address-1"><span id="25570"></span>25570</td>
 <td class="instruction">NOP</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="25571"></a>25571</td>
+<td class="address-2"><span id="25571"></span>25571</td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save the carry flag temporarily</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="25572"></a>25572</td>
+<td class="address-2"><span id="25572"></span>25572</td>
 <td class="instruction">INC C</td>
 <td class="comment-11" rowspan="5">Point <span class="register">BC</span> at the appropriate entry in one of the region tables</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25573"></a>25573</td>
+<td class="address-1"><span id="25573"></span>25573</td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25574"></a>25574</td>
+<td class="address-1"><span id="25574"></span>25574</td>
 <td class="instruction">INC C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25575"></a>25575</td>
+<td class="address-1"><span id="25575"></span>25575</td>
 <td class="instruction">CP E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25576"></a>25576</td>
+<td class="address-1"><span id="25576"></span>25576</td>
 <td class="instruction">JR C,25572</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25578"></a>25578</td>
+<td class="address-1"><span id="25578"></span>25578</td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the carry flag (reset if <span class="register">D</span>=3, 10 or 17; set otherwise)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25579"></a>25579</td>
+<td class="address-1"><span id="25579"></span>25579</td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=region identifier (189-196 or 0-8; see the tables above)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25580"></a>25580</td>
+<td class="address-1"><span id="25580"></span>25580</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="25534.html">25534</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#25554">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="25581.html">25581</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="25534.html">25534</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25554">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25581.html">25581</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

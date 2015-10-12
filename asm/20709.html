@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 20709</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="20706.html">20706</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#20709">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="20724.html">20724</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="20706.html">20706</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#20709">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="20724.html">20724</a></span></td>
 </tr>
 </table>
 <div class="description">20709: Populate a row of the screen with machine code</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="../start/33204.html">33204</a>. Copies 256 bytes of machine code from the source (either the top row of the screen, or character buffers 183-190) to the destination (the second or third row from the bottom of the screen), in eight 32-byte blocks.
+Used by the routine at <a href="../start/33204.html">33204</a>. Copies 256 bytes of machine code from the source (either the top row of the screen, or character buffers 183-190) to the destination (the second or third row from the bottom of the screen), in eight 32-byte blocks.
 </div>
 </div>
 <table class="input-1">
@@ -56,76 +52,76 @@ Used by the routine at <a class="link" href="../start/33204.html">33204</a>. Cop
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="20709"></a>20709</td>
+<td class="address-2"><span id="20709"></span>20709</td>
 <td class="instruction">LD BC,32</td>
 <td class="comment-11" rowspan="1">There are 32 bytes per row of pixels</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20712"></a>20712</td>
+<td class="address-1"><span id="20712"></span>20712</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20713"></a>20713</td>
+<td class="address-1"><span id="20713"></span>20713</td>
 <td class="instruction">LDIR</td>
 <td class="comment-11" rowspan="1">Copy 32 bytes to the display file</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20715"></a>20715</td>
+<td class="address-1"><span id="20715"></span>20715</td>
 <td class="instruction">LD L,B</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20716"></a>20716</td>
+<td class="address-1"><span id="20716"></span>20716</td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20717"></a>20717</td>
+<td class="address-1"><span id="20717"></span>20717</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the start of the next row of pixels</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20718"></a>20718</td>
+<td class="address-1"><span id="20718"></span>20718</td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next batch of 32 bytes to copy</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20719"></a>20719</td>
+<td class="address-1"><span id="20719"></span>20719</td>
 <td class="instruction">BIT 3,D</td>
 <td class="comment-11" rowspan="1">Have we copied 8 rows of bytes yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20721"></a>20721</td>
+<td class="address-1"><span id="20721"></span>20721</td>
 <td class="instruction">JR Z,20709</td>
 <td class="comment-11" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20723"></a>20723</td>
+<td class="address-1"><span id="20723"></span>20723</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="20706.html">20706</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#20709">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="20724.html">20724</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="20706.html">20706</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#20709">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="20724.html">20724</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

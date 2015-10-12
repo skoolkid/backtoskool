@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 24263</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="24247.html">24247</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#24263">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="24294.html">24294</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="24247.html">24247</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#24263">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="24294.html">24294</a></span></td>
 </tr>
 </table>
 <div class="description">24263: 'H' pressed - hit</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this routine is found in the table of keypress handling routines at <a class="link" href="58704.html">58704</a>. It is called from the main loop at <a class="link" href="63210.html">63210</a> when 'H' is pressed.
+The address of this routine is found in the table of keypress handling routines at <a href="58704.html">58704</a>. It is called from the main loop at <a href="63210.html">63210</a> when 'H' is pressed.
 </div>
 </div>
 <table class="input-0">
@@ -49,120 +45,120 @@ The address of this routine is found in the table of keypress handling routines 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="24263"></a>24263</td>
-<td class="instruction">CALL <a class="link" href="28240.html">28240</a></td>
+<td class="address-2"><span id="24263"></span>24263</td>
+<td class="instruction">CALL <a href="28240.html">28240</a></td>
 <td class="comment-11" rowspan="1">Is ERIC on a staircase?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24266"></a>24266</td>
+<td class="address-1"><span id="24266"></span>24266</td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24267"></a>24267</td>
+<td class="address-1"><span id="24267"></span>24267</td>
 <td class="instruction">LD A,8</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#8">8</a>: ERIC raising his fist</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#8">8</a>: ERIC raising his fist</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24269"></a>24269</td>
-<td class="instruction">CALL <a class="link" href="24247.html">24247</a></td>
-<td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a class="link" href="24263.html#24272">24272</a> (below) when it's time to deal with ERIC again</td>
+<td class="address-1"><span id="24269"></span>24269</td>
+<td class="instruction">CALL <a href="24247.html">24247</a></td>
+<td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="24263.html#24272">24272</a> (below) when it's time to deal with ERIC again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="24272"></a>24272</td>
+<td class="address-2"><span id="24272"></span>24272</td>
 <td class="instruction">LD HL,53760</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24275"></a>24275</td>
+<td class="address-1"><span id="24275"></span>24275</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24276"></a>24276</td>
+<td class="address-1"><span id="24276"></span>24276</td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1">Is ERIC raising his fist (<span class="register">A</span>=<a class="link" href="../graphics/as.html#8">8/136</a>)?</td>
+<td class="comment-11" rowspan="1">Is ERIC raising his fist (<span class="register">A</span>=<a href="../graphics/as.html#8">8/136</a>)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24277"></a>24277</td>
-<td class="instruction">JP NC,<a class="link" href="30739.html#30752">30752</a></td>
+<td class="address-1"><span id="24277"></span>24277</td>
+<td class="instruction">JP NC,<a href="30739.html#30752">30752</a></td>
 <td class="comment-11" rowspan="1">If so, raise ERIC's fist fully now and check for victims</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24280"></a>24280</td>
+<td class="address-1"><span id="24280"></span>24280</td>
 <td class="instruction">LD A,97</td>
-<td class="comment-11" rowspan="1">Message <a class="link" href="60921.html">97</a>: DON'T HIT YOUR MATES</td>
+<td class="comment-11" rowspan="1">Message <a href="60921.html">97</a>: DON'T HIT YOUR MATES</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24282"></a>24282</td>
-<td class="instruction">CALL <a class="link" href="63586.html#63640">63640</a></td>
+<td class="address-1"><span id="24282"></span>24282</td>
+<td class="instruction">CALL <a href="63586.html#63640">63640</a></td>
 <td class="comment-11" rowspan="1">Make any nearby teachers give ERIC lines</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24285"></a>24285</td>
+<td class="address-1"><span id="24285"></span>24285</td>
 <td class="instruction">LD A,8</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#8">8</a>: ERIC lowering his fist</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#8">8</a>: ERIC lowering his fist</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="24287"></a>
+<span id="24287"></span>
 <div class="comments">
 <div class="paragraph">
-This is where the routine at <a class="link" href="24296.html">24296</a> ought to enter:
+This is where the routine at <a href="24296.html">24296</a> ought to enter:
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24287"></a>24287</td>
-<td class="instruction">CALL <a class="link" href="24247.html">24247</a></td>
-<td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a class="link" href="24263.html#24290">24290</a> (below) when it's time to deal with ERIC again</td>
+<td class="address-1"><span id="24287"></span>24287</td>
+<td class="instruction">CALL <a href="24247.html">24247</a></td>
+<td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="24263.html#24290">24290</a> (below) when it's time to deal with ERIC again</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="24290"></a>
+<span id="24290"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="24348.html">24348</a>.
+This entry point is used by the routine at <a href="24348.html">24348</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="24290"></a>24290</td>
+<td class="address-2"><span id="24290"></span>24290</td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0 (prepare to clear all status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="24291"></a>24291</td>
-<td class="instruction">JP <a class="link" href="23907.html#23925">23925</a></td>
+<td class="address-1"><span id="24291"></span>24291</td>
+<td class="instruction">JP <a href="23907.html#23925">23925</a></td>
 <td class="comment-11" rowspan="1">Clear all of ERIC's status flags now that he's finished firing, hitting or kissing, update his animatory state and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="24247.html">24247</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#24263">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="24294.html">24294</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="24247.html">24247</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#24263">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="24294.html">24294</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

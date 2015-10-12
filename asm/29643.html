@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 29643</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29621.html">29621</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29643">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29681.html">29681</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29621.html">29621</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29643">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29681.html">29681</a></span></td>
 </tr>
 </table>
 <div class="description">29643: Add to the lines total and print it</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="24348.html">24348</a>, <a class="link" href="29716.html">29716</a> and <a class="link" href="62910.html">62910</a>. Adds to the lines total and prints the new total. Also sets MR WACKER on his way to expel ERIC if the new total is 10000 lines or more.
+Used by the routines at <a href="24348.html">24348</a>, <a href="29716.html">29716</a> and <a href="62910.html">62910</a>. Adds to the lines total and prints the new total. Also sets MR WACKER on his way to expel ERIC if the new total is 10000 lines or more.
 </div>
 </div>
 <table class="input-1">
@@ -52,142 +48,142 @@ Used by the routines at <a class="link" href="24348.html">24348</a>, <a class="l
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29643"></a>29643</td>
+<td class="address-2"><span id="29643"></span>29643</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29644"></a>29644</td>
+<td class="address-1"><span id="29644"></span>29644</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29645"></a>29645</td>
+<td class="address-1"><span id="29645"></span>29645</td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="2"><span class="register">DE</span>=number of lines to add</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29646"></a>29646</td>
+<td class="address-1"><span id="29646"></span>29646</td>
 <td class="instruction">LD D,0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29648"></a>29648</td>
+<td class="address-1"><span id="29648"></span>29648</td>
 <td class="instruction">LD HL,(32743)</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=current lines total (divided by 10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29651"></a>29651</td>
+<td class="address-1"><span id="29651"></span>29651</td>
 <td class="instruction">LD BC,64536</td>
 <td class="comment-11" rowspan="1"><span class="register">BC</span>=-1000</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29654"></a>29654</td>
+<td class="address-1"><span id="29654"></span>29654</td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-11" rowspan="1">Does ERIC have less than 10000 lines?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29655"></a>29655</td>
+<td class="address-1"><span id="29655"></span>29655</td>
 <td class="instruction">JR NC,29660</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29657"></a>29657</td>
+<td class="address-1"><span id="29657"></span>29657</td>
 <td class="instruction">ADD HL,DE</td>
 <td class="comment-11" rowspan="1">Add lines to ERIC's total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29658"></a>29658</td>
+<td class="address-1"><span id="29658"></span>29658</td>
 <td class="instruction">JR 29669</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29660"></a>29660</td>
+<td class="address-2"><span id="29660"></span>29660</td>
 <td class="instruction">ADD HL,DE</td>
 <td class="comment-11" rowspan="1">Add lines to ERIC's total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29661"></a>29661</td>
+<td class="address-1"><span id="29661"></span>29661</td>
 <td class="instruction">JR NC,29669</td>
 <td class="comment-11" rowspan="1">Jump if ERIC still has less than 10000 lines</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29663"></a>29663</td>
+<td class="address-1"><span id="29663"></span>29663</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29664"></a>29664</td>
-<td class="instruction">CALL <a class="link" href="62770.html">62770</a></td>
+<td class="address-1"><span id="29664"></span>29664</td>
+<td class="instruction">CALL <a href="62770.html">62770</a></td>
 <td class="comment-11" rowspan="1">Set MR WACKER on his way to expel ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29667"></a>29667</td>
+<td class="address-1"><span id="29667"></span>29667</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Clear the carry flag ready for subtraction</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29668"></a>29668</td>
+<td class="address-1"><span id="29668"></span>29668</td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29669"></a>29669</td>
+<td class="address-2"><span id="29669"></span>29669</td>
 <td class="instruction">SBC HL,BC</td>
 <td class="comment-11" rowspan="1">Now <span class="register">HL</span>=new lines total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29671"></a>29671</td>
+<td class="address-1"><span id="29671"></span>29671</td>
 <td class="instruction">LD (32743),HL</td>
-<td class="comment-11" rowspan="1">Store the new lines total at <a class="link" href="32743.html">32743</a></td>
+<td class="comment-11" rowspan="1">Store the new lines total at <a href="32743.html">32743</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29674"></a>29674</td>
+<td class="address-1"><span id="29674"></span>29674</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Transfer the new lines total to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29675"></a>29675</td>
+<td class="address-1"><span id="29675"></span>29675</td>
 <td class="instruction">LD HL,20932</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=display file address for printing the lines total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29678"></a>29678</td>
-<td class="instruction">JP <a class="link" href="29621.html#29637">29637</a></td>
+<td class="address-1"><span id="29678"></span>29678</td>
+<td class="instruction">JP <a href="29621.html#29637">29637</a></td>
 <td class="comment-11" rowspan="1">Print the new lines total</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29621.html">29621</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29643">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29681.html">29681</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29621.html">29621</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29643">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29681.html">29681</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

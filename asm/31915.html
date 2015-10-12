@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 31915</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31905.html">31905</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31915">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31952.html">31952</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31905.html">31905</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31915">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31952.html">31952</a></span></td>
 </tr>
 </table>
 <div class="description">31915: Check whether a character should continue walking up and down</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="31952.html">31952</a> and <a class="link" href="31969.html">31969</a> after a character has reached a walkabout destination. It checks the signal for the event specified by byte 6 of the character's buffer, and returns with the carry flag reset if the signal has been raised and the character has returned to the walkabout origin.
+Used by the routines at <a href="31952.html">31952</a> and <a href="31969.html">31969</a> after a character has reached a walkabout destination. It checks the signal for the event specified by byte 6 of the character's buffer, and returns with the carry flag reset if the signal has been raised and the character has returned to the walkabout origin.
 </div>
 </div>
 <table class="input-1">
@@ -52,119 +48,119 @@ Used by the routines at <a class="link" href="31952.html">31952</a> and <a class
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31915"></a>31915</td>
+<td class="address-2"><span id="31915"></span>31915</td>
 <td class="instruction">LD L,6</td>
 <td class="comment-11" rowspan="2">Pick up the event identifier in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31917"></a>31917</td>
+<td class="address-1"><span id="31917"></span>31917</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31918"></a>31918</td>
+<td class="address-1"><span id="31918"></span>31918</td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31919"></a>31919</td>
-<td class="instruction">CALL <a class="link" href="31887.html">31887</a></td>
+<td class="address-1"><span id="31919"></span>31919</td>
+<td class="instruction">CALL <a href="31887.html">31887</a></td>
 <td class="comment-11" rowspan="1">Has the signal been raised for this event?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31922"></a>31922</td>
+<td class="address-1"><span id="31922"></span>31922</td>
 <td class="instruction">JR Z,31942</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="31924"></a>
+<span id="31924"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="31969.html">31969</a>.
+This entry point is used by the routine at <a href="31969.html">31969</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31924"></a>31924</td>
+<td class="address-2"><span id="31924"></span>31924</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the location relative to which the character is performing his walkabout (the 'walkabout origin'), stored in byte 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31925"></a>31925</td>
+<td class="address-1"><span id="31925"></span>31925</td>
 <td class="instruction">LD L,1</td>
 <td class="comment-11" rowspan="1">Byte 1 of the character's buffer holds his current x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31927"></a>31927</td>
+<td class="address-1"><span id="31927"></span>31927</td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the character at the walkabout origin (and therefore ready to respond to the signal)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31928"></a>31928</td>
+<td class="address-1"><span id="31928"></span>31928</td>
 <td class="instruction">JR NZ,31934</td>
 <td class="comment-11" rowspan="1">Return him to the walkabout origin if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31930"></a>31930</td>
+<td class="address-1"><span id="31930"></span>31930</td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31931"></a>31931</td>
+<td class="address-1"><span id="31931"></span>31931</td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31933"></a>31933</td>
+<td class="address-1"><span id="31933"></span>31933</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31934"></a>31934</td>
+<td class="address-2"><span id="31934"></span>31934</td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: not ready to advance in the command list yet</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31935"></a>31935</td>
+<td class="address-1"><span id="31935"></span>31935</td>
 <td class="instruction">LD L,11</td>
 <td class="comment-11" rowspan="2">Fill in the new walkabout destination (either the origin or some location within 7 spaces to the left of the origin)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31937"></a>31937</td>
+<td class="address-1"><span id="31937"></span>31937</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31938"></a>31938</td>
+<td class="address-1"><span id="31938"></span>31938</td>
 <td class="instruction">LD BC,25581</td>
-<td class="comment-11" rowspan="2">Return with <span class="register">BC</span> holding the address of the routine at <a class="link" href="25581.html">25581</a></td>
+<td class="comment-11" rowspan="2">Return with <span class="register">BC</span> holding the address of the routine at <a href="25581.html">25581</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31941"></a>31941</td>
+<td class="address-1"><span id="31941"></span>31941</td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="31942"></a>
+<span id="31942"></span>
 <div class="comments">
 <div class="paragraph">
 The time hasn't come or the event hasn't happened yet, so set the character off on another mini-jaunt.
@@ -174,46 +170,46 @@ The time hasn't come or the event hasn't happened yet, so set the character off 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31942"></a>31942</td>
-<td class="instruction">CALL <a class="link" href="25233.html">25233</a></td>
+<td class="address-2"><span id="31942"></span>31942</td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31945"></a>31945</td>
+<td class="address-1"><span id="31945"></span>31945</td>
 <td class="instruction">AND 7</td>
 <td class="comment-11" rowspan="1">0&lt;=<span class="register">A</span>&lt;=7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31947"></a>31947</td>
+<td class="address-1"><span id="31947"></span>31947</td>
 <td class="instruction">SUB 7</td>
 <td class="comment-11" rowspan="1">-7&lt;=<span class="register">A</span>&lt;=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31949"></a>31949</td>
+<td class="address-1"><span id="31949"></span>31949</td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-11" rowspan="1">Add the x-coordinate of the walkabout origin to give the new walkabout destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31950"></a>31950</td>
+<td class="address-1"><span id="31950"></span>31950</td>
 <td class="instruction">JR 31934</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31905.html">31905</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31915">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31952.html">31952</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31905.html">31905</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31915">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31952.html">31952</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 25520</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="25503.html">25503</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#25520">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="25525.html">25525</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="25503.html">25503</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25520">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25525.html">25525</a></span></td>
 </tr>
 </table>
 <div class="description">25520: Jump to an interruptible subcommand</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="25700.html">25700</a> and <a class="link" href="32054.html">32054</a>. Copies the routine address from <span class="register">BC</span> into bytes 9 and 10 of the character's buffer (thus setting the interruptible subcommand), and then jumps to that routine.
+Used by the routines at <a href="25700.html">25700</a> and <a href="32054.html">32054</a>. Copies the routine address from <span class="register">BC</span> into bytes 9 and 10 of the character's buffer (thus setting the interruptible subcommand), and then jumps to that routine.
 </div>
 </div>
 <table class="input-1">
@@ -43,7 +39,7 @@ Used by the routines at <a class="link" href="25700.html">25700</a> and <a class
 </tr>
 <tr>
 <td class="register">BC</td>
-<td class="register-desc"><a class="link" href="25581.html">25581</a>, <a class="link" href="25656.html">25656</a>, <a class="link" href="25677.html">25677</a> or <a class="link" href="62794.html">62794</a></td>
+<td class="register-desc"><a href="25581.html">25581</a>, <a href="25656.html">25656</a>, <a href="25677.html">25677</a> or <a href="62794.html">62794</a></td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,34 +52,34 @@ Used by the routines at <a class="link" href="25700.html">25700</a> and <a class
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="25520"></a>25520</td>
+<td class="address-2"><span id="25520"></span>25520</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1">Push the routine address in <span class="register">BC</span> onto the stack</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25521"></a>25521</td>
+<td class="address-1"><span id="25521"></span>25521</td>
 <td class="instruction">LD L,9</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 9 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="25523"></a>25523</td>
-<td class="instruction">JR <a class="link" href="25503.html#25516">25516</a></td>
+<td class="address-1"><span id="25523"></span>25523</td>
+<td class="instruction">JR <a href="25503.html#25516">25516</a></td>
 <td class="comment-11" rowspan="1">Place the interruptible subcommand routine address into bytes 9 and 10 of the character's buffer, then jump to it</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="25503.html">25503</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#25520">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="25525.html">25525</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="25503.html">25503</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25520">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25525.html">25525</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

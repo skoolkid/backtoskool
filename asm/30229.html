@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 30229</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30205.html">30205</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30229">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30291.html">30291</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30205.html">30205</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30229">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30291.html">30291</a></span></td>
 </tr>
 </table>
 <div class="description">30229: Check whether a pellet has hit a cup containing water, sherry or the frog</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="30380.html">30380</a>. Returns with the zero flag set if the pellet hit a water- or sherry-filled cup. Otherwise it returns with the zero flag reset, but releases the frog if the pellet hit the cup containing it.
+Used by the routine at <a href="30380.html">30380</a>. Returns with the zero flag set if the pellet hit a water- or sherry-filled cup. Otherwise it returns with the zero flag reset, but releases the frog if the pellet hit the cup containing it.
 </div>
 </div>
 <table class="input-1">
@@ -52,226 +48,226 @@ Used by the routine at <a class="link" href="30380.html">30380</a>. Returns with
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30229"></a>30229</td>
-<td class="instruction">CALL <a class="link" href="30205.html">30205</a></td>
+<td class="address-2"><span id="30229"></span>30229</td>
+<td class="instruction">CALL <a href="30205.html">30205</a></td>
 <td class="comment-11" rowspan="1">Has the pellet hit a cup?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30232"></a>30232</td>
+<td class="address-1"><span id="30232"></span>30232</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return with the zero flag reset if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30233"></a>30233</td>
+<td class="address-1"><span id="30233"></span>30233</td>
 <td class="instruction">LD A,(32747)</td>
-<td class="comment-11" rowspan="1">Pick up the inventory flags from <a class="link" href="32747.html">32747</a></td>
+<td class="comment-11" rowspan="1">Pick up the inventory flags from <a href="32747.html">32747</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30236"></a>30236</td>
+<td class="address-1"><span id="30236"></span>30236</td>
 <td class="instruction">BIT 1,A</td>
 <td class="comment-11" rowspan="1">Has ERIC got the Science Lab storeroom key?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30238"></a>30238</td>
+<td class="address-1"><span id="30238"></span>30238</td>
 <td class="instruction">JR Z,30262</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30240"></a>30240</td>
+<td class="address-1"><span id="30240"></span>30240</td>
 <td class="instruction">LD A,(54273)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=frog's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30243"></a>30243</td>
+<td class="address-1"><span id="30243"></span>30243</td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1">Adjust it for comparison with that of the cup that was hit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30244"></a>30244</td>
+<td class="address-1"><span id="30244"></span>30244</td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1">Does the frog's x-coordinate match that of the cup?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30245"></a>30245</td>
+<td class="address-1"><span id="30245"></span>30245</td>
 <td class="instruction">JR NZ,30262</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30247"></a>30247</td>
+<td class="address-1"><span id="30247"></span>30247</td>
 <td class="instruction">LD A,(54274)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=frog's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30250"></a>30250</td>
+<td class="address-1"><span id="30250"></span>30250</td>
 <td class="instruction">CP 11</td>
 <td class="comment-11" rowspan="1">Is the frog in the cup?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30252"></a>30252</td>
+<td class="address-1"><span id="30252"></span>30252</td>
 <td class="instruction">JR NZ,30262</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30254"></a>30254</td>
+<td class="address-1"><span id="30254"></span>30254</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30255"></a>30255</td>
+<td class="address-1"><span id="30255"></span>30255</td>
 <td class="instruction">LD HL,30804</td>
-<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a class="link" href="30804.html">30804</a> into bytes 17 and 18 of the frog's buffer, thus releasing the frog</td>
+<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="30804.html">30804</a> into bytes 17 and 18 of the frog's buffer, thus releasing the frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30258"></a>30258</td>
+<td class="address-1"><span id="30258"></span>30258</td>
 <td class="instruction">LD (54289),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30261"></a>30261</td>
+<td class="address-1"><span id="30261"></span>30261</td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30262"></a>30262</td>
+<td class="address-2"><span id="30262"></span>30262</td>
 <td class="instruction">LD A,(32767)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30265"></a>30265</td>
+<td class="address-1"><span id="30265"></span>30265</td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="4">Return if the cup is off-screen to the left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30266"></a>30266</td>
+<td class="address-1"><span id="30266"></span>30266</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30267"></a>30267</td>
+<td class="address-1"><span id="30267"></span>30267</td>
 <td class="instruction">SUB B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30268"></a>30268</td>
+<td class="address-1"><span id="30268"></span>30268</td>
 <td class="instruction">RET C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30269"></a>30269</td>
+<td class="address-1"><span id="30269"></span>30269</td>
 <td class="instruction">CP 32</td>
 <td class="comment-11" rowspan="2">Return if the cup is off-screen to the right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30271"></a>30271</td>
+<td class="address-1"><span id="30271"></span>30271</td>
 <td class="instruction">RET NC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30272"></a>30272</td>
+<td class="address-1"><span id="30272"></span>30272</td>
 <td class="instruction">ADD A,192</td>
 <td class="comment-11" rowspan="3">Point <span class="register">DE</span> at the attribute file byte for the cup</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30274"></a>30274</td>
+<td class="address-1"><span id="30274"></span>30274</td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30275"></a>30275</td>
+<td class="address-1"><span id="30275"></span>30275</td>
 <td class="instruction">LD D,89</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30277"></a>30277</td>
+<td class="address-1"><span id="30277"></span>30277</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1">Pick up the attribute byte of the cup</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30278"></a>30278</td>
+<td class="address-1"><span id="30278"></span>30278</td>
 <td class="instruction">CP 40</td>
 <td class="comment-11" rowspan="1">Does the cup contain water (PAPER 5)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30280"></a>30280</td>
+<td class="address-1"><span id="30280"></span>30280</td>
 <td class="instruction">JR NZ,30285</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30282"></a>30282</td>
+<td class="address-1"><span id="30282"></span>30282</td>
 <td class="instruction">LD A,31</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#31">31</a>: Drop of water</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#31">31</a>: Drop of water</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30284"></a>30284</td>
+<td class="address-1"><span id="30284"></span>30284</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30285"></a>30285</td>
+<td class="address-2"><span id="30285"></span>30285</td>
 <td class="instruction">CP 88</td>
 <td class="comment-11" rowspan="1">Does the cup contain sherry (BRIGHT 1: PAPER 3)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30287"></a>30287</td>
+<td class="address-1"><span id="30287"></span>30287</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30288"></a>30288</td>
+<td class="address-1"><span id="30288"></span>30288</td>
 <td class="instruction">LD A,159</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#159">159</a>: Drop of sherry</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#159">159</a>: Drop of sherry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30290"></a>30290</td>
+<td class="address-1"><span id="30290"></span>30290</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30205.html">30205</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30229">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30291.html">30291</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30205.html">30205</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30229">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30291.html">30291</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

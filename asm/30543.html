@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 30543</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30534.html">30534</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30543">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30555.html">30555</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30534.html">30534</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30543">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30555.html">30555</a></span></td>
 </tr>
 </table>
 <div class="description">30543: Check whether a character is on the top, middle or bottom floor</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="30555.html">30555</a>, <a class="link" href="30706.html">30706</a>, <a class="link" href="57893.html">57893</a>, <a class="link" href="64077.html">64077</a> and <a class="link" href="64416.html">64416</a>. Returns with the zero flag set if and only if the character is exactly on the top, middle or bottom floor.
+Used by the routines at <a href="30555.html">30555</a>, <a href="30706.html">30706</a>, <a href="57893.html">57893</a>, <a href="64077.html">64077</a> and <a href="64416.html">64416</a>. Returns with the zero flag set if and only if the character is exactly on the top, middle or bottom floor.
 </div>
 </div>
 <table class="input-1">
@@ -52,64 +48,64 @@ Used by the routines at <a class="link" href="30555.html">30555</a>, <a class="l
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30543"></a>30543</td>
+<td class="address-2"><span id="30543"></span>30543</td>
 <td class="instruction">LD L,2</td>
 <td class="comment-11" rowspan="1">Byte 2 of the character's buffer holds his y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30545"></a>30545</td>
+<td class="address-1"><span id="30545"></span>30545</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30546"></a>30546</td>
+<td class="address-1"><span id="30546"></span>30546</td>
 <td class="instruction">CP 3</td>
 <td class="comment-11" rowspan="1">Is the character on the top floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30548"></a>30548</td>
+<td class="address-1"><span id="30548"></span>30548</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30549"></a>30549</td>
+<td class="address-1"><span id="30549"></span>30549</td>
 <td class="instruction">CP 10</td>
 <td class="comment-11" rowspan="1">Is the character on the middle floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30551"></a>30551</td>
+<td class="address-1"><span id="30551"></span>30551</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30552"></a>30552</td>
+<td class="address-1"><span id="30552"></span>30552</td>
 <td class="instruction">CP 17</td>
 <td class="comment-11" rowspan="1">Is the character on the bottom floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30554"></a>30554</td>
+<td class="address-1"><span id="30554"></span>30554</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30534.html">30534</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30543">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30555.html">30555</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30534.html">30534</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30543">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30555.html">30555</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 31128</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31092.html">31092</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31128">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31148.html">31148</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31092.html">31092</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31128">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31148.html">31148</a></span></td>
 </tr>
 </table>
 <div class="description">31128: Control a female character while she's standing on a chair or jumping (2)</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="31078.html">31078</a>. Does nothing if the female character is standing on a chair; otherwise makes her jump up or return to the floor.
+Used by the routine at <a href="31078.html">31078</a>. Does nothing if the female character is standing on a chair; otherwise makes her jump up or return to the floor.
 </div>
 </div>
 <table class="input-1">
@@ -52,82 +48,82 @@ Used by the routine at <a class="link" href="31078.html">31078</a>. Does nothing
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31128"></a>31128</td>
+<td class="address-2"><span id="31128"></span>31128</td>
 <td class="instruction">LD L,21</td>
 <td class="comment-11" rowspan="2">Bit 0 of byte 21 of the character's buffer is set if she's standing on a chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31130"></a>31130</td>
+<td class="address-1"><span id="31130"></span>31130</td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31132"></a>31132</td>
+<td class="address-1"><span id="31132"></span>31132</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if she is standing on a chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31133"></a>31133</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-1"><span id="31133"></span>31133</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31136"></a>31136</td>
+<td class="address-1"><span id="31136"></span>31136</td>
 <td class="instruction">LD L,19</td>
 <td class="comment-11" rowspan="1">The counter at byte 19 is even if the character is in the air, odd if she's got her feet on the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31138"></a>31138</td>
+<td class="address-1"><span id="31138"></span>31138</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Down a level</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31139"></a>31139</td>
+<td class="address-1"><span id="31139"></span>31139</td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is this character in the air at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31141"></a>31141</td>
+<td class="address-1"><span id="31141"></span>31141</td>
 <td class="instruction">JR Z,31145</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31143"></a>31143</td>
+<td class="address-1"><span id="31143"></span>31143</td>
 <td class="instruction">DEC D</td>
 <td class="comment-11" rowspan="2">Up a level</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31144"></a>31144</td>
+<td class="address-1"><span id="31144"></span>31144</td>
 <td class="instruction">DEC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31145"></a>31145</td>
-<td class="instruction">JP <a class="link" href="24880.html">24880</a></td>
+<td class="address-2"><span id="31145"></span>31145</td>
+<td class="instruction">JP <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update the character's y-coordinate  and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31092.html">31092</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31128">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31148.html">31148</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31092.html">31092</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31128">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31148.html">31148</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

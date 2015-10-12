@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 62460</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="62438.html">62438</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#62460">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="62480.html">62480</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="62438.html">62438</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#62460">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62480.html">62480</a></span></td>
 </tr>
 </table>
 <div class="description">62460: 'S' pressed - sit (2)</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Continues from <a class="link" href="62423.html">62423</a>. Makes ERIC sit on a chair (if he's standing beside one) or on the floor.
+Continues from <a href="62423.html">62423</a>. Makes ERIC sit on a chair (if he's standing beside one) or on the floor.
 </div>
 </div>
 <table class="input-1">
@@ -52,70 +48,70 @@ Continues from <a class="link" href="62423.html">62423</a>. Makes ERIC sit on a 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="62460"></a>62460</td>
-<td class="instruction">CALL <a class="link" href="26068.html">26068</a></td>
+<td class="address-2"><span id="62460"></span>62460</td>
+<td class="instruction">CALL <a href="26068.html">26068</a></td>
 <td class="comment-11" rowspan="1">Check for chairs next to ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="62463"></a>62463</td>
+<td class="address-1"><span id="62463"></span>62463</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is ERIC standing beside one, facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="62464"></a>62464</td>
+<td class="address-1"><span id="62464"></span>62464</td>
 <td class="instruction">JR Z,62475</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="62466"></a>62466</td>
+<td class="address-1"><span id="62466"></span>62466</td>
 <td class="instruction">LD A,(53760)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="62469"></a>62469</td>
+<td class="address-1"><span id="62469"></span>62469</td>
 <td class="instruction">AND 128</td>
 <td class="comment-11" rowspan="1">Keep only the 'direction' bit (bit 7)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="62471"></a>62471</td>
+<td class="address-1"><span id="62471"></span>62471</td>
 <td class="instruction">ADD A,5</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a class="link" href="../graphics/as.html#5">5/133</a>: ERIC sitting on the floor</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#5">5/133</a>: ERIC sitting on the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="62473"></a>62473</td>
-<td class="instruction">JR <a class="link" href="62438.html#62440">62440</a></td>
+<td class="address-1"><span id="62473"></span>62473</td>
+<td class="instruction">JR <a href="62438.html#62440">62440</a></td>
 <td class="comment-11" rowspan="1">Sit ERIC on the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="62475"></a>62475</td>
-<td class="instruction">CALL <a class="link" href="26175.html">26175</a></td>
+<td class="address-2"><span id="62475"></span>62475</td>
+<td class="instruction">CALL <a href="26175.html">26175</a></td>
 <td class="comment-11" rowspan="1">Knock anybody who's sitting in this chair out of the way</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="62478"></a>62478</td>
-<td class="instruction">JR <a class="link" href="62438.html">62438</a></td>
+<td class="address-1"><span id="62478"></span>62478</td>
+<td class="instruction">JR <a href="62438.html">62438</a></td>
 <td class="comment-11" rowspan="1">Sit ERIC on the chair</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="62438.html">62438</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#62460">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="62480.html">62480</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="62438.html">62438</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#62460">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62480.html">62480</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

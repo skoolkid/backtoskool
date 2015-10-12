@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Game status buffer entry at 32512</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-g">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Game status buffer</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="32497.html">32497</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#32512">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="32596.html">32596</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="32497.html">32497</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32512">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32596.html">32596</a></span></td>
 </tr>
 </table>
 <div class="description">32512: Screen refresh buffer (SRB)</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="24880.html">24880</a>, <a class="link" href="25248.html">25248</a>, <a class="link" href="26380.html">26380</a>, <a class="link" href="26849.html">26849</a> and <a class="link" href="26910.html">26910</a>. Each byte of the SRB corresponds to a segment of 8 character squares on the screen, the leftmost of which will be at x=0, x=8, x=16 or x=24. Each bit set in an SRB byte corresponds to a character square in the segment that needs refreshing. Bit 7 corresponds to the leftmost character square in the segment, bit 0 to the rightmost character square.
+Used by the routines at <a href="24880.html">24880</a>, <a href="25248.html">25248</a>, <a href="26380.html">26380</a>, <a href="26849.html">26849</a> and <a href="26910.html">26910</a>. Each byte of the SRB corresponds to a segment of 8 character squares on the screen, the leftmost of which will be at x=0, x=8, x=16 or x=24. Each bit set in an SRB byte corresponds to a character square in the segment that needs refreshing. Bit 7 corresponds to the leftmost character square in the segment, bit 0 to the rightmost character square.
 </div>
 </div>
 <table class="input-0">
@@ -49,22 +45,22 @@ Used by the routines at <a class="link" href="24880.html">24880</a>, <a class="l
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32512"></a>32512</td>
+<td class="address-1"><span id="32512"></span>32512</td>
 <td class="instruction">DEFS 84</td>
 <td class="comment-10" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="32497.html">32497</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#32512">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="32596.html">32596</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="32497.html">32497</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32512">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32596.html">32596</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

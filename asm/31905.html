@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 31905</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31903.html">31903</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31905">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31915.html">31915</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31903.html">31903</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31905">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31915.html">31915</a></span></td>
 </tr>
 </table>
 <div class="description">31905: Lower the signal for a certain event (unused)</div>
@@ -52,46 +48,46 @@ This routine is not used.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31905"></a>31905</td>
-<td class="instruction">CALL <a class="link" href="25213.html">25213</a></td>
+<td class="address-2"><span id="31905"></span>31905</td>
+<td class="instruction">CALL <a href="25213.html">25213</a></td>
 <td class="comment-11" rowspan="1">Get the next byte (the event ID) from the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31908"></a>31908</td>
-<td class="instruction">CALL <a class="link" href="31861.html">31861</a></td>
+<td class="address-1"><span id="31908"></span>31908</td>
+<td class="instruction">CALL <a href="31861.html">31861</a></td>
 <td class="comment-11" rowspan="1">Convert the event ID into an appropriate bit mask</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31911"></a>31911</td>
+<td class="address-1"><span id="31911"></span>31911</td>
 <td class="instruction">CPL</td>
 <td class="comment-11" rowspan="1">Set all but the event bit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31912"></a>31912</td>
+<td class="address-1"><span id="31912"></span>31912</td>
 <td class="instruction">AND (HL)</td>
 <td class="comment-11" rowspan="1">Merge the existing event flags, keeping the event bit reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31913"></a>31913</td>
-<td class="instruction">JR <a class="link" href="31896.html#31900">31900</a></td>
-<td class="comment-11" rowspan="1">Reset the appropriate bit at <a class="link" href="32640.html">32640</a> or <a class="link" href="32641.html">32641</a></td>
+<td class="address-1"><span id="31913"></span>31913</td>
+<td class="instruction">JR <a href="31896.html#31900">31900</a></td>
+<td class="comment-11" rowspan="1">Reset the appropriate bit at <a href="32640.html">32640</a> or <a href="32641.html">32641</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31903.html">31903</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31905">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31915.html">31915</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31903.html">31903</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31905">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31915.html">31915</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

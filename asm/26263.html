@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 26263</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26239.html">26239</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26263">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26303.html">26303</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26239.html">26239</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26263">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26303.html">26303</a></span></td>
 </tr>
 </table>
 <div class="description">26263: Deal with a character who is looking for a seat</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a character's buffer by the routine at <a class="link" href="26239.html">26239</a> (after he's been knocked out of his chair and just got up to look for another one - or the same one, in EINSTEIN's case), or by the routine at <a class="link" href="26304.html">26304</a>.
+The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a character's buffer by the routine at <a href="26239.html">26239</a> (after he's been knocked out of his chair and just got up to look for another one - or the same one, in EINSTEIN's case), or by the routine at <a href="26304.html">26304</a>.
 </div>
 </div>
 <table class="input-1">
@@ -52,130 +48,130 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26263"></a>26263</td>
+<td class="address-2"><span id="26263"></span>26263</td>
 <td class="instruction">LD L,0</td>
 <td class="comment-11" rowspan="1">Byte 0 holds the character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26265"></a>26265</td>
+<td class="address-1"><span id="26265"></span>26265</td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26267"></a>26267</td>
-<td class="instruction">JP NZ,<a class="link" href="25581.html#25597">25597</a></td>
+<td class="address-1"><span id="26267"></span>26267</td>
+<td class="instruction">JP NZ,<a href="25581.html#25597">25597</a></td>
 <td class="comment-11" rowspan="1">Finish the stride if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26270"></a>26270</td>
-<td class="instruction">CALL <a class="link" href="26068.html">26068</a></td>
+<td class="address-1"><span id="26270"></span>26270</td>
+<td class="instruction">CALL <a href="26068.html">26068</a></td>
 <td class="comment-11" rowspan="2">Is the character standing beside a chair?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26273"></a>26273</td>
+<td class="address-1"><span id="26273"></span>26273</td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26274"></a>26274</td>
+<td class="address-1"><span id="26274"></span>26274</td>
 <td class="instruction">JR NZ,26293</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26276"></a>26276</td>
-<td class="instruction">CALL <a class="link" href="26175.html">26175</a></td>
+<td class="address-1"><span id="26276"></span>26276</td>
+<td class="instruction">CALL <a href="26175.html">26175</a></td>
 <td class="comment-11" rowspan="1">Knock anybody who's sitting here out of the way</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26279"></a>26279</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-1"><span id="26279"></span>26279</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26282"></a>26282</td>
+<td class="address-1"><span id="26282"></span>26282</td>
 <td class="instruction">AND 248</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26284"></a>26284</td>
+<td class="address-1"><span id="26284"></span>26284</td>
 <td class="instruction">ADD A,4</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character (as if sitting in a chair)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26286"></a>26286</td>
+<td class="address-1"><span id="26286"></span>26286</td>
 <td class="instruction">LD L,18</td>
 <td class="comment-11" rowspan="2">Remove the address of this routine from bytes 17 and 18 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26288"></a>26288</td>
+<td class="address-1"><span id="26288"></span>26288</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26290"></a>26290</td>
-<td class="instruction">JP <a class="link" href="24880.html">24880</a></td>
+<td class="address-1"><span id="26290"></span>26290</td>
+<td class="instruction">JP <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26293"></a>26293</td>
+<td class="address-2"><span id="26293"></span>26293</td>
 <td class="instruction">CP 4</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=0 if the character must walk back to the rightmost chair in the room, or 255 if there is one in front of him</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26295"></a>26295</td>
+<td class="address-1"><span id="26295"></span>26295</td>
 <td class="instruction">SBC A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26296"></a>26296</td>
+<td class="address-1"><span id="26296"></span>26296</td>
 <td class="instruction">LD L,0</td>
 <td class="comment-11" rowspan="1">Byte 0 holds the character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26298"></a>26298</td>
+<td class="address-1"><span id="26298"></span>26298</td>
 <td class="instruction">XOR (HL)</td>
 <td class="comment-11" rowspan="2">Reset the carry flag if the character must turn round</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26299"></a>26299</td>
+<td class="address-1"><span id="26299"></span>26299</td>
 <td class="instruction">RLCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26300"></a>26300</td>
-<td class="instruction">JP <a class="link" href="25581.html#25646">25646</a></td>
+<td class="address-1"><span id="26300"></span>26300</td>
+<td class="instruction">JP <a href="25581.html#25646">25646</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26239.html">26239</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26263">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26303.html">26303</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26239.html">26239</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26263">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26303.html">26303</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

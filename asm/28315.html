@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 28315</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28313.html">28313</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28315">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28436.html">28436</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28313.html">28313</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28315">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28436.html">28436</a></span></td>
 </tr>
 </table>
 <div class="description">28315: Check for walls and closed doors in front of ERIC</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="28436.html">28436</a> and <a class="link" href="28460.html">28460</a>. Impedes ERIC's progress if he's confronted by an immovable object, or opens the Science Lab storeroom door (if ERIC has the key and is trying to go right at the relevant location). Also sends ERIC down the first step of the staircase leading down to the assembly hall stage, or begins his descent off the assembly hall stage (if ERIC is trying to go left at the relevant location).
+Used by the routines at <a href="28436.html">28436</a> and <a href="28460.html">28460</a>. Impedes ERIC's progress if he's confronted by an immovable object, or opens the Science Lab storeroom door (if ERIC has the key and is trying to go right at the relevant location). Also sends ERIC down the first step of the staircase leading down to the assembly hall stage, or begins his descent off the assembly hall stage (if ERIC is trying to go left at the relevant location).
 </div>
 </div>
 <table class="input-1">
@@ -56,49 +52,49 @@ Used by the routines at <a class="link" href="28436.html">28436</a> and <a class
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28315"></a>28315</td>
+<td class="address-2"><span id="28315"></span>28315</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot in front of ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28316"></a>28316</td>
+<td class="address-1"><span id="28316"></span>28316</td>
 <td class="instruction">CP 191</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the far right wall of the girls' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28318"></a>28318</td>
+<td class="address-1"><span id="28318"></span>28318</td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if so (ERIC can't walk through walls)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28319"></a>28319</td>
+<td class="address-1"><span id="28319"></span>28319</td>
 <td class="instruction">LD HL,32756</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32756.html">32756</a> holds the doors flags</td>
+<td class="comment-11" rowspan="1"><a href="32756.html">32756</a> holds the doors flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28322"></a>28322</td>
+<td class="address-1"><span id="28322"></span>28322</td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28323"></a>28323</td>
+<td class="address-1"><span id="28323"></span>28323</td>
 <td class="instruction">CP 3</td>
 <td class="comment-11" rowspan="1">Is ERIC on the top floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28325"></a>28325</td>
+<td class="address-1"><span id="28325"></span>28325</td>
 <td class="instruction">JR NZ,28363</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28327"></a>
+<span id="28327"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC is on the top floor.
@@ -108,85 +104,85 @@ ERIC is on the top floor.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28327"></a>28327</td>
+<td class="address-1"><span id="28327"></span>28327</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot in front of ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28328"></a>28328</td>
+<td class="address-1"><span id="28328"></span>28328</td>
 <td class="instruction">CP 159</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the far wall of the top-floor room in the girls' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28330"></a>28330</td>
+<td class="address-1"><span id="28330"></span>28330</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28331"></a>28331</td>
+<td class="address-1"><span id="28331"></span>28331</td>
 <td class="instruction">CP 92</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the window on the top floor of the boys' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28333"></a>28333</td>
+<td class="address-1"><span id="28333"></span>28333</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28334"></a>28334</td>
+<td class="address-1"><span id="28334"></span>28334</td>
 <td class="instruction">CP 72</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the head's left study door?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28336"></a>28336</td>
+<td class="address-1"><span id="28336"></span>28336</td>
 <td class="instruction">JR NZ,28341</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28338"></a>28338</td>
+<td class="address-1"><span id="28338"></span>28338</td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is the head's left study door closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28340"></a>28340</td>
+<td class="address-1"><span id="28340"></span>28340</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28341"></a>28341</td>
+<td class="address-2"><span id="28341"></span>28341</td>
 <td class="instruction">CP 83</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the head's right study door?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28343"></a>28343</td>
+<td class="address-1"><span id="28343"></span>28343</td>
 <td class="instruction">JR NZ,28348</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28345"></a>28345</td>
+<td class="address-1"><span id="28345"></span>28345</td>
 <td class="instruction">BIT 1,(HL)</td>
 <td class="comment-11" rowspan="1">Is the head's right study door closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28347"></a>28347</td>
+<td class="address-1"><span id="28347"></span>28347</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28348"></a>
+<span id="28348"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC's path is not blocked, so let him move forward.
@@ -196,61 +192,61 @@ ERIC's path is not blocked, so let him move forward.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28348"></a>28348</td>
+<td class="address-2"><span id="28348"></span>28348</td>
 <td class="instruction">LD A,(53760)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28351"></a>28351</td>
+<td class="address-1"><span id="28351"></span>28351</td>
 <td class="instruction">LD C,E</td>
 <td class="comment-11" rowspan="2">Copy the coordinates of the spot in front of ERIC (his post-midstride coordinates) from <span class="register">DE</span> to <span class="register">BC</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28352"></a>28352</td>
+<td class="address-1"><span id="28352"></span>28352</td>
 <td class="instruction">LD B,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28353"></a>28353</td>
+<td class="address-1"><span id="28353"></span>28353</td>
 <td class="instruction">BIT 7,A</td>
 <td class="comment-11" rowspan="1">Is ERIC facing right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28355"></a>28355</td>
+<td class="address-1"><span id="28355"></span>28355</td>
 <td class="instruction">JR NZ,28359</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28357"></a>28357</td>
+<td class="address-1"><span id="28357"></span>28357</td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28358"></a>28358</td>
+<td class="address-1"><span id="28358"></span>28358</td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28359"></a>28359</td>
+<td class="address-2"><span id="28359"></span>28359</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1">Set <span class="register">E</span> to ERIC's current x-coordinate (which will also be his midstride x-coordinate)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28360"></a>28360</td>
-<td class="instruction">JP <a class="link" href="28114.html">28114</a></td>
+<td class="address-1"><span id="28360"></span>28360</td>
+<td class="instruction">JP <a href="28114.html">28114</a></td>
 <td class="comment-11" rowspan="1">Put ERIC midstride</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28363"></a>
+<span id="28363"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC's not on the top floor. Is he on the middle floor?
@@ -260,19 +256,19 @@ ERIC's not on the top floor. Is he on the middle floor?
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28363"></a>28363</td>
+<td class="address-2"><span id="28363"></span>28363</td>
 <td class="instruction">CP 10</td>
 <td class="comment-11" rowspan="1">Is ERIC on the middle floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28365"></a>28365</td>
+<td class="address-1"><span id="28365"></span>28365</td>
 <td class="instruction">JR NZ,28397</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28367"></a>
+<span id="28367"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC is on the middle floor.
@@ -282,109 +278,109 @@ ERIC is on the middle floor.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28367"></a>28367</td>
+<td class="address-1"><span id="28367"></span>28367</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot in front of ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28368"></a>28368</td>
+<td class="address-1"><span id="28368"></span>28368</td>
 <td class="instruction">CP 159</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the far wall of the middle-floor classroom in the girls' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28370"></a>28370</td>
+<td class="address-1"><span id="28370"></span>28370</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28371"></a>28371</td>
+<td class="address-1"><span id="28371"></span>28371</td>
 <td class="instruction">CP 94</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the window on the middle floor of the boys' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28373"></a>28373</td>
+<td class="address-1"><span id="28373"></span>28373</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28374"></a>28374</td>
+<td class="address-1"><span id="28374"></span>28374</td>
 <td class="instruction">CP 63</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the far wall of the Science Lab storeroom?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28376"></a>28376</td>
+<td class="address-1"><span id="28376"></span>28376</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28377"></a>28377</td>
+<td class="address-1"><span id="28377"></span>28377</td>
 <td class="instruction">CP 84</td>
 <td class="comment-11" rowspan="1">Is ERIC about to descend the stairs from the middle floor to the stage?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28379"></a>28379</td>
+<td class="address-1"><span id="28379"></span>28379</td>
 <td class="instruction">JR NZ,28385</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28381"></a>28381</td>
+<td class="address-1"><span id="28381"></span>28381</td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=85 (ERIC's current x-coordinate)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28382"></a>28382</td>
-<td class="instruction">JP <a class="link" href="28576.html#28606">28606</a></td>
+<td class="address-1"><span id="28382"></span>28382</td>
+<td class="instruction">JP <a href="28576.html#28606">28606</a></td>
 <td class="comment-11" rowspan="1">Start moving ERIC down a stair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28385"></a>28385</td>
+<td class="address-2"><span id="28385"></span>28385</td>
 <td class="instruction">CP 54</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the Science Lab storeroom door?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28387"></a>28387</td>
+<td class="address-1"><span id="28387"></span>28387</td>
 <td class="instruction">JR NZ,28348</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28389"></a>28389</td>
+<td class="address-1"><span id="28389"></span>28389</td>
 <td class="instruction">BIT 2,(HL)</td>
 <td class="comment-11" rowspan="1">Is the Science Lab storeroom door closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28391"></a>28391</td>
-<td class="instruction">JP Z,<a class="link" href="29681.html">29681</a></td>
+<td class="address-1"><span id="28391"></span>28391</td>
+<td class="instruction">JP Z,<a href="29681.html">29681</a></td>
 <td class="comment-11" rowspan="1">Jump if so (and open it if ERIC has the key)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28394"></a>28394</td>
+<td class="address-2"><span id="28394"></span>28394</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if the door/gate is (still) closed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28395"></a>28395</td>
+<td class="address-1"><span id="28395"></span>28395</td>
 <td class="instruction">JR 28348</td>
 <td class="comment-11" rowspan="1">Otherwise move ERIC forward</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28397"></a>
+<span id="28397"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC's not on the top floor or the middle floor. Is he on the bottom floor?
@@ -394,25 +390,25 @@ ERIC's not on the top floor or the middle floor. Is he on the bottom floor?
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28397"></a>28397</td>
+<td class="address-2"><span id="28397"></span>28397</td>
 <td class="instruction">CP 17</td>
 <td class="comment-11" rowspan="1">Is ERIC on the bottom floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28399"></a>28399</td>
+<td class="address-1"><span id="28399"></span>28399</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot in front of ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28400"></a>28400</td>
+<td class="address-1"><span id="28400"></span>28400</td>
 <td class="instruction">JR NZ,28421</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28402"></a>
+<span id="28402"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC is on the bottom floor.
@@ -422,67 +418,67 @@ ERIC is on the bottom floor.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28402"></a>28402</td>
-<td class="instruction">CALL <a class="link" href="29030.html">29030</a></td>
+<td class="address-1"><span id="28402"></span>28402</td>
+<td class="instruction">CALL <a href="29030.html">29030</a></td>
 <td class="comment-11" rowspan="1">Let ERIC go no further if ALBERT's in his way</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28405"></a>28405</td>
+<td class="address-1"><span id="28405"></span>28405</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot in front of ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28406"></a>28406</td>
+<td class="address-1"><span id="28406"></span>28406</td>
 <td class="instruction">CP 94</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the boys' skool door?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28408"></a>28408</td>
+<td class="address-1"><span id="28408"></span>28408</td>
 <td class="instruction">JR NZ,28413</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28410"></a>28410</td>
+<td class="address-1"><span id="28410"></span>28410</td>
 <td class="instruction">BIT 3,(HL)</td>
 <td class="comment-11" rowspan="1">Is the boys' skool door closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28412"></a>28412</td>
+<td class="address-1"><span id="28412"></span>28412</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28413"></a>28413</td>
+<td class="address-2"><span id="28413"></span>28413</td>
 <td class="instruction">CP 133</td>
 <td class="comment-11" rowspan="1">Is ERIC facing the skool gate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28415"></a>28415</td>
+<td class="address-1"><span id="28415"></span>28415</td>
 <td class="instruction">JR NZ,28348</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28417"></a>28417</td>
+<td class="address-1"><span id="28417"></span>28417</td>
 <td class="instruction">BIT 4,(HL)</td>
 <td class="comment-11" rowspan="1">Is the skool gate closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28419"></a>28419</td>
+<td class="address-1"><span id="28419"></span>28419</td>
 <td class="instruction">JR 28394</td>
 <td class="comment-11" rowspan="1">Jump back and return if so, or move ERIC forward if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28421"></a>
+<span id="28421"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC is on the assembly hall stage.
@@ -492,58 +488,58 @@ ERIC is on the assembly hall stage.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28421"></a>28421</td>
+<td class="address-2"><span id="28421"></span>28421</td>
 <td class="instruction">CP 82</td>
 <td class="comment-11" rowspan="1">Is ERIC about to ascend the stairs from the stage to the middle floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28423"></a>28423</td>
+<td class="address-1"><span id="28423"></span>28423</td>
 <td class="instruction">JR NZ,28429</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28425"></a>28425</td>
+<td class="address-1"><span id="28425"></span>28425</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=81 (ERIC's current x-coordinate)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28426"></a>28426</td>
-<td class="instruction">JP <a class="link" href="28484.html#28514">28514</a></td>
+<td class="address-1"><span id="28426"></span>28426</td>
+<td class="instruction">JP <a href="28484.html#28514">28514</a></td>
 <td class="comment-11" rowspan="1">Start moving ERIC up a stair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28429"></a>28429</td>
+<td class="address-2"><span id="28429"></span>28429</td>
 <td class="instruction">CP 76</td>
 <td class="comment-11" rowspan="1">Is ERIC about to jump off the stage?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28431"></a>28431</td>
-<td class="instruction">JP Z,<a class="link" href="28305.html">28305</a></td>
+<td class="address-1"><span id="28431"></span>28431</td>
+<td class="instruction">JP Z,<a href="28305.html">28305</a></td>
 <td class="comment-11" rowspan="1">Jump if so to deal with ERIC's descent to the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28434"></a>28434</td>
+<td class="address-1"><span id="28434"></span>28434</td>
 <td class="instruction">JR 28348</td>
 <td class="comment-11" rowspan="1">Otherwise move ERIC forward</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28313.html">28313</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28315">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28436.html">28436</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28313.html">28313</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28315">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28436.html">28436</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

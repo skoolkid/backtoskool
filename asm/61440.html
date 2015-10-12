@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 61440</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="61425.html">61425</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#61440">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="61462.html">61462</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="61425.html">61425</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61440">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="61462.html">61462</a></span></td>
 </tr>
 </table>
 <div class="description">61440: Control EINSTEIN during class</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command lists <a class="link" href="59801.html">82</a>, <a class="link" href="59812.html">84</a> and <a class="link" href="59823.html">86</a>. Controls EINSTEIN from the moment after he sits down until the lesson ends.
+Used by command lists <a href="59801.html">82</a>, <a href="59812.html">84</a> and <a href="59823.html">86</a>. Controls EINSTEIN from the moment after he sits down until the lesson ends.
 </div>
 </div>
 <table class="input-1">
@@ -52,76 +48,76 @@ Used by command lists <a class="link" href="59801.html">82</a>, <a class="link" 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="61440"></a>61440</td>
+<td class="address-2"><span id="61440"></span>61440</td>
 <td class="instruction">LD A,(32640)</td>
-<td class="comment-11" rowspan="2">Bit 3 of <a class="link" href="32640.html">32640</a> is set by the routine at <a class="link" href="61463.html">61463</a> when it's EINSTEIN's turn to speak in class; is it his turn now?</td>
+<td class="comment-11" rowspan="2">Bit 3 of <a href="32640.html">32640</a> is set by the routine at <a href="61463.html">61463</a> when it's EINSTEIN's turn to speak in class; is it his turn now?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61443"></a>61443</td>
+<td class="address-1"><span id="61443"></span>61443</td>
 <td class="instruction">BIT 3,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61445"></a>61445</td>
+<td class="address-1"><span id="61445"></span>61445</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61446"></a>61446</td>
+<td class="address-1"><span id="61446"></span>61446</td>
 <td class="instruction">LD BC,27147</td>
-<td class="comment-11" rowspan="2">Direct control of EINSTEIN to the routine at <a class="link" href="27144.html#27147">27147</a> (make character speak) and then return to <a class="link" href="61440.html#61452">61452</a> (below)</td>
+<td class="comment-11" rowspan="2">Direct control of EINSTEIN to the routine at <a href="27144.html#27147">27147</a> (make character speak) and then return to <a href="61440.html#61452">61452</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61449"></a>61449</td>
-<td class="instruction">CALL <a class="link" href="25503.html">25503</a></td>
+<td class="address-1"><span id="61449"></span>61449</td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="61452"></a>61452</td>
+<td class="address-2"><span id="61452"></span>61452</td>
 <td class="instruction">LD L,3</td>
-<td class="comment-11" rowspan="2">Reset the address of the primary command routine in bytes 3 and 4 of EINSTEIN's buffer from <a class="link" href="61440.html#61452">61452</a> to <a class="link" href="61440.html">61440</a></td>
+<td class="comment-11" rowspan="2">Reset the address of the primary command routine in bytes 3 and 4 of EINSTEIN's buffer from <a href="61440.html#61452">61452</a> to <a href="61440.html">61440</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61454"></a>61454</td>
+<td class="address-1"><span id="61454"></span>61454</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61456"></a>61456</td>
+<td class="address-1"><span id="61456"></span>61456</td>
 <td class="instruction">LD HL,32640</td>
 <td class="comment-11" rowspan="2">Signal: EINSTEIN has finished speaking</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61459"></a>61459</td>
+<td class="address-1"><span id="61459"></span>61459</td>
 <td class="instruction">RES 3,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61461"></a>61461</td>
+<td class="address-1"><span id="61461"></span>61461</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="61425.html">61425</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#61440">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="61462.html">61462</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="61425.html">61425</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61440">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="61462.html">61462</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

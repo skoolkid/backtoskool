@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 28240</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28239.html">28239</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28240">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28305.html">28305</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28239.html">28239</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28240">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28305.html">28305</a></span></td>
 </tr>
 </table>
 <div class="description">28240: Check whether a character is on a staircase</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="23887.html">23887</a>, <a class="link" href="24263.html">24263</a>, <a class="link" href="28436.html">28436</a>, <a class="link" href="28460.html">28460</a>, <a class="link" href="28484.html">28484</a>, <a class="link" href="28576.html">28576</a>, <a class="link" href="28992.html">28992</a> and <a class="link" href="62423.html">62423</a> to check whether ERIC is on a staircase, and by the routines at <a class="link" href="25843.html">25843</a> and <a class="link" href="25944.html">25944</a> to check whether ERIC or a teacher is on a staircase. Returns with the carry flag reset if the character is not on a staircase. Otherwise returns with the carry flag set and <span class="register">A</span> holding 0 (if the staircase goes up and to the left) or 128 (if the staircase goes up and to the right).
+Used by the routines at <a href="23887.html">23887</a>, <a href="24263.html">24263</a>, <a href="28436.html">28436</a>, <a href="28460.html">28460</a>, <a href="28484.html">28484</a>, <a href="28576.html">28576</a>, <a href="28992.html">28992</a> and <a href="62423.html">62423</a> to check whether ERIC is on a staircase, and by the routines at <a href="25843.html">25843</a> and <a href="25944.html">25944</a> to check whether ERIC or a teacher is on a staircase. Returns with the carry flag reset if the character is not on a staircase. Otherwise returns with the carry flag set and <span class="register">A</span> holding 0 (if the staircase goes up and to the left) or 128 (if the staircase goes up and to the right).
 </div>
 </div>
 <table class="input-1">
@@ -52,131 +48,131 @@ Used by the routines at <a class="link" href="23887.html">23887</a>, <a class="l
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28240"></a>28240</td>
+<td class="address-2"><span id="28240"></span>28240</td>
 <td class="instruction">LD H,210</td>
 <td class="comment-11" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28242"></a>
+<span id="28242"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a class="link" href="25843.html">25843</a> and <a class="link" href="25944.html">25944</a>.
+This entry point is used by the routines at <a href="25843.html">25843</a> and <a href="25944.html">25944</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28242"></a>28242</td>
+<td class="address-2"><span id="28242"></span>28242</td>
 <td class="instruction">LD L,1</td>
 <td class="comment-11" rowspan="4">Collect the character's coordinates in <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28244"></a>28244</td>
+<td class="address-1"><span id="28244"></span>28244</td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28245"></a>28245</td>
+<td class="address-1"><span id="28245"></span>28245</td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28246"></a>28246</td>
+<td class="address-1"><span id="28246"></span>28246</td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28247"></a>28247</td>
+<td class="address-1"><span id="28247"></span>28247</td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28248"></a>28248</td>
+<td class="address-1"><span id="28248"></span>28248</td>
 <td class="instruction">CP 3</td>
 <td class="comment-11" rowspan="1">Is the character on the top floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28250"></a>28250</td>
+<td class="address-1"><span id="28250"></span>28250</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28251"></a>28251</td>
+<td class="address-1"><span id="28251"></span>28251</td>
 <td class="instruction">CP 10</td>
 <td class="comment-11" rowspan="1">Is the character on the middle floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28253"></a>28253</td>
+<td class="address-1"><span id="28253"></span>28253</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28254"></a>28254</td>
+<td class="address-1"><span id="28254"></span>28254</td>
 <td class="instruction">CP 17</td>
 <td class="comment-11" rowspan="1">Is the character on the bottom floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28256"></a>28256</td>
+<td class="address-1"><span id="28256"></span>28256</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28257"></a>28257</td>
+<td class="address-1"><span id="28257"></span>28257</td>
 <td class="instruction">CP 14</td>
 <td class="comment-11" rowspan="1">The assembly hall stage has y-coordinate 14</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28259"></a>28259</td>
+<td class="address-1"><span id="28259"></span>28259</td>
 <td class="instruction">JR NZ,28269</td>
 <td class="comment-11" rowspan="1">Jump if the character's y-coordinate doesn't match that</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28261"></a>28261</td>
+<td class="address-1"><span id="28261"></span>28261</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28262"></a>28262</td>
+<td class="address-1"><span id="28262"></span>28262</td>
 <td class="instruction">CP 82</td>
 <td class="comment-11" rowspan="1">81 is the x-coordinate of the right-hand edge of the assembly hall stage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28264"></a>28264</td>
+<td class="address-1"><span id="28264"></span>28264</td>
 <td class="instruction">JR NC,28269</td>
 <td class="comment-11" rowspan="1">Jump if the character's to the right of this</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28266"></a>28266</td>
+<td class="address-1"><span id="28266"></span>28266</td>
 <td class="instruction">CP 76</td>
 <td class="comment-11" rowspan="1">76 is the x-coordinate of the left-hand edge of the assembly hall stage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28268"></a>28268</td>
+<td class="address-1"><span id="28268"></span>28268</td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if the character's on the stage</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28269"></a>
+<span id="28269"></span>
 <div class="comments">
 <div class="paragraph">
 The character is not standing on the top floor, middle floor, bottom floor or assembly hall stage, so he must be on a staircase. Determine the orientation of the staircase.
@@ -186,148 +182,148 @@ The character is not standing on the top floor, middle floor, bottom floor or as
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28269"></a>28269</td>
+<td class="address-2"><span id="28269"></span>28269</td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28270"></a>28270</td>
+<td class="address-1"><span id="28270"></span>28270</td>
 <td class="instruction">CP 10</td>
 <td class="comment-11" rowspan="1">Is the character somewhere between the middle and bottom floors?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28272"></a>28272</td>
+<td class="address-1"><span id="28272"></span>28272</td>
 <td class="instruction">JR NC,28287</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28274"></a>28274</td>
+<td class="address-1"><span id="28274"></span>28274</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28275"></a>28275</td>
+<td class="address-1"><span id="28275"></span>28275</td>
 <td class="instruction">CP 64</td>
 <td class="comment-11" rowspan="1">Is the character on the stairs leading up to the Revision Library?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28277"></a>28277</td>
+<td class="address-1"><span id="28277"></span>28277</td>
 <td class="instruction">JR C,28283</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28279"></a>28279</td>
+<td class="address-2"><span id="28279"></span>28279</td>
 <td class="instruction">LD A,0</td>
 <td class="comment-11" rowspan="1">Signal: character is on an up-and-to-the-left staircase</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28281"></a>28281</td>
+<td class="address-1"><span id="28281"></span>28281</td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: character's on a staircase</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28282"></a>28282</td>
+<td class="address-1"><span id="28282"></span>28282</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the carry flag set and <span class="register">A</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28283"></a>28283</td>
+<td class="address-2"><span id="28283"></span>28283</td>
 <td class="instruction">LD A,128</td>
 <td class="comment-11" rowspan="1">Signal: character is on an up-and-to-the-right staircase</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28285"></a>28285</td>
+<td class="address-1"><span id="28285"></span>28285</td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: character's on a staircase</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28286"></a>28286</td>
+<td class="address-1"><span id="28286"></span>28286</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the carry flag set and <span class="register">A</span>=128</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28287"></a>28287</td>
+<td class="address-2"><span id="28287"></span>28287</td>
 <td class="instruction">CP 15</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28289"></a>28289</td>
+<td class="address-1"><span id="28289"></span>28289</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28290"></a>28290</td>
+<td class="address-1"><span id="28290"></span>28290</td>
 <td class="instruction">JR C,28298</td>
 <td class="comment-11" rowspan="1">Jump if the character is on or above the level of the assembly hall stage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28292"></a>28292</td>
+<td class="address-1"><span id="28292"></span>28292</td>
 <td class="instruction">CP 128</td>
 <td class="comment-11" rowspan="1">Is the character on either the stairs leading down from the stage or the stairs leading down from the toilets in the boys' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28294"></a>28294</td>
+<td class="address-1"><span id="28294"></span>28294</td>
 <td class="instruction">JR C,28279</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28296"></a>28296</td>
+<td class="address-1"><span id="28296"></span>28296</td>
 <td class="instruction">JR 28283</td>
 <td class="comment-11" rowspan="1">The character is on the stairs leading down to the bottom floor in the girls' skool</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28298"></a>28298</td>
+<td class="address-2"><span id="28298"></span>28298</td>
 <td class="instruction">CP 64</td>
 <td class="comment-11" rowspan="1">Is the character on either the stairs leading down to the stage or the stairs leading down to the bottom floor in the girls' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28300"></a>28300</td>
+<td class="address-1"><span id="28300"></span>28300</td>
 <td class="instruction">JR NC,28283</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28302"></a>28302</td>
+<td class="address-1"><span id="28302"></span>28302</td>
 <td class="instruction">LD A,0</td>
 <td class="comment-11" rowspan="1">Signal: character is on an up-and-to-the-left staircase (the one leading down from the toilets in the boys' skool, in fact)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28304"></a>28304</td>
+<td class="address-1"><span id="28304"></span>28304</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the carry flag set and <span class="register">A</span>=0</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28239.html">28239</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28240">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28305.html">28305</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28239.html">28239</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28240">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28305.html">28305</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

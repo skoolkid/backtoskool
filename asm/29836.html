@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 29836</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29834.html">29834</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29836">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29856.html">29856</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29834.html">29834</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29836">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29856.html">29856</a></span></td>
 </tr>
 </table>
 <div class="description">29836: Make a sound effect</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="28952.html">28952</a>, <a class="link" href="29716.html">29716</a>, <a class="link" href="29896.html">29896</a>, <a class="link" href="30804.html">30804</a> and <a class="link" href="32433.html">32433</a>.
+Used by the routines at <a href="28952.html">28952</a>, <a href="29716.html">29716</a>, <a href="29896.html">29896</a>, <a href="30804.html">30804</a> and <a href="32433.html">32433</a>.
 </div>
 </div>
 <table class="input-1">
@@ -64,100 +60,100 @@ Used by the routines at <a class="link" href="28952.html">28952</a>, <a class="l
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29836"></a>29836</td>
+<td class="address-2"><span id="29836"></span>29836</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29837"></a>29837</td>
+<td class="address-1"><span id="29837"></span>29837</td>
 <td class="instruction">LD L,B</td>
 <td class="comment-11" rowspan="1">Save the pitch parameter in <span class="register">L</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29838"></a>29838</td>
+<td class="address-2"><span id="29838"></span>29838</td>
 <td class="instruction">OUT (254),A</td>
 <td class="comment-11" rowspan="2">Flip the border colour and the state of the speaker</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29840"></a>29840</td>
+<td class="address-1"><span id="29840"></span>29840</td>
 <td class="instruction">XOR C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29841"></a>29841</td>
+<td class="address-1"><span id="29841"></span>29841</td>
 <td class="instruction">LD B,L</td>
 <td class="comment-11" rowspan="2">This is the pitch timing delay</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29842"></a>29842</td>
+<td class="address-2"><span id="29842"></span>29842</td>
 <td class="instruction">DJNZ 29842</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29844"></a>29844</td>
+<td class="address-1"><span id="29844"></span>29844</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="4">Jump back unless the sound effect is finished</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29845"></a>29845</td>
+<td class="address-1"><span id="29845"></span>29845</td>
 <td class="instruction">JR NZ,29838</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29847"></a>29847</td>
+<td class="address-1"><span id="29847"></span>29847</td>
 <td class="instruction">DEC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29848"></a>29848</td>
+<td class="address-1"><span id="29848"></span>29848</td>
 <td class="instruction">JR NZ,29838</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29850"></a>29850</td>
+<td class="address-1"><span id="29850"></span>29850</td>
 <td class="instruction">LD A,1</td>
 <td class="comment-11" rowspan="2">BORDER 1 (blue) before returning</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29852"></a>29852</td>
+<td class="address-1"><span id="29852"></span>29852</td>
 <td class="instruction">OUT (254),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29854"></a>29854</td>
+<td class="address-1"><span id="29854"></span>29854</td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29855"></a>29855</td>
+<td class="address-1"><span id="29855"></span>29855</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29834.html">29834</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29836">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29856.html">29856</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29834.html">29834</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29836">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29856.html">29856</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

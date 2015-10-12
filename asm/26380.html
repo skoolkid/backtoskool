@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 26380</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26378.html">26378</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26380">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26453.html">26453</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26378.html">26378</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26380">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26453.html">26453</a></span></td>
 </tr>
 </table>
 <div class="description">26380: Update the SRB for a blackboard</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="26513.html">26513</a> and <a class="link" href="26639.html">26639</a>.  Updates the <a class="link" href="32512.html">screen refresh buffer</a> (SRB) so that the character squares at (<span class="register">E</span>,<span class="register">D</span>) and (<span class="register">E</span>+1,<span class="register">D</span>) are marked dirty. Two character squares in a row are marked dirty to ensure that blackboard contents are properly displayed (characters written on a blackboard may cross character square boundaries).
+Used by the routines at <a href="26513.html">26513</a> and <a href="26639.html">26639</a>.  Updates the <a href="32512.html">screen refresh buffer</a> (SRB) so that the character squares at (<span class="register">E</span>,<span class="register">D</span>) and (<span class="register">E</span>+1,<span class="register">D</span>) are marked dirty. Two character squares in a row are marked dirty to ensure that blackboard contents are properly displayed (characters written on a blackboard may cross character square boundaries).
 </div>
 </div>
 <table class="input-1">
@@ -56,316 +52,316 @@ Used by the routines at <a class="link" href="26513.html">26513</a> and <a class
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26380"></a>26380</td>
+<td class="address-2"><span id="26380"></span>26380</td>
 <td class="instruction">LD A,(32767)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26383"></a>26383</td>
+<td class="address-1"><span id="26383"></span>26383</td>
 <td class="instruction">SUB 2</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26385"></a>26385</td>
+<td class="address-1"><span id="26385"></span>26385</td>
 <td class="instruction">JR C,26389</td>
 <td class="comment-11" rowspan="1">Jump if the far left wall of the boys' skool is on-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26387"></a>26387</td>
+<td class="address-1"><span id="26387"></span>26387</td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1">Is the leftmost point requiring refresh off-screen to the left by at least two character squares?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26388"></a>26388</td>
+<td class="address-1"><span id="26388"></span>26388</td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if so (nothing to do)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26389"></a>26389</td>
+<td class="address-2"><span id="26389"></span>26389</td>
 <td class="instruction">ADD A,33</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=column of the play area at the far right of the screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26391"></a>26391</td>
+<td class="address-1"><span id="26391"></span>26391</td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1">Is the leftmost point requiring refresh off-screen to the right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26392"></a>26392</td>
+<td class="address-1"><span id="26392"></span>26392</td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if so (nothing to do)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26393"></a>26393</td>
+<td class="address-1"><span id="26393"></span>26393</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save the coordinates for now</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26394"></a>26394</td>
+<td class="address-1"><span id="26394"></span>26394</td>
 <td class="instruction">SUB 32</td>
 <td class="comment-11" rowspan="3"><span class="register">A</span>=screen x-coordinate corresponding to the play area x-coordinate in <span class="register">E</span> (-1, 0-31)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26396"></a>26396</td>
+<td class="address-1"><span id="26396"></span>26396</td>
 <td class="instruction">CPL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26397"></a>26397</td>
+<td class="address-1"><span id="26397"></span>26397</td>
 <td class="instruction">ADD A,E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26398"></a>26398</td>
+<td class="address-1"><span id="26398"></span>26398</td>
 <td class="instruction">BIT 7,A</td>
 <td class="comment-11" rowspan="1">Is the leftmost point requiring refresh on-screen?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26400"></a>26400</td>
+<td class="address-1"><span id="26400"></span>26400</td>
 <td class="instruction">JR Z,26403</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26402"></a>26402</td>
+<td class="address-1"><span id="26402"></span>26402</td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26403"></a>26403</td>
+<td class="address-2"><span id="26403"></span>26403</td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="3"><span class="register">A</span>=8x (x=column of the screen containing the first character square to be refreshed)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26404"></a>26404</td>
+<td class="address-1"><span id="26404"></span>26404</td>
 <td class="instruction">RLCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26405"></a>26405</td>
+<td class="address-1"><span id="26405"></span>26405</td>
 <td class="instruction">RLCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26406"></a>26406</td>
+<td class="address-1"><span id="26406"></span>26406</td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1">Store this in <span class="register">E</span> temporarily</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26407"></a>26407</td>
+<td class="address-1"><span id="26407"></span>26407</td>
 <td class="instruction">AND 56</td>
-<td class="comment-11" rowspan="4">Set the instruction at <a class="link" href="26380.html#26428">26428</a> below to SET n,(HL) where n is the appropriate bit in the SRB byte</td>
+<td class="comment-11" rowspan="4">Set the instruction at <a href="26380.html#26428">26428</a> below to SET n,(HL) where n is the appropriate bit in the SRB byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26409"></a>26409</td>
+<td class="address-1"><span id="26409"></span>26409</td>
 <td class="instruction">CPL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26410"></a>26410</td>
+<td class="address-1"><span id="26410"></span>26410</td>
 <td class="instruction">DEC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26411"></a>26411</td>
+<td class="address-1"><span id="26411"></span>26411</td>
 <td class="instruction">LD (26429),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26414"></a>26414</td>
+<td class="address-1"><span id="26414"></span>26414</td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26415"></a>26415</td>
+<td class="address-1"><span id="26415"></span>26415</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=8x again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26416"></a>26416</td>
+<td class="address-1"><span id="26416"></span>26416</td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="10">Point <span class="register">HL</span> at the appropriate byte of the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26417"></a>26417</td>
+<td class="address-1"><span id="26417"></span>26417</td>
 <td class="instruction">RLCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26418"></a>26418</td>
+<td class="address-1"><span id="26418"></span>26418</td>
 <td class="instruction">AND 3</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26420"></a>26420</td>
+<td class="address-1"><span id="26420"></span>26420</td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26421"></a>26421</td>
+<td class="address-1"><span id="26421"></span>26421</td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26422"></a>26422</td>
+<td class="address-1"><span id="26422"></span>26422</td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26423"></a>26423</td>
+<td class="address-1"><span id="26423"></span>26423</td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26424"></a>26424</td>
+<td class="address-1"><span id="26424"></span>26424</td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26425"></a>26425</td>
+<td class="address-1"><span id="26425"></span>26425</td>
 <td class="instruction">LD D,127</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26427"></a>26427</td>
+<td class="address-1"><span id="26427"></span>26427</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26428"></a>26428</td>
+<td class="address-1"><span id="26428"></span>26428</td>
 <td class="instruction">SET 0,(HL)</td>
 <td class="comment-11" rowspan="1">Set the appropriate bit in the SRB byte for the leftmost character square that needs refreshing; this instruction is modified earlier in this routine to set the required bit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26430"></a>26430</td>
+<td class="address-1"><span id="26430"></span>26430</td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26431"></a>26431</td>
+<td class="address-1"><span id="26431"></span>26431</td>
 <td class="instruction">ADD A,56</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26433"></a>26433</td>
+<td class="address-1"><span id="26433"></span>26433</td>
 <td class="instruction">JR C,26443</td>
 <td class="comment-11" rowspan="1">Jump unless we've just set bit 0 of an SRB byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26435"></a>26435</td>
+<td class="address-1"><span id="26435"></span>26435</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Next SRB byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26436"></a>26436</td>
+<td class="address-1"><span id="26436"></span>26436</td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="2">Does this SRB byte correspond to the first byte of the next row of the screen?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26437"></a>26437</td>
+<td class="address-1"><span id="26437"></span>26437</td>
 <td class="instruction">AND 3</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26439"></a>26439</td>
+<td class="address-1"><span id="26439"></span>26439</td>
 <td class="instruction">JR Z,26450</td>
 <td class="comment-11" rowspan="1">If so, skip it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26441"></a>26441</td>
+<td class="address-1"><span id="26441"></span>26441</td>
 <td class="instruction">LD A,254</td>
 <td class="comment-11" rowspan="1">Otherwise set bit 7 in this SRB byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26443"></a>26443</td>
+<td class="address-2"><span id="26443"></span>26443</td>
 <td class="instruction">OR 192</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26445"></a>26445</td>
+<td class="address-1"><span id="26445"></span>26445</td>
 <td class="instruction">LD (26449),A</td>
-<td class="comment-11" rowspan="1">Set the instruction at <a class="link" href="26380.html#26448">26448</a> below to SET m,(HL) where m is the appropriate bit in the SRB byte</td>
+<td class="comment-11" rowspan="1">Set the instruction at <a href="26380.html#26448">26448</a> below to SET m,(HL) where m is the appropriate bit in the SRB byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26448"></a>26448</td>
+<td class="address-1"><span id="26448"></span>26448</td>
 <td class="instruction">SET 0,(HL)</td>
 <td class="comment-11" rowspan="1">Set the appropriate bit in the SRB byte for the rightmost character square that needs refreshing; this instruction is modified immediately before execution to set the required bit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26450"></a>26450</td>
+<td class="address-2"><span id="26450"></span>26450</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Restore the original contents of <span class="register">HL</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26451"></a>26451</td>
+<td class="address-1"><span id="26451"></span>26451</td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore the play area coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26452"></a>26452</td>
+<td class="address-1"><span id="26452"></span>26452</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26378.html">26378</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26380">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26453.html">26453</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26378.html">26378</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26380">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26453.html">26453</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

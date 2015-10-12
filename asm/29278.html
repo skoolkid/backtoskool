@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 29278</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29277.html">29277</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29278">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29462.html">29462</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29277.html">29277</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29278">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29462.html">29462</a></span></td>
 </tr>
 </table>
 <div class="description">29278: Deal with ERIC when he's riding the bike</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Called by the routine at <a class="link" href="63405.html">63405</a> when bit 0 at <a class="link" href="32749.html">32749</a> is set (by the routine at <a class="link" href="29462.html">29462</a>). Listens for and responds appropriately to keypresses while ERIC is sitting on the saddle of the bike.
+Called by the routine at <a href="63405.html">63405</a> when bit 0 at <a href="32749.html">32749</a> is set (by the routine at <a href="29462.html">29462</a>). Listens for and responds appropriately to keypresses while ERIC is sitting on the saddle of the bike.
 </div>
 </div>
 <table class="input-0">
@@ -49,91 +45,91 @@ Called by the routine at <a class="link" href="63405.html">63405</a> when bit 0 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29278"></a>29278</td>
+<td class="address-2"><span id="29278"></span>29278</td>
 <td class="instruction">LD HL,32755</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32755.html">32755</a> holds ERIC's main action timer</td>
+<td class="comment-11" rowspan="1"><a href="32755.html">32755</a> holds ERIC's main action timer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29281"></a>29281</td>
+<td class="address-1"><span id="29281"></span>29281</td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Is it time to deal with ERIC yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29282"></a>29282</td>
+<td class="address-1"><span id="29282"></span>29282</td>
 <td class="instruction">JR NZ,29402</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29284"></a>29284</td>
+<td class="address-1"><span id="29284"></span>29284</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Set ERIC's action timer to 1, ensuring that we pass through the following section of code on the next call to this routine if no pedalling is detected this time (if 'left' or 'right' is pressed, the action timer will be reset to 5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29285"></a>29285</td>
-<td class="instruction">CALL <a class="link" href="29178.html">29178</a></td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=value from the <a class="link" href="58624.html">keypress offset table</a> corresponding to the key just pressed (if any)</td>
+<td class="address-1"><span id="29285"></span>29285</td>
+<td class="instruction">CALL <a href="29178.html">29178</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=value from the <a href="58624.html">keypress offset table</a> corresponding to the key just pressed (if any)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29288"></a>29288</td>
+<td class="address-1"><span id="29288"></span>29288</td>
 <td class="instruction">LD HL,32750</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32750.html">32750</a> holds the offset of the last key pressed while ERIC was riding the bike</td>
+<td class="comment-11" rowspan="1"><a href="32750.html">32750</a> holds the offset of the last key pressed while ERIC was riding the bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29291"></a>29291</td>
+<td class="address-1"><span id="29291"></span>29291</td>
 <td class="instruction">JR Z,29402</td>
 <td class="comment-11" rowspan="1">Jump if no keys were pressed since the last check</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29293"></a>29293</td>
+<td class="address-1"><span id="29293"></span>29293</td>
 <td class="instruction">SET 3,A</td>
 <td class="comment-11" rowspan="1">We don't distinguish between fast (upper case) and slow (lower case) keypresses while ERIC is riding the bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29295"></a>29295</td>
+<td class="address-1"><span id="29295"></span>29295</td>
 <td class="instruction">CP 88</td>
 <td class="comment-11" rowspan="1">Was 'left' pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29297"></a>29297</td>
+<td class="address-1"><span id="29297"></span>29297</td>
 <td class="instruction">JR Z,29303</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29299"></a>29299</td>
+<td class="address-1"><span id="29299"></span>29299</td>
 <td class="instruction">CP 90</td>
 <td class="comment-11" rowspan="1">Was 'right' pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29301"></a>29301</td>
+<td class="address-1"><span id="29301"></span>29301</td>
 <td class="instruction">JR NZ,29333</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29303"></a>29303</td>
+<td class="address-2"><span id="29303"></span>29303</td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Was the key just pressed the same as the last one pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29304"></a>29304</td>
+<td class="address-1"><span id="29304"></span>29304</td>
 <td class="instruction">JR Z,29402</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29306"></a>
+<span id="29306"></span>
 <div class="comments">
 <div class="paragraph">
 The 'left' key was pressed after a non-left key, or the 'right' key was pressed after a non-right key. In other words, ERIC pedalled.
@@ -143,91 +139,91 @@ The 'left' key was pressed after a non-left key, or the 'right' key was pressed 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29306"></a>29306</td>
+<td class="address-1"><span id="29306"></span>29306</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Store the offset of the key just pressed in <a class="link" href="32750.html">32750</a></td>
+<td class="comment-11" rowspan="1">Store the offset of the key just pressed in <a href="32750.html">32750</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29307"></a>29307</td>
+<td class="address-1"><span id="29307"></span>29307</td>
 <td class="instruction">LD L,243</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32755.html">32755</a> (ERIC's main action timer)</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32755.html">32755</a> (ERIC's main action timer)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29309"></a>29309</td>
+<td class="address-1"><span id="29309"></span>29309</td>
 <td class="instruction">LD (HL),5</td>
 <td class="comment-11" rowspan="1">Reset this to 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29311"></a>29311</td>
+<td class="address-1"><span id="29311"></span>29311</td>
 <td class="instruction">LD L,240</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32752.html">32752</a> (bike momentum)</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32752.html">32752</a> (bike momentum)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29313"></a>29313</td>
+<td class="address-1"><span id="29313"></span>29313</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="5">Increase the bike's momentum, but not beyond 255</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29314"></a>29314</td>
+<td class="address-1"><span id="29314"></span>29314</td>
 <td class="instruction">ADD A,12</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29316"></a>29316</td>
+<td class="address-1"><span id="29316"></span>29316</td>
 <td class="instruction">JR NC,29320</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29318"></a>29318</td>
+<td class="address-1"><span id="29318"></span>29318</td>
 <td class="instruction">LD A,255</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29320"></a>29320</td>
+<td class="address-2"><span id="29320"></span>29320</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29321"></a>29321</td>
+<td class="address-1"><span id="29321"></span>29321</td>
 <td class="instruction">LD H,210</td>
 <td class="comment-11" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29323"></a>29323</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-1"><span id="29323"></span>29323</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29326"></a>29326</td>
+<td class="address-1"><span id="29326"></span>29326</td>
 <td class="instruction">XOR 1</td>
-<td class="comment-11" rowspan="1">Now <span class="register">A</span>=ERIC's new animatory state (<a class="link" href="../graphics/as.html#12">12</a>, <a class="link" href="../graphics/as.html#13">13</a>, <a class="link" href="../graphics/as.html#140">140</a> or <a class="link" href="../graphics/as.html#141">141</a>)</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=ERIC's new animatory state (<a href="../graphics/as.html#12">12</a>, <a href="../graphics/as.html#13">13</a>, <a href="../graphics/as.html#140">140</a> or <a href="../graphics/as.html#141">141</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29328"></a>29328</td>
-<td class="instruction">CALL <a class="link" href="24880.html">24880</a></td>
+<td class="address-1"><span id="29328"></span>29328</td>
+<td class="instruction">CALL <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update ERIC's animatory state and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29331"></a>29331</td>
+<td class="address-1"><span id="29331"></span>29331</td>
 <td class="instruction">JR 29402</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29333"></a>
+<span id="29333"></span>
 <div class="comments">
 <div class="paragraph">
 Neither 'left' nor 'right' was pressed.
@@ -237,163 +233,163 @@ Neither 'left' nor 'right' was pressed.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29333"></a>29333</td>
+<td class="address-2"><span id="29333"></span>29333</td>
 <td class="instruction">CP 92</td>
 <td class="comment-11" rowspan="1">Was 'up' pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29335"></a>29335</td>
+<td class="address-1"><span id="29335"></span>29335</td>
 <td class="instruction">JR NZ,29382</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29337"></a>29337</td>
+<td class="address-1"><span id="29337"></span>29337</td>
 <td class="instruction">LD L,237</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32749.html">32749</a> (ERIC's status flags)</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32749.html">32749</a> (ERIC's status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29339"></a>29339</td>
+<td class="address-1"><span id="29339"></span>29339</td>
 <td class="instruction">LD (HL),128</td>
 <td class="comment-11" rowspan="1">Set bit 7: ERIC is standing on the saddle of the bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29341"></a>29341</td>
+<td class="address-1"><span id="29341"></span>29341</td>
 <td class="instruction">LD H,210</td>
 <td class="comment-11" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29343"></a>29343</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-1"><span id="29343"></span>29343</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29346"></a>29346</td>
+<td class="address-1"><span id="29346"></span>29346</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29347"></a>29347</td>
+<td class="address-1"><span id="29347"></span>29347</td>
 <td class="instruction">DEC D</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=ERIC's new y-coordinate (up a level)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29348"></a>29348</td>
+<td class="address-1"><span id="29348"></span>29348</td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29349"></a>29349</td>
+<td class="address-1"><span id="29349"></span>29349</td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29350"></a>29350</td>
+<td class="address-1"><span id="29350"></span>29350</td>
 <td class="instruction">BIT 7,A</td>
 <td class="comment-11" rowspan="1">Is ERIC facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29352"></a>29352</td>
+<td class="address-1"><span id="29352"></span>29352</td>
 <td class="instruction">JR Z,29356</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29354"></a>29354</td>
+<td class="address-1"><span id="29354"></span>29354</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29355"></a>29355</td>
+<td class="address-1"><span id="29355"></span>29355</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29356"></a>29356</td>
+<td class="address-2"><span id="29356"></span>29356</td>
 <td class="instruction">AND 128</td>
 <td class="comment-11" rowspan="1">Now <span class="register">A</span>=ERIC's new animatory state, <span class="register">E</span>=ERIC's new x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29358"></a>29358</td>
-<td class="instruction">CALL <a class="link" href="24880.html">24880</a></td>
+<td class="address-1"><span id="29358"></span>29358</td>
+<td class="instruction">CALL <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update ERIC's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29361"></a>29361</td>
+<td class="address-1"><span id="29361"></span>29361</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29362"></a>29362</td>
+<td class="address-1"><span id="29362"></span>29362</td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=ERIC's location before he jumped on the saddle or got off the bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29363"></a>29363</td>
+<td class="address-1"><span id="29363"></span>29363</td>
 <td class="instruction">ADD A,25</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the bike standing upright (<a class="link" href="../graphics/as.html#25">25 or 153</a>)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the bike standing upright (<a href="../graphics/as.html#25">25 or 153</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29365"></a>29365</td>
+<td class="address-1"><span id="29365"></span>29365</td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1"><span class="register">H</span>=211: bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29366"></a>29366</td>
-<td class="instruction">CALL <a class="link" href="24880.html">24880</a></td>
+<td class="address-1"><span id="29366"></span>29366</td>
+<td class="instruction">CALL <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update the bike's animatory state and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29369"></a>29369</td>
+<td class="address-1"><span id="29369"></span>29369</td>
 <td class="instruction">LD HL,29194</td>
-<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a class="link" href="29194.html">29194</a> into bytes 17 and 18 of the bike's buffer</td>
+<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="29194.html">29194</a> into bytes 17 and 18 of the bike's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29372"></a>29372</td>
+<td class="address-1"><span id="29372"></span>29372</td>
 <td class="instruction">LD (54033),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29375"></a>29375</td>
+<td class="address-1"><span id="29375"></span>29375</td>
 <td class="instruction">LD HL,32755</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32755.html">32755</a> holds ERIC's main action timer</td>
+<td class="comment-11" rowspan="1"><a href="32755.html">32755</a> holds ERIC's main action timer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29378"></a>29378</td>
+<td class="address-1"><span id="29378"></span>29378</td>
 <td class="instruction">LD (HL),5</td>
 <td class="comment-11" rowspan="1">Reset this to 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29380"></a>29380</td>
+<td class="address-1"><span id="29380"></span>29380</td>
 <td class="instruction">JR 29436</td>
-<td class="comment-11" rowspan="1">Also reset the bike's speed counter (at <a class="link" href="32751.html">32751</a>) to 5</td>
+<td class="comment-11" rowspan="1">Also reset the bike's speed counter (at <a href="32751.html">32751</a>) to 5</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29382"></a>
+<span id="29382"></span>
 <div class="comments">
 <div class="paragraph">
 Not one of 'left', 'right' and 'up' was pressed.
@@ -403,67 +399,67 @@ Not one of 'left', 'right' and 'up' was pressed.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29382"></a>29382</td>
+<td class="address-2"><span id="29382"></span>29382</td>
 <td class="instruction">CP 94</td>
 <td class="comment-11" rowspan="1">Was 'down' pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29384"></a>29384</td>
+<td class="address-1"><span id="29384"></span>29384</td>
 <td class="instruction">JR NZ,29402</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29386"></a>29386</td>
+<td class="address-1"><span id="29386"></span>29386</td>
 <td class="instruction">LD L,237</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32749.html">32749</a> (ERIC's status flags)</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32749.html">32749</a> (ERIC's status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29388"></a>29388</td>
+<td class="address-1"><span id="29388"></span>29388</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-11" rowspan="1">Reset all bits here, signalling that ERIC has his feet back on the ground</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29390"></a>29390</td>
+<td class="address-1"><span id="29390"></span>29390</td>
 <td class="instruction">LD L,251</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32763.html">32763</a> (ERIC's other status flags)</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32763.html">32763</a> (ERIC's other status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29392"></a>29392</td>
+<td class="address-1"><span id="29392"></span>29392</td>
 <td class="instruction">RES 1,(HL)</td>
-<td class="comment-11" rowspan="1">Reset bit 1 here, signalling that <a class="link" href="32749.html">32749</a> is empty</td>
+<td class="comment-11" rowspan="1">Reset bit 1 here, signalling that <a href="32749.html">32749</a> is empty</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29394"></a>29394</td>
+<td class="address-1"><span id="29394"></span>29394</td>
 <td class="instruction">LD H,210</td>
 <td class="comment-11" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29396"></a>29396</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-1"><span id="29396"></span>29396</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29399"></a>29399</td>
+<td class="address-1"><span id="29399"></span>29399</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save ERIC's current location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29400"></a>29400</td>
+<td class="address-1"><span id="29400"></span>29400</td>
 <td class="instruction">JR 29356</td>
 <td class="comment-11" rowspan="1">Jump back to update the animatory state and location of ERIC and the bike</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29402"></a>
+<span id="29402"></span>
 <div class="comments">
 <div class="paragraph">
 The following section of code is executed on every pass through this routine while ERIC is sitting on the saddle (in other words, unless 'up' or 'down' was pressed).
@@ -473,127 +469,127 @@ The following section of code is executed on every pass through this routine whi
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29402"></a>29402</td>
+<td class="address-2"><span id="29402"></span>29402</td>
 <td class="instruction">LD HL,32752</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32752.html">32752</a> holds the bike's momentum</td>
+<td class="comment-11" rowspan="1"><a href="32752.html">32752</a> holds the bike's momentum</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29405"></a>29405</td>
+<td class="address-1"><span id="29405"></span>29405</td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Has the bike run out of momentum?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29406"></a>29406</td>
+<td class="address-1"><span id="29406"></span>29406</td>
 <td class="instruction">JR NZ,29441</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29408"></a>29408</td>
+<td class="address-2"><span id="29408"></span>29408</td>
 <td class="instruction">LD H,210</td>
 <td class="comment-11" rowspan="1">210=ERIC, who will now fall off the bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29410"></a>29410</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-1"><span id="29410"></span>29410</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29413"></a>29413</td>
+<td class="address-1"><span id="29413"></span>29413</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save ERIC's coordinates briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29414"></a>29414</td>
+<td class="address-1"><span id="29414"></span>29414</td>
 <td class="instruction">AND 128</td>
 <td class="comment-11" rowspan="1">Keep only the 'direction' bit of ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29416"></a>29416</td>
+<td class="address-1"><span id="29416"></span>29416</td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29417"></a>29417</td>
+<td class="address-1"><span id="29417"></span>29417</td>
 <td class="instruction">ADD A,4</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a class="link" href="../graphics/as.html#4">4 or 132</a> (ERIC sitting on a chair)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#4">4 or 132</a> (ERIC sitting on a chair)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29419"></a>29419</td>
-<td class="instruction">CALL <a class="link" href="24880.html">24880</a></td>
+<td class="address-1"><span id="29419"></span>29419</td>
+<td class="instruction">CALL <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update ERIC's animatory state and update the ARB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29422"></a>29422</td>
+<td class="address-1"><span id="29422"></span>29422</td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0 if ERIC's facing left, 128 if facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29423"></a>29423</td>
+<td class="address-1"><span id="29423"></span>29423</td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore ERIC's coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29424"></a>29424</td>
+<td class="address-1"><span id="29424"></span>29424</td>
 <td class="instruction">ADD A,24</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a class="link" href="../graphics/as.html#24">24 or 152</a> (bike lying on the floor)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#24">24 or 152</a> (bike lying on the floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29426"></a>29426</td>
+<td class="address-1"><span id="29426"></span>29426</td>
 <td class="instruction">LD H,211</td>
 <td class="comment-11" rowspan="1">211=bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29428"></a>29428</td>
-<td class="instruction">CALL <a class="link" href="24880.html">24880</a></td>
+<td class="address-1"><span id="29428"></span>29428</td>
+<td class="instruction">CALL <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update the bike's animatory state and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29431"></a>29431</td>
+<td class="address-1"><span id="29431"></span>29431</td>
 <td class="instruction">LD HL,32749</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32749.html">32749</a> holds ERIC's status flags</td>
+<td class="comment-11" rowspan="1"><a href="32749.html">32749</a> holds ERIC's status flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29434"></a>29434</td>
+<td class="address-1"><span id="29434"></span>29434</td>
 <td class="instruction">LD (HL),16</td>
 <td class="comment-11" rowspan="1">Set bit 4: ERIC will not land on his feet</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29436"></a>29436</td>
+<td class="address-2"><span id="29436"></span>29436</td>
 <td class="instruction">LD L,239</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32751.html">32751</a> (which holds the bike's speed counter)</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32751.html">32751</a> (which holds the bike's speed counter)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29438"></a>29438</td>
+<td class="address-1"><span id="29438"></span>29438</td>
 <td class="instruction">LD (HL),5</td>
 <td class="comment-11" rowspan="1">Reset this to 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29440"></a>29440</td>
+<td class="address-1"><span id="29440"></span>29440</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29441"></a>
+<span id="29441"></span>
 <div class="comments">
 <div class="paragraph">
 The bike still has momentum.
@@ -603,82 +599,82 @@ The bike still has momentum.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29441"></a>29441</td>
+<td class="address-2"><span id="29441"></span>29441</td>
 <td class="instruction">LD L,239</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32751.html">32751</a> (which holds the bike's speed counter)</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32751.html">32751</a> (which holds the bike's speed counter)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29443"></a>29443</td>
+<td class="address-1"><span id="29443"></span>29443</td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Is it time to move the bike forward?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29444"></a>29444</td>
+<td class="address-1"><span id="29444"></span>29444</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29445"></a>29445</td>
+<td class="address-1"><span id="29445"></span>29445</td>
 <td class="instruction">LD (HL),7</td>
 <td class="comment-11" rowspan="1">Reset the bike's speed counter to 7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29447"></a>29447</td>
+<td class="address-1"><span id="29447"></span>29447</td>
 <td class="instruction">LD HL,(53760)</td>
 <td class="comment-11" rowspan="3"><span class="register">A</span>=ERIC's animatory state, <span class="register">E</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29450"></a>29450</td>
+<td class="address-1"><span id="29450"></span>29450</td>
 <td class="instruction">LD A,L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29451"></a>29451</td>
+<td class="address-1"><span id="29451"></span>29451</td>
 <td class="instruction">LD E,H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29452"></a>29452</td>
-<td class="instruction">CALL <a class="link" href="28672.html">28672</a></td>
+<td class="address-1"><span id="29452"></span>29452</td>
+<td class="instruction">CALL <a href="28672.html">28672</a></td>
 <td class="comment-11" rowspan="1">Are there any walls, closed doors or ALBERTs in ERIC's path?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29455"></a>29455</td>
+<td class="address-1"><span id="29455"></span>29455</td>
 <td class="instruction">JR C,29408</td>
 <td class="comment-11" rowspan="2">Knock ERIC off the bike if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29457"></a>29457</td>
+<td class="address-1"><span id="29457"></span>29457</td>
 <td class="instruction">JR Z,29408</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29459"></a>29459</td>
-<td class="instruction">JP <a class="link" href="29194.html#29262">29262</a></td>
+<td class="address-1"><span id="29459"></span>29459</td>
+<td class="instruction">JP <a href="29194.html#29262">29262</a></td>
 <td class="comment-11" rowspan="1">Otherwise move ERIC forward one space, update the SRB, and scroll the screen if necessary</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29277.html">29277</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29278">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29462.html">29462</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29277.html">29277</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29278">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29462.html">29462</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

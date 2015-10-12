@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 61463</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="61462.html">61462</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#61463">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="61487.html">61487</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="61462.html">61462</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61463">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="61487.html">61487</a></span></td>
 </tr>
 </table>
 <div class="description">61463: Make EINSTEIN speak</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 9 and 10 of the buffer of the teacher who is taking ERIC's class by the routine at <a class="link" href="61696.html">61696</a>. It is used to make EINSTEIN tell a tale.
+The address of this interruptible subcommand routine is placed into bytes 9 and 10 of the buffer of the teacher who is taking ERIC's class by the routine at <a href="61696.html">61696</a>. It is used to make EINSTEIN tell a tale.
 </div>
 </div>
 <table class="input-1">
@@ -56,65 +52,65 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="61463"></a>61463</td>
+<td class="address-2"><span id="61463"></span>61463</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=message number for EINSTEIN</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61464"></a>61464</td>
+<td class="address-1"><span id="61464"></span>61464</td>
 <td class="instruction">LD (53259),A</td>
 <td class="comment-11" rowspan="1">Place this in byte 11 of EINSTEIN's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="61467"></a>
+<span id="61467"></span>
 <div class="comments">
 <div class="paragraph">
-The address of this entry point is placed into bytes 9 and 10 of the buffer of the teacher who is taking ERIC's class by the routine at <a class="link" href="61696.html">61696</a>. It is used to make EINSTEIN answer the teacher's question.
+The address of this entry point is placed into bytes 9 and 10 of the buffer of the teacher who is taking ERIC's class by the routine at <a href="61696.html">61696</a>. It is used to make EINSTEIN answer the teacher's question.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="61467"></a>61467</td>
+<td class="address-2"><span id="61467"></span>61467</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61468"></a>61468</td>
+<td class="address-1"><span id="61468"></span>61468</td>
 <td class="instruction">LD HL,32640</td>
-<td class="comment-11" rowspan="2">Set bit 3 at <a class="link" href="32640.html">32640</a> to indicate that it's EINSTEIN's turn to speak</td>
+<td class="comment-11" rowspan="2">Set bit 3 at <a href="32640.html">32640</a> to indicate that it's EINSTEIN's turn to speak</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61471"></a>61471</td>
+<td class="address-1"><span id="61471"></span>61471</td>
 <td class="instruction">SET 3,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61473"></a>61473</td>
+<td class="address-1"><span id="61473"></span>61473</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61474"></a>61474</td>
+<td class="address-1"><span id="61474"></span>61474</td>
 <td class="instruction">LD L,9</td>
-<td class="comment-11" rowspan="2">Replace the address of this routine in bytes 9 and 10 of the teacher's buffer with <a class="link" href="61463.html#61478">61478</a> (below)</td>
+<td class="comment-11" rowspan="2">Replace the address of this routine in bytes 9 and 10 of the teacher's buffer with <a href="61463.html#61478">61478</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61476"></a>61476</td>
+<td class="address-1"><span id="61476"></span>61476</td>
 <td class="instruction">LD (HL),38</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="61478"></a>
+<span id="61478"></span>
 <div class="comments">
 <div class="paragraph">
 This entry point is used while the teacher is waiting for EINSTEIN to finish speaking.
@@ -124,40 +120,40 @@ This entry point is used while the teacher is waiting for EINSTEIN to finish spe
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61478"></a>61478</td>
+<td class="address-1"><span id="61478"></span>61478</td>
 <td class="instruction">LD A,(32640)</td>
 <td class="comment-11" rowspan="2">Has EINSTEIN finished speaking yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61481"></a>61481</td>
+<td class="address-1"><span id="61481"></span>61481</td>
 <td class="instruction">BIT 3,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61483"></a>61483</td>
+<td class="address-1"><span id="61483"></span>61483</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="61484"></a>61484</td>
-<td class="instruction">JP <a class="link" href="25484.html#25488">25488</a></td>
-<td class="comment-11" rowspan="1">Otherwise terminate this interruptible subcommand, thus restoring control to the main routine at <a class="link" href="61696.html">61696</a></td>
+<td class="address-1"><span id="61484"></span>61484</td>
+<td class="instruction">JP <a href="25484.html#25488">25488</a></td>
+<td class="comment-11" rowspan="1">Otherwise terminate this interruptible subcommand, thus restoring control to the main routine at <a href="61696.html">61696</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="61462.html">61462</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#61463">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="61487.html">61487</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="61462.html">61462</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61463">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="61487.html">61487</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

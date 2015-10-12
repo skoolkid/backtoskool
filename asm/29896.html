@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 29896</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29895.html">29895</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29896">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30096.html">30096</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29895.html">29895</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29896">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30096.html">30096</a></span></td>
 </tr>
 </table>
 <div class="description">29896: Control the descent of the water, sherry or conker</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a catapult pellet's buffer by the routine at <a class="link" href="30380.html">30380</a> when it has hit either the tree or a water/sherry-filled cup, and thus released a conker or a drop of water or sherry.
+The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a catapult pellet's buffer by the routine at <a href="30380.html">30380</a> when it has hit either the tree or a water/sherry-filled cup, and thus released a conker or a drop of water or sherry.
 </div>
 </div>
 <table class="input-1">
@@ -52,97 +48,97 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29896"></a>29896</td>
+<td class="address-2"><span id="29896"></span>29896</td>
 <td class="instruction">LD L,2</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29898"></a>29898</td>
+<td class="address-1"><span id="29898"></span>29898</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the falling object</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29899"></a>29899</td>
+<td class="address-1"><span id="29899"></span>29899</td>
 <td class="instruction">CP 17</td>
 <td class="comment-11" rowspan="1">Has the object hit the bottom floor yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29901"></a>29901</td>
+<td class="address-1"><span id="29901"></span>29901</td>
 <td class="instruction">JR NZ,29915</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29903"></a>
+<span id="29903"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a class="link" href="29568.html">29568</a>, <a class="link" href="30380.html">30380</a>, <a class="link" href="57910.html">57910</a>, <a class="link" href="62178.html">62178</a>, <a class="link" href="63586.html">63586</a> and <a class="link" href="64077.html">64077</a> to 'kill' a non-human object (i.e. pellet, frog, desk lid, stinkbomb cloud, water/sherry fired from pistol).
+This entry point is used by the routines at <a href="29568.html">29568</a>, <a href="30380.html">30380</a>, <a href="57910.html">57910</a>, <a href="62178.html">62178</a>, <a href="63586.html">63586</a> and <a href="64077.html">64077</a> to 'kill' a non-human object (i.e. pellet, frog, desk lid, stinkbomb cloud, water/sherry fired from pistol).
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29903"></a>29903</td>
+<td class="address-2"><span id="29903"></span>29903</td>
 <td class="instruction">LD L,18</td>
 <td class="comment-11" rowspan="2">Remove the address of this routine from bytes 17 and 18 of the object's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29905"></a>29905</td>
+<td class="address-1"><span id="29905"></span>29905</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29907"></a>
+<span id="29907"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="31254.html">31254</a> to make a mouse disappear temporarily.
+This entry point is used by the routine at <a href="31254.html">31254</a> to make a mouse disappear temporarily.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29907"></a>29907</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-2"><span id="29907"></span>29907</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the object's current animatory state and location</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29910"></a>
+<span id="29910"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="64057.html">64057</a> to hide water from the water pistol.
+This entry point is used by the routine at <a href="64057.html">64057</a> to hide water from the water pistol.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29910"></a>29910</td>
+<td class="address-2"><span id="29910"></span>29910</td>
 <td class="instruction">LD L,1</td>
 <td class="comment-11" rowspan="2">Set the object's x-coordinate to 224 (out of sight)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29912"></a>29912</td>
+<td class="address-1"><span id="29912"></span>29912</td>
 <td class="instruction">LD (HL),224</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29914"></a>29914</td>
+<td class="address-1"><span id="29914"></span>29914</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29915"></a>
+<span id="29915"></span>
 <div class="comments">
 <div class="paragraph">
 The falling object has yet to hit the floor. Has it hit anything else on the way there?
@@ -152,37 +148,37 @@ The falling object has yet to hit the floor. Has it hit anything else on the way
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29915"></a>29915</td>
+<td class="address-2"><span id="29915"></span>29915</td>
 <td class="instruction">CP 13</td>
 <td class="comment-11" rowspan="1">Is the object at the right height to hit someone?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29917"></a>29917</td>
+<td class="address-1"><span id="29917"></span>29917</td>
 <td class="instruction">JR Z,29926</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29919"></a>29919</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-2"><span id="29919"></span>29919</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the object's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29922"></a>29922</td>
+<td class="address-1"><span id="29922"></span>29922</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">The object will fall one more level</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29923"></a>29923</td>
-<td class="instruction">JP <a class="link" href="24880.html">24880</a></td>
+<td class="address-1"><span id="29923"></span>29923</td>
+<td class="instruction">JP <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update the object's location and update the SRB</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29926"></a>
+<span id="29926"></span>
 <div class="comments">
 <div class="paragraph">
 The object is at the right height to hit someone. Check if it has.
@@ -192,61 +188,61 @@ The object is at the right height to hit someone. Check if it has.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29926"></a>29926</td>
+<td class="address-2"><span id="29926"></span>29926</td>
 <td class="instruction">LD L,1</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the object's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29928"></a>29928</td>
+<td class="address-1"><span id="29928"></span>29928</td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=falling object's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29929"></a>29929</td>
+<td class="address-1"><span id="29929"></span>29929</td>
 <td class="instruction">LD D,17</td>
 <td class="comment-11" rowspan="1">17=bottom floor (the only floor on which characters can be hit by a falling object)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29931"></a>29931</td>
-<td class="instruction">CALL <a class="link" href="29856.html">29856</a></td>
+<td class="address-1"><span id="29931"></span>29931</td>
+<td class="instruction">CALL <a href="29856.html">29856</a></td>
 <td class="comment-11" rowspan="1">Check if any of the six adult characters were hit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29934"></a>29934</td>
+<td class="address-1"><span id="29934"></span>29934</td>
 <td class="instruction">LD L,0</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the object's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29936"></a>29936</td>
+<td class="address-1"><span id="29936"></span>29936</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the falling object</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29937"></a>29937</td>
+<td class="address-1"><span id="29937"></span>29937</td>
 <td class="instruction">JR Z,29999</td>
 <td class="comment-11" rowspan="1">Jump if an adult character was hit by the falling object</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29939"></a>29939</td>
+<td class="address-1"><span id="29939"></span>29939</td>
 <td class="instruction">CP 55</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#55">55</a>: Is the falling object a conker?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#55">55</a>: Is the falling object a conker?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29941"></a>29941</td>
+<td class="address-1"><span id="29941"></span>29941</td>
 <td class="instruction">JR NZ,29919</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29943"></a>
+<span id="29943"></span>
 <div class="comments">
 <div class="paragraph">
 The falling object is a conker.
@@ -256,231 +252,231 @@ The falling object is a conker.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29943"></a>29943</td>
+<td class="address-1"><span id="29943"></span>29943</td>
 <td class="instruction">LD L,2</td>
 <td class="comment-11" rowspan="2">Set the conker's y-coordinate to 17 (bottom floor) for comparison with that of the potential targets</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29945"></a>29945</td>
+<td class="address-1"><span id="29945"></span>29945</td>
 <td class="instruction">LD (HL),17</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29947"></a>
+<span id="29947"></span>
 <div class="comments">
 <div class="paragraph">
-Before calling the routine at <a class="link" href="27820.html">27820</a> to check whether any of the four main kids (besides ERIC) have been hit, <span class="register">D</span> should be set to 206 (BOY WANDER, the first main kid), and <span class="register">B</span> should be set to 4 (the number of kids to check). However, at this point <span class="register">D</span>=17 and <span class="register">B</span>=206, which means that instead of checking the character buffers in pages 206-209, we end up checking pages 17-222. In that range, only pages 183-214 contain character buffers; treating the other pages in RAM as if they contained character buffers could lead to data/code corruption. Needless to say, this is a <a class="link" href="../reference/bugs.html#conkerMD">bug</a>.
+Before calling the routine at <a href="27820.html">27820</a> to check whether any of the four main kids (besides ERIC) have been hit, <span class="register">D</span> should be set to 206 (BOY WANDER, the first main kid), and <span class="register">B</span> should be set to 4 (the number of kids to check). However, at this point <span class="register">D</span>=17 and <span class="register">B</span>=206, which means that instead of checking the character buffers in pages 206-209, we end up checking pages 17-222. In that range, only pages 183-214 contain character buffers; treating the other pages in RAM as if they contained character buffers could lead to data/code corruption. Needless to say, this is a <a href="../reference/bugs.html#conkerMD">bug</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29947"></a>29947</td>
-<td class="instruction">CALL <a class="link" href="27820.html">27820</a></td>
+<td class="address-1"><span id="29947"></span>29947</td>
+<td class="instruction">CALL <a href="27820.html">27820</a></td>
 <td class="comment-11" rowspan="1">Check whether anyone was hit by the conker</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29950"></a>29950</td>
+<td class="address-1"><span id="29950"></span>29950</td>
 <td class="instruction">LD L,2</td>
 <td class="comment-11" rowspan="2">Set the conker's y-coordinate back to 13</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29952"></a>29952</td>
+<td class="address-1"><span id="29952"></span>29952</td>
 <td class="instruction">LD (HL),13</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29954"></a>29954</td>
+<td class="address-1"><span id="29954"></span>29954</td>
 <td class="instruction">JR C,29919</td>
 <td class="comment-11" rowspan="1">Jump if nobody was hit by the conker</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29956"></a>29956</td>
+<td class="address-1"><span id="29956"></span>29956</td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character hit by the conker</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29957"></a>29957</td>
+<td class="address-1"><span id="29957"></span>29957</td>
 <td class="instruction">CP 207</td>
 <td class="comment-11" rowspan="1">Was it BOY WANDER (206)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29959"></a>29959</td>
+<td class="address-1"><span id="29959"></span>29959</td>
 <td class="instruction">JR C,29982</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29961"></a>29961</td>
+<td class="address-1"><span id="29961"></span>29961</td>
 <td class="instruction">CP 209</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29963"></a>29963</td>
+<td class="address-1"><span id="29963"></span>29963</td>
 <td class="instruction">LD A,10</td>
 <td class="comment-11" rowspan="1">ERIC gets 100 points for conkering ANGELFACE or EINSTEIN</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29965"></a>29965</td>
+<td class="address-1"><span id="29965"></span>29965</td>
 <td class="instruction">JR NC,29982</td>
 <td class="comment-11" rowspan="1">Jump unless ANGELFACE (207) or EINSTEIN (208) was hit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29967"></a>29967</td>
-<td class="instruction">CALL <a class="link" href="29621.html">29621</a></td>
+<td class="address-1"><span id="29967"></span>29967</td>
+<td class="instruction">CALL <a href="29621.html">29621</a></td>
 <td class="comment-11" rowspan="1">Add 100 to the score and print it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29970"></a>29970</td>
+<td class="address-1"><span id="29970"></span>29970</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29971"></a>29971</td>
+<td class="address-1"><span id="29971"></span>29971</td>
 <td class="instruction">LD D,40</td>
 <td class="comment-11" rowspan="4">Make a sound effect with <span class="register">A</span>=7 and <span class="register">C</span>=18 (border alternating white and cyan)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29973"></a>29973</td>
+<td class="address-1"><span id="29973"></span>29973</td>
 <td class="instruction">LD BC,10258</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29976"></a>29976</td>
+<td class="address-1"><span id="29976"></span>29976</td>
 <td class="instruction">LD A,7</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29978"></a>29978</td>
-<td class="instruction">CALL <a class="link" href="29836.html">29836</a></td>
+<td class="address-1"><span id="29978"></span>29978</td>
+<td class="instruction">CALL <a href="29836.html">29836</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29981"></a>29981</td>
+<td class="address-1"><span id="29981"></span>29981</td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29982"></a>
+<span id="29982"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="30786.html">30786</a>.
+This entry point is used by the routine at <a href="30786.html">30786</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29982"></a>29982</td>
+<td class="address-2"><span id="29982"></span>29982</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29983"></a>
+<span id="29983"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="30380.html">30380</a>.
+This entry point is used by the routine at <a href="30380.html">30380</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29983"></a>29983</td>
+<td class="address-2"><span id="29983"></span>29983</td>
 <td class="instruction">CALL 29903</td>
 <td class="comment-11" rowspan="1">Terminate the object</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29986"></a>29986</td>
+<td class="address-1"><span id="29986"></span>29986</td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29987"></a>
+<span id="29987"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="30739.html">30739</a> to knock a character over.
+This entry point is used by the routine at <a href="30739.html">30739</a> to knock a character over.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29987"></a>29987</td>
+<td class="address-2"><span id="29987"></span>29987</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29988"></a>29988</td>
+<td class="address-1"><span id="29988"></span>29988</td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character hit by the object or fist</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29989"></a>29989</td>
+<td class="address-1"><span id="29989"></span>29989</td>
 <td class="instruction">CP 210</td>
 <td class="comment-11" rowspan="1">Was it ERIC?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29991"></a>29991</td>
+<td class="address-1"><span id="29991"></span>29991</td>
 <td class="instruction">JR NZ,30023</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29993"></a>
+<span id="29993"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="24328.html">24328</a>.
+This entry point is used by the routine at <a href="24328.html">24328</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29993"></a>29993</td>
+<td class="address-2"><span id="29993"></span>29993</td>
 <td class="instruction">LD A,128</td>
-<td class="comment-11" rowspan="2">Set bit 7 at <a class="link" href="32763.html">32763</a>: ERIC has been knocked down</td>
+<td class="comment-11" rowspan="2">Set bit 7 at <a href="32763.html">32763</a>: ERIC has been knocked down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29995"></a>29995</td>
+<td class="address-1"><span id="29995"></span>29995</td>
 <td class="instruction">LD (32763),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29998"></a>29998</td>
+<td class="address-1"><span id="29998"></span>29998</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="29999"></a>
+<span id="29999"></span>
 <div class="comments">
 <div class="paragraph">
 An adult character was hit by the falling object.
@@ -490,19 +486,19 @@ An adult character was hit by the falling object.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29999"></a>29999</td>
+<td class="address-2"><span id="29999"></span>29999</td>
 <td class="instruction">CP 55</td>
 <td class="comment-11" rowspan="1">Is the falling object a conker?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30001"></a>30001</td>
+<td class="address-1"><span id="30001"></span>30001</td>
 <td class="instruction">JR NZ,30034</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="30003"></a>
+<span id="30003"></span>
 <div class="comments">
 <div class="paragraph">
 An adult character has been hit by either a conker or a drop of water or sherry.
@@ -512,73 +508,73 @@ An adult character has been hit by either a conker or a drop of water or sherry.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30003"></a>30003</td>
+<td class="address-2"><span id="30003"></span>30003</td>
 <td class="instruction">LD C,0</td>
 <td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30005"></a>30005</td>
+<td class="address-1"><span id="30005"></span>30005</td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the adult character hit by the object</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30006"></a>30006</td>
+<td class="address-1"><span id="30006"></span>30006</td>
 <td class="instruction">AND 7</td>
 <td class="comment-11" rowspan="2">Is the character already sitting on the floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30008"></a>30008</td>
+<td class="address-1"><span id="30008"></span>30008</td>
 <td class="instruction">CP 6</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30010"></a>30010</td>
+<td class="address-1"><span id="30010"></span>30010</td>
 <td class="instruction">JP Z,29919</td>
 <td class="comment-11" rowspan="1">Jump if so (the object will continue to fall)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30013"></a>30013</td>
+<td class="address-1"><span id="30013"></span>30013</td>
 <td class="instruction">LD C,18</td>
 <td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 17 and 18 of the character's buffer (which would prevent the character from being knocked over)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30015"></a>30015</td>
+<td class="address-1"><span id="30015"></span>30015</td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30016"></a>30016</td>
+<td class="address-1"><span id="30016"></span>30016</td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30017"></a>30017</td>
+<td class="address-1"><span id="30017"></span>30017</td>
 <td class="instruction">JP NZ,29919</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30020"></a>30020</td>
+<td class="address-1"><span id="30020"></span>30020</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30021"></a>30021</td>
+<td class="address-1"><span id="30021"></span>30021</td>
 <td class="instruction">JR 29983</td>
 <td class="comment-11" rowspan="1">Terminate the object and knock the character over</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="30023"></a>
+<span id="30023"></span>
 <div class="comments">
 <div class="paragraph">
 This section of code sets up the uninterruptible subcommand that will control the character who has been knocked over until it's time for him to get up.
@@ -588,49 +584,49 @@ This section of code sets up the uninterruptible subcommand that will control th
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30023"></a>30023</td>
+<td class="address-2"><span id="30023"></span>30023</td>
 <td class="instruction">LD L,17</td>
-<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a class="link" href="30102.html">30102</a> into bytes 17 and 18 of the stricken character's buffer</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="30102.html">30102</a> into bytes 17 and 18 of the stricken character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30025"></a>30025</td>
+<td class="address-1"><span id="30025"></span>30025</td>
 <td class="instruction">LD (HL),150</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30027"></a>30027</td>
+<td class="address-1"><span id="30027"></span>30027</td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30028"></a>30028</td>
+<td class="address-1"><span id="30028"></span>30028</td>
 <td class="instruction">LD (HL),117</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30030"></a>30030</td>
+<td class="address-1"><span id="30030"></span>30030</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2">Initialise the knockout delay counter in byte 19 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30031"></a>30031</td>
+<td class="address-1"><span id="30031"></span>30031</td>
 <td class="instruction">LD (HL),19</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30033"></a>30033</td>
+<td class="address-1"><span id="30033"></span>30033</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="30034"></a>
+<span id="30034"></span>
 <div class="comments">
 <div class="paragraph">
 An adult character has been hit by a drop of water or sherry.
@@ -640,214 +636,214 @@ An adult character has been hit by a drop of water or sherry.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30034"></a>30034</td>
+<td class="address-2"><span id="30034"></span>30034</td>
 <td class="instruction">LD DE,32512</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30037"></a>30037</td>
+<td class="address-1"><span id="30037"></span>30037</td>
 <td class="instruction">CP 31</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#31">31</a>: Is the falling object a drop of water?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#31">31</a>: Is the falling object a drop of water?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30039"></a>30039</td>
+<td class="address-1"><span id="30039"></span>30039</td>
 <td class="instruction">JR Z,30043</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30041"></a>30041</td>
+<td class="address-1"><span id="30041"></span>30041</td>
 <td class="instruction">LD E,4</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30043"></a>30043</td>
+<td class="address-2"><span id="30043"></span>30043</td>
 <td class="instruction">LD A,B</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character who was hit by the drop of water/sherry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30044"></a>30044</td>
+<td class="address-1"><span id="30044"></span>30044</td>
 <td class="instruction">CP 204</td>
 <td class="comment-11" rowspan="1">Is the stricken character one of the male teachers?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30046"></a>30046</td>
+<td class="address-1"><span id="30046"></span>30046</td>
 <td class="instruction">JR NC,30003</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30048"></a>30048</td>
+<td class="address-1"><span id="30048"></span>30048</td>
 <td class="instruction">SUB 36</td>
-<td class="comment-11" rowspan="3">Point <span class="register">DE</span> at the relevant combination letter or number in one of the tables at <a class="link" href="32676.html">32676</a> and <a class="link" href="32676.html#32680">32680</a></td>
+<td class="comment-11" rowspan="3">Point <span class="register">DE</span> at the relevant combination letter or number in one of the tables at <a href="32676.html">32676</a> and <a href="32676.html#32680">32680</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30050"></a>30050</td>
+<td class="address-1"><span id="30050"></span>30050</td>
 <td class="instruction">ADD A,E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30051"></a>30051</td>
+<td class="address-1"><span id="30051"></span>30051</td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30052"></a>30052</td>
+<td class="address-1"><span id="30052"></span>30052</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">(<span class="register">HL</span>)=combination letter/number held by the teacher just knocked down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30053"></a>30053</td>
+<td class="address-1"><span id="30053"></span>30053</td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Has ERIC already discovered this one?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30055"></a>30055</td>
+<td class="address-1"><span id="30055"></span>30055</td>
 <td class="instruction">JR NZ,30066</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30057"></a>30057</td>
+<td class="address-1"><span id="30057"></span>30057</td>
 <td class="instruction">SET 7,(HL)</td>
 <td class="comment-11" rowspan="1">Signal: ERIC has discovered this combination letter/number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30059"></a>30059</td>
+<td class="address-1"><span id="30059"></span>30059</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30060"></a>30060</td>
+<td class="address-1"><span id="30060"></span>30060</td>
 <td class="instruction">LD A,20</td>
 <td class="comment-11" rowspan="2">Add 200 to the score and print it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30062"></a>30062</td>
-<td class="instruction">CALL <a class="link" href="29621.html">29621</a></td>
+<td class="address-1"><span id="30062"></span>30062</td>
+<td class="instruction">CALL <a href="29621.html">29621</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30065"></a>30065</td>
+<td class="address-1"><span id="30065"></span>30065</td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30066"></a>30066</td>
+<td class="address-2"><span id="30066"></span>30066</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=character code of the combination number/letter just revealed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30067"></a>30067</td>
+<td class="address-1"><span id="30067"></span>30067</td>
 <td class="instruction">AND 127</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30069"></a>30069</td>
+<td class="address-1"><span id="30069"></span>30069</td>
 <td class="instruction">LD (32650),A</td>
-<td class="comment-11" rowspan="1">Store this in the first byte of message <a class="link" href="32650.html">5</a>, which is used as a submessage of message <a class="link" href="59897.html">14</a>: '[5]^ '</td>
+<td class="comment-11" rowspan="1">Store this in the first byte of message <a href="32650.html">5</a>, which is used as a submessage of message <a href="59897.html">14</a>: '[5]^ '</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30072"></a>30072</td>
+<td class="address-1"><span id="30072"></span>30072</td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30073"></a>30073</td>
+<td class="address-1"><span id="30073"></span>30073</td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30074"></a>30074</td>
+<td class="address-1"><span id="30074"></span>30074</td>
 <td class="instruction">LD H,B</td>
 <td class="comment-11" rowspan="1"><span class="register">H</span>=character number of the teacher just struck (200-203)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30075"></a>30075</td>
-<td class="instruction">CALL <a class="link" href="29696.html">29696</a></td>
+<td class="address-1"><span id="30075"></span>30075</td>
+<td class="instruction">CALL <a href="29696.html">29696</a></td>
 <td class="comment-11" rowspan="1">Get the coordinates of this teacher's head</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30078"></a>30078</td>
-<td class="instruction">CALL <a class="link" href="27276.html">27276</a></td>
+<td class="address-1"><span id="30078"></span>30078</td>
+<td class="instruction">CALL <a href="27276.html">27276</a></td>
 <td class="comment-11" rowspan="1">Save the area of the screen that will be overwritten by the letter/number message box</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30081"></a>30081</td>
+<td class="address-1"><span id="30081"></span>30081</td>
 <td class="instruction">JR C,30091</td>
 <td class="comment-11" rowspan="1">Jump if the teacher is off-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30083"></a>30083</td>
+<td class="address-1"><span id="30083"></span>30083</td>
 <td class="instruction">LD BC,3654</td>
-<td class="comment-11" rowspan="3">Print the letter/number message box (message number <span class="register">B</span>=<a class="link" href="59897.html">14</a>) and make a sound effect</td>
+<td class="comment-11" rowspan="3">Print the letter/number message box (message number <span class="register">B</span>=<a href="59897.html">14</a>) and make a sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30086"></a>30086</td>
+<td class="address-1"><span id="30086"></span>30086</td>
 <td class="instruction">LD A,6</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30088"></a>30088</td>
-<td class="instruction">CALL <a class="link" href="29716.html#29811">29811</a></td>
+<td class="address-1"><span id="30088"></span>30088</td>
+<td class="instruction">CALL <a href="29716.html#29811">29811</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30091"></a>30091</td>
+<td class="address-2"><span id="30091"></span>30091</td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Restore the stricken character's number to <span class="register">B</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30092"></a>30092</td>
+<td class="address-1"><span id="30092"></span>30092</td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the falling object's character number to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30093"></a>30093</td>
+<td class="address-1"><span id="30093"></span>30093</td>
 <td class="instruction">JP 30003</td>
 <td class="comment-11" rowspan="1">Terminate the falling object and knock the character over</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29895.html">29895</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29896">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30096.html">30096</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29895.html">29895</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29896">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30096.html">30096</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

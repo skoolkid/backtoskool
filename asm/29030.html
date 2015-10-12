@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 29030</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29012.html">29012</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29030">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29050.html">29050</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29012.html">29012</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29030">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29050.html">29050</a></span></td>
 </tr>
 </table>
 <div class="description">29030: Prevent ERIC from getting past ALBERT if necessary</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="28315.html">28315</a>. Impedes ERIC's progress if ALBERT is standing right in front of him with his arm up.
+Used by the routine at <a href="28315.html">28315</a>. Impedes ERIC's progress if ALBERT is standing right in front of him with his arm up.
 </div>
 </div>
 <table class="input-1">
@@ -52,88 +48,88 @@ Used by the routine at <a class="link" href="28315.html">28315</a>. Impedes ERIC
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="29030"></a>29030</td>
+<td class="address-2"><span id="29030"></span>29030</td>
 <td class="instruction">LD A,(53760)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29033"></a>29033</td>
+<td class="address-1"><span id="29033"></span>29033</td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1">Is ERIC facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29034"></a>29034</td>
+<td class="address-1"><span id="29034"></span>29034</td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29035"></a>29035</td>
+<td class="address-1"><span id="29035"></span>29035</td>
 <td class="instruction">LD A,(52480)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ALBERT's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29038"></a>29038</td>
+<td class="address-1"><span id="29038"></span>29038</td>
 <td class="instruction">CP 127</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#127">127</a>: Is ALBERT facing left with his arm up?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#127">127</a>: Is ALBERT facing left with his arm up?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29040"></a>29040</td>
+<td class="address-1"><span id="29040"></span>29040</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29041"></a>29041</td>
+<td class="address-1"><span id="29041"></span>29041</td>
 <td class="instruction">LD A,(52481)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ALBERT's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29044"></a>29044</td>
+<td class="address-1"><span id="29044"></span>29044</td>
 <td class="instruction">SUB 1</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29046"></a>29046</td>
+<td class="address-1"><span id="29046"></span>29046</td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1">Is ERIC standing in front of ALBERT (facing him)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29047"></a>29047</td>
+<td class="address-1"><span id="29047"></span>29047</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29048"></a>29048</td>
+<td class="address-1"><span id="29048"></span>29048</td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Drop the return address, preventing any forward movement by ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="29049"></a>29049</td>
+<td class="address-1"><span id="29049"></span>29049</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return to the main loop</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="29012.html">29012</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#29030">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="29050.html">29050</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="29012.html">29012</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29030">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29050.html">29050</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

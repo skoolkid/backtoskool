@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 57669</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="57637.html">57637</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#57669">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="57686.html">57686</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="57637.html">57637</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#57669">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="57686.html">57686</a></span></td>
 </tr>
 </table>
 <div class="description">57669: Deal with ERIC when he's bending over, dropping a stinkbomb etc.</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-This routine is called by the routine at <a class="link" href="63405.html">63405</a> when bit 3 at <a class="link" href="32763.html">32763</a> is set by the routine at <a class="link" href="57637.html">57637</a>, indicating that ERIC is bending over (to throw away the water pistol, release a mouse, or catch a mouse or the frog), dropping a stinkbomb, firing the water pistol, or moving forward as if to kiss.
+This routine is called by the routine at <a href="63405.html">63405</a> when bit 3 at <a href="32763.html">32763</a> is set by the routine at <a href="57637.html">57637</a>, indicating that ERIC is bending over (to throw away the water pistol, release a mouse, or catch a mouse or the frog), dropping a stinkbomb, firing the water pistol, or moving forward as if to kiss.
 </div>
 </div>
 <table class="input-0">
@@ -49,74 +45,74 @@ This routine is called by the routine at <a class="link" href="63405.html">63405
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="57669"></a>57669</td>
+<td class="address-2"><span id="57669"></span>57669</td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="2">Reset all flags at <a class="link" href="32763.html">32763</a>, indicating that ERIC has finished bending over, dropping a stinkbomb etc.</td>
+<td class="comment-11" rowspan="2">Reset all flags at <a href="32763.html">32763</a>, indicating that ERIC has finished bending over, dropping a stinkbomb etc.</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="57670"></a>57670</td>
+<td class="address-1"><span id="57670"></span>57670</td>
 <td class="instruction">LD (32763),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="57673"></a>57673</td>
+<td class="address-1"><span id="57673"></span>57673</td>
 <td class="instruction">LD HL,5126</td>
-<td class="comment-11" rowspan="2">Set ERIC's main action timer at <a class="link" href="32755.html">32755</a> to 20 (the delay before ERIC completes this action), and the mid-action timer at <a class="link" href="32754.html">32754</a> to 6 (the delay after ERIC completes this action)</td>
+<td class="comment-11" rowspan="2">Set ERIC's main action timer at <a href="32755.html">32755</a> to 20 (the delay before ERIC completes this action), and the mid-action timer at <a href="32754.html">32754</a> to 6 (the delay after ERIC completes this action)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="57676"></a>57676</td>
+<td class="address-1"><span id="57676"></span>57676</td>
 <td class="instruction">LD (32754),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="57679"></a>
+<span id="57679"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="24237.html">24237</a> (when bit 5 at <a class="link" href="32763.html">32763</a> is set).
+This entry point is used by the routine at <a href="24237.html">24237</a> (when bit 5 at <a href="32763.html">32763</a> is set).
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="57679"></a>57679</td>
+<td class="address-2"><span id="57679"></span>57679</td>
 <td class="instruction">LD HL,(32727)</td>
-<td class="comment-11" rowspan="2">Collect in <span class="register">HL</span> the routine address stored in <a class="link" href="32727.html">32727</a>, and push it onto the stack ready for an indirect jump</td>
+<td class="comment-11" rowspan="2">Collect in <span class="register">HL</span> the routine address stored in <a href="32727.html">32727</a>, and push it onto the stack ready for an indirect jump</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="57682"></a>57682</td>
+<td class="address-1"><span id="57682"></span>57682</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="57683"></a>57683</td>
+<td class="address-1"><span id="57683"></span>57683</td>
 <td class="instruction">LD H,210</td>
 <td class="comment-11" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="57685"></a>57685</td>
+<td class="address-2"><span id="57685"></span>57685</td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Jump to the routine whose address is stored in <a class="link" href="32727.html">32727</a></td>
+<td class="comment-11" rowspan="1">Jump to the routine whose address is stored in <a href="32727.html">32727</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="57637.html">57637</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#57669">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="57686.html">57686</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="57637.html">57637</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#57669">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="57686.html">57686</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

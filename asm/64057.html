@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 64057</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="64000.html">64000</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#64057">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="64076.html">64076</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="64000.html">64000</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#64057">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="64076.html">64076</a></span></td>
 </tr>
 </table>
 <div class="description">64057: Control water fired from the pistol (2)</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Continues from <a class="link" href="63915.html">63915</a>. On entry the carry flag is set if the water is travelling to the right. In the following, 'water' may refer to either water or sherry.
+Continues from <a href="63915.html">63915</a>. On entry the carry flag is set if the water is travelling to the right. In the following, 'water' may refer to either water or sherry.
 </div>
 </div>
 <table class="input-1">
@@ -68,82 +64,82 @@ Continues from <a class="link" href="63915.html">63915</a>. On entry the carry f
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="64057"></a>64057</td>
+<td class="address-2"><span id="64057"></span>64057</td>
 <td class="instruction">JR NC,64061</td>
 <td class="comment-11" rowspan="1">Jump if the water is travelling to the left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64059"></a>64059</td>
+<td class="address-1"><span id="64059"></span>64059</td>
 <td class="instruction">SUB C</td>
 <td class="comment-11" rowspan="1">Add 0, 1 or 2 to the water's current x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64060"></a>64060</td>
+<td class="address-1"><span id="64060"></span>64060</td>
 <td class="instruction">SUB C</td>
 <td class="comment-11" rowspan="1">Do the same again to compensate for the ADD A,C instruction below</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="64061"></a>64061</td>
+<td class="address-2"><span id="64061"></span>64061</td>
 <td class="instruction">ADD A,C</td>
 <td class="comment-11" rowspan="1">Now <span class="register">A</span>=new x-coordinate for the water</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64062"></a>64062</td>
+<td class="address-1"><span id="64062"></span>64062</td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1">Copy this to <span class="register">E</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64063"></a>64063</td>
+<td class="address-1"><span id="64063"></span>64063</td>
 <td class="instruction">CP 191</td>
 <td class="comment-11" rowspan="1">Reset the carry flag if the water has hit the far left wall of the boys' skool or the far right wall of the girls' skool</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64065"></a>64065</td>
+<td class="address-1"><span id="64065"></span>64065</td>
 <td class="instruction">LD A,B</td>
 <td class="comment-11" rowspan="1">Transfer the water's new animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64066"></a>64066</td>
-<td class="instruction">JP C,<a class="link" href="24880.html">24880</a></td>
+<td class="address-1"><span id="64066"></span>64066</td>
+<td class="instruction">JP C,<a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update the water's animatory state and location and update the SRB (if the water hasn't hit one of the far walls, i.e. it's still entirely on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64069"></a>64069</td>
+<td class="address-1"><span id="64069"></span>64069</td>
 <td class="instruction">LD L,18</td>
-<td class="comment-11" rowspan="2">Otherwise remove the uninterruptible subcommand routine address (<a class="link" href="63915.html#63960">63960</a>) from bytes 17 and 18 of the water's buffer</td>
+<td class="comment-11" rowspan="2">Otherwise remove the uninterruptible subcommand routine address (<a href="63915.html#63960">63960</a>) from bytes 17 and 18 of the water's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64071"></a>64071</td>
+<td class="address-1"><span id="64071"></span>64071</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64073"></a>64073</td>
-<td class="instruction">JP <a class="link" href="29896.html#29910">29910</a></td>
+<td class="address-1"><span id="64073"></span>64073</td>
+<td class="instruction">JP <a href="29896.html#29910">29910</a></td>
 <td class="comment-11" rowspan="1">Place the water out of sight</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="64000.html">64000</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#64057">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="64076.html">64076</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="64000.html">64000</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#64057">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="64076.html">64076</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

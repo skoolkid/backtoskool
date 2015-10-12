@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 31573</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31572.html">31572</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31573">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31720.html">31720</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31572.html">31572</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31573">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31720.html">31720</a></span></td>
 </tr>
 </table>
 <div class="description">31573: Make ERIC catch a mouse or frog (if present)</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this routine is placed into <a class="link" href="32727.html">32727</a> by the routine at <a class="link" href="57637.html">57637</a> after 'C' has been pressed. Adds the mouse or frog to ERIC's inventory if he has managed to catch it. If the captive animal is a mouse, another one is set free for ERIC to catch.
+The address of this routine is placed into <a href="32727.html">32727</a> by the routine at <a href="57637.html">57637</a> after 'C' has been pressed. Adds the mouse or frog to ERIC's inventory if he has managed to catch it. If the captive animal is a mouse, another one is set free for ERIC to catch.
 </div>
 </div>
 <table class="input-1">
@@ -52,121 +48,121 @@ The address of this routine is placed into <a class="link" href="32727.html">327
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31573"></a>31573</td>
+<td class="address-2"><span id="31573"></span>31573</td>
 <td class="instruction">LD L,0</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31575"></a>31575</td>
+<td class="address-1"><span id="31575"></span>31575</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31576"></a>31576</td>
+<td class="address-1"><span id="31576"></span>31576</td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="4">Set <span class="register">A</span> to -1 if ERIC is facing left, or 1 if he's facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31577"></a>31577</td>
+<td class="address-1"><span id="31577"></span>31577</td>
 <td class="instruction">SBC A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31578"></a>31578</td>
+<td class="address-1"><span id="31578"></span>31578</td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31579"></a>31579</td>
+<td class="address-1"><span id="31579"></span>31579</td>
 <td class="instruction">CPL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31580"></a>31580</td>
+<td class="address-1"><span id="31580"></span>31580</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31581"></a>31581</td>
+<td class="address-1"><span id="31581"></span>31581</td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-11" rowspan="1">Now <span class="register">A</span>=x-coordinate of the spot in front of ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31582"></a>31582</td>
+<td class="address-1"><span id="31582"></span>31582</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31583"></a>31583</td>
+<td class="address-1"><span id="31583"></span>31583</td>
 <td class="instruction">LD DE,(54273)</td>
 <td class="comment-11" rowspan="1">Pick up the coordinates of the animal using buffer 212 (mouse or frog)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31587"></a>31587</td>
+<td class="address-1"><span id="31587"></span>31587</td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1">Is there a mouse or frog at this x-coordinate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31588"></a>31588</td>
+<td class="address-1"><span id="31588"></span>31588</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31589"></a>31589</td>
+<td class="address-1"><span id="31589"></span>31589</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31590"></a>31590</td>
+<td class="address-1"><span id="31590"></span>31590</td>
 <td class="instruction">CP D</td>
 <td class="comment-11" rowspan="1">Is the mouse/frog on this floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31591"></a>31591</td>
+<td class="address-1"><span id="31591"></span>31591</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31592"></a>31592</td>
+<td class="address-1"><span id="31592"></span>31592</td>
 <td class="instruction">LD A,(54272)</td>
 <td class="comment-11" rowspan="1">Pick up the mouse/frog's animatory state in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31595"></a>31595</td>
+<td class="address-1"><span id="31595"></span>31595</td>
 <td class="instruction">AND 127</td>
 <td class="comment-11" rowspan="1">Discard all but the 'direction' bit (bit 7)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31597"></a>31597</td>
+<td class="address-1"><span id="31597"></span>31597</td>
 <td class="instruction">CP 47</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#47">47</a>: Is it a mouse?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#47">47</a>: Is it a mouse?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31599"></a>31599</td>
-<td class="instruction">JP NZ,<a class="link" href="31733.html">31733</a></td>
+<td class="address-1"><span id="31599"></span>31599</td>
+<td class="instruction">JP NZ,<a href="31733.html">31733</a></td>
 <td class="comment-11" rowspan="1">Jump if not (it's the frog)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="31602"></a>
+<span id="31602"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC has managed to catch the mouse.
@@ -176,19 +172,19 @@ ERIC has managed to catch the mouse.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31602"></a>31602</td>
+<td class="address-1"><span id="31602"></span>31602</td>
 <td class="instruction">LD H,212</td>
 <td class="comment-11" rowspan="1"><span class="register">H</span>=212 (the mouse's buffer)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31604"></a>31604</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-1"><span id="31604"></span>31604</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the mouse's current animatory state and location</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="31607"></a>
+<span id="31607"></span>
 <div class="comments">
 <div class="paragraph">
 Determine where to release another mouse.
@@ -198,175 +194,175 @@ Determine where to release another mouse.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31607"></a>31607</td>
+<td class="address-1"><span id="31607"></span>31607</td>
 <td class="instruction">LD HL,32767</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32767.html">32767</a> holds the column of the play area at the far left of the screen</td>
+<td class="comment-11" rowspan="1"><a href="32767.html">32767</a> holds the column of the play area at the far left of the screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31610"></a>31610</td>
-<td class="instruction">CALL <a class="link" href="25233.html">25233</a></td>
+<td class="address-2"><span id="31610"></span>31610</td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=R, a random number from 0 to 7; we'll use this to determine where the new free mouse will be placed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31613"></a>31613</td>
+<td class="address-1"><span id="31613"></span>31613</td>
 <td class="instruction">AND 7</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31615"></a>31615</td>
+<td class="address-1"><span id="31615"></span>31615</td>
 <td class="instruction">LD D,A</td>
 <td class="comment-11" rowspan="1">Copy this random number to <span class="register">D</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31616"></a>31616</td>
+<td class="address-1"><span id="31616"></span>31616</td>
 <td class="instruction">CP 2</td>
 <td class="comment-11" rowspan="2">Jump if R&gt;=2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31618"></a>31618</td>
+<td class="address-1"><span id="31618"></span>31618</td>
 <td class="instruction">JR NC,31628</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="31620"></a>
+<span id="31620"></span>
 <div class="comments">
 <div class="paragraph">
-R=0 or 1. The next section of code is intended to set the x-coordinate for the the new free mouse to 170 provided that X&lt;128, or try again with a new random number (R) if X&gt;=128. However, at this point <span class="register">HL</span> may have been set to 32522 (byte 10 of the <a class="link" href="32512.html">screen refresh buffer</a>) or 32600 (byte 4 of the <a class="link" href="32596.html">buffer for the Blue Room blackboard</a>) by the LD L,10 or LD L,88 instruction below, and so the contents of 32522 or 32600 (instead of X at <a class="link" href="32767.html">32767</a>) may be compared with 128. Thus it is possible for the new free mouse to appear at x-coordinate 170 even when X&gt;=128, which means it could appear on-screen. This is a <a class="link" href="../reference/bugs.html#rematerialisingMouse">bug</a>.
+R=0 or 1. The next section of code is intended to set the x-coordinate for the the new free mouse to 170 provided that X&lt;128, or try again with a new random number (R) if X&gt;=128. However, at this point <span class="register">HL</span> may have been set to 32522 (byte 10 of the <a href="32512.html">screen refresh buffer</a>) or 32600 (byte 4 of the <a href="32596.html">buffer for the Blue Room blackboard</a>) by the LD L,10 or LD L,88 instruction below, and so the contents of 32522 or 32600 (instead of X at <a href="32767.html">32767</a>) may be compared with 128. Thus it is possible for the new free mouse to appear at x-coordinate 170 even when X&gt;=128, which means it could appear on-screen. This is a <a href="../reference/bugs.html#rematerialisingMouse">bug</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31620"></a>31620</td>
+<td class="address-1"><span id="31620"></span>31620</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=X (column of the play area at the far left of the screen), or the contents of 32522 or 32600</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31621"></a>31621</td>
+<td class="address-1"><span id="31621"></span>31621</td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31622"></a>31622</td>
+<td class="address-1"><span id="31622"></span>31622</td>
 <td class="instruction">JR C,31610</td>
 <td class="comment-11" rowspan="1">Jump if <span class="register">A</span>&gt;=128 to get another random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31624"></a>31624</td>
+<td class="address-1"><span id="31624"></span>31624</td>
 <td class="instruction">LD L,170</td>
 <td class="comment-11" rowspan="1">170=x-coordinate for the new free mouse</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31626"></a>31626</td>
+<td class="address-1"><span id="31626"></span>31626</td>
 <td class="instruction">JR 31651</td>
 <td class="comment-11" rowspan="1">Go and figure out the y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31628"></a>31628</td>
+<td class="address-2"><span id="31628"></span>31628</td>
 <td class="instruction">CP 5</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31630"></a>31630</td>
+<td class="address-1"><span id="31630"></span>31630</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=X (column of the play area at the far left of the screen), or the contents of 32522 or 32600</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31631"></a>31631</td>
+<td class="address-1"><span id="31631"></span>31631</td>
 <td class="instruction">JR NC,31645</td>
 <td class="comment-11" rowspan="1">Jump if R&gt;=5</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="31633"></a>
+<span id="31633"></span>
 <div class="comments">
 <div class="paragraph">
-R=2, 3 or 4. The next section of code is intended to set the x-coordinate for the new free mouse to 88 provided that X&lt;56 or X&gt;=104, or try again with a new random number (R) if 56&lt;=X&lt;104. However, as noted above, <span class="register">HL</span> may now hold 32522 or 32600 instead of <a class="link" href="32767.html">32767</a>, and so the contents of 32522 or 32600 (instead of X) may be compared with 56 and 104. Thus it is possible for the new free mouse to appear at x-coordinate 88 even when 56&lt;=X&lt;104, which means it could appear on-screen. This is a <a class="link" href="../reference/bugs.html#rematerialisingMouse">bug</a>.
+R=2, 3 or 4. The next section of code is intended to set the x-coordinate for the new free mouse to 88 provided that X&lt;56 or X&gt;=104, or try again with a new random number (R) if 56&lt;=X&lt;104. However, as noted above, <span class="register">HL</span> may now hold 32522 or 32600 instead of <a href="32767.html">32767</a>, and so the contents of 32522 or 32600 (instead of X) may be compared with 56 and 104. Thus it is possible for the new free mouse to appear at x-coordinate 88 even when 56&lt;=X&lt;104, which means it could appear on-screen. This is a <a href="../reference/bugs.html#rematerialisingMouse">bug</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31633"></a>31633</td>
+<td class="address-1"><span id="31633"></span>31633</td>
 <td class="instruction">CP 56</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31635"></a>31635</td>
+<td class="address-1"><span id="31635"></span>31635</td>
 <td class="instruction">LD L,88</td>
 <td class="comment-11" rowspan="1">88=possible x-coordinate for the new free mouse</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31637"></a>31637</td>
+<td class="address-1"><span id="31637"></span>31637</td>
 <td class="instruction">JR C,31651</td>
 <td class="comment-11" rowspan="1">Jump if <span class="register">A</span>&lt;56 to figure out the y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31639"></a>31639</td>
+<td class="address-1"><span id="31639"></span>31639</td>
 <td class="instruction">CP 104</td>
 <td class="comment-11" rowspan="2">Jump if 56&lt;=<span class="register">A</span>&lt;104 to get another random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31641"></a>31641</td>
+<td class="address-1"><span id="31641"></span>31641</td>
 <td class="instruction">JR C,31610</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31643"></a>31643</td>
+<td class="address-1"><span id="31643"></span>31643</td>
 <td class="instruction">JR 31651</td>
 <td class="comment-11" rowspan="1">Go and figure out the y-coordinate for the mouse</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="31645"></a>
+<span id="31645"></span>
 <div class="comments">
 <div class="paragraph">
-R=5, 6 or 7. The next section of code is intended to set the x-coordinate for the new free mouse to 10 provided that X&gt;=56, or try again with a new random number (R) if X&lt;56. However, as noted above, <span class="register">HL</span> may now hold 32522 or 32600 instead of <a class="link" href="32767.html">32767</a>, and so the contents of 32522 or 32600 (instead of X) may be compared with 56. Thus it is possible for the new free mouse to appear at x-coordinate 10 even when X&lt;56, which means it could appear on-screen. This is a <a class="link" href="../reference/bugs.html#rematerialisingMouse">bug</a>.
+R=5, 6 or 7. The next section of code is intended to set the x-coordinate for the new free mouse to 10 provided that X&gt;=56, or try again with a new random number (R) if X&lt;56. However, as noted above, <span class="register">HL</span> may now hold 32522 or 32600 instead of <a href="32767.html">32767</a>, and so the contents of 32522 or 32600 (instead of X) may be compared with 56. Thus it is possible for the new free mouse to appear at x-coordinate 10 even when X&lt;56, which means it could appear on-screen. This is a <a href="../reference/bugs.html#rematerialisingMouse">bug</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31645"></a>31645</td>
+<td class="address-2"><span id="31645"></span>31645</td>
 <td class="instruction">LD L,10</td>
 <td class="comment-11" rowspan="1">10=possible x-coordinate for the new free mouse</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31647"></a>31647</td>
+<td class="address-1"><span id="31647"></span>31647</td>
 <td class="instruction">CP 56</td>
 <td class="comment-11" rowspan="2">Jump if <span class="register">A</span>&lt;56 to get another random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31649"></a>31649</td>
+<td class="address-1"><span id="31649"></span>31649</td>
 <td class="instruction">JR C,31610</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="31651"></a>
+<span id="31651"></span>
 <div class="comments">
 <div class="paragraph">
 The x-coordinate for the new free mouse (10, 88 or 170) has been determined. Now to determine the mouse's y-coordinate.
@@ -376,266 +372,266 @@ The x-coordinate for the new free mouse (10, 88 or 170) has been determined. Now
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31651"></a>31651</td>
+<td class="address-2"><span id="31651"></span>31651</td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=R (the random number from 0 to 7)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31652"></a>31652</td>
+<td class="address-2"><span id="31652"></span>31652</td>
 <td class="instruction">SUB 3</td>
 <td class="comment-11" rowspan="3">Convert this to a random number from 0 to 2 by taking the remainder when divided by 3</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31654"></a>31654</td>
+<td class="address-1"><span id="31654"></span>31654</td>
 <td class="instruction">JR NC,31652</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31656"></a>31656</td>
+<td class="address-1"><span id="31656"></span>31656</td>
 <td class="instruction">ADD A,3</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31658"></a>31658</td>
+<td class="address-1"><span id="31658"></span>31658</td>
 <td class="instruction">LD H,17</td>
 <td class="comment-11" rowspan="1">17=possible y-coordinate for the new free mouse (bottom floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31660"></a>31660</td>
+<td class="address-1"><span id="31660"></span>31660</td>
 <td class="instruction">JR Z,31669</td>
 <td class="comment-11" rowspan="1">Jump if the random number is 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31662"></a>31662</td>
+<td class="address-1"><span id="31662"></span>31662</td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31663"></a>31663</td>
+<td class="address-1"><span id="31663"></span>31663</td>
 <td class="instruction">LD H,10</td>
 <td class="comment-11" rowspan="1">10=possible y-coordinate for the new free mouse (middle floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31665"></a>31665</td>
+<td class="address-1"><span id="31665"></span>31665</td>
 <td class="instruction">JR Z,31669</td>
 <td class="comment-11" rowspan="1">Jump if the random number was 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31667"></a>31667</td>
+<td class="address-1"><span id="31667"></span>31667</td>
 <td class="instruction">LD H,3</td>
 <td class="comment-11" rowspan="1">3=y-coordinate for the new free mouse (top floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31669"></a>31669</td>
+<td class="address-2"><span id="31669"></span>31669</td>
 <td class="instruction">LD (54273),HL</td>
 <td class="comment-11" rowspan="1">Fill in the location of the new free mouse</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31672"></a>31672</td>
+<td class="address-1"><span id="31672"></span>31672</td>
 <td class="instruction">LD A,10</td>
 <td class="comment-11" rowspan="2">Add 100 to the score, print it and make a sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31674"></a>31674</td>
-<td class="instruction">CALL <a class="link" href="28952.html">28952</a></td>
+<td class="address-1"><span id="31674"></span>31674</td>
+<td class="instruction">CALL <a href="28952.html">28952</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31677"></a>31677</td>
+<td class="address-1"><span id="31677"></span>31677</td>
 <td class="instruction">LD HL,32737</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32737.html">32737</a> holds the number of mice ERIC has caught</td>
+<td class="comment-11" rowspan="1"><a href="32737.html">32737</a> holds the number of mice ERIC has caught</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31680"></a>31680</td>
+<td class="address-1"><span id="31680"></span>31680</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Increase this by 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31681"></a>31681</td>
+<td class="address-1"><span id="31681"></span>31681</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="31682"></a>
+<span id="31682"></span>
 <div class="comments">
 <div class="paragraph">
-Now it's time to update the on-screen mouse inventory. This entry point is used by the routine at <a class="link" href="31462.html">31462</a>.
+Now it's time to update the on-screen mouse inventory. This entry point is used by the routine at <a href="31462.html">31462</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31682"></a>31682</td>
+<td class="address-2"><span id="31682"></span>31682</td>
 <td class="instruction">LD A,(32737)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of mice in ERIC's pocket</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31685"></a>31685</td>
+<td class="address-1"><span id="31685"></span>31685</td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1"><span class="register">C</span> will count the number of mice remaining to be printed in the inventory</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31686"></a>31686</td>
+<td class="address-1"><span id="31686"></span>31686</td>
 <td class="instruction">LD L,168</td>
 <td class="comment-11" rowspan="1">168=LSB of the display file address for the spot in the inventory for the first captive mouse</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31688"></a>31688</td>
+<td class="address-2"><span id="31688"></span>31688</td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of mice left to print</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31689"></a>31689</td>
+<td class="address-1"><span id="31689"></span>31689</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Set the zero flag if there are none left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31690"></a>31690</td>
+<td class="address-1"><span id="31690"></span>31690</td>
 <td class="instruction">LD B,8</td>
 <td class="comment-11" rowspan="1">There are 8 bytes in the mouse UDG/inventory slot</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31692"></a>31692</td>
+<td class="address-1"><span id="31692"></span>31692</td>
 <td class="instruction">LD H,80</td>
 <td class="comment-11" rowspan="1">Set <span class="register">HL</span> to the appropriate display file address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31694"></a>31694</td>
+<td class="address-1"><span id="31694"></span>31694</td>
 <td class="instruction">JR NZ,31702</td>
 <td class="comment-11" rowspan="1">Jump if we need to draw a mouse here</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31696"></a>31696</td>
+<td class="address-2"><span id="31696"></span>31696</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="3">Otherwise blank out this spot in the mouse inventory</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31697"></a>31697</td>
+<td class="address-1"><span id="31697"></span>31697</td>
 <td class="instruction">INC H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31698"></a>31698</td>
+<td class="address-1"><span id="31698"></span>31698</td>
 <td class="instruction">DJNZ 31696</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31700"></a>31700</td>
+<td class="address-1"><span id="31700"></span>31700</td>
 <td class="instruction">JR 31712</td>
 <td class="comment-11" rowspan="1">Move to the next spot in the mouse inventory</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31702"></a>31702</td>
+<td class="address-2"><span id="31702"></span>31702</td>
 <td class="instruction">LD DE,40928</td>
-<td class="comment-11" rowspan="1">The captured mouse UDG is at <a class="link" href="40928.html">40928</a></td>
+<td class="comment-11" rowspan="1">The captured mouse UDG is at <a href="40928.html">40928</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31705"></a>31705</td>
+<td class="address-1"><span id="31705"></span>31705</td>
 <td class="instruction">DEC C</td>
 <td class="comment-11" rowspan="1">Decrease the captured mouse counter</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31706"></a>31706</td>
+<td class="address-2"><span id="31706"></span>31706</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="5">Display a captured mouse in the inventory</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31707"></a>31707</td>
+<td class="address-1"><span id="31707"></span>31707</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31708"></a>31708</td>
+<td class="address-1"><span id="31708"></span>31708</td>
 <td class="instruction">INC H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31709"></a>31709</td>
+<td class="address-1"><span id="31709"></span>31709</td>
 <td class="instruction">INC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31710"></a>31710</td>
+<td class="address-1"><span id="31710"></span>31710</td>
 <td class="instruction">DJNZ 31706</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31712"></a>31712</td>
+<td class="address-2"><span id="31712"></span>31712</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Point to the next spot in the mouse inventory</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31713"></a>31713</td>
+<td class="address-1"><span id="31713"></span>31713</td>
 <td class="instruction">BIT 4,L</td>
 <td class="comment-11" rowspan="1">Have we drawn all 8 spots yet (<span class="register">L</span>=176)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31715"></a>31715</td>
+<td class="address-1"><span id="31715"></span>31715</td>
 <td class="instruction">JR Z,31688</td>
 <td class="comment-11" rowspan="1">Jump back to draw the next one if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31717"></a>31717</td>
+<td class="address-1"><span id="31717"></span>31717</td>
 <td class="instruction">LD H,210</td>
 <td class="comment-11" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31719"></a>31719</td>
+<td class="address-1"><span id="31719"></span>31719</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31572.html">31572</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31573">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31720.html">31720</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31572.html">31572</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31573">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31720.html">31720</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 57935</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="57933.html">57933</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#57935">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="57942.html">57942</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="57933.html">57933</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#57935">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="57942.html">57942</a></span></td>
 </tr>
 </table>
 <div class="description">57935: Check whether buffer 214 is being used</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="24296.html">24296</a> and <a class="link" href="63898.html">63898</a>. Returns to the main loop if buffer 214 is already in use (by ERIC's catapult pellet, water or sherry fired from the pistol or falling from a cup, a plant, the conker, or a desk lid); otherwise returns to the caller.
+Used by the routines at <a href="24296.html">24296</a> and <a href="63898.html">63898</a>. Returns to the main loop if buffer 214 is already in use (by ERIC's catapult pellet, water or sherry fired from the pistol or falling from a cup, a plant, the conker, or a desk lid); otherwise returns to the caller.
 </div>
 </div>
 <table class="input-0">
@@ -49,46 +45,46 @@ Used by the routines at <a class="link" href="24296.html">24296</a> and <a class
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="57935"></a>57935</td>
+<td class="address-2"><span id="57935"></span>57935</td>
 <td class="instruction">LD A,(54802)</td>
 <td class="comment-11" rowspan="2">Is there an uninterruptible subcommand routine address in bytes 17 and 18 of the buffer in page 214?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="57938"></a>57938</td>
+<td class="address-1"><span id="57938"></span>57938</td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="57939"></a>57939</td>
+<td class="address-1"><span id="57939"></span>57939</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not (the buffer is free)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="57940"></a>57940</td>
+<td class="address-1"><span id="57940"></span>57940</td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="2">Otherwise drop the return address from the stack and return to the main loop</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="57941"></a>57941</td>
+<td class="address-1"><span id="57941"></span>57941</td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="57933.html">57933</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#57935">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="57942.html">57942</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="57933.html">57933</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#57935">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="57942.html">57942</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

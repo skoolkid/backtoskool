@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 31733</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31723.html">31723</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31733">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31746.html">31746</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31723.html">31723</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31733">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31746.html">31746</a></span></td>
 </tr>
 </table>
 <div class="description">31733: Make ERIC catch the frog (if possible)</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="31573.html">31573</a>. Adds the frog to ERIC's inventory and makes a sound effect if the frog is sitting (i.e. not airborne) at the spot in front of ERIC.
+Used by the routine at <a href="31573.html">31573</a>. Adds the frog to ERIC's inventory and makes a sound effect if the frog is sitting (i.e. not airborne) at the spot in front of ERIC.
 </div>
 </div>
 <table class="input-1">
@@ -52,52 +48,52 @@ Used by the routine at <a class="link" href="31573.html">31573</a>. Adds the fro
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31733"></a>31733</td>
+<td class="address-2"><span id="31733"></span>31733</td>
 <td class="instruction">CP 28</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#28">28</a>: Is the frog sitting down?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#28">28</a>: Is the frog sitting down?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31735"></a>31735</td>
+<td class="address-1"><span id="31735"></span>31735</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not (ERIC cannot catch an airborne frog)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31736"></a>31736</td>
+<td class="address-1"><span id="31736"></span>31736</td>
 <td class="instruction">LD HL,32747</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32747.html">32747</a> holds the inventory flags</td>
+<td class="comment-11" rowspan="1"><a href="32747.html">32747</a> holds the inventory flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31739"></a>31739</td>
+<td class="address-1"><span id="31739"></span>31739</td>
 <td class="instruction">SET 2,(HL)</td>
 <td class="comment-11" rowspan="1">Signal: got the frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31741"></a>31741</td>
+<td class="address-1"><span id="31741"></span>31741</td>
 <td class="instruction">LD H,212</td>
 <td class="comment-11" rowspan="1">212=frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31743"></a>31743</td>
-<td class="instruction">JP <a class="link" href="29568.html">29568</a></td>
+<td class="address-1"><span id="31743"></span>31743</td>
+<td class="instruction">JP <a href="29568.html">29568</a></td>
 <td class="comment-11" rowspan="1">Print the inventory and make a sound effect</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31723.html">31723</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31733">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31746.html">31746</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31723.html">31723</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31733">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31746.html">31746</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

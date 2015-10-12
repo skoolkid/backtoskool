@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 27820</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="27804.html">27804</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#27820">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="27858.html">27858</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="27804.html">27804</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#27820">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="27858.html">27858</a></span></td>
 </tr>
 </table>
 <div class="description">27820: Check whether any characters have been hit by a fist, pellet or conker</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="27804.html">27804</a>, <a class="link" href="29896.html">29896</a> and <a class="link" href="30380.html">30380</a>. Returns with the carry flag reset if someone is in the same location as the fist, pellet or conker, and with <span class="register">D</span> holding that person's character number.
+Used by the routines at <a href="27804.html">27804</a>, <a href="29896.html">29896</a> and <a href="30380.html">30380</a>. Returns with the carry flag reset if someone is in the same location as the fist, pellet or conker, and with <span class="register">D</span> holding that person's character number.
 </div>
 </div>
 <table class="input-1">
@@ -60,73 +56,73 @@ Used by the routines at <a class="link" href="27804.html">27804</a>, <a class="l
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="27820"></a>27820</td>
+<td class="address-2"><span id="27820"></span>27820</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="27821"></a>27821</td>
+<td class="address-2"><span id="27821"></span>27821</td>
 <td class="instruction">LD L,1</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the next potential target's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27823"></a>27823</td>
+<td class="address-1"><span id="27823"></span>27823</td>
 <td class="instruction">LD E,L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 1 of the puncher's, pellet's or conker's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27824"></a>27824</td>
+<td class="address-1"><span id="27824"></span>27824</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the fist/pellet/conker</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27825"></a>27825</td>
+<td class="address-1"><span id="27825"></span>27825</td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Does this match the target character's x-coordinate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27826"></a>27826</td>
+<td class="address-1"><span id="27826"></span>27826</td>
 <td class="instruction">JR Z,27834</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="27828"></a>27828</td>
+<td class="address-2"><span id="27828"></span>27828</td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Move to the next potential target</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27829"></a>27829</td>
+<td class="address-1"><span id="27829"></span>27829</td>
 <td class="instruction">DJNZ 27821</td>
 <td class="comment-11" rowspan="1">Jump back until all potential targets have been checked</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27831"></a>27831</td>
+<td class="address-1"><span id="27831"></span>27831</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27832"></a>27832</td>
+<td class="address-1"><span id="27832"></span>27832</td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: no character was hit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27833"></a>27833</td>
+<td class="address-1"><span id="27833"></span>27833</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="27834"></a>
+<span id="27834"></span>
 <div class="comments">
 <div class="paragraph">
 A potential victim of the fist, pellet or conker was found at the right x-coordinate. What about the y-coordinate?
@@ -136,37 +132,37 @@ A potential victim of the fist, pellet or conker was found at the right x-coordi
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="27834"></a>27834</td>
+<td class="address-2"><span id="27834"></span>27834</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the next potential target's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27835"></a>27835</td>
+<td class="address-1"><span id="27835"></span>27835</td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 2 of the puncher's, pellet's, or conker's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27836"></a>27836</td>
+<td class="address-1"><span id="27836"></span>27836</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the fist/pellet/conker</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27837"></a>27837</td>
+<td class="address-1"><span id="27837"></span>27837</td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Does this match the target character's y-coordinate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27838"></a>27838</td>
+<td class="address-1"><span id="27838"></span>27838</td>
 <td class="instruction">JR NZ,27828</td>
 <td class="comment-11" rowspan="1">Jump back to consider the next character if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="27840"></a>
+<span id="27840"></span>
 <div class="comments">
 <div class="paragraph">
 The potential victim's coordinates are a perfect match.
@@ -176,61 +172,61 @@ The potential victim's coordinates are a perfect match.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27840"></a>27840</td>
+<td class="address-1"><span id="27840"></span>27840</td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27841"></a>27841</td>
+<td class="address-1"><span id="27841"></span>27841</td>
 <td class="instruction">CP 210</td>
 <td class="comment-11" rowspan="1">Was ERIC hit?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27843"></a>27843</td>
+<td class="address-1"><span id="27843"></span>27843</td>
 <td class="instruction">JR Z,27853</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27845"></a>27845</td>
+<td class="address-1"><span id="27845"></span>27845</td>
 <td class="instruction">LD L,18</td>
 <td class="comment-11" rowspan="2">Bytes 17 and 18 of the character's buffer may hold the address of an uninterruptible subcommand routine (which would prevent him from being knocked over); pick up the MSB in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27847"></a>27847</td>
+<td class="address-1"><span id="27847"></span>27847</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="27848"></a>27848</td>
+<td class="address-2"><span id="27848"></span>27848</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Can this character be knocked over at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27849"></a>27849</td>
+<td class="address-1"><span id="27849"></span>27849</td>
 <td class="instruction">JR NZ,27828</td>
 <td class="comment-11" rowspan="1">Jump back to consider the next character if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27851"></a>27851</td>
+<td class="address-1"><span id="27851"></span>27851</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Transfer the stricken character's number to <span class="register">D</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27852"></a>27852</td>
+<td class="address-1"><span id="27852"></span>27852</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="27853"></a>
+<span id="27853"></span>
 <div class="comments">
 <div class="paragraph">
 ERIC was the potential victim.
@@ -240,28 +236,28 @@ ERIC was the potential victim.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="27853"></a>27853</td>
+<td class="address-2"><span id="27853"></span>27853</td>
 <td class="instruction">LD A,(32763)</td>
-<td class="comment-11" rowspan="1">Collect ERIC's status flags from <a class="link" href="32763.html">32763</a>; now <span class="register">A</span>=0 unless ERIC is engaged in some activity other than walking</td>
+<td class="comment-11" rowspan="1">Collect ERIC's status flags from <a href="32763.html">32763</a>; now <span class="register">A</span>=0 unless ERIC is engaged in some activity other than walking</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="27856"></a>27856</td>
+<td class="address-1"><span id="27856"></span>27856</td>
 <td class="instruction">JR 27848</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="27804.html">27804</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#27820">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="27858.html">27858</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="27804.html">27804</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#27820">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="27858.html">27858</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 26849</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26845.html">26845</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26849">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26909.html">26909</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26845.html">26845</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26849">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26909.html">26909</a></span></td>
 </tr>
 </table>
 <div class="description">26849: Update the SRB so that the speech bubble is not corrupted</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="25248.html">25248</a>, <a class="link" href="26910.html">26910</a> and <a class="link" href="27144.html">27144</a>. Resets the bits in the <a class="link" href="32512.html">screen refresh buffer</a> (SRB) that correspond to the speech bubble and lip, so that they are not overwritten by sprite tiles when the display is updated. Returns with the carry flag set if the speech bubble is on-screen, and with <span class="register">HL</span> pointing at the first byte of the SRB.
+Used by the routines at <a href="25248.html">25248</a>, <a href="26910.html">26910</a> and <a href="27144.html">27144</a>. Resets the bits in the <a href="32512.html">screen refresh buffer</a> (SRB) that correspond to the speech bubble and lip, so that they are not overwritten by sprite tiles when the display is updated. Returns with the carry flag set if the speech bubble is on-screen, and with <span class="register">HL</span> pointing at the first byte of the SRB.
 </div>
 </div>
 <table class="input-0">
@@ -49,101 +45,101 @@ Used by the routines at <a class="link" href="25248.html">25248</a>, <a class="l
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26849"></a>26849</td>
+<td class="address-2"><span id="26849"></span>26849</td>
 <td class="instruction">LD HL,32760</td>
-<td class="comment-11" rowspan="2"><a class="link" href="32760.html">32760</a> holds the LSB of the SRB address corresponding to the lip of the speech bubble (or 0 if there is no bubble on-screen)</td>
+<td class="comment-11" rowspan="2"><a href="32760.html">32760</a> holds the LSB of the SRB address corresponding to the lip of the speech bubble (or 0 if there is no bubble on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26852"></a>26852</td>
+<td class="address-1"><span id="26852"></span>26852</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26853"></a>26853</td>
+<td class="address-1"><span id="26853"></span>26853</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0 (and <span class="register">HL</span>=<a class="link" href="32512.html">32512</a>) if no one is speaking</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0 (and <span class="register">HL</span>=<a href="32512.html">32512</a>) if no one is speaking</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26854"></a>26854</td>
+<td class="address-1"><span id="26854"></span>26854</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is anyone speaking at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26855"></a>26855</td>
+<td class="address-1"><span id="26855"></span>26855</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26856"></a>26856</td>
+<td class="address-1"><span id="26856"></span>26856</td>
 <td class="instruction">LD L,255</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32767.html">32767</a></td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32767.html">32767</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26858"></a>26858</td>
+<td class="address-1"><span id="26858"></span>26858</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26859"></a>26859</td>
+<td class="address-1"><span id="26859"></span>26859</td>
 <td class="instruction">LD L,250</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32762.html">32762</a>, which holds the column of the play area that was at the far left of the screen the last time this routine was called</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32762.html">32762</a>, which holds the column of the play area that was at the far left of the screen the last time this routine was called</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26861"></a>26861</td>
+<td class="address-1"><span id="26861"></span>26861</td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Set the zero flag if the screen hasn't scrolled, set the carry flag if the screen has scrolled right, or reset the carry flag if it has scrolled left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26862"></a>26862</td>
+<td class="address-1"><span id="26862"></span>26862</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Update <a class="link" href="32762.html">32762</a> to the current leftmost column on-screen</td>
+<td class="comment-11" rowspan="1">Update <a href="32762.html">32762</a> to the current leftmost column on-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26863"></a>26863</td>
+<td class="address-1"><span id="26863"></span>26863</td>
 <td class="instruction">LD L,248</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a class="link" href="32760.html">32760</a></td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32760.html">32760</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26865"></a>26865</td>
+<td class="address-1"><span id="26865"></span>26865</td>
 <td class="instruction">JR Z,26888</td>
 <td class="comment-11" rowspan="1">Jump if the screen hasn't scrolled since the last time this routine was called</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26867"></a>
+<span id="26867"></span>
 <div class="comments">
 <div class="paragraph">
-The screen has scrolled since the last time this routine was called. Check which way it scrolled and update <a class="link" href="32760.html">32760</a> accordingly.
+The screen has scrolled since the last time this routine was called. Check which way it scrolled and update <a href="32760.html">32760</a> accordingly.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26867"></a>26867</td>
+<td class="address-1"><span id="26867"></span>26867</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the speech bubble lip SRB address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26868"></a>26868</td>
+<td class="address-1"><span id="26868"></span>26868</td>
 <td class="instruction">JR NC,26883</td>
 <td class="comment-11" rowspan="1">Jump if the screen has scrolled left</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26870"></a>
+<span id="26870"></span>
 <div class="comments">
 <div class="paragraph">
 The screen has scrolled right since the last time this routine was called.
@@ -153,25 +149,25 @@ The screen has scrolled right since the last time this routine was called.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26870"></a>26870</td>
+<td class="address-1"><span id="26870"></span>26870</td>
 <td class="instruction">AND 3</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0-3 (quarter of the screen occupied by the bubble before the scroll)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26872"></a>26872</td>
+<td class="address-1"><span id="26872"></span>26872</td>
 <td class="instruction">CP 3</td>
 <td class="comment-11" rowspan="1">Was the bubble in the rightmost quarter?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26874"></a>26874</td>
+<td class="address-1"><span id="26874"></span>26874</td>
 <td class="instruction">JR NZ,26880</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26876"></a>
+<span id="26876"></span>
 <div class="comments">
 <div class="paragraph">
 The speech bubble has been scrolled off the screen.
@@ -181,37 +177,37 @@ The speech bubble has been scrolled off the screen.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26876"></a>26876</td>
+<td class="address-2"><span id="26876"></span>26876</td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-11" rowspan="1">Set <a class="link" href="32760.html">32760</a> to 0 (the bubble is no longer on-screen)</td>
+<td class="comment-11" rowspan="1">Set <a href="32760.html">32760</a> to 0 (the bubble is no longer on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26878"></a>26878</td>
+<td class="address-1"><span id="26878"></span>26878</td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26879"></a>26879</td>
+<td class="address-1"><span id="26879"></span>26879</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26880"></a>26880</td>
+<td class="address-2"><span id="26880"></span>26880</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">The speech bubble has been scrolled to the right (and is still on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26881"></a>26881</td>
+<td class="address-1"><span id="26881"></span>26881</td>
 <td class="instruction">JR 26888</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26883"></a>
+<span id="26883"></span>
 <div class="comments">
 <div class="paragraph">
 The screen has scrolled left since the last time this routine was called.
@@ -221,134 +217,134 @@ The screen has scrolled left since the last time this routine was called.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26883"></a>26883</td>
+<td class="address-2"><span id="26883"></span>26883</td>
 <td class="instruction">AND 3</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0-3 (quarter of the screen occupied by the bubble before the scroll)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26885"></a>26885</td>
+<td class="address-1"><span id="26885"></span>26885</td>
 <td class="instruction">JR Z,26876</td>
 <td class="comment-11" rowspan="1">Jump if the bubble was in the leftmost quarter (and is therefore no longer on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26887"></a>26887</td>
+<td class="address-1"><span id="26887"></span>26887</td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">The speech bubble has been scrolled to the left (and is still on-screen)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26888"></a>
+<span id="26888"></span>
 <div class="comments">
 <div class="paragraph">
-Now that <a class="link" href="32760.html">32760</a> has been adjusted to compensate for any recent scrolling of the screen, adjust the appropriate SRB bytes for the speech bubble and lip.
+Now that <a href="32760.html">32760</a> has been adjusted to compensate for any recent scrolling of the screen, adjust the appropriate SRB bytes for the speech bubble and lip.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26888"></a>26888</td>
+<td class="address-2"><span id="26888"></span>26888</td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=address of the SRB byte corresponding to the lip of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26889"></a>26889</td>
+<td class="address-1"><span id="26889"></span>26889</td>
 <td class="instruction">LD A,(32761)</td>
 <td class="comment-11" rowspan="1">The bit set in <span class="register">A</span> corresponds to the bit of the SRB byte that corresponds to the lip of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26892"></a>26892</td>
+<td class="address-1"><span id="26892"></span>26892</td>
 <td class="instruction">CPL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26893"></a>26893</td>
+<td class="address-1"><span id="26893"></span>26893</td>
 <td class="instruction">AND (HL)</td>
 <td class="comment-11" rowspan="1">Make sure this bit is reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26894"></a>26894</td>
+<td class="address-1"><span id="26894"></span>26894</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Restore the SRB byte with the relevant bit reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26895"></a>26895</td>
+<td class="address-1"><span id="26895"></span>26895</td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26896"></a>26896</td>
+<td class="address-1"><span id="26896"></span>26896</td>
 <td class="instruction">ADD A,252</td>
 <td class="comment-11" rowspan="3">Reset the bits of the SRB corresponding to the bottom line of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26898"></a>26898</td>
+<td class="address-1"><span id="26898"></span>26898</td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26899"></a>26899</td>
+<td class="address-1"><span id="26899"></span>26899</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26901"></a>26901</td>
+<td class="address-1"><span id="26901"></span>26901</td>
 <td class="instruction">ADD A,252</td>
 <td class="comment-11" rowspan="3">Reset the bits of the SRB corresponding to the top line of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26903"></a>26903</td>
+<td class="address-1"><span id="26903"></span>26903</td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26904"></a>26904</td>
+<td class="address-1"><span id="26904"></span>26904</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26906"></a>26906</td>
+<td class="address-1"><span id="26906"></span>26906</td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26907"></a>26907</td>
+<td class="address-1"><span id="26907"></span>26907</td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: the speech bubble is still on-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26908"></a>26908</td>
+<td class="address-1"><span id="26908"></span>26908</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26845.html">26845</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26849">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26909.html">26909</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26845.html">26845</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26849">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26909.html">26909</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

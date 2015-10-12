@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 31078</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31076.html">31076</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31078">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31091.html">31091</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31076.html">31076</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31078">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31091.html">31091</a></span></td>
 </tr>
 </table>
 <div class="description">31078: Control a female character while she's standing on a chair or jumping (1)</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a female character's buffer by the routine at <a class="link" href="31092.html">31092</a>. It deals with a female character while she is either standing on a chair or jumping up and down (to evade a mouse).
+The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a female character's buffer by the routine at <a href="31092.html">31092</a>. It deals with a female character while she is either standing on a chair or jumping up and down (to evade a mouse).
 </div>
 </div>
 <table class="input-1">
@@ -52,58 +48,58 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31078"></a>31078</td>
+<td class="address-2"><span id="31078"></span>31078</td>
 <td class="instruction">LD L,19</td>
 <td class="comment-11" rowspan="1">Byte 19 of the character's buffer holds a counter determining how much longer she will continue jumping</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31080"></a>31080</td>
+<td class="address-1"><span id="31080"></span>31080</td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Is it time to stop jumping?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31081"></a>31081</td>
-<td class="instruction">JR NZ,<a class="link" href="31128.html">31128</a></td>
+<td class="address-1"><span id="31081"></span>31081</td>
+<td class="instruction">JR NZ,<a href="31128.html">31128</a></td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31083"></a>31083</td>
-<td class="instruction">CALL <a class="link" href="28978.html">28978</a></td>
+<td class="address-1"><span id="31083"></span>31083</td>
+<td class="instruction">CALL <a href="28978.html">28978</a></td>
 <td class="comment-11" rowspan="1">Return this character to the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31086"></a>31086</td>
+<td class="address-1"><span id="31086"></span>31086</td>
 <td class="instruction">LD L,18</td>
 <td class="comment-11" rowspan="2">Remove the address of this routine from bytes 17 and 18 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31088"></a>31088</td>
+<td class="address-1"><span id="31088"></span>31088</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31090"></a>31090</td>
+<td class="address-1"><span id="31090"></span>31090</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31076.html">31076</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31078">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31091.html">31091</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31076.html">31076</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31078">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31091.html">31091</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

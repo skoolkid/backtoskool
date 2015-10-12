@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 26136</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26134.html">26134</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26136">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26175.html">26175</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26134.html">26134</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26136">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26175.html">26175</a></span></td>
 </tr>
 </table>
 <div class="description">26136: Check whether a chair is occupied</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="26175.html">26175</a>. Returns with the zero flag set if the chair beside the character looking for a seat is already occupied by one of the potential occupants being checked.
+Used by the routine at <a href="26175.html">26175</a>. Returns with the zero flag set if the chair beside the character looking for a seat is already occupied by one of the potential occupants being checked.
 </div>
 </div>
 <table class="input-1">
@@ -68,188 +64,188 @@ Used by the routine at <a class="link" href="26175.html">26175</a>. Returns with
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26136"></a>26136</td>
+<td class="address-2"><span id="26136"></span>26136</td>
 <td class="instruction">CALL 26145</td>
 <td class="comment-11" rowspan="1">Are any of the first <span class="register">B</span> potential occupants sitting here?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26139"></a>26139</td>
+<td class="address-1"><span id="26139"></span>26139</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26140"></a>26140</td>
+<td class="address-1"><span id="26140"></span>26140</td>
 <td class="instruction">LD BC,655</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=2 (BOY WANDER and ANGELFACE), <span class="register">C</span>=143</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26143"></a>26143</td>
+<td class="address-1"><span id="26143"></span>26143</td>
 <td class="instruction">LD D,206</td>
 <td class="comment-11" rowspan="1">206=BOY WANDER</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26145"></a>
+<span id="26145"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point also is used by the routine at <a class="link" href="26175.html">26175</a>.
+This entry point also is used by the routine at <a href="26175.html">26175</a>.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26145"></a>26145</td>
+<td class="address-2"><span id="26145"></span>26145</td>
 <td class="instruction">LD E,1</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26147"></a>26147</td>
+<td class="address-1"><span id="26147"></span>26147</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the potential occupant</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26148"></a>26148</td>
+<td class="address-1"><span id="26148"></span>26148</td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Compare with that of the character looking for a seat</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26149"></a>26149</td>
+<td class="address-1"><span id="26149"></span>26149</td>
 <td class="instruction">JR NZ,26171</td>
 <td class="comment-11" rowspan="1">Jump ahead to consider the next potential occupant if they don't match</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26151"></a>26151</td>
+<td class="address-1"><span id="26151"></span>26151</td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26152"></a>26152</td>
+<td class="address-1"><span id="26152"></span>26152</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26153"></a>26153</td>
+<td class="address-1"><span id="26153"></span>26153</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the potential occupant</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26154"></a>26154</td>
+<td class="address-1"><span id="26154"></span>26154</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26155"></a>26155</td>
+<td class="address-1"><span id="26155"></span>26155</td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Compare with the y-coordinate of the character looking for a seat</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26156"></a>26156</td>
+<td class="address-1"><span id="26156"></span>26156</td>
 <td class="instruction">DEC HL</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26157"></a>26157</td>
+<td class="address-1"><span id="26157"></span>26157</td>
 <td class="instruction">JR NZ,26171</td>
 <td class="comment-11" rowspan="1">Jump if the potential occupant is not in the same location as the character looking for a seat</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26159"></a>26159</td>
+<td class="address-1"><span id="26159"></span>26159</td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26160"></a>26160</td>
+<td class="address-1"><span id="26160"></span>26160</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=potential occupant's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26161"></a>26161</td>
+<td class="address-1"><span id="26161"></span>26161</td>
 <td class="instruction">AND C</td>
 <td class="comment-11" rowspan="1">Discard the character-identifying bits and keep only the 'direction' bit and 'action' bits (<span class="register">C</span>=10001111 for BOY WANDER, ANGELFACE or ERIC, and 10000111 for anybody else)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26162"></a>26162</td>
+<td class="address-1"><span id="26162"></span>26162</td>
 <td class="instruction">CP 4</td>
 <td class="comment-11" rowspan="1">Is the potential occupant sitting in the chair here?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26164"></a>26164</td>
+<td class="address-1"><span id="26164"></span>26164</td>
 <td class="instruction">JR NZ,26171</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26166"></a>26166</td>
+<td class="address-1"><span id="26166"></span>26166</td>
 <td class="instruction">LD E,18</td>
 <td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 17 and 18 of the potential occupant's buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26168"></a>26168</td>
+<td class="address-1"><span id="26168"></span>26168</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26169"></a>26169</td>
+<td class="address-1"><span id="26169"></span>26169</td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26170"></a>26170</td>
+<td class="address-1"><span id="26170"></span>26170</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26171"></a>26171</td>
+<td class="address-2"><span id="26171"></span>26171</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Next potential occupant to test</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26172"></a>26172</td>
+<td class="address-1"><span id="26172"></span>26172</td>
 <td class="instruction">DJNZ 26145</td>
 <td class="comment-11" rowspan="1">Jump back until done</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26174"></a>26174</td>
+<td class="address-1"><span id="26174"></span>26174</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26134.html">26134</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26136">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26175.html">26175</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26134.html">26134</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26136">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26175.html">26175</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

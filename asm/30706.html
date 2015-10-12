@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 30706</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30664.html">30664</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30706">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30739.html">30739</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30664.html">30664</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30706">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30739.html">30739</a></span></td>
 </tr>
 </table>
 <div class="description">30706: Make ANGELFACE hit now and then</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="63455.html">63455</a> and <a class="link" href="63492.html">63492</a>. Decides whether ANGELFACE should throw a punch, and gets the punching action under way if so.
+Used by the routines at <a href="63455.html">63455</a> and <a href="63492.html">63492</a>. Decides whether ANGELFACE should throw a punch, and gets the punching action under way if so.
 </div>
 </div>
 <table class="input-1">
@@ -52,124 +48,124 @@ Used by the routines at <a class="link" href="63455.html">63455</a> and <a class
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="30706"></a>30706</td>
+<td class="address-2"><span id="30706"></span>30706</td>
 <td class="instruction">LD L,0</td>
 <td class="comment-11" rowspan="1">Byte 0 of ANGELFACE's buffer holds his animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30708"></a>30708</td>
+<td class="address-1"><span id="30708"></span>30708</td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is ANGELFACE midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30710"></a>30710</td>
+<td class="address-1"><span id="30710"></span>30710</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30711"></a>30711</td>
-<td class="instruction">CALL <a class="link" href="30543.html">30543</a></td>
+<td class="address-1"><span id="30711"></span>30711</td>
+<td class="instruction">CALL <a href="30543.html">30543</a></td>
 <td class="comment-11" rowspan="1">Is ANGELFACE exactly on the top, middle or bottom floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30714"></a>30714</td>
+<td class="address-1"><span id="30714"></span>30714</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30715"></a>30715</td>
-<td class="instruction">CALL <a class="link" href="25233.html">25233</a></td>
+<td class="address-1"><span id="30715"></span>30715</td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30718"></a>30718</td>
+<td class="address-1"><span id="30718"></span>30718</td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="2">Return 50% of the time</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30719"></a>30719</td>
+<td class="address-1"><span id="30719"></span>30719</td>
 <td class="instruction">RET NC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30720"></a>30720</td>
-<td class="instruction">CALL <a class="link" href="28002.html#28004">28004</a></td>
+<td class="address-1"><span id="30720"></span>30720</td>
+<td class="instruction">CALL <a href="28002.html#28004">28004</a></td>
 <td class="comment-11" rowspan="1">Can any adults see ANGELFACE?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30723"></a>30723</td>
+<td class="address-1"><span id="30723"></span>30723</td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30724"></a>30724</td>
+<td class="address-1"><span id="30724"></span>30724</td>
 <td class="instruction">LD B,3</td>
 <td class="comment-11" rowspan="2">Is there anyone 3 spaces in front of ANGELFACE and facing him?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30726"></a>30726</td>
-<td class="instruction">CALL <a class="link" href="30664.html">30664</a></td>
+<td class="address-1"><span id="30726"></span>30726</td>
+<td class="instruction">CALL <a href="30664.html">30664</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30729"></a>30729</td>
+<td class="address-1"><span id="30729"></span>30729</td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30730"></a>30730</td>
+<td class="address-1"><span id="30730"></span>30730</td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Drop the return address (<a class="link" href="25296.html#25431">25431</a>)</td>
+<td class="comment-11" rowspan="1">Drop the return address (<a href="25296.html#25431">25431</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30731"></a>30731</td>
+<td class="address-1"><span id="30731"></span>30731</td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Pop the value of <span class="register">HL</span> that was pushed on to the stack by the routine at <a class="link" href="25296.html">25296</a> before coming here; RET will now take us back either to <a class="link" href="25296.html">25296</a> to move the next character, or to the main loop</td>
+<td class="comment-11" rowspan="1">Pop the value of <span class="register">HL</span> that was pushed on to the stack by the routine at <a href="25296.html">25296</a> before coming here; RET will now take us back either to <a href="25296.html">25296</a> to move the next character, or to the main loop</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30732"></a>30732</td>
+<td class="address-1"><span id="30732"></span>30732</td>
 <td class="instruction">LD HL,30739</td>
-<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a class="link" href="30739.html">30739</a> into bytes 17 and 18 of ANGELFACE's buffer</td>
+<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="30739.html">30739</a> into bytes 17 and 18 of ANGELFACE's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30735"></a>30735</td>
+<td class="address-1"><span id="30735"></span>30735</td>
 <td class="instruction">LD (53009),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="30738"></a>30738</td>
+<td class="address-1"><span id="30738"></span>30738</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="30664.html">30664</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#30706">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="30739.html">30739</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="30664.html">30664</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30706">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30739.html">30739</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

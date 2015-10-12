@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 32379</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="32373.html">32373</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#32379">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="32432.html">32432</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="32373.html">32373</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32379">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32432.html">32432</a></span></td>
 </tr>
 </table>
 <div class="description">32379: Make MISS TAKE chase ERIC (2)</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 9 and 10 of MISS TAKE's buffer by the routine at <a class="link" href="32373.html">32373</a>. It makes MISS TAKE stalk ERIC while he's in the girls' skool or the girls' playground, but stand on guard by the skool gate if ERIC is on the boys' side.
+The address of this interruptible subcommand routine is placed into bytes 9 and 10 of MISS TAKE's buffer by the routine at <a href="32373.html">32373</a>. It makes MISS TAKE stalk ERIC while he's in the girls' skool or the girls' playground, but stand on guard by the skool gate if ERIC is on the boys' side.
 </div>
 </div>
 <table class="input-1">
@@ -52,157 +48,157 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="32379"></a>32379</td>
+<td class="address-2"><span id="32379"></span>32379</td>
 <td class="instruction">LD L,29</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 29 of MISS TAKE's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32381"></a>32381</td>
+<td class="address-1"><span id="32381"></span>32381</td>
 <td class="instruction">LD A,205</td>
 <td class="comment-11" rowspan="1">205=ALBERT</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32383"></a>32383</td>
+<td class="address-1"><span id="32383"></span>32383</td>
 <td class="instruction">SET 7,(HL)</td>
 <td class="comment-11" rowspan="1">Set bit 7 at byte 29 of MISS TAKE's buffer, making her run</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32385"></a>32385</td>
+<td class="address-1"><span id="32385"></span>32385</td>
 <td class="instruction">LD (32757),A</td>
-<td class="comment-11" rowspan="1">Set the character number of the adult who last gave ERIC lines (stored at <a class="link" href="32757.html">32757</a>) to 205 (ALBERT); this has the effect of making any teacher (including whoever last gave ERIC lines) available for lines-giving ASAP (see <a class="link" href="32032.html">32032</a> and <a class="link" href="32062.html">32062</a>)</td>
+<td class="comment-11" rowspan="1">Set the character number of the adult who last gave ERIC lines (stored at <a href="32757.html">32757</a>) to 205 (ALBERT); this has the effect of making any teacher (including whoever last gave ERIC lines) available for lines-giving ASAP (see <a href="32032.html">32032</a> and <a href="32062.html">32062</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32388"></a>32388</td>
+<td class="address-1"><span id="32388"></span>32388</td>
 <td class="instruction">LD L,0</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of MISS TAKE's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32390"></a>32390</td>
+<td class="address-1"><span id="32390"></span>32390</td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is MISS TAKE midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32392"></a>32392</td>
-<td class="instruction">JP NZ,<a class="link" href="25944.html#25950">25950</a></td>
+<td class="address-1"><span id="32392"></span>32392</td>
+<td class="instruction">JP NZ,<a href="25944.html#25950">25950</a></td>
 <td class="comment-11" rowspan="1">Finish the stride if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="32395"></a>
+<span id="32395"></span>
 <div class="comments">
 <div class="paragraph">
-Now check whether a command list restart has been requested. This request will have been made if the lesson in which MISS TAKE started chasing ERIC has ended, and the next lesson has just begun (see <a class="link" href="63309.html">63309</a>).
+Now check whether a command list restart has been requested. This request will have been made if the lesson in which MISS TAKE started chasing ERIC has ended, and the next lesson has just begun (see <a href="63309.html">63309</a>).
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32395"></a>32395</td>
+<td class="address-1"><span id="32395"></span>32395</td>
 <td class="instruction">LD L,29</td>
 <td class="comment-11" rowspan="2">Set the zero flag if MISS TAKE should continue hounding ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32397"></a>32397</td>
+<td class="address-1"><span id="32397"></span>32397</td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="32399"></a>
+<span id="32399"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a class="link" href="61595.html">61595</a> and <a class="link" href="62794.html">62794</a> with the zero flag reset and <span class="register">H</span> holding the character number of a teacher chasing ERIC.
+This entry point is used by the routines at <a href="61595.html">61595</a> and <a href="62794.html">62794</a> with the zero flag reset and <span class="register">H</span> holding the character number of a teacher chasing ERIC.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="32399"></a>32399</td>
+<td class="address-2"><span id="32399"></span>32399</td>
 <td class="instruction">LD L,1</td>
 <td class="comment-11" rowspan="4">Collect the teacher's coordinates in <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32401"></a>32401</td>
+<td class="address-1"><span id="32401"></span>32401</td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32402"></a>32402</td>
+<td class="address-1"><span id="32402"></span>32402</td>
 <td class="instruction">INC HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32403"></a>32403</td>
+<td class="address-1"><span id="32403"></span>32403</td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32404"></a>32404</td>
+<td class="address-1"><span id="32404"></span>32404</td>
 <td class="instruction">JR Z,32418</td>
 <td class="comment-11" rowspan="1">Jump if this teacher is MISS TAKE and she should continue chasing ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32406"></a>32406</td>
-<td class="instruction">CALL <a class="link" href="25554.html">25554</a></td>
+<td class="address-1"><span id="32406"></span>32406</td>
+<td class="instruction">CALL <a href="25554.html">25554</a></td>
 <td class="comment-11" rowspan="1">Is the teacher on a staircase?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32409"></a>32409</td>
-<td class="instruction">JP NC,<a class="link" href="25484.html#25488">25488</a></td>
+<td class="address-1"><span id="32409"></span>32409</td>
+<td class="instruction">JP NC,<a href="25484.html#25488">25488</a></td>
 <td class="comment-11" rowspan="1">If not, terminate this interruptible subcommand</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="32412"></a>
+<span id="32412"></span>
 <div class="comments">
 <div class="paragraph">
-The chase is over, and the teacher is on a staircase. It's not a good idea to remove the interruptible subcommand routine address from bytes 9 and 10 of the teacher's buffer at this point, though, because the next command in the teacher's command list will be <a class="link" href="25700.html">25700</a>, and that command will not work if the teacher's starting point is on a staircase. So continue chasing ERIC until the top or bottom of the staircase has been reached.
+The chase is over, and the teacher is on a staircase. It's not a good idea to remove the interruptible subcommand routine address from bytes 9 and 10 of the teacher's buffer at this point, though, because the next command in the teacher's command list will be <a href="25700.html">25700</a>, and that command will not work if the teacher's starting point is on a staircase. So continue chasing ERIC until the top or bottom of the staircase has been reached.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32412"></a>32412</td>
-<td class="instruction">JP <a class="link" href="25944.html">25944</a></td>
+<td class="address-1"><span id="32412"></span>32412</td>
+<td class="instruction">JP <a href="25944.html">25944</a></td>
 <td class="comment-11" rowspan="1">Continue chasing ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32415"></a>32415</td>
+<td class="address-1"><span id="32415"></span>32415</td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="3"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32416"></a>32416</td>
+<td class="address-1"><span id="32416"></span>32416</td>
 <td class="instruction">NOP</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32417"></a>32417</td>
+<td class="address-1"><span id="32417"></span>32417</td>
 <td class="instruction">NOP</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="32418"></a>
+<span id="32418"></span>
 <div class="comments">
 <div class="paragraph">
 MISS TAKE is chasing ERIC, but she only chases so far.
@@ -212,58 +208,58 @@ MISS TAKE is chasing ERIC, but she only chases so far.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="32418"></a>32418</td>
+<td class="address-2"><span id="32418"></span>32418</td>
 <td class="instruction">LD A,(53761)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32421"></a>32421</td>
+<td class="address-1"><span id="32421"></span>32421</td>
 <td class="instruction">CP 138</td>
 <td class="comment-11" rowspan="1">138=just to the right of the plant in the girls' playground</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32423"></a>32423</td>
+<td class="address-1"><span id="32423"></span>32423</td>
 <td class="instruction">JR NC,32429</td>
 <td class="comment-11" rowspan="1">Jump if ERIC's to the right of this</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32425"></a>32425</td>
+<td class="address-1"><span id="32425"></span>32425</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=MISS TAKE's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32426"></a>32426</td>
+<td class="address-1"><span id="32426"></span>32426</td>
 <td class="instruction">CP 137</td>
 <td class="comment-11" rowspan="1">137=where MISS TAKE stands on guard for the truant ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="32428"></a>32428</td>
+<td class="address-1"><span id="32428"></span>32428</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if MISS TAKE is already here</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="32429"></a>32429</td>
-<td class="instruction">JP <a class="link" href="25944.html">25944</a></td>
+<td class="address-2"><span id="32429"></span>32429</td>
+<td class="instruction">JP <a href="25944.html">25944</a></td>
 <td class="comment-11" rowspan="1">Otherwise MISS TAKE continues chasing ERIC</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="32373.html">32373</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#32379">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="32432.html">32432</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="32373.html">32373</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32379">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32432.html">32432</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

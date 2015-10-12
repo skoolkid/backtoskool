@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 31844</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31843.html">31843</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31844">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31861.html">31861</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31843.html">31843</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31844">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31861.html">31861</a></span></td>
 </tr>
 </table>
 <div class="description">31844: Print an inventory item</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="31746.html">31746</a>. Prints the safe key, Science Lab storeroom key, frog, left or right half of the water pistol, or stinkbombs in one of the inventory slots.
+Used by the routine at <a href="31746.html">31746</a>. Prints the safe key, Science Lab storeroom key, frog, left or right half of the water pistol, or stinkbombs in one of the inventory slots.
 </div>
 </div>
 <table class="input-1">
@@ -60,88 +56,88 @@ Used by the routine at <a class="link" href="31746.html">31746</a>. Prints the s
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31844"></a>31844</td>
+<td class="address-2"><span id="31844"></span>31844</td>
 <td class="instruction">LD D,90</td>
 <td class="comment-11" rowspan="2">Set the attribute byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31846"></a>31846</td>
+<td class="address-1"><span id="31846"></span>31846</td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31847"></a>31847</td>
+<td class="address-1"><span id="31847"></span>31847</td>
 <td class="instruction">LD D,80</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> back at the display file</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31849"></a>31849</td>
+<td class="address-2"><span id="31849"></span>31849</td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="6">Copy the UDG onto the screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31850"></a>31850</td>
+<td class="address-1"><span id="31850"></span>31850</td>
 <td class="instruction">INC C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31851"></a>31851</td>
+<td class="address-1"><span id="31851"></span>31851</td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31852"></a>31852</td>
+<td class="address-1"><span id="31852"></span>31852</td>
 <td class="instruction">INC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31853"></a>31853</td>
+<td class="address-1"><span id="31853"></span>31853</td>
 <td class="instruction">BIT 3,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31855"></a>31855</td>
+<td class="address-1"><span id="31855"></span>31855</td>
 <td class="instruction">JR Z,31849</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31857"></a>31857</td>
+<td class="address-1"><span id="31857"></span>31857</td>
 <td class="instruction">LD C,232</td>
 <td class="comment-11" rowspan="1">Reset <span class="register">C</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31859"></a>31859</td>
+<td class="address-1"><span id="31859"></span>31859</td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Move <span class="register">DE</span> to the next slot in the on-screen inventory</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31860"></a>31860</td>
+<td class="address-1"><span id="31860"></span>31860</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31843.html">31843</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31844">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31861.html">31861</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31843.html">31843</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31844">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31861.html">31861</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 20640</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-0">Prev: <a class="link" href=""></a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#20640">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="20650.html">20650</a></span></td>
+<td class="prev"><span class="prev-0">Prev: <a href=""></a></span></td>
+<td class="up">Up: <a href="../maps/all.html#20640">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="20650.html">20650</a></span></td>
 </tr>
 </table>
 <div class="description">20640: Clear character buffer 214</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="21425.html">21425</a>. Clearing character buffer 214 serves no useful purpose; it is not used until the game has started, and is properly initialised before then anyway.
+Used by the routine at <a href="21425.html">21425</a>. Clearing character buffer 214 serves no useful purpose; it is not used until the game has started, and is properly initialised before then anyway.
 </div>
 </div>
 <table class="input-1">
@@ -52,52 +48,52 @@ Used by the routine at <a class="link" href="21425.html">21425</a>. Clearing cha
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="20640"></a>20640</td>
+<td class="address-2"><span id="20640"></span>20640</td>
 <td class="instruction">LD HL,54784</td>
-<td class="comment-11" rowspan="5">Fill character buffer <a class="link" href="54784.html">214</a> with zeroes</td>
+<td class="comment-11" rowspan="5">Fill character buffer <a href="54784.html">214</a> with zeroes</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20643"></a>20643</td>
+<td class="address-1"><span id="20643"></span>20643</td>
 <td class="instruction">LD B,32</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="20645"></a>20645</td>
+<td class="address-2"><span id="20645"></span>20645</td>
 <td class="instruction">LD (HL),C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20646"></a>20646</td>
+<td class="address-1"><span id="20646"></span>20646</td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20647"></a>20647</td>
+<td class="address-1"><span id="20647"></span>20647</td>
 <td class="instruction">DJNZ 20645</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="20649"></a>20649</td>
+<td class="address-1"><span id="20649"></span>20649</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-0">Prev: <a class="link" href=""></a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#20640">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="20650.html">20650</a></span></td>
+<td class="prev"><span class="prev-0">Prev: <a href=""></a></span></td>
+<td class="up">Up: <a href="../maps/all.html#20640">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="20650.html">20650</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

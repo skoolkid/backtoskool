@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 26513</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26512.html">26512</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26513">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26637.html">26637</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26512.html">26512</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26513">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26637.html">26637</a></span></td>
 </tr>
 </table>
 <div class="description">26513: Write a single character on a blackboard</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="26752.html">26752</a>. Returns with the zero flag set if the end of the message has been reached.
+Used by the routine at <a href="26752.html">26752</a>. Returns with the zero flag set if the end of the message has been reached.
 </div>
 </div>
 <table class="input-1">
@@ -52,89 +48,89 @@ Used by the routine at <a class="link" href="26752.html">26752</a>. Returns with
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26513"></a>26513</td>
-<td class="instruction">CALL <a class="link" href="26318.html">26318</a></td>
+<td class="address-2"><span id="26513"></span>26513</td>
+<td class="instruction">CALL <a href="26318.html">26318</a></td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ASCII code of the next character from the message being written</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26516"></a>
+<span id="26516"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a class="link" href="24175.html">24175</a> when ERIC's writing on a board.
+This entry point is used by the routine at <a href="24175.html">24175</a> when ERIC's writing on a board.
 </div>
 </div>
 </td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26516"></a>26516</td>
+<td class="address-2"><span id="26516"></span>26516</td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1"><span class="register">C</span>=ASCII code of the next character from the message being written</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26517"></a>26517</td>
-<td class="instruction">CALL <a class="link" href="26453.html">26453</a></td>
+<td class="address-1"><span id="26517"></span>26517</td>
+<td class="instruction">CALL <a href="26453.html">26453</a></td>
 <td class="comment-11" rowspan="1">Collect information about the blackboard</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26520"></a>26520</td>
+<td class="address-1"><span id="26520"></span>26520</td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26521"></a>26521</td>
+<td class="address-1"><span id="26521"></span>26521</td>
 <td class="instruction">LD C,B</td>
-<td class="comment-11" rowspan="2">Point <span class="register">BC</span> at the blackboard's buffer (<a class="link" href="32596.html">32596</a>, <a class="link" href="32602.html">32602</a>, <a class="link" href="32608.html">32608</a>, <a class="link" href="32614.html">32614</a> or <a class="link" href="32620.html">32620</a>)</td>
+<td class="comment-11" rowspan="2">Point <span class="register">BC</span> at the blackboard's buffer (<a href="32596.html">32596</a>, <a href="32602.html">32602</a>, <a href="32608.html">32608</a>, <a href="32614.html">32614</a> or <a href="32620.html">32620</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26522"></a>26522</td>
+<td class="address-1"><span id="26522"></span>26522</td>
 <td class="instruction">LD B,127</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26524"></a>26524</td>
+<td class="address-1"><span id="26524"></span>26524</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Have we reached the end of the message?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26525"></a>26525</td>
+<td class="address-1"><span id="26525"></span>26525</td>
 <td class="instruction">JR NZ,26531</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26527"></a>26527</td>
+<td class="address-1"><span id="26527"></span>26527</td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=255</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26528"></a>26528</td>
+<td class="address-2"><span id="26528"></span>26528</td>
 <td class="instruction">LD (BC),A</td>
 <td class="comment-11" rowspan="1">Set the first byte of the blackboard's buffer to 255 if the message is finished, or the the pixel column number for the next letter to be written otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26529"></a>26529</td>
+<td class="address-1"><span id="26529"></span>26529</td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1">Set the zero flag if the end of the message has been reached</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26530"></a>26530</td>
+<td class="address-1"><span id="26530"></span>26530</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26531"></a>
+<span id="26531"></span>
 <div class="comments">
 <div class="paragraph">
 We haven't reached the end of the message yet. Examine the next character to be written.
@@ -144,31 +140,31 @@ We haven't reached the end of the message yet. Examine the next character to be 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26531"></a>26531</td>
+<td class="address-2"><span id="26531"></span>26531</td>
 <td class="instruction">CP 2</td>
 <td class="comment-11" rowspan="1">Character code 2 is newline</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26533"></a>26533</td>
+<td class="address-1"><span id="26533"></span>26533</td>
 <td class="instruction">JR NZ,26539</td>
 <td class="comment-11" rowspan="1">Jump unless we're starting a new line</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26535"></a>26535</td>
+<td class="address-1"><span id="26535"></span>26535</td>
 <td class="instruction">LD A,64</td>
 <td class="comment-11" rowspan="1">64=pixel column number of the start of the bottom line of the blackboard</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26537"></a>26537</td>
+<td class="address-1"><span id="26537"></span>26537</td>
 <td class="instruction">JR 26528</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26539"></a>
+<span id="26539"></span>
 <div class="comments">
 <div class="paragraph">
 The next character to be written is printable (as opposed to newline).
@@ -178,412 +174,412 @@ The next character to be written is printable (as opposed to newline).
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26539"></a>26539</td>
+<td class="address-2"><span id="26539"></span>26539</td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1">Save the character number (in <span class="register">H</span>) for now</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26540"></a>26540</td>
+<td class="address-1"><span id="26540"></span>26540</td>
 <td class="instruction">LD L,A</td>
 <td class="comment-11" rowspan="1">Place the ASCII code of the character to be written in <span class="register">L</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26541"></a>26541</td>
+<td class="address-1"><span id="26541"></span>26541</td>
 <td class="instruction">LD H,215</td>
 <td class="comment-11" rowspan="1">Now (<span class="register">HL</span>)=bit width of this character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26543"></a>26543</td>
+<td class="address-1"><span id="26543"></span>26543</td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=current pixel column number on the blackboard</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26544"></a>26544</td>
+<td class="address-1"><span id="26544"></span>26544</td>
 <td class="instruction">AND 63</td>
 <td class="comment-11" rowspan="4">Set the carry flag if there's not enough room on the current line to print the next character (plus one blank pixel column)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26546"></a>26546</td>
+<td class="address-1"><span id="26546"></span>26546</td>
 <td class="instruction">ADD A,192</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26548"></a>26548</td>
+<td class="address-1"><span id="26548"></span>26548</td>
 <td class="instruction">SCF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26549"></a>26549</td>
+<td class="address-1"><span id="26549"></span>26549</td>
 <td class="instruction">ADC A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26550"></a>26550</td>
+<td class="address-1"><span id="26550"></span>26550</td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=current pixel column number on the blackboard</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26551"></a>26551</td>
+<td class="address-1"><span id="26551"></span>26551</td>
 <td class="instruction">JR NC,26557</td>
 <td class="comment-11" rowspan="1">Jump if there's enough room on the current line for the character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26553"></a>26553</td>
+<td class="address-1"><span id="26553"></span>26553</td>
 <td class="instruction">CPL</td>
 <td class="comment-11" rowspan="3">Otherwise move to the other line of the blackboard by setting the current pixel column number to 0 or 64 as appropriate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26554"></a>26554</td>
+<td class="address-1"><span id="26554"></span>26554</td>
 <td class="instruction">AND 64</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26556"></a>26556</td>
+<td class="address-1"><span id="26556"></span>26556</td>
 <td class="instruction">LD (BC),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26557"></a>26557</td>
+<td class="address-2"><span id="26557"></span>26557</td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="4">Divide the pixel column number by 8 to get the corresponding character square number (0-7); also keep bit 3 for now to check which line of the board we're on</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26558"></a>26558</td>
+<td class="address-1"><span id="26558"></span>26558</td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26559"></a>26559</td>
+<td class="address-1"><span id="26559"></span>26559</td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26560"></a>26560</td>
+<td class="address-1"><span id="26560"></span>26560</td>
 <td class="instruction">AND 15</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26562"></a>26562</td>
+<td class="address-1"><span id="26562"></span>26562</td>
 <td class="instruction">CP 8</td>
 <td class="comment-11" rowspan="1">Are we on the top line of the board?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26564"></a>26564</td>
+<td class="address-1"><span id="26564"></span>26564</td>
 <td class="instruction">JR C,26569</td>
 <td class="comment-11" rowspan="1">Jump if so (<span class="register">A</span>=0-7)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26566"></a>26566</td>
+<td class="address-1"><span id="26566"></span>26566</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=4 or 9 (y-coordinate of the bottom line of the board)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26567"></a>26567</td>
+<td class="address-1"><span id="26567"></span>26567</td>
 <td class="instruction">AND 7</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0-7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26569"></a>26569</td>
+<td class="address-2"><span id="26569"></span>26569</td>
 <td class="instruction">ADD A,E</td>
 <td class="comment-11" rowspan="2"><span class="register">E</span>=x-coordinate of the blackboard tile on which the next character will be written</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26570"></a>26570</td>
+<td class="address-1"><span id="26570"></span>26570</td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26571"></a>26571</td>
-<td class="instruction">CALL <a class="link" href="26380.html">26380</a></td>
+<td class="address-1"><span id="26571"></span>26571</td>
+<td class="instruction">CALL <a href="26380.html">26380</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for this blackboard</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26574"></a>26574</td>
+<td class="address-1"><span id="26574"></span>26574</td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=current pixel column number on the blackboard</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26575"></a>26575</td>
+<td class="address-1"><span id="26575"></span>26575</td>
 <td class="instruction">AND 7</td>
-<td class="comment-11" rowspan="7">Modify the RES n,(HL) instruction at <a class="link" href="26513.html#26609">26609</a> below to reset the appropriate bit for the current pixel column</td>
+<td class="comment-11" rowspan="7">Modify the RES n,(HL) instruction at <a href="26513.html#26609">26609</a> below to reset the appropriate bit for the current pixel column</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26577"></a>26577</td>
+<td class="address-1"><span id="26577"></span>26577</td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26578"></a>26578</td>
+<td class="address-1"><span id="26578"></span>26578</td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26579"></a>26579</td>
+<td class="address-1"><span id="26579"></span>26579</td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26580"></a>26580</td>
+<td class="address-1"><span id="26580"></span>26580</td>
 <td class="instruction">CPL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26581"></a>26581</td>
+<td class="address-1"><span id="26581"></span>26581</td>
 <td class="instruction">SUB 65</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26583"></a>26583</td>
+<td class="address-1"><span id="26583"></span>26583</td>
 <td class="instruction">LD (26610),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26586"></a>26586</td>
+<td class="address-1"><span id="26586"></span>26586</td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=current pixel column number on the blackboard</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26587"></a>26587</td>
+<td class="address-1"><span id="26587"></span>26587</td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-11" rowspan="1">Add the bit-width of character to be written</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26588"></a>26588</td>
+<td class="address-1"><span id="26588"></span>26588</td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1">Add 1 to make a blank vertical pixel line after the character to be written</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26589"></a>26589</td>
+<td class="address-1"><span id="26589"></span>26589</td>
 <td class="instruction">LD (BC),A</td>
 <td class="comment-11" rowspan="1">Set the pixel column number for the next character to be written</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26590"></a>26590</td>
+<td class="address-1"><span id="26590"></span>26590</td>
 <td class="instruction">LD C,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">C</span>=bit-width of the character to be written</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26591"></a>26591</td>
+<td class="address-1"><span id="26591"></span>26591</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Now <span class="register">DE</span> points at the bitmap data for the character to be written on the board, and <span class="register">HL</span> holds the coordinates of the blackboard tile on which the character will be written</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26592"></a>26592</td>
+<td class="address-1"><span id="26592"></span>26592</td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=blackboard tile y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26593"></a>26593</td>
+<td class="address-1"><span id="26593"></span>26593</td>
 <td class="instruction">LD H,181</td>
-<td class="comment-11" rowspan="2">Pick up the Q value (0&lt;=Q&lt;=143) for the blackboard tile from page <a class="link" href="46336.html">181</a> in <span class="register">L</span> (see <a class="link" href="24684.html">24684</a>)</td>
+<td class="comment-11" rowspan="2">Pick up the Q value (0&lt;=Q&lt;=143) for the blackboard tile from page <a href="46336.html">181</a> in <span class="register">L</span> (see <a href="24684.html">24684</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26595"></a>26595</td>
+<td class="address-1"><span id="26595"></span>26595</td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26596"></a>26596</td>
+<td class="address-1"><span id="26596"></span>26596</td>
 <td class="instruction">ADD A,160</td>
 <td class="comment-11" rowspan="3">Collect the LSB of the base address of the skool UDG for the blackboard tile in <span class="register">L</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26598"></a>26598</td>
+<td class="address-1"><span id="26598"></span>26598</td>
 <td class="instruction">LD H,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26599"></a>26599</td>
+<td class="address-1"><span id="26599"></span>26599</td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26600"></a>26600</td>
+<td class="address-2"><span id="26600"></span>26600</td>
 <td class="instruction">LD H,128</td>
 <td class="comment-11" rowspan="1">The base page for all blackboard tile UDGs is 128</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26602"></a>26602</td>
+<td class="address-1"><span id="26602"></span>26602</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next pixel column of bitmap data for the character to be written</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26603"></a>26603</td>
+<td class="address-1"><span id="26603"></span>26603</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26604"></a>26604</td>
+<td class="address-1"><span id="26604"></span>26604</td>
 <td class="instruction">LD B,8</td>
 <td class="comment-11" rowspan="1">8 horizontal pixel lines in each character square</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26606"></a>26606</td>
+<td class="address-2"><span id="26606"></span>26606</td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1">Should a bit of chalk appear here?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26607"></a>26607</td>
+<td class="address-1"><span id="26607"></span>26607</td>
 <td class="instruction">JR NC,26611</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26609"></a>26609</td>
+<td class="address-1"><span id="26609"></span>26609</td>
 <td class="instruction">RES 7,(HL)</td>
 <td class="comment-11" rowspan="1">Reset the appropriate bit in the skool UDG for the blackboard tile, thus making a bit of chalk appear; this instruction is modified by this routine to reset the required bit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26611"></a>26611</td>
+<td class="address-2"><span id="26611"></span>26611</td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Next row of the blackboard tile UDG</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26612"></a>26612</td>
+<td class="address-1"><span id="26612"></span>26612</td>
 <td class="instruction">DJNZ 26606</td>
 <td class="comment-11" rowspan="1">Jump back until all 8 rows are done</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26614"></a>26614</td>
+<td class="address-1"><span id="26614"></span>26614</td>
 <td class="instruction">LD A,(26610)</td>
-<td class="comment-11" rowspan="5">Change the RES n,(HL) instruction at <a class="link" href="26513.html#26609">26609</a> above to RES n-1,(HL) if n&gt;0, or RES 7,(HL) if n=0</td>
+<td class="comment-11" rowspan="5">Change the RES n,(HL) instruction at <a href="26513.html#26609">26609</a> above to RES n-1,(HL) if n&gt;0, or RES 7,(HL) if n=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26617"></a>26617</td>
+<td class="address-1"><span id="26617"></span>26617</td>
 <td class="instruction">OR 64</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26619"></a>26619</td>
+<td class="address-1"><span id="26619"></span>26619</td>
 <td class="instruction">SUB 8</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26621"></a>26621</td>
+<td class="address-1"><span id="26621"></span>26621</td>
 <td class="instruction">AND 191</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26623"></a>26623</td>
+<td class="address-1"><span id="26623"></span>26623</td>
 <td class="instruction">LD (26610),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26626"></a>26626</td>
+<td class="address-1"><span id="26626"></span>26626</td>
 <td class="instruction">CP 190</td>
 <td class="comment-11" rowspan="1">Did we just draw the rightmost vertical pixel line in the current blackboard tile?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26628"></a>26628</td>
+<td class="address-1"><span id="26628"></span>26628</td>
 <td class="instruction">JR NZ,26631</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26630"></a>26630</td>
+<td class="address-1"><span id="26630"></span>26630</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Set <span class="register">L</span> to the LSB of the base address of the skool UDG for the next blackboard tile to the right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26631"></a>26631</td>
+<td class="address-2"><span id="26631"></span>26631</td>
 <td class="instruction">DEC C</td>
 <td class="comment-11" rowspan="1">Next pixel column of the character bitmap</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26632"></a>26632</td>
+<td class="address-1"><span id="26632"></span>26632</td>
 <td class="instruction">JR NZ,26600</td>
 <td class="comment-11" rowspan="1">Jump back to do the remaining pixel columns</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26634"></a>26634</td>
+<td class="address-1"><span id="26634"></span>26634</td>
 <td class="instruction">INC C</td>
 <td class="comment-11" rowspan="1">Reset the zero flag (the message is not finished yet)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26635"></a>26635</td>
+<td class="address-1"><span id="26635"></span>26635</td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26636"></a>26636</td>
+<td class="address-1"><span id="26636"></span>26636</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26512.html">26512</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26513">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26637.html">26637</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26512.html">26512</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26513">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26637.html">26637</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

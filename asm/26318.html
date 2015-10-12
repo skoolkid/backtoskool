@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 26318</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26304.html">26304</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26318">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26378.html">26378</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26304.html">26304</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26318">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26378.html">26378</a></span></td>
 </tr>
 </table>
 <div class="description">26318: Get the next character of a message being spoken or written</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="26513.html">26513</a>, <a class="link" href="27144.html">27144</a> and <a class="link" href="27419.html">27419</a>. Returns with the next character in <span class="register">A</span>.
+Used by the routines at <a href="26513.html">26513</a>, <a href="27144.html">27144</a> and <a href="27419.html">27419</a>. Returns with the next character in <span class="register">A</span>.
 </div>
 </div>
 <table class="input-1">
@@ -52,121 +48,121 @@ Used by the routines at <a class="link" href="26513.html">26513</a>, <a class="l
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26318"></a>26318</td>
+<td class="address-2"><span id="26318"></span>26318</td>
 <td class="instruction">LD L,16</td>
 <td class="comment-11" rowspan="2">Bytes 15 and 16 hold the address of the next character in the sub-submessage being written/spoken (if any)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26320"></a>26320</td>
+<td class="address-1"><span id="26320"></span>26320</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26321"></a>26321</td>
+<td class="address-1"><span id="26321"></span>26321</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Are we working on a sub-submessage?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26322"></a>26322</td>
+<td class="address-1"><span id="26322"></span>26322</td>
 <td class="instruction">JR NZ,26332</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26324"></a>26324</td>
+<td class="address-1"><span id="26324"></span>26324</td>
 <td class="instruction">LD L,14</td>
 <td class="comment-11" rowspan="2">Bytes 13 and 14 hold the address of the next character in the submessage being written/spoken (if any)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26326"></a>26326</td>
+<td class="address-1"><span id="26326"></span>26326</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26327"></a>26327</td>
+<td class="address-1"><span id="26327"></span>26327</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Are we working on a submessage?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26328"></a>26328</td>
+<td class="address-1"><span id="26328"></span>26328</td>
 <td class="instruction">JR NZ,26332</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26330"></a>26330</td>
+<td class="address-1"><span id="26330"></span>26330</td>
 <td class="instruction">LD L,12</td>
 <td class="comment-11" rowspan="1">We're working on a top-level message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26332"></a>26332</td>
+<td class="address-2"><span id="26332"></span>26332</td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-11" rowspan="3"><span class="register">DE</span>=address of the next character in the (sub)(sub)message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26333"></a>26333</td>
+<td class="address-1"><span id="26333"></span>26333</td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26334"></a>26334</td>
+<td class="address-1"><span id="26334"></span>26334</td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26335"></a>26335</td>
+<td class="address-1"><span id="26335"></span>26335</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1">Pick up the character code in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26336"></a>26336</td>
+<td class="address-1"><span id="26336"></span>26336</td>
 <td class="instruction">INC DE</td>
 <td class="comment-11" rowspan="4">Move the pointer to the next character and store the address for future reference</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26337"></a>26337</td>
+<td class="address-1"><span id="26337"></span>26337</td>
 <td class="instruction">LD (HL),E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26338"></a>26338</td>
+<td class="address-1"><span id="26338"></span>26338</td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26339"></a>26339</td>
+<td class="address-1"><span id="26339"></span>26339</td>
 <td class="instruction">LD (HL),D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26340"></a>26340</td>
+<td class="address-1"><span id="26340"></span>26340</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Has the end of the (sub)(sub)message been reached?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26341"></a>26341</td>
+<td class="address-1"><span id="26341"></span>26341</td>
 <td class="instruction">JR NZ,26352</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26343"></a>
+<span id="26343"></span>
 <div class="comments">
 <div class="paragraph">
 We've reached the end of the (sub)(sub)message.
@@ -176,43 +172,43 @@ We've reached the end of the (sub)(sub)message.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26343"></a>26343</td>
+<td class="address-1"><span id="26343"></span>26343</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-11" rowspan="1">Signal: end of (sub)(sub)message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26345"></a>26345</td>
+<td class="address-1"><span id="26345"></span>26345</td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=11 (top-level message), 13 (submessage) or 15 (sub-submessage)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26346"></a>26346</td>
+<td class="address-1"><span id="26346"></span>26346</td>
 <td class="instruction">BIT 2,L</td>
 <td class="comment-11" rowspan="1">Has the end of the top-level message been reached (<span class="register">L</span>=11)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26348"></a>26348</td>
+<td class="address-1"><span id="26348"></span>26348</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26349"></a>26349</td>
+<td class="address-1"><span id="26349"></span>26349</td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="2">Otherwise go up to the submessage or the top-level message and jump back to deal with it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26350"></a>26350</td>
+<td class="address-1"><span id="26350"></span>26350</td>
 <td class="instruction">JR 26332</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26352"></a>
+<span id="26352"></span>
 <div class="comments">
 <div class="paragraph">
 We haven't reached the end of the (sub)(sub)message yet. Determine whether the next code is a regular character code or a pointer to another message.
@@ -222,55 +218,55 @@ We haven't reached the end of the (sub)(sub)message yet. Determine whether the n
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26352"></a>26352</td>
+<td class="address-2"><span id="26352"></span>26352</td>
 <td class="instruction">SUB 32</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26354"></a>26354</td>
+<td class="address-1"><span id="26354"></span>26354</td>
 <td class="instruction">CP 96</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26356"></a>26356</td>
+<td class="address-1"><span id="26356"></span>26356</td>
 <td class="instruction">JR NC,26361</td>
 <td class="comment-11" rowspan="1">Jump with character codes 1-31 or 128 onwards</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26358"></a>26358</td>
+<td class="address-1"><span id="26358"></span>26358</td>
 <td class="instruction">ADD A,32</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26360"></a>26360</td>
+<td class="address-1"><span id="26360"></span>26360</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the standard ASCII code in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="26361"></a>26361</td>
+<td class="address-2"><span id="26361"></span>26361</td>
 <td class="instruction">ADD A,32</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26363"></a>26363</td>
+<td class="address-1"><span id="26363"></span>26363</td>
 <td class="instruction">CP 3</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26365"></a>26365</td>
+<td class="address-1"><span id="26365"></span>26365</td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return with character codes 1 and 2 (end of line)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="26366"></a>
+<span id="26366"></span>
 <div class="comments">
 <div class="paragraph">
 The next character in the message is actually a pointer to another message. Find the address of that message, and store it for future reference.
@@ -280,76 +276,76 @@ The next character in the message is actually a pointer to another message. Find
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26366"></a>26366</td>
+<td class="address-1"><span id="26366"></span>26366</td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="2"><span class="register">DE</span> points to the LSB of the start address of the (sub)submessage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26367"></a>26367</td>
+<td class="address-1"><span id="26367"></span>26367</td>
 <td class="instruction">LD D,254</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26369"></a>26369</td>
+<td class="address-1"><span id="26369"></span>26369</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=13 (submessage) or 15 (sub-submessage)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26370"></a>26370</td>
+<td class="address-1"><span id="26370"></span>26370</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the start address of the (sub)submessage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26371"></a>26371</td>
+<td class="address-1"><span id="26371"></span>26371</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Store it in byte 13 or 15 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26372"></a>26372</td>
+<td class="address-1"><span id="26372"></span>26372</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=14 (submessage) or 16 (sub-submessage)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26373"></a>26373</td>
+<td class="address-1"><span id="26373"></span>26373</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=MSB of the address of the (sub)submessage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26374"></a>26374</td>
+<td class="address-1"><span id="26374"></span>26374</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26375"></a>26375</td>
+<td class="address-1"><span id="26375"></span>26375</td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Store it in byte 14 or 16 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="26376"></a>26376</td>
+<td class="address-1"><span id="26376"></span>26376</td>
 <td class="instruction">JR 26332</td>
 <td class="comment-11" rowspan="1">Jump back to collect a character from this (sub)submessage</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="26304.html">26304</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#26318">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="26378.html">26378</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="26304.html">26304</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#26318">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="26378.html">26378</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

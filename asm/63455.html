@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 63455</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="63447.html">63447</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#63455">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="63491.html">63491</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="63447.html">63447</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#63455">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="63491.html">63491</a></span></td>
 </tr>
 </table>
 <div class="description">63455: Make ANGELFACE stalk HAYLEY</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this continual subcommand routine is placed into bytes 23 and 24 of ANGELFACE's buffer by command list <a class="link" href="58844.html">44</a>. Sets ANGELFACE's destination to match HAYLEY's, presumably so he has a better chance of knocking her out with a random punch.
+The address of this continual subcommand routine is placed into bytes 23 and 24 of ANGELFACE's buffer by command list <a href="58844.html">44</a>. Sets ANGELFACE's destination to match HAYLEY's, presumably so he has a better chance of knocking her out with a random punch.
 </div>
 </div>
 <table class="input-1">
@@ -52,112 +48,112 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="63455"></a>63455</td>
+<td class="address-2"><span id="63455"></span>63455</td>
 <td class="instruction">LD DE,53533</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 29 of HAYLEY's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63458"></a>63458</td>
+<td class="address-1"><span id="63458"></span>63458</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63459"></a>63459</td>
+<td class="address-1"><span id="63459"></span>63459</td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Is HAYLEY's command list due to be restarted?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63460"></a>63460</td>
+<td class="address-1"><span id="63460"></span>63460</td>
 <td class="instruction">JR C,63488</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63462"></a>63462</td>
+<td class="address-1"><span id="63462"></span>63462</td>
 <td class="instruction">LD E,4</td>
 <td class="comment-11" rowspan="2">Pick up the MSB of the routine address of the current command in HAYLEY's command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63464"></a>63464</td>
+<td class="address-1"><span id="63464"></span>63464</td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63465"></a>63465</td>
+<td class="address-1"><span id="63465"></span>63465</td>
 <td class="instruction">CP 100</td>
-<td class="comment-11" rowspan="1">Is it the routine at <a class="link" href="25700.html">25700</a> (go to a location)?</td>
+<td class="comment-11" rowspan="1">Is it the routine at <a href="25700.html">25700</a> (go to a location)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63467"></a>63467</td>
+<td class="address-1"><span id="63467"></span>63467</td>
 <td class="instruction">JR NZ,63488</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63469"></a>63469</td>
+<td class="address-1"><span id="63469"></span>63469</td>
 <td class="instruction">LD DE,(53509)</td>
 <td class="comment-11" rowspan="1">Copy the coordinates of HAYLEY's destination from bytes 5 and 6 of HAYLEY's buffer to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63473"></a>63473</td>
+<td class="address-1"><span id="63473"></span>63473</td>
 <td class="instruction">LD (58850),DE</td>
-<td class="comment-11" rowspan="1">Place these coordinates directly into command list <a class="link" href="58844.html">44</a></td>
+<td class="comment-11" rowspan="1">Place these coordinates directly into command list <a href="58844.html">44</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63477"></a>63477</td>
+<td class="address-1"><span id="63477"></span>63477</td>
 <td class="instruction">LD L,4</td>
 <td class="comment-11" rowspan="2">Pick up the MSB of the routine address of the current command in ANGELFACE's command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63479"></a>63479</td>
+<td class="address-1"><span id="63479"></span>63479</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63480"></a>63480</td>
+<td class="address-1"><span id="63480"></span>63480</td>
 <td class="instruction">CP 100</td>
-<td class="comment-11" rowspan="1">Is it the routine at <a class="link" href="25700.html">25700</a> (go to a location)?</td>
+<td class="comment-11" rowspan="1">Is it the routine at <a href="25700.html">25700</a> (go to a location)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63482"></a>63482</td>
+<td class="address-1"><span id="63482"></span>63482</td>
 <td class="instruction">JR NZ,63488</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="63484"></a>63484</td>
+<td class="address-1"><span id="63484"></span>63484</td>
 <td class="instruction">LD (52997),DE</td>
 <td class="comment-11" rowspan="1">Copy HAYLEY's destination into bytes 5 and 6 of ANGELFACE's buffer (i.e. make it his destination too)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="63488"></a>63488</td>
-<td class="instruction">JP <a class="link" href="30706.html">30706</a></td>
-<td class="comment-11" rowspan="1">Continue into <a class="link" href="30706.html">30706</a> (make ANGELFACE hit now and then)</td>
+<td class="address-2"><span id="63488"></span>63488</td>
+<td class="instruction">JP <a href="30706.html">30706</a></td>
+<td class="comment-11" rowspan="1">Continue into <a href="30706.html">30706</a> (make ANGELFACE hit now and then)</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="63447.html">63447</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#63455">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="63491.html">63491</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="63447.html">63447</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#63455">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="63491.html">63491</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

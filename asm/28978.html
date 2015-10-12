@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 28978</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28952.html">28952</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28978">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28992.html">28992</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28952.html">28952</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28978">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28992.html">28992</a></span></td>
 </tr>
 </table>
 <div class="description">28978: Make a female character stop jumping</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="31078.html">31078</a>.
+Used by the routine at <a href="31078.html">31078</a>.
 </div>
 </div>
 <table class="input-1">
@@ -52,58 +48,58 @@ Used by the routine at <a class="link" href="31078.html">31078</a>.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28978"></a>28978</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-2"><span id="28978"></span>28978</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28981"></a>28981</td>
+<td class="address-1"><span id="28981"></span>28981</td>
 <td class="instruction">LD A,252</td>
 <td class="comment-11" rowspan="4">Determine which floor the character is currently on or above (she may be on a chair or still in the air)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28983"></a>28983</td>
+<td class="address-2"><span id="28983"></span>28983</td>
 <td class="instruction">ADD A,7</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28985"></a>28985</td>
+<td class="address-1"><span id="28985"></span>28985</td>
 <td class="instruction">CP D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28986"></a>28986</td>
+<td class="address-1"><span id="28986"></span>28986</td>
 <td class="instruction">JR C,28983</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28988"></a>28988</td>
+<td class="address-1"><span id="28988"></span>28988</td>
 <td class="instruction">LD D,A</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=3, 10 or 17 (top, middle or bottom floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28989"></a>28989</td>
-<td class="instruction">JP <a class="link" href="30102.html#30115">30115</a></td>
+<td class="address-1"><span id="28989"></span>28989</td>
+<td class="instruction">JP <a href="30102.html#30115">30115</a></td>
 <td class="comment-11" rowspan="1">Restore the character's original animatory state and put her feet back on the floor</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28952.html">28952</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28978">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28992.html">28992</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28952.html">28952</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28978">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28992.html">28992</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

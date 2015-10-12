@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 31723</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31720.html">31720</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31723">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31733.html">31733</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31720.html">31720</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31723">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31733.html">31733</a></span></td>
 </tr>
 </table>
 <div class="description">31723: Update the SRB for ERIC or his pellet and scroll the screen if necessary</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="29194.html">29194</a>. Updates the <a class="link" href="32512.html">screen refresh buffer</a> (SRB) for ERIC's new animatory state and location when he's riding the bike, or ERIC's pellet's new location as it flies through the air.
+Used by the routine at <a href="29194.html">29194</a>. Updates the <a href="32512.html">screen refresh buffer</a> (SRB) for ERIC's new animatory state and location when he's riding the bike, or ERIC's pellet's new location as it flies through the air.
 </div>
 </div>
 <table class="input-1">
@@ -64,46 +60,46 @@ Used by the routine at <a class="link" href="29194.html">29194</a>. Updates the 
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="31723"></a>31723</td>
-<td class="instruction">CALL <a class="link" href="24880.html">24880</a></td>
+<td class="address-2"><span id="31723"></span>31723</td>
+<td class="instruction">CALL <a href="24880.html">24880</a></td>
 <td class="comment-11" rowspan="1">Update the animatory state and location of ERIC or his pellet and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31726"></a>31726</td>
+<td class="address-1"><span id="31726"></span>31726</td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31727"></a>31727</td>
+<td class="address-1"><span id="31727"></span>31727</td>
 <td class="instruction">CP 210</td>
 <td class="comment-11" rowspan="1">Is this ERIC?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31729"></a>31729</td>
+<td class="address-1"><span id="31729"></span>31729</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="31730"></a>31730</td>
-<td class="instruction">JP <a class="link" href="28160.html#28178">28178</a></td>
+<td class="address-1"><span id="31730"></span>31730</td>
+<td class="instruction">JP <a href="28160.html#28178">28178</a></td>
 <td class="comment-11" rowspan="1">Scroll the screen if necessary</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="31720.html">31720</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#31723">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="31733.html">31733</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="31720.html">31720</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31723">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31733.html">31733</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 28672</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28658.html">28658</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28672">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28735.html">28735</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28658.html">28658</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28672">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28735.html">28735</a></span></td>
 </tr>
 </table>
 <div class="description">28672: Check for walls, closed doors and ALBERT in front of the bike</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a class="link" href="29194.html">29194</a> (when the bike is travelling of its own accord, or ERIC is standing on the saddle) and <a class="link" href="29278.html">29278</a> (when ERIC is sitting on the bike). Returns with the zero flag set if a wall or closed door lies in the bike's path, or the carry flag set if ALBERT is impeding the bike's progress.
+Used by the routines at <a href="29194.html">29194</a> (when the bike is travelling of its own accord, or ERIC is standing on the saddle) and <a href="29278.html">29278</a> (when ERIC is sitting on the bike). Returns with the zero flag set if a wall or closed door lies in the bike's path, or the carry flag set if ALBERT is impeding the bike's progress.
 </div>
 </div>
 <table class="input-1">
@@ -56,31 +52,31 @@ Used by the routines at <a class="link" href="29194.html">29194</a> (when the bi
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28672"></a>28672</td>
+<td class="address-2"><span id="28672"></span>28672</td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1">Set the carry flag if the bike is facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28673"></a>28673</td>
+<td class="address-1"><span id="28673"></span>28673</td>
 <td class="instruction">LD HL,32756</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32756.html">32756</a> holds the doors flags</td>
+<td class="comment-11" rowspan="1"><a href="32756.html">32756</a> holds the doors flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28676"></a>28676</td>
+<td class="address-1"><span id="28676"></span>28676</td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's/bike's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28677"></a>28677</td>
+<td class="address-1"><span id="28677"></span>28677</td>
 <td class="instruction">JR NC,28722</td>
 <td class="comment-11" rowspan="1">Jump if the bike is facing left</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28679"></a>
+<span id="28679"></span>
 <div class="comments">
 <div class="paragraph">
 The bike is travelling to the right.
@@ -90,85 +86,85 @@ The bike is travelling to the right.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28679"></a>28679</td>
+<td class="address-1"><span id="28679"></span>28679</td>
 <td class="instruction">CP 189</td>
 <td class="comment-11" rowspan="1">Has the bike hit the far right wall of the girls' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28681"></a>28681</td>
+<td class="address-1"><span id="28681"></span>28681</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28682"></a>28682</td>
+<td class="address-1"><span id="28682"></span>28682</td>
 <td class="instruction">CP 93</td>
 <td class="comment-11" rowspan="1">Is the boys' skool door in front of the bike?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28684"></a>28684</td>
+<td class="address-1"><span id="28684"></span>28684</td>
 <td class="instruction">JR NZ,28692</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28686"></a>28686</td>
+<td class="address-2"><span id="28686"></span>28686</td>
 <td class="instruction">BIT 3,(HL)</td>
 <td class="comment-11" rowspan="1">Is the boys' skool door open?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28688"></a>28688</td>
+<td class="address-1"><span id="28688"></span>28688</td>
 <td class="instruction">JR NZ,28719</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28690"></a>28690</td>
+<td class="address-2"><span id="28690"></span>28690</td>
 <td class="instruction">CP A</td>
 <td class="comment-11" rowspan="2">Return with the zero flag set if the bike has hit the boys' skool door or the skool gate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28691"></a>28691</td>
+<td class="address-1"><span id="28691"></span>28691</td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28692"></a>28692</td>
+<td class="address-2"><span id="28692"></span>28692</td>
 <td class="instruction">CP 132</td>
 <td class="comment-11" rowspan="1">Is the skool gate in front of the bike?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28694"></a>28694</td>
+<td class="address-1"><span id="28694"></span>28694</td>
 <td class="instruction">JR NZ,28702</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28696"></a>28696</td>
+<td class="address-2"><span id="28696"></span>28696</td>
 <td class="instruction">BIT 4,(HL)</td>
 <td class="comment-11" rowspan="1">Is the skool gate closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28698"></a>28698</td>
+<td class="address-1"><span id="28698"></span>28698</td>
 <td class="instruction">JR Z,28690</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28700"></a>28700</td>
+<td class="address-1"><span id="28700"></span>28700</td>
 <td class="instruction">JR 28719</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28702"></a>
+<span id="28702"></span>
 <div class="comments">
 <div class="paragraph">
 Neither the skool door nor the skool gate is in the way. What about ALBERT?
@@ -178,61 +174,61 @@ Neither the skool door nor the skool gate is in the way. What about ALBERT?
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28702"></a>28702</td>
+<td class="address-2"><span id="28702"></span>28702</td>
 <td class="instruction">LD A,(52480)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ALBERT's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28705"></a>28705</td>
+<td class="address-1"><span id="28705"></span>28705</td>
 <td class="instruction">CP 127</td>
-<td class="comment-11" rowspan="1"><a class="link" href="../graphics/as.html#127">127</a>: Is ALBERT facing left with his arm up?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#127">127</a>: Is ALBERT facing left with his arm up?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28707"></a>28707</td>
+<td class="address-1"><span id="28707"></span>28707</td>
 <td class="instruction">JR NZ,28719</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28709"></a>28709</td>
+<td class="address-1"><span id="28709"></span>28709</td>
 <td class="instruction">LD A,(52481)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ALBERT's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28712"></a>28712</td>
+<td class="address-1"><span id="28712"></span>28712</td>
 <td class="instruction">SUB 2</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot 2 spaces in front of ALBERT</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28714"></a>28714</td>
+<td class="address-1"><span id="28714"></span>28714</td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1">Is the bike here?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28715"></a>28715</td>
+<td class="address-1"><span id="28715"></span>28715</td>
 <td class="instruction">JR NZ,28719</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28717"></a>28717</td>
+<td class="address-1"><span id="28717"></span>28717</td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: ALBERT is stopping the bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28718"></a>28718</td>
+<td class="address-1"><span id="28718"></span>28718</td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28719"></a>
+<span id="28719"></span>
 <div class="comments">
 <div class="paragraph">
 No obstruction lies in the bike's path.
@@ -242,25 +238,25 @@ No obstruction lies in the bike's path.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28719"></a>28719</td>
+<td class="address-2"><span id="28719"></span>28719</td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1">Set <span class="register">A</span> to a non-zero value</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28720"></a>28720</td>
+<td class="address-1"><span id="28720"></span>28720</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="2">Return with the zero and carry flags reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28721"></a>28721</td>
+<td class="address-1"><span id="28721"></span>28721</td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
-<a name="28722"></a>
+<span id="28722"></span>
 <div class="comments">
 <div class="paragraph">
 The bike is travelling to the left.
@@ -270,64 +266,64 @@ The bike is travelling to the left.
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="28722"></a>28722</td>
+<td class="address-2"><span id="28722"></span>28722</td>
 <td class="instruction">CP 1</td>
 <td class="comment-11" rowspan="1">Has the bike hit the far left wall of the boys' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28724"></a>28724</td>
+<td class="address-1"><span id="28724"></span>28724</td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28725"></a>28725</td>
+<td class="address-1"><span id="28725"></span>28725</td>
 <td class="instruction">CP 96</td>
 <td class="comment-11" rowspan="1">Is the boys' skool door in front of the bike?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28727"></a>28727</td>
+<td class="address-1"><span id="28727"></span>28727</td>
 <td class="instruction">JR Z,28686</td>
 <td class="comment-11" rowspan="1">Jump back if so to check whether it's open</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28729"></a>28729</td>
+<td class="address-1"><span id="28729"></span>28729</td>
 <td class="instruction">CP 135</td>
 <td class="comment-11" rowspan="1">Is the skool gate in front of the bike?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28731"></a>28731</td>
+<td class="address-1"><span id="28731"></span>28731</td>
 <td class="instruction">JR Z,28696</td>
 <td class="comment-11" rowspan="1">Jump back if so to check whether it's open</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28733"></a>28733</td>
+<td class="address-1"><span id="28733"></span>28733</td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="2">Return with the zero and carry flags reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="28734"></a>28734</td>
+<td class="address-1"><span id="28734"></span>28734</td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="28658.html">28658</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#28672">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="28735.html">28735</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="28658.html">28658</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#28672">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28735.html">28735</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>

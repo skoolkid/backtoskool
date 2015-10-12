@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <title>Back to Skool: Routine at 64416</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
-<link rel="stylesheet" type="text/css" href="../bts.css" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 
 </head>
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a class="link" href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="64316.html">64316</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#64416">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="64460.html">64460</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="64316.html">64316</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#64416">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="64460.html">64460</a></span></td>
 </tr>
 </table>
 <div class="description">64416: Deal with ERIC when he's falling to the floor to land on his feet</div>
@@ -30,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a class="link" href="63405.html">63405</a> when bit 3 at <a class="link" href="32749.html">32749</a> is set (by the routine at <a class="link" href="64259.html">64259</a> or <a class="link" href="64316.html">64316</a>).
+Used by the routine at <a href="63405.html">63405</a> when bit 3 at <a href="32749.html">32749</a> is set (by the routine at <a href="64259.html">64259</a> or <a href="64316.html">64316</a>).
 </div>
 </div>
 <table class="input-0">
@@ -49,166 +45,166 @@ Used by the routine at <a class="link" href="63405.html">63405</a> when bit 3 at
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="64416"></a>64416</td>
+<td class="address-2"><span id="64416"></span>64416</td>
 <td class="instruction">LD HL,32755</td>
-<td class="comment-11" rowspan="1"><a class="link" href="32755.html">32755</a> holds ERIC's main action timer</td>
+<td class="comment-11" rowspan="1"><a href="32755.html">32755</a> holds ERIC's main action timer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64419"></a>64419</td>
+<td class="address-1"><span id="64419"></span>64419</td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Is it time to deal with ERIC yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64420"></a>64420</td>
+<td class="address-1"><span id="64420"></span>64420</td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64421"></a>64421</td>
+<td class="address-1"><span id="64421"></span>64421</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64422"></a>64422</td>
+<td class="address-1"><span id="64422"></span>64422</td>
 <td class="instruction">LD HL,53762</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64425"></a>64425</td>
+<td class="address-1"><span id="64425"></span>64425</td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Increment ERIC's y-coordinate temporarily (for testing purposes)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64426"></a>64426</td>
-<td class="instruction">CALL <a class="link" href="30543.html">30543</a></td>
+<td class="address-1"><span id="64426"></span>64426</td>
+<td class="instruction">CALL <a href="30543.html">30543</a></td>
 <td class="comment-11" rowspan="1">Has ERIC reached the floor yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64429"></a>64429</td>
+<td class="address-1"><span id="64429"></span>64429</td>
 <td class="instruction">JR NZ,64452</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64431"></a>64431</td>
+<td class="address-1"><span id="64431"></span>64431</td>
 <td class="instruction">CP 17</td>
 <td class="comment-11" rowspan="1">17=y-coordinate of the bottom floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64433"></a>64433</td>
+<td class="address-1"><span id="64433"></span>64433</td>
 <td class="instruction">DEC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64434"></a>64434</td>
+<td class="address-1"><span id="64434"></span>64434</td>
 <td class="instruction">JR Z,64441</td>
 <td class="comment-11" rowspan="1">Jump if ERIC has landed on the bottom floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64436"></a>64436</td>
+<td class="address-1"><span id="64436"></span>64436</td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64437"></a>64437</td>
+<td class="address-1"><span id="64437"></span>64437</td>
 <td class="instruction">CP 95</td>
 <td class="comment-11" rowspan="1">95=x-coordinate of the rightmost end of the boys' skool</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64439"></a>64439</td>
+<td class="address-1"><span id="64439"></span>64439</td>
 <td class="instruction">JR NC,64451</td>
 <td class="comment-11" rowspan="1">Jump if ERIC is outside the boys' skool (and therefore cannot land on the top or middle floors)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="64441"></a>64441</td>
+<td class="address-2"><span id="64441"></span>64441</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="6">Reset all of ERIC's status flags at <a class="link" href="32749.html">32749</a> and <a class="link" href="32763.html">32763</a>, indicating that ERIC has landed safely</td>
+<td class="comment-11" rowspan="6">Reset all of ERIC's status flags at <a href="32749.html">32749</a> and <a href="32763.html">32763</a>, indicating that ERIC has landed safely</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64442"></a>64442</td>
+<td class="address-1"><span id="64442"></span>64442</td>
 <td class="instruction">LD L,237</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64444"></a>64444</td>
+<td class="address-1"><span id="64444"></span>64444</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64446"></a>64446</td>
+<td class="address-1"><span id="64446"></span>64446</td>
 <td class="instruction">LD L,251</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64448"></a>64448</td>
+<td class="address-1"><span id="64448"></span>64448</td>
 <td class="instruction">LD (HL),0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64450"></a>64450</td>
+<td class="address-1"><span id="64450"></span>64450</td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="64451"></a>64451</td>
+<td class="address-2"><span id="64451"></span>64451</td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-2"><a name="64452"></a>64452</td>
+<td class="address-2"><span id="64452"></span>64452</td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Restore ERIC's y-coordinate (we've finished testing)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64453"></a>64453</td>
-<td class="instruction">CALL <a class="link" href="25012.html">25012</a></td>
+<td class="address-1"><span id="64453"></span>64453</td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64456"></a>64456</td>
+<td class="address-1"><span id="64456"></span>64456</td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Increment ERIC's y-coordinate (i.e. make him drop one level)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
-<td class="address-1"><a name="64457"></a>64457</td>
-<td class="instruction">JP <a class="link" href="62178.html#62231">62231</a></td>
-<td class="comment-11" rowspan="1">Update ERIC's location, update the SRB, and reset ERIC's main action timer at <a class="link" href="32755.html">32755</a> to 6</td>
+<td class="address-1"><span id="64457"></span>64457</td>
+<td class="instruction">JP <a href="62178.html#62231">62231</a></td>
+<td class="comment-11" rowspan="1">Update ERIC's location, update the SRB, and reset ERIC's main action timer at <a href="32755.html">32755</a> to 6</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a class="link" href="64316.html">64316</a></span></td>
-<td class="up">Up: <a class="link" href="../maps/all.html#64416">Map</a></td>
-<td class="next"><span class="next-1">Next: <a class="link" href="64460.html">64460</a></span></td>
+<td class="prev"><span class="prev-1">Prev: <a href="64316.html">64316</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#64416">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="64460.html">64460</a></span></td>
 </tr>
 </table>
-<div class="footer">
-<div class="release">The complete Back to Skool RAM disassembly 20150415</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a class="link" href="http://skoolkit.ca/">SkoolKit</a> 4.3.</div>
-</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+</footer>
 </body>
 </html>
