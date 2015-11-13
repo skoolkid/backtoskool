@@ -55,4 +55,5 @@ back_to_skool.z80
 --ram poke=22528-23295,9     # INK 1: PAPER 1
 --ram poke=29131,80          # 29130 LD L,80
 --ram poke=29135,45          # 29135 DEC L
+--ram poke=23611,8           # Set bit 3 of FLAGS
 --reg pc=21932               # Start at 21932
