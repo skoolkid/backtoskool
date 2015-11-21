@@ -1,7 +1,7 @@
-; Copyright 2008-2012 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2012, 2015 Richard Dymond (rjdymond@gmail.com)
 
 [Glossary:Animatory state]
-Number denoting one of the #AS(phases of animation) of a character's sprite.
+Number denoting one of the #AS()(phases of animation) of a character's sprite.
 
 [Glossary:Character buffer]
 #LINK:CharacterBuffers(Buffer) containing data on the current state of a character.

@@ -19,7 +19,17 @@ import cgi
 
 from skoolkit.skoolhtml import Udg as BaseUdg, HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
-from skoolkit.skoolmacro import parse_ints, parse_params
+from skoolkit.skoolmacro import parse_ints, parse_brackets
+
+def parse_as(text, index):
+    end, state = parse_ints(text, index, 1, (None,))
+    end, link_text = parse_brackets(text, end, state)
+    return end, state, str(link_text)
+
+def parse_lesson(text, index):
+    end, lesson = parse_ints(text, index, 1)
+    end, link_text = parse_brackets(text, end, str(lesson))
+    return end, lesson, link_text
 
 class BackToSkoolHtmlWriter(HtmlWriter):
     def init(self):
@@ -337,18 +347,18 @@ class BackToSkoolHtmlWriter(HtmlWriter):
 
     def expand_as(self, text, index, cwd):
         # #AS[state][(link text)]
-        end, state, link_text = parse_params(text, index)
+        end, state, link_text = parse_as(text, index)
         as_file = self.relpath(cwd, self.paths['AnimatoryStates'])
-        anchor = '#{0}'.format(state) if state else ''
-        link = self.format_link(as_file + anchor, link_text or state)
+        anchor = '#{}'.format(state) if state is not None else ''
+        link = self.format_link(as_file + anchor, link_text)
         return end, link
 
     def expand_lesson(self, text, index, cwd):
         # #LESSONnum[(link text)]
-        end, lesson, link_text = parse_params(text, index)
+        end, lesson, link_text = parse_lesson(text, index)
         page_id = 'Lesson{0}'.format(lesson)
         href = self.relpath(cwd, self.paths[page_id])
-        link = self.format_link(href, link_text or lesson)
+        link = self.format_link(href, link_text)
         return end, link
 
     def get_skool_udg(self, y, x, show_chars=False):
@@ -520,13 +530,13 @@ class BackToSkoolHtmlWriter(HtmlWriter):
 class BackToSkoolAsmWriter(AsmWriter):
     def expand_as(self, text, index):
         # #AS[state][(link text)]
-        end, state, link_text = parse_params(text, index)
-        return end, link_text or state
+        end, state, link_text = parse_as(text, index)
+        return end, link_text
 
     def expand_lesson(self, text, index):
         # #LESSONnum[(link text)]
-        end, lesson, link_text = parse_params(text, index)
-        return end, link_text or lesson
+        end, lesson, link_text = parse_lesson(text, index)
+        return end, link_text
 
 class Udg(BaseUdg):
     def __init__(self, attr, data, mask=None, attr_addr=None, q_addr=None, q=None, ref_addr=None, ref=None, udg_page=None, x=None, y=None):
