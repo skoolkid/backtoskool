@@ -1,4 +1,5 @@
 GAME=bts
+GHCONFIG="-c Page:MainTimetable/Content=asm/B5C0.html -c Page:CommandLists/Content=asm/E800.html"
 GHTHEME=dark
 SRCFILES=$(echo {bts,load,save,start}.skool {bts,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {bts,dark,green,plum}.css tiles.js backtoskool.py COPYING)
 SKOOL2BINOPTS=-i
