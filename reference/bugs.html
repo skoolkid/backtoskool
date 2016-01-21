@@ -61,7 +61,7 @@ When ERIC fires his catapult, he should go through the following sequence of ani
 </table>
 </div>
 <div class="paragraph">
-However, the fourth phase in this sequence (lowering the arm after firing) is omitted. See <a href="../asm/24296.html">24296</a>.
+However, the fourth phase in this sequence (lowering the arm after firing) is omitted. See <a href="../asm/5EE8.html">5EE8</a>.
 </div>
 <div class="paragraph">
 POKE 24327,215
@@ -71,26 +71,26 @@ POKE 24327,215
 <div class="box box-2">
 <div class="box-title">Gate kiss</div>
 <div class="paragraph">
-When ERIC kisses HAYLEY, he moves one space forward (see <a href="../asm/24348.html">24348</a>). This allows ERIC to pass through the skool gate if he kisses HAYLEY from behind it while it's shut.
+When ERIC kisses HAYLEY, he moves one space forward (see <a href="../asm/5F1C.html">5F1C</a>). This allows ERIC to pass through the skool gate if he kisses HAYLEY from behind it while it's shut.
 </div>
 </div>
 <div><span id="plant"></span></div>
 <div class="box box-1">
 <div class="box-title">Wrong plant pot</div>
 <div class="paragraph">
-If ERIC is standing on a plant pot when a fully grown plant in another pot dies, he will fall to the ground. This is because the routine at <a href="../asm/64077.html">64077</a> checks whether ERIC is standing on a plant pot when a plant dies, but doesn't check whether it's the plant pot that contains the plant.
+If ERIC is standing on a plant pot when a fully grown plant in another pot dies, he will fall to the ground. This is because the routine at <a href="../asm/FA4D.html">FA4D</a> checks whether ERIC is standing on a plant pot when a plant dies, but doesn't check whether it's the plant pot that contains the plant.
 </div>
 </div>
 <div><span id="rematerialisingMouse"></span></div>
 <div class="box box-2">
 <div class="box-title">Rematerialising mouse</div>
 <div class="paragraph">
-The section of code at <a href="../asm/31573.html#31607">31607</a> is responsible for bringing a new free mouse into the game when ERIC has just caught one. The apparent intention is that the new free mouse will begin life at an x-coordinate (chosen from 10, 88 and 170) that is currently off-screen, so that you won't notice it appearing out of thin air. However, the code is careless with the <span class="register">HL</span> register pair, with the result that it is possible for a new free mouse to show up at any of these x-coordinates, regardless of which portion of the play area is currently on-screen.
+The section of code at <a href="../asm/7B55.html#7b77">7B77</a> is responsible for bringing a new free mouse into the game when ERIC has just caught one. The apparent intention is that the new free mouse will begin life at an x-coordinate (chosen from 10, 88 and 170) that is currently off-screen, so that you won't notice it appearing out of thin air. However, the code is careless with the <span class="register">HL</span> register pair, with the result that it is possible for a new free mouse to show up at any of these x-coordinates, regardless of which portion of the play area is currently on-screen.
 </div>
 <div class="paragraph">
-<div>POKE <a href="../asm/31573.html#31622">31623</a>,239</div>
-<div>POKE <a href="../asm/31573.html#31641">31642</a>,220</div>
-<div>POKE <a href="../asm/31573.html#31649">31650</a>,212</div>
+<div>POKE <a href="../asm/7B55.html#7b86">31623</a>,239</div>
+<div>POKE <a href="../asm/7B55.html#7b99">31642</a>,220</div>
+<div>POKE <a href="../asm/7B55.html#7ba1">31650</a>,212</div>
 </div>
 </div>
 <div><span id="assemblyDuty"></span></div>
@@ -110,14 +110,14 @@ To witness MR WITHIT's somewhat sickening sense of duty in this regard, proceed 
 During assembly, if ERIC is standing a teacher will scream 'SIT FACING THE STAGE', but if he's sitting down facing left (away from the stage), a teacher will scream 'NOW SIT DOWN'. This is the wrong way round.
 </div>
 <div class="paragraph">
-POKE <a href="../asm/32062.html#32205">32205</a>,32
+POKE <a href="../asm/7D3E.html#7dcd">32205</a>,32
 </div>
 </div>
 <div><span id="assemblySit2"></span></div>
 <div class="box box-1">
 <div class="box-title">More assembly sitting confusion</div>
 <div class="paragraph">
-Usually, the kids will sit down for assembly soon after the MSB of the lesson clock reaches 10 (see <a href="../asm/61658.html">61658</a>), in good time for MR WACKER's arrival on stage - which he doesn't bother to head off for until the MSB of the lesson clock reaches 8 (see <a href="../asm/63501.html">63501</a>). However, careful examination of the routine at <a href="../asm/61658.html">61658</a> reveals that not only must the MSB of the lesson clock have reached 10, but MR WITHIT must have arrived in the assembly hall too, otherwise the kids will not sit down. In fact, they will continue to walk around aimlessly in the assembly hall while MR WACKER is delivering his detention speech. And if MR WITHIT arrives late enough, the kids will carry on walking around aimlessly in the assembly hall even after MR WACKER has left the stage (instead of heading off to some random location, as they would normally do).
+Usually, the kids will sit down for assembly soon after the MSB of the lesson clock reaches 10 (see <a href="../asm/F0DA.html">F0DA</a>), in good time for MR WACKER's arrival on stage - which he doesn't bother to head off for until the MSB of the lesson clock reaches 8 (see <a href="../asm/F80D.html">F80D</a>). However, careful examination of the routine at <a href="../asm/F0DA.html">F0DA</a> reveals that not only must the MSB of the lesson clock have reached 10, but MR WITHIT must have arrived in the assembly hall too, otherwise the kids will not sit down. In fact, they will continue to walk around aimlessly in the assembly hall while MR WACKER is delivering his detention speech. And if MR WITHIT arrives late enough, the kids will carry on walking around aimlessly in the assembly hall even after MR WACKER has left the stage (instead of heading off to some random location, as they would normally do).
 </div>
 <div class="paragraph">
 To witness the kids' confusion about when to sit, try making MR WITHIT late for assembly by knocking him over with a catapult pellet four or five times before he reaches the assembly hall. Then go and stand just behind MR ROCKITT and MR CREAK - who should have reached the assembly hall by now - with the stage in view at the far right of the screen. With luck, you'll be able to keep MR WITHIT out of the assembly hall with a few more well-aimed catapult pellets while watching (a) the kids wander around aimlessly instead of sitting down, and (b) MR WACKER deliver his detention speech and then leave, apparently unfazed by the lack of attention.
@@ -147,21 +147,21 @@ If you want to check this for yourself but can't bear to wait for playtime to co
 <div class="box box-2">
 <div class="box-title">Waiting for EINSTEIN</div>
 <div class="paragraph">
-Before wiping the board and getting a lesson under way, ERIC's teacher will wait for EINSTEIN to sit down first: see <a href="../asm/61512.html">61512</a>. This makes sense at the beginning of a lesson, but that same routine is called several times during the course of a lesson (see <a href="../asm/61696.html">61696</a>) to check whether ERIC is present, which means that the teacher will also stop whatever he's doing and wait for EINSTEIN to sit down before continuing on those occasions too. This is not really noticeable except during lessons where there is no question-and-answer session taking place between the teacher and the swot, and the teacher is pacing up and down in front of the blackboard instead. During those lessons, the call to <a href="../asm/61512.html">61512</a> is made each time the teacher has reached the point where he is just about to turn round; if EINSTEIN is not sitting in a chair at that time (because ERIC has pushed him out of his seat, for example), the teacher will wait until EINSTEIN is back in his seat before turning round.
+Before wiping the board and getting a lesson under way, ERIC's teacher will wait for EINSTEIN to sit down first: see <a href="../asm/F048.html">F048</a>. This makes sense at the beginning of a lesson, but that same routine is called several times during the course of a lesson (see <a href="../asm/F100.html">F100</a>) to check whether ERIC is present, which means that the teacher will also stop whatever he's doing and wait for EINSTEIN to sit down before continuing on those occasions too. This is not really noticeable except during lessons where there is no question-and-answer session taking place between the teacher and the swot, and the teacher is pacing up and down in front of the blackboard instead. During those lessons, the call to <a href="../asm/F048.html">F048</a> is made each time the teacher has reached the point where he is just about to turn round; if EINSTEIN is not sitting in a chair at that time (because ERIC has pushed him out of his seat, for example), the teacher will wait until EINSTEIN is back in his seat before turning round.
 </div>
 <div class="paragraph">
 This phenomenon can be made more readily reproducible and observable by using the following POKEs:
 </div>
 <div class="paragraph">
-<div>POKE <a href="../asm/26224.html#26226">26227</a>,20 (to lengthen the delay before a dethroned character rises)</div>
-<div>POKE <a href="../asm/61696.html#61944">61945</a>,0 (to make every lesson a non-question-and-answer lesson)</div>
+<div>POKE <a href="../asm/6670.html#6672">26227</a>,20 (to lengthen the delay before a dethroned character rises)</div>
+<div>POKE <a href="../asm/F100.html#f1f8">61945</a>,0 (to make every lesson a non-question-and-answer lesson)</div>
 </div>
 </div>
 <div><span id="seat"></span></div>
 <div class="box box-1">
 <div class="box-title">Undethronable ERIC</div>
 <div class="paragraph">
-ERIC doesn't get pushed to the floor when someone sits in his seat (see <a href="../asm/26175.html">26175</a>).
+ERIC doesn't get pushed to the floor when someone sits in his seat (see <a href="../asm/663F.html">663F</a>).
 </div>
 <div class="paragraph">
 <div>POKE 26211,54</div>
@@ -193,7 +193,7 @@ And the desk lid animatory state that is used when ERIC finds the stinkbombs (sh
 </table>
 </div>
 <div class="paragraph">
-At the very least, these desk lid animatory states should be used the other way round. Since the relevant section of code at <a href="../asm/62178.html#62259">62259</a> is not amenable to POKEing to fix this, we need to swap the tile references for the desk lid animatory states themselves:
+At the very least, these desk lid animatory states should be used the other way round. Since the relevant section of code at <a href="../asm/F2E2.html#f333">F333</a> is not amenable to POKEing to fix this, we need to swap the tile references for the desk lid animatory states themselves:
 </div>
 <div class="paragraph">
 <div>POKE 56749,83</div>
@@ -204,7 +204,7 @@ At the very least, these desk lid animatory states should be used the other way 
 <div class="box box-1">
 <div class="box-title">Far left scrolling</div>
 <div class="paragraph">
-If ERIC is at the far left of the boys' skool (x-coordinate 0) facing right, and 'C', 'D', 'G', 'K', 'T' or 'U' is pressed, the screen scrolls left, pushing ERIC out of view; the screen then scrolls left again with every step ERIC takes (see <a href="../asm/28160.html">28160</a>).
+If ERIC is at the far left of the boys' skool (x-coordinate 0) facing right, and 'C', 'D', 'G', 'K', 'T' or 'U' is pressed, the screen scrolls left, pushing ERIC out of view; the screen then scrolls left again with every step ERIC takes (see <a href="../asm/6E00.html">6E00</a>).
 </div>
 <div class="paragraph">
 <div>POKE 28193,198</div>
@@ -222,15 +222,15 @@ If one character is speaking while a second is waiting to speak, and the screen 
 To see how the first character is tricked, consider the case where MR CREAK is at the Blue Room door, telling the kids to sit down, and MR WITHIT is at the Yellow Room door, waiting for MR CREAK to finish speaking:
 </div>
 <div class="paragraph">
-<div>0) MR CREAK is under control of the entry point at <a href="../asm/27144.html#27182">27182</a> (speaking); MR WITHIT is under control of the entry point at <a href="../asm/27144.html#27165">27165</a> (waiting to speak).</div>
+<div>0) MR CREAK is under control of the entry point at <a href="../asm/6A08.html#6a2e">6A2E</a> (speaking); MR WITHIT is under control of the entry point at <a href="../asm/6A08.html#6a1d">6A1D</a> (waiting to speak).</div>
 <div>1) The screen scrolls left, taking MR CREAK and his speech bubble out of view.</div>
-<div>2) <a href="../asm/25248.html">25248</a> (update display) is called from the main loop; this calls <a href="../asm/26849.html">26849</a>, which sets <a href="../asm/32760.html">32760</a> to 0 (indicating that the bubble is no longer on-screen).</div>
-<div>3) MR WITHIT begins execution of the entry point at <a href="../asm/27144.html#27165">27165</a>; this detects that <a href="../asm/32760.html">32760</a> is now 0, and so calls <a href="../asm/26958.html">26958</a> to open the speech bubble, which:</div>
-<div>&#160; a) sets <a href="../asm/32760.html">32760</a> to some non-zero value (indicating that the bubble is on-screen), and</div>
-<div>&#160; b) updates <a href="../asm/32762.html">32762</a> to the current leftmost column on-screen.</div>
-<div>4) MR CREAK begins execution of the entry point at <a href="../asm/27144.html#27182">27182</a>; this first calls <a href="../asm/26849.html">26849</a>, which:</div>
-<div>&#160; a) detects the non-zero value in <a href="../asm/32760.html">32760</a>, and</div>
-<div>&#160; b) fails to detect that the screen has scrolled, because MR WITHIT updated <a href="../asm/32762.html">32762</a>,</div>
+<div>2) <a href="../asm/62A0.html">62A0</a> (update display) is called from the main loop; this calls <a href="../asm/68E1.html">68E1</a>, which sets <a href="../asm/7FF8.html">7FF8</a> to 0 (indicating that the bubble is no longer on-screen).</div>
+<div>3) MR WITHIT begins execution of the entry point at <a href="../asm/6A08.html#6a1d">6A1D</a>; this detects that <a href="../asm/7FF8.html">7FF8</a> is now 0, and so calls <a href="../asm/694E.html">694E</a> to open the speech bubble, which:</div>
+<div>&#160; a) sets <a href="../asm/7FF8.html">7FF8</a> to some non-zero value (indicating that the bubble is on-screen), and</div>
+<div>&#160; b) updates <a href="../asm/7FFA.html">7FFA</a> to the current leftmost column on-screen.</div>
+<div>4) MR CREAK begins execution of the entry point at <a href="../asm/6A08.html#6a2e">6A2E</a>; this first calls <a href="../asm/68E1.html">68E1</a>, which:</div>
+<div>&#160; a) detects the non-zero value in <a href="../asm/7FF8.html">7FF8</a>, and</div>
+<div>&#160; b) fails to detect that the screen has scrolled, because MR WITHIT updated <a href="../asm/7FFA.html">7FFA</a>,</div>
 <div>thus fooling MR CREAK into thinking that his speech bubble is still on-screen.</div>
 <div>5) MR CREAK and MR WITHIT share the speech bubble, taking turns rolling message characters into it until one of them finishes.</div>
 </div>
@@ -239,7 +239,7 @@ To see how the first character is tricked, consider the case where MR CREAK is a
 <div class="box box-1">
 <div class="box-title">Hovering pellet</div>
 <div class="paragraph">
-If a catapult pellet bounces off a teacher's head on the top floor, it never hits the ceiling; instead it hovers just below the ceiling briefly before disappearing (see <a href="../asm/30380.html#30459">30459</a>).
+If a catapult pellet bounces off a teacher's head on the top floor, it never hits the ceiling; instead it hovers just below the ceiling briefly before disappearing (see <a href="../asm/76AC.html#76fb">76FB</a>).
 </div>
 <div class="paragraph">
 <div>POKE 30474,250</div>
@@ -251,7 +251,7 @@ If a catapult pellet bounces off a teacher's head on the top floor, it never hit
 <div class="box box-2">
 <div class="box-title">Pellet through the wall</div>
 <div class="paragraph">
-If ERIC stands against the far wall of the Science Lab storeroom while facing it, and then fires his catapult, the pellet will travel through the wall. See the routine at <a href="../asm/28315.html">28315</a> (which lets ERIC reach x-coordinate 63 - rather too close to that far wall), and the routine at <a href="../asm/30292.html">30292</a> (which takes that far wall to be at x-coordinate 62).
+If ERIC stands against the far wall of the Science Lab storeroom while facing it, and then fires his catapult, the pellet will travel through the wall. See the routine at <a href="../asm/6E9B.html">6E9B</a> (which lets ERIC reach x-coordinate 63 - rather too close to that far wall), and the routine at <a href="../asm/7654.html">7654</a> (which takes that far wall to be at x-coordinate 62).
 </div>
 <div class="paragraph">
 <div>POKE 28375,62 (to stop ERIC at x-coordinate 62 instead of 63), or...</div>
@@ -262,14 +262,14 @@ If ERIC stands against the far wall of the Science Lab storeroom while facing it
 <div class="box box-1">
 <div class="box-title">Pellet through the door</div>
 <div class="paragraph">
-If ERIC stands against the right study door while facing it, and then fires his catapult, the pellet will travel through the door. See the routine at <a href="../asm/30292.html">30292</a>, which checks for the presence of the right study door at x-coordinate 84 in front of the pellet. But when ERIC is standing up against the door, he is already at x-coordinate 84, which is where the pellet will be launched from; so at launch time, the x-coordinate of the spot in front of the pellet is 83, and the door check fails.
+If ERIC stands against the right study door while facing it, and then fires his catapult, the pellet will travel through the door. See the routine at <a href="../asm/7654.html">7654</a>, which checks for the presence of the right study door at x-coordinate 84 in front of the pellet. But when ERIC is standing up against the door, he is already at x-coordinate 84, which is where the pellet will be launched from; so at launch time, the x-coordinate of the spot in front of the pellet is 83, and the door check fails.
 </div>
 </div>
 <div><span id="conkerMD"></span></div>
 <div class="box box-2">
 <div class="box-title">Conker of mass destruction</div>
 <div class="paragraph">
-The section of code at <a href="../asm/29896.html#29943">29943</a> was probably meant to check whether any of the four main kids besides ERIC has been hit by the falling conker. However, because the <span class="register">B</span> and <span class="register">D</span> registers are not properly initialised before calling the routine at <a href="../asm/27820.html">27820</a>, every character (including the non-human objects) is treated as a potential target.
+The section of code at <a href="../asm/74C8.html#74f7">74F7</a> was probably meant to check whether any of the four main kids besides ERIC has been hit by the falling conker. However, because the <span class="register">B</span> and <span class="register">D</span> registers are not properly initialised before calling the routine at <a href="../asm/6CAC.html">6CAC</a>, every character (including the non-human objects) is treated as a potential target.
 </div>
 <div class="paragraph">
 One consequence of this bug is that it's possible to knock out the little boys with the conker. Not all that interesting, I suppose.
@@ -278,39 +278,39 @@ One consequence of this bug is that it's possible to knock out the little boys w
 Another consequence of this bug is that it's possible to 'knock out' the bike. But, of course, there is no 'knocked out bike' sprite; instead, an airborne frog (specifically, animatory state <a href="../graphics/as.html#30">30</a> or <a href="../graphics/as.html#158">158</a>, depending on which way the bike is facing) is displayed. Which is rather more interesting. (And easy to verify, too, since the bike is not a moving target. Just park it at the base of the tree and get firing through the top-floor window.)
 </div>
 <div class="paragraph">
-Unfortunately, owing to a technicality, the other non-human objects - mouse, frog, BOY WANDER's pellet etc. - are not vulnerable to the conker's destructive effects. (That technicality being that each is controlled by a routine whose address is stored in bytes 17 and 18 of the character buffer, so they are passed over by the routine at <a href="../asm/27820.html">27820</a>.) Oh well.
+Unfortunately, owing to a technicality, the other non-human objects - mouse, frog, BOY WANDER's pellet etc. - are not vulnerable to the conker's destructive effects. (That technicality being that each is controlled by a routine whose address is stored in bytes 17 and 18 of the character buffer, so they are passed over by the routine at <a href="../asm/6CAC.html">6CAC</a>.) Oh well.
 </div>
 </div>
 <div><span id="noBlackboardTales"></span></div>
 <div class="box box-1">
 <div class="box-title">No blackboard tales</div>
 <div class="paragraph">
-EINSTEIN never tells tales on ERIC or BOY WANDER for writing on the blackboard. This is because the section of code at <a href="../asm/61696.html#61852">61852</a> calls <a href="../asm/26453.html">26453</a> to collect the ID of the blackboard that the teacher is standing beside, but that routine returns early (with an invalid blackboard ID in <span class="register">B</span>) because the teacher is not standing within a threshold of 4 spaces of the left edge of the board. Instead, the routine at <a href="../asm/28658.html">28658</a> should be called, which collects the ID of the blackboard within a threshold of 12 spaces:
+EINSTEIN never tells tales on ERIC or BOY WANDER for writing on the blackboard. This is because the section of code at <a href="../asm/F100.html#f19c">F19C</a> calls <a href="../asm/6755.html">6755</a> to collect the ID of the blackboard that the teacher is standing beside, but that routine returns early (with an invalid blackboard ID in <span class="register">B</span>) because the teacher is not standing within a threshold of 4 spaces of the left edge of the board. Instead, the routine at <a href="../asm/6FF2.html">6FF2</a> should be called, which collects the ID of the blackboard within a threshold of 12 spaces:
 </div>
 <div class="paragraph">
 POKE 61853,242: POKE 61854,111
 </div>
 <div class="paragraph">
-But this reveals another bug in the section of code at <a href="../asm/61696.html#61852">61852</a>: instead of placing the message number for the name of the character EINSTEIN is grassing up (<a href="../asm/61345.html">27</a> or <a href="../asm/61397.html">31</a>) into <a href="../asm/32656.html">32656</a>, it places the character number (206 or 210) there, which means EINSTEIN ends up saying either:
+But this reveals another bug in the section of code at <a href="../asm/F100.html#f19c">F19C</a>: instead of placing the message number for the name of the character EINSTEIN is grassing up (<a href="../asm/EFA1.html">27</a> or <a href="../asm/EFD5.html">31</a>) into <a href="../asm/7F90.html">7F90</a>, it places the character number (206 or 210) there, which means EINSTEIN ends up saying either:
 </div>
 <div class="paragraph">
 'Please Sir I cannot tell a lie . . 714 wrote on the board'
 </div>
 <div class="paragraph">
-('714' being message <a href="../asm/64884.html">206</a>) or:
+('714' being message <a href="../asm/FD74.html">206</a>) or:
 </div>
 <div class="paragraph">
 'Please Sir I cannot tell a lie . . X wrote on the board'
 </div>
 <div class="paragraph">
-where 'X' is the textual representation of whatever happens to be at address 20289 (in the display file) at the time of grassing (20289 being equal to PEEK (210+<a href="../asm/65024.html">65024</a>) + 256 * PEEK (210+<a href="../asm/65280.html">65280</a>), which is how the address of message 210 would be determined if it existed).
+where 'X' is the textual representation of whatever happens to be at address 20289 (in the display file) at the time of grassing (20289 being equal to PEEK (210+<a href="../asm/FE00.html">FE00</a>) + 256 * PEEK (210+<a href="../asm/FF00.html">FF00</a>), which is how the address of message 210 would be determined if it existed).
 </div>
 </div>
 <div><span id="doubleWipe"></span></div>
 <div class="box box-2">
 <div class="box-title">Double wipe</div>
 <div class="paragraph">
-If ERIC leaves class at some point after the teacher has started wiping the board, but returns while EINSTEIN is telling the teacher that he's absent, the teacher will give ERIC or EINSTEIN lines, and then start wiping the board again (see <a href="../asm/61696.html#61899">61899</a>), without first walking to the right edge of the board. This means that either:
+If ERIC leaves class at some point after the teacher has started wiping the board, but returns while EINSTEIN is telling the teacher that he's absent, the teacher will give ERIC or EINSTEIN lines, and then start wiping the board again (see <a href="../asm/F100.html#f1cb">F1CB</a>), without first walking to the right edge of the board. This means that either:
 </div>
 <div class="paragraph">
 <div>(a) the lesson will resume with the teacher standing near the doorway (if the class is in the Yellow Room or the Science Lab), or</div>
@@ -357,7 +357,7 @@ If you exploit the <a href="bugs.html#doubleWipe">double wipe bug</a> twice in o
 </table>
 </div>
 <div class="paragraph">
-This happens because the board-wiping routine (<a href="../asm/26639.html">26639</a>) calls <a href="../asm/28658.html">28658</a> to collect information about the blackboard, which in turn calls <a href="../asm/26453.html">26453</a>. That routine returns early (with bogus blackboard coordinates in <span class="register">DE</span>) because the teacher is not standing at a blackboard, but <a href="../asm/26639.html">26639</a> carries on regardless, and the teacher ends up wiping a non-existent blackboard at the non-existent location (58,211), with the result that certain non-blackboard tiles end up getting wiped instead.
+This happens because the board-wiping routine (<a href="../asm/680F.html">680F</a>) calls <a href="../asm/6FF2.html">6FF2</a> to collect information about the blackboard, which in turn calls <a href="../asm/6755.html">6755</a>. That routine returns early (with bogus blackboard coordinates in <span class="register">DE</span>) because the teacher is not standing at a blackboard, but <a href="../asm/680F.html">680F</a> carries on regardless, and the teacher ends up wiping a non-existent blackboard at the non-existent location (58,211), with the result that certain non-blackboard tiles end up getting wiped instead.
 </div>
 <div class="paragraph">
 This bug can be hard to reproduce because the bell usually rings before you get a chance to make the teacher begin the third wipe; to improve your chances, try the <a href="pokes.html#lessonLength">lesson length POKEs</a> to extend the lesson.
@@ -370,7 +370,7 @@ This bug can be hard to reproduce because the bell usually rings before you get 
 If ERIC has 10000 lines or more, but manages to jump up to the safe (while holding the key) before MR WACKER comes to expel him, he will move on to the next year; what's more, ERIC will not risk expulsion again until the lines total has rolled over the maximum 655300 mark back round to zero, and then past 10000 again.
 </div>
 <div class="paragraph">
-The reason for this is that the routine at <a href="../asm/29643.html">29643</a> sends MR WACKER on his way to expel ERIC only when the lines total reaches or exceeds 10000 for the first time, and moving on to the next year makes MR WACKER completely forget his expulsion duties.
+The reason for this is that the routine at <a href="../asm/73CB.html">73CB</a> sends MR WACKER on his way to expel ERIC only when the lines total reaches or exceeds 10000 for the first time, and moving on to the next year makes MR WACKER completely forget his expulsion duties.
 </div>
 </div>
 <div><span id="deceptiveDoorways"></span></div>
@@ -426,7 +426,7 @@ Likewise, the left boundary of the Science Lab is at x-coordinate 31, a little t
 </table>
 </div>
 <div class="paragraph">
-To adjust the real boundaries of the classrooms so that they are more closely aligned with the apparent boundaries, see the location identifier tables at <a href="../asm/47676.html">47676</a> (top floor) and <a href="../asm/47932.html">47932</a> (middle floor).
+To adjust the real boundaries of the classrooms so that they are more closely aligned with the apparent boundaries, see the location identifier tables at <a href="../asm/BA3C.html">BA3C</a> (top floor) and <a href="../asm/BB3C.html">BB3C</a> (middle floor).
 </div>
 </div>
 <div><span id="speechQueue"></span></div>
@@ -449,7 +449,7 @@ Consider the case where ERIC is being taught by MR CREAK in the Yellow Room, and
 </ul>
 </div>
 <div class="paragraph">
-When MR CREAK finishes speaking, the character-moving routine at <a href="../asm/25296.html">25296</a> considers moving the following characters (after MR CREAK) in this order:
+When MR CREAK finishes speaking, the character-moving routine at <a href="../asm/62D0.html">62D0</a> considers moving the following characters (after MR CREAK) in this order:
 </div>
 <div class="paragraph">
 <ul>
@@ -488,7 +488,7 @@ Thus MR ROCKITT could spend quite a while waiting at the blackboard before telli
 If ERIC jumps continuously (hold 'J' down) during class, EINSTEIN will tell the teacher that ERIC is absent.
 </div>
 <div class="paragraph">
-This is a consequence of the zero flag being set upon entry to the routine at <a href="../asm/28085.html">28085</a>, which forces an early return with <span class="register">D</span>=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'CP 52' instruction at <a href="../asm/61512.html#61515">61515</a>.
+This is a consequence of the zero flag being set upon entry to the routine at <a href="../asm/6DB5.html">6DB5</a>, which forces an early return with <span class="register">D</span>=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'CP 52' instruction at <a href="../asm/F048.html#f04b">F04B</a>.
 </div>
 <div class="paragraph">
 POKE 28086,254
@@ -501,7 +501,7 @@ POKE 28086,254
 During dinner, go to the Yellow Room or the Science Lab, directly above the dinner hall. When the teacher on dinner duty comes and finds ERIC there, jump (press 'J'). The teacher will then return to the dinner hall, tricked into thinking that ERIC is back there too.
 </div>
 <div class="paragraph">
-This is another consequence of the zero flag being set upon entry to the routine at <a href="../asm/28085.html">28085</a>, which forces an early return with <span class="register">D</span>=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'BIT 0,(HL)' instruction at <a href="../asm/61595.html#61608">61608</a>.
+This is another consequence of the zero flag being set upon entry to the routine at <a href="../asm/6DB5.html">6DB5</a>, which forces an early return with <span class="register">D</span>=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'BIT 0,(HL)' instruction at <a href="../asm/F09B.html#f0a8">F0A8</a>.
 </div>
 <div class="paragraph">
 POKE 28086,254
@@ -514,7 +514,7 @@ POKE 28086,254
 During assembly, go to the area between the Yellow Room and the head's study. When MR WITHIT comes and finds ERIC there, jump (press 'J'). MR WITHIT will then return to the assembly hall, tricked into thinking that ERIC is back there too.
 </div>
 <div class="paragraph">
-This is yet another consequence of the zero flag being set upon entry to the routine at <a href="../asm/28085.html">28085</a>, which forces an early return with <span class="register">D</span>=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'BIT 0,(HL)' instruction at <a href="../asm/61595.html#61608">61608</a>.
+This is yet another consequence of the zero flag being set upon entry to the routine at <a href="../asm/6DB5.html">6DB5</a>, which forces an early return with <span class="register">D</span>=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'BIT 0,(HL)' instruction at <a href="../asm/F09B.html#f0a8">F0A8</a>.
 </div>
 <div class="paragraph">
 POKE 28086,254
@@ -527,7 +527,7 @@ POKE 28086,254
 Play truant during class, somewhere on the top or middle floor. (The toilets are an ideal spot.) As ERIC's teacher approaches, start jumping continuously (hold 'J' down). When the teacher reaches the spot four spaces away from ERIC, you might see him turn round briefly, and then turn round again to continue the approach towards ERIC. The reason the teacher turns round is that he is tricked into thinking that ERIC is on the bottom floor, and so starts heading for the nearest staircase.
 </div>
 <div class="paragraph">
-This is one more (less dramatic) consequence of the zero flag being set upon entry to the routine at <a href="../asm/28085.html">28085</a>, which forces an early return with <span class="register">D</span>=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'CP 4' instruction at <a href="../asm/25944.html#25986">25986</a>.
+This is one more (less dramatic) consequence of the zero flag being set upon entry to the routine at <a href="../asm/6DB5.html">6DB5</a>, which forces an early return with <span class="register">D</span>=17, indicating that ERIC is on the bottom floor (even though he isn't). In this case, the zero flag is set by the 'CP 4' instruction at <a href="../asm/6558.html#6582">6582</a>.
 </div>
 <div class="paragraph">
 POKE 28086,254
@@ -536,7 +536,7 @@ POKE 28086,254
 <footer>
 <div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
 </footer>
 </body>
 </html>

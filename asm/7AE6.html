@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 7AE6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7A16.html">7A16</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7ae6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7B0E.html">7B0E</a></span></td>
+</tr>
+</table>
+<div class="description">7AE6: Release some mice (if possible)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this routine is placed into <a href="7FD7.html">7FD7</a> by the routine at <a href="E225.html">E225</a>. It releases up to five mice, depending on (a) how many ERIC has caught, and (b) the availability of character buffers 198 and 199 (little boys 9 and 10) and 206-208 (BOY WANDER, ANGELFACE and EINSTEIN).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">210 (ERIC)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7ae6"></span>7AE6</td>
+<td class="instruction">LD A,($7FFF)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7ae9"></span>7AE9</td>
+<td class="instruction">CP $90</td>
+<td class="comment-11" rowspan="1">Is at least half of the girls' skool on-screen?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7aeb"></span>7AEB</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7aec"></span>7AEC</td>
+<td class="instruction">LD A,($7FE1)</td>
+<td class="comment-11" rowspan="1"><a href="7FE1.html">7FE1</a> holds the number of mice ERIC has caught</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7aef"></span>7AEF</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Has ERIC caught any mice?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7af0"></span>7AF0</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7af1"></span>7AF1</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7af2"></span>7AF2</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the number of captive mice</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7af3"></span>7AF3</td>
+<td class="instruction">LD L,$02</td>
+<td class="comment-11" rowspan="4">Collect ERIC's coordinates in <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7af5"></span>7AF5</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7af6"></span>7AF6</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7af7"></span>7AF7</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7af8"></span>7AF8</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=x-coordinate of the spot in front of ERIC (if he's facing right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7af9"></span>7AF9</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7afa"></span>7AFA</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Is ERIC facing right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7afc"></span>7AFC</td>
+<td class="instruction">JR NZ,$7B00</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7afe"></span>7AFE</td>
+<td class="instruction">DEC E</td>
+<td class="comment-11" rowspan="2"><span class="register">E</span>=x-coordinate of the spot in front of ERIC (if he's facing left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7aff"></span>7AFF</td>
+<td class="instruction">DEC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7b00"></span>7B00</td>
+<td class="instruction">CALL <a href="7B0E.html">$7B0E</a></td>
+<td class="comment-11" rowspan="1">Release up to five mice at the spot in front of ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7b03"></span>7B03</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of mice ERIC had before trying to release some</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7b04"></span>7B04</td>
+<td class="instruction">LD HL,$7FE1</td>
+<td class="comment-11" rowspan="1"><a href="7FE1.html">7FE1</a> holds the number of mice ERIC has left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7b07"></span>7B07</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Set the zero flag if ERIC couldn't release any mice</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7b08"></span>7B08</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of mice left in ERIC's pocket</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7b09"></span>7B09</td>
+<td class="instruction">CALL NZ,<a href="7B55.html#7bc2">$7BC2</a></td>
+<td class="comment-11" rowspan="1">Print these in the inventory</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7b0c"></span>7B0C</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7b0d"></span>7B0D</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7A16.html">7A16</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7ae6">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7B0E.html">7B0E</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

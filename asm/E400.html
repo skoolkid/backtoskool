@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Data at E400</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="E328.html">E328</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#e400">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="E421.html">E421</a></span></td>
+</tr>
+</table>
+<div class="description">E400: Command list 22: Top-floor classroom - MISS TAKE</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by MISS TAKE in lessons <a href="../lessons/37.html">37</a>, <a href="../lessons/39.html">39</a>, <a href="../lessons/41.html">41</a>, <a href="../lessons/44.html">44</a>, <a href="../lessons/46.html">46</a>, <a href="../lessons/49.html">49</a>, <a href="../lessons/53.html">53</a> and <a href="../lessons/54.html">54</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e400"></span>E400</td>
+<td class="instruction">DEFW <a href="6464.html">$6464</a></td>
+<td class="comment-11" rowspan="1">Go to...</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e402"></span>E402</td>
+<td class="instruction">DEFB $B7,$03</td>
+<td class="comment-11" rowspan="1">...the doorway of MISS TAKE's study</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e404"></span>E404</td>
+<td class="instruction">DEFW <a href="6464.html">$6464</a></td>
+<td class="comment-11" rowspan="1">Go to...</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e406"></span>E406</td>
+<td class="instruction">DEFB $BC,$03</td>
+<td class="comment-11" rowspan="1">...the drinks cabinet</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e408"></span>E408</td>
+<td class="instruction">DEFW <a href="F46C.html">$F46C</a></td>
+<td class="comment-11" rowspan="1">Close the drinks cabinet door if it's open, and then restart the command list unless the boys' skool door is closed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e40a"></span>E40A</td>
+<td class="instruction">DEFW <a href="717C.html">$717C</a></td>
+<td class="comment-11" rowspan="1">Move the...</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e40c"></span>E40C</td>
+<td class="instruction">DEFB $20,$01</td>
+<td class="comment-11" rowspan="1">...drinks cabinet door (open it)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e40e"></span>E40E</td>
+<td class="instruction">DEFW <a href="F460.html">$F460</a></td>
+<td class="comment-11" rowspan="1">Make the next command be the start of the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e410"></span>E410</td>
+<td class="instruction">DEFW <a href="6464.html">$6464</a></td>
+<td class="comment-11" rowspan="1">Go to...</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e412"></span>E412</td>
+<td class="instruction">DEFB $B8,$03</td>
+<td class="comment-11" rowspan="1">...the doorway of MISS TAKE's study</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e414"></span>E414</td>
+<td class="instruction">DEFW <a href="6464.html">$6464</a></td>
+<td class="comment-11" rowspan="1">Go to...</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e416"></span>E416</td>
+<td class="instruction">DEFB $B4,$03</td>
+<td class="comment-11" rowspan="1">...the doorway of the top-floor classroom in the girls' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e418"></span>E418</td>
+<td class="instruction">DEFW <a href="F073.html">$F073</a></td>
+<td class="comment-11" rowspan="1">Restart the command list, or tell the kids to sit down and signal that...</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e41a"></span>E41A</td>
+<td class="instruction">DEFB $08</td>
+<td class="comment-11" rowspan="1">...the teacher has arrived at the top-floor classroom in the girls' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e41b"></span>E41B</td>
+<td class="instruction">DEFW <a href="6464.html">$6464</a></td>
+<td class="comment-11" rowspan="1">Go to...</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e41d"></span>E41D</td>
+<td class="instruction">DEFB $A9,$03</td>
+<td class="comment-11" rowspan="1">...the blackboard in the top-floor classroom in the girls' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="e41f"></span>E41F</td>
+<td class="instruction">DEFW <a href="F100.html">$F100</a></td>
+<td class="comment-11" rowspan="1">Wipe the board, conduct the class</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="E328.html">E328</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#e400">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="E421.html">E421</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

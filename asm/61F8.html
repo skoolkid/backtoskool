@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 61F8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="61C2.html">61C2</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61f8">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6262.html">6262</a></span></td>
+</tr>
+</table>
+<div class="description">61F8: Scroll the screen right 8 columns</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="6E00.html">6E00</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61f8"></span>61F8</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-11" rowspan="1">8 columns will be scrolled on</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61fa"></span>61FA</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Save the column counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61fb"></span>61FB</td>
+<td class="instruction">LD HL,$5A9E</td>
+<td class="comment-11" rowspan="4">First shift the attributes one place to the right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61fe"></span>61FE</td>
+<td class="instruction">LD DE,$5A9F</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6201"></span>6201</td>
+<td class="instruction">LD BC,$029F</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6204"></span>6204</td>
+<td class="instruction">LDDR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6206"></span>6206</td>
+<td class="instruction">CALL <a href="F849.html">$F849</a></td>
+<td class="comment-11" rowspan="1">Scroll the display file one character square to the right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6209"></span>6209</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="2">Adjust the leftmost column of the play area now on screen (held at <a href="7FFF.html">7FFF</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="620a"></span>620A</td>
+<td class="instruction">LD ($7FFF),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="620d"></span>620D</td>
+<td class="instruction">LD HL,$1400</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=20 (bottom row of the screen), <span class="register">L</span>=0 (column at the far left)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6210"></span>6210</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6211"></span>6211</td>
+<td class="instruction">CALL <a href="606C.html">$606C</a></td>
+<td class="comment-11" rowspan="1">Print the play area character square at row <span class="register">H</span>, column <span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6214"></span>6214</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6215"></span>6215</td>
+<td class="instruction">DEC H</td>
+<td class="comment-11" rowspan="1">Next row up</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6216"></span>6216</td>
+<td class="instruction">JP P,$6210</td>
+<td class="comment-11" rowspan="1">Jump back until all 21 squares in the column have been printed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6219"></span>6219</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Restore the column counter to <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="621a"></span>621A</td>
+<td class="instruction">DJNZ $61FA</td>
+<td class="comment-11" rowspan="1">Jump back until 8 columns have been scrolled on</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="621c"></span>
+<div class="comments">
+<div class="paragraph">
+The screen has been scrolled right 8 columns. Check whether any of the minor characters may be teleported without us noticing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="621c"></span>621C</td>
+<td class="instruction">LD A,($7FFF)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area now on screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="621f"></span>621F</td>
+<td class="instruction">LD B,$04</td>
+<td class="comment-11" rowspan="2">4 little girls, starting with 186=little girl no. 4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6221"></span>6221</td>
+<td class="instruction">LD H,$BA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6223"></span>6223</td>
+<td class="instruction">CP $70</td>
+<td class="comment-11" rowspan="1">Was the skool gate in the middle of the screen before scrolling?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6225"></span>6225</td>
+<td class="instruction">JR Z,$622E</td>
+<td class="comment-11" rowspan="1">Jump if so (to consider teleporting little girls 4-7)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6227"></span>6227</td>
+<td class="instruction">CP $48</td>
+<td class="comment-11" rowspan="1">Was the boys' skool door in the middle of the screen before scrolling?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6229"></span>6229</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="622a"></span>622A</td>
+<td class="instruction">LD H,$B7</td>
+<td class="comment-11" rowspan="1">183=little girl no. 1</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="622c"></span>
+<div class="comments">
+<div class="paragraph">
+The next section of code moves certain off-screen minor characters straight to their destination. Sneaky! This entry point is used by the routine at <a href="61C2.html">61C2</a> with <span class="register">H</span>=190 (little boy no. 1).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="622c"></span>622C</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="622e"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <span class="register">H</span>=193, <span class="register">B</span>=5) and <a href="F74D.html">F74D</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="622e"></span>622E</td>
+<td class="instruction">LD L,$1D</td>
+<td class="comment-11" rowspan="2">Bit 3 of byte 29 is set if the character should be moved immediately to the next destination in his command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6230"></span>6230</td>
+<td class="instruction">BIT 3,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6232"></span>6232</td>
+<td class="instruction">JR Z,$625E</td>
+<td class="comment-11" rowspan="1">Jump if this character should not be 'teleported'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6234"></span>6234</td>
+<td class="instruction">RES 3,(HL)</td>
+<td class="comment-11" rowspan="1">Reset bit 3 now, so that this character is not considered for teleportation again during this lesson</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6236"></span>6236</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=28</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6237"></span>6237</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-11" rowspan="3">Collect the address reached in the command list into <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6238"></span>6238</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6239"></span>6239</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="623a"></span>623A</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of this address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="623b"></span>623B</td>
+<td class="instruction">SUB $64</td>
+<td class="comment-11" rowspan="1">Is this the address of the routine at <a href="6464.html">6464</a>?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="623d"></span>623D</td>
+<td class="instruction">JR NZ,$625E</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="623f"></span>623F</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=26</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6240"></span>6240</td>
+<td class="instruction">INC DE</td>
+<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at the location coordinates (the parameters of <a href="6464.html">6464</a> in the command list)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6241"></span>6241</td>
+<td class="instruction">INC DE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6242"></span>6242</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-11" rowspan="3">Store this address in bytes 25 and 26 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6243"></span>6243</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6244"></span>6244</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6245"></span>6245</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=24</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6246"></span>6246</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="3">Fill bytes 1-24 of the character's buffer with zeroes</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6247"></span>6247</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6248"></span>6248</td>
+<td class="instruction">JR NZ,$6246</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="624a"></span>624A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="3">Set the character's animatory state to its base value (cancelling any midstride or knockout)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="624b"></span>624B</td>
+<td class="instruction">AND $F8</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="624d"></span>624D</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="624e"></span>624E</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="624f"></span>624F</td>
+<td class="instruction">CALL <a href="6264.html">$6264</a></td>
+<td class="comment-11" rowspan="1">Bring the location coordinates from the command list into bytes 1 and 2 of the buffer, effecting the teleportation</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6252"></span>6252</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="3">Collect the character's new coordinates into <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6253"></span>6253</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6254"></span>6254</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6255"></span>6255</td>
+<td class="instruction">LD L,$05</td>
+<td class="comment-11" rowspan="4">Copy these coordinates into bytes 5 and 6 of the buffer, which normally hold the character's destination; this is to let the routine at <a href="6464.html">6464</a> know it has nothing left to do</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6257"></span>6257</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6258"></span>6258</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6259"></span>6259</td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="625a"></span>625A</td>
+<td class="instruction">LD L,$1D</td>
+<td class="comment-11" rowspan="2">Reset bit 0 of byte 29, cancelling any pending request to restart the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="625c"></span>625C</td>
+<td class="instruction">RES 0,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="625e"></span>625E</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Next character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="625f"></span>625F</td>
+<td class="instruction">DJNZ $622E</td>
+<td class="comment-11" rowspan="1">Jump back until all characters have been done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6261"></span>6261</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="61C2.html">61C2</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61f8">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6262.html">6262</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 50E5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="50E2.html">50E2</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#50e5">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="50F4.html">50F4</a></span></td>
+</tr>
+</table>
+<div class="description">50E5: Populate a row of the screen with machine code</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes of machine code from the source (either the top row of the screen, or character buffers 183-190) to the destination (the second or third row from the bottom of the screen), in eight 32-byte blocks.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Source (16384 or 46848)</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Destination display file address (20640 or 20672)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="50e5"></span>50E5</td>
+<td class="instruction">LD BC,$0020</td>
+<td class="comment-11" rowspan="1">There are 32 bytes per row of pixels</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="50e8"></span>50E8</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="50e9"></span>50E9</td>
+<td class="instruction">LDIR</td>
+<td class="comment-11" rowspan="1">Copy 32 bytes to the display file</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="50eb"></span>50EB</td>
+<td class="instruction">LD L,B</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="50ec"></span>50EC</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="50ed"></span>50ED</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the start of the next row of pixels</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="50ee"></span>50EE</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next batch of 32 bytes to copy</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="50ef"></span>50EF</td>
+<td class="instruction">BIT 3,D</td>
+<td class="comment-11" rowspan="1">Have we copied 8 rows of bytes yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="50f1"></span>50F1</td>
+<td class="instruction">JR Z,$50E5</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="50f3"></span>50F3</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="50E2.html">50E2</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#50e5">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="50F4.html">50F4</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

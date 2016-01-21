@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at F6D5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F6C8.html">F6C8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f6d5">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F6EA.html">F6EA</a></span></td>
+</tr>
+</table>
+<div class="description">F6D5: Start a new game or enter demo mode</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="54A0.html">54A0</a>, <a href="5D63.html">5D63</a>, <a href="F413.html">F413</a>, <a href="F55F.html">F55F</a> and <a href="F6BE.html">F6BE</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f6d5"></span>F6D5</td>
+<td class="instruction">LD SP,$5CFE</td>
+<td class="comment-11" rowspan="1">Put the stack somewhere safe</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6d8"></span>F6D8</td>
+<td class="instruction">LD HL,$7FDE</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=255 if we're in demo mode, 0 if a game has just ended, or 1 if ERIC has just gone up a year</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6db"></span>F6DB</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6dc"></span>F6DC</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6dd"></span>F6DD</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6de"></span>F6DE</td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="3">Who knows what used to happen here?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6df"></span>F6DF</td>
+<td class="instruction">NOP</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6e0"></span>F6E0</td>
+<td class="instruction">NOP</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6e1"></span>F6E1</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6e2"></span>F6E2</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=255 if we're in demo mode, 0 if a game has just ended, or 1 if ERIC has just gone up a year</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6e3"></span>F6E3</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="3">0 becomes 255 (demo mode), and 1 and 255 become 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6e4"></span>F6E4</td>
+<td class="instruction">CCF</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6e5"></span>F6E5</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6e6"></span>F6E6</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Store this in <a href="7FDE.html">7FDE</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6e7"></span>F6E7</td>
+<td class="instruction">CALL <a href="F5BE.html">$F5BE</a></td>
+<td class="comment-11" rowspan="1">Prepare for a new game or demo mode, then enter the main loop at <a href="F6EA.html">F6EA</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F6C8.html">F6C8</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f6d5">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F6EA.html">F6EA</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

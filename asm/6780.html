@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 6780</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6755.html">6755</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6780">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6790.html">6790</a></span></td>
+</tr>
+</table>
+<div class="description">6780: Move the bike if it's obstructing the boys' skool door or the gate</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="717C.html">717C</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Bike's animatory state</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">(96,17) or (136,17)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6780"></span>6780</td>
+<td class="instruction">AND $05</td>
+<td class="comment-11" rowspan="1">Is the bike lying on the floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6782"></span>6782</td>
+<td class="instruction">JR NZ,$678E</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6784"></span>6784</td>
+<td class="instruction">LD H,$D3</td>
+<td class="comment-11" rowspan="1">211=bike</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6786"></span>6786</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the bike's new location temporarily</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6787"></span>6787</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the bike's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="678a"></span>678A</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Restore the bike's new location to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="678b"></span>678B</td>
+<td class="instruction">JP <a href="6130.html">$6130</a></td>
+<td class="comment-11" rowspan="1">Update the bike's location and update the SRB</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="678e"></span>
+<div class="comments">
+<div class="paragraph">
+The bike is not lying on the floor, so either ERIC is riding it, or it's travelling of its own accord. In this case, ALBERT must wait for it to pass before closing the skool door or gate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="678e"></span>678E</td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1">Drop the return address, which has the effect of making ALBERT wait</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="678f"></span>678F</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6755.html">6755</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6780">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6790.html">6790</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

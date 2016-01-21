@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at F841</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F818.html">F818</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f841">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F849.html">F849</a></span></td>
+</tr>
+</table>
+<div class="description">F841: Scroll the display file left one column</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="61C2.html">61C2</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f841"></span>F841</td>
+<td class="instruction">LD BC,$B02C</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=44 (INC L), <span class="register">B</span>=176 (LDIR after EDh)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f844"></span>F844</td>
+<td class="instruction">LD DE,$4000</td>
+<td class="comment-11" rowspan="1">Initialise <span class="register">DE</span> to the appropriate display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f847"></span>F847</td>
+<td class="instruction">JR <a href="F849.html#f84f">$F84F</a></td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F818.html">F818</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f841">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F849.html">F849</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

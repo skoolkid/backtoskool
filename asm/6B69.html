@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 6B69</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6B46.html">6B46</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6b69">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6BB2.html">6BB2</a></span></td>
+</tr>
+</table>
+<div class="description">6B69: Print the score, lines total or hi-score (2)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Continues from the routine at <a href="73AD.html">73AD</a>. Prepares the buffer at <a href="E30B.html">E30B</a> with the graphic data for the digits whose character codes are stored at <a href="E300.html">E300</a>, then copies the graphic data to the screen at the location specified by <span class="register">DE</span>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Display file address</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6b69"></span>6B69</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b6a"></span>6B6A</td>
+<td class="instruction">LD HL,$E31F</td>
+<td class="comment-11" rowspan="5">Clear the 21-byte buffer at <a href="E30B.html">E30B</a>, which will hold the graphic data for the number to be printed (21 bytes = 7 pixel rows, 3 bytes per row)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b6d"></span>6B6D</td>
+<td class="instruction">LD B,$15</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6b6f"></span>6B6F</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b71"></span>6B71</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b72"></span>6B72</td>
+<td class="instruction">DJNZ $6B6F</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b74"></span>6B74</td>
+<td class="instruction">LD L,B</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="E300.html">E300</a> (where the ASCII codes of the digits are stored)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6b75"></span>6B75</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the ASCII code of the next digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b76"></span>6B76</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Have we done all the digits?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b77"></span>6B77</td>
+<td class="instruction">JR Z,$6BA0</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b79"></span>6B79</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=ASCII code for the digit (48-57)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b7a"></span>6B7A</td>
+<td class="instruction">LD D,$D7</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the appropriate entry in the table of font character bitmap widths at <a href="D720.html">D720</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b7c"></span>6B7C</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the next digit and save this address for later</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b7d"></span>6B7D</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b7e"></span>6B7E</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=width of the font character bitmap (in pixels)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b7f"></span>6B7F</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Copy this to <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6b80"></span>6B80</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the next bitmap pixel column</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b81"></span>6B81</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=next pixel column of bitmap data for this digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6b82"></span>6B82</td>
+<td class="instruction">LD L,$1F</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the last byte of the graphic data buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b84"></span>6B84</td>
+<td class="instruction">LD B,$07</td>
+<td class="comment-11" rowspan="1">There are 7 rows of pixels in the buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b86"></span>6B86</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Skip the bottom row of pixels in the bitmap data</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6b87"></span>6B87</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="8">Roll a pixel column into the buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b88"></span>6B88</td>
+<td class="instruction">RL (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b8a"></span>6B8A</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b8b"></span>6B8B</td>
+<td class="instruction">RL (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b8d"></span>6B8D</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b8e"></span>6B8E</td>
+<td class="instruction">RL (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b90"></span>6B90</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b91"></span>6B91</td>
+<td class="instruction">DJNZ $6B87</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b93"></span>6B93</td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1">Next pixel column</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b94"></span>6B94</td>
+<td class="instruction">JP M,$6B9C</td>
+<td class="comment-11" rowspan="1">Jump if we've done them all (plus a blank column)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b97"></span>6B97</td>
+<td class="instruction">JR NZ,$6B80</td>
+<td class="comment-11" rowspan="1">Jump back until all the pixel columns of the bitmap for the digit have been done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b99"></span>6B99</td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="2">Then jump back to add a blank pixel column</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b9a"></span>6B9A</td>
+<td class="instruction">JR $6B82</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6b9c"></span>6B9C</td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=address of the next digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b9d"></span>6B9D</td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6b9e"></span>6B9E</td>
+<td class="instruction">JR $6B75</td>
+<td class="comment-11" rowspan="1">Jump back to deal with this digit</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6ba0"></span>
+<div class="comments">
+<div class="paragraph">
+The graphic data for the digits has been rolled into the buffer at <a href="E30B.html">E30B</a>. Now we copy the buffer to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6ba0"></span>6BA0</td>
+<td class="instruction">LD L,$0B</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="E30B.html">E30B</a> (start address of the buffer)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6ba2"></span>6BA2</td>
+<td class="instruction">LD BC,$07FF</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=7 (number of pixel rows), <span class="register">C</span>=255</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6ba5"></span>6BA5</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=appropriate display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6ba6"></span>6BA6</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6ba7"></span>6BA7</td>
+<td class="instruction">LDI</td>
+<td class="comment-11" rowspan="3">Copy three bytes (one pixel row) from the buffer to the screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6ba9"></span>6BA9</td>
+<td class="instruction">LDI</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6bab"></span>6BAB</td>
+<td class="instruction">LDI</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6bad"></span>6BAD</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at the start of the next row down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6bae"></span>6BAE</td>
+<td class="instruction">INC D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6baf"></span>6BAF</td>
+<td class="instruction">DJNZ $6BA7</td>
+<td class="comment-11" rowspan="1">Jump back until all 7 pixel rows are done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6bb1"></span>6BB1</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6B46.html">6B46</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6b69">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6BB2.html">6BB2</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

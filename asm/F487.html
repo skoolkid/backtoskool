@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at F487</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F483.html">F483</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f487">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F49C.html">F49C</a></span></td>
+</tr>
+</table>
+<div class="description">F487: Jump forward in the command list if the boys' skool door or the gate is closed</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by command list <a href="E94C.html">76</a>. Saves ALBERT a trip to the skool gate or the skool door if it's already closed.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">205 (ALBERT)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f487"></span>F487</td>
+<td class="instruction">LD DE,$7FF4</td>
+<td class="comment-11" rowspan="1"><a href="7FF4.html">7FF4</a> holds the door/window status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f48a"></span>F48A</td>
+<td class="instruction">CALL <a href="627D.html">$627D</a></td>
+<td class="comment-11" rowspan="1">Collect the next byte (the door identifier) from the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f48d"></span>F48D</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f48e"></span>F48E</td>
+<td class="instruction">AND (HL)</td>
+<td class="comment-11" rowspan="1">Set the zero flag if this door is closed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f48f"></span>F48F</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f490"></span>F490</td>
+<td class="instruction">JR NZ,$F499</td>
+<td class="comment-11" rowspan="1">Jump if the specified door is open</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f492"></span>F492</td>
+<td class="instruction">LD B,$0A</td>
+<td class="comment-11" rowspan="3">Move along 10 places in the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f494"></span>F494</td>
+<td class="instruction">CALL <a href="627D.html">$627D</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f497"></span>F497</td>
+<td class="instruction">DJNZ $F494</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f499"></span>F499</td>
+<td class="instruction">JP <a href="638C.html">$638C</a></td>
+<td class="comment-11" rowspan="1">Move to the next command in the command list</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F483.html">F483</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f487">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F49C.html">F49C</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

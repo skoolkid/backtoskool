@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 64D7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="64D4.html">64D4</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#64d7">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="64F3.html">64F3</a></span></td>
+</tr>
+</table>
+<div class="description">64D7: Make a character go to a random location</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by command lists <a href="D23C.html">18</a>, <a href="E256.html">20</a>, <a href="E264.html">28</a>, <a href="E70F.html">40</a>, <a href="E5CC.html">42</a>, <a href="E919.html">66</a>, <a href="E91D.html">68</a>, <a href="E975.html">78</a> and <a href="E5EE.html">88</a> to make a character go to a place at random. The random locations are arranged in eight groups of four. The group of locations that is suitable for a particular character to choose from is determined by byte 36 of the character's buffer.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (183-209)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="64d7"></span>64D7</td>
+<td class="instruction">LD L,$24</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 36 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64d9"></span>64D9</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the contents in <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64da"></span>64DA</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="64db"></span>64DB</td>
+<td class="instruction">CALL <a href="6291.html">$6291</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64de"></span>64DE</td>
+<td class="instruction">AND $03</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=211, 212, 213 or 214</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64e0"></span>64E0</td>
+<td class="instruction">ADD A,$D3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64e2"></span>64E2</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at an entry in the table of random locations</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64e3"></span>64E3</td>
+<td class="instruction">LD E,$01</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 1 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64e5"></span>64E5</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64e6"></span>64E6</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is the character already at this x-coordinate?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64e7"></span>64E7</td>
+<td class="instruction">JR Z,$64DB</td>
+<td class="comment-11" rowspan="1">Get another random location if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64e9"></span>64E9</td>
+<td class="instruction">LD E,$05</td>
+<td class="comment-11" rowspan="3">Copy the random location's coordinates into bytes 5 and 6 of the character's buffer, thus making it his next destination</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64eb"></span>64EB</td>
+<td class="instruction">LDI</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64ed"></span>64ED</td>
+<td class="instruction">LDI</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64ef"></span>64EF</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Transfer the character number back to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64f0"></span>64F0</td>
+<td class="instruction">JP <a href="6464.html#6469">$6469</a></td>
+<td class="comment-11" rowspan="1">Send the character on his way</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+
+<div class="comments">
+<div class="paragraph">
+The contents of byte 36 of each character's buffer are as follows:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">H</span></th>
+<th colspan="1" rowspan="1">Character</th>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Byte</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">183</td>
+<td class="" colspan="1" rowspan="1">Little girl no. 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="B700.html#b724">B724</a></td>
+<td class="centre" colspan="1" rowspan="1">36</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">184</td>
+<td class="" colspan="1" rowspan="1">Little girl no. 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="B800.html#b824">B824</a></td>
+<td class="centre" colspan="1" rowspan="1">36</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">185</td>
+<td class="" colspan="1" rowspan="1">Little girl no. 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="B900.html#b924">B924</a></td>
+<td class="centre" colspan="1" rowspan="1">36</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">186</td>
+<td class="" colspan="1" rowspan="1">Little girl no. 4</td>
+<td class="centre" colspan="1" rowspan="1"><a href="BA00.html#ba24">BA24</a></td>
+<td class="centre" colspan="1" rowspan="1">38</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">187</td>
+<td class="" colspan="1" rowspan="1">Little girl no. 5</td>
+<td class="centre" colspan="1" rowspan="1"><a href="BB00.html#bb24">BB24</a></td>
+<td class="centre" colspan="1" rowspan="1">38</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">188</td>
+<td class="" colspan="1" rowspan="1">Little girl no. 6</td>
+<td class="centre" colspan="1" rowspan="1"><a href="BC00.html#bc24">BC24</a></td>
+<td class="centre" colspan="1" rowspan="1">38</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">189</td>
+<td class="" colspan="1" rowspan="1">Little girl no. 7</td>
+<td class="centre" colspan="1" rowspan="1"><a href="BD00.html#bd24">BD24</a></td>
+<td class="centre" colspan="1" rowspan="1">38</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">190</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="BE00.html#be24">BE24</a></td>
+<td class="centre" colspan="1" rowspan="1">40</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">191</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="BF00.html#bf24">BF24</a></td>
+<td class="centre" colspan="1" rowspan="1">40</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">192</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C000.html#c024">C024</a></td>
+<td class="centre" colspan="1" rowspan="1">40</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">193</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 4</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C100.html#c124">C124</a></td>
+<td class="centre" colspan="1" rowspan="1">42</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">194</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 5</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C200.html#c224">C224</a></td>
+<td class="centre" colspan="1" rowspan="1">42</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">195</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 6</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C300.html#c324">C324</a></td>
+<td class="centre" colspan="1" rowspan="1">42</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">196</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 7</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C400.html#c424">C424</a></td>
+<td class="centre" colspan="1" rowspan="1">42</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">197</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 8</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C500.html#c524">C524</a></td>
+<td class="centre" colspan="1" rowspan="1">42</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">198</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 9</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C600.html#c624">C624</a></td>
+<td class="centre" colspan="1" rowspan="1">44</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">199</td>
+<td class="" colspan="1" rowspan="1">Little boy no. 10</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C700.html#c724">C724</a></td>
+<td class="centre" colspan="1" rowspan="1">44</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">200</td>
+<td class="" colspan="1" rowspan="1">MR WACKER</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C800.html#c824">C824</a></td>
+<td class="centre" colspan="1" rowspan="1">48</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">201</td>
+<td class="" colspan="1" rowspan="1">MR WITHIT</td>
+<td class="centre" colspan="1" rowspan="1"><a href="C900.html#c924">C924</a></td>
+<td class="centre" colspan="1" rowspan="1">48</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">202</td>
+<td class="" colspan="1" rowspan="1">MR ROCKITT</td>
+<td class="centre" colspan="1" rowspan="1"><a href="CA00.html#ca24">CA24</a></td>
+<td class="centre" colspan="1" rowspan="1">68</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">203</td>
+<td class="" colspan="1" rowspan="1">MR CREAK</td>
+<td class="centre" colspan="1" rowspan="1"><a href="CB00.html#cb24">CB24</a></td>
+<td class="centre" colspan="1" rowspan="1">68</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">204</td>
+<td class="" colspan="1" rowspan="1">MISS TAKE</td>
+<td class="centre" colspan="1" rowspan="1"><a href="CC00.html#cc24">CC24</a></td>
+<td class="centre" colspan="1" rowspan="1">38</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">205</td>
+<td class="" colspan="1" rowspan="1">ALBERT</td>
+<td class="centre" colspan="1" rowspan="1"><a href="CD00.html#cd24">CD24</a></td>
+<td class="centre" colspan="1" rowspan="1">44</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">206</td>
+<td class="" colspan="1" rowspan="1">BOY WANDER</td>
+<td class="centre" colspan="1" rowspan="1"><a href="CE00.html#ce24">CE24</a></td>
+<td class="centre" colspan="1" rowspan="1">46</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">207</td>
+<td class="" colspan="1" rowspan="1">ANGELFACE</td>
+<td class="centre" colspan="1" rowspan="1"><a href="CF00.html#cf24">CF24</a></td>
+<td class="centre" colspan="1" rowspan="1">46</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">208</td>
+<td class="" colspan="1" rowspan="1">EINSTEIN</td>
+<td class="centre" colspan="1" rowspan="1"><a href="D000.html#d024">D024</a></td>
+<td class="centre" colspan="1" rowspan="1">44</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">209</td>
+<td class="" colspan="1" rowspan="1">HAYLEY</td>
+<td class="centre" colspan="1" rowspan="1"><a href="D100.html#d124">D124</a></td>
+<td class="centre" colspan="1" rowspan="1">36</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The eight groups of random locations used by this routine are:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">E</span></th>
+<th colspan="1" rowspan="1"><span class="register">D</span>=211</th>
+<th colspan="1" rowspan="1"><span class="register">D</span>=212</th>
+<th colspan="1" rowspan="1"><span class="register">D</span>=213</th>
+<th colspan="1" rowspan="1"><span class="register">D</span>=214</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">36</td>
+<td class="" colspan="1" rowspan="1">129,17</td>
+<td class="" colspan="1" rowspan="1">144,17</td>
+<td class="" colspan="1" rowspan="1">136,17</td>
+<td class="" colspan="1" rowspan="1">189,17</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">38</td>
+<td class="" colspan="1" rowspan="1">189,17</td>
+<td class="" colspan="1" rowspan="1">189,10</td>
+<td class="" colspan="1" rowspan="1">170,17</td>
+<td class="" colspan="1" rowspan="1">182,3</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">40</td>
+<td class="" colspan="1" rowspan="1">38,3</td>
+<td class="" colspan="1" rowspan="1">10,10</td>
+<td class="" colspan="1" rowspan="1">10,17</td>
+<td class="" colspan="1" rowspan="1">66,17</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">42</td>
+<td class="" colspan="1" rowspan="1">38,3</td>
+<td class="" colspan="1" rowspan="1">10,17</td>
+<td class="" colspan="1" rowspan="1">109,17</td>
+<td class="" colspan="1" rowspan="1">75,17</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">44</td>
+<td class="" colspan="1" rowspan="1">112,17</td>
+<td class="" colspan="1" rowspan="1">145,17</td>
+<td class="" colspan="1" rowspan="1">158,17</td>
+<td class="" colspan="1" rowspan="1">37,3</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">46</td>
+<td class="" colspan="1" rowspan="1">189,10</td>
+<td class="" colspan="1" rowspan="1">183,17</td>
+<td class="" colspan="1" rowspan="1">137,17</td>
+<td class="" colspan="1" rowspan="1">72,17</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">48</td>
+<td class="" colspan="1" rowspan="1">157,17</td>
+<td class="" colspan="1" rowspan="1">38,3</td>
+<td class="" colspan="1" rowspan="1">10,17</td>
+<td class="" colspan="1" rowspan="1">92,17</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">68</td>
+<td class="" colspan="1" rowspan="1">38,3</td>
+<td class="" colspan="1" rowspan="1">90,3</td>
+<td class="" colspan="1" rowspan="1">10,17</td>
+<td class="" colspan="1" rowspan="1">90,17</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="64D4.html">64D4</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#64d7">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="64F3.html">64F3</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 5D37</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="5D33.html">5D33</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#5d37">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="5D4F.html">5D4F</a></span></td>
+</tr>
+</table>
+<div class="description">5D37: 'T' pressed - throw away the water pistol</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'T' is pressed.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="5d37"></span>5D37</td>
+<td class="instruction">LD A,($7FEB)</td>
+<td class="comment-11" rowspan="1"><a href="7FEB.html">7FEB</a> holds the inventory flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="5d3a"></span>5D3A</td>
+<td class="instruction">AND $18</td>
+<td class="comment-11" rowspan="1">Has ERIC got the water pistol (bit 3 or 4 set)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="5d3c"></span>5D3C</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="5d3d"></span>5D3D</td>
+<td class="instruction">LD A,$27</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#39">39</a>: animatory state of ERIC bending over</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="5d3f"></span>5D3F</td>
+<td class="instruction">LD HL,$5D45</td>
+<td class="comment-11" rowspan="2">Place <a href="5D37.html#5d45">5D45</a> into <a href="7FD7.html">7FD7</a> to take care of ERIC from this point on, update ERIC's animatory state, and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="5d42"></span>5D42</td>
+<td class="instruction">JP <a href="E125.html#e12a">$E12A</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="5d45"></span>
+<div class="comments">
+<div class="paragraph">
+This is where we deal with ERIC after 'T' has been pressed:
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="5d45"></span>5D45</td>
+<td class="instruction">LD HL,$7FEB</td>
+<td class="comment-11" rowspan="4">Reset bits 3 and 4 of the inventory flags at <a href="7FEB.html">7FEB</a>, thus dropping the water pistol</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="5d48"></span>5D48</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="5d49"></span>5D49</td>
+<td class="instruction">AND $E7</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="5d4b"></span>5D4B</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="5d4c"></span>5D4C</td>
+<td class="instruction">JP <a href="7C02.html">$7C02</a></td>
+<td class="comment-11" rowspan="1">Print the inventory</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="5D33.html">5D33</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#5d37">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="5D4F.html">5D4F</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

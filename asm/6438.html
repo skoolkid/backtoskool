@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 6438</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63ED.html">63ED</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6438">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="644D.html">644D</a></span></td>
+</tr>
+</table>
+<div class="description">6438: Guide a character up a staircase</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this interruptible subcommand routine is placed into bytes 9 and 10 of a character's buffer by the routine at <a href="6464.html">6464</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (183-209)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6438"></span>6438</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="643a"></span>643A</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is the character midstride?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="643c"></span>643C</td>
+<td class="instruction">JP NZ,<a href="63ED.html#63fd">$63FD</a></td>
+<td class="comment-11" rowspan="1">Finish the stride if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="643f"></span>643F</td>
+<td class="instruction">LD L,$0B</td>
+<td class="comment-11" rowspan="1">Byte 11 of the character's buffer holds the number of steps left to be climbed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6441"></span>6441</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">One fewer now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6442"></span>6442</td>
+<td class="instruction">JP Z,<a href="638C.html#6390">$6390</a></td>
+<td class="comment-11" rowspan="1">Terminate this interruptible subcommand if the top of the staircase has been reached</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6445"></span>6445</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6448"></span>6448</td>
+<td class="instruction">DEC D</td>
+<td class="comment-11" rowspan="1">Up a step</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6449"></span>6449</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1">One foot forward</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="644a"></span>644A</td>
+<td class="instruction">JP <a href="6130.html">$6130</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state (to midstride) and location and update the SRB</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63ED.html">63ED</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#6438">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="644D.html">644D</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

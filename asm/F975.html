@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at F975</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F939.html">F939</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f975">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F986.html">F986</a></span></td>
+</tr>
+</table>
+<div class="description">F975: Prepare the buffer for ERIC's catapult pellet and make a sound effect</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="5EE8.html">5EE8</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">214 (ERIC's catapult pellet)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f975"></span>F975</td>
+<td class="instruction">CALL <a href="775B.html#7797">$7797</a></td>
+<td class="comment-11" rowspan="1">Prepare buffer 214 for the pellet</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f978"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="F9AB.html">F9AB</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f978"></span>F978</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f979"></span>F979</td>
+<td class="instruction">LD HL,$F812</td>
+<td class="comment-11" rowspan="3">Initialise the sound effect parameters</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f97c"></span>F97C</td>
+<td class="instruction">LD DE,$8000</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f97f"></span>F97F</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f981"></span>F981</td>
+<td class="instruction">CALL <a href="F28E.html#f2cb">$F2CB</a></td>
+<td class="comment-11" rowspan="1">Make a catapult/water pistol sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f984"></span>F984</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f985"></span>F985</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F939.html">F939</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f975">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F986.html">F986</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

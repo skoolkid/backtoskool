@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at FA39</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FA00.html">FA00</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fa39">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FA4C.html">FA4C</a></span></td>
+</tr>
+</table>
+<div class="description">FA39: Control water fired from the pistol (2)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Continues from <a href="F9AB.html">F9AB</a>. On entry the carry flag is set if the water is travelling to the right. In the following, 'water' may refer to either water or sherry.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Water's current x-coordinate</td>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Water's new animatory state</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">x-coordinate increment (-2, -1 or 0)</td>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">Water's new y-coordinate</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">214 (water)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fa39"></span>FA39</td>
+<td class="instruction">JR NC,$FA3D</td>
+<td class="comment-11" rowspan="1">Jump if the water is travelling to the left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa3b"></span>FA3B</td>
+<td class="instruction">SUB C</td>
+<td class="comment-11" rowspan="1">Add 0, 1 or 2 to the water's current x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa3c"></span>FA3C</td>
+<td class="instruction">SUB C</td>
+<td class="comment-11" rowspan="1">Do the same again to compensate for the ADD A,C instruction below</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fa3d"></span>FA3D</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=new x-coordinate for the water</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa3e"></span>FA3E</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1">Copy this to <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa3f"></span>FA3F</td>
+<td class="instruction">CP $BF</td>
+<td class="comment-11" rowspan="1">Reset the carry flag if the water has hit the far left wall of the boys' skool or the far right wall of the girls' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa41"></span>FA41</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="1">Transfer the water's new animatory state to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa42"></span>FA42</td>
+<td class="instruction">JP C,<a href="6130.html">$6130</a></td>
+<td class="comment-11" rowspan="1">Update the water's animatory state and location and update the SRB (if the water hasn't hit one of the far walls, i.e. it's still entirely on-screen)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa45"></span>FA45</td>
+<td class="instruction">LD L,$12</td>
+<td class="comment-11" rowspan="2">Otherwise remove the uninterruptible subcommand routine address (<a href="F9AB.html#f9d8">F9D8</a>) from bytes 17 and 18 of the water's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa47"></span>FA47</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fa49"></span>FA49</td>
+<td class="instruction">JP <a href="74C8.html#74d6">$74D6</a></td>
+<td class="comment-11" rowspan="1">Place the water out of sight</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FA00.html">FA00</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fa39">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FA4C.html">FA4C</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

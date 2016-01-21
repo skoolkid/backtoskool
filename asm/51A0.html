@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 51A0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="50F4.html">50F4</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#51a0">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="51DC.html">51DC</a></span></td>
+</tr>
+</table>
+<div class="description">51A0: Change a character's name</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="52A0.html">52A0</a>. Waits for keypresses while a character's name is being changed, and prints them as they are typed. Returns when ENTER is pressed.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Message number of the character's name (21-31)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="51a0"></span>51A0</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="6">Collect the start address of the message (the character's name) into <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51a1"></span>51A1</td>
+<td class="instruction">LD H,$FE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51a3"></span>51A3</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51a4"></span>51A4</td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51a5"></span>51A5</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51a6"></span>51A6</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51a7"></span>51A7</td>
+<td class="instruction">LD BC,$0C00</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=12, <span class="register">C</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="51aa"></span>51AA</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-11" rowspan="3">Blank out the current name (12 bytes)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51ab"></span>51AB</td>
+<td class="instruction">INC HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51ac"></span>51AC</td>
+<td class="instruction">DJNZ $51AA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="51ae"></span>51AE</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the message number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51af"></span>51AF</td>
+<td class="instruction">LD HL,$5040</td>
+<td class="comment-11" rowspan="1">20544=display file address at which to print the name</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51b2"></span>51B2</td>
+<td class="instruction">CALL <a href="50B9.html#50bc">$50BC</a></td>
+<td class="comment-11" rowspan="1">Print the name built up so far</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="51b5"></span>51B5</td>
+<td class="instruction">CALL <a href="71BE.html#71e2">$71E2</a></td>
+<td class="comment-11" rowspan="2">Wait for a keypress</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51b8"></span>51B8</td>
+<td class="instruction">JR Z,$51B5</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51ba"></span>51BA</td>
+<td class="instruction">CP $0D</td>
+<td class="comment-11" rowspan="1">Set the zero flag if ENTER was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51bc"></span>51BC</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=keypress code</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51bd"></span>51BD</td>
+<td class="instruction">JR NZ,$51C1</td>
+<td class="comment-11" rowspan="1">Jump unless ENTER was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51bf"></span>51BF</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the message number to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51c0"></span>51C0</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the new name entered</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="51c1"></span>
+<div class="comments">
+<div class="paragraph">
+A key was pressed, and it wasn't ENTER. Place the ASCII code in the right slot of the message area corresponding to the character's name.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="51c1"></span>51C1</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the message number to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51c2"></span>51C2</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="5">Collect the start address of the message (the character's name) into <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51c3"></span>51C3</td>
+<td class="instruction">LD H,$FE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51c5"></span>51C5</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51c6"></span>51C6</td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51c7"></span>51C7</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51c8"></span>51C8</td>
+<td class="instruction">LD HL,$000B</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51cb"></span>51CB</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Store the message number in <span class="register">C</span> briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51cc"></span>51CC</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the last byte in the message area for the character's name</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51cd"></span>51CD</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up this last byte in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51ce"></span>51CE</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is the message area already full?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51cf"></span>51CF</td>
+<td class="instruction">JR NZ,$51D9</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51d1"></span>51D1</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=start address of the message area</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51d2"></span>51D2</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="51d3"></span>51D3</td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="4">Point <span class="register">HL</span> at the first unused slot in the message area</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51d4"></span>51D4</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51d5"></span>51D5</td>
+<td class="instruction">AND A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51d6"></span>51D6</td>
+<td class="instruction">JR NZ,$51D3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51d8"></span>51D8</td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-11" rowspan="1">Place the letter just entered into this slot</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="51d9"></span>51D9</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-11" rowspan="1">Restore the message number to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="51da"></span>51DA</td>
+<td class="instruction">JR $51AE</td>
+<td class="comment-11" rowspan="1">Print the letter and collect another</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="50F4.html">50F4</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#51a0">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="51DC.html">51DC</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

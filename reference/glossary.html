@@ -42,21 +42,21 @@ Number denoting one of the <a href="../graphics/as.html">phases of animation</a>
 <div class="box box-1">
 <div class="box-title">Command list</div>
 <div class="paragraph">
-<a href="../asm/59392.html">List of commands</a> used to control a character during a lesson.
+<a href="../asm/E800.html">List of commands</a> used to control a character during a lesson.
 </div>
 </div>
 <div><span id="continual_subcommand"></span></div>
 <div class="box box-2">
 <div class="box-title">Continual subcommand</div>
 <div class="paragraph">
-One of various character-controlling command routines whose address is stored in bytes 23 and 24 of a character's buffer. The command is executed each time the character is moved - before the interruptible subcommand or primary command - unless the character is under the control of an uninterruptible subcommand (see <a href="../asm/25296.html">25296</a>).
+One of various character-controlling command routines whose address is stored in bytes 23 and 24 of a character's buffer. The command is executed each time the character is moved - before the interruptible subcommand or primary command - unless the character is under the control of an uninterruptible subcommand (see <a href="../asm/62D0.html">62D0</a>).
 </div>
 </div>
 <div><span id="interruptible_subcommand"></span></div>
 <div class="box box-1">
 <div class="box-title">Interruptible subcommand</div>
 <div class="paragraph">
-One of various character-controlling command routines whose address is stored in bytes 9 and 10 of a character's buffer. If present, the command is executed each time the character is moved, unless the character is under the control of an uninterruptible subcommand (see <a href="../asm/25296.html">25296</a>).
+One of various character-controlling command routines whose address is stored in bytes 9 and 10 of a character's buffer. If present, the command is executed each time the character is moved, unless the character is under the control of an uninterruptible subcommand (see <a href="../asm/62D0.html">62D0</a>).
 </div>
 </div>
 <div><span id="midstride"></span></div>
@@ -78,27 +78,27 @@ Of a character: in phase 2 or 4 of the walking animation. For example:
 <div class="box box-1">
 <div class="box-title">Primary command</div>
 <div class="paragraph">
-One of various character-controlling command routines whose address is stored in bytes 3 and 4 of a character's buffer. If present, the command is executed each time the character is moved, unless the character is under the control of an uninterruptible or interruptible subcommand (see <a href="../asm/25296.html">25296</a>).
+One of various character-controlling command routines whose address is stored in bytes 3 and 4 of a character's buffer. If present, the command is executed each time the character is moved, unless the character is under the control of an uninterruptible or interruptible subcommand (see <a href="../asm/62D0.html">62D0</a>).
 </div>
 </div>
 <div><span id="srb"></span></div>
 <div class="box box-2">
 <div class="box-title">SRB</div>
 <div class="paragraph">
-Screen refresh buffer at <a href="../asm/32512.html">32512</a>.
+Screen refresh buffer at <a href="../asm/7F00.html">7F00</a>.
 </div>
 </div>
 <div><span id="uninterruptible_subcommand"></span></div>
 <div class="box box-1">
 <div class="box-title">Uninterruptible subcommand</div>
 <div class="paragraph">
-One of various character-controlling command routines whose address is stored in bytes 17 and 18 of a character's buffer. If present, the command is executed each time the character is moved, and overrides any other command (see <a href="../asm/25296.html">25296</a>).
+One of various character-controlling command routines whose address is stored in bytes 17 and 18 of a character's buffer. If present, the command is executed each time the character is moved, and overrides any other command (see <a href="../asm/62D0.html">62D0</a>).
 </div>
 </div>
 <footer>
 <div class="release">The complete Back to Skool RAM disassembly 20151012</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.0.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
 </footer>
 </body>
 </html>

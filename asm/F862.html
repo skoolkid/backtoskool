@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at F862</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F858.html">F858</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f862">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F8FF.html">F8FF</a></span></td>
+</tr>
+</table>
+<div class="description">F862: Deal with a stinkbomb when dropped</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this routine is placed into <a href="7FD7.html">7FD7</a> by the routine at <a href="7140.html">7140</a> when ERIC drops a stinkbomb. It creates a stinkbomb cloud and deals with it until it has dissipated, which includes checking whether MR WACKER and a closed window are nearby, and making the former set off for the latter if so.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f862"></span>F862</td>
+<td class="instruction">LD HL,$7FEB</td>
+<td class="comment-11" rowspan="1"><a href="7FEB.html">7FEB</a> holds the inventory flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f865"></span>F865</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick these up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f866"></span>F866</td>
+<td class="instruction">AND $E0</td>
+<td class="comment-11" rowspan="1">Keep only the stinkbomb bits (bits 5-7)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f868"></span>F868</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-11" rowspan="1">Shift these bits left, losing the leftmost bit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f869"></span>F869</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Store the new stinkbomb bits in <span class="register">C</span> briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f86a"></span>F86A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the inventory flags in <span class="register">A</span> again</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f86b"></span>F86B</td>
+<td class="instruction">AND $1F</td>
+<td class="comment-11" rowspan="1">Discard the old stinkbomb bits</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f86d"></span>F86D</td>
+<td class="instruction">OR C</td>
+<td class="comment-11" rowspan="1">Superimpose the new stinkbomb bits</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f86e"></span>F86E</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Restore the inventory flags, minus one stinkbomb</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f86f"></span>F86F</td>
+<td class="instruction">CALL <a href="7C02.html">$7C02</a></td>
+<td class="comment-11" rowspan="1">Print the inventory</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f872"></span>F872</td>
+<td class="instruction">CALL <a href="E236.html">$E236</a></td>
+<td class="comment-11" rowspan="1">Prepare buffer 213 for the stinkbomb cloud (or return to the main loop if the buffer is already in use by a stinkbomb cloud)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f875"></span>F875</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f877"></span>F877</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f878"></span>F878</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f879"></span>F879</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="4">Set <span class="register">A</span> to -1 if ERIC is facing left, 1 if he's facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f87a"></span>F87A</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f87b"></span>F87B</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f87c"></span>F87C</td>
+<td class="instruction">CPL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f87d"></span>F87D</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-11" rowspan="1">Add ERIC's x-coordinate to get the x-coordinate for the stinkbomb cloud</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f87e"></span>F87E</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1">Copy this to <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f87f"></span>F87F</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f880"></span>F880</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=ERIC's y-coordinate, which will also be the y-coordinate for the stinkbomb cloud</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f881"></span>F881</td>
+<td class="instruction">LD HL,$D513</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of the stinkbomb cloud's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f884"></span>F884</td>
+<td class="instruction">LD (HL),$1D</td>
+<td class="comment-11" rowspan="1">Initialise the counter that determines when the cloud will disappear</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f886"></span>F886</td>
+<td class="instruction">LD A,$47</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#71">71</a>: stinkbomb cloud (phase 1)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f888"></span>F888</td>
+<td class="instruction">CALL <a href="7746.html">$7746</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the stinkbomb cloud's appearance and place address <a href="F862.html#f88b">F88B</a> (below) into bytes 17 and 18 of the cloud's buffer</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f88b"></span>
+<div class="comments">
+<div class="paragraph">
+The address of the entry point below is placed into bytes 17 and 18 of the cloud's buffer by the instruction above.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f88b"></span>F88B</td>
+<td class="instruction">LD L,$13</td>
+<td class="comment-11" rowspan="1">Byte 19 of the cloud's buffer holds the counter that determines how much longer the cloud will stick around (which starts off at 29)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f88d"></span>F88D</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Is it time for the cloud to disappear?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f88e"></span>F88E</td>
+<td class="instruction">JP Z,<a href="74C8.html#74cf">$74CF</a></td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f891"></span>F891</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the counter's value in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f892"></span>F892</td>
+<td class="instruction">CP $1C</td>
+<td class="comment-11" rowspan="1">Is it time for a teacher to give lines?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f894"></span>F894</td>
+<td class="instruction">JR NZ,$F89E</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f896"></span>F896</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-11" rowspan="1">Message <a href="FC34.html">1</a>: NO STINKBOMBS</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f898"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="5E6F.html">5E6F</a>, <a href="5EC7.html">5EC7</a>, <a href="5EE8.html">5EE8</a> and <a href="F9AB.html">F9AB</a> with <span class="register">A</span> holding a reprimand message number.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f898"></span>F898</td>
+<td class="instruction">SUB $3E</td>
+<td class="comment-11" rowspan="1">Subtract 62 now (it's added back later on)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f89a"></span>F89A</td>
+<td class="instruction">CP A</td>
+<td class="comment-11" rowspan="1">Set the zero flag to indicate that any teacher may give ERIC lines (including the one who last gave him lines)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f89b"></span>F89B</td>
+<td class="instruction">JP <a href="7D3E.html#7e1a">$7E1A</a></td>
+<td class="comment-11" rowspan="1">Make any teacher within range give ERIC lines</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f89e"></span>
+<div class="comments">
+<div class="paragraph">
+Now deal with animating the stinkbomb cloud and checking whether it's near a window.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f89e"></span>F89E</td>
+<td class="instruction">CALL <a href="63ED.html#6430">$6430</a></td>
+<td class="comment-11" rowspan="1">Toggle between cloud animation phases 1 (<a href="../graphics/as.html#71">71</a>) and 2 (<a href="../graphics/as.html#199">199</a>) and update the SRB accordingly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8a1"></span>F8A1</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the cloud's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8a3"></span>F8A3</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="2">Bit 0 of the cloud's animatory state (<a href="../graphics/as.html#71">71 or 199</a>) is always set, so this RET never happens</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8a5"></span>F8A5</td>
+<td class="instruction">RET Z</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8a6"></span>F8A6</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8a7"></span>F8A7</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=stinkbomb cloud's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8a8"></span>F8A8</td>
+<td class="instruction">CP $54</td>
+<td class="comment-11" rowspan="1">The head's right study door is at x-coordinate 84</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8aa"></span>F8AA</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if the cloud is to the left of this</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8ab"></span>F8AB</td>
+<td class="instruction">CP $60</td>
+<td class="comment-11" rowspan="1">The boys' skool door is at x-coordinate 96</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8ad"></span>F8AD</td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if the cloud is to the right of this</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8ae"></span>F8AE</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8af"></span>F8AF</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=stinkbomb cloud's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8b0"></span>F8B0</td>
+<td class="instruction">CP $11</td>
+<td class="comment-11" rowspan="1">Is the cloud on the bottom floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8b2"></span>F8B2</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f8b3"></span>
+<div class="comments">
+<div class="paragraph">
+The stinkbomb cloud is on the top floor or middle floor, somewhere between the head's right study door and the boys' skool door. Check the windows.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8b3"></span>F8B3</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 2 of the cloud's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8b4"></span>F8B4</td>
+<td class="instruction">LD HL,$7FF4</td>
+<td class="comment-11" rowspan="1"><a href="7FF4.html">7FF4</a> holds the door/window status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8b7"></span>F8B7</td>
+<td class="instruction">CP $03</td>
+<td class="comment-11" rowspan="1">Is the cloud on the top floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8b9"></span>F8B9</td>
+<td class="instruction">JR Z,$F8C3</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8bb"></span>F8BB</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-11" rowspan="1">Is the middle-floor window already open?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8bd"></span>F8BD</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8be"></span>F8BE</td>
+<td class="instruction">LD BC,$805D</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=128 (middle floor window), <span class="register">C</span>=93 (x-coordinate)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8c1"></span>F8C1</td>
+<td class="instruction">JR $F8C9</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f8c3"></span>F8C3</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-11" rowspan="1">Is the top-floor window already open?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8c5"></span>F8C5</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8c6"></span>F8C6</td>
+<td class="instruction">LD BC,$405B</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=64 (top-floor window), <span class="register">C</span>=91 (x-coordinate)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f8c9"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">B</span> holds the identifier of a closed window on the same floor as the stinkbomb cloud, and <span class="register">C</span> holds its x-coordinate. Is MR WACKER in the vicinity?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f8c9"></span>F8C9</td>
+<td class="instruction">LD HL,$C802</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of MR WACKER's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8cc"></span>F8CC</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is MR WACKER on the same floor as the stinkbomb cloud?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8cd"></span>F8CD</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8ce"></span>F8CE</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8cf"></span>F8CF</td>
+<td class="instruction">DEC E</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8d0"></span>F8D0</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the stinkbomb cloud</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8d1"></span>F8D1</td>
+<td class="instruction">SUB $03</td>
+<td class="comment-11" rowspan="3">Return if MR WACKER is more than 2 spaces to the left of the cloud</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8d3"></span>F8D3</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8d4"></span>F8D4</td>
+<td class="instruction">RET NC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8d5"></span>F8D5</td>
+<td class="instruction">ADD A,$05</td>
+<td class="comment-11" rowspan="3">Return if MR WACKER is more than 2 spaces to the right of the cloud</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8d7"></span>F8D7</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8d8"></span>F8D8</td>
+<td class="instruction">RET C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f8d9"></span>
+<div class="comments">
+<div class="paragraph">
+MR WACKER is close enough to the stinkbomb cloud to be affected by its stench. Check whether he's available for a spot of window-opening.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8d9"></span>F8D9</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=MR WACKER's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8da"></span>F8DA</td>
+<td class="instruction">LD L,$12</td>
+<td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 17 and 18 of MR WACKER's buffer (meaning he is otherwise occupied at the moment)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8dc"></span>F8DC</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8dd"></span>F8DD</td>
+<td class="instruction">AND A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8de"></span>F8DE</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8df"></span>F8DF</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8e0"></span>F8E0</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=MR WACKER's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8e1"></span>F8E1</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="1">Is MR WACKER midstride?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8e2"></span>F8E2</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8e3"></span>F8E3</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=MR WACKER's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8e4"></span>F8E4</td>
+<td class="instruction">LD L,$13</td>
+<td class="comment-11" rowspan="4">Store MR WACKER's current x-coordinate and animatory state in bytes 19 and 20 of his buffer for later retrieval</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8e6"></span>F8E6</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8e7"></span>F8E7</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8e8"></span>F8E8</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8e9"></span>F8E9</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Store the x-coordinate of the window in byte 21</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8ea"></span>F8EA</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8eb"></span>F8EB</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Byte 22 holds 128 (middle-floor window) or 64 (top-floor window)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8ec"></span>F8EC</td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8ed"></span>F8ED</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for MR WACKER's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8f0"></span>F8F0</td>
+<td class="instruction">SET 7,A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of MR WACKER facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8f2"></span>F8F2</td>
+<td class="instruction">CALL <a href="7746.html">$7746</a></td>
+<td class="comment-11" rowspan="1">Place address <a href="F862.html#f8f5">F8F5</a> (below) into bytes 17 and 18 of MR WACKER's buffer and update his animatory state</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f8f5"></span>
+<div class="comments">
+<div class="paragraph">
+The address of the entry point below is placed into bytes 17 and 18 of MR WACKER's buffer by the instruction above.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8f5"></span>F8F5</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of MR WACKER's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8f7"></span>F8F7</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is MR WACKER midstride?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8f9"></span>F8F9</td>
+<td class="instruction">JP NZ,<a href="63ED.html#63fd">$63FD</a></td>
+<td class="comment-11" rowspan="1">Finish his stride if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f8fc"></span>F8FC</td>
+<td class="instruction">JP <a href="F939.html">$F939</a></td>
+<td class="comment-11" rowspan="1">Otherwise set MR WACKER off on his journey to the window</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F858.html">F858</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f862">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F8FF.html">F8FF</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

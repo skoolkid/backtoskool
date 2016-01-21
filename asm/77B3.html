@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 77B3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="775B.html">775B</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#77b3">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="77C6.html">77C6</a></span></td>
+</tr>
+</table>
+<div class="description">77B3: Deal with BOY WANDER when he is firing</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of BOY WANDER's buffer by the routine at <a href="775B.html">775B</a> just after BOY WANDER has raised his catapult and fired. It controls BOY WANDER while he is lowering the catapult.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">206 (BOY WANDER)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="77b3"></span>77B3</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for BOY WANDER's current animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="77b6"></span>77B6</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#26">26 or 154</a>: BOY WANDER lowering his arm</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="77b7"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="7813.html">7813</a> with <span class="register">H</span>=207 (ANGELFACE) or <span class="register">H</span>=210 (ERIC).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="77b7"></span>77B7</td>
+<td class="instruction">CALL <a href="7746.html">$7746</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and return to <a href="77B3.html#77ba">77BA</a> (below) next time if we're dealing with BOY WANDER or ANGELFACE</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="77ba"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="5F08.html">5F08</a> with <span class="register">H</span>=209 (HAYLEY).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="77ba"></span>77BA</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="77bd"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="5F1C.html">5F1C</a> with <span class="register">H</span>=209 (HAYLEY).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="77bd"></span>77BD</td>
+<td class="instruction">LD L,$14</td>
+<td class="comment-11" rowspan="1">Byte 20 of the character's buffer holds the animatory state of the character that was saved before this action (firing/hitting/kissing) started</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="77bf"></span>77BF</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span> so it can be restored</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="77c0"></span>77C0</td>
+<td class="instruction">CALL <a href="7746.html">$7746</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and return to <a href="77B3.html#77c3">77C3</a> (below) next time</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="77c3"></span>77C3</td>
+<td class="instruction">JP <a href="638C.html#6394">$6394</a></td>
+<td class="comment-11" rowspan="1">Terminate this uninterruptible subcommand</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="775B.html">775B</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#77b3">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="77C6.html">77C6</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

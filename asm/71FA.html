@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 71FA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="71BE.html">71BE</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#71fa">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7208.html">7208</a></span></td>
+</tr>
+</table>
+<div class="description">71FA: Get the keypress offset of the last key pressed</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="725E.html">725E</a>, <a href="7316.html">7316</a>, <a href="F413.html">F413</a> and <a href="FB3C.html">FB3C</a>. Returns with the zero flag set if no game keys were pressed. Otherwise returns with <span class="register">A</span> holding the value from the <a href="E500.html">keypress offset table</a> corresponding to the last key pressed. This offset (an even number from 80 to 120) points at an entry in the keypress address table at <a href="E550.html">E550</a>. Each entry in that table is the address of the routine for handling a keypress.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="71fa"></span>71FA</td>
+<td class="instruction">CALL <a href="71BE.html">$71BE</a></td>
+<td class="comment-11" rowspan="1">Collect the ASCII code of the last key pressed in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="71fd"></span>71FD</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if no key was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="71fe"></span>71FE</td>
+<td class="instruction">SUB $30</td>
+<td class="comment-11" rowspan="1">We're only interested in keys with codes 48 onwards</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7200"></span>7200</td>
+<td class="instruction">JR C,<a href="71BE.html#71f8">$71F8</a></td>
+<td class="comment-11" rowspan="1">Jump if none of these was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7202"></span>7202</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the relevant entry in the keypress offset table at <a href="E500.html">E500</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7203"></span>7203</td>
+<td class="instruction">LD H,$E5</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7205"></span>7205</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the offset from that table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7206"></span>7206</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Set the zero flag if the offset is 0 (i.e. not a game key)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7207"></span>7207</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="71BE.html">71BE</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#71fa">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="7208.html">7208</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

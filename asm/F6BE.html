@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at F6BE</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F6B4.html">F6B4</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f6be">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F6C8.html">F6C8</a></span></td>
+</tr>
+</table>
+<div class="description">F6BE: Start a new game if a key is pressed while ERIC's sitting or lying down in demo mode</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="F2E2.html">F2E2</a>. Returns with ERIC's animatory state in <span class="register">A</span> if no key was pressed.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f6be"></span>F6BE</td>
+<td class="instruction">CALL <a href="71BE.html">$71BE</a></td>
+<td class="comment-11" rowspan="1">Check for keypresses</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6c1"></span>F6C1</td>
+<td class="instruction">LD A,($D200)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6c4"></span>F6C4</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if no key was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6c5"></span>F6C5</td>
+<td class="instruction">JP <a href="F6D5.html">$F6D5</a></td>
+<td class="comment-11" rowspan="1">Otherwise start a new game</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F6B4.html">F6B4</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f6be">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F6C8.html">F6C8</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

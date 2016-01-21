@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at F6EA</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F6D5.html">F6D5</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f6ea">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F74D.html">F74D</a></span></td>
+</tr>
+</table>
+<div class="description">F6EA: Main loop</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+The routine at <a href="F6D5.html">F6D5</a> continues here.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f6ea"></span>F6EA</td>
+<td class="instruction">LD HL,$7FE3</td>
+<td class="comment-11" rowspan="1"><a href="7FE3.html">7FE3</a> holds the lesson clock</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6ed"></span>F6ED</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrement the LSB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6ee"></span>F6EE</td>
+<td class="instruction">JR NZ,$F6F7</td>
+<td class="comment-11" rowspan="1">Jump if it's non-zero</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6f0"></span>F6F0</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the MSB of the lesson clock</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6f1"></span>F6F1</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrement the MSB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6f2"></span>F6F2</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Copy the new MSB to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6f3"></span>F6F3</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1">Have we reached the end of the lesson?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6f4"></span>F6F4</td>
+<td class="instruction">CALL Z,<a href="F74D.html">$F74D</a></td>
+<td class="comment-11" rowspan="1">Ring the bell and start the next lesson if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f6f7"></span>F6F7</td>
+<td class="instruction">CALL <a href="F6B4.html">$F6B4</a></td>
+<td class="comment-11" rowspan="1">Move the characters, close any temporarily open doors, and make the nearest teacher give ERIC lines if he's up to something he shouldn't be</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6fa"></span>F6FA</td>
+<td class="instruction">LD HL,$7FFB</td>
+<td class="comment-11" rowspan="1"><a href="7FFB.html">7FFB</a> holds ERIC's primary status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6fd"></span>F6FD</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick these up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6fe"></span>F6FE</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Are any of the status flags set?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f6ff"></span>F6FF</td>
+<td class="instruction">JR Z,$F706</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f701"></span>F701</td>
+<td class="instruction">CALL <a href="F7AD.html">$F7AD</a></td>
+<td class="comment-11" rowspan="1">Deal with ERIC if any of the status flags at <a href="7FFB.html">7FFB</a> are set</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f704"></span>F704</td>
+<td class="instruction">JR $F733</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f706"></span>
+<div class="comments">
+<div class="paragraph">
+No status flags at <a href="7FFB.html">7FFB</a> are set, which means ERIC is standing, or midstride, or just about to finish a 'short action' (bending over, dropping a stinkbomb, firing the water pistol, or moving forward as if to kiss). Here we finish ERIC's stride if he's midstride, finish any action he's just about to finish, or check for keypresses.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f706"></span>F706</td>
+<td class="instruction">LD L,$F3</td>
+<td class="comment-11" rowspan="2">Decrement ERIC's main action timer at <a href="7FF3.html">7FF3</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f708"></span>F708</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f709"></span>F709</td>
+<td class="instruction">JR NZ,$F733</td>
+<td class="comment-11" rowspan="1">Jump unless it's 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f70b"></span>F70B</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">Collect the mid-action timer from <a href="7FF2.html">7FF2</a> into <span class="register">A</span>; it will be non-zero if ERIC is midstride or mid-action</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f70c"></span>F70C</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f70d"></span>F70D</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-11" rowspan="1">Reset the mid-action timer to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f70f"></span>F70F</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Copy the previous contents of the mid-action timer into the main action timer at <a href="7FF3.html">7FF3</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f710"></span>F710</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f711"></span>F711</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Is ERIC midstride or mid-action?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f712"></span>F712</td>
+<td class="instruction">JR NZ,$F730</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f714"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC is neither midstride nor just about to finish a short action, so check the keyboard.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f714"></span>F714</td>
+<td class="instruction">CALL <a href="F413.html">$F413</a></td>
+<td class="comment-11" rowspan="1">Check for keypresses</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f717"></span>F717</td>
+<td class="instruction">JR Z,$F733</td>
+<td class="comment-11" rowspan="1">Jump if there haven't been any</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f719"></span>F719</td>
+<td class="instruction">LD ($7FF1),A</td>
+<td class="comment-11" rowspan="1">Store the offset of the last keypress in <a href="7FF1.html">7FF1</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f71c"></span>F71C</td>
+<td class="instruction">LD H,$E5</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span> will index the table of keypress handling routines at <a href="E550.html">E550</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f71e"></span>F71E</td>
+<td class="instruction">LD DE,$F733</td>
+<td class="comment-11" rowspan="2">Push the address <a href="F6EA.html#f733">F733</a> (see below) onto the stack so we return there after dealing with the keypress</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f721"></span>F721</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f722"></span>F722</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the appropriate entry</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f723"></span>F723</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-11" rowspan="3">Copy the address of the routine for dealing with the keypress into <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f724"></span>F724</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f725"></span>F725</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f726"></span>F726</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Push this address onto the stack</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f727"></span>F727</td>
+<td class="instruction">LD HL,$D200</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f72a"></span>F72A</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="5">Collect ERIC's animatory state into <span class="register">A</span>, and his coordinates into <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f72b"></span>F72B</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f72c"></span>F72C</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f72d"></span>F72D</td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f72e"></span>F72E</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f72f"></span>F72F</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Make an indirect jump to the relevant keypress-handling routine, and then return to <a href="F6EA.html#f733">F733</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f730"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC is midstride, or just about to finish an action (such as firing the water pistol or catching a mouse). Make him finish the stride or action.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f730"></span>F730</td>
+<td class="instruction">CALL <a href="6E00.html">$6E00</a></td>
+<td class="comment-11" rowspan="1">Update ERIC's animatory state and location, update the SRB, and scroll the screen if necessary</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f733"></span>
+<div class="comments">
+<div class="paragraph">
+Now that ERIC's movements have been dealt with, the main loop continues.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f733"></span>F733</td>
+<td class="instruction">CALL <a href="62A0.html">$62A0</a></td>
+<td class="comment-11" rowspan="1">Update the display</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f736"></span>F736</td>
+<td class="instruction">LD HL,$7FF3</td>
+<td class="comment-11" rowspan="1"><a href="7FF3.html">7FF3</a> holds ERIC's main action timer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f739"></span>F739</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f73a"></span>F73A</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Did we check for keypresses on this pass?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f73b"></span>F73B</td>
+<td class="instruction">JR NZ,$F73F</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f73d"></span>F73D</td>
+<td class="instruction">LD (HL),$02</td>
+<td class="comment-11" rowspan="1">Otherwise reset ERIC's main action timer to 2</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f73f"></span>
+<div class="comments">
+<div class="paragraph">
+This next section of code ensures that we don't pass through the main loop more than once every 1/50th of a second.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f73f"></span>F73F</td>
+<td class="instruction">LD L,$D9</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FD9.html">7FD9</a> (which holds the LSB of the system variable FRAMES as it was when the last pass through the main loop was completed)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f741"></span>F741</td>
+<td class="instruction">LD A,($5C78)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the system variable FRAMES, which is incremented every 1/50th of a second</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f744"></span>F744</td>
+<td class="instruction">SUB (HL)</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=0 if FRAMES hasn't been incremented since the last pass through the main loop</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f745"></span>F745</td>
+<td class="instruction">CP $01</td>
+<td class="comment-11" rowspan="1">Was FRAMES incremented?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f747"></span>F747</td>
+<td class="instruction">JR C,$F741</td>
+<td class="comment-11" rowspan="1">Jump back if not to check again</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f749"></span>F749</td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-11" rowspan="2">Store the current value of the LSB of FRAMES at <a href="7FD9.html">7FD9</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f74a"></span>F74A</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f74b"></span>F74B</td>
+<td class="instruction">JR $F6EA</td>
+<td class="comment-11" rowspan="1">Jump back to the start of the main loop</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F6D5.html">F6D5</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f6ea">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F74D.html">F74D</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

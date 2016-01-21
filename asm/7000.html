@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 7000</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6FF2.html">6FF2</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7000">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="703F.html">703F</a></span></td>
+</tr>
+</table>
+<div class="description">7000: Check for walls, closed doors and ALBERT in front of the bike</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="720A.html">720A</a> (when the bike is travelling of its own accord, or ERIC is standing on the saddle) and <a href="725E.html">725E</a> (when ERIC is sitting on the bike). Returns with the zero flag set if a wall or closed door lies in the bike's path, or the carry flag set if ALBERT is impeding the bike's progress.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">ERIC's or the bike's animatory state</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">ERIC's or the bike's x-coordinate</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7000"></span>7000</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Set the carry flag if the bike is facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7001"></span>7001</td>
+<td class="instruction">LD HL,$7FF4</td>
+<td class="comment-11" rowspan="1"><a href="7FF4.html">7FF4</a> holds the doors flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7004"></span>7004</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's/bike's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7005"></span>7005</td>
+<td class="instruction">JR NC,$7032</td>
+<td class="comment-11" rowspan="1">Jump if the bike is facing left</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7007"></span>
+<div class="comments">
+<div class="paragraph">
+The bike is travelling to the right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7007"></span>7007</td>
+<td class="instruction">CP $BD</td>
+<td class="comment-11" rowspan="1">Has the bike hit the far right wall of the girls' skool?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7009"></span>7009</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="700a"></span>700A</td>
+<td class="instruction">CP $5D</td>
+<td class="comment-11" rowspan="1">Is the boys' skool door in front of the bike?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="700c"></span>700C</td>
+<td class="instruction">JR NZ,$7014</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="700e"></span>700E</td>
+<td class="instruction">BIT 3,(HL)</td>
+<td class="comment-11" rowspan="1">Is the boys' skool door open?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7010"></span>7010</td>
+<td class="instruction">JR NZ,$702F</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7012"></span>7012</td>
+<td class="instruction">CP A</td>
+<td class="comment-11" rowspan="2">Return with the zero flag set if the bike has hit the boys' skool door or the skool gate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7013"></span>7013</td>
+<td class="instruction">RET</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7014"></span>7014</td>
+<td class="instruction">CP $84</td>
+<td class="comment-11" rowspan="1">Is the skool gate in front of the bike?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7016"></span>7016</td>
+<td class="instruction">JR NZ,$701E</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7018"></span>7018</td>
+<td class="instruction">BIT 4,(HL)</td>
+<td class="comment-11" rowspan="1">Is the skool gate closed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="701a"></span>701A</td>
+<td class="instruction">JR Z,$7012</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="701c"></span>701C</td>
+<td class="instruction">JR $702F</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="701e"></span>
+<div class="comments">
+<div class="paragraph">
+Neither the skool door nor the skool gate is in the way. What about ALBERT?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="701e"></span>701E</td>
+<td class="instruction">LD A,($CD00)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ALBERT's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7021"></span>7021</td>
+<td class="instruction">CP $7F</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#127">127</a>: Is ALBERT facing left with his arm up?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7023"></span>7023</td>
+<td class="instruction">JR NZ,$702F</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7025"></span>7025</td>
+<td class="instruction">LD A,($CD01)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ALBERT's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7028"></span>7028</td>
+<td class="instruction">SUB $02</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot 2 spaces in front of ALBERT</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="702a"></span>702A</td>
+<td class="instruction">CP E</td>
+<td class="comment-11" rowspan="1">Is the bike here?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="702b"></span>702B</td>
+<td class="instruction">JR NZ,$702F</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="702d"></span>702D</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Signal: ALBERT is stopping the bike</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="702e"></span>702E</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="702f"></span>
+<div class="comments">
+<div class="paragraph">
+No obstruction lies in the bike's path.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="702f"></span>702F</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-11" rowspan="1">Set <span class="register">A</span> to a non-zero value</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7030"></span>7030</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="2">Return with the zero and carry flags reset</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7031"></span>7031</td>
+<td class="instruction">RET</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="7032"></span>
+<div class="comments">
+<div class="paragraph">
+The bike is travelling to the left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7032"></span>7032</td>
+<td class="instruction">CP $01</td>
+<td class="comment-11" rowspan="1">Has the bike hit the far left wall of the boys' skool?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7034"></span>7034</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7035"></span>7035</td>
+<td class="instruction">CP $60</td>
+<td class="comment-11" rowspan="1">Is the boys' skool door in front of the bike?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7037"></span>7037</td>
+<td class="instruction">JR Z,$700E</td>
+<td class="comment-11" rowspan="1">Jump back if so to check whether it's open</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7039"></span>7039</td>
+<td class="instruction">CP $87</td>
+<td class="comment-11" rowspan="1">Is the skool gate in front of the bike?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="703b"></span>703B</td>
+<td class="instruction">JR Z,$7018</td>
+<td class="comment-11" rowspan="1">Jump back if so to check whether it's open</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="703d"></span>703D</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="2">Return with the zero and carry flags reset</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="703e"></span>703E</td>
+<td class="instruction">RET</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="6FF2.html">6FF2</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7000">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="703F.html">703F</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

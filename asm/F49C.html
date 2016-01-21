@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at F49C</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F487.html">F487</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f49c">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F4CB.html">F4CB</a></span></td>
+</tr>
+</table>
+<div class="description">F49C: Wait till everyone has gone past the gate or the boys' skool door</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by command list <a href="E94C.html">76</a>. Makes ALBERT wait at the skool gate or the boys' skool door until all the female characters are on the girls' side of the gate and all the male characters are to his left.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">205 (ALBERT)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f49c"></span>F49C</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of ALBERT's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f49e"></span>F49E</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=ALBERT's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f49f"></span>F49F</td>
+<td class="instruction">LD H,$D1</td>
+<td class="comment-11" rowspan="1">209=HAYLEY</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4a1"></span>F4A1</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=HAYLEY's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4a2"></span>F4A2</td>
+<td class="instruction">LD H,$B6</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4a4"></span>F4A4</td>
+<td class="instruction">LD B,$04</td>
+<td class="comment-11" rowspan="1">There are 4 little girls (183-186) who sometimes venture past the skool gate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4a6"></span>F4A6</td>
+<td class="instruction">JR $F4A9</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f4a8"></span>F4A8</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=girl's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f4a9"></span>F4A9</td>
+<td class="instruction">CP $88</td>
+<td class="comment-11" rowspan="1">Is this girl on the right side of the gate?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4ab"></span>F4AB</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4ac"></span>F4AC</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Next girl</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4ad"></span>F4AD</td>
+<td class="instruction">DJNZ $F4A8</td>
+<td class="comment-11" rowspan="1">Jump back until HAYLEY and girls 1-4 have been checked</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f4af"></span>
+<div class="comments">
+<div class="paragraph">
+The female characters are safely on the right side of the gate. Now check the male characters.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4af"></span>F4AF</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ALBERT's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4b0"></span>F4B0</td>
+<td class="instruction">SUB $02</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4b2"></span>F4B2</td>
+<td class="instruction">LD H,$D2</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4b4"></span>F4B4</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is ERIC at least 2 spaces to the left of ALBERT?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4b5"></span>F4B5</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4b6"></span>F4B6</td>
+<td class="instruction">LD H,$C1</td>
+<td class="comment-11" rowspan="1">193=little boy no. 4</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4b8"></span>F4B8</td>
+<td class="instruction">LD B,$0B</td>
+<td class="comment-11" rowspan="1">There are 7 little boys and 4 male teachers who may venture out of the boys' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f4ba"></span>F4BA</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is this character at least 2 spaces to the left of ALBERT?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4bb"></span>F4BB</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4bc"></span>F4BC</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Next teacher or little boy</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4bd"></span>F4BD</td>
+<td class="instruction">DJNZ $F4BA</td>
+<td class="comment-11" rowspan="1">Jump back until little boys 4-10 and the male teachers have been checked</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f4bf"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC, the male teachers and all the little boys are safely to ALBERT's left. Now check the remaining boys.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4bf"></span>F4BF</td>
+<td class="instruction">LD H,$CE</td>
+<td class="comment-11" rowspan="1">206=BOY WANDER</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4c1"></span>F4C1</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-11" rowspan="1">3 main boys: BOY WANDER, ANGELFACE and EINSTEIN</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f4c3"></span>F4C3</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is this character at least 2 spaces to the left of ALBERT?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4c4"></span>F4C4</td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4c5"></span>F4C5</td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Next main boy</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4c6"></span>F4C6</td>
+<td class="instruction">DJNZ $F4C3</td>
+<td class="comment-11" rowspan="1">Jump back until the three main boys have been checked</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f4c8"></span>F4C8</td>
+<td class="instruction">JP <a href="638C.html">$638C</a></td>
+<td class="comment-11" rowspan="1">Move to the next command in the command list now it's safe to shut the gate or door</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F487.html">F487</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f49c">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F4CB.html">F4CB</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

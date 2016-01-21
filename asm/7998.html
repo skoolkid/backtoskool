@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 7998</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7974.html">7974</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7998">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="79AC.html">79AC</a></span></td>
+</tr>
+</table>
+<div class="description">7998: Control a female character while she's standing on a chair or jumping (2)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="7966.html">7966</a>. Does nothing if the female character is standing on a chair; otherwise makes her jump up or return to the floor.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (183-189, 204 or 209)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="7998"></span>7998</td>
+<td class="instruction">LD L,$15</td>
+<td class="comment-11" rowspan="2">Bit 0 of byte 21 of the character's buffer is set if she's standing on a chair</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="799a"></span>799A</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="799c"></span>799C</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if she is standing on a chair</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="799d"></span>799D</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="79a0"></span>79A0</td>
+<td class="instruction">LD L,$13</td>
+<td class="comment-11" rowspan="1">The counter at byte 19 is even if the character is in the air, odd if she's got her feet on the floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="79a2"></span>79A2</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Down a level</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="79a3"></span>79A3</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-11" rowspan="1">Is this character in the air at the moment?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="79a5"></span>79A5</td>
+<td class="instruction">JR Z,$79A9</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="79a7"></span>79A7</td>
+<td class="instruction">DEC D</td>
+<td class="comment-11" rowspan="2">Up a level</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="79a8"></span>79A8</td>
+<td class="instruction">DEC D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="79a9"></span>79A9</td>
+<td class="instruction">JP <a href="6130.html">$6130</a></td>
+<td class="comment-11" rowspan="1">Update the character's y-coordinate  and update the SRB</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="7974.html">7974</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#7998">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="79AC.html">79AC</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

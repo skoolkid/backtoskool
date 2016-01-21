@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 708E</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="708C.html">708C</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#708e">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="70B7.html">70B7</a></span></td>
+</tr>
+</table>
+<div class="description">708E: Check for a closed door in a character's path and open it if allowed</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="63ED.html">63ED</a>. Checks for a closed door in the character's path and makes him open it if he's an adult.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (183-209)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="708e"></span>708E</td>
+<td class="instruction">CALL <a href="705F.html">$705F</a></td>
+<td class="comment-11" rowspan="1">Check for closed doors in the character's path</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7091"></span>7091</td>
+<td class="instruction">JP NC,<a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location if no doors need opening</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7094"></span>7094</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7095"></span>7095</td>
+<td class="instruction">SUB $C8</td>
+<td class="comment-11" rowspan="2">Are we dealing with a teacher or ALBERT (i.e. someone who can open doors)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7097"></span>7097</td>
+<td class="instruction">CP $06</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="7099"></span>7099</td>
+<td class="instruction">JR C,$70A1</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="709b"></span>709B</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="709e"></span>709E</td>
+<td class="instruction">XOR $80</td>
+<td class="comment-11" rowspan="1">Characters who can't open doors have bit 7 of their animatory state flipped (i.e. they are turned around)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70a0"></span>70A0</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return to place the character midstride</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="70a1"></span>
+<div class="comments">
+<div class="paragraph">
+The character we're dealing with is confronted by a closed door and is able to open it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="70a1"></span>70A1</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Drop the return address; we will handle updating the SRB and setting the character's new animatory state here instead</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="70a2"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="6558.html">6558</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="70a2"></span>70A2</td>
+<td class="instruction">LD L,$13</td>
+<td class="comment-11" rowspan="2">Place the identifier of the closed door (see <a href="705F.html">705F</a>) into byte 19 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70a4"></span>70A4</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70a5"></span>70A5</td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=20</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70a6"></span>70A6</td>
+<td class="instruction">LD (HL),$01</td>
+<td class="comment-11" rowspan="1">Signal: open the door</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="70a8"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="717C.html">717C</a> and <a href="F46C.html">F46C</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="70a8"></span>70A8</td>
+<td class="instruction">LD L,$12</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="70B7.html">70B7</a> into bytes 17 and 18 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70aa"></span>70AA</td>
+<td class="instruction">LD (HL),$70</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70ac"></span>70AC</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70ad"></span>70AD</td>
+<td class="instruction">LD (HL),$B7</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70af"></span>70AF</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70b2"></span>70B2</td>
+<td class="instruction">OR $07</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character with his arm up (to open the door)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="70b4"></span>70B4</td>
+<td class="instruction">JP <a href="6130.html">$6130</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="708C.html">708C</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#708e">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="70B7.html">70B7</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

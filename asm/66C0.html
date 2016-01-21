@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 66C0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="66BF.html">66BF</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#66c0">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="66CE.html">66CE</a></span></td>
+</tr>
+</table>
+<div class="description">66C0: Make a character find a seat</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by command lists <a href="C93C.html">0</a>, <a href="CA3C.html">2</a>, <a href="CB3C.html">4</a>, <a href="CC3C.html">6</a>, <a href="CD3C.html">8</a>, <a href="E590.html">32</a>, <a href="E59B.html">34</a>, <a href="E860.html">46</a>, <a href="E86B.html">48</a>, <a href="E87F.html">50</a>, <a href="E88A.html">52</a>, <a href="E999.html">82</a>, <a href="E9A4.html">84</a> and <a href="E9AF.html">86</a>. Makes a character start looking for a seat.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (183-209)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="66c0"></span>66C0</td>
+<td class="instruction">LD L,$04</td>
+<td class="comment-11" rowspan="2">Remove the address of this primary command routine from bytes 3 and 4 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="66c2"></span>66C2</td>
+<td class="instruction">LD (HL),$00</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="66c4"></span>66C4</td>
+<td class="instruction">LD L,$12</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="6697.html">6697</a> (make character look for a seat) into bytes 17 and 18 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="66c6"></span>66C6</td>
+<td class="instruction">LD (HL),$66</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="66c8"></span>66C8</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="66c9"></span>66C9</td>
+<td class="instruction">LD (HL),$97</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="66cb"></span>66CB</td>
+<td class="instruction">JP <a href="6697.html">$6697</a></td>
+<td class="comment-11" rowspan="1">Start looking for a seat</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="66BF.html">66BF</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#66c0">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="66CE.html">66CE</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

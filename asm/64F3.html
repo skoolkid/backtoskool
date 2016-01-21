@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 64F3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="64D7.html">64D7</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#64f3">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6554.html">6554</a></span></td>
+</tr>
+</table>
+<div class="description">64F3: Determine the next move of a character following another character</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="6558.html">6558</a> and <a href="F413.html">F413</a>. Returns with one of the following values in bits 0-2 of <span class="register">A</span> depending on the relative locations of the follower and his target:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1"><span class="register">A</span></th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Follower is at the same coordinates as the target</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Follower should go (or continue going) upstairs</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Follower should go (or continue going) downstairs</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Follower should go left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Follower should go right</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+In addition, bit 3 of <span class="register">A</span> will be set if the follower is facing a closed door, and <span class="register">C</span> will hold the identifier of the closed door (see <a href="7040.html">7040</a>).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Target character's coordinates</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Follower's character number (200-204, 210)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="64f3"></span>64F3</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-11" rowspan="1">Save the target coordinates temporarily</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64f4"></span>64F4</td>
+<td class="instruction">CALL <a href="6E50.html#6e52">$6E52</a></td>
+<td class="comment-11" rowspan="1">Is the follower on a staircase?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64f7"></span>64F7</td>
+<td class="instruction">JR NC,$6504</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="64f9"></span>
+<div class="comments">
+<div class="paragraph">
+The follower is on a staircase. At this point, <span class="register">A</span>=0 if the staircase goes up and to the left, 128 (bit 7 set) if it goes up and to the right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64f9"></span>64F9</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64fb"></span>64FB</td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-11" rowspan="1">Compare the staircase's direction with the follower's</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64fc"></span>64FC</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Set the carry flag if the character is descending the staircase</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64fd"></span>64FD</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=1 if the follower is ascending the staircase, 2 if descending</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="64ff"></span>64FF</td>
+<td class="instruction">ADC A,$00</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6501"></span>6501</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Restore the target coordinates to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6502"></span>6502</td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Signal: follower is on a staircase (this is ignored by both callers)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6503"></span>6503</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6504"></span>
+<div class="comments">
+<div class="paragraph">
+The follower is not on a staircase.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6504"></span>6504</td>
+<td class="instruction">CALL <a href="63D2.html">$63D2</a></td>
+<td class="comment-11" rowspan="1">Get the region identifier for the follower's current location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6507"></span>6507</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1">Copy this to <span class="register">L</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6508"></span>6508</td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Restore the target coordinates to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6509"></span>6509</td>
+<td class="instruction">CALL <a href="63D2.html">$63D2</a></td>
+<td class="comment-11" rowspan="1">Get the region identifier for the target coordinates</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="650c"></span>650C</td>
+<td class="instruction">CP L</td>
+<td class="comment-11" rowspan="1">Compare the current and target regions</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="650d"></span>650D</td>
+<td class="instruction">LD D,L</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=region ID for the follower's current location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="650e"></span>650E</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the follower's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6510"></span>6510</td>
+<td class="instruction">JR NZ,$6535</td>
+<td class="comment-11" rowspan="1">Jump if the follower is not in the same region as his target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6512"></span>6512</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=target x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6513"></span>6513</td>
+<td class="instruction">SUB (HL)</td>
+<td class="comment-11" rowspan="1">Is the follower in exactly the same location as his target?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6514"></span>6514</td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so (with the carry flag reset)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6515"></span>
+<div class="comments">
+<div class="paragraph">
+The follower is in the same region as his target, but still has some walking to do. At this point the carry flag is set if the follower is to the right of his target, and reset if he's to the left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6515"></span>6515</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=3 if the follower must go left, 4 if right to reach the target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6516"></span>6516</td>
+<td class="instruction">ADD A,$04</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6518"></span>6518</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save this value briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6519"></span>6519</td>
+<td class="instruction">LD L,$00</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the follower's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="651b"></span>651B</td>
+<td class="instruction">RRCA</td>
+<td class="comment-11" rowspan="2">Set bit 7 of <span class="register">A</span> if the follower is facing the right way to reach his target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="651c"></span>651C</td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="651d"></span>651D</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Push bit 7 of <span class="register">A</span> into the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="651e"></span>651E</td>
+<td class="instruction">JR C,$6523</td>
+<td class="comment-11" rowspan="1">Jump if the follower is facing the right way to reach his target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6520"></span>6520</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=3 (go left) or 4 (go right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6521"></span>6521</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Clear the carry flag (the follower is not on a staircase)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6522"></span>6522</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6523"></span>
+<div class="comments">
+<div class="paragraph">
+The follower is in the same region as his target, and is facing the right way to reach him. But are there any doors in the way?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6523"></span>6523</td>
+<td class="instruction">CALL <a href="705F.html">$705F</a></td>
+<td class="comment-11" rowspan="1">Check for closed doors in front of the follower</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6526"></span>6526</td>
+<td class="instruction">JR NC,$6520</td>
+<td class="comment-11" rowspan="1">Jump if there are none</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6528"></span>6528</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=follower's character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6529"></span>6529</td>
+<td class="instruction">CP $D2</td>
+<td class="comment-11" rowspan="1">Is this ERIC (in demo mode)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="652b"></span>652B</td>
+<td class="instruction">JR NZ,$6531</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="652d"></span>652D</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=3 (go left) or 4 (go right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="652e"></span>652E</td>
+<td class="instruction">XOR $07</td>
+<td class="comment-11" rowspan="1">3 (go left) becomes 4 (go right) and vice versa for ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6530"></span>6530</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the carry flag reset and <span class="register">C</span> holding the door identifier</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6531"></span>6531</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=3 (go left) or 4 (go right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6532"></span>6532</td>
+<td class="instruction">ADD A,$08</td>
+<td class="comment-11" rowspan="1">Set bit 3 (<span class="register">A</span>=11, 12): closed door ahead</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6534"></span>6534</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the carry flag reset and <span class="register">C</span> holding the door identifier</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6535"></span>
+<div class="comments">
+<div class="paragraph">
+The follower is not in the same region as his target. This means at least one visit to a staircase first.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="6535"></span>6535</td>
+<td class="instruction">SUB $81</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=identifier of the top or bottom of the staircase (see <a href="6464.html#staircases">6464</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6537"></span>6537</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6538"></span>6538</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6539"></span>6539</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=x-coordinate of the top or bottom of the staircase the follower will have to go to first in order to reach his target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="653a"></span>653A</td>
+<td class="instruction">LD E,$44</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="653c"></span>653C</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="653d"></span>653D</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is the follower standing at this staircase already?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="653e"></span>653E</td>
+<td class="instruction">JR NZ,$6513</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="6540"></span>
+<div class="comments">
+<div class="paragraph">
+The follower is at the top or bottom of the first staircase he must negotiate in order to reach his target. Is he facing the right way to begin his ascent or descent?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6540"></span>6540</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the staircase direction indicator</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6541"></span>6541</td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6542"></span>6542</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0 if the follower must face left to negotiate the stairs, 128 (bit 7 set) if right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6543"></span>6543</td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-11" rowspan="2">Set the carry flag if the follower is facing the wrong way</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6544"></span>6544</td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6545"></span>6545</td>
+<td class="instruction">JR NC,$654E</td>
+<td class="comment-11" rowspan="1">Jump if the follower is facing the right way to negotiate the stairs</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6547"></span>6547</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=follower's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6548"></span>6548</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=3 if the follower's facing right, 4 if facing left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6549"></span>6549</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="654a"></span>654A</td>
+<td class="instruction">ADD A,$04</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="654c"></span>654C</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Clear the carry flag (the follower is not on a staircase)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="654d"></span>654D</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="654e"></span>
+<div class="comments">
+<div class="paragraph">
+The follower is facing the right way to begin his ascent or descent of the staircase.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="654e"></span>654E</td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=LSB of the routine to make the follower ascend (56/<a href="6438.html">6438</a>) or descend (77/<a href="644D.html">644D</a>) the stairs</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="654f"></span>654F</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6550"></span>6550</td>
+<td class="instruction">AND $01</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=1 if the follower must ascend the stairs, 2 if he must descend</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6552"></span>6552</td>
+<td class="instruction">INC A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="6553"></span>6553</td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the carry flag reset</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="64D7.html">64D7</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#64f3">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="6554.html">6554</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

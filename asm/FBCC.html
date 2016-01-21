@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at FBCC</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FBA0.html">FBA0</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fbcc">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FC30.html">FC30</a></span></td>
+</tr>
+</table>
+<div class="description">FBCC: Deal with ERIC while he's falling (1)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="F7AD.html">F7AD</a> when bit 4 at <a href="7FED.html">7FED</a> is set (by the routine at <a href="720A.html">720A</a>, <a href="725E.html">725E</a> or <a href="FA4D.html">FA4D</a>). On entry, bit 6 at <a href="7FED.html">7FED</a> is also set if ERIC has already begun his descent (i.e. we've already made the first pass through this routine).
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fbcc"></span>FBCC</td>
+<td class="instruction">LD HL,$7FED</td>
+<td class="comment-11" rowspan="1"><a href="7FED.html">7FED</a> holds ERIC's secondary status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbcf"></span>FBCF</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-11" rowspan="1">Has ERIC already begun his descent?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbd1"></span>FBD1</td>
+<td class="instruction">JR NZ,$FC01</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fbd3"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC has not begun his descent yet, which means we need to figure out what his trajectory will be first.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbd3"></span>FBD3</td>
+<td class="instruction">LD H,$D2</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbd5"></span>FBD5</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbd8"></span>FBD8</td>
+<td class="instruction">AND $80</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0 if ERIC's facing left, 128 if facing right</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fbda"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="7316.html">7316</a> when ERIC has jumped from the saddle of the bike (with <span class="register">A</span>=2 or 130, and <span class="register">D</span> holding the y-coordinate of the spot above ERIC's hand).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fbda"></span>FBDA</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1">Now <span class="register">B</span>=0 (or 2) if ERIC's facing left, 128 (or 130) if facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbdb"></span>FBDB</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of ERIC (or the spot above his hand)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbdc"></span>FBDC</td>
+<td class="instruction">CP $11</td>
+<td class="comment-11" rowspan="1">Is ERIC on the bottom floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbde"></span>FBDE</td>
+<td class="instruction">JR NZ,$FBE2</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbe0"></span>FBE0</td>
+<td class="instruction">DEC D</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=16</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbe1"></span>FBE1</td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=16</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fbe2"></span>FBE2</td>
+<td class="instruction">ADD A,$04</td>
+<td class="comment-11" rowspan="3">Set <span class="register">A</span>=-7+(y-3)%7 if y&lt;17, or -1 if y=17 (where y is ERIC's y-coordinate); this is the distance (negated) left to travel till ERIC reaches the floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fbe4"></span>FBE4</td>
+<td class="instruction">SUB $07</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbe6"></span>FBE6</td>
+<td class="instruction">JR NC,$FBE4</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbe8"></span>FBE8</td>
+<td class="instruction">ADD A,$A6</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=159-165 (normal descent table entry pointer)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbea"></span>FBEA</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save this briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbeb"></span>FBEB</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-11" rowspan="2">Now <span class="register">A</span>=animatory state of ERIC sitting on the floor (<a href="../graphics/as.html#5">5/133</a>) or with his arm up (<a href="../graphics/as.html#7">7/135</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbed"></span>FBED</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbee"></span>FBEE</td>
+<td class="instruction">CALL <a href="6130.html">$6130</a></td>
+<td class="comment-11" rowspan="1">Update ERIC's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbf1"></span>FBF1</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the normal descent table entry pointer to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbf2"></span>FBF2</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the appropriate entry (<span class="register">H</span>=159-165) in the normal descent table (<span class="register">L</span>=252) for ERIC's current height above the floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbf3"></span>FBF3</td>
+<td class="instruction">LD L,$FC</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fbf5"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="5D23.html">5D23</a> (with <span class="register">H</span>=159, <span class="register">L</span>=253 or 254) and <a href="5D33.html">5D33</a> (with <span class="register">H</span>=159, <span class="register">L</span>=255).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fbf5"></span>FBF5</td>
+<td class="instruction">LD ($7FD7),HL</td>
+<td class="comment-11" rowspan="1">Store the descent table pointer at <a href="7FD7.html">7FD7</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbf8"></span>FBF8</td>
+<td class="instruction">LD HL,$7FED</td>
+<td class="comment-11" rowspan="1"><a href="7FED.html">7FED</a> holds ERIC's secondary status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbfb"></span>FBFB</td>
+<td class="instruction">LD (HL),$50</td>
+<td class="comment-11" rowspan="1">Set bits 4 (ERIC is still falling) and 6 (ERIC has begun his descent)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbfd"></span>FBFD</td>
+<td class="instruction">LD L,$F3</td>
+<td class="comment-11" rowspan="2">Set ERIC's main action timer at <a href="7FF3.html">7FF3</a> to 7</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fbff"></span>FBFF</td>
+<td class="instruction">LD (HL),$07</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fc01"></span>
+<div class="comments">
+<div class="paragraph">
+Deal with the next phase of ERIC's descent.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fc01"></span>FC01</td>
+<td class="instruction">LD L,$F3</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FF3.html">7FF3</a> (which holds ERIC's main action timer)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc03"></span>FC03</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Is it time to deal with ERIC yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc04"></span>FC04</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc05"></span>FC05</td>
+<td class="instruction">LD (HL),$03</td>
+<td class="comment-11" rowspan="1">Reset ERIC's action timer to 3</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc07"></span>FC07</td>
+<td class="instruction">LD L,$D8</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FD7.html">7FD7</a> (which holds the descent table pointer)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc09"></span>FC09</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="4">Collect the descent table pointer into <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc0a"></span>FC0A</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc0b"></span>FC0B</td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc0c"></span>FC0C</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc0d"></span>FC0D</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-11" rowspan="1">Pick up an entry from the descent table in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc0e"></span>FC0E</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Has ERIC landed yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc0f"></span>FC0F</td>
+<td class="instruction">JR NZ,$FC22</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fc11"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC has landed. Time to set ERIC's status flags at <a href="7FFB.html">7FFB</a> and <a href="7FED.html">7FED</a> appropriately.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc11"></span>FC11</td>
+<td class="instruction">LD L,$FB</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FFB.html">7FFB</a> (ERIC's main status flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc13"></span>FC13</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="2">Collect the first set of flags from the descent table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc14"></span>FC14</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc15"></span>FC15</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Copy them into <a href="7FFB.html">7FFB</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc16"></span>FC16</td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="2">Collect the second set of flags from the descent table</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc17"></span>FC17</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fc18"></span>FC18</td>
+<td class="instruction">LD L,$ED</td>
+<td class="comment-11" rowspan="2">Copy them into <a href="7FED.html">7FED</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc1a"></span>FC1A</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc1b"></span>FC1B</td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Did ERIC jump from the top floor window (bit 5 set)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc1c"></span>FC1C</td>
+<td class="instruction">CALL NZ,<a href="F532.html">$F532</a></td>
+<td class="comment-11" rowspan="1">Set MR WACKER on his way to expel ERIC if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc1f"></span>FC1F</td>
+<td class="instruction">JP <a href="F28E.html#f2c3">$F2C3</a></td>
+<td class="comment-11" rowspan="1">Make a sound effect for ERIC's landing</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="fc22"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC hasn't landed yet. Determine his next move through the air.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="fc22"></span>FC22</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the descent table entry briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc23"></span>FC23</td>
+<td class="instruction">LD H,$D2</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc25"></span>FC25</td>
+<td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc28"></span>FC28</td>
+<td class="instruction">AND $80</td>
+<td class="comment-11" rowspan="2"><span class="register">B</span>=0 if ERIC's facing left, 128 if facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc2a"></span>FC2A</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc2b"></span>FC2B</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the descent table entry to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc2c"></span>FC2C</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Copy it to <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="fc2d"></span>FC2D</td>
+<td class="instruction">JP <a href="5D00.html">$5D00</a></td>
+<td class="comment-11" rowspan="1">The routine continues at <a href="5D00.html">5D00</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+
+<div class="comments">
+<div class="paragraph">
+<span id="tables" /> This routine uses a descent table to guide ERIC to the floor. The bits in each table entry have the following significance:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit(s)</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0-3</td>
+<td class="" colspan="1" rowspan="1">ERIC's next animatory state</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">If set, move backwards one space</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">If set, move forwards one space</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">If set, descend one level</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">If set, ascend one level</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The descent tables themselves contain the following entries:
+</div>
+<div class="paragraph">
+<span id="dt252" /> <table class="default">
+<tr>
+<th colspan="4" rowspan="1"><span class="register">E</span>=252 (normal descent)</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1"><span class="register">D</span></th>
+<th colspan="1" rowspan="1"><span class="register">DE</span></th>
+<th colspan="1" rowspan="1">(<span class="register">DE</span>)</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1"><a href="A0FC.html">A0FC</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">161</td>
+<td class="" colspan="1" rowspan="1"><a href="A1FC.html">A1FC</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">162</td>
+<td class="" colspan="1" rowspan="1"><a href="A2FC.html">A2FC</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">163</td>
+<td class="" colspan="1" rowspan="1"><a href="A3FC.html">A3FC</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">164</td>
+<td class="" colspan="1" rowspan="1"><a href="A4FC.html">A4FC</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">165</td>
+<td class="" colspan="1" rowspan="1"><a href="A5FC.html">A5FC</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">166</td>
+<td class="" colspan="1" rowspan="1"><a href="A6FC.html">A6FC</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">167</td>
+<td class="" colspan="1" rowspan="1"><a href="A7FC.html">A7FC</a></td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">ERIC has landed</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">168</td>
+<td class="" colspan="1" rowspan="1"><a href="A8FC.html">A8FC</a></td>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Set bit 2 at <a href="7FFB.html">7FFB</a> (ERIC is sitting)</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">169</td>
+<td class="" colspan="1" rowspan="1"><a href="A9FC.html">A9FC</a></td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Reset all bits at <a href="7FED.html">7FED</a> (ERIC landed safely)</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<span id="dt253" /> <table class="default">
+<tr>
+<th colspan="4" rowspan="1"><span class="register">E</span>=253 (from the bike saddle over the closed skool gate)</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1"><span class="register">D</span></th>
+<th colspan="1" rowspan="1"><span class="register">DE</span></th>
+<th colspan="1" rowspan="1">(<span class="register">DE</span>)</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1"><a href="A0FC.html#a0fd">A0FD</a></td>
+<td class="centre" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">161</td>
+<td class="" colspan="1" rowspan="1"><a href="A1FC.html#a1fd">A1FD</a></td>
+<td class="centre" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">162</td>
+<td class="" colspan="1" rowspan="1"><a href="A2FC.html#a2fd">A2FD</a></td>
+<td class="centre" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">163</td>
+<td class="" colspan="1" rowspan="1"><a href="A3FC.html#a3fd">A3FD</a></td>
+<td class="centre" colspan="1" rowspan="1">96</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forward</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">164</td>
+<td class="" colspan="1" rowspan="1"><a href="A4FC.html#a4fd">A4FD</a></td>
+<td class="centre" colspan="1" rowspan="1">100</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">4 or 132</a>; descend; move forward</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">165</td>
+<td class="" colspan="1" rowspan="1"><a href="A5FC.html#a5fd">A5FD</a></td>
+<td class="centre" colspan="1" rowspan="1">37</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; move forward</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">166</td>
+<td class="" colspan="1" rowspan="1"><a href="A6FC.html#a6fd">A6FD</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">167</td>
+<td class="" colspan="1" rowspan="1"><a href="A7FC.html#a7fd">A7FD</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">168</td>
+<td class="" colspan="1" rowspan="1"><a href="A8FC.html#a8fd">A8FD</a></td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">ERIC has landed</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">169</td>
+<td class="" colspan="1" rowspan="1"><a href="A9FC.html#a9fd">A9FD</a></td>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Set bit 2 at <a href="7FFB.html">7FFB</a> (ERIC is sitting)</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">170</td>
+<td class="" colspan="1" rowspan="1"><a href="AAFD.html">AAFD</a></td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Reset all bits at <a href="7FED.html">7FED</a> (ERIC landed safely)</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<span id="dt254" /> <table class="default">
+<tr>
+<th colspan="4" rowspan="1"><span class="register">E</span>=254 (from the bike saddle into a wall or closed door)</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1"><span class="register">D</span></th>
+<th colspan="1" rowspan="1"><span class="register">DE</span></th>
+<th colspan="1" rowspan="1">(<span class="register">DE</span>)</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1"><a href="A0FC.html#a0fe">A0FE</a></td>
+<td class="centre" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">161</td>
+<td class="" colspan="1" rowspan="1"><a href="A1FC.html#a1fe">A1FE</a></td>
+<td class="centre" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">162</td>
+<td class="" colspan="1" rowspan="1"><a href="A2FC.html#a2fe">A2FE</a></td>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#2">2 or 130</a>; ascend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">163</td>
+<td class="" colspan="1" rowspan="1"><a href="A3FC.html#a3fe">A3FE</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">164</td>
+<td class="" colspan="1" rowspan="1"><a href="A4FC.html#a4fe">A4FE</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">165</td>
+<td class="" colspan="1" rowspan="1"><a href="A5FC.html#a5fe">A5FE</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">166</td>
+<td class="" colspan="1" rowspan="1"><a href="A6FC.html#a6fe">A6FE</a></td>
+<td class="centre" colspan="1" rowspan="1">22</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#6">6 or 134</a>; move backwards</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">167</td>
+<td class="" colspan="1" rowspan="1"><a href="A7FC.html#a7fe">A7FE</a></td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">ERIC has landed</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">168</td>
+<td class="" colspan="1" rowspan="1"><a href="A8FC.html#a8fe">A8FE</a></td>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Set bit 2 at <a href="7FFB.html">7FFB</a> (ERIC is sitting)</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">169</td>
+<td class="" colspan="1" rowspan="1"><a href="A9FC.html#a9fe">A9FE</a></td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">Reset all bits at <a href="7FED.html">7FED</a> (ERIC landed safely)</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<span id="dt255" /> <table class="default">
+<tr>
+<th colspan="4" rowspan="1"><span class="register">E</span>=255 (from the top-floor window)</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1"><span class="register">D</span></th>
+<th colspan="1" rowspan="1"><span class="register">DE</span></th>
+<th colspan="1" rowspan="1">(<span class="register">DE</span>)</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1"><a href="A0FC.html#a0ff">A0FF</a></td>
+<td class="centre" colspan="1" rowspan="1">96</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forwards</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">161</td>
+<td class="" colspan="1" rowspan="1"><a href="A1FC.html#a1ff">A1FF</a></td>
+<td class="centre" colspan="1" rowspan="1">96</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forwards</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">162</td>
+<td class="" colspan="1" rowspan="1"><a href="A2FC.html#a2ff">A2FF</a></td>
+<td class="centre" colspan="1" rowspan="1">96</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forwards</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">163</td>
+<td class="" colspan="1" rowspan="1"><a href="A3FC.html#a3ff">A3FF</a></td>
+<td class="centre" colspan="1" rowspan="1">96</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forwards</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">164</td>
+<td class="" colspan="1" rowspan="1"><a href="A4FC.html#a4ff">A4FF</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">165</td>
+<td class="" colspan="1" rowspan="1"><a href="A5FC.html#a5ff">A5FF</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">166</td>
+<td class="" colspan="1" rowspan="1"><a href="A6FC.html#a6ff">A6FF</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">167</td>
+<td class="" colspan="1" rowspan="1"><a href="A7FC.html#a7ff">A7FF</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">168</td>
+<td class="" colspan="1" rowspan="1"><a href="A8FC.html#a8ff">A8FF</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">169</td>
+<td class="" colspan="1" rowspan="1"><a href="A9FC.html#a9ff">A9FF</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">170</td>
+<td class="" colspan="1" rowspan="1"><a href="AAFF.html">AAFF</a></td>
+<td class="centre" colspan="1" rowspan="1">68</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">4 or 132</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">171</td>
+<td class="" colspan="1" rowspan="1"><a href="ABFF.html">ABFF</a></td>
+<td class="centre" colspan="1" rowspan="1">68</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">4 or 132</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">172</td>
+<td class="" colspan="1" rowspan="1"><a href="ACFF.html">ACFF</a></td>
+<td class="centre" colspan="1" rowspan="1">68</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">4 or 132</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">173</td>
+<td class="" colspan="1" rowspan="1"><a href="ADFF.html">ADFF</a></td>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">174</td>
+<td class="" colspan="1" rowspan="1"><a href="AEFF.html">AEFF</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">175</td>
+<td class="" colspan="1" rowspan="1"><a href="AFFF.html">AFFF</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">176</td>
+<td class="" colspan="1" rowspan="1"><a href="B0FF.html">B0FF</a></td>
+<td class="centre" colspan="1" rowspan="1">69</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">177</td>
+<td class="" colspan="1" rowspan="1"><a href="B1FF.html">B1FF</a></td>
+<td class="centre" colspan="1" rowspan="1">70</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#6">6 or 134</a>; descend</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">178</td>
+<td class="" colspan="1" rowspan="1"><a href="B2FF.html">B2FF</a></td>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">ERIC has landed</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">179</td>
+<td class="" colspan="1" rowspan="1"><a href="B3FF.html">B3FF</a></td>
+<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="" colspan="1" rowspan="1">Set bit 6 at <a href="7FFB.html">7FFB</a> (MR WACKER should expel ERIC)</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">180</td>
+<td class="" colspan="1" rowspan="1"><a href="B4FF.html">B4FF</a></td>
+<td class="centre" colspan="1" rowspan="1">32</td>
+<td class="" colspan="1" rowspan="1">Set bit 5 at <a href="7FED.html">7FED</a> (ERIC fell out of the top-floor window)</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="FBA0.html">FBA0</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#fbcc">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="FC30.html">FC30</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

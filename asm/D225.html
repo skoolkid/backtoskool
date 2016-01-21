@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Data at D225</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="D224.html">D224</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#d225">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="D23C.html">D23C</a></span></td>
+</tr>
+</table>
+<div class="description">D225: Lesson descriptors</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+When a lesson starts, the routine at <a href="F74D.html">F74D</a> picks up the lesson descriptor from this table and copies it into <a href="7FE0.html">7FE0</a>. Each entry in this table defines the teacher for the period (if any), and the room. The teacher is identified by bits 4-7:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bits</th>
+<th colspan="1" rowspan="1">Teacher</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0000</td>
+<td class="" colspan="1" rowspan="1">None</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0001</td>
+<td class="" colspan="1" rowspan="1">MR WACKER</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0010</td>
+<td class="" colspan="1" rowspan="1">MR WITHIT</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0011</td>
+<td class="" colspan="1" rowspan="1">MR ROCKITT</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0100</td>
+<td class="" colspan="1" rowspan="1">MR CREAK</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The room is identified by bits 0-3:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bits</th>
+<th colspan="1" rowspan="1">Room</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0010</td>
+<td class="" colspan="1" rowspan="1">PLAYTIME</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0011</td>
+<td class="" colspan="1" rowspan="1">ASSEMBLY</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0100</td>
+<td class="" colspan="1" rowspan="1">DINNER</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0101</td>
+<td class="" colspan="1" rowspan="1">REVISION LIBRARY</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0110</td>
+<td class="" colspan="1" rowspan="1">SCIENCE LAB</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">0111</td>
+<td class="" colspan="1" rowspan="1">BLUE ROOM</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">1000</td>
+<td class="" colspan="1" rowspan="1">YELLOW ROOM</td>
+</tr>
+</table>
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d225"></span>D225</td>
+<td class="instruction">DEFB $47</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/37.html">37</a>: MR CREAK - BLUE ROOM</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d226"></span>D226</td>
+<td class="instruction">DEFB $47</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/38.html">38</a>: MR CREAK - BLUE ROOM</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d227"></span>D227</td>
+<td class="instruction">DEFB $48</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/39.html">39</a>: MR CREAK - YELLOW ROOM</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d228"></span>D228</td>
+<td class="instruction">DEFB $48</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/40.html">40</a>: MR CREAK - YELLOW ROOM</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d229"></span>D229</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/41.html">41</a>: MR WITHIT - BLUE ROOM</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d22a"></span>D22A</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/42.html">42</a>: MR WITHIT - BLUE ROOM</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d22b"></span>D22B</td>
+<td class="instruction">DEFB $28</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/43.html">43</a>: MR WITHIT - YELLOW ROOM</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d22c"></span>D22C</td>
+<td class="instruction">DEFB $28</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/44.html">44</a>: MR WITHIT - YELLOW ROOM</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d22d"></span>D22D</td>
+<td class="instruction">DEFB $26</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/45.html">45</a>: MR WITHIT - SCIENCE LAB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d22e"></span>D22E</td>
+<td class="instruction">DEFB $26</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/46.html">46</a>: MR WITHIT - SCIENCE LAB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d22f"></span>D22F</td>
+<td class="instruction">DEFB $36</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/47.html">47</a>: MR ROCKITT - SCIENCE LAB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d230"></span>D230</td>
+<td class="instruction">DEFB $36</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/48.html">48</a>: MR ROCKITT - SCIENCE LAB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d231"></span>D231</td>
+<td class="instruction">DEFB $36</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/49.html">49</a>: MR ROCKITT - SCIENCE LAB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d232"></span>D232</td>
+<td class="instruction">DEFB $14</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/50.html">50</a>: DINNER (MR WACKER)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d233"></span>D233</td>
+<td class="instruction">DEFB $24</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/51.html">51</a>: DINNER (MR WITHIT)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d234"></span>D234</td>
+<td class="instruction">DEFB $23</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/52.html">52</a>: ASSEMBLY</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d235"></span>D235</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/53.html">53</a>: REVISION LIBRARY</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d236"></span>D236</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/54.html">54</a>: REVISION LIBRARY</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d237"></span>D237</td>
+<td class="instruction">DEFB $02</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/55.html">55</a>: PLAYTIME</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d238"></span>D238</td>
+<td class="instruction">DEFB $02</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/56.html">56</a>: PLAYTIME</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d239"></span>D239</td>
+<td class="instruction">DEFB $02</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/57.html">57</a>: PLAYTIME</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d23a"></span>D23A</td>
+<td class="instruction">DEFB $02</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/58.html">58</a>: PLAYTIME</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="d23b"></span>D23B</td>
+<td class="instruction">DEFB $02</td>
+<td class="comment-11" rowspan="1">Lesson <a href="../lessons/59.html">59</a>: PLAYTIME</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="D224.html">D224</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#d225">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="D23C.html">D23C</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>

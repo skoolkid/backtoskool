@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at F100</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F0FD.html">F0FD</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f100">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F24C.html">F24C</a></span></td>
+</tr>
+</table>
+<div class="description">F100: Make a teacher conduct a class</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="4">
+<div class="details">
+<div class="paragraph">
+Used by command lists <a href="E400.html">22</a>, <a href="E600.html">24</a>, <a href="E8DC.html">58</a>, <a href="E8ED.html">60</a> and <a href="E8FE.html">62</a> to make a teacher conduct a class (after having walked to the edge of the blackboard).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Teacher's character number (201-204)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f100"></span>F100</td>
+<td class="instruction">LD A,($7FE0)</td>
+<td class="comment-11" rowspan="1"><a href="7FE0.html">7FE0</a> holds the current lesson descriptor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f103"></span>F103</td>
+<td class="instruction">AND $F0</td>
+<td class="comment-11" rowspan="5">Keep only the teacher-identifying bits and shift them into bits 0-3</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f105"></span>F105</td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f106"></span>F106</td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f107"></span>F107</td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f108"></span>F108</td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f109"></span>F109</td>
+<td class="instruction">ADD A,$C7</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=character number of the teacher taking ERIC's class (201-203)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f10b"></span>F10B</td>
+<td class="instruction">CP H</td>
+<td class="comment-11" rowspan="1">Is this teacher conducting ERIC's class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f10c"></span>F10C</td>
+<td class="instruction">JR Z,$F140</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f10e"></span>
+<div class="comments">
+<div class="paragraph">
+This teacher is not conducting ERIC's class, so he has it easy: wipe the board, write on the board (maybe), tell the class what to do, and pace up and down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f10e"></span>F10E</td>
+<td class="instruction">LD BC,$680F</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="680F.html">680F</a> (wipe board) and return to <a href="F100.html#f114">F114</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f111"></span>F111</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f114"></span>F114</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f116"></span>F116</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f117"></span>F117</td>
+<td class="instruction">ADD A,$03</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the middle of the blackboard</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f119"></span>F119</td>
+<td class="instruction">LD L,$0B</td>
+<td class="comment-11" rowspan="2">Place this in byte 11 ready for the routine at <a href="63ED.html">63ED</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f11b"></span>F11B</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f11c"></span>F11C</td>
+<td class="instruction">LD BC,$63ED</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="63ED.html">63ED</a> (walk to a location) and return to <a href="F100.html#f122">F122</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f11f"></span>F11F</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f122"></span>F122</td>
+<td class="instruction">CALL <a href="6291.html">$6291</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f125"></span>F125</td>
+<td class="instruction">LD BC,$6880</td>
+<td class="comment-11" rowspan="1">Routine at <a href="6880.html">6880</a>: write on board</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f128"></span>F128</td>
+<td class="instruction">CP $A0</td>
+<td class="comment-11" rowspan="1">Should the teacher write on the board?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f12a"></span>F12A</td>
+<td class="instruction">CALL NC,<a href="639F.html">$639F</a></td>
+<td class="comment-11" rowspan="1">If so, redirect control to the routine at <a href="6880.html">6880</a> and return to <a href="F100.html#f12d">F12D</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f12d"></span>F12D</td>
+<td class="instruction">CALL <a href="F05D.html">$F05D</a></td>
+<td class="comment-11" rowspan="1">Tell the class what to do</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f130"></span>F130</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f132"></span>F132</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f133"></span>F133</td>
+<td class="instruction">XOR $03</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=x-coordinate of the location 3 paces behind the teacher</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f135"></span>F135</td>
+<td class="instruction">LD L,$0B</td>
+<td class="comment-11" rowspan="2">Place this in byte 11 of the teacher's buffer, ready for the routine at <a href="63ED.html">63ED</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f137"></span>F137</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f138"></span>F138</td>
+<td class="instruction">LD BC,$63ED</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="63ED.html">63ED</a> (walk to a location) and return to <a href="F100.html#f13e">F13E</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f13b"></span>F13B</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f13e"></span>F13E</td>
+<td class="instruction">JR $F130</td>
+<td class="comment-11" rowspan="1">Make the teacher pace up (or down) again</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f140"></span>
+<div class="comments">
+<div class="paragraph">
+The teacher is taking ERIC's class. This is a far more difficult task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f140"></span>F140</td>
+<td class="instruction">LD A,($7F80)</td>
+<td class="comment-11" rowspan="3">Set bit 6 at <a href="7F80.html">7F80</a>, indicating that ERIC should be in class now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f143"></span>F143</td>
+<td class="instruction">SET 6,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f145"></span>F145</td>
+<td class="instruction">LD ($7F80),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f148"></span>F148</td>
+<td class="instruction">CALL <a href="F048.html">$F048</a></td>
+<td class="comment-11" rowspan="1">Are ERIC and EINSTEIN both in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f14b"></span>F14B</td>
+<td class="instruction">JR Z,$F175</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f14d"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC is not in class, but EINSTEIN is. EINSTEIN must therefore grass.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f14d"></span>F14D</td>
+<td class="instruction">LD BC,$F017</td>
+<td class="comment-11" rowspan="1">Routine at <a href="F017.html">F017</a>: make EINSTEIN talk</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f150"></span>F150</td>
+<td class="instruction">LD E,$12</td>
+<td class="comment-11" rowspan="1"><a href="EA28.html">18</a>: Please Sir...ERIC is not here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f152"></span>F152</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-11" rowspan="1">Make EINSTEIN grass on ERIC, and return to <a href="F100.html#f155">F155</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f155"></span>F155</td>
+<td class="instruction">LD C,$D0</td>
+<td class="comment-11" rowspan="1">208=EINSTEIN</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f157"></span>F157</td>
+<td class="instruction">CALL <a href="F02F.html">$F02F</a></td>
+<td class="comment-11" rowspan="1">Give lines to EINSTEIN (maybe)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f15a"></span>F15A</td>
+<td class="instruction">CALL <a href="7D15.html">$7D15</a></td>
+<td class="comment-11" rowspan="1">Set the zero flag if ERIC is in class</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f15d"></span>F15D</td>
+<td class="instruction">LD A,($7F80)</td>
+<td class="comment-11" rowspan="1"><a href="7F80.html">7F80</a> holds various game status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f160"></span>F160</td>
+<td class="instruction">JR Z,$F16A</td>
+<td class="comment-11" rowspan="1">Jump if ERIC is in class</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f162"></span>F162</td>
+<td class="instruction">SET 7,A</td>
+<td class="comment-11" rowspan="2">Set bit 7 at <a href="7F80.html">7F80</a>: the teacher's next absence reprimand should be 'STAY TILL I DISMISS YOU'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f164"></span>F164</td>
+<td class="instruction">LD ($7F80),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f167"></span>F167</td>
+<td class="instruction">JP <a href="F0BF.html#f0d0">$F0D0</a></td>
+<td class="comment-11" rowspan="1">Go and find ERIC</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f16a"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC is in class now, having shown up while EINSTEIN was grassing on him for being absent.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f16a"></span>F16A</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Push bit 7 of <a href="7F80.html">7F80</a> into the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f16b"></span>F16B</td>
+<td class="instruction">LD B,$14</td>
+<td class="comment-11" rowspan="1"><a href="EA4E.html">20</a>: STAY TILL I DISMISS YOU</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f16d"></span>F16D</td>
+<td class="instruction">LD A,$D2</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f16f"></span>F16F</td>
+<td class="instruction">JR C,$F172</td>
+<td class="comment-11" rowspan="1">Jump if the teacher's already had to chase or give lines to ERIC for being late or leaving early</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f171"></span>F171</td>
+<td class="instruction">DEC B</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="EA38.html">19</a>: DON'T BE LATE AGAIN</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f172"></span>F172</td>
+<td class="instruction">CALL <a href="F02F.html#f040">$F040</a></td>
+<td class="comment-11" rowspan="1">Give ERIC lines</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f175"></span>F175</td>
+<td class="instruction">LD A,($7F80)</td>
+<td class="comment-11" rowspan="3">Set bits 6 (ERIC should be in class) and 7 (the teacher's next absence reprimand should be 'STAY TILL I DISMISS YOU') at <a href="7F80.html">7F80</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f178"></span>F178</td>
+<td class="instruction">OR $C0</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f17a"></span>F17A</td>
+<td class="instruction">LD ($7F80),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f17d"></span>F17D</td>
+<td class="instruction">CALL <a href="F048.html">$F048</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f180"></span>F180</td>
+<td class="instruction">JR NZ,$F14D</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f182"></span>
+<div class="comments">
+<div class="paragraph">
+Now is EINSTEIN's chance to grass on ERIC for hitting him.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f182"></span>F182</td>
+<td class="instruction">CALL <a href="6291.html">$6291</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f185"></span>F185</td>
+<td class="instruction">CP $DC</td>
+<td class="comment-11" rowspan="1">Should EINSTEIN tell tales?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f187"></span>F187</td>
+<td class="instruction">JR C,$F19C</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f189"></span>F189</td>
+<td class="instruction">LD E,$57</td>
+<td class="comment-11" rowspan="1"><a href="ECF1.html">87</a>: Please Sir...ERIC hit me</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f18b"></span>F18B</td>
+<td class="instruction">LD BC,$F017</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="F017.html">F017</a> (make EINSTEIN talk) and return to <a href="F100.html#f191">F191</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f18e"></span>F18E</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f191"></span>F191</td>
+<td class="instruction">LD BC,$61D2</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="EDF9.html">97</a>: DON'T HIT YOUR MATES; <span class="register">C</span>=210 (ERIC)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f194"></span>F194</td>
+<td class="instruction">CALL <a href="F02F.html">$F02F</a></td>
+<td class="comment-11" rowspan="1">Give EINSTEIN or ERIC lines</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f197"></span>F197</td>
+<td class="instruction">CALL <a href="F048.html">$F048</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f19a"></span>F19A</td>
+<td class="instruction">JR NZ,$F14D</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f19c"></span>
+<div class="comments">
+<div class="paragraph">
+Now is EINSTEIN's opportunity to grass on someone for writing on the blackboard. However, the opportunity is wasted, because the CALL to <a href="6755.html">6755</a> (at <a href="F100.html#f19c">F19C</a> below) returns a valid blackboard ID only if the character is standing within four spaces of the left edge of the blackboard, which is not the case when the teacher is waiting for EINSTEIN to grass (teachers stand at the right edge of the blackboard for that, more than four spaces away). This is a <a href="../reference/bugs.html#noBlackboardTales">bug</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f19c"></span>F19C</td>
+<td class="instruction">CALL <a href="6755.html">$6755</a></td>
+<td class="comment-11" rowspan="1">Collect information about the blackboard</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f19f"></span>F19F</td>
+<td class="instruction">INC B</td>
+<td class="comment-11" rowspan="3">The intent here is to point <span class="register">BC</span> at the second byte of the blackboard's buffer, which holds the character number of the person who last wrote on it; instead, <span class="register">BC</span> points at 32516 if the teacher is on the top floor, or 32515 if he's on the middle floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1a0"></span>F1A0</td>
+<td class="instruction">LD C,B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1a1"></span>F1A1</td>
+<td class="instruction">LD B,$7F</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1a3"></span>F1A3</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span> is supposed to hold the character number of the person who last wrote on the board; instead it holds the contents of 32515 or 32516 (bytes 3 and 4 of the <a href="7F00.html">SRB</a>), which will never be 206 or 210</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1a4"></span>F1A4</td>
+<td class="instruction">CP $D2</td>
+<td class="comment-11" rowspan="1">Did ERIC write on the board?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1a6"></span>F1A6</td>
+<td class="instruction">JR Z,$F1B7</td>
+<td class="comment-11" rowspan="1">Jump if so (this jump is never made)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1a8"></span>F1A8</td>
+<td class="instruction">CP $CE</td>
+<td class="comment-11" rowspan="1">Or did BOY WANDER?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1aa"></span>F1AA</td>
+<td class="instruction">JR NZ,$F1CB</td>
+<td class="comment-11" rowspan="1">Jump if not (this jump is always made)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1ac"></span>F1AC</td>
+<td class="instruction">CALL <a href="6291.html">$6291</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1af"></span>F1AF</td>
+<td class="instruction">CP $C3</td>
+<td class="comment-11" rowspan="1">Should EINSTEIN blame BOY WANDER for writing on the board?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1b1"></span>F1B1</td>
+<td class="instruction">LD A,$CE</td>
+<td class="comment-11" rowspan="1">206=BOY WANDER</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1b3"></span>F1B3</td>
+<td class="instruction">JR C,$F1B7</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1b5"></span>F1B5</td>
+<td class="instruction">LD A,$D2</td>
+<td class="comment-11" rowspan="1">Blame ERIC instead</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f1b7"></span>F1B7</td>
+<td class="instruction">LD ($7F90),A</td>
+<td class="comment-11" rowspan="1">Place the character number of the scapegoat into <a href="7F90.html">7F90</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1ba"></span>F1BA</td>
+<td class="instruction">LD BC,$F017</td>
+<td class="comment-11" rowspan="1">Routine at <a href="F017.html">F017</a>: make EINSTEIN talk</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1bd"></span>F1BD</td>
+<td class="instruction">LD E,$58</td>
+<td class="comment-11" rowspan="1"><a href="ECFC.html">88</a>: Please Sir...[<a href="7F90.html">7</a>] wrote on the board</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1bf"></span>F1BF</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-11" rowspan="1">Redirect control to the routine at <a href="F017.html">F017</a> and return to <a href="F100.html#f1c2">F1C2</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f1c2"></span>F1C2</td>
+<td class="instruction">LD A,($7F90)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=206 (BOY WANDER) or 210 (ERIC)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1c5"></span>F1C5</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Copy the scapegoat's character number to <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1c6"></span>F1C6</td>
+<td class="instruction">LD B,$56</td>
+<td class="comment-11" rowspan="1"><a href="ECDE.html">86</a>: DON'T TOUCH BLACKBOARDS</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1c8"></span>F1C8</td>
+<td class="instruction">CALL <a href="F02F.html">$F02F</a></td>
+<td class="comment-11" rowspan="1">Give lines to EINSTEIN, ERIC or BOY WANDER</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f1cb"></span>
+<div class="comments">
+<div class="paragraph">
+The next section of code makes the teacher wipe the board. Note that the teacher may already have wiped the board at this point, and therefore will not be standing at the right edge of the board (the correct location to begin wiping); this is a <a href="../reference/bugs.html#doubleWipe">bug</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f1cb"></span>F1CB</td>
+<td class="instruction">LD BC,$680F</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="680F.html">680F</a> (wipe board) and return to <a href="F100.html#f1d1">F1D1</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1ce"></span>F1CE</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f1d1"></span>F1D1</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1d3"></span>F1D3</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1d4"></span>F1D4</td>
+<td class="instruction">ADD A,$03</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the middle of the blackboard</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1d6"></span>F1D6</td>
+<td class="instruction">LD L,$0B</td>
+<td class="comment-11" rowspan="2">Place this in byte 11 of the teacher's buffer, ready for the routine at <a href="63ED.html">63ED</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1d8"></span>F1D8</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1d9"></span>F1D9</td>
+<td class="instruction">LD BC,$63ED</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="63ED.html">63ED</a> (walk to location) and return to <a href="F100.html#f1df">F1DF</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1dc"></span>F1DC</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f1df"></span>
+<div class="comments">
+<div class="paragraph">
+The teacher has wiped the board, and is ready to start the class.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f1df"></span>F1DF</td>
+<td class="instruction">CALL <a href="F048.html">$F048</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f1e2"></span>F1E2</td>
+<td class="instruction">JP NZ,$F14D</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1e5"></span>F1E5</td>
+<td class="instruction">CALL <a href="6291.html">$6291</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1e8"></span>F1E8</td>
+<td class="instruction">LD BC,$6880</td>
+<td class="comment-11" rowspan="1">Routine at <a href="6880.html">6880</a>: write on board</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1eb"></span>F1EB</td>
+<td class="instruction">CP $B8</td>
+<td class="comment-11" rowspan="1">Should the teacher write on the board?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1ed"></span>F1ED</td>
+<td class="instruction">CALL NC,<a href="639F.html">$639F</a></td>
+<td class="comment-11" rowspan="1">Redirect control to <a href="6880.html">6880</a> if so, and return to <a href="F100.html#f1f0">F1F0</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f1f0"></span>F1F0</td>
+<td class="instruction">CALL <a href="F048.html">$F048</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1f3"></span>F1F3</td>
+<td class="instruction">JR NZ,$F1E2</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1f5"></span>F1F5</td>
+<td class="instruction">CALL <a href="6291.html">$6291</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1f8"></span>F1F8</td>
+<td class="instruction">CP $E8</td>
+<td class="comment-11" rowspan="1">Should this be a questions-and-answers lesson?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1fa"></span>F1FA</td>
+<td class="instruction">JR C,$F214</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f1fc"></span>
+<div class="comments">
+<div class="paragraph">
+This is not going to be a questions-and-answers lesson.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f1fc"></span>F1FC</td>
+<td class="instruction">CALL <a href="F05D.html">$F05D</a></td>
+<td class="comment-11" rowspan="1">Tell the class what to do</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f1ff"></span>F1FF</td>
+<td class="instruction">CALL <a href="F048.html">$F048</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f202"></span>F202</td>
+<td class="instruction">JR NZ,$F1E2</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f204"></span>F204</td>
+<td class="instruction">LD L,$01</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f206"></span>F206</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f207"></span>F207</td>
+<td class="instruction">XOR $03</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=x-coordinate of location three paces behind the teacher</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f209"></span>F209</td>
+<td class="instruction">LD L,$0B</td>
+<td class="comment-11" rowspan="2">Place this in byte 11 of the teacher's buffer ready for the routine at <a href="63ED.html">63ED</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f20b"></span>F20B</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f20c"></span>F20C</td>
+<td class="instruction">LD BC,$63ED</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="63ED.html">63ED</a> (walk to location) and return to <a href="F100.html#f212">F212</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f20f"></span>F20F</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f212"></span>F212</td>
+<td class="instruction">JR $F1FF</td>
+<td class="comment-11" rowspan="1">Check whether ERIC's in class, then pace up (or down) again</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="4">
+<span id="f214"></span>
+<div class="comments">
+<div class="paragraph">
+This is going to be a questions-and-answers lesson. Pick a question-answer word pair, and decide which word will be in the question, and which in the answer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f214"></span>F214</td>
+<td class="instruction">CALL <a href="6291.html">$6291</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f217"></span>F217</td>
+<td class="instruction">AND $87</td>
+<td class="comment-11" rowspan="1">Keep only bits 0-2 (the word pair identifier) and bit 7 (indicates which word will be in the question)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f219"></span>F219</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save bit 7 for now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f21a"></span>F21A</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f21b"></span>F21B</td>
+<td class="instruction">LD DE,$7F8C</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a href="7F8C.html">10</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f21e"></span>F21E</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="6">Set <span class="register">A</span>=<a href="FC8E.html">160</a> (if the teacher is MR WITHIT), <a href="FD7C.html">176</a> (MR ROCKITT), or <a href="FD18.html">192</a> (MR CREAK)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f21f"></span>F21F</td>
+<td class="instruction">SUB D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f220"></span>F220</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f221"></span>F221</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f222"></span>F222</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f223"></span>F223</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f224"></span>F224</td>
+<td class="instruction">OR C</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span> holds the message number of a random mountain, animal or king</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f225"></span>F225</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-11" rowspan="1">Place this into <a href="7F8C.html">7F8C</a> (message <a href="7F8C.html">10</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f226"></span>F226</td>
+<td class="instruction">ADD A,$08</td>
+<td class="comment-11" rowspan="1">Set <span class="register">A</span> to the message number of the corresponding country, habitat or date</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f228"></span>F228</td>
+<td class="instruction">LD E,$8E</td>
+<td class="comment-11" rowspan="2">Place this into <a href="7F8E.html">7F8E</a> (the first byte of message <a href="7F8E.html">11</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f22a"></span>F22A</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f22b"></span>F22B</td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the random bit 7 to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f22c"></span>F22C</td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Push it into the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f22d"></span>F22D</td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-11" rowspan="5">Set <span class="register">A</span> to <a href="FEF4.html">73</a> or <a href="EFEA.html">75</a> (MR WITHIT), <a href="FEFB.html">77</a> or <a href="FFFB.html">79</a> (MR ROCKITT), <a href="EFF1.html">81</a> or <a href="FF70.html">83</a> (MR CREAK); this is the message number for EINSTEIN's reply</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f22e"></span>F22E</td>
+<td class="instruction">ADD A,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f22f"></span>F22F</td>
+<td class="instruction">ADD A,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f230"></span>F230</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f231"></span>F231</td>
+<td class="instruction">ADD A,$27</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f233"></span>F233</td>
+<td class="instruction">LD ($D00B),A</td>
+<td class="comment-11" rowspan="1">Store it in byte 11 of EINSTEIN's buffer, ready for the routine at <a href="F017.html#f01b">F01B</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f236"></span>F236</td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="2">Set <span class="register">E</span> to <a href="FE70.html">74</a> or <a href="FED0.html">76</a> (MR WITHIT), <a href="FC79.html">78</a> or <a href="FFE8.html">80</a> (MR ROCKITT), <a href="FC60.html">82</a> or <a href="FFD0.html">84</a> (MR CREAK); this is the message number for the teacher's question</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f237"></span>F237</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f238"></span>F238</td>
+<td class="instruction">LD BC,$6A08</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="6A08.html">6A08</a> (make character speak) and return to <a href="F100.html#f23e">F23E</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f23b"></span>F23B</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f23e"></span>F23E</td>
+<td class="instruction">LD BC,$F01B</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="F017.html#f01b">F01B</a> (make EINSTEIN answer) and return to <a href="F100.html#f244">F244</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f241"></span>F241</td>
+<td class="instruction">CALL <a href="639F.html">$639F</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="f244"></span>F244</td>
+<td class="instruction">CALL <a href="F048.html">$F048</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f247"></span>F247</td>
+<td class="instruction">JR Z,$F214</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="f249"></span>F249</td>
+<td class="instruction">JP $F14D</td>
+<td class="comment-11" rowspan="1">Otherwise make EINSTEIN grass on the absent ERIC</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="F0FD.html">F0FD</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#f100">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="F24C.html">F24C</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+</footer>
+</body>
+</html>
