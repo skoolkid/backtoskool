@@ -8,7 +8,7 @@ A disassembly of the [Spectrum](http://en.wikipedia.org/wiki/ZX_Spectrum) game
 Decide which number base you prefer and then click the corresponding link below
 to browse the latest release:
 
-* [Back to Skool disassembly](http://skoolkid.github.io/backtoskool/) (hexadecimal; mirror [here](https://skoolkid.gitlab.io/backtoskool/))
+* [Back to Skool disassembly](http://skoolkid.github.io/backtoskool/) (hexadecimal; mirror [here](http://skoolkid.gitlab.io/backtoskool/))
 * [Back to Skool disassembly](http://skoolkit.ca/disassemblies/back_to_skool/) (decimal)
 
 To build the current development version, first either install SkoolKit, or
