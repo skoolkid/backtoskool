@@ -21,10 +21,8 @@ else:
 sys.stderr.write("Found SkoolKit in {}\n".format(skool2html.PACKAGE_DIR))
 
 def run_skool2asm():
-    options = '-W {}/sources:backtoskool.BackToSkoolAsmWriter'.format(BACKTOSKOOL_HOME)
-    skool2asm.main(options.split() + sys.argv[1:] + [BTS_SKOOL])
+    skool2asm.main(sys.argv[1:] + [BTS_SKOOL])
 
 def run_skool2html():
     options = '-d {}/build/html'.format(BACKTOSKOOL_HOME)
-    options += ' -W {}/sources:backtoskool.BackToSkoolHtmlWriter'.format(BACKTOSKOOL_HOME)
     skool2html.main(options.split() + sys.argv[1:] + [BTS_SKOOL])
