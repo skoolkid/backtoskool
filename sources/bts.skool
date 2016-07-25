@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2016 Richard Dymond (rjdymond@gmail.com)
 
 ; Self-modifying code.
 d26429 DEFB 198 ; 26428 SET 0,(HL)
@@ -377,7 +377,7 @@ d26429 DEFB 198 ; 26428 SET 0,(HL)
 ; http://skoolkit.ca/
 ;
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2015 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2016 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -501,6 +501,7 @@ s20706 DEFS 3
 ; to the destination (the second or third row from the bottom of the screen),
 ; in eight 32-byte blocks.
 ;
+@ignoreua
 ; HL Source (16384 or 46848)
 ; DE Destination display file address (20640 or 20672)
 @label=MC2SCREEN
@@ -1068,6 +1069,7 @@ i22527 DEFS 769
 
 ; Message graphic buffer
 ;
+@ignoreua
 ; Used by the routine at #R20665 to prepare message graphic data before copying
 ; it to the screen. The first 64 bytes of this buffer (23296-23359) are also
 ; used by the routine at #R27144 to prepare message graphic data for the speech
