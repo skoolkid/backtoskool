@@ -62,11 +62,11 @@ Copying ../sources/bts.css to {odir}/back_to_skool/bts.css
   Writing back_to_skool/lessons/58.html
   Writing back_to_skool/lessons/59.html
   Writing back_to_skool/tables/keys.html
-  Writing back_to_skool/graphics/glitches.html
-  Writing back_to_skool/reference/changelog.html
   Writing back_to_skool/reference/bugs.html
+  Writing back_to_skool/reference/changelog.html
   Writing back_to_skool/reference/facts.html
   Writing back_to_skool/reference/glossary.html
+  Writing back_to_skool/graphics/glitches.html
   Writing back_to_skool/reference/pokes.html
   Parsing ../sources/load.skool
     Writing back_to_skool/load/load.html
