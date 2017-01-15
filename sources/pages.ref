@@ -1,12 +1,13 @@
-; Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
-[PageContent:PlayArea]
-<div>#CALL:play_area(play_area,0,0,192,21,2,0,8)</div>
+[Page:PlayArea]
+PageContent=<div>#CALL:play_area(play_area,0,0,192,21,2,0,8)</div>
 
 [Page:PlayAreaTiles]
 JavaScript=tiles.js
+PageContent=#INCLUDE(PlayAreaTiles)
 
-[PageContent:PlayAreaTiles]
+[PlayAreaTiles]
 <p>Click a tile to see the following info:</p>
 <table>
 <tr>
@@ -192,7 +193,10 @@ Any given tile (identified by <i>udg_addr</i>) may appear at more than one locat
 </tr>
 </table>
 
-[PageContent:InitialAnimatoryStates]
+[Page:InitialAnimatoryStates]
+PageContent=#INCLUDE(InitialAnimatoryStates)
+
+[InitialAnimatoryStates]
 #PUSHS
 #CALL:adjust_mutable(57405)
 #CALL:adjust_mutable(64000)
@@ -200,7 +204,10 @@ Any given tile (identified by <i>udg_addr</i>) may appear at more than one locat
 <div>#CALL:play_area(initial_as,0,0,192,21,2,1,8)</div>
 #POPS
 
-[PageContent:AnimatoryStates]
+[Page:AnimatoryStates]
+PageContent=#INCLUDE(AnimatoryStatesPage)
+
+[AnimatoryStatesPage]
 <table class="animatoryStates">
 #CALL:animatory_states()
 </table>
@@ -214,8 +221,9 @@ Any given tile (identified by <i>udg_addr</i>) may appear at more than one locat
 
 [Page:AnimatoryStateTiles]
 JavaScript=tiles.js
+PageContent=#INCLUDE(AnimatoryStateTiles)
 
-[PageContent:AnimatoryStateTiles]
+[AnimatoryStateTiles]
 <div>
 <p>Click a tile in the gallery below to see the following info:</p>
 <table>
@@ -333,7 +341,10 @@ The tiles for animatory states 128-255 are not stored separately; the tiles for 
 [Template:astile_null]
 <div class="T" onclick="s('{bubble_id}')"><img alt="{state}:{row},{column}" src="{img_fname}"/></div><div id="{bubble_id}" class="B P" onclick="h(this)"><div class="H">{state}: row {row}, column {column}</div><table><tr><td><img alt="{state}:{row},{column}" src="{img_fname}"/></td><td><i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/><i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/><i>ref</i>=0</td></tr></table></div>
 
-[PageContent:CharacterBuffers]
+[Page:CharacterBuffers]
+PageContent=#INCLUDE(CharacterBuffers)
+
+[CharacterBuffers]
 <p>The character buffers occupy bytes 0-36 in pages 183-214. The buffers in pages 198, 199, 206, 207 and 208 may be used by mice released by ERIC.</p>
 #CALL:cast()
 #CALL:cbuffer()
@@ -384,7 +395,10 @@ TABLE#
 [Page:MainTimetable]
 Content=asm/46528.html
 
-[PageContent:PersonalTimetables]
+[Page:PersonalTimetables]
+PageContent=#INCLUDE(PersonalTimetables)
+
+[PersonalTimetables]
 <table class="timetable">
 <tr>
 <th>No.</th>
@@ -399,7 +413,10 @@ Content=asm/46528.html
 <td class="ptCharName">{name}</td>
 </tr>
 
-[PageContent:LessonIndex]
+[Page:LessonIndex]
+PageContent=#INCLUDE(LessonIndex)
+
+[LessonIndex]
 <table class="lesson">
 <tr>
 <th>ID</th>
@@ -414,74 +431,74 @@ Content=asm/46528.html
 <td class="lesson">{description}</td>
 </tr>
 
-[PageContent:Lesson37]
-#CALL:lesson(37)
+[Page:Lesson37]
+PageContent=#CALL:lesson(37)
 
-[PageContent:Lesson38]
-#CALL:lesson(38)
+[Page:Lesson38]
+PageContent=#CALL:lesson(38)
 
-[PageContent:Lesson39]
-#CALL:lesson(39)
+[Page:Lesson39]
+PageContent=#CALL:lesson(39)
 
-[PageContent:Lesson40]
-#CALL:lesson(40)
+[Page:Lesson40]
+PageContent=#CALL:lesson(40)
 
-[PageContent:Lesson41]
-#CALL:lesson(41)
+[Page:Lesson41]
+PageContent=#CALL:lesson(41)
 
-[PageContent:Lesson42]
-#CALL:lesson(42)
+[Page:Lesson42]
+PageContent=#CALL:lesson(42)
 
-[PageContent:Lesson43]
-#CALL:lesson(43)
+[Page:Lesson43]
+PageContent=#CALL:lesson(43)
 
-[PageContent:Lesson44]
-#CALL:lesson(44)
+[Page:Lesson44]
+PageContent=#CALL:lesson(44)
 
-[PageContent:Lesson45]
-#CALL:lesson(45)
+[Page:Lesson45]
+PageContent=#CALL:lesson(45)
 
-[PageContent:Lesson46]
-#CALL:lesson(46)
+[Page:Lesson46]
+PageContent=#CALL:lesson(46)
 
-[PageContent:Lesson47]
-#CALL:lesson(47)
+[Page:Lesson47]
+PageContent=#CALL:lesson(47)
 
-[PageContent:Lesson48]
-#CALL:lesson(48)
+[Page:Lesson48]
+PageContent=#CALL:lesson(48)
 
-[PageContent:Lesson49]
-#CALL:lesson(49)
+[Page:Lesson49]
+PageContent=#CALL:lesson(49)
 
-[PageContent:Lesson50]
-#CALL:lesson(50)
+[Page:Lesson50]
+PageContent=#CALL:lesson(50)
 
-[PageContent:Lesson51]
-#CALL:lesson(51)
+[Page:Lesson51]
+PageContent=#CALL:lesson(51)
 
-[PageContent:Lesson52]
-#CALL:lesson(52)
+[Page:Lesson52]
+PageContent=#CALL:lesson(52)
 
-[PageContent:Lesson53]
-#CALL:lesson(53)
+[Page:Lesson53]
+PageContent=#CALL:lesson(53)
 
-[PageContent:Lesson54]
-#CALL:lesson(54)
+[Page:Lesson54]
+PageContent=#CALL:lesson(54)
 
-[PageContent:Lesson55]
-#CALL:lesson(55)
+[Page:Lesson55]
+PageContent=#CALL:lesson(55)
 
-[PageContent:Lesson56]
-#CALL:lesson(56)
+[Page:Lesson56]
+PageContent=#CALL:lesson(56)
 
-[PageContent:Lesson57]
-#CALL:lesson(57)
+[Page:Lesson57]
+PageContent=#CALL:lesson(57)
 
-[PageContent:Lesson58]
-#CALL:lesson(58)
+[Page:Lesson58]
+PageContent=#CALL:lesson(58)
 
-[PageContent:Lesson59]
-#CALL:lesson(59)
+[Page:Lesson59]
+PageContent=#CALL:lesson(59)
 
 [Template:lesson]
 <table class="asm-navigation">
@@ -518,7 +535,10 @@ Content=asm/46528.html
 [Page:CommandLists]
 Content=asm/59392.html
 
-[PageContent:Keys]
+[Page:Keys]
+PageContent=#INCLUDE(Keys)
+
+[Keys]
 <div class="details">
 <div>Key = CHR$(Index + 48)</div>
 <div>Address = Index + #R58624</div>

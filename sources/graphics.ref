@@ -1,4 +1,4 @@
-; Copyright 2008-2014 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2014, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [GraphicGlitch:einsteinHead:EINSTEIN's head]
 The line just above EINSTEIN's head contains a transparent pixel (shown in green) that should be blank:
@@ -305,7 +305,10 @@ To shift it one pixel to the right:
 TABLE#
 #POPS
 
-[PageContent:Graphics]
+[Page:Graphics]
+PageContent=#INCLUDE(Graphics)
+
+[Graphics]
 <h3>Doors</h3>
 <table cellpadding="5">
 <tr><td>#CALL:mutable(56637,1)</td><td>#CALL:mutable(56893,1)</td><td>Left study door</td></tr>
