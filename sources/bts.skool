@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2016 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2017 Richard Dymond (rjdymond@gmail.com)
 
 ; Self-modifying code.
 d26429 DEFB 198 ; 26428 SET 0,(HL)
@@ -372,12 +372,15 @@ d26429 DEFB 198 ; 26428 SET 0,(HL)
  61401 DEFB 0
 
 @start
+@replace=/#BUG(?![A-Z])/#LINK:Bugs
+@replace=/#FACT(?![A-Z])/#LINK:Facts
+@replace=/#POKE(?![A-Z])/#LINK:Pokes
 @writer=:backtoskool.BackToSkoolAsmWriter
 ; Back to Skool disassembly
 ; http://skoolkit.ca/
 ;
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2016 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2017 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -1560,7 +1563,7 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
 *24324 LD A,10       ; #AS10: ERIC lowering the catapult
 @ofix-begin
 @nowarn
- 24326 JR 24289      ; This is a #BUG#fire; it should be JR #R24287
+ 24326 JR 24289      ; This is a #BUG#fire(bug); it should be JR #R24287
 @ofix+else
        JR 24287      ; Update ERIC's animatory state and update the SRB
 @ofix+end
@@ -1675,7 +1678,7 @@ c24348 LD HL,53504   ; Point #REGhl at byte 0 of HAYLEY's buffer
  24451 DEC (HL)      ;
 *24452 INC (HL)      ; Move ERIC one space forward for the snog (which pushes
                      ; ERIC through the closed skool gate if he kisses HAYLEY
-                     ; from behind it; this is a #BUG#kiss)
+                     ; from behind it; this is a #BUG#kiss(bug))
  24453 LD A,15       ; #AS15: ERIC and HAYLEY kissing
  24455 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24458 (below) next time
@@ -3830,7 +3833,7 @@ c26175 LD D,183      ; 183=little girl no. 1
                      ; that he's been knocked to the floor; however, bit 7 is
                      ; ignored by the routine at #R63405 (because bit 2 is also
                      ; set), so ERIC actually stays in his seat (which is a
-                     ; #BUG#seat)
+                     ; #BUG#seat(bug))
 @bfix+else
        LD (HL),128   ; Set bit 7 of ERIC's primary status flags, indicating
                      ; that he's been knocked to the floor
@@ -5838,8 +5841,8 @@ c28067 LD BC,46651   ; #REGb=182, #REGc=59
 ; the zero flag was set (by chance) upon entering the routine at #R25534, or
 ; (b) bits 1 and 2 of ERIC's status flags at #R32749 are both reset. Returns
 ; with #REGd=17 if the zero flag is set upon entry (regardless of which floor
-; ERIC is on, which is a #BUG#jumpAbsent); otherwise returns with #REGd=3, 10,
-; 14 or 17, indicating which floor ERIC is directly above.
+; ERIC is on, which is a #BUG#jumpAbsent(bug)); otherwise returns with #REGd=3,
+; 10, 14 or 17, indicating which floor ERIC is directly above.
 ;
 ; D ERIC's y-coordinate
 ; E ERIC's x-coordinate
@@ -5849,7 +5852,7 @@ c28085 LD A,D        ; #REGa=ERIC's y-coordinate
  28086 LD D,17       ; 17=bottom floor
  28088 RET Z         ; Return with #REGd=17 if the zero flag was set upon entry
                      ; (regardless of which floor ERIC is on, which is a
-                     ; #BUG#jumpAbsent)
+                     ; #BUG#jumpAbsent(bug))
 @bfix+else
        CP 17         ; Is ERIC on the bottom floor?
        RET Z         ; Return with #REGd=17 if so
@@ -5946,7 +5949,7 @@ c28160 LD H,210      ; 210=ERIC
 @bfix-begin
  28193 CP 235        ; screen (no need to scroll); note that this doesn't
  28195 RET NC        ; handle the case where ERIC's x-coordinate is 0, which is
-                     ; a #BUG#farLeft}
+                     ; a #BUG#farLeft(bug)}
 @bfix+else
        ADD A,21      ; screen (no need to scroll)
        RET P         ; }
@@ -7630,7 +7633,7 @@ c29896 LD L,2        ;
 ; checking pages 17-222. In that range, only pages 183-214 contain character
 ; buffers; treating the other pages in RAM as if they contained character
 ; buffers could lead to data/code corruption. Needless to say, this is a
-; #BUG#conkerMD.
+; #BUG#conkerMD(bug).
 @rfix+else
        LD D,206      ; 206=BOY WANDER
        LD B,4        ; There are four main kids to check
@@ -8079,7 +8082,7 @@ c30380 LD L,19       ; Byte 19 of the pellet's buffer holds the distance left
  30474 JR NZ,30477   ; Jump if not (having raised the pellet one level)
  30476 INC D         ; #REGd=1; this makes the pellet hover just below the
                      ; ceiling on the top floor before disappearing, which is a
-                     ; #BUG#pelletHover
+                     ; #BUG#pelletHover(bug)
 @bfix+else
        JP M,29903    ; Terminate the pellet if so
 @bfix+end
@@ -9236,7 +9239,7 @@ c31573 LD L,0        ; Point #REGhl at byte 0 of ERIC's buffer
 ; instruction below, and so the contents of 32522 or 32600 (instead of X at
 ; #R32767) may be compared with 128. Thus it is possible for the new free mouse
 ; to appear at x-coordinate 170 even when X>=128, which means it could appear
-; on-screen. This is a #BUG#rematerialisingMouse.
+; on-screen. This is a #BUG#rematerialisingMouse(bug).
 @ignoreua
  31620 LD A,(HL)     ; #REGa=X (column of the play area at the far left of the
                      ; screen), or the contents of 32522 or 32600
@@ -9269,7 +9272,7 @@ c31573 LD L,0        ; Point #REGhl at byte 0 of ERIC's buffer
 ; hold 32522 or 32600 instead of #R32767, and so the contents of 32522 or 32600
 ; (instead of X) may be compared with 56 and 104. Thus it is possible for the
 ; new free mouse to appear at x-coordinate 88 even when 56<=X<104, which means
-; it could appear on-screen. This is a #BUG#rematerialisingMouse.
+; it could appear on-screen. This is a #BUG#rematerialisingMouse(bug).
 @bfix+else
 ; R=2, 3 or 4. The next section of code sets the x-coordinate for the new free
 ; mouse to 88 provided that X<56 or X>=104, or tries again with a new random
@@ -9290,7 +9293,7 @@ c31573 LD L,0        ; Point #REGhl at byte 0 of ERIC's buffer
 ; 32600 instead of #R32767, and so the contents of 32522 or 32600 (instead of
 ; X) may be compared with 56. Thus it is possible for the new free mouse to
 ; appear at x-coordinate 10 even when X<56, which means it could appear
-; on-screen. This is a #BUG#rematerialisingMouse.
+; on-screen. This is a #BUG#rematerialisingMouse(bug).
 @bfix+else
 ; R=5, 6 or 7. The next section of code sets the x-coordinate for the new free
 ; mouse to 10 provided that X>=56, or tries again with a new random number (R)
@@ -9932,7 +9935,7 @@ c32062 AND A         ; Is ERIC in a forbidden zone?
  32203 BIT 2,(HL)    ; Is ERIC sitting (facing left) or lying down?
 @bfix-begin
  32205 JR Z,32232    ; Tell ERIC to sit facing the stage if not (this is a
-                     ; #BUG#assemblySit)
+                     ; #BUG#assemblySit(bug))
 @bfix+else
        JR NZ,32232   ; Tell ERIC to sit facing the stage if so
 @bfix+end
@@ -10395,7 +10398,7 @@ t32654 DEFB 0 ; The message number for the country, year (last three digits),
 ; character number (206 or 210) here is a mistake; it should be the message
 ; number of the character's name (#R61345(27) or #R61397(31)) instead. In any
 ; case, this message (along with parent message #R60668(88)) is never used,
-; because of a #BUG#noBlackboardTales in the section of code at #R61852.
+; because of a #BUG#noBlackboardTales(bug) in the section of code at #R61852.
 @rfix+else
 ; Used by the routine at #R61696 to hold the message number of the name of the
 ; character who is being grassed up by EINSTEIN for writing on the board
@@ -18269,7 +18272,7 @@ t60657 DEFB 3  ; #R59840(3): 'Please Sir I cannot tell a lie . . '
 ; Used by the routine at #R61696.
 @rfix-begin
 ; This message is never actually used in the game, because of a
-; #BUG#noBlackboardTales in the section of code at #R61852.
+; #BUG#noBlackboardTales(bug) in the section of code at #R61852.
 @rfix-end
 @label=MSG088
 t60668 DEFB 3 ; #R59840(3): 'Please Sir I cannot tell a lie . . '
@@ -19090,7 +19093,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 ; four spaces of the left edge of the blackboard, which is not the case when
 ; the teacher is waiting for EINSTEIN to grass (teachers stand at the right
 ; edge of the blackboard for that, more than four spaces away). This is a
-; #BUG#noBlackboardTales.
+; #BUG#noBlackboardTales(bug).
 *61852 CALL 26453    ; Collect information about the blackboard
 @ignoreua
  61855 INC B         ; {The intent here is to point #REGbc at the second byte
@@ -19152,7 +19155,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 ; The next section of code makes the teacher wipe the board. Note that the
 ; teacher may already have wiped the board at this point, and therefore will
 ; not be standing at the right edge of the board (the correct location to begin
-; wiping); this is a #BUG#doubleWipe.
+; wiping); this is a #BUG#doubleWipe(bug).
 @nowarn
 *61899 LD BC,26639   ; {Redirect control to the routine at #R26639 (wipe board)
  61902 CALL 25503    ; and return to #R61905 (below) when done}
@@ -19310,7 +19313,7 @@ s62092 DEFS 2
 ; at #R29896). Note that the routine at #R26175 also sets bit 7 at #R32763 when
 ; someone sits in the seat occupied by ERIC, but in that case this routine is
 ; not called because bit 2 at #R32763 is still set (indicating that ERIC is
-; sitting) and takes precedence; this is a #BUG#seat.
+; sitting) and takes precedence; this is a #BUG#seat(bug).
 @label=ERICHIT
 c62094 LD HL,32733   ; #R32733 holds ERIC's knockout delay counter
  62097 LD A,(HL)     ; {Is this the first time this routine's been called since
@@ -21291,7 +21294,7 @@ c64077 DEC A         ; Is the water at the right phase to fill a cup?
  64185 JR NZ,64192   ; Jump if not
  64187 LD A,16       ; {Set bit 4 at #R32749, indicating that ERIC is going to
  64189 LD (32749),A  ; take a fall (even if ERIC's standing on a different
-                     ; plant pot; this is a #BUG#plant)}
+                     ; plant pot; this is a #BUG#plant(bug))}
 *64192 JP 29903      ; Kill the plant
 ; The plant is not dead yet. Plan its next move.
 *64195 LD A,(HL)     ; Pick up the plant lifespan counter in #REGa

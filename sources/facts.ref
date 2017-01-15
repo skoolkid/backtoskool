@@ -1,4 +1,4 @@
-; Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [Fact:boy10:The importance of little boy no. 10]
 In demo mode, ERIC bases his every move on where little boy no. 10 is and what he's doing (see the routine at #R62483). One corollary of this important role is that little boy no. 10 is in all of ERIC's classes (if he weren't, ERIC would be guilty of truancy in demo mode). In fact, little boy no. 10 is the only character besides EINSTEIN who joins ERIC for every class.
@@ -244,7 +244,7 @@ Don't bother trying to catch any of the mice released by ERIC: they cannot be re
 
 The aforementioned 'main' mouse always begins life in a new game at coordinates (17,3) in the Blue Room (see #R54305).
 
-One more thing: when ERIC catches a mouse, a new one is supposed to materialise somewhere else off-screen. However, because of a #BUG#rematerialisingMouse in the mouse placement code, the new mouse can sometimes be spotted appearing on-screen out of thin air at x-coordinate 10, 88 or 170.
+One more thing: when ERIC catches a mouse, a new one is supposed to materialise somewhere else off-screen. However, because of a #BUG#rematerialisingMouse(bug) in the mouse placement code, the new mouse can sometimes be spotted appearing on-screen out of thin air at x-coordinate 10, 88 or 170.
 
 [Fact:conkerAndClock:The conker and the clock]
 Ever stood at the top-floor window of the boys' skool (as ERIC, naturally), getting more and more frustrated because time is running out for you to knock ALBERT out with a conker and get the sherry before the bell rings? Then you may find some relief in the knowledge that you will have plenty of time to visit the girls' skool and fill up the pistol with the contents of MISS TAKE's wine stash, no matter how long it took you to give ALBERT a concussion. Why? Because when you do manage to land the fateful nut on ALBERT's bonce, the skool clock is magically wound back, thus delaying the onset of the next lesson. See the section of code at #R30145.
