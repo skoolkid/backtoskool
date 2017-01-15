@@ -28,6 +28,12 @@ Copying ../sources/bts.css to {odir}/back_to_skool/bts.css
   Writing back_to_skool/maps/data.html
   Writing back_to_skool/maps/messages.html
   Writing back_to_skool/buffers/gbuffer.html
+  Writing back_to_skool/reference/bugs.html
+  Writing back_to_skool/reference/changelog.html
+  Writing back_to_skool/reference/facts.html
+  Writing back_to_skool/reference/glossary.html
+  Writing back_to_skool/graphics/glitches.html
+  Writing back_to_skool/reference/pokes.html
   Writing back_to_skool/graphics/graphics.html
   Writing back_to_skool/graphics/playarea.html
   Copying ../sources/tiles.js to {odir}/back_to_skool/tiles.js
@@ -62,12 +68,6 @@ Copying ../sources/bts.css to {odir}/back_to_skool/bts.css
   Writing back_to_skool/lessons/58.html
   Writing back_to_skool/lessons/59.html
   Writing back_to_skool/tables/keys.html
-  Writing back_to_skool/reference/bugs.html
-  Writing back_to_skool/reference/changelog.html
-  Writing back_to_skool/reference/facts.html
-  Writing back_to_skool/reference/glossary.html
-  Writing back_to_skool/graphics/glitches.html
-  Writing back_to_skool/reference/pokes.html
   Parsing ../sources/load.skool
     Writing back_to_skool/load/load.html
     Writing disassembly files in back_to_skool/load
