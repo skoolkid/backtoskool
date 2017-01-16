@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-# Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015, 2017 Richard Dymond (rjdymond@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -17,7 +15,8 @@
 
 import cgi
 
-from skoolkit.skoolhtml import Udg as BaseUdg, HtmlWriter, join
+from skoolkit.graphics import Udg as BaseUdg
+from skoolkit.skoolhtml import HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
 from skoolkit.skoolmacro import parse_ints, parse_brackets
 
@@ -492,11 +491,11 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                 routine_link = '#R{}'.format(routine)
                 purpose = self.keypress_routines[routine]
             subs = {
-                'index': index,
+                'index': '#N{}'.format(index),
                 'key': self.get_chr(index + 48),
-                'address': address,
-                'offset': offset,
-                'lookup': lookup,
+                'address': '#N{}'.format(address),
+                'offset': '#N{}'.format(offset),
+                'lookup': '#N{}'.format(lookup) if lookup else '',
                 'routine': routine_link,
                 'purpose': purpose
             }
