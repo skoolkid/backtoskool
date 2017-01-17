@@ -1,6 +1,7 @@
-; Copyright 2001, 2008-2013, 2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2013, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
-d16643 DEFB 60,0,124,60,66,120,60,66,62,126,126,0,66
+d16384 DEFS 6144
+ 16643 DEFB 60,0,124,60,66,120,60,66,62,126,126,0,66
  16656 DEFB 60,124,0,60,60,126,60,8,0,0,124,126,66,0,0,16
  16673 DEFB 62,126,0,0,0,254,66,126,66
  16688 DEFB 36,0,60,60,0,60,66,124,0,0,36,0,124,60,66,60
@@ -47,9 +48,8 @@ d16643 DEFB 60,0,124,60,66,120,60,66,62,126,126,0,66
  22240 DEFB 247,189
  22496 DEFB 255,255
 ; Attribute file
- 22528 DEFS 736,56
+ 22528 DEFS 768,56
  23264 DEFB 184,184
- 23266 DEFS 30,56
 
 ; After the program 'bak2skool' has loaded, this is where it all starts...
 ;
