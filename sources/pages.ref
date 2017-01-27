@@ -32,31 +32,69 @@ PageContent=#INCLUDE(PlayAreaTiles)
 </table>
 <p>where:</p>
 <ul>
-<li><i>Q</i> is the 'Q value' for the tile (located at <i>Q_addr</i>)</li>
-<li><i>ref</i> is the UDG reference for the tile (located at <i>ref_addr</i>)</li>
-<li><i>udg_page</i> is the base page for the tile graphic data (128, 136, 144 or 152)</li>
-<li><i>udg_addr</i> is the base address of the tile graphic data (<i>ref</i>+256*<i>udg_page</i>)</li>
-<li><i>attr</i> is the tile's attribute byte</li>
+<li>
+<i>Q</i> is the 'Q value' for the tile (located at <i>Q_addr</i>)
+</li>
+<li>
+<i>ref</i> is the UDG reference for the tile (located at <i>ref_addr</i>)
+</li>
+<li>
+<i>udg_page</i> is the base page for the tile graphic data (128, 136, 144 or
+152)
+</li>
+<li>
+<i>udg_addr</i> is the base address of the tile graphic data
+(<i>ref</i>+256*<i>udg_page</i>)
+</li>
+<li>
+<i>attr</i> is the tile's attribute byte
+</li>
 </ul>
 <p>
-For an explanation of the Q value and how it is used to determine <i>udg_page</i> and the attribute byte (<i>attr</i>) for a tile, see #R24684.
+For an explanation of the Q value and how it is used to determine
+<i>udg_page</i> and the attribute byte (<i>attr</i>) for a tile, see #R24684.
 </p>
 <p>
 The eight graphic bytes for a tile are located thus:
 </p>
 <table class="default">
 <tr><th>Address</th><th>Contents</th></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>)=<i>udg_addr</i></td><td>Graphic byte 1/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+256</td><td>Graphic byte 2/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+512</td><td>Graphic byte 3/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+768</td><td>Graphic byte 4/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+1024</td><td>Graphic byte 5/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+1280</td><td>Graphic byte 6/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+1536</td><td>Graphic byte 7/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+1792</td><td>Graphic byte 8/8</td></tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>)=<i>udg_addr</i></td>
+<td>Graphic byte 1/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+256</td>
+<td>Graphic byte 2/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+512</td>
+<td>Graphic byte 3/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+768</td>
+<td>Graphic byte 4/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+1024</td>
+<td>Graphic byte 5/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+1280</td>
+<td>Graphic byte 6/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+1536</td>
+<td>Graphic byte 7/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+1792</td>
+<td>Graphic byte 8/8</td>
+</tr>
 </table>
 <p>
-Any given tile (identified by <i>udg_addr</i>) may appear at more than one location in the play area.
+Any given tile (identified by <i>udg_addr</i>) may appear at more than one
+location in the play area.
 </p>
 #CALL:play_area_tiles(192,21)
 #CALL:mutable_tiles(doors,56893,57344,56832,57405,64000,56320)
@@ -75,7 +113,26 @@ Any given tile (identified by <i>udg_addr</i>) may appear at more than one locat
 </tr>
 
 [Template:play_area_tile]
-<td><div class="T" onclick="s('{prefix}{tile.x}x{tile.y}')"><img alt="{tile.x},{tile.y}" src="{img_fname}"/></div><div id="{prefix}{tile.x}x{tile.y}" class="B P" onclick="h(this)"><div class="H">(x,y)=({tile.x},{tile.y})</div><table><tr><td><img alt="{tile.x},{tile.y}" src="{img_fname}"/></td><td><i>Q_addr</i>=(x,181)={tile.q_addr}, <i>Q</i>={tile.q}<br/><i>ref_addr</i>=(<i>Q</i>,y+160)={tile.ref_addr}<br/><i>ref</i>={tile.ref}, <i>udg_page</i>={tile.udg_page}<br/><i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)={tile.udg_addr}<br/><i>attr</i>={tile.attr}</td></tr></table></div></td>
+<td>
+<div class="T" onclick="s('{prefix}{tile.x}x{tile.y}')">
+<img alt="{tile.x},{tile.y}" src="{img_fname}"/>
+</div>
+<div id="{prefix}{tile.x}x{tile.y}" class="B P" onclick="h(this)">
+<div class="H">(x,y)=({tile.x},{tile.y})</div>
+<table>
+<tr>
+<td><img alt="{tile.x},{tile.y}" src="{img_fname}"/></td>
+<td>
+<i>Q_addr</i>=(x,181)={tile.q_addr}, <i>Q</i>={tile.q}<br/>
+<i>ref_addr</i>=(<i>Q</i>,y+160)={tile.ref_addr}<br/>
+<i>ref</i>={tile.ref}, <i>udg_page</i>={tile.udg_page}<br/>
+<i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)={tile.udg_addr}<br/>
+<i>attr</i>={tile.attr}
+</td>
+</tr>
+</table>
+</div>
+</td>
 
 [Template:play_area_tile_blank]
 <td></td>
@@ -248,12 +305,26 @@ PageContent=#INCLUDE(AnimatoryStateTiles)
 </table>
 <p>where:</p>
 <ul>
-<li><i>lsb</i> is the animatory state + 128 (128-255)</li>
-<li><i>ref_page</i> is the page containing the UDG reference for the tile (215-226)</li>
-<li><i>ref_addr</i> is the address of the UDG reference (<i>lsb</i>+256*<i>ref_page</i>)</li>
-<li><i>ref</i> is the UDG reference at <i>ref_addr</i> (0, 73-255)</li>
-<li><i>udg_page</i> is the base page for the tile graphic data (183 or 199)</li>
-<li><i>udg_addr</i> is the base address of the tile graphic data (<i>ref</i>+256*<i>udg_page</i>)</li>
+<li>
+<i>lsb</i> is the animatory state + 128 (128-255)
+</li>
+<li>
+<i>ref_page</i> is the page containing the UDG reference for the tile (215-226)
+</li>
+<li>
+<i>ref_addr</i> is the address of the UDG reference
+(<i>lsb</i>+256*<i>ref_page</i>)
+</li>
+<li>
+<i>ref</i> is the UDG reference at <i>ref_addr</i> (0, 73-255)
+</li>
+<li>
+<i>udg_page</i> is the base page for the tile graphic data (183 or 199)
+</li>
+<li>
+<i>udg_addr</i> is the base address of the tile graphic data
+(<i>ref</i>+256*<i>udg_page</i>)
+</li>
 </ul>
 <p>
 The graphic for an animatory state is made up of 12 tiles in a 3x4 grid:
@@ -265,38 +336,91 @@ The graphic for an animatory state is made up of 12 tiles in a 3x4 grid:
 <tr><td>3</td><td>7</td><td>11</td></tr>
 </table>
 <p>
-Each tile has a UDG reference (<i>ref</i>) located at (<i>lsb</i>,T+215), where T is the tile number (0-11).
+Each tile has a UDG reference (<i>ref</i>) located at (<i>lsb</i>,T+215), where
+T is the tile number (0-11).
 </p>
 <p>
 The eight graphic bytes and eight mask bytes for a tile are located thus:
 </p>
 <table class="default">
 <tr><th>Address</th><th>Contents</th></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>)=<i>udg_addr</i></td><td>Graphic byte 1/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+256</td><td>Mask byte 1/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+512</td><td>Graphic byte 2/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+768</td><td>Mask byte 2/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+1024</td><td>Graphic byte 3/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+1280</td><td>Mask byte 3/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+1536</td><td>Graphic byte 4/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+1792</td><td>Mask byte 4/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+8)=<i>udg_addr</i>+2048</td><td>Graphic byte 5/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+9)=<i>udg_addr</i>+2304</td><td>Mask byte 5/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+10)=<i>udg_addr</i>+2560</td><td>Graphic byte 6/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+11)=<i>udg_addr</i>+2816</td><td>Mask byte 6/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+12)=<i>udg_addr</i>+3072</td><td>Graphic byte 7/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+13)=<i>udg_addr</i>+3328</td><td>Mask byte 7/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+14)=<i>udg_addr</i>+3584</td><td>Graphic byte 8/8</td></tr>
-<tr><td>(<i>ref</i>,<i>udg_page</i>+15)=<i>udg_addr</i>+3840</td><td>Mask byte 8/8</td></tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>)=<i>udg_addr</i></td>
+<td>Graphic byte 1/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+256</td>
+<td>Mask byte 1/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+512</td>
+<td>Graphic byte 2/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+768</td>
+<td>Mask byte 2/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+1024</td>
+<td>Graphic byte 3/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+1280</td>
+<td>Mask byte 3/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+1536</td>
+<td>Graphic byte 4/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+1792</td>
+<td>Mask byte 4/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+8)=<i>udg_addr</i>+2048</td>
+<td>Graphic byte 5/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+9)=<i>udg_addr</i>+2304</td>
+<td>Mask byte 5/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+10)=<i>udg_addr</i>+2560</td>
+<td>Graphic byte 6/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+11)=<i>udg_addr</i>+2816</td>
+<td>Mask byte 6/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+12)=<i>udg_addr</i>+3072</td>
+<td>Graphic byte 7/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+13)=<i>udg_addr</i>+3328</td>
+<td>Mask byte 7/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+14)=<i>udg_addr</i>+3584</td>
+<td>Graphic byte 8/8</td>
+</tr>
+<tr>
+<td>(<i>ref</i>,<i>udg_page</i>+15)=<i>udg_addr</i>+3840</td>
+<td>Mask byte 8/8</td>
+</tr>
 </table>
 <p>
-The 'null' UDG (<i>ref</i>=0) is always taken to be blank (eight zeroes); its graphic data is not looked up at (0,183) or (0,199).
+The 'null' UDG (<i>ref</i>=0) is always taken to be blank (eight zeroes); its
+graphic data is not looked up at (0,183) or (0,199).
 </p>
 <p>
-Any given tile (identified by <i>udg_addr</i>) may appear in more than one animatory state (and in more than one place in a single animatory state).
+Any given tile (identified by <i>udg_addr</i>) may appear in more than one
+animatory state (and in more than one place in a single animatory state).
 </p>
 <p>
-The tiles for animatory states 128-255 are not stored separately; the tiles for animatory state N>=128 are obtained by flipping the tiles for animatory state N-128 (see #R24576).
+The tiles for animatory states 128-255 are not stored separately; the tiles for
+animatory state N>=128 are obtained by flipping the tiles for animatory state
+N-128 (see #R24576).
 </p>
 </div>
 <table class="asTiles">
@@ -336,16 +460,48 @@ The tiles for animatory states 128-255 are not stored separately; the tiles for 
 </td>
 
 [Template:astile]
-<div class="T" onclick="s('{bubble_id}')"><img alt="{state}:{row},{column}" src="{img_fname}"/></div><div id="{bubble_id}" class="B P" onclick="h(this)"><div class="H">{state}: row {row}, column {column}</div><table><tr><td><img alt="{state}:{row},{column}" src="{img_fname}"/></td><td><i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/><i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/><i>ref</i>={tile.ref}, <i>udg_page</i>={tile.udg_page}<br/><i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)={tile.udg_addr}</td></tr></table></div>
+<div class="T" onclick="s('{bubble_id}')">
+<img alt="{state}:{row},{column}" src="{img_fname}"/>
+</div>
+<div id="{bubble_id}" class="B P" onclick="h(this)">
+<div class="H">{state}: row {row}, column {column}</div>
+<table>
+<tr>
+<td><img alt="{state}:{row},{column}" src="{img_fname}"/></td>
+<td>
+<i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/>
+<i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/>
+<i>ref</i>={tile.ref}, <i>udg_page</i>={tile.udg_page}<br/>
+<i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)={tile.udg_addr}
+</td>
+</tr>
+</table>
+</div>
 
 [Template:astile_null]
-<div class="T" onclick="s('{bubble_id}')"><img alt="{state}:{row},{column}" src="{img_fname}"/></div><div id="{bubble_id}" class="B P" onclick="h(this)"><div class="H">{state}: row {row}, column {column}</div><table><tr><td><img alt="{state}:{row},{column}" src="{img_fname}"/></td><td><i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/><i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/><i>ref</i>=0</td></tr></table></div>
+<div class="T" onclick="s('{bubble_id}')">
+<img alt="{state}:{row},{column}" src="{img_fname}"/>
+</div>
+<div id="{bubble_id}" class="B P" onclick="h(this)">
+<div class="H">{state}: row {row}, column {column}</div>
+<table>
+<tr>
+<td><img alt="{state}:{row},{column}" src="{img_fname}"/></td>
+<td>
+<i>lsb</i>={lsb}, <i>ref_page</i>={ref_page}<br/>
+<i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)={tile.ref_addr}<br/>
+<i>ref</i>=0
+</td>
+</tr>
+</table>
+</div>
 
 [Page:CharacterBuffers]
 PageContent=#INCLUDE(CharacterBuffers)
 
 [CharacterBuffers]
-<p>The character buffers occupy bytes 0-36 in pages 183-214. The buffers in pages 198, 199, 206, 207 and 208 may be used by mice released by ERIC.</p>
+<p>The character buffers occupy bytes 0-36 in pages 183-214. The buffers in
+pages 198, 199, 206, 207 and 208 may be used by mice released by ERIC.</p>
 #CALL:cast()
 #CALL:cbuffer()
 
@@ -503,9 +659,15 @@ PageContent=#CALL:lesson(59)
 [Template:lesson]
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-{prev_lesson[exists]}">Prev: <a href="{prev_lesson[href]}">{prev_lesson[num]}</a></span></td>
+<td class="prev">
+<span class="prev-{prev_lesson[exists]}">Prev:
+<a href="{prev_lesson[href]}">{prev_lesson[num]}</a></span>
+</td>
 <td class="up">Up: #LINK:LessonIndex(Index)</td>
-<td class="next"><span class="next-{next_lesson[exists]}">Next: <a href="{next_lesson[href]}">{next_lesson[num]}</a></span></td>
+<td class="next">
+<span class="next-{next_lesson[exists]}">Next:
+<a href="{next_lesson[href]}">{next_lesson[num]}</a></span>
+</td>
 </tr>
 </table>
 <div class="description">Lesson {lesson[num]}: {lesson[desc]}</div>
@@ -519,9 +681,15 @@ PageContent=#CALL:lesson(59)
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-{prev_lesson[exists]}">Prev: <a href="{prev_lesson[href]}">{prev_lesson[num]}</a></span></td>
+<td class="prev">
+<span class="prev-{prev_lesson[exists]}">Prev:
+<a href="{prev_lesson[href]}">{prev_lesson[num]}</a></span>
+</td>
 <td class="up">Up: #LINK:LessonIndex(Index)</td>
-<td class="next"><span class="next-{next_lesson[exists]}">Next: <a href="{next_lesson[href]}">{next_lesson[num]}</a></span></td>
+<td class="next">
+<span class="next-{next_lesson[exists]}">Next:
+<a href="{next_lesson[href]}">{next_lesson[num]}</a></span>
+</td>
 </tr>
 </table>
 
@@ -543,7 +711,9 @@ PageContent=#INCLUDE(Keys)
 <div>Key = CHR$(Index + #N48,,,1(0x))</div>
 <div>Address = Index + #R58624</div>
 <div>Offset = PEEK(Address)</div>
-<div>Lookup = Offset + #N58624 (points to an entry in the table at #R58704)</div>
+<div>
+Lookup = Offset + #N58624 (points to an entry in the table at #R58704)
+</div>
 <div>Routine = address at (Lookup, Lookup + 1)</div>
 </div>
 <table class="keytable">
