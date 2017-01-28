@@ -1,4 +1,4 @@
-; Copyright 2008-2012 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2012, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [Lessons]
 37=MR CREAK - BLUE ROOM
@@ -243,9 +243,11 @@ Unused
 Interruptible subcommand routine address (see #R25296)
 
 [CharBuf:11]
-LSB of the address of the next character in the message being written into a graphic buffer (buffer #R54784(214) only; see #R27419)
+LSB of the address of the next character in the message being written into a
+graphic buffer (buffer #R54784(214) only; see #R27419)
 
-LSB of the address of the next character in the message being written on a blackboard or spoken (see #R26318)
+LSB of the address of the next character in the message being written on a
+blackboard or spoken (see #R26318)
 
 Number of steps left to be ascended (see #R25656) or descended (see #R25677)
 
@@ -254,35 +256,44 @@ Number of movements remaining to wipe the blackboard (see #R26639)
 Intermediate destination x-coordinate (see #R25581)
 
 [CharBuf:12]
-MSB of the address of the next character in the message being written into a graphic buffer (buffer #R54784(214) only; see #R27419)
+MSB of the address of the next character in the message being written into a
+graphic buffer (buffer #R54784(214) only; see #R27419)
 
-MSB of the address of the next character in the message being written on a blackboard or spoken (see #R26318)
+MSB of the address of the next character in the message being written on a
+blackboard or spoken (see #R26318)
 
-Number of paces remaining until the next command list restart request check (see #R25581)
+Number of paces remaining until the next command list restart request check
+(see #R25581)
 
 x-coordinate of the column of the blackboard being wiped (see #R26639)
 
 [CharBuf:13]
-LSB of the address of the next character in the submessage being written on a blackboard or spoken (see #R26318)
+LSB of the address of the next character in the submessage being written on a
+blackboard or spoken (see #R26318)
 
 y-coordinate of the top row of the blackboard being wiped (see #R26639)
 
 [CharBuf:14]
-MSB of the address of the next character in the submessage being written on a blackboard or spoken (see #R26318)
+MSB of the address of the next character in the submessage being written on a
+blackboard or spoken (see #R26318)
 
 Identifier of the blackboard being wiped (see #R26639)
 
 [CharBuf:15]
-LSB of the address of the next character in the sub-submessage being written on a blackboard or spoken (see #R26318)
+LSB of the address of the next character in the sub-submessage being written on
+a blackboard or spoken (see #R26318)
 
-Animatory state of the character whose buffer is being borrowed by a mouse (see #R31254, #R31502)
+Animatory state of the character whose buffer is being borrowed by a mouse (see
+#R31254, #R31502)
 
 Post-midstride y-coordinate increment to use while chasing ERIC (see #R25944)
 
 [CharBuf:16]
-MSB of the address of the next character in the sub-submessage being written on a blackboard or spoken (see #R26318)
+MSB of the address of the next character in the sub-submessage being written on
+a blackboard or spoken (see #R26318)
 
-Counter determining the lifespan of a mouse released by ERIC (see #R31254, #R31502)
+Counter determining the lifespan of a mouse released by ERIC (see #R31254,
+#R31502)
 
 [CharBuf:17,18]
 Uninterruptible subcommand routine address (see #R25296)
@@ -294,24 +305,29 @@ MR WACKER's x-coordinate before he goes to open a window (see #R63586)
 
 HAYLEY's pre-kiss x-coordinate (see #R24328, #R24348)
 
-Distance remaining for the mouse to travel before hiding or considering a change of direction (see #R31254)
+Distance remaining for the mouse to travel before hiding or considering a
+change of direction (see #R31254)
 
-Counter determining how much longer the character will stay down after being knocked over (see #R30102) or knocked out of a chair (see #R26224)
+Counter determining how much longer the character will stay down after being
+knocked over (see #R30102) or knocked out of a chair (see #R26224)
 
 Distance remaining for the pellet to travel (see #R30380)
 
-Counter determining how much longer the female character should continue jumping up and down (see #R31078)
+Counter determining how much longer the female character should continue
+jumping up and down (see #R31078)
 
 Counter determining how much longer the desk lid should stay up (see #R62178)
 
-Counter determining how much longer the stinkbomb cloud will stick around (see #R63586)
+Counter determining how much longer the stinkbomb cloud will stick around (see
+#R63586)
 
 Water/sherry animation phase identifier (see #R63915)
 
 Counter determining the phases of growth of a watered plant (see #R64077)
 
 [CharBuf:20]
-Open/close parameter for the door or window being opened or closed (see #R29052)
+Open/close parameter for the door or window being opened or closed (see
+#R29052)
 
 MR WACKER's animatory state before he goes to open a window (see #R63586)
 
@@ -325,19 +341,24 @@ ANGELFACE's pre-punch animatory state (see #R30739)
 
 BOY WANDER's pre-fire animatory state (see #R30555)
 
-x-coordinate at which the plant will appear when it starts growing (see #R64077)
+x-coordinate at which the plant will appear when it starts growing (see
+#R64077)
 
 [CharBuf:21]
-Counter determining when the mouse should come out of hiding (see #R31254, #R31502)
+Counter determining when the mouse should come out of hiding (see #R31254,
+#R31502)
 
-0 if the frightened female is jumping up and down, or 1 if she's standing on a chair (see #R31092)
+0 if the frightened female is jumping up and down, or 1 if she's standing on a
+chair (see #R31092)
 
-x-coordinate of the window MR WACKER will open after smelling a stinkbomb (see #R63586, #R63801)
+x-coordinate of the window MR WACKER will open after smelling a stinkbomb (see
+#R63586, #R63801)
 
 [CharBuf:22]
 x-coordinate of the mouse when it last hid (see #R31254, #R31502)
 
-Identifier of the window MR WACKER will open after smelling a stinkbomb (see #R63586, #R63801)
+Identifier of the window MR WACKER will open after smelling a stinkbomb (see
+#R63586, #R63801)
 
 [CharBuf:23,24]
 Continual subcommand routine address (see #R25296)
@@ -349,20 +370,26 @@ Address reached in the command list
 Start address of the command list
 
 [CharBuf:29]
-Various flags; initially populated by #R62910 with a copy of byte 35 of the character's buffer:
+Various flags; initially populated by #R62910 with a copy of byte 35 of the
+character's buffer:
 #TABLE(default,centre)
 { =h Bit(s) | =h Meaning if set }
 { 0         | Restart the command list at the next opportunity (see #R25296) }
 { 1-2       | Unused }
-{ 3         | Character is a candidate for immediate transportation to his destination (set by #R63309; checked and reset by #R25134; also reset by #R25296) }
-{ 4         | Unused (always reset, but checked by #R25296; if set, it would make the character run until the current primary command has terminated) }
+{ 3         | Character is a candidate for immediate transportation to his
+              destination (set by #R63309; checked and reset by #R25134; also
+              reset by #R25296) }
+{ 4         | Unused (always reset, but checked by #R25296; if set, it would
+              make the character run until the current primary command has
+              terminated) }
 { 5         | Character is an adult (see #R25296) }
 { 6         | Character is not human (see #R25296) }
 { 7         | Character is running (see #R25296) }
 TABLE#
 
 [CharBuf:30]
-Walking speed change delay counter (see #R25296); initialised to bits 0-3 of the character number (see #R62910)
+Walking speed change delay counter (see #R25296); initialised to bits 0-3 of
+the character number (see #R62910)
 
 [CharBuf:31]
 Unused
