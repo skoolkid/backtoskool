@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2012, 2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2012, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [Poke:infiniteLines:Infinite lines]
 To stop MR WACKER expelling ERIC after 10000 lines:
@@ -11,7 +11,8 @@ To prevent teachers from giving lines to ERIC or anyone else:
 POKE #R29716(29716),201
 
 [Poke:someLines:Some lines]
-If 'Infinite lines' or 'No lines' makes things too easy, use a selection of these POKEs that disable lines-giving for specific infractions:
+If 'Infinite lines' or 'No lines' makes things too easy, use a selection of
+these POKEs that disable lines-giving for specific infractions:
 
 DON'T BE LATE AGAIN/STAY TILL I DISMISS YOU - POKE #R61810(61810),1
 
@@ -23,11 +24,14 @@ DON'T RIDE BIKES IN HERE - POKE #R32088(32089),0
 
 DON'T TOUCH BLACKBOARDS - POKE #R24199(24199),201
 
-GET ALONG NOW/COME ALONG YOU MONSTER/DON'T KEEP ME WAITING - POKE #R32171(32172),22
+GET ALONG NOW/COME ALONG YOU MONSTER/DON'T KEEP ME WAITING - POKE
+#R32171(32172),22
 
 GET BACK TO SCHOOL - POKE #R32148(32149),0
 
-GET OFF THE FLOOR - POKE #R32125(32126),133 (when ERIC is sitting on the floor outside the assembly hall or lying down, and it's too soon to be told to GET ALONG NOW)
+GET OFF THE FLOOR - POKE #R32125(32126),133 (when ERIC is sitting on the floor
+outside the assembly hall or lying down, and it's too soon to be told to GET
+ALONG NOW)
 
 GET OFF THE FLOOR - POKE #R32162(32162),201 (when it's time to GET ALONG NOW)
 
@@ -55,9 +59,12 @@ To change the lines limit from 10000 to 10N:
 
 where M=65536-N.
 
-To change the expulsion message MR WACKER delivers (at #R60953) accordingly, you will need to POKE the ASCII codes of the digits of the new lines limit into addresses 60962-60966.
+To change the expulsion message MR WACKER delivers (at #R60953) accordingly,
+you will need to POKE the ASCII codes of the digits of the new lines limit into
+addresses 60962-60966.
 
-For example, to change the lines limit to 20000 and adjust the expulsion message to match:
+For example, to change the lines limit to 20000 and adjust the expulsion
+message to match:
 
 POKE 29652,48: POKE 29653,248: POKE 60962,50
 
@@ -66,7 +73,8 @@ To make sure that EINSTEIN never tells tales:
 
 POKE #R61831(61831),24
 
-Alternatively, to make the teacher always give lines to EINSTEIN for telling tales:
+Alternatively, to make the teacher always give lines to EINSTEIN for telling
+tales:
 
 POKE #R61492(61492),24
 
@@ -76,43 +84,58 @@ To prevent ALBERT from alerting MR WACKER when he spots ERIC trying to escape:
 POKE #R62723(62723),195
 
 [Poke:lessonLength:Lesson length]
-Normally the lesson clock (at #R32739) counts down from 4096 (16*256) to 0, at which point the bell rings. To make the lesson clock count down from N*256 to 0 instead:
+Normally the lesson clock (at #R32739) counts down from 4096 (16*256) to 0, at
+which point the bell rings. To make the lesson clock count down from N*256 to 0
+instead:
 
 POKE #R63309(63310),N
 
-If you are extending the lesson length, it's a good idea to also adjust the time at which teachers will tell the kids to sit down. Normally this is 3072 (12*256); to change it to M*256 (M=N-4 is a good choice):
+If you are extending the lesson length, it's a good idea to also adjust the
+time at which teachers will tell the kids to sit down. Normally this is 3072
+(12*256); to change it to M*256 (M=N-4 is a good choice):
 
 POKE #R61558(61559),M
 
-If, on the other hand, you are shortening the lesson, it's a good idea to also adjust the time at which teachers will start giving lines to ERIC for being in the wrong classroom. Normally this is 3072 (12*256); to change it to G*256 (G=N-4 is a good choice):
+If, on the other hand, you are shortening the lesson, it's a good idea to also
+adjust the time at which teachers will start giving lines to ERIC for being in
+the wrong classroom. Normally this is 3072 (12*256); to change it to G*256
+(G=N-4 is a good choice):
 
 POKE #R32106(32107),G
 
-You might also want to change the time at which the kids will sit down for assembly. Normally this is 2816 (11*256); to change it to S*256:
+You might also want to change the time at which the kids will sit down for
+assembly. Normally this is 2816 (11*256); to change it to S*256:
 
 POKE #R61666(61667),S
 
-To change the time at which MR WITHIT will come looking for ERIC if he's not in the assembly hall from 2560 (10*256) to A*256:
+To change the time at which MR WITHIT will come looking for ERIC if he's not in
+the assembly hall from 2560 (10*256) to A*256:
 
 POKE #R61683(61684),A
 
-And to change the time at which MR WACKER will come down from his study for assembly from 2304 (9*256) to W*256:
+And to change the time at which MR WACKER will come down from his study for
+assembly from 2304 (9*256) to W*256:
 
 POKE #R63504(63505),W
 
 [Poke:ringBell:Ring the bell]
 To put ERIC in charge of ringing the bell:
 
-<div>POKE #R58652(58652),96 (points 'L' at the unused slot at #R58720 in the table of keypress handling routines)</div>
-<div>POKE 58720,122: POKE 58721,229 (sets the keypress-handling routine for 'L' to #R58746)</div>
+<div>POKE #R58652(58652),96 (points 'L' at the unused slot at #R58720 in the
+table of keypress handling routines)</div>
+<div>POKE 58720,122: POKE 58721,229 (sets the keypress-handling routine for 'L'
+to #R58746)</div>
 <div>POKE 58746,33: POKE 58747,1: POKE 58748,0 (LD HL,1)</div>
 <div>POKE 58749,34: POKE 58750,227: POKE 58751,127 (LD (#R32739),HL)</div>
 <div>POKE 58752,201 (RET)</div>
 
-Now whenever 'L' (upper case) is pressed, the bell will ring and the next lesson will begin (which could prove handy if ERIC is found playing truant, or simply cannot wait any longer for playtime).
+Now whenever 'L' (upper case) is pressed, the bell will ring and the next
+lesson will begin (which could prove handy if ERIC is found playing truant, or
+simply cannot wait any longer for playtime).
 
 [Poke:alwaysRun:Always run]
-Normally 'q', 'a', 'o' and 'p' make ERIC walk, and 'Q', 'A', 'O' and 'P' make him run. To make ERIC always run, regardless of whether SHIFT is held down:
+Normally 'q', 'a', 'o' and 'p' make ERIC walk, and 'Q', 'A', 'O' and 'P' make
+him run. To make ERIC always run, regardless of whether SHIFT is held down:
 
 POKE #R28144(28144),24: POKE #R28227(28227),24
 
@@ -134,7 +157,9 @@ To extend the range of the catapult from 13 to N:
 
 POKE #R30640(30641),N
 
-However, this doesn't extend the 'hit zone' of the pellet (the portion of its flight where it can hit something). To change the hit zone from the last 4 stages of its flight to the last M stages (M=N-6 is a good choice):
+However, this doesn't extend the 'hit zone' of the pellet (the portion of its
+flight where it can hit something). To change the hit zone from the last 4
+stages of its flight to the last M stages (M=N-6 is a good choice):
 
 POKE #R30387(30388),M+1
 
@@ -143,7 +168,9 @@ Finally, to make the normally invulnerable ALBERT susceptible to pelleting:
 POKE #R30440(30441),6
 
 [Poke:unhideBike:Unhide the bike]
-Before ERIC writes the bike combination on a blackboard, the bike is actually hiding at x-coordinate 224. To change the bike's initial x-coordinate from 224 to X (so that it's visible from the start of the game):
+Before ERIC writes the bike combination on a blackboard, the bike is actually
+hiding at x-coordinate 224. To change the bike's initial x-coordinate from 224
+to X (so that it's visible from the start of the game):
 
 POKE #R54049(54049),X
 
@@ -152,28 +179,47 @@ Any choice of X in the range 0-189 will bring the bike into view.
 [Poke:freeTheFrog:Free the frog]
 To make the frog visible and catchable from the start of the game:
 
-<div>POKE #R54304(54304),#AS28 (initial animatory state)</div>
-<div>POKE #R54305(54305),48: POKE 54306,10 (initial location: Science Lab)</div>
-<div>POKE #R63072(63073),186: POKE 63074,120 (controlling routine: #R30906)</div>
+<div>
+POKE #R54304(54304),#AS28 (initial animatory state)
+</div>
+<div>
+POKE #R54305(54305),48: POKE 54306,10 (initial location: Science Lab)
+</div>
+<div>
+POKE #R63072(63073),186: POKE 63074,120 (controlling routine: #R30906)
+</div>
 
 Note that this means there will be no mice in the game.
 
 [Poke:leftStudyDoor:Open the left study door]
-No one ever opens the left study door in Back to Skool, but that's only because the character routing information leads everyone round it instead of through it; there is support built in to the game for opening the door, but it is never used. To bring the left study door into service, try the following POKEs, which change the routing information for characters going from certain starting points to the top floor of the boys' skool.
+No one ever opens the left study door in Back to Skool, but that's only because
+the character routing information leads everyone round it instead of through
+it; there is support built in to the game for opening the door, but it is never
+used. To bring the left study door into service, try the following POKEs, which
+change the routing information for characters going from certain starting
+points to the top floor of the boys' skool.
 
-Modify the route for anyone on the top floor on the left side of the door and going to the other side of the door (e.g. from the Yellow Room to the top-floor window) so that they go through the door:
+Modify the route for anyone on the top floor on the left side of the door and
+going to the other side of the door (e.g. from the Yellow Room to the top-floor
+window) so that they go through the door:
 
 POKE #R48449(48449),#R51012(199)
 
-Modify the route for anyone on the top floor on the right side of the door and going to the other side of the door (e.g. from the head's study to the Revision Library) so that they go through the door:
+Modify the route for anyone on the top floor on the right side of the door and
+going to the other side of the door (e.g. from the head's study to the Revision
+Library) so that they go through the door:
 
 POKE #R49724(49724),#R48452(189)
 
-Modify the route for anyone on the middle floor of the boys' skool near the window and going to anywhere on the top floor to the left of the door so that they first go up the stairs to the head's study:
+Modify the route for anyone on the middle floor of the boys' skool near the
+window and going to anywhere on the top floor to the left of the door so that
+they first go up the stairs to the head's study:
 
 POKE #R49468(49468),#R50756(198)
 
-Modify the route for anyone on the assembly hall stage going to anywhere on the top floor to the left of the door so that they first go up the stairs towards the middle-floor window:
+Modify the route for anyone on the assembly hall stage going to anywhere on the
+top floor to the left of the door so that they first go up the stairs towards
+the middle-floor window:
 
 POKE #R49212(49212),#R50244(196)
 
@@ -197,12 +243,17 @@ And ride the bike through any wall or door (or ALBERT):
 <div>POKE #R28672(28672),167</div>
 <div>POKE 28673,201</div>
 
-But now when ERIC walks or rides the bike through the far left wall in the boys' skool or the far right wall in the girls' skool, you lose sight of him. To make the screen scroll however far left or right ERIC goes (and therefore reveal the 'no man's land' between the two skools):
+But now when ERIC walks or rides the bike through the far left wall in the
+boys' skool or the far right wall in the girls' skool, you lose sight of
+him. To make the screen scroll however far left or right ERIC goes (and
+therefore reveal the 'no man's land' between the two skools):
 
 <div>POKE #R28191(28191),0</div>
 <div>POKE #R28203(28203),0</div>
 
-But this also reveals a limitation of the routine at #R24880: the SRB is not updated correctly when the leftmost column of the skool on screen is 232, 240 or 248. To fix this:
+But this also reveals a limitation of the routine at #R24880: the SRB is not
+updated correctly when the leftmost column of the skool on screen is 232, 240
+or 248. To fix this:
 
 <div>POKE 24893,47</div>
 <div>POKE 24894,131</div>
@@ -212,4 +263,7 @@ But this also reveals a limitation of the routine at #R24880: the SRB is not upd
 <div>POKE 24902,2</div>
 <div>POKE 24904,47</div>
 
-Now you may notice that some of the little boys stop moving as ERIC approaches the far left wall of the boys' skool. This is because the routine at #R25296 does not move certain minor characters depending on which part of the play area is visible.
+Now you may notice that some of the little boys stop moving as ERIC approaches
+the far left wall of the boys' skool. This is because the routine at #R25296
+does not move certain minor characters depending on which part of the play area
+is visible.
