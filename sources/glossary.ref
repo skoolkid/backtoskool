@@ -1,19 +1,27 @@
-; Copyright 2008-2012, 2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2012, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [Glossary:Animatory state]
 Number denoting one of the #AS()(phases of animation) of a character's sprite.
 
 [Glossary:Character buffer]
-#LINK:CharacterBuffers(Buffer) containing data on the current state of a character.
+#LINK:CharacterBuffers(Buffer) containing data on the current state of a
+ character.
 
 [Glossary:Command list]
 #R59392(List of commands) used to control a character during a lesson.
 
 [Glossary:Continual subcommand]
-One of various character-controlling command routines whose address is stored in bytes 23 and 24 of a character's buffer. The command is executed each time the character is moved - before the interruptible subcommand or primary command - unless the character is under the control of an uninterruptible subcommand (see #R25296).
+One of various character-controlling command routines whose address is stored
+in bytes 23 and 24 of a character's buffer. The command is executed each time
+the character is moved - before the interruptible subcommand or primary command
+- unless the character is under the control of an uninterruptible subcommand
+(see #R25296).
 
 [Glossary:Interruptible subcommand]
-One of various character-controlling command routines whose address is stored in bytes 9 and 10 of a character's buffer. If present, the command is executed each time the character is moved, unless the character is under the control of an uninterruptible subcommand (see #R25296).
+One of various character-controlling command routines whose address is stored
+in bytes 9 and 10 of a character's buffer. If present, the command is executed
+each time the character is moved, unless the character is under the control of
+an uninterruptible subcommand (see #R25296).
 
 [Glossary:Midstride]
 Of a character: in phase 2 or 4 of the walking animation. For example:
@@ -23,10 +31,16 @@ Of a character: in phase 2 or 4 of the walking animation. For example:
 TABLE#
 
 [Glossary:Primary command]
-One of various character-controlling command routines whose address is stored in bytes 3 and 4 of a character's buffer. If present, the command is executed each time the character is moved, unless the character is under the control of an uninterruptible or interruptible subcommand (see #R25296).
+One of various character-controlling command routines whose address is stored
+in bytes 3 and 4 of a character's buffer. If present, the command is executed
+each time the character is moved, unless the character is under the control of
+an uninterruptible or interruptible subcommand (see #R25296).
 
 [Glossary:SRB]
 Screen refresh buffer at #R32512.
 
 [Glossary:Uninterruptible subcommand]
-One of various character-controlling command routines whose address is stored in bytes 17 and 18 of a character's buffer. If present, the command is executed each time the character is moved, and overrides any other command (see #R25296).
+One of various character-controlling command routines whose address is stored
+in bytes 17 and 18 of a character's buffer. If present, the command is executed
+each time the character is moved, and overrides any other command (see
+#R25296).
