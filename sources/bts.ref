@@ -1,4 +1,4 @@
-; Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
 RefFiles=bugs.ref;changelog.ref;data.ref;facts.ref;glossary.ref;graphics.ref;pages.ref;pokes.ref
@@ -146,7 +146,12 @@ CommandLists
 Keys
 
 [MemoryMap:MessagesMap]
-Intro=The LSB and MSB of the address of message number N can be found at (N+#R65024) and (N+#R65280) respectively (when 0&lt;=N&lt;=111 or 128&lt;=N&lt;=207), or in the message address table at #R20724 (when N=244, 246, 248, 250 or 252).
+Intro=#INCLUDE(MessagesMapIntro)
+
+[MessagesMapIntro]
+The LSB and MSB of the address of message number N can be found at (N+#R65024)
+and (N+#R65280) respectively (when 0&lt;=N&lt;=111 or 128&lt;=N&lt;=207), or in
+the message address table at #R20724 (when N=244, 246, 248, 250 or 252).
 
 [MemoryMap:UnusedMap]
 Write=0
