@@ -32,7 +32,7 @@ def parse_lesson(text, index):
 
 class BackToSkoolHtmlWriter(HtmlWriter):
     def init(self):
-        self.char_buf_descs = self._get_char_buf_descs()
+        self.char_buf_descs = self.get_sections('CharBuf', True)
         self.keypress_routines = self.get_dictionary('KeypressRoutines')
         self.as_descs = self.get_dictionary('AnimatoryStates')
         self.characters = self.get_dictionary('Characters')
@@ -166,12 +166,6 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                     sprite_udg = self.get_sprite_udg(state, None, udg.y - char_y, udg.x - char_x)
                     for k in range(8):
                         udg.data[k] = (udg.data[k] | sprite_udg.data[k]) & sprite_udg.mask[k]
-
-    def _get_char_buf_descs(self):
-        char_buf_descs = []
-        for byte_nums, descs in self.get_sections('CharBuf', True):
-            char_buf_descs.append((byte_nums, descs))
-        return char_buf_descs
 
     def as_img(self, cwd, num, scale=2, mask=1, attr=120, udg_page=None, fname_suffix=''):
         mask_infix = 'm' if mask else 'u'
