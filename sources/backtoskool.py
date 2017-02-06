@@ -496,11 +496,8 @@ class BackToSkoolHtmlWriter(HtmlWriter):
 
     def mutable(self, cwd, address, padding=0):
         fname = 'mutable{0}_{1}'.format(address, padding) if padding else 'mutable{0}'.format(address)
-        mutable_path = self.image_path(fname, 'MutableImagePath')
-        if self.need_image(mutable_path):
-            mutable_udgs = self.get_mutable_udg_array(address, padding)
-            self.write_image(mutable_path, mutable_udgs, scale=2)
-        return self.img_element(cwd, mutable_path)
+        frame = Frame(lambda: self.get_mutable_udg_array(address, padding), 2)
+        return self.handle_image([frame], fname, cwd, path_id='MutableImagePath')
 
     def adjust_mutable(self, cwd, address):
         self.alter_skool_udgs(address)
