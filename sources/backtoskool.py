@@ -109,16 +109,15 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                 col_byte //= 2
         return udg_array
 
+    def _font_udgs(self, address, num_chars):
+        first_char = address % 256
+        udgs = self.get_text(''.join([chr(c) for c in range(first_char, first_char + num_chars)]))
+        return [[Udg(56, udg) for udg in udgs]]
+
     def font(self, cwd, address, num_chars=96, scale=2, fname='font'):
-        img_path = self.image_path(fname, 'FontImagePath')
-        if self.need_image(img_path):
-            first_char = address % 256
-            udgs = self.get_text(''.join([chr(c) for c in range(first_char, first_char + num_chars)]))
-            udg_array = [[Udg(56, udg) for udg in udgs]]
-            width = sum(self.snapshot[address:address + num_chars]) + num_chars + 1
-            crop_rect = (0, 0, width * scale, None)
-            self.write_image(img_path, udg_array, crop_rect, scale)
-        return self.img_element(cwd, img_path)
+        width = scale * (sum(self.snapshot[address:address + num_chars]) + num_chars + 1)
+        frame = Frame(lambda: self._font_udgs(address, num_chars), scale, width=width)
+        return self.handle_image([frame], fname, cwd, path_id='FontImagePath')
 
     def _draw_text(self, udgs, words, x, y):
         text_udgs = self.get_text(words)
