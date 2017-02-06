@@ -15,7 +15,7 @@
 
 import cgi
 
-from skoolkit.graphics import Udg as BaseUdg
+from skoolkit.graphics import Frame, Udg as BaseUdg
 from skoolkit.skoolhtml import HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
 from skoolkit.skoolmacro import parse_ints, parse_brackets
@@ -173,10 +173,9 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         snapshot_name = self.get_snapshot_name()
         snapshot_infix = '_{0}'.format(snapshot_name) if snapshot_name else ''
         fname = 'as{0:03d}_{1}x{2}{3}{4}{5}{6}'.format(num & 255, attr, scale, mask_infix, udg_page_infix, snapshot_infix, fname_suffix)
-        asimg_path = self.image_path(fname, 'AnimatoryStateImagePath')
-        if self.need_image(asimg_path):
-            self.write_image(asimg_path, self.build_sprite(num, attr, udg_page), scale=scale, mask=mask)
-        return self.img_element(cwd, asimg_path, "Animatory state {0}".format(num & 255))
+        frame = Frame(lambda: self.build_sprite(num, attr, udg_page), scale, mask)
+        alt = "Animatory state {}".format(num & 255)
+        return self.handle_image([frame], fname, cwd, alt, 'AnimatoryStateImagePath')
 
     def play_area(self, cwd, fname, x, y, w=1, h=1, scale=2, show_chars=0, show_x=0):
         img_path = self.image_path(fname, 'PlayAreaImagePath')
