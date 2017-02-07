@@ -177,10 +177,8 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         return self.handle_image([frame], fname, cwd, alt, 'AnimatoryStateImagePath')
 
     def play_area(self, cwd, fname, x, y, w=1, h=1, scale=2, show_chars=0, show_x=0):
-        img_path = self.image_path(fname, 'PlayAreaImagePath')
-        if self.need_image(img_path):
-            self.write_image(img_path, self.get_skool_udgs(x, y, w, h, show_chars, show_x), scale=scale)
-        return self.img_element(cwd, img_path)
+        frame = Frame(lambda: self.get_skool_udgs(x, y, w, h, show_chars, show_x), scale)
+        return self.handle_image([frame], fname, cwd, path_id='PlayAreaImagePath')
 
     def write_playarea_tile_table(self, cwd, tiles, prefix='s'):
         lines = []
