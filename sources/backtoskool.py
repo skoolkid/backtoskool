@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-import cgi
+import html
 
 from skoolkit.graphics import Frame, Udg as BaseUdg
 from skoolkit.skoolhtml import HtmlWriter, join
@@ -78,7 +78,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             return '&#8593;'
         if code == 96:
             return '&#163;'
-        return cgi.escape(chr(code))
+        return html.escape(chr(code), False)
 
     def build_sprite(self, state, attr=None, udg_page=None):
         udg_array = []
