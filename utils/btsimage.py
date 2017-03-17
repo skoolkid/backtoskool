@@ -16,7 +16,7 @@ sys.path.insert(0, SKOOLKIT_HOME)
 
 from skoolkit.image import ImageWriter
 from skoolkit.snapshot import get_snapshot
-from skoolkit.skoolhtml import Udg as BaseUdg, Frame
+from skoolkit.graphics import Udg as BaseUdg, Frame
 
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BTS_Z80 = '{}/build/back_to_skool.z80'.format(parent_dir)
