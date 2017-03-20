@@ -3,6 +3,12 @@
 [Page:Changelog]
 SectionType=BulletPoints
 
+[Changelog:YYYYMMDD]
+-
+
+- Ported the disassembly to SkoolKit 6
+- Made various improvements to the hexadecimal version of the disassembly
+
 [Changelog:20151012]
 -
 
