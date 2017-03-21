@@ -57,24 +57,24 @@ d16384 DEFS 6144
 ; { #SCR(loader.gif) | This is the initial loader program for Back to Skool (as
 ; it appears after doing 'POKE 23762,0' to change the INK for the BASIC listing
 ; from white to black). Don't be fooled by the 'RANDOMIZE USR 23794': the
-; floating point number stored underneath is actually 23831. }
+; floating point number stored underneath is actually #N23831. }
 ; TABLE#
 ; .
-; Entering the code here from BASIC means that #REGc=23 (the LSB of 23831);
+; Entering the code here from BASIC means that #REGc=23 (the LSB of #N23831);
 ; this value is used later on in the routine at #R32815.
 c23831 DI            ; Disable interrupts
  23832 LD B,49       ;
  23834 LD DE,65487   ;
  23837 CALL 24046    ;
 ; And so begins the misdirection.
-*24046 POP HL        ; #REGhl=23840
- 24047 ADD HL,DE     ; #REGhl=23791
+*24046 POP HL        ; #REGhl=#N23840
+ 24047 ADD HL,DE     ; #REGhl=#N23791
  24048 PUSH HL       ;
  24049 LD DE,7       ;
- 24052 ADD HL,DE     ; #REGhl=23798
- 24053 RET           ; Jump to 23791
+ 24052 ADD HL,DE     ; #REGhl=#N23798
+ 24053 RET           ; Jump to #N23791
 ; Undo some code obfuscation before continuing.
-*23791 LD A,(HL)     ; {Do some XORing on the 49 bytes from 23798 to 23846
+*23791 LD A,(HL)     ; {Do some XORing on the 49 bytes from #N23798 to #N23846
  23792 XOR H         ;
  23793 XOR L         ;
  23794 LD (HL),A     ;
@@ -82,14 +82,14 @@ c23831 DI            ; Disable interrupts
  23796 DJNZ 23791    ; }
 ; After the XORing:
 *23798 EXX           ;
- 23799 EX (SP),HL    ; #REGhl'=11563
- 23800 LD A,H        ; #REGa=45
- 23801 AND L         ; #REGa=41
- 23802 ADD A,L       ; #REGa=84
- 23803 ADD A,L       ; #REGa=127
- 23804 LD H,A        ; #REGh'=127
- 23805 ADD A,78      ; #REGa=205
- 23807 LD L,A        ; #REGhl'=32717
+ 23799 EX (SP),HL    ; #REGhl'=#N11563
+ 23800 LD A,H        ; #REGa=#N45
+ 23801 AND L         ; #REGa=#N41
+ 23802 ADD A,L       ; #REGa=#N84
+ 23803 ADD A,L       ; #REGa=#N127
+ 23804 LD H,A        ; #REGh'=#N127
+ 23805 ADD A,78      ; #REGa=#N205
+ 23807 LD L,A        ; #REGhl'=#N32717
  23808 EXX           ;
  23809 LD HL,23551   ; {INK 1: PAPER 1
 *23812 LD (HL),9     ;
@@ -100,37 +100,38 @@ c23831 DI            ; Disable interrupts
  23821 DEC HL        ;
  23822 BIT 6,H       ;
  23824 JR NZ,23819   ; }
- 23826 INC E         ; {#REGde=9
+ 23826 INC E         ; {#REGde=#N9
  23827 INC E         ; }
  23828 CALL 24046    ;
 ; More misdirection.
-*24046 POP HL        ; #REGhl=23831
- 24047 ADD HL,DE     ; #REGhl=23840
+*24046 POP HL        ; #REGhl=#N23831
+ 24047 ADD HL,DE     ; #REGhl=#N23840
  24048 PUSH HL       ;
  24049 LD DE,7       ;
- 24052 ADD HL,DE     ; #REGhl=23847
- 24053 RET           ; Jump to 23840
+ 24052 ADD HL,DE     ; #REGhl=#N23847
+ 24053 RET           ; Jump to #N23840
 ; Undo some more code obfuscation before continuing.
-*23840 LD A,(HL)     ; {Do some XORing and RLCing on the 217 bytes from 23847
- 23841 XOR E         ; to 24063
+*23840 LD A,(HL)     ; {Do some XORing and RLCing on the 217 bytes from #N23847
+ 23841 XOR E         ; to #N24063
  23842 RLCA          ;
  23843 LD (HL),A     ;
  23844 INC L         ;
  23845 JR NZ,23840   ; }
 ; After the XORing and RLCing:
-*23847 PUSH HL       ; #REGhl=23808
+*23847 PUSH HL       ; #REGhl=#N23808
  23848 EXX           ;
- 23849 POP DE        ; #REGde'=23808
- 23850 EX DE,HL      ; #REGde'=32717
- 23851 LD BC,255     ; {Copy 255 bytes from 23808-24062 to 32717-32971
+ 23849 POP DE        ; #REGde'=#N23808
+ 23850 EX DE,HL      ; #REGde'=#N32717
+ 23851 LD BC,255     ; {Copy 255 bytes from #N23808-#N24062 to #N32717-#N32971
  23854 LDIR          ; }
- 23856 LD E,A        ; #REGe'=47
- 23857 EX DE,HL      ; #REGhl'=32815
+ 23856 LD E,A        ; #REGe'=#N47
+ 23857 EX DE,HL      ; #REGhl'=#N32815
  23858 JP (HL)       ; Jump to #R32815
 
 @start
+@replace=/#n\i/#N\1,,,1($)
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2013, 2015 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2013, 2015, 2017 Richard Dymond (this disassembly)
 @org=32768
 
 ; Collect one bit from tape
@@ -185,11 +186,11 @@ i32813 DEFS 2
 ; Continues from #R23831.
 @label=BTSLOAD
 c32815 LD SP,33020   ; Put the stack somewhere safe
- 32818 LD IX,16384   ; The fast code block starts loading at address 16384 (the
-                     ; start of the display file)
+ 32818 LD IX,16384   ; The fast code block starts loading at address #N16384
+                     ; (the start of the display file)
  32822 LD DE,49152   ; Set #REGde (the byte counter) to a high enough value
                      ; that it won't reach 0 before the first 16570 bytes
-                     ; (16384-32953) have been loaded
+                     ; (#N16384-#N32953) have been loaded
  32825 LD A,255      ; We expect the first byte loaded (the flag byte) to be
                      ; 255
  32827 SCF           ; In the analogous ROM routine, setting the carry flag
@@ -300,22 +301,22 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
  32952 JR NZ,32907   ; Jump back to load another byte from the tape
  32954 RET           ; (We never get here)
 @end
-; When the computer has loaded up to 32953, the instruction at 32952 is changed
-; thus:
+; When the computer has loaded up to #N(32953), the instruction at #N32952 is
+; changed thus:
  32952 JR NZ,32893   ;
-; At this stage, 32893 reads as follows:
- 32893 LD (IX-52),L  ; POKE 32902,32
+; At this stage, #N32893 reads as follows:
+ 32893 LD (IX-52),L  ; Effectively LD (#n32902),#n32
  32896 EXX           ;
  32897 ADD IX,BC     ; Add 23 to #REGix
  32899 EXX           ;
  32900 SET 7,L       ;
-; The POKE at 32893 above changes the instruction at 32902 from 'LD SP,23833'
-; to:
+; The instruction at #N32893 above changes the instruction at #N32902 from
+; 'LD SP,#n23833' to:
  32902 JR NZ,32929   ; Jump forward to load the next byte from the tape
-; Now 65536 more bytes are loaded, the last of which is at 32902 (even though
-; there is one more byte, 32925, left on the tape: see the
-; #R33013@save(save routine)). Then 32902 reads as follows:
+; Now 65536 more bytes are loaded, the last of which is at #N32902 (even though
+; there is one more byte, #N(32925), left on the tape: see the
+; #R33013@save(save routine)). Then #N32902 reads as follows:
  32902 LD SP,23833   ; Point the stack pointer at the game start address that
-                     ; was placed at 23833 by the #R33013@save(save routine)
+                     ; was placed at #N23833 by the #R33013@save(save routine)
  32905 LD D,H        ;
- 32906 RET           ; To (23833)=#R33204@start
+ 32906 RET           ; To (#n23833)=#R33204@start
