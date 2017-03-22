@@ -105,6 +105,7 @@ d16384 DEFS 6144
 
 @start
 @replace=/#FACT(?![A-Z])/#LINK:Facts
+@replace=/#n\i/#N\1,,,1($)
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
 ; Copyright 2001, 2008-2013, 2015, 2017 Richard Dymond (this disassembly)
 @org=33013
@@ -113,28 +114,29 @@ d16384 DEFS 6144
 ;
 ; #UDGTABLE
 ; { #SCR(saver.gif) | This is the program used to save the fast code block for
-; Back to Skool. See '#FACT#saverPokes()' for a discussion of the two POKES
+; Back to Skool. See '#FACT#saverPokes()' for a discussion of the two POKEs
 ; that appear in line 33 of the program. }
 ; TABLE#
 ; .
 ; The fast code block consists of two sections of data. The first section
-; contains the 16573 bytes of data for addresses 16384-32956. The second
-; section contains 65535 bytes of data starting at address 32971, moving
-; forward in steps of 23 bytes, and ending at 32925.
+; contains the 16573 bytes of data for addresses #N16384-#N32956. The second
+; section contains 65535 bytes of data starting at address #N(32971), moving
+; forward in steps of 23 bytes, and ending at #N32925.
 ; .
-; Note that the last three bytes in the first section (addresses 32954-32956)
-; are actually loaded into addresses 32902, 32925 and 32948 by the
-; #R32815@load(load routine). Note also that the last byte in the second
-; section, for address 32925, is not loaded by the #R32815@load(load routine).
+; Note that the last three bytes in the first section (addresses
+; #N32954-#N32956) are actually loaded into addresses #N(32902), #N32925 and
+; #N32948 by the #R32815@load(load routine). Note also that the last byte in
+; the second section, for address #N(32925), is not loaded by the
+; #R32815@load(load routine).
 c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
  33016 LD (23833),HL ; Store this address where it will be popped off the stack
                      ; by the #R32815@load(load routine)
  33019 EXX           ; {Prepare #REGbc' for saving the second section of data
  33020 LD BC,23      ;
  33023 EXX           ; }
- 33024 LD IX,16384   ; {16384 to 32956 will be saved first
+ 33024 LD IX,16384   ; {#N16384 to #N32956 will be saved first
  33028 LD DE,16572   ; }
- 33031 LD A,255      ; A flag byte of 255 (the first byte saved) indicates a
+ 33031 LD A,255      ; A flag byte of #N255 (the first byte saved) indicates a
                      ; data block
  33033 LD HL,3224    ; This constant will give a leader tone of about 2 seconds
  33036 EX AF,AF'     ;
@@ -164,11 +166,11 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
 @label=SYNC2
 *33070 DJNZ 33070    ;
  33072 OUT (254),A   ;
-; It's time to save the first byte, which will be the flag byte (255).
- 33074 LD BC,6670    ; #REGb=26 (timing constant), #REGc=14 (MIC off, border
-                     ; yellow)
- 33077 EX AF,AF'     ; #REGa=255
- 33078 LD L,A        ; #REGl=255
+; It's time to save the first byte, which will be the flag byte (#N255).
+ 33074 LD BC,6670    ; #REGb=#N26 (timing constant), #REGc=#N14 (MIC off,
+                     ; border yellow)
+ 33077 EX AF,AF'     ; #REGa=#N255
+ 33078 LD L,A        ; #REGl=#N255
  33079 JP 33091      ; Jump forward to save the flag byte
 ; This is the main byte-saving loop.
 @label=B1_LOOP
@@ -182,16 +184,16 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
  33090 XOR L         ; Update this for the next byte to be saved
 @label=B1_START
 *33091 LD H,A        ; #REGh=new parity byte
- 33092 LD A,1        ; #REGa=1 (MIC on, border blue)
+ 33092 LD A,1        ; #REGa=#N1 (MIC on, border blue)
  33094 SCF           ; Set the carry flag (which will act as the marker bit)
  33095 JP 33121      ; Jump forward to save the byte
 ; This section of code, if it were used, would save the parity byte.
 @label=B1_PARITY
 *33098 LD L,H        ; Pick up the parity byte in #REGl
  33099 JR 33089      ; Save it
-; This is the bit-saving loop for the first section of data (16384-32956).
+; This is the bit-saving loop for the first section of data (#N16384-#N32956).
 @label=B1_BIT2
-*33101 LD A,C        ; #REGa=14 (MIC off, border yellow) for the second pass
+*33101 LD A,C        ; #REGa=#N14 (MIC off, border yellow) for the second pass
  33102 BIT 7,B       ; Set the zero flag to indicate that this is the second
                      ; pass through the loop
 @label=B1_BIT1
@@ -207,13 +209,13 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
                      ; first
  33118 DEC B         ;
  33119 XOR A         ; Clear the carry flag
- 33120 INC A         ; #REGa=1 (MIC on, border blue)
+ 33120 INC A         ; #REGa=#N1 (MIC on, border blue)
 @label=B1_8BITS
 *33121 RL L          ; Move the bit to be saved into the carry flag, and the
                      ; marker bit leftwards
  33123 JP NZ,33104   ; Jump unless we've saved all 8 bits of the byte
-; A byte from the first section (16384-32956) has just been saved. Are there
-; any more left?
+; A byte from the first section (#N16384-#N32956) has just been saved. Are
+; there any more left?
  33126 DEC DE        ; Decrease the length counter
  33127 INC IX        ; Move to the next byte to be saved
  33129 LD B,16       ; Set the timing constant for the first bit of the next
@@ -222,20 +224,20 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
  33133 IN A,(254)    ;
  33135 RRA           ;
  33136 RET NC        ; }
- 33137 LD A,D        ; {Have we saved 16384 to 32956 yet?
+ 33137 LD A,D        ; {Have we saved #N16384 to #N32956 yet?
  33138 INC A         ; }
  33139 JP NZ,33082   ; Jump back if not
-; Now a further 65535 bytes are saved: starting at 32971, moving forward in
-; steps of 23 bytes, and ending at 32925.
+; Now a further 65535 bytes are saved: starting at #N(32971), moving forward in
+; steps of 23 bytes, and ending at #N32925.
 @label=B2_LOOP
-*33142 LD A,D        ; {#REGix=32957 and #REGde=65535 the first time we get
+*33142 LD A,D        ; {#REGix=#N32957 and #REGde=#N65535 the first time we get
  33143 OR E          ; here}
- 33144 JR Z,33158    ; Jump if we have now saved 32971 onwards
- 33146 LD L,(IX+14)  ; #REGix+14=32971 the first time we get here
+ 33144 JR Z,33158    ; Jump if we have now saved #N32971 onwards
+ 33146 LD L,(IX+14)  ; #REGix+#N14=#N32971 the first time we get here
  33149 LD A,H        ; #REGa=current parity byte
  33150 XOR L         ; Update this for the next byte to be saved
  33151 LD H,A        ; #REGh=new parity byte
- 33152 LD A,1        ; #REGa=1 (MIC on, border blue)
+ 33152 LD A,1        ; #REGa=#N1 (MIC on, border blue)
  33154 SCF           ; Set the carry flag (which will act as the marker bit)
  33155 JP 33181      ; Jump forward to save the byte
 ; This is where we come when all 82108 bytes have been saved.
@@ -244,7 +246,7 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
  33160 RET           ;
 ; This is the bit-saving loop for the second section of data.
 @label=B2_BIT2
-*33161 LD A,C        ; #REGa=14 (MIC off, border yellow) for the second pass
+*33161 LD A,C        ; #REGa=#N14 (MIC off, border yellow) for the second pass
  33162 BIT 7,B       ; Set the zero flag to indicate that this is the second
                      ; pass through the loop
 @label=B2_BIT1
@@ -260,7 +262,7 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
                      ; first
  33178 DEC B         ;
  33179 XOR A         ; Clear the carry flag
- 33180 INC A         ; #REGa=1 (MIC on, border blue)
+ 33180 INC A         ; #REGa=#N1 (MIC on, border blue)
 @label=B2_8BITS
 *33181 RL L          ; Move the bit to be saved into the carry flag, and the
                      ; marker bit leftwards
@@ -279,12 +281,13 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
 @end
 ; The last 5 bytes of the first section saved make important changes to the
 ; #R32815@load(load routine) when the game is being loaded:
-v32952 JR NZ,32893   ; This will replace the 'JR NZ,32907' at 32952, and kick
-                     ; off the loading of 65537 bytes from 32902 onwards (in
-                     ; steps of 23, all the way round to 32902 again)
-v32954 DEFB 32       ; This byte will replace the 49 at 32902, changing the
-                     ; instruction there from 'LD SP,23833' to 'JR NZ,32929'
-v32955 DEFB 221      ; This byte will be loaded into 32925 (which already
-                     ; contains 221)
-v32956 DEFB 173      ; This byte will be loaded into 32948 (which already
-                     ; contains 173)
+v32952 JR NZ,32893   ; This will replace the 'JR NZ,#n32907' at #N(32952), and
+                     ; kick off the loading of 65537 bytes from #N32902 onwards
+                     ; (in steps of 23, all the way round to #N32902 again)
+v32954 DEFB 32       ; This byte will replace the #N49 at #N(32902), changing
+                     ; the instruction there from 'LD SP,#n23833' to
+                     ; 'JR NZ,#n32929'
+v32955 DEFB 221      ; This byte will be loaded into #N32925 (which already
+                     ; contains #N221)
+v32956 DEFB 173      ; This byte will be loaded into #N32948 (which already
+                     ; contains #N173)
