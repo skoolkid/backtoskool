@@ -625,7 +625,7 @@ i20992 DEFS 160
 c21152 LD A,21       ; Message #R61267(21): 'MR WACKER'
 *21154 PUSH AF       ; Save the message number
  21155 ADD A,80      ; #REGa=101-111 (message number for the character's title)
- 21157 LD HL,16512   ; 16512=display file address
+ 21157 LD HL,16512   ; #N16512=display file address
  21160 CALL 20668    ; Print the appropriate title (e.g. 'THE HEADMASTER')
  21163 LD A,244      ; Message #R22000(244): '' (empty string)
  21165 CALL 20665    ; Print this (thus removing 'Press 'C' to change name'
@@ -911,7 +911,7 @@ c21920 LDIR          ; Copy 256 bytes from #N23296 to #N33024
  21955 LD DE,65496   ; #REGde=-40
  21958 LD C,8        ; There are 8 pixel rows per countdown digit
 *21960 EXX           ;
- 21961 BIT 7,L       ; Set the zero flag when #REGhl' hits 15743
+ 21961 BIT 7,L       ; Set the zero flag when #REGhl' hits #N15743
  21963 LD A,(HL)     ; Pick up a digit pixel row byte
  21964 DEC HL        ; Move #REGhl' to the next pixel row up
  21965 EXX           ;
@@ -20641,7 +20641,7 @@ c63501 LD A,(32740)  ; #REGa=MSB of the lesson clock (which starts off at 16)
 ; Used by the routine at #R63561. Returns with the column of the play area that
 ; was at the far left of the screen before this routine was called in #REGa.
 ;
-; DE 16384 or 16415
+; DE #N16384 or #N16415
 @label=LRSCROLL
 c63512 LD B,0        ; #REGbc will be used as the counter for the LDIR/LDDR
                      ; instruction at #R63526; initialise the MSB to 0
