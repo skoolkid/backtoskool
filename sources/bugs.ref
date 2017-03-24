@@ -287,9 +287,9 @@ up (#R61345(27) or #R61397(31)) into #R32656, it places the character number
 'Please Sir I cannot tell a lie . . X wrote on the board'
 
 where 'X' is the textual representation of whatever happens to be at address
-20289 (in the display file) at the time of grassing (20289 being equal to PEEK
-(210+#R65024) + 256 * PEEK (210+#R65280), which is how the address of message
-210 would be determined if it existed).
+#N20289 (in the display file) at the time of grassing (#N20289 being equal to
+PEEK (#N210+#R65024) + 256 * PEEK (#N210+#R65280), which is how the address of
+message 210 would be determined if it existed).
 
 [Bug:doubleWipe:Double wipe]
 If ERIC leaves class at some point after the teacher has started wiping the

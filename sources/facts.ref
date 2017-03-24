@@ -21,27 +21,27 @@ saves the fast code block to tape:
 
 POKE 29387,80: POKE 29391,45
 
-These POKEs set the instruction at #R29130 to 'LD L,80' and the instruction at
-#R29135 to 'DEC L'. (The contents of addresses 24832-32767 are shifted down by
-256 bytes to 24576 by the startup routine at #R33204@start before the game
-starts.) Which makes one wonder what these instructions were before they were
-POKEd.
+These POKEs set the instruction at #R29130 to 'LD L,#n80' and the instruction
+at #R29135 to 'DEC L'. (The contents of addresses #N24832-#N32767 are shifted
+down by 256 bytes to #N24576 by the startup routine at #R33204@start before the
+game starts.) Which makes one wonder what these instructions were before they
+were POKEd.
 
 As it turns out, some tapes of Back to Skool were released that are missing
-line 33 in the BASIC saver program, and contain 79 at address 29387 (29131) and
-44 at address 29391 (29135); with these values, the corresponding section of
-code looks like this:
+line 33 in the BASIC saver program, and contain #N79 at address #N29387
+(#N29131) and #N44 at address #N29391 (#N29135); with these values, the
+corresponding section of code looks like this:
 
 #TABLE(asm,address-1,instruction,comment-11)
-{ 29124 | IN A,(31)  | }
-{ 29126 | AND 31     | Any input from the joystick? }
-{ 29128 | JR Z,29154 | Jump if not }
-{ 29130 | LD L,79    | 79='O' (LEFT) }
-{ 29132 | RRCA       | }
-{ 29133 | JR C,29151 | Jump if the joystick was moved right }
-{ 29135 | INC L      | #REGl=80='P' (RIGHT) }
-{ 29136 | RRCA       | }
-{ 29137 | JR C,29151 | Jump if the joystick was moved left }
+{ #N29124 | IN A,(#n31)  | }
+{ #N29126 | AND #n31     | Any input from the joystick? }
+{ #N29128 | JR Z,#n29154 | Jump if not }
+{ #N29130 | LD L,#n79    | #N79='O' (LEFT) }
+{ #N29132 | RRCA         | }
+{ #N29133 | JR C,#n29151 | Jump if the joystick was moved right }
+{ #N29135 | INC L        | #REGl=#N80='P' (RIGHT) }
+{ #N29136 | RRCA         | }
+{ #N29137 | JR C,#n29151 | Jump if the joystick was moved left }
 TABLE#
 
 This code makes ERIC move left when the Kempston joystick is moved right, and
