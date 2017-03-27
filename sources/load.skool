@@ -192,7 +192,7 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
                      ; that it won't reach 0 before the first 16570 bytes
                      ; (#N16384-#N32953) have been loaded
  32825 LD A,255      ; We expect the first byte loaded (the flag byte) to be
-                     ; 255
+                     ; #N255
  32827 SCF           ; In the analogous ROM routine, setting the carry flag
                      ; would indicate that we want to LOAD rather than VERIFY;
                      ; here, this flag is not used
@@ -267,7 +267,7 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
 @label=FLAG
 *32915 RL C          ; Save the carry flag in bit 0 of #REGc temporarily
  32917 XOR L         ; #REGl=first byte of the data block (the flag byte)
- 32918 RET NZ        ; Reset the Spectrum if it wasn't 255
+ 32918 RET NZ        ; Reset the Spectrum if it wasn't #N255
  32919 LD A,C        ; {Restore the carry flag
  32920 RRA           ; }
  32921 LD C,A        ; Restore #REGc
