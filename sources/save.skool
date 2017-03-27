@@ -104,6 +104,7 @@ d16384 DEFS 6144
  23264 DEFB 184
 
 @start
+@writer=:backtoskool.BackToSkoolAsmWriter
 @replace=/#FACT(?![A-Z])/#LINK:Facts
 @replace=/#n\i/#N\1,,,1($)
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
@@ -175,8 +176,8 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
 ; This is the main byte-saving loop.
 @label=B1_LOOP
 *33082 LD A,D        ; {In the analagous ROM routine, the second instruction
- 33083 LD A,D        ; here is 'OR E', to check whether it's time to save the
-                     ; last byte (the parity byte)}
+ 33083 LD A,D        ; here is '#S/OR E/', to check whether it's time to save
+                     ; the last byte (the parity byte)}
  33084 JR Z,33098    ; This jump (to save the parity byte) is never made
  33086 LD L,(IX+0)   ; Fetch the next byte to be saved
 @label=B1_LOOP_P
@@ -281,12 +282,13 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
 @end
 ; The last 5 bytes of the first section saved make important changes to the
 ; #R32815@load(load routine) when the game is being loaded:
-v32952 JR NZ,32893   ; This will replace the 'JR NZ,#n32907' at #N(32952), and
-                     ; kick off the loading of 65537 bytes from #N32902 onwards
-                     ; (in steps of 23, all the way round to #N32902 again)
+v32952 JR NZ,32893   ; This will replace the '#S/JR NZ/,#n32907' at #N(32952),
+                     ; and kick off the loading of 65537 bytes from #N32902
+                     ; onwards (in steps of 23, all the way round to #N32902
+                     ; again)
 v32954 DEFB 32       ; This byte will replace the #N49 at #N(32902), changing
-                     ; the instruction there from 'LD SP,#n23833' to
-                     ; 'JR NZ,#n32929'
+                     ; the instruction there from '#S/LD SP/,#n23833' to
+                     ; '#S/JR NZ/,#n32929'
 v32955 DEFB 221      ; This byte will be loaded into #N32925 (which already
                      ; contains #N221)
 v32956 DEFB 173      ; This byte will be loaded into #N32948 (which already
