@@ -208,9 +208,9 @@ class BackToSkoolHtmlWriter(HtmlWriter):
     def animatory_states(self, cwd):
         return '\n'.join([self._animatory_state_row(cwd, n) for n in range(128)])
 
-    def _get_animatory_state_tiles_row(self, n):
+    def _get_animatory_state_tiles_row(self, n, fmt):
         states = ((n, None),)
-        states_desc = '{0}: {1}'.format(n, self.as_descs[n])
+        states_desc = (fmt + ': {}').format(n, self.as_descs[n])
         return [(states, states_desc)]
 
     def _get_sprite_tile_img_fname(self, tile, state):
@@ -219,8 +219,13 @@ class BackToSkoolHtmlWriter(HtmlWriter):
     def astiles(self, cwd):
         rows = []
         attr = 120
+        b_fmt = '{:02X}' if self.base == 16 else '{}'
+        w_fmt = '{:04X}' if self.base == 16 else '{}'
+        if self.case == 1:
+            b_fmt = b_fmt.lower()
+            w_fmt = w_fmt.lower()
         for n in range(128):
-            for state_specs, states_desc in self._get_animatory_state_tiles_row(n):
+            for state_specs, states_desc in self._get_animatory_state_tiles_row(n, b_fmt):
                 frames = []
                 for state, udg_page in state_specs:
                     tiles = []
@@ -239,13 +244,16 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                             template_name = 'astile' if tile.ref else 'astile_null'
                             astile_subs = {
                                 'bubble_id': bubble_id,
-                                'state': state,
+                                'state': b_fmt.format(state),
                                 'row': row_num,
                                 'column': col_num,
                                 'img_fname': img_fname,
-                                'lsb': tile.ref_addr % 256,
-                                'ref_page': tile.ref_addr // 256,
-                                'tile': tile
+                                'lsb': b_fmt.format(tile.ref_addr % 256),
+                                'ref_page': b_fmt.format(tile.ref_addr // 256),
+                                'ref_addr': w_fmt.format(tile.ref_addr),
+                                'ref': b_fmt.format(tile.ref),
+                                'udg_page': b_fmt.format(tile.udg_page),
+                                'udg_addr': w_fmt.format(tile.udg_addr)
                             }
                             tiles.append(self.format_template(template_name, astile_subs))
                     template_name = 'astiles_frame_{}x{}'.format(num_rows, len(row))
