@@ -181,7 +181,7 @@ Any choice of X in the range 0-189 will bring the bike into view.
 To make the frog visible and catchable from the start of the game:
 
 <div>
-POKE #R54304(54304),#AS28 (initial animatory state)
+POKE #R54304(54304),#AS28(28) (initial animatory state)
 </div>
 <div>
 POKE #R54305(54305),48: POKE 54306,10 (initial location: Science Lab)

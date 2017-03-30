@@ -273,7 +273,7 @@ PageContent=#INCLUDE(AnimatoryStatesPage)
 <tr>
 <td id="{state_l}">{img_l}</td>
 <td id="{state_r}">{img_r}</td>
-<td>{state_l}, {state_r}: {desc}</td>
+<td>{state_l_s}, {state_r_s}: {desc}</td>
 </tr>
 
 [Page:AnimatoryStateTiles]

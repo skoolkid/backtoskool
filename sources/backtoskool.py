@@ -22,8 +22,8 @@ from skoolkit.skoolmacro import parse_ints, parse_brackets
 
 def parse_as(text, index):
     end, state = parse_ints(text, index, 1, (None,))
-    end, link_text = parse_brackets(text, end, state)
-    return end, state, str(link_text)
+    end, link_text = parse_brackets(text, end, '#N{}'.format(state))
+    return end, state, link_text
 
 def parse_lesson(text, index):
     end, lesson = parse_ints(text, index, 1)
@@ -366,7 +366,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         end, state, link_text = parse_as(text, index)
         as_file = self.relpath(cwd, self.paths['AnimatoryStates'])
         anchor = '#{}'.format(state) if state is not None else ''
-        link = self.format_link(as_file + anchor, link_text)
+        link = self.format_link(as_file + anchor, self.expand(link_text))
         return end, link
 
     def expand_lesson(self, text, index, cwd):
@@ -494,6 +494,8 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         subs = {
             'state_l': state,
             'state_r': state + 128,
+            'state_l_s': self.b_fmt.format(state),
+            'state_r_s': self.b_fmt.format(state + 128),
             'desc': self.as_descs.get(state, '-'),
             'img_l': self.as_img(cwd, state),
             'img_r': self.as_img(cwd, state + 128)
@@ -548,7 +550,7 @@ class BackToSkoolAsmWriter(AsmWriter):
     def expand_as(self, text, index):
         # #AS[state][(link text)]
         end, state, link_text = parse_as(text, index)
-        return end, link_text
+        return end, self.expand(link_text)
 
     def expand_lesson(self, text, index):
         # #LESSONnum[(link text)]
