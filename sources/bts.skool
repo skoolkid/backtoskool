@@ -376,6 +376,8 @@ d26429 DEFB 198 ; 26428 SET 0,(HL)
 @replace=/#FACT(?![A-Z])/#LINK:Facts
 @replace=/#POKE(?![A-Z])/#LINK:Pokes
 @replace=/#n\i/#N\1,,,1($)
+@replace=/#b\i/#N(\1)/ (byte)
+@replace=/#w\i/#N(\1,4)/ (word)
 @writer=:backtoskool.BackToSkoolAsmWriter
 ; Back to Skool disassembly
 ; http://skoolkit.ca/
@@ -463,7 +465,7 @@ b20650 DEFW 24774 ; Change the instruction at #R24774 from NOP to...
 ;
 ; A Message number
 @label=PRINTMSG
-c20665 LD HL,20480   ; #N20480=display file address
+c20665 LD HL,20480   ; #w20480=display file address
 ; This entry point is used by the routines at #R20896, #R21152, #R21425 and
 ; #R21664 with #REGhl holding the appropriate display file address.
 *20668 PUSH HL       ; Save the display file address
@@ -506,8 +508,8 @@ s20706 DEFS 3
 ; in eight 32-byte blocks.
 ;
 @ignoreua
-; HL Source (#N16384 or #N46848)
-; DE Destination display file address (#N20640 or #N20672)
+; HL Source (#w16384 or #w46848)
+; DE Destination display file address (#w20640 or #w20672)
 @label=MC2SCREEN
 c20709 LD BC,32      ; There are 32 bytes per row of pixels
  20712 PUSH DE       ;
@@ -551,7 +553,7 @@ c20896 LD L,A        ; {Collect the start address of the message (the
  20907 INC HL        ;
  20908 DJNZ 20906    ; }
 *20910 PUSH AF       ; Save the message number
- 20911 LD HL,20544   ; #N20544=display file address at which to print the name
+ 20911 LD HL,20544   ; #w20544=display file address at which to print the name
  20914 CALL 20668    ; Print the name built up so far
 *20917 CALL 29154    ; {Wait for a keypress
  20920 JR Z,20917    ; }
@@ -625,7 +627,7 @@ i20992 DEFS 160
 c21152 LD A,21       ; Message #R61267(21): 'MR WACKER'
 *21154 PUSH AF       ; Save the message number
  21155 ADD A,80      ; #REGa=101-111 (message number for the character's title)
- 21157 LD HL,16512   ; #N16512=display file address
+ 21157 LD HL,16512   ; #w16512=display file address
  21160 CALL 20668    ; Print the appropriate title (e.g. 'THE HEADMASTER')
  21163 LD A,244      ; Message #R22000(244): '' (empty string)
  21165 CALL 20665    ; Print this (thus removing 'Press 'C' to change name'
@@ -633,7 +635,7 @@ c21152 LD A,21       ; Message #R61267(21): 'MR WACKER'
  21168 POP AF        ; Restore the message number for the character's name to
                      ; #REGa
  21169 PUSH AF       ; Save it again
- 21170 LD HL,20544   ; #N20544=display file address
+ 21170 LD HL,20544   ; #w20544=display file address
  21173 CALL 20668    ; Print the character's name there
  21176 POP AF        ; Restore the message number for the character's name to
                      ; #REGa
@@ -650,7 +652,7 @@ c21152 LD A,21       ; Message #R61267(21): 'MR WACKER'
  21191 CALL 20956    ; Walk the character to the middle of the screen
 @nowarn
 @ignoreua
-*21194 LD HL,23611   ; {Reset bit 5 at #N(23611), ready for any future keypress
+*21194 LD HL,23611   ; {Reset bit 5 at #w23611, ready for future keypresses
  21197 RES 5,(HL)    ; }
  21199 LD A,250      ; Message #R22235(250): 'Press 'C' to change name'
  21201 CALL 20665    ; Print this message
@@ -770,7 +772,7 @@ c21425 LD BC,640     ; {INK 0: PAPER 6 for the top 20 lines of screen
  21481 CALL 20668    ; }
 @nowarn
 @ignoreua
- 21484 LD HL,23611   ; {Clear bit 5 at #N(23611), ready for future keypresses
+ 21484 LD HL,23611   ; {Clear bit 5 at #w23611, ready for future keypresses
  21487 RES 5,(HL)    ; }
  21489 JP 21664      ;
 
@@ -845,7 +847,7 @@ c21664 CALL 29154    ; {Wait for a keypress, and collect its ASCII code in
  21743 JP 63189      ; Start the game
 
 @ignoreua
-; Prepare addresses #N23808 to #N24575
+; Prepare addresses #w23808 to #w24575
 ;
 @ignoreua
 ; Used by the routine at #R33204@start. Copies 256 bytes from eight 32-byte
@@ -854,7 +856,7 @@ c21664 CALL 29154    ; {Wait for a keypress, and collect its ASCII code in
 ; #LINK:CharacterBuffers(character buffers).
 ;
 @ignoreua
-; DE #N(23808), #N24064 or #N24320
+; DE #w23808, #w24064 or #w24320
 ; H 191, 199 or 207
 ; L 0
 @label=PREP93
@@ -877,12 +879,12 @@ i21759 DEFS 161
 ; before the game starts.
 ;
 @ignoreua
-; BC #N256
-; DE #N33024
-; HL #N23296
+; BC #w256
+; DE #w33024
+; HL #w23296
 @label=COUNTDOWN
 @ignoreua
-c21920 LDIR          ; Copy 256 bytes from #N23296 to #N33024
+c21920 LDIR          ; Copy 256 bytes from #w23296 to #w33024
 @label=COUNTDOWN1
  21922 LD H,88       ; {INK 1: PAPER 1
  21924 LD B,3        ;
@@ -892,7 +894,7 @@ c21920 LDIR          ; Copy 256 bytes from #N23296 to #N33024
  21930 LDIR          ; }
 @nowarn
 @ignoreua
- 21932 LD HL,23611   ; {Reset bit 5 at #N(23611), ready for future keypresses
+ 21932 LD HL,23611   ; {Reset bit 5 at #w23611, ready for future keypresses
  21935 RES 5,(HL)    ; }
  21937 EXX           ; {Point #REGhl' at the last byte of the graphic data for
  21938 LD HL,15823   ; the digit '9' in the ROM
@@ -905,13 +907,13 @@ c21920 LDIR          ; Copy 256 bytes from #N23296 to #N33024
  21950 JR NZ,21945   ; }
 @ignoreua
 @nowarn
- 21952 LD HL,23020   ; #N23020 is the attribute file address where the bottom
+ 21952 LD HL,23020   ; #w23020 is the attribute file address where the bottom
                      ; row of 'big pixels' will be drawn
 @keep
  21955 LD DE,65496   ; #REGde=-40
  21958 LD C,8        ; There are 8 pixel rows per countdown digit
 *21960 EXX           ;
- 21961 BIT 7,L       ; Set the zero flag when #REGhl' hits #N15743
+ 21961 BIT 7,L       ; Set the zero flag when #REGhl' hits #w15743
  21963 LD A,(HL)     ; Pick up a digit pixel row byte
  21964 DEC HL        ; Move #REGhl' to the next pixel row up
  21965 EXX           ;
@@ -932,7 +934,7 @@ c21920 LDIR          ; Copy 256 bytes from #N23296 to #N33024
  21988 LD HL,23611   ;
  21991 BIT 5,(HL)    ; Reset the zero flag if a key was pressed
 @ignoreua
- 21993 RES 5,(HL)    ; Reset bit 5 at #N(23611), ready for future keypresses
+ 21993 RES 5,(HL)    ; Reset bit 5 at #w23611, ready for future keypresses
  21995 JP NZ,21425   ; Jump if a key was pressed
  21998 JR 21942      ; Wait roughly one second, then print the next digit
 
@@ -1075,7 +1077,7 @@ i22527 DEFS 769
 ;
 @ignoreua
 ; Used by the routine at #R20665 to prepare message graphic data before copying
-; it to the screen. The first 64 bytes of this buffer (#N23296-#N23359) are
+; it to the screen. The first 64 bytes of this buffer (#w23296-#w23359) are
 ; also used by the routine at #R27144 to prepare message graphic data for the
 ; speech bubble text window.
 @label=MSGBUFFER
@@ -1194,7 +1196,7 @@ c23887 CALL 28240    ; Is ERIC on a staircase?
  23895 LD H,210      ; 210=ERIC
  23897 CALL 25012    ; Update the SRB for ERIC's current animatory state and
                      ; location
- 23900 AND 128       ; {#REGa=#AS7(#N7 or #N135): animatory state of ERIC
+ 23900 AND 128       ; {#REGa=#AS7(#b7 or #b135): animatory state of ERIC
  23902 ADD A,7       ; jumping}
  23904 DEC D         ; ERIC will rise one level
  23905 JR 23937      ; Update ERIC's animatory state and location and update
@@ -1423,7 +1425,7 @@ c24133 LD H,210      ; 210=ERIC
 ; This entry point is used by the routine at #R24175.
 *24165 LD H,210      ; 210=ERIC
  24167 CALL 25012    ; Update the SRB for ERIC's current animatory state
- 24170 OR 7          ; #REGa=#AS7(#N7/#N135): ERIC with his arm up (as if
+ 24170 OR 7          ; #REGa=#AS7(#b7/#b135): ERIC with his arm up (as if
                      ; writing on a board)
  24172 JP 62231      ; Update ERIC's animatory state and location and update
                      ; the SRB
@@ -1515,7 +1517,7 @@ c24263 CALL 28240    ; Is ERIC on a staircase?
                      ; ERIC again
 *24272 LD HL,53760   ; Point #REGhl at byte 0 of ERIC's buffer
  24275 LD A,(HL)     ; #REGa=ERIC's animatory state
- 24276 RRCA          ; Is ERIC raising his fist (#REGa=#AS8(#N8/#N136))?
+ 24276 RRCA          ; Is ERIC raising his fist (#REGa=#AS8(#b8/#b136))?
  24277 JP NC,30752   ; If so, raise ERIC's fist fully now and check for victims
  24280 LD A,97       ; Message #R60921(97): DON'T HIT YOUR MATES
  24282 CALL 63640    ; Make any nearby teachers give ERIC lines
@@ -1588,7 +1590,7 @@ c24328 LD (32755),A  ; Place a large value into ERIC's main action timer at
  24331 CALL 25012    ; Update the SRB for HAYLEY's current animatory state
  24334 LD L,20       ; {Store HAYLEY's current animatory state in byte 20 of
  24336 LD (HL),A     ; her buffer for the time being}
- 24337 OR 7          ; #REGa=#AS63(#N63/#N191): HAYLEY with her arm up (as if
+ 24337 OR 7          ; #REGa=#AS63(#b63/#b191): HAYLEY with her arm up (as if
                      ; hitting ERIC)
  24339 CALL 30534    ; Update HAYLEY's animatory state, update the SRB, and
                      ; return to #R24342 (below) next time
@@ -1706,7 +1708,7 @@ s24476 DEFB 0
 @label=PLAYTUNE
 @nowarn
 @ignoreua
-c24477 LD HL,23611   ; {Reset bit 5 at #N(23611), clearing the record of any
+c24477 LD HL,23611   ; {Reset bit 5 at #w23611, clearing the record of any
  24480 RES 5,(HL)    ; keypresses before the tune starts}
 @ssub=LD HL,56385-1
 @nowarn
@@ -1843,18 +1845,18 @@ c24576 LD L,1        ; Point #REGhl at byte 1 of the character's buffer
  24617 AND A         ; Is this tile the 'null' UDG (a blank square)?
  24618 JR Z,24651    ; Jump if so (no need to superimpose it)
  24620 LD E,A        ; #REGe'=UDG reference (73-255)
- 24621 LD A,L        ; #REGa=(normalised) animatory state (#N128-#N255)
+ 24621 LD A,L        ; #REGa=(normalised) animatory state (#b128-#b255)
  24622 CP 208        ; #AS208=animatory state of MR WACKER, the first teacher
  24624 EXX           ;
- 24625 LD A,(HL)     ; #REGa=character's (true) animatory state (#N0-#N255)
+ 24625 LD A,(HL)     ; #REGa=character's (true) animatory state (#b0-#b255)
  24626 EXX           ;
  24627 LD D,183      ; Point #REGde' at the graphic data at page 183 onwards
-                     ; (for animatory states #N0-#N79 and #N128-#N207)
+                     ; (for animatory states #b0-#b79 and #b128-#b207)
  24629 JR C,24633    ; Jump unless we're dealing with animatory states
-                     ; #N80-#N127 or #N208-#N255 (teachers, ALBERT, and water
+                     ; #b80-#b127 or #b208-#b255 (teachers, ALBERT, and water
                      ; fired from the pistol)
  24631 LD D,199      ; Point #REGde' at the graphic data at page 199 onwards
-                     ; (for animatory states #N80-#N127 and #N208-#N255)
+                     ; (for animatory states #b80-#b127 and #b208-#b255)
 *24633 LD HL,57712   ; Point #REGhl' at the UDG back buffer
  24636 RLCA          ; Push the character's 'direction' bit into the carry flag
  24637 JR C,24656    ; Jump if the character is facing right
@@ -7077,7 +7079,7 @@ c29278 LD HL,32755   ; #R32755 holds ERIC's main action timer
  29362 POP DE        ; #REGde=ERIC's location before he jumped on the saddle or
                      ; got off the bike
  29363 ADD A,25      ; #REGa=animatory state of the bike standing upright
-                     ; (#AS25(#N25 or #N153))
+                     ; (#AS25(#b25 or #b153))
  29365 INC H         ; #REGh=211: bike
  29366 CALL 24880    ; Update the bike's animatory state and update the SRB
 @nowarn
@@ -7116,11 +7118,11 @@ c29278 LD HL,32755   ; #R32755 holds ERIC's main action timer
  29413 PUSH DE       ; Save ERIC's coordinates briefly
  29414 AND 128       ; Keep only the 'direction' bit of ERIC's animatory state
  29416 PUSH AF       ;
- 29417 ADD A,4       ; #REGa=#AS4(#N4 or #N132) (ERIC sitting on a chair)
+ 29417 ADD A,4       ; #REGa=#AS4(#b4 or #b132) (ERIC sitting on a chair)
  29419 CALL 24880    ; Update ERIC's animatory state and update the ARB
  29422 POP AF        ; #REGa=0 if ERIC's facing left, 128 if facing right
  29423 POP DE        ; Restore ERIC's coordinates to #REGde
- 29424 ADD A,24      ; #REGa=#AS24(#N24 or #N152) (bike lying on the floor)
+ 29424 ADD A,24      ; #REGa=#AS24(#b24 or #b152) (bike lying on the floor)
  29426 LD H,211      ; 211=bike
  29428 CALL 24880    ; Update the bike's animatory state and update the SRB
  29431 LD HL,32749   ; #R32749 holds ERIC's status flags
@@ -7193,7 +7195,7 @@ c29462 LD HL,32755   ; #R32755 holds ERIC's main action timer
 *29517 LD H,210      ; 210=ERIC
  29519 CALL 25012    ; Update the SRB for ERIC's current animatory state and
                      ; location
- 29522 ADD A,2       ; #REGa=#AS2(#N2 or #N130)
+ 29522 ADD A,2       ; #REGa=#AS2(#b2 or #b130)
  29524 DEC D         ; {Set #REGd to the y-coordinate of the spot above ERIC's
  29525 DEC D         ; hand as he jumps from the saddle}
  29526 CALL 64474    ; Prepare ERIC for his descent from the bike saddle
@@ -7249,7 +7251,7 @@ c29568 CALL 29903    ; Remove the uninterruptible subcommand routine address
 ; E ERIC's x-coordinate
 @label=MOUNTBIKE
 c29574 AND 128       ; #REGa=0 if ERIC's facing left, 128 if facing right
- 29576 ADD A,25      ; #REGa=#AS25(#N25/#N153): bike standing upright
+ 29576 ADD A,25      ; #REGa=#AS25(#b25/#b153): bike standing upright
  29578 LD B,A        ; Copy the bike's animatory state to #REGb
 @ssub=LD HL,54016+2
  29579 LD HL,54018   ; #REGh=211 (bike), #REGl=2
@@ -7313,7 +7315,7 @@ c29621 PUSH DE       ;
  29633 EX DE,HL      ;
 @nowarn
  29634 LD HL,20900   ; #REGhl=display file address for printing the score
-; This entry point is used by the routine at #R29643 with #REGhl=#N20932
+; This entry point is used by the routine at #R29643 with #REGhl=#w20932
 ; (display file address for printing the lines total).
 *29637 CALL 29613    ; Print the new score or lines total
  29640 POP HL        ;
@@ -8209,12 +8211,12 @@ c30555 LD A,(54546)  ; Pick up byte 18 of buffer 213 (BOY WANDER's pellet)
  30587 LD L,20       ; {Store BOY WANDER's current animatory state in byte 20
  30589 LD (HL),A     ; of his buffer for the time being}
  30590 AND 240       ;
- 30592 ADD A,10      ; #REGa=#AS26(#N26 or #N154): BOY WANDER raising his arm
+ 30592 ADD A,10      ; #REGa=#AS26(#b26 or #b154): BOY WANDER raising his arm
                      ; to fire
  30594 CALL 30534    ; Update BOY WANDER's animatory state and hand over to
                      ; #R30597 (below)
 *30597 CALL 25012    ; Update the SRB for BOY WANDER's current animatory state
- 30600 INC A         ; #REGa=#AS27(#N27 or #N155): BOY WANDER firing the
+ 30600 INC A         ; #REGa=#AS27(#b27 or #b155): BOY WANDER firing the
                      ; catapult
  30601 CALL 30534    ; Update BOY WANDER's animatory state and hand over to
                      ; #R30604 (below)
@@ -8237,7 +8239,7 @@ c30555 LD A,(54546)  ; Pick up byte 18 of buffer 213 (BOY WANDER's pellet)
 *30615 LD L,0        ; Point #REGhl at byte 0 of the shooter's character buffer
  30617 LD A,(HL)     ; #REGa=shooter's animatory state
  30618 AND 128       ; #REGa=128 if the pellet will travel right, 0 if left
- 30620 ADD A,79      ; #REGa=#AS79(#N79/#N207): catapult pellet travelling
+ 30620 ADD A,79      ; #REGa=#AS79(#b79/#b207): catapult pellet travelling
                      ; left/right
  30622 INC L         ; {Collect the initial coordinates of the pellet from the
  30623 LD E,(HL)     ; shooter's buffer into #REGde
@@ -8270,7 +8272,7 @@ c30555 LD A,(54546)  ; Pick up byte 18 of buffer 213 (BOY WANDER's pellet)
 ; H 206 (BOY WANDER)
 @label=BWFIRING
 c30643 CALL 25012    ; Update the SRB for BOY WANDER's current animatory state
- 30646 DEC A         ; #REGa=#AS26(#N26 or #N154): BOY WANDER lowering his arm
+ 30646 DEC A         ; #REGa=#AS26(#b26 or #b154): BOY WANDER lowering his arm
 ; This entry point is used by the routine at #R30739 with #REGh=207 (ANGELFACE)
 ; or #REGh=210 (ERIC).
 *30647 CALL 30534    ; Update the character's animatory state and return to
@@ -8381,7 +8383,7 @@ c30739 CALL 25012    ; Update the SRB for ANGELFACE's current animatory state
  30742 LD L,20       ; {Store ANGELFACE's current (pre-punch) animatory state
  30744 LD (HL),A     ; in byte 20 of his buffer temporarily}
  30745 AND 240       ;
- 30747 ADD A,8       ; #REGa=#AS40(#N40 or #N168): ANGELFACE raising his arm
+ 30747 ADD A,8       ; #REGa=#AS40(#b40 or #b168): ANGELFACE raising his arm
  30749 CALL 30534    ; Update ANGELFACE's animatory state and return to #R30752
                      ; (below) next time
 ; This entry point is used by the routine at #R24263 to check whether ERIC has
@@ -8548,14 +8550,14 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
                      ; or long hop
 *30944 CALL 25012    ; Update the SRB for the frog's current animatory state
                      ; and location
- 30947 INC A         ; #REGa=#AS29(#N29/#N157): frog airborne (phase one)
+ 30947 INC A         ; #REGa=#AS29(#b29/#b157): frog airborne (phase one)
  30948 CALL 30534    ; Update the frog's animatory state and then resume
                      ; control at entry point #R30951 (below)
 ; This entry point is used when the frog has jumped into the air in order to
 ; turn round (either by choice, or because a wall or closed door is in the
 ; way).
 *30951 CALL 25012    ; Update the SRB for the frog's current animatory state
- 30954 DEC A         ; #REGa=#AS28(#N28/#N156): frog sitting
+ 30954 DEC A         ; #REGa=#AS28(#b28/#b156): frog sitting
  30955 XOR 128       ; Turn the frog round
  30957 JP 30903      ; Update the frog's animatory state and then resume
                      ; control at the main entry point (#R30906)
@@ -8587,7 +8589,7 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
                      ; its path
 *30995 CALL 25012    ; Update the SRB for the frog's current animatory state
                      ; and location
- 30998 INC A         ; #REGa=#AS29(#N29/#N157): frog airborne (phase one)
+ 30998 INC A         ; #REGa=#AS29(#b29/#b157): frog airborne (phase one)
 *30999 RLCA          ;
  31000 RRCA          ;
  31001 JR C,31005    ; Jump if the frog is facing right
@@ -8602,7 +8604,7 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
 ; going to land now.
 *31009 CALL 25012    ; Update the SRB for the frog's current animatory state
                      ; and location
- 31012 DEC A         ; #REGa=#AS28(#N28/#N156): frog sitting
+ 31012 DEC A         ; #REGa=#AS28(#b28/#b156): frog sitting
  31013 JP 30903      ; Update the frog's animatory state and then resume
                      ; control at the main entry point (#R30906)
 ; The frog is planning a long hop. Check whether the coast is clear up to three
@@ -8634,7 +8636,7 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
  31050 JP C,30944    ; Turn the frog round if there's a wall or closed door
                      ; less than four spaces ahead
  31053 CALL 30995    ; Otherwise move the frog one space forward and adjust its
-                     ; animatory state to #AS29(#N29/#N157) (airborne, phase
+                     ; animatory state to #AS29(#b29/#b157) (airborne, phase
                      ; one)
  31056 LD L,17       ; {Change the address in bytes 17 and 18 of the frog's
 @ssub=LD (HL),31061%256
@@ -8650,7 +8652,7 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
 ; #R31254 to introduce the frog into the game with an initial animatory state
 ; of #AS29 (facing left, airborne, phase 1) and location (59,10).
 *31061 CALL 30995    ; Move the frog one space forward and adjust its animatory
-                     ; state to #AS30(#N30/#N158) (airborne, phase 2)
+                     ; state to #AS30(#b30/#b158) (airborne, phase 2)
  31064 LD L,17       ; {Change the address in bytes 17 and 18 of the frog's
 @ssub=LD (HL),31069%256
  31066 LD (HL),93    ; buffer to #R31069 (below) so that we resume there
@@ -8664,7 +8666,7 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
 @label=FROGHIGH
  31069 CALL 25012    ; Update the SRB for the frog's current animatory state
                      ; and location
- 31072 DEC A         ; #REGa=#AS29(#N29/#N157): frog airborne (phase one)
+ 31072 DEC A         ; #REGa=#AS29(#b29/#b157): frog airborne (phase one)
  31073 JP 30999      ; Move the frog one space forward
 
 @rsub-begin
@@ -9237,15 +9239,15 @@ c31573 LD L,0        ; Point #REGhl at byte 0 of ERIC's buffer
 ; R=0 or 1. The next section of code is intended to set the x-coordinate for
 ; the the new free mouse to 170 provided that X<128, or try again with a new
 ; random number (R) if X>=128. However, at this point #REGhl may have been set
-; to #N32522 (byte 10 of the #R32512(screen refresh buffer)) or #N32600 (byte 4
+; to #w32522 (byte 10 of the #R32512(screen refresh buffer)) or #w32600 (byte 4
 ; of the #R32596(buffer for the Blue Room blackboard)) by the LD L,#n10 or
-; LD L,#n88 instruction below, and so the contents of #N32522 or #N32600
+; LD L,#n88 instruction below, and so the contents of #w32522 or #w32600
 ; (instead of X at #R32767) may be compared with 128. Thus it is possible for
 ; the new free mouse to appear at x-coordinate 170 even when X>=128, which
 ; means it could appear on-screen. This is a #BUG#rematerialisingMouse(bug).
 @ignoreua
  31620 LD A,(HL)     ; #REGa=X (column of the play area at the far left of the
-                     ; screen), or the contents of #N32522 or #N32600
+                     ; screen), or the contents of #w32522 or #w32600
 @bfix+else
 ; R=0 or 1. The next section of code sets the x-coordinate for the the new free
 ; mouse to 170 provided that X<128, or tries again with a new random number (R)
@@ -9262,7 +9264,7 @@ c31573 LD L,0        ; Point #REGhl at byte 0 of ERIC's buffer
 @ignoreua
  31630 LD A,(HL)     ; #REGa=X (column of the play area at the far left of the
 @bfix-begin
-                     ; screen), or the contents of #N32522 or #N32600
+                     ; screen), or the contents of #w32522 or #w32600
 @bfix+else
                      ; screen)
 @bfix+end
@@ -9272,8 +9274,8 @@ c31573 LD L,0        ; Point #REGhl at byte 0 of ERIC's buffer
 ; R=2, 3 or 4. The next section of code is intended to set the x-coordinate for
 ; the new free mouse to 88 provided that X<56 or X>=104, or try again with a
 ; new random number (R) if 56<=X<104. However, as noted above, #REGhl may now
-; hold #N32522 or #N32600 instead of #R32767, and so the contents of #N32522 or
-; #N32600 (instead of X) may be compared with 56 and 104. Thus it is possible
+; hold #w32522 or #w32600 instead of #R32767, and so the contents of #w32522 or
+; #w32600 (instead of X) may be compared with 56 and 104. Thus it is possible
 ; for the new free mouse to appear at x-coordinate 88 even when 56<=X<104,
 ; which means it could appear on-screen. This is a
 ; #BUG#rematerialisingMouse(bug).
@@ -9293,8 +9295,8 @@ c31573 LD L,0        ; Point #REGhl at byte 0 of ERIC's buffer
 @ignoreua
 ; R=5, 6 or 7. The next section of code is intended to set the x-coordinate for
 ; the new free mouse to 10 provided that X>=56, or try again with a new random
-; number (R) if X<56. However, as noted above, #REGhl may now hold #N32522 or
-; #N32600 instead of #R32767, and so the contents of #N32522 or #N32600
+; number (R) if X<56. However, as noted above, #REGhl may now hold #w32522 or
+; #w32600 instead of #R32767, and so the contents of #w32522 or #w32600
 ; (instead of X) may be compared with 56. Thus it is possible for the new free
 ; mouse to appear at x-coordinate 10 even when X<56, which means it could
 ; appear on-screen. This is a #BUG#rematerialisingMouse(bug).
@@ -9406,7 +9408,7 @@ c31733 CP 28         ; #AS28: Is the frog sitting down?
 @keep
 @ignoreua
 c31746 LD HL,32746   ; #REGl=234 (LSB of the display file address for the first
-                     ; slot in the inventory: #N20714)
+                     ; slot in the inventory: #w20714)
  31749 LD C,6        ; {Clear the six slots in the current on-screen inventory
 *31751 LD H,80       ;
  31753 LD B,8        ;
@@ -12713,7 +12715,7 @@ b46908 DEFB 72,189  ; Region 189: top floor, left of the left study door in the
 ; Unused
 s46916 DEFS 8
 
-; Graphic data for animatory states #N0-#N79 (UDG byte 1/8)
+; Graphic data for animatory states #b0-#b79 (UDG byte 1/8)
 ;
 ; Used by the routine at #R24576.
 b46924 DEFB 32,0,69,49,112,16,0,224,224,224,0,1,8,0,0,0
@@ -12802,7 +12804,7 @@ b47164 DEFB 63,190  ; Region 190: middle floor, left of the far wall of the
 ; Unused
 s47174 DEFS 6
 
-; Graphic data for animatory states #N0-#N79 (UDG mask byte 1/8)
+; Graphic data for animatory states #b0-#b79 (UDG mask byte 1/8)
 ;
 ; Used by the routine at #R24576.
 b47180 DEFB 47,255,69,53,116,215,254,255,255,255,255,255,235,243,255,255
@@ -12898,7 +12900,7 @@ b47422 DEFB 72,3   ; Left study door
 ; Unused
 s47432 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG byte 2/8)
+; Graphic data for animatory states #b0-#b79 (UDG byte 2/8)
 ;
 ; Used by the routine at #R24576.
 b47436 DEFB 32,0,50,203,139,16,1,192,192,192,0,3,20,12,0,0
@@ -12988,7 +12990,7 @@ b47676 DEFB 23,7  ; Location 7: Blue Room (x<=23)
 ; Unused
 s47686 DEFS 6
 
-; Graphic data for animatory states #N0-#N79 (UDG mask byte 2/8)
+; Graphic data for animatory states #b0-#b79 (UDG mask byte 2/8)
 ;
 ; Used by the routine at #R24576.
 b47692 DEFB 47,127,178,203,139,214,253,255,255,255,255,255,213,237,255,255
@@ -13074,7 +13076,7 @@ b47932 DEFB 30,2  ; Location 2: left of the Science Lab doorway (x<=30)
 ; Unused
 s47938 DEFS 10
 
-; Graphic data for animatory states #N0-#N79 (UDG byte 3/8)
+; Graphic data for animatory states #b0-#b79 (UDG byte 3/8)
 ;
 ; Used by the routine at #R24576.
 b47948 DEFB 160,128,74,4,4,9,2,128,132,128,0,7,36,18,0,0
@@ -13162,7 +13164,7 @@ b48188 DEFB 42,2  ; Location 2: left of the dining hall (x<=42)
 ; Unused
 s48200 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG mask byte 3/8)
+; Graphic data for animatory states #b0-#b79 (UDG mask byte 3/8)
 ;
 ; Used by the routine at #R24576.
 b48204 DEFB 175,191,74,52,116,223,250,243,149,255,255,255,165,210,255,251
@@ -13271,7 +13273,7 @@ b48452 DEFB 26 ; x-coordinate of the top of the staircase
 ; Unused
 s48456 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG byte 4/8)
+; Graphic data for animatory states #b0-#b79 (UDG byte 4/8)
 ;
 ; Used by the routine at #R24576.
 b48460 DEFB 64,64,90,28,4,6,2,12,42,0,12,0,42,34,0,4
@@ -13378,7 +13380,7 @@ b48708 DEFB 19  ; x-coordinate of the bottom of the staircase
 ; Unused
 s48712 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG mask byte 4/8)
+; Graphic data for animatory states #b0-#b79 (UDG mask byte 4/8)
 ;
 ; Used by the routine at #R24576.
 b48716 DEFB 95,95,90,221,245,246,250,205,42,255,255,255,170,162,63,244
@@ -13485,7 +13487,7 @@ b48964 DEFB 15  ; x-coordinate of the top of the staircase
 ; Unused
 s48968 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG byte 5/8)
+; Graphic data for animatory states #b0-#b79 (UDG byte 5/8)
 ;
 ; Used by the routine at #R24576.
 b48972 DEFB 64,160,38,34,6,2,7,62,84,0,30,0,36,76,192,15
@@ -13593,7 +13595,7 @@ b49220 DEFB 22 ; x-coordinate of the bottom of the staircase
 ; Unused
 s49224 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG mask byte 5/8)
+; Graphic data for animatory states #b0-#b79 (UDG mask byte 5/8)
 ;
 ; Used by the routine at #R24576.
 b49228 DEFB 95,175,166,162,54,250,247,190,85,255,255,255,165,77,195,239
@@ -13699,7 +13701,7 @@ b49476 DEFB 83 ; x-coordinate of the bottom of the staircase
 ; Unused
 s49480 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG byte 6/8)
+; Graphic data for animatory states #b0-#b79 (UDG byte 6/8)
 ;
 ; Used by the routine at #R24576.
 b49484 DEFB 128,32,36,66,197,2,8,0,40,0,60,0,80,80,252,3
@@ -13805,7 +13807,7 @@ b49732 DEFB 176 ; x-coordinate of the bottom of the staircase
 ; Unused
 s49736 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG mask byte 6/8)
+; Graphic data for animatory states #b0-#b79 (UDG mask byte 6/8)
 ;
 ; Used by the routine at #R24576.
 b49740 DEFB 191,47,165,90,213,250,232,193,171,255,255,255,83,83,252,243
@@ -13913,7 +13915,7 @@ b49988 DEFB 80  ; x-coordinate of the top of the staircase
 ; Unused
 s49992 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG byte 7/8)
+; Graphic data for animatory states #b0-#b79 (UDG byte 7/8)
 ;
 ; Used by the routine at #R24576.
 b49996 DEFB 0,144,20,71,40,1,8,0,20,0,120,0,80,32,3,4
@@ -14019,7 +14021,7 @@ b50244 DEFB 81  ; x-coordinate of the bottom of the staircase
 ; Unused
 s50248 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG mask byte 7/8)
+; Graphic data for animatory states #b0-#b79 (UDG mask byte 7/8)
 ;
 ; Used by the routine at #R24576.
 b50252 DEFB 127,151,213,87,42,253,235,255,213,255,255,255,87,175,3,244
@@ -14109,7 +14111,7 @@ b50500 DEFB 85 ; x-coordinate of the top of the staircase
 ; Unused
 s50504 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG byte 8/8)
+; Graphic data for animatory states #b0-#b79 (UDG byte 8/8)
 ;
 ; Used by the routine at #R24576.
 b50508 DEFB 0,144,8,137,40,0,16,0,8,0,240,0,32,0,0,0
@@ -14198,7 +14200,7 @@ b50756 DEFB 91 ; x-coordinate of the bottom of the staircase
 ; Unused
 s50760 DEFS 4
 
-; Graphic data for animatory states #N0-#N79 (UDG mask byte 8/8)
+; Graphic data for animatory states #b0-#b79 (UDG mask byte 8/8)
 ;
 ; Used by the routine at #R24576.
 b50764 DEFB 127,151,235,169,170,254,215,255,235,255,255,255,175,223,252,251
@@ -14291,7 +14293,7 @@ b51012 DEFB 84  ; x-coordinate of the top of the staircase
 ; Unused
 s51016 DEFB 0
 
-; Graphic data for animatory states #N80-#N127 (UDG byte 1/8)
+; Graphic data for animatory states #b80-#b127 (UDG byte 1/8)
 ;
 ; Used by the routine at #R24576.
 b51017 DEFB 16,1,0,0,8,0,8,128,28,0,0,243,204,0,7,1
@@ -14385,7 +14387,7 @@ b51268 DEFB 183 ; x-coordinate of the top of the staircase
 ; Unused
 s51272 DEFB 0
 
-; Graphic data for animatory states #N80-#N127 (UDG mask byte 1/8)
+; Graphic data for animatory states #b80-#b127 (UDG mask byte 1/8)
 ;
 ; Used by the routine at #R24576.
 b51273 DEFB 215,253,255,255,235,255,235,191,156,207,127,243,205,31,247,253
@@ -14471,7 +14473,7 @@ b51516 DEFW 25700  ; Go to...
 ; Unused
 u51527 DEFB 1,0
 
-; Graphic data for animatory states #N80-#N127 (UDG byte 2/8)
+; Graphic data for animatory states #b80-#b127 (UDG byte 2/8)
 ;
 ; Used by the routine at #R24576.
 b51529 DEFB 16,2,0,0,4,0,8,128,113,48,0,226,18,224,7,3
@@ -14556,7 +14558,7 @@ b51772 DEFW 25700  ; Go to...
 ; Unused
 u51783 DEFB 1,0
 
-; Graphic data for animatory states #N80-#N127 (UDG mask byte 2/8)
+; Graphic data for animatory states #b80-#b127 (UDG mask byte 2/8)
 ;
 ; Used by the routine at #R24576.
 b51785 DEFB 215,250,255,135,245,255,235,191,113,183,255,226,18,231,247,251
@@ -14640,7 +14642,7 @@ b52028 DEFW 25700  ; Go to...
 ; Unused
 u52039 DEFB 1,0
 
-; Graphic data for animatory states #N80-#N127 (UDG byte 3/8)
+; Graphic data for animatory states #b80-#b127 (UDG byte 3/8)
 ;
 ; Used by the routine at #R24576.
 b52041 DEFB 16,4,0,120,2,0,4,64,177,40,0,182,18,24,7,3
@@ -14731,7 +14733,7 @@ b52284 DEFW 25700  ; Go to...
 ; Unused
 u52295 DEFB 1,0
 
-; Graphic data for animatory states #N80-#N127 (UDG mask byte 3/8)
+; Graphic data for animatory states #b80-#b127 (UDG mask byte 3/8)
 ;
 ; Used by the routine at #R24576.
 b52297 DEFB 215,245,254,121,250,255,245,95,177,168,255,182,18,27,247,251
@@ -14827,7 +14829,7 @@ b52540 DEFW 25700  ; Go to...
 ; Unused
 u52551 DEFB 1,0
 
-; Graphic data for animatory states #N80-#N127 (UDG byte 4/8)
+; Graphic data for animatory states #b80-#b127 (UDG byte 4/8)
 ;
 ; Used by the routine at #R24576.
 b52553 DEFB 16,4,1,134,1,0,4,64,50,47,0,158,33,28,3,3
@@ -14925,7 +14927,7 @@ b52804 DEFB 186 ; x-coordinate of the bottom of the staircase
 ; Unused
 s52808 DEFB 0
 
-; Graphic data for animatory states #N80-#N127 (UDG mask byte 4/8)
+; Graphic data for animatory states #b80-#b127 (UDG mask byte 4/8)
 ;
 ; Used by the routine at #R24576.
 b52809 DEFB 215,245,249,134,253,127,245,95,50,175,255,158,33,29,251,251
@@ -15022,7 +15024,7 @@ b53060 DEFB 179 ; x-coordinate of the top of the staircase
 ; Unused
 s53064 DEFB 0
 
-; Graphic data for animatory states #N80-#N127 (UDG byte 5/8)
+; Graphic data for animatory states #b80-#b127 (UDG byte 5/8)
 ;
 ; Used by the routine at #R24576.
 b53065 DEFB 16,8,6,1,0,128,2,0,62,16,0,254,233,92,3,3
@@ -15108,7 +15110,7 @@ b53308 DEFW 25700  ; Go to...
 ; Unused
 s53315 DEFS 6
 
-; Graphic data for animatory states #N80-#N127 (UDG mask byte 5/8)
+; Graphic data for animatory states #b80-#b127 (UDG mask byte 5/8)
 ;
 ; Used by the routine at #R24576.
 b53321 DEFB 215,235,230,121,254,191,250,191,62,208,255,254,233,93,251,251
@@ -15197,7 +15199,7 @@ b53564 DEFW 25700  ; Go to...
 ; Unused
 s53571 DEFS 6
 
-; Graphic data for animatory states #N80-#N127 (UDG byte 6/8)
+; Graphic data for animatory states #b80-#b127 (UDG byte 6/8)
 ;
 ; Used by the routine at #R24576.
 b53577 DEFB 16,8,24,0,0,64,2,0,126,8,0,254,233,20,3,3
@@ -15301,7 +15303,7 @@ b53820 DEFW 25815  ; Go to a random location
 ; Unused
 s53828 DEFS 5
 
-; Graphic data for animatory states #N80-#N127 (UDG mask byte 6/8)
+; Graphic data for animatory states #b80-#b127 (UDG mask byte 6/8)
 ;
 ; Used by the routine at #R24576.
 b53833 DEFB 215,235,153,254,255,95,250,255,126,232,255,254,233,21,251,251
@@ -15410,7 +15412,7 @@ b54084 DEFB 38,3 ; Revision Library
 ; Unused
 s54086 DEFS 3
 
-; Graphic data for animatory states #N80-#N127 (UDG byte 7/8)
+; Graphic data for animatory states #b80-#b127 (UDG byte 7/8)
 ;
 ; Used by the routine at #R24576.
 b54089 DEFB 16,8,96,0,0,32,1,0,255,7,0,254,249,132,1,3
@@ -15512,7 +15514,7 @@ b54340 DEFB 90,3 ; Near the top-floor window in the boys' skool
 ; Unused
 s54342 DEFS 3
 
-; Graphic data for animatory states #N80-#N127 (UDG mask byte 7/8)
+; Graphic data for animatory states #b80-#b127 (UDG mask byte 7/8)
 ;
 ; Used by the routine at #R24576.
 b54345 DEFB 215,235,103,255,255,175,253,255,255,247,255,254,249,133,253,251
@@ -15620,7 +15622,7 @@ b54596 DEFB 10,17 ; Cloak room at the far left of the boys' skool
 ; Unused
 s54598 DEFS 3
 
-; Graphic data for animatory states #N80-#N127 (UDG byte 8/8)
+; Graphic data for animatory states #b80-#b127 (UDG byte 8/8)
 ;
 ; Used by the routine at #R24576.
 b54601 DEFB 16,16,128,0,0,16,1,0,127,0,0,252,241,8,1,7
@@ -15710,7 +15712,7 @@ b54852 DEFB 90,17 ; Just to the left of the boys' skool door
 ; Unused
 s54854 DEFS 3
 
-; Graphic data for animatory states #N80-#N127 (UDG mask byte 8/8)
+; Graphic data for animatory states #b80-#b127 (UDG mask byte 8/8)
 ;
 ; Used by the routine at #R24576.
 @bfix=DEFB 215,215,159,255,255,215,253,255,127,248,255,253,241,11,253,247
@@ -15757,7 +15759,7 @@ b55072 DEFB 3,1,3,5,5,3,5,2,2,2,5,5,2,4,2,3
  55136 DEFB 4,4,4,4,4,4,4,4,4,1,3,4,1,5,4,4
  55152 DEFB 4,4,4,4,3,4,3,5,5,4,4,3,1,3,4,5
 
-; UDG references for animatory states #N0-#N127 at row 0, column 0
+; UDG references for animatory states #b0-#b127 at row 0, column 0
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -15765,13 +15767,13 @@ b55072 DEFB 3,1,3,5,5,3,5,2,2,2,5,5,2,4,2,3
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N55253 }
-; { #AS93    | #N55261 }
-; { #AS100   | #N55268 }
-; { #AS101   | #N55269 }
-; { #AS109   | #N55277 }
-; { #AS117   | #N55285 }
-; { #AS125   | #N55293 }
+; { #AS85    | #w55253 }
+; { #AS93    | #w55261 }
+; { #AS100   | #w55268 }
+; { #AS101   | #w55269 }
+; { #AS109   | #w55277 }
+; { #AS117   | #w55285 }
+; { #AS125   | #w55293 }
 ; TABLE#
 b55168 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
  55184 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -15809,7 +15811,7 @@ b55328 DEFB 0,250,192,40,18,78,108,64,124,130,16,8,1,8,3,3
  55392 DEFB 2,28,254,28,28,28,16,24,254,94,1,254,254,62,62,28
  55408 DEFB 63,24,62,18,16,60,56,56,34,56,38,24,255,129,8,124
 
-; UDG references for animatory states #N0-#N127 at row 1, column 0
+; UDG references for animatory states #b0-#b127 at row 1, column 0
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -15817,13 +15819,13 @@ b55328 DEFB 0,250,192,40,18,78,108,64,124,130,16,8,1,8,3,3
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N55509 }
-; { #AS93    | #N55517 }
-; { #AS100   | #N55524 }
-; { #AS101   | #N55525 }
-; { #AS109   | #N55533 }
-; { #AS117   | #N55541 }
-; { #AS125   | #N55549 }
+; { #AS85    | #w55509 }
+; { #AS93    | #w55517 }
+; { #AS100   | #w55524 }
+; { #AS101   | #w55525 }
+; { #AS109   | #w55533 }
+; { #AS117   | #w55541 }
+; { #AS125   | #w55549 }
 ; TABLE#
 b55424 DEFB 96,103,96,103,96,0,0,140,96,136,96,125,240,240,224,225
  55440 DEFB 96,159,96,159,96,0,0,140,0,0,96,125,0,0,91,0
@@ -15860,10 +15862,10 @@ s55581 DEFS 3
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h ASCII code | =h Address }
-; { 33 [!]        | #N55585 }
-; { 105 [i]       | #N55657 }
-; { 108 [l]       | #N55660 }
-; { 124 [|]       | #N55676 }
+; { 33 [!]        | #w55585 }
+; { 105 [i]       | #w55657 }
+; { 108 [l]       | #w55660 }
+; { 124 [|]       | #w55676 }
 ; TABLE#
 b55584 DEFB 0,0,0,254,42,16,146,128,130,124,124,8,2,8,3,56
  55600 DEFB 138,254,138,146,72,146,146,134,146,146,54,50,20,20,20,138
@@ -15872,7 +15874,7 @@ b55584 DEFB 0,0,0,254,42,16,146,128,130,124,124,8,2,8,3,56
  55648 DEFB 126,34,34,34,34,42,126,37,32,0,1,16,0,32,16,34
  55664 DEFB 36,36,16,42,126,2,6,6,20,5,42,102,0,102,16,146
 
-; UDG references for animatory states #N0-#N127 at row 2, column 0
+; UDG references for animatory states #b0-#b127 at row 2, column 0
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -15880,13 +15882,13 @@ b55584 DEFB 0,0,0,254,42,16,146,128,130,124,124,8,2,8,3,56
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N55765 }
-; { #AS93    | #N55773 }
-; { #AS100   | #N55780 }
-; { #AS101   | #N55781 }
-; { #AS109   | #N55789 }
-; { #AS117   | #N55797 }
-; { #AS125   | #N55805 }
+; { #AS85    | #w55765 }
+; { #AS93    | #w55773 }
+; { #AS100   | #w55780 }
+; { #AS101   | #w55781 }
+; { #AS109   | #w55789 }
+; { #AS117   | #w55797 }
+; { #AS125   | #w55805 }
 ; TABLE#
 b55680 DEFB 97,104,97,104,112,0,0,141,132,137,130,126,241,241,141,226
  55696 DEFB 97,104,97,104,112,0,0,141,0,234,130,126,0,0,0,0
@@ -15923,16 +15925,16 @@ s55837 DEFS 3
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h ASCII code(s) | =h Address(es) }
-; { 33 [!]           | #N55841 }
-; { 39-41 ['()]      | #N55847-#N55849 }
-; { 44 [,]           | #N55852 }
-; { 46 [.]           | #N55854 }
-; { 58-59 [:;]       | #N55866-#N55867 }
-; { 91 [[]           | #N55899 }
-; { 93 []]           | #N55901 }
-; { 105 [i]          | #N55913 }
-; { 108 [l]          | #N55916 }
-; { 124 [|]          | #N55932 }
+; { 33 [!]           | #w55841 }
+; { 39-41 ['()]      | #w55847-#w55849 }
+; { 44 [,]           | #w55852 }
+; { 46 [.]           | #w55854 }
+; { 58-59 [:;]       | #w55866-#w55867 }
+; { 91 [[]           | #w55899 }
+; { 93 []]           | #w55901 }
+; { 105 [i]          | #w55913 }
+; { 108 [l]          | #w55916 }
+; { 124 [|]          | #w55932 }
 ; TABLE#
 b55840 DEFB 0,0,192,40,127,228,146,0,0,0,56,62,0,8,0,192
  55856 DEFB 146,2,146,178,254,146,146,152,146,146,0,0,20,20,20,144
@@ -15941,7 +15943,7 @@ b55840 DEFB 0,0,192,40,127,228,146,0,0,0,56,62,0,8,0,192
  55904 DEFB 146,34,34,34,34,42,144,37,32,0,94,40,0,30,32,34
  55920 DEFB 36,36,32,42,16,2,56,56,8,5,50,129,0,24,8,170
 
-; UDG references for animatory states #N0-#N127 at row 3, column 0
+; UDG references for animatory states #b0-#b127 at row 3, column 0
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -15949,13 +15951,13 @@ b55840 DEFB 0,0,192,40,127,228,146,0,0,0,56,62,0,8,0,192
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N56021 }
-; { #AS93    | #N56029 }
-; { #AS100   | #N56036 }
-; { #AS101   | #N56037 }
-; { #AS109   | #N56045 }
-; { #AS117   | #N56053 }
-; { #AS125   | #N56061 }
+; { #AS85    | #w56021 }
+; { #AS93    | #w56029 }
+; { #AS100   | #w56036 }
+; { #AS101   | #w56037 }
+; { #AS109   | #w56045 }
+; { #AS117   | #w56053 }
+; { #AS125   | #w56061 }
 ; TABLE#
 b55936 DEFB 0,105,0,110,113,117,122,0,133,133,0,0,235,235,0,227
  55952 DEFB 0,105,0,110,113,117,122,0,231,235,0,0,0,0,0,0
@@ -16004,20 +16006,20 @@ s56094 DEFS 2
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h ASCII code(s) | =h Address(es) }
-; { 32-34 [ !"]      | #N56096-#N56098 }
-; { 37 [%]           | #N56101 }
-; { 39-41 ['()]      | #N56103-#N56105 }
-; { 44 [,]           | #N56108 }
-; { 46-47 [./]       | #N56110-#N56111 }
-; { 49 [1]           | #N56113 }
-; { 58-59 [:;]       | #N56122-#N56123 }
-; { 73 [I]           | #N56137 }
-; { 91-93 [[\]]      | #N56155-#N56157 }
-; { 105-106 [ij]     | #N56169-#N56170 }
-; { 108 [l]          | #N56172 }
-; { 116 [t]          | #N56180 }
-; { 118 [v]          | #N56182 }
-; { 123-125 [{|}]    | #N56187-#N56189 }
+; { 32-34 [ !"]      | #w56096-#w56098 }
+; { 37 [%]           | #w56101 }
+; { 39-41 ['()]      | #w56103-#w56105 }
+; { 44 [,]           | #w56108 }
+; { 46-47 [./]       | #w56110-#w56111 }
+; { 49 [1]           | #w56113 }
+; { 58-59 [:;]       | #w56122-#w56123 }
+; { 73 [I]           | #w56137 }
+; { 91-93 [[\]]      | #w56155-#w56157 }
+; { 105-106 [ij]     | #w56169-#w56170 }
+; { 108 [l]          | #w56172 }
+; { 116 [t]          | #w56180 }
+; { 118 [v]          | #w56182 }
+; { 123-125 [{|}]    | #w56187-#w56189 }
 ; TABLE#
 b56096 DEFB 0,0,0,254,42,0,109,0,0,0,124,8,0,8,0,0
  56112 DEFB 124,0,98,204,8,140,140,224,108,124,0,0,34,20,8,96
@@ -16026,7 +16028,7 @@ b56096 DEFB 0,0,0,254,42,0,109,0,0,0,124,8,0,8,0,0
  56160 DEFB 130,62,28,34,254,24,64,62,30,0,0,6,0,32,30,28
  56176 DEFB 24,63,16,36,0,62,0,6,20,62,34,0,0,0,16,130
 
-; UDG references for animatory states #N0-#N127 at row 0, column 1
+; UDG references for animatory states #b0-#b127 at row 0, column 1
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -16034,13 +16036,13 @@ b56096 DEFB 0,0,0,254,42,0,109,0,0,0,124,8,0,8,0,0
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N56277 }
-; { #AS93    | #N56285 }
-; { #AS100   | #N56292 }
-; { #AS101   | #N56293 }
-; { #AS109   | #N56301 }
-; { #AS117   | #N56309 }
-; { #AS125   | #N56317 }
+; { #AS85    | #w56277 }
+; { #AS93    | #w56285 }
+; { #AS100   | #w56292 }
+; { #AS101   | #w56293 }
+; { #AS109   | #w56301 }
+; { #AS117   | #w56309 }
+; { #AS125   | #w56317 }
 ; TABLE#
 b56192 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
  56208 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -16086,9 +16088,9 @@ s56342 DEFS 10
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h ASCII code(s) | =h Address(es) }
-; { 32-34 [ !"]      | #N56352-#N56354 }
-; { 37 [%]           | #N56357 }
-; { 39-41 ['()]      | #N56359-#N56361 }
+; { 32-34 [ !"]      | #w56352-#w56354 }
+; { 37 [%]           | #w56357 }
+; { 39-41 ['()]      | #w56359-#w56361 }
 ; TABLE#
 b56352 DEFB 0,0,0,40,36,0,2,0,0,0,16,8
 
@@ -16122,10 +16124,10 @@ b56385 DEFB 59,113,51,183,57,27,91,123,251
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h ASCII code(s) | =h Address(es) }
-; { 78-80 [NOP]      | #N56398-#N56400 }
-; { 82-83 [RS]       | #N56402-#N56403 }
-; { 85 [U]           | #N56405 }
-; { 91-93 [[\]]      | #N56411-#N56413 }
+; { 78-80 [NOP]      | #w56398-#w56400 }
+; { 82-83 [RS]       | #w56402-#w56403 }
+; { 85 [U]           | #w56405 }
+; { 91-93 [[\]]      | #w56411-#w56413 }
 ; TABLE#
 b56397 DEFB 254,0,0
  56400 DEFB 0,2,0,0,128,0,224,252,198,192,194,0,0,0,32,1
@@ -16168,7 +16170,7 @@ b56441 DEFB 49,66,53,183,183
 ; Used by the routine at #R27110.
 b56447 DEFB 124
 
-; UDG references for animatory states #N0-#N127 at row 1, column 1
+; UDG references for animatory states #b0-#b127 at row 1, column 1
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -16176,13 +16178,13 @@ b56447 DEFB 124
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N56533 }
-; { #AS93    | #N56541 }
-; { #AS100   | #N56548 }
-; { #AS101   | #N56549 }
-; { #AS109   | #N56557 }
-; { #AS117   | #N56565 }
-; { #AS125   | #N56573 }
+; { #AS85    | #w56533 }
+; { #AS93    | #w56541 }
+; { #AS100   | #w56548 }
+; { #AS101   | #w56549 }
+; { #AS109   | #w56557 }
+; { #AS117   | #w56565 }
+; { #AS125   | #w56573 }
 ; TABLE#
 b56448 DEFB 98,106,98,106,98,0,0,98,98,138,98,127,242,242,98,228
  56464 DEFB 158,160,158,160,158,0,0,158,0,0,158,164,0,0,90,0
@@ -16249,7 +16251,7 @@ b56694 DEFB 14,25,186,5
 b56699 DEFB 14,25,186,11
  56703 DEFB 255 ; End marker
 
-; UDG references for animatory states #N0-#N127 at row 2, column 1
+; UDG references for animatory states #b0-#b127 at row 2, column 1
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -16257,13 +16259,13 @@ b56699 DEFB 14,25,186,11
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N56789 }
-; { #AS93    | #N56797 }
-; { #AS100   | #N56804 }
-; { #AS101   | #N56805 }
-; { #AS109   | #N56813 }
-; { #AS117   | #N56821 }
-; { #AS125   | #N56829 }
+; { #AS85    | #w56789 }
+; { #AS93    | #w56797 }
+; { #AS100   | #w56804 }
+; { #AS101   | #w56805 }
+; { #AS109   | #w56813 }
+; { #AS117   | #w56821 }
+; { #AS125   | #w56829 }
 ; TABLE#
 b56704 DEFB 99,107,99,107,114,118,0,99,134,139,128,128,243,246,99,229
  56720 DEFB 99,107,99,107,114,161,0,99,0,236,128,128,0,93,0,0
@@ -16331,7 +16333,7 @@ b56950 DEFB 14,27,191,5
 b56955 DEFB 14,27,191,11
  56959 DEFB 255 ; End marker
 
-; UDG references for animatory states #N0-#N127 at row 3, column 1
+; UDG references for animatory states #b0-#b127 at row 3, column 1
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -16339,13 +16341,13 @@ b56955 DEFB 14,27,191,11
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N57045 }
-; { #AS93    | #N57053 }
-; { #AS100   | #N57060 }
-; { #AS101   | #N57061 }
-; { #AS109   | #N57069 }
-; { #AS117   | #N57077 }
-; { #AS125   | #N57085 }
+; { #AS85    | #w57045 }
+; { #AS93    | #w57053 }
+; { #AS100   | #w57060 }
+; { #AS101   | #w57061 }
+; { #AS109   | #w57069 }
+; { #AS117   | #w57077 }
+; { #AS125   | #w57085 }
 ; TABLE#
 b56960 DEFB 100,108,109,111,115,119,123,100,135,135,100,100,244,247,100,230
  56976 DEFB 100,108,109,111,115,119,123,100,232,237,100,100,94,0,0,89
@@ -16412,7 +16414,7 @@ b57206 DEFB 14,30,186,5
 b57211 DEFB 14,30,186,11
  57215 DEFB 255 ; End marker
 
-; UDG references for animatory states #N0-#N127 at row 0, column 2
+; UDG references for animatory states #b0-#b127 at row 0, column 2
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -16420,13 +16422,13 @@ b57211 DEFB 14,30,186,11
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N57301 }
-; { #AS93    | #N57309 }
-; { #AS100   | #N57316 }
-; { #AS101   | #N57317 }
-; { #AS109   | #N57325 }
-; { #AS117   | #N57333 }
-; { #AS125   | #N57341 }
+; { #AS85    | #w57301 }
+; { #AS93    | #w57309 }
+; { #AS100   | #w57316 }
+; { #AS101   | #w57317 }
+; { #AS109   | #w57325 }
+; { #AS117   | #w57333 }
+; { #AS125   | #w57341 }
 ; TABLE#
 b57216 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
  57232 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -16493,7 +16495,7 @@ b57462 DEFB 14,186,102,197
 b57467 DEFB 14,186,102,203
  57471 DEFB 255 ; End marker
 
-; UDG references for animatory states #N0-#N127 at row 1, column 2
+; UDG references for animatory states #b0-#b127 at row 1, column 2
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -16501,13 +16503,13 @@ b57467 DEFB 14,186,102,203
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N57557 }
-; { #AS93    | #N57565 }
-; { #AS100   | #N57572 }
-; { #AS101   | #N57573 }
-; { #AS109   | #N57581 }
-; { #AS117   | #N57589 }
-; { #AS125   | #N57597 }
+; { #AS85    | #w57557 }
+; { #AS93    | #w57565 }
+; { #AS100   | #w57572 }
+; { #AS101   | #w57573 }
+; { #AS109   | #w57581 }
+; { #AS117   | #w57589 }
+; { #AS125   | #w57597 }
 ; TABLE#
 b57472 DEFB 101,0,101,0,101,0,0,101,101,101,101,101,0,0,101,0
  57488 DEFB 101,0,101,0,101,0,0,101,0,0,101,101,0,0,0,0
@@ -16633,7 +16635,7 @@ b57720 DEFB 128 ; 10000000
  57726 DEFB 2   ; 00000010
  57727 DEFB 1   ; 00000001
 
-; UDG references for animatory states #N0-#N127 at row 2, column 2
+; UDG references for animatory states #b0-#b127 at row 2, column 2
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -16641,13 +16643,13 @@ b57720 DEFB 128 ; 10000000
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N57813 }
-; { #AS93    | #N57821 }
-; { #AS100   | #N57828 }
-; { #AS101   | #N57829 }
-; { #AS109   | #N57837 }
-; { #AS117   | #N57845 }
-; { #AS125   | #N57853 }
+; { #AS85    | #w57813 }
+; { #AS93    | #w57821 }
+; { #AS100   | #w57828 }
+; { #AS101   | #w57829 }
+; { #AS109   | #w57837 }
+; { #AS117   | #w57845 }
+; { #AS125   | #w57853 }
 ; TABLE#
 b57728 DEFB 102,0,102,0,116,120,0,102,102,102,131,129,245,245,102,0
  57744 DEFB 102,0,102,0,116,162,0,102,0,238,131,129,0,92,0,0
@@ -16773,7 +16775,7 @@ b57970 DEFW 25700  ; Go to...
  57980 DEFW 61631  ; Go after ERIC if necessary
  57982 DEFW 61624  ; Restart the command list
 
-; UDG references for animatory states #N0-#N127 at row 3, column 2
+; UDG references for animatory states #b0-#b127 at row 3, column 2
 ;
 @ignoreua
 ; Used by the routine at #R24576. The following animatory states and
@@ -16781,13 +16783,13 @@ b57970 DEFW 25700  ; Go to...
 ; .
 ; #TABLE(default,centre,centre)
 ; { =h State | =h Address }
-; { #AS85    | #N58069 }
-; { #AS93    | #N58077 }
-; { #AS100   | #N58084 }
-; { #AS101   | #N58085 }
-; { #AS109   | #N58093 }
-; { #AS117   | #N58101 }
-; { #AS125   | #N58109 }
+; { #AS85    | #w58069 }
+; { #AS93    | #w58077 }
+; { #AS100   | #w58084 }
+; { #AS101   | #w58085 }
+; { #AS109   | #w58093 }
+; { #AS117   | #w58101 }
+; { #AS125   | #w58109 }
 ; TABLE#
 b57984 DEFB 0,0,0,0,0,121,124,0,102,102,0,0,239,239,0,0
  58000 DEFB 0,0,0,0,0,121,163,0,233,239,0,0,0,0,0,0
@@ -19103,12 +19105,12 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
  61855 INC B         ; {The intent here is to point #REGbc at the second byte
  61856 LD C,B        ; of the blackboard's buffer, which holds the character
  61857 LD B,127      ; number of the person who last wrote on it; instead,
-                     ; #REGbc points at #N32516 if the teacher is on the top
-                     ; floor, or #N32515 if he's on the middle floor}
+                     ; #REGbc points at #w32516 if the teacher is on the top
+                     ; floor, or #w32515 if he's on the middle floor}
 @ignoreua
  61859 LD A,(BC)     ; Now #REGa is supposed to hold the character number of
                      ; the person who last wrote on the board; instead it holds
-                     ; the contents of #N32515 or #N32516 (bytes 3 and 4 of the
+                     ; the contents of #w32515 or #w32516 (bytes 3 and 4 of the
                      ; #R32512(SRB)), which will never be 206 or 210
  61860 CP 210        ; Did ERIC write on the board?
  61862 JR Z,61879    ; Jump if so (this jump is never made)
@@ -19431,7 +19433,7 @@ c62178 LD HL,32755   ; #R32755 holds ERIC's main action timer
  62224 LD H,210      ; 210=ERIC
  62226 CALL 25012    ; Update the SRB for ERIC's current animatory state and
                      ; location
- 62229 AND 128       ; #REGa=#AS0(#N0/#N128): ERIC standing up
+ 62229 AND 128       ; #REGa=#AS0(#b0/#b128): ERIC standing up
 ; This entry point is used by the routines at #R23907, #R24133, #R64242 and
 ; #R64416.
 *62231 CALL 24880    ; Update ERIC's animatory state and location and update
@@ -19623,7 +19625,7 @@ s62434 DEFS 4
 @label=SITDOWN
 c62438 LD A,4        ; #AS4: ERIC sitting in a chair
 ; This entry point is used by the routine at #R62460 (with
-; #REGa=#AS5(#N5/#N133)) to make ERIC sit on the floor.
+; #REGa=#AS5(#b5/#b133)) to make ERIC sit on the floor.
 *62440 PUSH AF       ; Save ERIC's new animatory state briefly
  62441 CALL 29012    ; Make a sitting-down sound effect
  62444 POP AF        ; Restore ERIC's new animatory state to #REGa
@@ -19650,7 +19652,7 @@ c62460 CALL 26068    ; Check for chairs next to ERIC
  62464 JR Z,62475    ; Jump if so
  62466 LD A,(53760)  ; #REGa=ERIC's animatory state
  62469 AND 128       ; Keep only the 'direction' bit (bit 7)
- 62471 ADD A,5       ; #REGa=#AS5(#N5/#N133): ERIC sitting on the floor
+ 62471 ADD A,5       ; #REGa=#AS5(#b5/#b133): ERIC sitting on the floor
  62473 JR 62440      ; Sit ERIC on the floor
 *62475 CALL 26175    ; Knock anybody who's sitting in this chair out of the way
  62478 JR 62438      ; Sit ERIC on the chair
@@ -20375,7 +20377,7 @@ c63210 LD HL,32739   ; #R32739 holds the lesson clock
 ; destinations if possible.
 ;
 @ignoreua
-; HL #N32740 (MSB of the #R32739(lesson clock))
+; HL #w32740 (MSB of the #R32739(lesson clock))
 @label=NEWLESSON1
 c63309 LD (HL),16    ; Reset the MSB of the lesson clock to 16
  63311 CALL 63576    ; Clear the flags at #R32640 and #R32641
@@ -20643,7 +20645,7 @@ c63501 LD A,(32740)  ; #REGa=MSB of the lesson clock (which starts off at 16)
 ; Used by the routine at #R63561. Returns with the column of the play area that
 ; was at the far left of the screen before this routine was called in #REGa.
 ;
-; DE #N16384 or #N16415
+; DE #w16384 or #w16415
 @label=LRSCROLL
 c63512 LD B,0        ; #REGbc will be used as the counter for the LDIR/LDDR
                      ; instruction at #R63526; initialise the MSB to 0
@@ -20795,8 +20797,8 @@ c63586 LD HL,32747   ; #R32747 holds the inventory flags
                      ; (#AS199) and update the SRB accordingly
 @rsub-begin
  63649 LD L,0        ; Point #REGhl at byte 0 of the cloud's buffer
- 63651 BIT 0,(HL)    ; {Bit 0 of the cloud's animatory state (#AS71(#N71 or
- 63653 RET Z         ; #N199)) is always set, so this RET never happens}
+ 63651 BIT 0,(HL)    ; {Bit 0 of the cloud's animatory state (#AS71(#b71 or
+ 63653 RET Z         ; #b199)) is always set, so this RET never happens}
 @rsub-end
  63654 INC L         ; #REGl=1
  63655 LD A,(HL)     ; #REGa=stinkbomb cloud's x-coordinate
@@ -21576,7 +21578,7 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
  64488 ADD A,166     ; #REGa=159-165 (normal descent table entry pointer)
  64490 PUSH AF       ; Save this briefly
  64491 LD A,5        ; {Now #REGa=animatory state of ERIC sitting on the floor
- 64493 ADD A,B       ; (#AS5(#N5/#N133)) or with his arm up (#AS7(#N7/#N135))}
+ 64493 ADD A,B       ; (#AS5(#b5/#b133)) or with his arm up (#AS7(#b7/#b135))}
  64494 CALL 24880    ; Update ERIC's animatory state and location and update
                      ; the SRB
  64497 POP AF        ; Restore the normal descent table entry pointer to #REGa
@@ -21650,76 +21652,76 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
 ; #TABLE(default,,,centre)
 ; { =c4,h #REGe=252 (normal descent) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
-; { #N160    | #R41212   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N161    | #R41468   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N162    | #R41724   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N163    | #R41980   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N164    | #R42236   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N165    | #R42492   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N166    | #R42748   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N167    | #R43004   | #N0         | ERIC has landed }
-; { #N168    | #R43260   | #N4         | Set bit 2 at #R32763 (ERIC is sitting) }
-; { #N169    | #R43516   | #N0         | Reset all bits at #R32749 (ERIC landed safely) }
+; { #b160    | #R41212   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b161    | #R41468   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b162    | #R41724   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b163    | #R41980   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b164    | #R42236   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b165    | #R42492   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b166    | #R42748   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b167    | #R43004   | #b0         | ERIC has landed }
+; { #b168    | #R43260   | #b4         | Set bit 2 at #R32763 (ERIC is sitting) }
+; { #b169    | #R43516   | #b0         | Reset all bits at #R32749 (ERIC landed safely) }
 ; TABLE#
 ; .
 ; #HTML(<span id="dt253" />)
 ; #TABLE(default,,,centre)
 ; { =c4,h #REGe=253 (from the bike saddle over the closed skool gate) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
-; { #N160    | #R41213   | #N160       | Animatory state #AS0(#N0 or #N128); ascend; move forward }
-; { #N161    | #R41469   | #N160       | Animatory state #AS0(#N0 or #N128); ascend; move forward }
-; { #N162    | #R41725   | #N160       | Animatory state #AS0(#N0 or #N128); ascend; move forward }
-; { #N163    | #R41981   | #N96        | Animatory state #AS0(#N0 or #N128); descend; move forward }
-; { #N164    | #R42237   | #N100       | Animatory state #AS4(#N4 or #N132); descend; move forward }
-; { #N165    | #R42493   | #N37        | Animatory state #AS5(#N5 or #N133); move forward }
-; { #N166    | #R42749   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N167    | #R43005   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N168    | #R43261   | #N0         | ERIC has landed }
-; { #N169    | #R43517   | #N4         | Set bit 2 at #R32763 (ERIC is sitting) }
-; { #N170    | #R43773   | #N0         | Reset all bits at #R32749 (ERIC landed safely) }
+; { #b160    | #R41213   | #b160       | Animatory state #AS0(#b0 or #b128); ascend; move forward }
+; { #b161    | #R41469   | #b160       | Animatory state #AS0(#b0 or #b128); ascend; move forward }
+; { #b162    | #R41725   | #b160       | Animatory state #AS0(#b0 or #b128); ascend; move forward }
+; { #b163    | #R41981   | #b96        | Animatory state #AS0(#b0 or #b128); descend; move forward }
+; { #b164    | #R42237   | #b100       | Animatory state #AS4(#b4 or #b132); descend; move forward }
+; { #b165    | #R42493   | #b37        | Animatory state #AS5(#b5 or #b133); move forward }
+; { #b166    | #R42749   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b167    | #R43005   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b168    | #R43261   | #b0         | ERIC has landed }
+; { #b169    | #R43517   | #b4         | Set bit 2 at #R32763 (ERIC is sitting) }
+; { #b170    | #R43773   | #b0         | Reset all bits at #R32749 (ERIC landed safely) }
 ; TABLE#
 ; .
 ; #HTML(<span id="dt254" />)
 ; #TABLE(default,,,centre)
 ; { =c4,h #REGe=254 (from the bike saddle into a wall or closed door) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
-; { #N160    | #R41214   | #N160       | Animatory state #AS0(#N0 or #N128); ascend; move forward }
-; { #N161    | #R41470   | #N160       | Animatory state #AS0(#N0 or #N128); ascend; move forward }
-; { #N162    | #R41726   | #N2         | Animatory state #AS2(#N2 or #N130); ascend }
-; { #N163    | #R41982   | #N64        | Animatory state #AS0(#N0 or #N128); descend }
-; { #N164    | #R42238   | #N64        | Animatory state #AS0(#N0 or #N128); descend }
-; { #N165    | #R42494   | #N64        | Animatory state #AS0(#N0 or #N128); descend }
-; { #N166    | #R42750   | #N22        | Animatory state #AS6(#N6 or #N134); move backwards }
-; { #N167    | #R43006   | #N0         | ERIC has landed }
-; { #N168    | #R43262   | #N4         | Set bit 2 at #R32763 (ERIC is sitting) }
-; { #N169    | #R43518   | #N0         | Reset all bits at #R32749 (ERIC landed safely) }
+; { #b160    | #R41214   | #b160       | Animatory state #AS0(#b0 or #b128); ascend; move forward }
+; { #b161    | #R41470   | #b160       | Animatory state #AS0(#b0 or #b128); ascend; move forward }
+; { #b162    | #R41726   | #b2         | Animatory state #AS2(#b2 or #b130); ascend }
+; { #b163    | #R41982   | #b64        | Animatory state #AS0(#b0 or #b128); descend }
+; { #b164    | #R42238   | #b64        | Animatory state #AS0(#b0 or #b128); descend }
+; { #b165    | #R42494   | #b64        | Animatory state #AS0(#b0 or #b128); descend }
+; { #b166    | #R42750   | #b22        | Animatory state #AS6(#b6 or #b134); move backwards }
+; { #b167    | #R43006   | #b0         | ERIC has landed }
+; { #b168    | #R43262   | #b4         | Set bit 2 at #R32763 (ERIC is sitting) }
+; { #b169    | #R43518   | #b0         | Reset all bits at #R32749 (ERIC landed safely) }
 ; TABLE#
 ; .
 ; #HTML(<span id="dt255" />)
 ; #TABLE(default,,,centre,:w)
 ; { =c4,h #REGe=255 (from the top-floor window) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
-; { #N160    | #R41215   | #N96        | Animatory state #AS0(#N0 or #N128); descend; move forwards }
-; { #N161    | #R41471   | #N96        | Animatory state #AS0(#N0 or #N128); descend; move forwards }
-; { #N162    | #R41727   | #N96        | Animatory state #AS0(#N0 or #N128); descend; move forwards }
-; { #N163    | #R41983   | #N96        | Animatory state #AS0(#N0 or #N128); descend; move forwards }
-; { #N164    | #R42239   | #N64        | Animatory state #AS0(#N0 or #N128); descend }
-; { #N165    | #R42495   | #N64        | Animatory state #AS0(#N0 or #N128); descend }
-; { #N166    | #R42751   | #N64        | Animatory state #AS0(#N0 or #N128); descend }
-; { #N167    | #R43007   | #N64        | Animatory state #AS0(#N0 or #N128); descend }
-; { #N168    | #R43263   | #N64        | Animatory state #AS0(#N0 or #N128); descend }
-; { #N169    | #R43519   | #N64        | Animatory state #AS0(#N0 or #N128); descend }
-; { #N170    | #R43775   | #N68        | Animatory state #AS4(#N4 or #N132); descend }
-; { #N171    | #R44031   | #N68        | Animatory state #AS4(#N4 or #N132); descend }
-; { #N172    | #R44287   | #N68        | Animatory state #AS4(#N4 or #N132); descend }
-; { #N173    | #R44543   | #N5         | Animatory state #AS5(#N5 or #N133) }
-; { #N174    | #R44799   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N175    | #R45055   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N176    | #R45311   | #N69        | Animatory state #AS5(#N5 or #N133); descend }
-; { #N177    | #R45567   | #N70        | Animatory state #AS6(#N6 or #N134); descend }
-; { #N178    | #R45823   | #N0         | ERIC has landed }
-; { #N179    | #R46079   | #N64        | Set bit 6 at #R32763 (MR WACKER should expel ERIC) }
-; { #N180    | #R46335   | #N32        | Set bit 5 at #R32749 (ERIC fell out of the top-floor window) }
+; { #b160    | #R41215   | #b96        | Animatory state #AS0(#b0 or #b128); descend; move forwards }
+; { #b161    | #R41471   | #b96        | Animatory state #AS0(#b0 or #b128); descend; move forwards }
+; { #b162    | #R41727   | #b96        | Animatory state #AS0(#b0 or #b128); descend; move forwards }
+; { #b163    | #R41983   | #b96        | Animatory state #AS0(#b0 or #b128); descend; move forwards }
+; { #b164    | #R42239   | #b64        | Animatory state #AS0(#b0 or #b128); descend }
+; { #b165    | #R42495   | #b64        | Animatory state #AS0(#b0 or #b128); descend }
+; { #b166    | #R42751   | #b64        | Animatory state #AS0(#b0 or #b128); descend }
+; { #b167    | #R43007   | #b64        | Animatory state #AS0(#b0 or #b128); descend }
+; { #b168    | #R43263   | #b64        | Animatory state #AS0(#b0 or #b128); descend }
+; { #b169    | #R43519   | #b64        | Animatory state #AS0(#b0 or #b128); descend }
+; { #b170    | #R43775   | #b68        | Animatory state #AS4(#b4 or #b132); descend }
+; { #b171    | #R44031   | #b68        | Animatory state #AS4(#b4 or #b132); descend }
+; { #b172    | #R44287   | #b68        | Animatory state #AS4(#b4 or #b132); descend }
+; { #b173    | #R44543   | #b5         | Animatory state #AS5(#b5 or #b133) }
+; { #b174    | #R44799   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b175    | #R45055   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b176    | #R45311   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
+; { #b177    | #R45567   | #b70        | Animatory state #AS6(#b6 or #b134); descend }
+; { #b178    | #R45823   | #b0         | ERIC has landed }
+; { #b179    | #R46079   | #b64        | Set bit 6 at #R32763 (MR WACKER should expel ERIC) }
+; { #b180    | #R46335   | #b32        | Set bit 5 at #R32749 (ERIC fell out of the top-floor window) }
 ; TABLE#
 
 @rsub-begin

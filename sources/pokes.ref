@@ -61,7 +61,7 @@ where M=65536-N.
 
 To change the expulsion message MR WACKER delivers (at #R60953) accordingly,
 you will need to POKE the ASCII codes of the digits of the new lines limit into
-addresses #N60962-#N60966.
+addresses #w60962-#w60966.
 
 For example, to change the lines limit to 20000 and adjust the expulsion
 message to match:

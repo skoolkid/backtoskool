@@ -18,11 +18,11 @@ PageContent=#INCLUDE(PlayAreaTiles)
 <tr>
 <td><img alt="25,14" src="80ba38.png"/></td>
 <td>
-<i>Q_addr</i>=(x,#N181)=#N(46361), <i>Q</i>=#N24<br/>
-<i>ref_addr</i>=(<i>Q</i>,y+#N160)=#N44568<br/>
-<i>ref</i>=#N(186), <i>udg_page</i>=#N128<br/>
-<i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)=#N32954<br/>
-<i>attr</i>=#N56
+<i>Q_addr</i>=(x,#b181)=#w46361, <i>Q</i>=#b24<br/>
+<i>ref_addr</i>=(<i>Q</i>,y+#b160)=#w44568<br/>
+<i>ref</i>=#b186, <i>udg_page</i>=#b128<br/>
+<i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)=#w32954<br/>
+<i>attr</i>=#b56
 </td>
 </tr>
 </table>
@@ -39,12 +39,12 @@ PageContent=#INCLUDE(PlayAreaTiles)
 <i>ref</i> is the UDG reference for the tile (located at <i>ref_addr</i>)
 </li>
 <li>
-<i>udg_page</i> is the base page for the tile graphic data (#N(128), #N(136),
-#N144 or #N152)
+<i>udg_page</i> is the base page for the tile graphic data (#b128, #b136, #b144
+or #b152)
 </li>
 <li>
 <i>udg_addr</i> is the base address of the tile graphic data
-(<i>ref</i>+#N256*<i>udg_page</i>)
+(<i>ref</i>+#b256*<i>udg_page</i>)
 </li>
 <li>
 <i>attr</i> is the tile's attribute byte
@@ -64,31 +64,31 @@ The eight graphic bytes for a tile are located thus:
 <td>Graphic byte 1/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+#N256</td>
+<td>(<i>ref</i>,<i>udg_page</i>+1)=<i>udg_addr</i>+#b256</td>
 <td>Graphic byte 2/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+#N512</td>
+<td>(<i>ref</i>,<i>udg_page</i>+2)=<i>udg_addr</i>+#b512</td>
 <td>Graphic byte 3/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+#N768</td>
+<td>(<i>ref</i>,<i>udg_page</i>+3)=<i>udg_addr</i>+#b768</td>
 <td>Graphic byte 4/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+#N1024</td>
+<td>(<i>ref</i>,<i>udg_page</i>+4)=<i>udg_addr</i>+#w1024</td>
 <td>Graphic byte 5/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+#N1280</td>
+<td>(<i>ref</i>,<i>udg_page</i>+5)=<i>udg_addr</i>+#w1280</td>
 <td>Graphic byte 6/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+#N1536</td>
+<td>(<i>ref</i>,<i>udg_page</i>+6)=<i>udg_addr</i>+#w1536</td>
 <td>Graphic byte 7/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+#N1792</td>
+<td>(<i>ref</i>,<i>udg_page</i>+7)=<i>udg_addr</i>+#w1792</td>
 <td>Graphic byte 8/8</td>
 </tr>
 </table>
@@ -287,15 +287,15 @@ PageContent=#INCLUDE(AnimatoryStateTiles)
 <tr>
 <td>
 <div class="B">
-<div class="H">#N0: row 1, column 1</div>
+<div class="H">#b0: row 1, column 1</div>
 <table>
 <tr>
-<td><img alt="#N0:1,1" src="b762.png"/></td>
+<td><img alt="#b0:1,1" src="b762.png"/></td>
 <td>
-<i>lsb</i>=#N(128), <i>ref_page</i>=#N220<br/>
-<i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)=#N56448<br/>
-<i>ref</i>=#N(98), <i>udg_page</i>=#N183<br/>
-<i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)=#N46946
+<i>lsb</i>=#b128, <i>ref_page</i>=#b220<br/>
+<i>ref_addr</i>=(<i>lsb</i>,<i>ref_page</i>)=#w56448<br/>
+<i>ref</i>=#b98, <i>udg_page</i>=#b183<br/>
+<i>udg_addr</i>=(<i>ref</i>,<i>udg_page</i>)=#w46946
 </td>
 </tr>
 </table>
@@ -306,25 +306,25 @@ PageContent=#INCLUDE(AnimatoryStateTiles)
 <p>where:</p>
 <ul>
 <li>
-<i>lsb</i> is the animatory state + #N128 (#N128-#N255)
+<i>lsb</i> is the animatory state + #b128 (#b128-#b255)
 </li>
 <li>
 <i>ref_page</i> is the page containing the UDG reference for the tile
-(#N215-#N226)
+(#b215-#b226)
 </li>
 <li>
 <i>ref_addr</i> is the address of the UDG reference
-(<i>lsb</i>+#N256*<i>ref_page</i>)
+(<i>lsb</i>+#w256*<i>ref_page</i>)
 </li>
 <li>
-<i>ref</i> is the UDG reference at <i>ref_addr</i> (#N(0), #N73-#N255)
+<i>ref</i> is the UDG reference at <i>ref_addr</i> (#b0, #b73-#b255)
 </li>
 <li>
-<i>udg_page</i> is the base page for the tile graphic data (#N183 or #N199)
+<i>udg_page</i> is the base page for the tile graphic data (#b183 or #b199)
 </li>
 <li>
 <i>udg_addr</i> is the base address of the tile graphic data
-(<i>ref</i>+#N256*<i>udg_page</i>)
+(<i>ref</i>+#w256*<i>udg_page</i>)
 </li>
 </ul>
 <p>
@@ -337,7 +337,7 @@ The graphic for an animatory state is made up of 12 tiles in a 3x4 grid:
 <tr><td>3</td><td>7</td><td>11</td></tr>
 </table>
 <p>
-Each tile has a UDG reference (<i>ref</i>) located at (<i>lsb</i>,T+#N215),
+Each tile has a UDG reference (<i>ref</i>) located at (<i>lsb</i>,T+#b215),
 where T is the tile number (0-11).
 </p>
 <p>
@@ -350,78 +350,78 @@ The eight graphic bytes and eight mask bytes for a tile are located thus:
 <td>Graphic byte 1/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N1)=<i>udg_addr</i>+#N256</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b1)=<i>udg_addr</i>+#w256</td>
 <td>Mask byte 1/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N2)=<i>udg_addr</i>+#N512</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b2)=<i>udg_addr</i>+#w512</td>
 <td>Graphic byte 2/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N3)=<i>udg_addr</i>+#N768</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b3)=<i>udg_addr</i>+#w768</td>
 <td>Mask byte 2/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N4)=<i>udg_addr</i>+#N1024</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b4)=<i>udg_addr</i>+#w1024</td>
 <td>Graphic byte 3/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N5)=<i>udg_addr</i>+#N1280</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b5)=<i>udg_addr</i>+#w1280</td>
 <td>Mask byte 3/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N6)=<i>udg_addr</i>+#N1536</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b6)=<i>udg_addr</i>+#w1536</td>
 <td>Graphic byte 4/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N7)=<i>udg_addr</i>+#N1792</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b7)=<i>udg_addr</i>+#w1792</td>
 <td>Mask byte 4/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N8)=<i>udg_addr</i>+#N2048</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b8)=<i>udg_addr</i>+#w2048</td>
 <td>Graphic byte 5/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N9)=<i>udg_addr</i>+#N2304</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b9)=<i>udg_addr</i>+#w2304</td>
 <td>Mask byte 5/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N10)=<i>udg_addr</i>+#N2560</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b10)=<i>udg_addr</i>+#w2560</td>
 <td>Graphic byte 6/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N11)=<i>udg_addr</i>+#N2816</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b11)=<i>udg_addr</i>+#w2816</td>
 <td>Mask byte 6/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N12)=<i>udg_addr</i>+#N3072</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b12)=<i>udg_addr</i>+#w3072</td>
 <td>Graphic byte 7/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N13)=<i>udg_addr</i>+#N3328</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b13)=<i>udg_addr</i>+#w3328</td>
 <td>Mask byte 7/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N14)=<i>udg_addr</i>+#N3584</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b14)=<i>udg_addr</i>+#w3584</td>
 <td>Graphic byte 8/8</td>
 </tr>
 <tr>
-<td>(<i>ref</i>,<i>udg_page</i>+#N15)=<i>udg_addr</i>+#N3840</td>
+<td>(<i>ref</i>,<i>udg_page</i>+#b15)=<i>udg_addr</i>+#w3840</td>
 <td>Mask byte 8/8</td>
 </tr>
 </table>
 <p>
-The 'null' UDG (<i>ref</i>=#N0) is always taken to be blank (eight zeroes); its
-graphic data is not looked up at (#N(0),#N183) or (#N(0),#N199).
+The 'null' UDG (<i>ref</i>=#b0) is always taken to be blank (eight zeroes); its
+graphic data is not looked up at (#b0,#b183) or (#b0,#b199).
 </p>
 <p>
 Any given tile (identified by <i>udg_addr</i>) may appear in more than one
 animatory state (and in more than one place in a single animatory state).
 </p>
 <p>
-The tiles for animatory states #N128-#N255 are not stored separately; the tiles
-for animatory state N>=#N128 are obtained by flipping the tiles for animatory
-state N-#N128 (see #R24576).
+The tiles for animatory states #b128-#b255 are not stored separately; the tiles
+for animatory state N>=#b128 are obtained by flipping the tiles for animatory
+state N-#b128 (see #R24576).
 </p>
 </div>
 <table class="asTiles">
@@ -713,7 +713,7 @@ PageContent=#INCLUDE(Keys)
 <div>Address = Index + #R58624</div>
 <div>Offset = PEEK(Address)</div>
 <div>
-Lookup = Offset + #N58624 (points to an entry in the table at #R58704)
+Lookup = Offset + #w58624 (points to an entry in the table at #R58704)
 </div>
 <div>Routine = address at (Lookup, Lookup + 1)</div>
 </div>
