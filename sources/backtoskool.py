@@ -27,7 +27,7 @@ def parse_as(text, index):
 
 def parse_lesson(text, index):
     end, lesson = parse_ints(text, index, 1)
-    end, link_text = parse_brackets(text, end, str(lesson))
+    end, link_text = parse_brackets(text, end, '#N{}'.format(lesson))
     return end, lesson, link_text
 
 def parse_s(text, index):
@@ -283,24 +283,6 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             lessons.append(self.format_template('lesson_type', subs))
         return '\n'.join(lessons)
 
-    def _lesson_prev_next(self, prev_link, next_link, up_link):
-        prev_text = next_text = up_text = ''
-        if prev_link:
-            prev_text = 'Prev: {0}'.format(prev_link)
-        if next_link:
-            next_text = 'Next: {0}'.format(next_link)
-        if up_link:
-            up_text = 'Up: {0}'.format(up_link)
-        lines = ['<table class="asm-navigation">', '<tr>']
-        for td_class, text in (('prev', prev_text), ('up', up_text), ('next', next_text)):
-            if text:
-                lines.append('<td class="{0}">{1}</td>'.format(td_class, text))
-            else:
-                lines.append('<td class="{0}"/>'.format(td_class))
-        lines.append('</tr>')
-        lines.append('</table>')
-        return lines
-
     def lesson(self, cwd, lesson_num):
         timetables = []
         for c in range(self.min_character, self.max_character + 1):
@@ -308,10 +290,10 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             tap = self.snapshot[lesson_address]
             subs = {
                 'pt_address': self.min_lesson + 256 * c,
-                'character_num': c,
+                'character_num': self.b_fmt.format(c),
                 'character': self.characters[c],
-                'lesson_address': lesson_address,
-                'cl_num': tap,
+                'lesson_address': self.w_fmt.format(lesson_address),
+                'cl_num': self.b_fmt.format(tap),
                 'cl_address': self.tap_addresses[tap],
                 'cl_desc': self.tap_descs[tap]
             }
@@ -320,11 +302,22 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         prev_href = next_href = ''
         if lesson_num > self.min_lesson:
             prev_href = self.relpath(cwd, self.paths['Lesson{}'.format(lesson_num - 1)])
-        prev_lesson = {'num': lesson_num - 1, 'exists': 1 if prev_href else 0, 'href': prev_href}
-        lesson = {'num': lesson_num, 'desc': self.lesson_descs[lesson_num]}
+        prev_lesson = {
+            'num': self.b_fmt.format(lesson_num - 1),
+            'exists': 1 if prev_href else 0,
+            'href': prev_href
+        }
+        lesson = {
+            'num': self.b_fmt.format(lesson_num),
+            'desc': self.lesson_descs[lesson_num]
+        }
         if lesson_num < self.max_lesson:
             next_href = self.relpath(cwd, self.paths['Lesson{}'.format(lesson_num + 1)])
-        next_lesson = {'num': lesson_num + 1, 'exists': 1 if next_href else 0, 'href': next_href}
+        next_lesson = {
+            'num': self.b_fmt.format(lesson_num + 1),
+            'exists': 1 if next_href else 0,
+            'href': next_href
+        }
         subs = {
             'prev_lesson': prev_lesson,
             'lesson': lesson,
@@ -374,7 +367,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         end, lesson, link_text = parse_lesson(text, index)
         page_id = 'Lesson{0}'.format(lesson)
         href = self.relpath(cwd, self.paths[page_id])
-        link = self.format_link(href, link_text)
+        link = self.format_link(href, self.expand(link_text))
         return end, link
 
     def expand_s(self, text, index, cwd):
@@ -555,7 +548,7 @@ class BackToSkoolAsmWriter(AsmWriter):
     def expand_lesson(self, text, index):
         # #LESSONnum[(link text)]
         end, lesson, link_text = parse_lesson(text, index)
-        return end, link_text
+        return end, self.expand(link_text)
 
     def expand_s(self, text, index):
         # #S/text/

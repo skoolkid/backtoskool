@@ -44,29 +44,29 @@ Copying ../sources/bts.css to {odir}/back_to_skool/bts.css
   Writing back_to_skool/buffers/cbuffer.html
   Writing back_to_skool/lessons/timetables.html
   Writing back_to_skool/lessons/index.html
-  Writing back_to_skool/lessons/37.html
-  Writing back_to_skool/lessons/38.html
-  Writing back_to_skool/lessons/39.html
-  Writing back_to_skool/lessons/40.html
-  Writing back_to_skool/lessons/41.html
-  Writing back_to_skool/lessons/42.html
-  Writing back_to_skool/lessons/43.html
-  Writing back_to_skool/lessons/44.html
-  Writing back_to_skool/lessons/45.html
-  Writing back_to_skool/lessons/46.html
-  Writing back_to_skool/lessons/47.html
-  Writing back_to_skool/lessons/48.html
-  Writing back_to_skool/lessons/49.html
-  Writing back_to_skool/lessons/50.html
-  Writing back_to_skool/lessons/51.html
-  Writing back_to_skool/lessons/52.html
-  Writing back_to_skool/lessons/53.html
-  Writing back_to_skool/lessons/54.html
-  Writing back_to_skool/lessons/55.html
-  Writing back_to_skool/lessons/56.html
-  Writing back_to_skool/lessons/57.html
-  Writing back_to_skool/lessons/58.html
-  Writing back_to_skool/lessons/59.html
+  Writing back_to_skool/lessons/#N37.html
+  Writing back_to_skool/lessons/#N38.html
+  Writing back_to_skool/lessons/#N39.html
+  Writing back_to_skool/lessons/#N40.html
+  Writing back_to_skool/lessons/#N41.html
+  Writing back_to_skool/lessons/#N42.html
+  Writing back_to_skool/lessons/#N43.html
+  Writing back_to_skool/lessons/#N44.html
+  Writing back_to_skool/lessons/#N45.html
+  Writing back_to_skool/lessons/#N46.html
+  Writing back_to_skool/lessons/#N47.html
+  Writing back_to_skool/lessons/#N48.html
+  Writing back_to_skool/lessons/#N49.html
+  Writing back_to_skool/lessons/#N50.html
+  Writing back_to_skool/lessons/#N51.html
+  Writing back_to_skool/lessons/#N52.html
+  Writing back_to_skool/lessons/#N53.html
+  Writing back_to_skool/lessons/#N54.html
+  Writing back_to_skool/lessons/#N55.html
+  Writing back_to_skool/lessons/#N56.html
+  Writing back_to_skool/lessons/#N57.html
+  Writing back_to_skool/lessons/#N58.html
+  Writing back_to_skool/lessons/#N59.html
   Writing back_to_skool/tables/keys.html
   Parsing ../sources/load.skool
     Writing back_to_skool/load/load.html
