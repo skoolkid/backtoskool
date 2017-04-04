@@ -331,7 +331,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         for c in range(self.min_character, self.max_character + 1):
             subs = {
                 'address': self.min_lesson + 256 * c,
-                'num': c,
+                'num': self.b_fmt.format(c),
                 'name': self.characters[c]
             }
             lines.append(self.format_template('personal_timetable', subs))
