@@ -125,10 +125,10 @@ To put ERIC in charge of ringing the bell:
 table of keypress handling routines)</div>
 <div>POKE 58720,122: POKE 58721,229 (sets the keypress-handling routine for 'L'
 to #R58746)</div>
-<div>POKE 58746,33: POKE 58747,1: POKE 58748,0 (LD HL,#N1,4,,1($))</div>
+<div>POKE 58746,33: POKE 58747,1: POKE 58748,0 (#S/LD HL/,#N1,4,,1($))</div>
 <div>POKE 58749,34: POKE 58750,227: POKE 58751,127
-(LD (#R32739(#n32739)),HL)</div>
-<div>POKE 58752,201 (RET)</div>
+(#S/LD/ (#R32739(#n32739)),#S/HL/)</div>
+<div>POKE 58752,201 (#S/RET/)</div>
 
 Now whenever 'L' (upper case) is pressed, the bell will ring and the next
 lesson will begin (which could prove handy if ERIC is found playing truant, or
