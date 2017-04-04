@@ -244,7 +244,7 @@ Interruptible subcommand routine address (see #R25296)
 
 [CharBuf:11]
 LSB of the address of the next character in the message being written into a
-graphic buffer (buffer #R54784(214) only; see #R27419)
+graphic buffer (buffer #R54784(#b214) only; see #R27419)
 
 LSB of the address of the next character in the message being written on a
 blackboard or spoken (see #R26318)
@@ -257,7 +257,7 @@ Intermediate destination x-coordinate (see #R25581)
 
 [CharBuf:12]
 MSB of the address of the next character in the message being written into a
-graphic buffer (buffer #R54784(214) only; see #R27419)
+graphic buffer (buffer #R54784(#b214) only; see #R27419)
 
 MSB of the address of the next character in the message being written on a
 blackboard or spoken (see #R26318)
@@ -370,7 +370,7 @@ Address reached in the command list
 Start address of the command list
 
 [CharBuf:29]
-Various flags; initially populated by #R62910 with a copy of byte 35 of the
+Various flags; initially populated by #R62910 with a copy of byte #b35 of the
 character's buffer:
 #TABLE(default,centre)
 { =h Bit(s) | =h Meaning if set }
@@ -401,7 +401,7 @@ Initial animatory state (see #R62910)
 Initial location (see #R62910)
 
 [CharBuf:35]
-Initial flags for byte 29 (see #R62910)
+Initial flags for byte #b29 (see #R62910)
 
 [CharBuf:36]
 Random location table identifier (see #R25815)

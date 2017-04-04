@@ -501,25 +501,26 @@ state N-#b128 (see #R24576).
 PageContent=#INCLUDE(CharacterBuffers)
 
 [CharacterBuffers]
-<p>The character buffers occupy bytes 0-36 in pages 183-214. The buffers in
-pages 198, 199, 206, 207 and 208 may be used by mice released by ERIC.</p>
+<p>The character buffers occupy bytes #b0-#b36 in pages #b183-#b214. The
+buffers in pages #b198, #b199, #b206, #b207 and #b208 may be used by mice
+released by ERIC.</p>
 #CALL:cast()
 #CALL:cbuffer()
 
 [Template:cast]
 #TABLE(cbuffer,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter)
 {{ =h Page | =h Address | =h Character      |  | =h Page | =h Address | =h Character      |  | =h Page | =h Address | =h Character }}
-{{ 183     | #R46848    | {characters[183]} |  | 194     | #R49664    | {characters[194]} |  | 205     | #R52480    | {characters[205]} }}
-{{ 184     | #R47104    | {characters[184]} |  | 195     | #R49920    | {characters[195]} |  | 206     | #R52736    | {characters[206]} }}
-{{ 185     | #R47360    | {characters[185]} |  | 196     | #R50176    | {characters[196]} |  | 207     | #R52992    | {characters[207]} }}
-{{ 186     | #R47616    | {characters[186]} |  | 197     | #R50432    | {characters[197]} |  | 208     | #R53248    | {characters[208]} }}
-{{ 187     | #R47872    | {characters[187]} |  | 198     | #R50688    | {characters[198]} |  | 209     | #R53504    | {characters[209]} }}
-{{ 188     | #R48128    | {characters[188]} |  | 199     | #R50944    | {characters[199]} |  | 210     | #R53760    | {characters[210]} }}
-{{ 189     | #R48384    | {characters[189]} |  | 200     | #R51200    | {characters[200]} |  | 211     | #R54016    | {characters[211]} }}
-{{ 190     | #R48640    | {characters[190]} |  | 201     | #R51456    | {characters[201]} |  | 212     | #R54272    | {characters[212]} }}
-{{ 191     | #R48896    | {characters[191]} |  | 202     | #R51712    | {characters[202]} |  | 213     | #R54528    | {characters[213]} }}
-{{ 192     | #R49152    | {characters[192]} |  | 203     | #R51968    | {characters[203]} |  | 214     | #R54784    | {characters[214]} }}
-{{ 193     | #R49408    | {characters[193]} |  | 204     | #R52224    | {characters[204]} }}
+{{ #b183   | #R46848    | {characters[183]} |  | #b194   | #R49664    | {characters[194]} |  | #b205   | #R52480    | {characters[205]} }}
+{{ #b184   | #R47104    | {characters[184]} |  | #b195   | #R49920    | {characters[195]} |  | #b206   | #R52736    | {characters[206]} }}
+{{ #b185   | #R47360    | {characters[185]} |  | #b196   | #R50176    | {characters[196]} |  | #b207   | #R52992    | {characters[207]} }}
+{{ #b186   | #R47616    | {characters[186]} |  | #b197   | #R50432    | {characters[197]} |  | #b208   | #R53248    | {characters[208]} }}
+{{ #b187   | #R47872    | {characters[187]} |  | #b198   | #R50688    | {characters[198]} |  | #b209   | #R53504    | {characters[209]} }}
+{{ #b188   | #R48128    | {characters[188]} |  | #b199   | #R50944    | {characters[199]} |  | #b210   | #R53760    | {characters[210]} }}
+{{ #b189   | #R48384    | {characters[189]} |  | #b200   | #R51200    | {characters[200]} |  | #b211   | #R54016    | {characters[211]} }}
+{{ #b190   | #R48640    | {characters[190]} |  | #b201   | #R51456    | {characters[201]} |  | #b212   | #R54272    | {characters[212]} }}
+{{ #b191   | #R48896    | {characters[191]} |  | #b202   | #R51712    | {characters[202]} |  | #b213   | #R54528    | {characters[213]} }}
+{{ #b192   | #R49152    | {characters[192]} |  | #b203   | #R51968    | {characters[203]} |  | #b214   | #R54784    | {characters[214]} }}
+{{ #b193   | #R49408    | {characters[193]} |  | #b204   | #R52224    | {characters[204]} }}
 TABLE#
 
 [Template:cbuffer]

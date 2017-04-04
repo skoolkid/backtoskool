@@ -347,7 +347,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             row_descs = [self.format_template('cbuffer_desc_row', {'t_cbuffer_desc': desc}) for desc in descs[1:]]
             subs = {
                 'rowspan': len(descs),
-                'bytes': byte_nums,
+                'bytes': ','.join([self.b_fmt.format(int(b)) for b in byte_nums.split(',')]),
                 't_cbuffer_desc': descs[0],
                 'm_cbuffer_desc_row': '\n'.join(row_descs)
             }
