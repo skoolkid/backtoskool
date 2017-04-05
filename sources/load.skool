@@ -74,13 +74,13 @@ c23831 DI            ; Disable interrupts
  24052 ADD HL,DE     ; #REGhl=#w23798
  24053 RET           ; Jump to #w23791
 ; Undo some code obfuscation before continuing.
-*23791 LD A,(HL)     ; {Do some XORing on the 49 bytes from #w23798 to #w23846
- 23792 XOR H         ;
+*23791 LD A,(HL)     ; {Do some #S/XOR/-ing on the 49 bytes from #w23798 to
+ 23792 XOR H         ; #w23846
  23793 XOR L         ;
  23794 LD (HL),A     ;
  23795 INC HL        ;
  23796 DJNZ 23791    ; }
-; After the XORing:
+; After the #S/XOR/-ing:
 *23798 EXX           ;
  23799 EX (SP),HL    ; #REGhl'=#w11563
  23800 LD A,H        ; #REGa=#b45
@@ -111,13 +111,13 @@ c23831 DI            ; Disable interrupts
  24052 ADD HL,DE     ; #REGhl=#w23847
  24053 RET           ; Jump to #w23840
 ; Undo some more code obfuscation before continuing.
-*23840 LD A,(HL)     ; {Do some XORing and RLCing on the 217 bytes from #w23847
- 23841 XOR E         ; to #w24063
+*23840 LD A,(HL)     ; {Do some #S/XOR/-ing and #S/RLC/-ing on the 217 bytes
+ 23841 XOR E         ; from #w23847 to #w24063
  23842 RLCA          ;
  23843 LD (HL),A     ;
  23844 INC L         ;
  23845 JR NZ,23840   ; }
-; After the XORing and RLCing:
+; After the #S/XOR/-ing and #S/RLC/-ing:
 *23847 PUSH HL       ; #REGhl=#w23808
  23848 EXX           ;
  23849 POP DE        ; #REGde'=#w23808
@@ -165,9 +165,9 @@ c32768 INC SP        ; {Place the address 0 on the stack above the current
  32793 IN A,(254)    ; }
  32795 RRA           ; Move it to bit 5 of #REGa
  32796 AND A         ; In the analogous ROM routine, the instruction here is
-                     ; 'RET NC', causing a return if BREAK was pressed; in this
-                     ; routine, that behaviour is disabled (pressing BREAK does
-                     ; nothing)
+                     ; '#S/RET NC/', causing a return if BREAK was pressed; in
+                     ; this routine, that behaviour is disabled (pressing BREAK
+                     ; does nothing)
  32797 XOR C         ; {Compare this EAR port reading with the previous one
  32798 AND 32        ; }
  32800 JR Z,32789    ; Jump back if they are the same (i.e. no edge was found)
@@ -273,7 +273,7 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
  32919 LD A,C        ; {Restore the carry flag
  32920 RRA           ; }
  32921 LD C,A        ; Restore #REGc
- 32922 INC DE        ; Compensate for the 'DEC DE' below
+ 32922 INC DE        ; Compensate for the '#S/DEC DE/' below
  32923 JR 32927      ; Jump forward to start loading bytes into memory
 @label=NEXT
 *32925 INC IX        ; #REGix=next address to load the byte from tape into
@@ -307,13 +307,13 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
 ; changed thus:
  32952 JR NZ,32893   ;
 ; At this stage, #w32893 reads as follows:
- 32893 LD (IX-52),L  ; Effectively LD (#n32902),#n32
+ 32893 LD (IX-52),L  ; Effectively #S/LD/ (#n32902),#n32
  32896 EXX           ;
  32897 ADD IX,BC     ; Add 23 to #REGix
  32899 EXX           ;
  32900 SET 7,L       ;
 ; The instruction at #w32893 above changes the instruction at #w32902 from
-; 'LD SP,#n23833' to:
+; '#S/LD SP/,#n23833' to:
  32902 JR NZ,32929   ; Jump forward to load the next byte from the tape
 ; Now 65536 more bytes are loaded, the last of which is at #w32902 (even though
 ; there is one more byte, #w32925, left on the tape: see the
