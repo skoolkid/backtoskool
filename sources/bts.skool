@@ -445,19 +445,19 @@ c20640 LD HL,54784   ; {Fill character buffer #R54784(214) with zeroes
 ;
 ; Used by the routine at #R21408.
 @label=POKETABLE
-b20650 DEFW 24774 ; Change the instruction at #R24774 from NOP to...
- 20652 DEFB 2     ; ...LD (BC),A
- 20653 DEFW 24816 ; Change the instruction at #R24816 from XOR A to...
- 20655 DEFB 26    ; ...LD A,(DE)
+b20650 DEFW 24774 ; Change the instruction at #R24774 from #S/NOP/ to...
+ 20652 DEFB 2     ; ...#S/LD (BC),A/
+ 20653 DEFW 24816 ; Change the instruction at #R24816 from #S/XOR A/ to...
+ 20655 DEFB 26    ; ...#S/LD A,(DE)/
 @ssub=DEFW 27129+1
- 20656 DEFW 27130 ; Change the instruction at #R27129 from LD B,#n32 to...
- 20658 DEFB 8     ; ...LD B,#n8
+ 20656 DEFW 27130 ; Change the instruction at #R27129 from #S/LD B/,#n32 to...
+ 20658 DEFB 8     ; ...#S/LD B/,#n8
 @ssub=DEFW 27426+2
- 20659 DEFW 27428 ; Change the instruction at #R27426 from LD BC,#n0 to...
- 20661 DEFB 64    ; ...LD BC,#n16384
+ 20659 DEFW 27428 ; Change the instruction at #R27426 from #S/LD BC/,#n0 to...
+ 20661 DEFB 64    ; ...#S/LD BC/,#n16384
 @ssub=DEFW 27437+1
- 20662 DEFW 27438 ; Change the instruction at #R27437 from LD C,#n255 to...
- 20664 DEFB 64    ; LD C,#n64
+ 20662 DEFW 27438 ; Change the instruction at #R27437 from #S/LD C/,#n255 to...
+ 20664 DEFB 64    ; ...#S/LD C/,#n64
 
 ; Print a message centred across the entire screen
 ;
@@ -1498,7 +1498,7 @@ c24247 LD HL,32755   ; {Initialise ERIC's main action timer at #R32755 to 5
 @ssub=LD L,32763%256
  24252 LD L,251      ; #REGhl=#R32763 (ERIC's status flags)
  24254 LD (HL),32    ; Set bit 5: ERIC is firing, hitting or kissing
- 24256 POP HL        ; {#REGhl=address of the instruction after the CALL
+ 24256 POP HL        ; {#REGhl=address of the instruction after the #S/CALL/
  24257 LD (32727),HL ; #R24247 that got us here; store this at #R32727 for
                      ; collection later by the routine at #R24237}
  24260 JP 57650      ; Begin the fire/hit/kiss action
@@ -1566,7 +1566,7 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
 *24324 LD A,10       ; #AS10: ERIC lowering the catapult
 @ofix-begin
 @nowarn
- 24326 JR 24289      ; This is a #BUG#fire(bug); it should be JR #R24287
+ 24326 JR 24289      ; This is a #BUG#fire(bug); it should be #S/JR/ #R24287
 @ofix+else
        JR 24287      ; Update ERIC's animatory state and update the SRB
 @ofix+end
@@ -1635,7 +1635,7 @@ c24348 LD HL,53504   ; Point #REGhl at byte 0 of HAYLEY's buffer
 ; already used up all his kisses), and reset otherwise.
 *24378 LD A,1        ; #AS1: ERIC midstride
 @nowarn
- 24380 LD HL,53796   ; At #R53796 lies a RET instruction
+ 24380 LD HL,53796   ; At #R53796 lies a #S/RET/ instruction
  24383 JP NZ,57642   ; Jump if HAYLEY is not kissable at this time
  24386 LD A,(32738)  ; #R32738 holds HAYLEY's kiss counter
  24389 AND A         ; Has ERIC used up all his kisses?
@@ -1864,7 +1864,7 @@ c24576 LD L,1        ; Point #REGhl at byte 1 of the character's buffer
 *24640 LD A,(DE)     ; #REGa=byte already in the UDG buffer
  24641 OR (HL)       ; Superimpose the sprite tile byte
  24642 INC H         ; Point #REGhl' at the outline mask for this tile byte
- 24643 AND (HL)      ; AND with this mask
+ 24643 AND (HL)      ; #S/AND/ with this mask
  24644 INC H         ; Point #REGhl' at the next sprite tile byte
  24645 LD (DE),A     ; Place the resultant byte back in the UDG buffer
  24646 INC E         ; Move #REGde' along the UDG buffer
@@ -1886,7 +1886,7 @@ c24576 LD L,1        ; Point #REGhl at byte 1 of the character's buffer
  24664 LD A,(DE)     ; }
  24665 LD C,A        ; {#REGa=mirror image of this mask
  24666 LD A,(BC)     ; }
- 24667 AND (HL)      ; AND it with what's in the UDG buffer
+ 24667 AND (HL)      ; #S/AND/ it with what's in the UDG buffer
  24668 LD (HL),A     ; Place the result in the UDG buffer
  24669 INC D         ; Next sprite tile byte
  24670 INC L         ; Next byte of the UDG buffer
@@ -2026,7 +2026,7 @@ c24684 PUSH HL       ;
  24744 AND 3         ; #REGa=0, 1, 2 or 3
  24746 JR NZ,24750   ; Jump if the INK is blue, red, or magenta
  24748 ADD A,2       ; A=2: INK 2 (red)
-*24750 OR L          ; OR on the PAPER colour and BRIGHT status
+*24750 OR L          ; #S/OR/ on the PAPER colour and BRIGHT status
  24751 DEC H         ; #REGh=Y+160
  24752 JR 24774      ; Jump forward to transfer the attribute byte in #REGa
                      ; onto the screen
@@ -2053,13 +2053,13 @@ c24684 PUSH HL       ;
  24773 ADD A,A       ; }
 *24774 NOP           ; Do nothing (during the startup sequence), or poke the
                      ; attribute byte onto the screen (this instruction is set
-                     ; to LD (BC),A before the game starts; see #R21408)
+                     ; to #S/LD (BC),A/ before the game starts; see #R21408)
 ; The appropriate attribute byte has been poked onto the screen. Now to find
 ; the appropriate tile graphic data.
  24775 LD L,E        ; #REGl=Q (0<=Q<=143), #REGh=Y+160
  24776 LD E,(HL)     ; #REGe=LSB of the base address of the tile graphic data
  24777 LD A,136      ; #REGa=10001000
- 24779 SRL L         ; {Shift #REGa right (Q AND 3) times
+ 24779 SRL L         ; {Shift #REGa right (Q #S/AND/ 3) times
  24781 JR NC,24784   ;
  24783 RRCA          ;
 *24784 SRL L         ;
@@ -2086,7 +2086,7 @@ c24684 PUSH HL       ;
  24814 LD B,8        ; buffer at #R57712}
 *24816 XOR A         ; Use a blank graphic byte (during startup), or collect
                      ; the tile graphic byte (this instruction is set to
-                     ; LD A,(DE) before the game starts; see #R21408)
+                     ; #S/LD A,(DE)/ before the game starts; see #R21408)
  24817 INC D         ; Point #REGde at the next graphic byte
  24818 LD (HL),A     ; Copy the graphic byte into the back buffer
  24819 INC L         ; Move to the next slot in the back buffer
@@ -2764,7 +2764,7 @@ c25296 CALL 25302    ; Move one character
  25427 DEC L         ; from bytes 23 and 24 of the character's buffer into
  25428 LD C,(HL)     ; #REGbc and push it onto the stack
  25429 PUSH BC       ; }
- 25430 RET           ; JP (BC) and then return to #R25431 below
+ 25430 RET           ; #S/JP (BC)/ and then return to #R25431 below
 *25431 POP HL        ; Restore the character number to #REGh
 ; This entry point is used by the routine at #R25492.
 *25432 LD L,10       ; {Jump if there is an interruptible subcommand routine
@@ -2887,7 +2887,7 @@ c25503 LD L,9        ; {Copy the routine address from #REGbc into bytes 9 and
 @rsub-begin
 ; This entry point is used by the (unused) routine at #R25525 with #REGl=9.
 @rsub-end
-*25514 LD B,H        ; Now #REGbc=address of the instruction after the CALL
+*25514 LD B,H        ; Now #REGbc=address of the instruction after the #S/CALL/
                      ; that got us here
  25515 LD H,A        ; #REGh=character number
 ; This entry point is used by the routine at #R25520 with #REGl=9 and
@@ -4073,7 +4073,7 @@ c26380 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  26404 RLCA          ; character square to be refreshed)
  26405 RLCA          ; }
  26406 LD E,A        ; Store this in #REGe temporarily
- 26407 AND 56        ; {Set the instruction at #R26428 below to SET n,(HL)
+ 26407 AND 56        ; {Set the instruction at #R26428 below to #S/SET n,(HL)/
  26409 CPL           ; where n is the appropriate bit in the SRB byte
  26410 DEC A         ;
 @ssub=LD (26428+1),A
@@ -4105,8 +4105,8 @@ c26380 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  26441 LD A,254      ; Otherwise set bit 7 in this SRB byte
 *26443 OR 192        ;
 @ssub=LD (26448+1),A
- 26445 LD (26449),A  ; Set the instruction at #R26448 below to SET m,(HL) where
-                     ; m is the appropriate bit in the SRB byte
+ 26445 LD (26449),A  ; Set the instruction at #R26448 below to #S/SET m,(HL)/
+                     ; where m is the appropriate bit in the SRB byte
 @label=BOARDSRB2
  26448 SET 0,(HL)    ; Set the appropriate bit in the SRB byte for the
                      ; rightmost character square that needs refreshing; this
@@ -4268,9 +4268,9 @@ c26513 CALL 26318    ; #REGa=ASCII code of the next character from the message
  26570 LD E,A        ; next character will be written}
  26571 CALL 26380    ; Update the SRB for this blackboard
  26574 LD A,(BC)     ; #REGa=current pixel column number on the blackboard
- 26575 AND 7         ; {Modify the RES n,(HL) instruction at #R26609 below to
- 26577 ADD A,A       ; reset the appropriate bit for the current pixel column
- 26578 ADD A,A       ;
+ 26575 AND 7         ; {Modify the #S/RES n,(HL)/ instruction at #R26609 below
+ 26577 ADD A,A       ; to reset the appropriate bit for the current pixel
+ 26578 ADD A,A       ; column
  26579 ADD A,A       ;
  26580 CPL           ;
  26581 SUB 65        ;
@@ -4308,8 +4308,8 @@ c26513 CALL 26318    ; #REGa=ASCII code of the next character from the message
 *26611 INC H         ; Next row of the blackboard tile UDG
  26612 DJNZ 26606    ; Jump back until all 8 rows are done
 @ssub=LD A,(26609+1)
- 26614 LD A,(26610)  ; {Change the RES n,(HL) instruction at #R26609 above to
- 26617 OR 64         ; RES n-1,(HL) if n>0, or RES 7,(HL) if n=0
+ 26614 LD A,(26610)  ; {Change the #S/RES n,(HL)/ instruction at #R26609 above
+ 26617 OR 64         ; to #S/RES n-1,(HL)/ if n>0, or #S/RES 7,(HL)/ if n=0
  26619 SUB 8         ;
  26621 AND 191       ;
 @ssub=LD (26609+1),A
@@ -4786,8 +4786,8 @@ c27110 LD E,A        ; #REGe=ASCII code (32-127)
  27126 PUSH HL       ;
  27127 LD C,8        ; 8 pixels per column
 *27129 LD B,32       ; 32 (during startup) or 8 bytes per pixel row (this
-                     ; instruction is set to LD B,#n8 before the game starts;
-                     ; see #R21408)
+                     ; instruction is set to #S/LD B/,#n8 before the game
+                     ; starts; see #R21408)
  27131 RRCA          ; Push a pixel into the carry flag
 *27132 RL (HL)       ; {Drag the pixel into the message buffer and shove the
  27134 DEC HL        ; existing pixels one place to the left
@@ -5098,7 +5098,7 @@ c27419 LD (54795),DE ; Save the message address in bytes 11 and 12 of the
  27425 POP HL        ; }
 @label=BUFSIZE
  27426 LD BC,0       ; #REGb=0 (during startup) or 64, #REGc=0 (this
-                     ; instruction is set to LD BC,#n16384 before the game
+                     ; instruction is set to #S/LD BC/,#n16384 before the game
                      ; starts; see #R21408)
 *27429 LD (HL),C     ; {Create 64 (or 256) empty pixel columns in the buffer
  27430 INC HL        ;
@@ -5109,8 +5109,8 @@ c27419 LD (54795),DE ; Save the message address in bytes 11 and 12 of the
                      ; to process the message
 @label=TXTWIDTH
  27437 LD C,255      ; The message box is 255 (during startup) or 64 pixels
-                     ; wide (this instruction is set to LD C,#n64 before the
-                     ; game starts; see #R21408)
+                     ; wide (this instruction is set to #S/LD C/,#n64 before
+                     ; the game starts; see #R21408)
 *27439 CALL 26318    ; #REGa=ASCII code of the next character in the message
  27442 CP 3          ; Is the ASCII code 0, 1 or 2 (end of line)?
  27444 JR C,27451    ; Jump if so to centre the text
@@ -5461,7 +5461,7 @@ c27672 LD A,(HL)     ; {Pick up the y-coordinate (Y) in #REGd
  27768 LD A,C        ; #REGa=Q
  27769 LD C,136      ; #REGc=10001000
  27771 SRL A         ; {Set #REGa=INT(Q/4), and shift #REGb and #REGc right
- 27773 JR NC,27779   ; (Q AND 3) times
+ 27773 JR NC,27779   ; (Q #S/AND/ 3) times
  27775 RRC B         ;
  27777 RRC C         ;
 *27779 SRL A         ;
@@ -6363,14 +6363,14 @@ s28657 DEFB 0
 ;
 ; H Teacher's character number (201-204)
 @label=BOARDID2
-c28658 LD A,12       ; {Change the instruction at #R26476 to ADD A,12 (for the
+c28658 LD A,12       ; {Change the instruction at #R26476 to #S/ADD A/,#n12
 @ssub=LD (26476+1),A
- 28660 LD (26477),A  ; purpose of this routine, a teacher is considered to be
-                     ; standing next to a blackboard if he's within 12 spaces
-                     ; to the right of its left edge)}
+ 28660 LD (26477),A  ; (for the purpose of this routine, a teacher is
+                     ; considered to be standing next to a blackboard if he's
+                     ; within 12 spaces to the right of its left edge)}
  28663 CALL 26453    ; Collect information about the blackboard the teacher is
                      ; standing next to
- 28666 LD A,4        ; {Change the instruction at #R26476 back to ADD A,4
+ 28666 LD A,4        ; {Change the instruction at #R26476 back to #S/ADD A/,#n4
 @ssub=LD (26476+1),A
  28668 LD (26477),A  ; }
  28671 RET           ;
@@ -8138,7 +8138,7 @@ s30532 DEFS 2
 ;
 ; Used by the routines at #R24328, #R27904, #R30380, #R30555, #R30643, #R30739,
 ; #R30804, #R62178, #R63586, #R63801, #R63915 and #R64077 to place the address
-; of the instruction following CALL #R30534 into bytes 17 and 18 of the
+; of the instruction following #S/CALL/ #R30534 into bytes 17 and 18 of the
 ; character's buffer. Thus that address becomes the address of the character's
 ; current uninterruptible subcommand routine.
 ;
@@ -8203,8 +8203,8 @@ c30555 LD A,(54546)  ; Pick up byte 18 of buffer 213 (BOY WANDER's pellet)
  30581 RET C         ; Return if so
  30582 POP BC        ; Drop the return address (#R25431)
  30583 POP BC        ; Pop the value of #REGhl that was pushed on to the stack
-                     ; by the routine at #R25296 before coming here; RET will
-                     ; now take us back either to #R25296 to move the next
+                     ; by the routine at #R25296 before coming here; #S/RET/
+                     ; will now take us back either to #R25296 to move the next
                      ; character, or to the main loop
  30584 CALL 25012    ; Update the SRB for BOY WANDER's current animatory state
                      ; and location
@@ -8359,8 +8359,8 @@ c30706 LD L,0        ; Byte 0 of ANGELFACE's buffer holds his animatory state
  30729 RET C         ; Return if not
  30730 POP BC        ; Drop the return address (#R25431)
  30731 POP BC        ; Pop the value of #REGhl that was pushed on to the stack
-                     ; by the routine at #R25296 before coming here; RET will
-                     ; now take us back either to #R25296 to move the next
+                     ; by the routine at #R25296 before coming here; #S/RET/
+                     ; will now take us back either to #R25296 to move the next
                      ; character, or to the main loop
 @nowarn
  30732 LD HL,30739   ; {Place the address of the uninterruptible subcommand
@@ -9240,8 +9240,8 @@ c31573 LD L,0        ; Point #REGhl at byte 0 of ERIC's buffer
 ; the the new free mouse to 170 provided that X<128, or try again with a new
 ; random number (R) if X>=128. However, at this point #REGhl may have been set
 ; to #w32522 (byte 10 of the #R32512(screen refresh buffer)) or #w32600 (byte 4
-; of the #R32596(buffer for the Blue Room blackboard)) by the LD L,#n10 or
-; LD L,#n88 instruction below, and so the contents of #w32522 or #w32600
+; of the #R32596(buffer for the Blue Room blackboard)) by the #S/LD L/,#n10 or
+; #S/LD L/,#n88 instruction below, and so the contents of #w32522 or #w32600
 ; (instead of X at #R32767) may be compared with 128. Thus it is possible for
 ; the new free mouse to appear at x-coordinate 170 even when X>=128, which
 ; means it could appear on-screen. This is a #BUG#rematerialisingMouse(bug).
@@ -15232,8 +15232,8 @@ b53760 DEFS 32
 ; Used by the routines at #R24348 and #R62910, and by command lists #R51516(0),
 ; #R51772(2), #R52028(4), #R52284(6), #R52540(8), #R58768(32), #R58779(34),
 ; #R59488(46), #R59499(48), #R59519(50) and #R59530(52) to make a character do
-; nothing. The RET instruction is located in ERIC's buffer at byte 36, which is
-; otherwise unused.
+; nothing. The #S/RET/ instruction is located in ERIC's buffer at byte 36,
+; which is otherwise unused.
 @label=DONOWT
 c53796 RET           ; Return having done nothing
 
@@ -18795,7 +18795,7 @@ c61512 LD A,(53248)  ; Pick up EINSTEIN's current animatory state in #REGa
 @keep
  61520 LD DE,65533   ; #REGde=-3
  61523 POP BC        ; Drop the return address from the stack into #REGbc
- 61524 EX DE,HL      ; {Set #REGde to the address of the CALL #R61512
+ 61524 EX DE,HL      ; {Set #REGde to the address of the #S/CALL/ #R61512
  61525 ADD HL,BC     ; instruction in the calling routine
  61526 EX DE,HL      ; }
  61527 LD L,3        ; {Place this address into bytes 3 and 4 of the teacher's
@@ -19094,12 +19094,12 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 ; Now is EINSTEIN's opportunity to grass on someone for writing on the
 ; blackboard.
 @rfix-begin
-; However, the opportunity is wasted, because the CALL to #R26453 (at #R61852
-; below) returns a valid blackboard ID only if the character is standing within
-; four spaces of the left edge of the blackboard, which is not the case when
-; the teacher is waiting for EINSTEIN to grass (teachers stand at the right
-; edge of the blackboard for that, more than four spaces away). This is a
-; #BUG#noBlackboardTales(bug).
+; However, the opportunity is wasted, because the #S/CALL/ to #R26453 (at
+; #R61852 below) returns a valid blackboard ID only if the character is
+; standing within four spaces of the left edge of the blackboard, which is not
+; the case when the teacher is waiting for EINSTEIN to grass (teachers stand at
+; the right edge of the blackboard for that, more than four spaces away). This
+; is a #BUG#noBlackboardTales(bug).
 *61852 CALL 26453    ; Collect information about the blackboard
 @ignoreua
  61855 INC B         ; {The intent here is to point #REGbc at the second byte
@@ -19361,8 +19361,8 @@ c62094 LD HL,32733   ; #R32733 holds ERIC's knockout delay counter
  62141 CALL 24880    ; Update ERIC's animatory state and update the SRB
  62144 CALL 25248    ; Update the display
 ; Now to initialise the sound effect parameters.
-*62147 LD HL,275     ; #REGh=1 (pitch adjustment), #REGl=19 (border colour XOR
-                     ; mask)
+*62147 LD HL,275     ; #REGh=1 (pitch adjustment), #REGl=19 (border colour
+                     ; #S/XOR/ mask)
 ; This entry point is used by the routine at #R23907 with #REGh=2 and #REGl=22.
 *62150 LD DE,0       ; #REGd=0 (duration), #REGe=0 (initial pitch)
  62153 LD A,2        ; #REGa=2 (initial border colour)
@@ -20155,12 +20155,13 @@ c62910 LD H,135      ; {The blackboards use UDGs 0-79 (0-15 for the Blue Room
  63046 LDIR          ; }
  63048 EX DE,HL      ;
 @ssub=LD (HL),53796%256
- 63049 LD (HL),36    ; {Place the address of the routine at #R53796 (RET) into
- 63051 INC L         ; bytes 3 and 4 of the character's buffer (thus making it
+ 63049 LD (HL),36    ; {Place the address of the routine at #R53796 (#S/RET/)
+ 63051 INC L         ; into bytes 3 and 4 of the character's buffer (thus
 @ssub=LD (HL),53796/256
- 63052 LD (HL),210   ; the character's primary command; this is useful only for
-                     ; the non-human characters, which do not use command lists
-                     ; and therefore need a default primary command)}
+ 63052 LD (HL),210   ; making it the character's primary command; this is
+                     ; useful only for the non-human characters, which do not
+                     ; use command lists and therefore need a default primary
+                     ; command)}
  63054 INC L         ; #REGl=5
  63055 EX DE,HL      ;
  63056 LD B,24       ; {Zero out bytes 5-28 of the character's buffer
@@ -20647,7 +20648,7 @@ c63501 LD A,(32740)  ; #REGa=MSB of the lesson clock (which starts off at 16)
 ;
 ; DE #w16384 or #w16415
 @label=LRSCROLL
-c63512 LD B,0        ; #REGbc will be used as the counter for the LDIR/LDDR
+c63512 LD B,0        ; #REGbc will be used as the counter for the #S|LDIR/LDDR|
                      ; instruction at #R63526; initialise the MSB to 0
  63514 EXX           ;
  63515 LD C,21       ; There are 21 rows to scroll (the bottom 3 rows of the
@@ -20657,16 +20658,16 @@ c63512 LD B,0        ; #REGbc will be used as the counter for the LDIR/LDDR
  63520 LD H,D        ; {Copy the display file address from #REGde to #REGhl
  63521 LD L,E        ; }
 @label=SCRL1
- 63522 INC L         ; This instruction is set to INC L if we're scrolling to
-                     ; the left, or DEC L if we're scrolling to the right (see
-                     ; #R63561)
+ 63522 INC L         ; This instruction is set to #S/INC L/ if we're scrolling
+                     ; to the left, or #S/DEC L/ if we're scrolling to the
+                     ; right (see #R63561)
  63523 LD A,E        ; Save the LSB of the display file address in #REGa
                      ; briefly
  63524 LD C,31       ; 31 bytes to shift per pixel line
 @label=SCRL2
- 63526 LDIR          ; This instruction is set to LDIR if we're shifting to the
-                     ; left, or LDDR if we're shifting to the right (see
-                     ; #R63561)
+ 63526 LDIR          ; This instruction is set to #S/LDIR/ if we're shifting to
+                     ; the left, or #S/LDDR/ if we're shifting to the right
+                     ; (see #R63561)
  63528 LD E,A        ; Restore the LSB of the display file address to #REGe
  63529 INC D         ; Point #REGde at the first (or last) byte of the next
                      ; pixel line in this row
@@ -20694,7 +20695,8 @@ c63512 LD B,0        ; #REGbc will be used as the counter for the LDIR/LDDR
 ; Used by the routine at #R25026.
 @label=LSCROLL
 @keep
-c63553 LD BC,45100   ; #REGc=44 (INC L), #REGb=176 (LDIR after EDh)
+c63553 LD BC,45100   ; #REGc=#b44 (#S/INC L/), #REGb=#b176 (#S/LDIR/ after
+                     ; #b237)
  63556 LD DE,16384   ; Initialise #REGde to the appropriate display file
                      ; address
  63559 JR 63567      ;
@@ -20704,16 +20706,17 @@ c63553 LD BC,45100   ; #REGc=44 (INC L), #REGb=176 (LDIR after EDh)
 ; Used by the routine at #R25080.
 @label=RSCROLL
 @keep
-c63561 LD BC,47149   ; #REGc=45 (DEC L), #REGb=184 (LDDR after EDh)
+c63561 LD BC,47149   ; #REGc=#b45 (#S/DEC L/), #REGb=#b184 (#S/LDDR/ after
+                     ; #b237)
  63564 LD DE,16415   ; Initialise #REGde to the appropriate display file
                      ; address
-; This entry point is used by the routine at #R63553 with #REGc=44 (INC L),
-; #REGb=176 (LDIR after EDh), and #REGde=16384.
+; This entry point is used by the routine at #R63553 with #REGc=#b44
+; (#S/INC L/), #REGb=#b176 (#S/LDIR/ after #b237), and #REGde=#w16384.
 @nowarn
-*63567 LD HL,63522   ; {Set the instruction at #R63522 to INC L or DEC L, and
- 63570 LD (HL),C     ; the instruction at #R63526 to LDIR or LDDR
+*63567 LD HL,63522   ; {Set the instruction at #R63522 to #S/INC L/ or
+ 63570 LD (HL),C     ; #S/DEC L/, and the instruction at #R63526 to #S/LDIR/ or
 @ssub=LD L,(63526+1)%256
- 63571 LD L,39       ;
+ 63571 LD L,39       ; #S/LDDR/
  63573 LD (HL),B     ; }
  63574 JR 63512      ; Scroll the display file one column left or right
 
@@ -20798,7 +20801,7 @@ c63586 LD HL,32747   ; #R32747 holds the inventory flags
 @rsub-begin
  63649 LD L,0        ; Point #REGhl at byte 0 of the cloud's buffer
  63651 BIT 0,(HL)    ; {Bit 0 of the cloud's animatory state (#AS71(#b71 or
- 63653 RET Z         ; #b199)) is always set, so this RET never happens}
+ 63653 RET Z         ; #b199)) is always set, so this #S/RET/ never happens}
 @rsub-end
  63654 INC L         ; #REGl=1
  63655 LD A,(HL)     ; #REGa=stinkbomb cloud's x-coordinate
@@ -21159,7 +21162,7 @@ b64000 DEFB 17,132,223,196,17,133,240,196,17,134,241,196,17,135,242,196
 @label=WATER2
 c64057 JR NC,64061   ; Jump if the water is travelling to the left
  64059 SUB C         ; Add 0, 1 or 2 to the water's current x-coordinate
- 64060 SUB C         ; Do the same again to compensate for the ADD A,C
+ 64060 SUB C         ; Do the same again to compensate for the #S/ADD A,C/
                      ; instruction below
 *64061 ADD A,C       ; Now #REGa=new x-coordinate for the water
  64062 LD E,A        ; Copy this to #REGe
