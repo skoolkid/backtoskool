@@ -376,6 +376,7 @@ d26429 DEFB 198 ; 26428 SET 0,(HL)
 @replace=/#FACT(?![A-Z])/#LINK:Facts
 @replace=/#POKE(?![A-Z])/#LINK:Pokes
 @replace=/#n\i/#N\1,,,1($)
+@replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 @writer=:backtoskool.BackToSkoolAsmWriter
@@ -453,7 +454,7 @@ b20650 DEFW 24774 ; Change the instruction at #R24774 from #S/NOP/ to...
  20656 DEFW 27130 ; Change the instruction at #R27129 from #S/LD B/,#n32 to...
  20658 DEFB 8     ; ...#S/LD B/,#n8
 @ssub=DEFW 27426+2
- 20659 DEFW 27428 ; Change the instruction at #R27426 from #S/LD BC/,#n0 to...
+ 20659 DEFW 27428 ; Change the instruction at #R27426 from #S/LD BC/,#nn0 to...
  20661 DEFB 64    ; ...#S/LD BC/,#n16384
 @ssub=DEFW 27437+1
  20662 DEFW 27438 ; Change the instruction at #R27437 from #S/LD C/,#n255 to...
