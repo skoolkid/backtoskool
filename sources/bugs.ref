@@ -501,9 +501,9 @@ If ERIC jumps continuously (hold 'J' down) during class, EINSTEIN will tell the
 teacher that ERIC is absent.
 
 This is a consequence of the zero flag being set upon entry to the routine at
-#R28085, which forces an early return with #REGd=17, indicating that ERIC is on
-the bottom floor (even though he isn't). In this case, the zero flag is set by
-the 'CP 52' instruction at #R61515.
+#R28085, which forces an early return with #REGd=#b17, indicating that ERIC is
+on the bottom floor (even though he isn't). In this case, the zero flag is set
+by the '#S/CP/ #n52' instruction at #R61515.
 
 POKE 28086,254
 
@@ -514,9 +514,9 @@ dinner hall. When the teacher on dinner duty comes and finds ERIC there, jump
 thinking that ERIC is back there too.
 
 This is another consequence of the zero flag being set upon entry to the
-routine at #R28085, which forces an early return with #REGd=17, indicating that
-ERIC is on the bottom floor (even though he isn't). In this case, the zero flag
-is set by the 'BIT 0,(HL)' instruction at #R61608.
+routine at #R28085, which forces an early return with #REGd=#b17, indicating
+that ERIC is on the bottom floor (even though he isn't). In this case, the zero
+flag is set by the '#S/BIT 0,(HL)/' instruction at #R61608.
 
 POKE 28086,254
 
@@ -527,9 +527,9 @@ will then return to the assembly hall, tricked into thinking that ERIC is back
 there too.
 
 This is yet another consequence of the zero flag being set upon entry to the
-routine at #R28085, which forces an early return with #REGd=17, indicating that
-ERIC is on the bottom floor (even though he isn't). In this case, the zero flag
-is set by the 'BIT 0,(HL)' instruction at #R61608.
+routine at #R28085, which forces an early return with #REGd=#b17, indicating
+that ERIC is on the bottom floor (even though he isn't). In this case, the zero
+flag is set by the '#S/BIT 0,(HL)/' instruction at #R61608.
 
 POKE 28086,254
 
@@ -543,8 +543,8 @@ into thinking that ERIC is on the bottom floor, and so starts heading for the
 nearest staircase.
 
 This is one more (less dramatic) consequence of the zero flag being set upon
-entry to the routine at #R28085, which forces an early return with #REGd=17,
+entry to the routine at #R28085, which forces an early return with #REGd=#b17,
 indicating that ERIC is on the bottom floor (even though he isn't). In this
-case, the zero flag is set by the 'CP 4' instruction at #R25986.
+case, the zero flag is set by the '#S/CP/ #n4' instruction at #R25986.
 
 POKE 28086,254
