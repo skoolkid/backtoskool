@@ -21,11 +21,11 @@ saves the fast code block to tape:
 
 POKE 29387,80: POKE 29391,45
 
-These POKEs set the instruction at #R29130 to 'LD L,#n80' and the instruction
-at #R29135 to 'DEC L'. (The contents of addresses #w24832-#w32767 are shifted
-down by 256 bytes to #w24576 by the startup routine at #R33204@start before the
-game starts.) Which makes one wonder what these instructions were before they
-were POKEd.
+These POKEs set the instruction at #R29130 to '#S/LD L/,#n80' and the
+instruction at #R29135 to '#S/DEC L/'. (The contents of addresses
+#w24832-#w32767 are shifted down by 256 bytes to #w24576 by the startup routine
+at #R33204@start before the game starts.) Which makes one wonder what these
+instructions were before they were POKEd.
 
 As it turns out, some tapes of Back to Skool were released that are missing
 line 33 in the BASIC saver program, and contain #b79 at address #w29387
@@ -33,15 +33,15 @@ line 33 in the BASIC saver program, and contain #b79 at address #w29387
 corresponding section of code looks like this:
 
 #TABLE(asm,address-1,instruction,comment-11)
-{ #w29124 | IN A,(#n31)  | }
-{ #w29126 | AND #n31     | Any input from the joystick? }
-{ #w29128 | JR Z,#n29154 | Jump if not }
-{ #w29130 | LD L,#n79    | #b79='O' (LEFT) }
-{ #w29132 | RRCA         | }
-{ #w29133 | JR C,#n29151 | Jump if the joystick was moved right }
-{ #w29135 | INC L        | #REGl=#b80='P' (RIGHT) }
-{ #w29136 | RRCA         | }
-{ #w29137 | JR C,#n29151 | Jump if the joystick was moved left }
+{ #w29124 | #S/IN A/,(#n31)  | }
+{ #w29126 | #S/AND/ #n31     | Any input from the joystick? }
+{ #w29128 | #S/JR Z/,#n29154 | Jump if not }
+{ #w29130 | #S/LD L/,#n79    | #b79='O' (LEFT) }
+{ #w29132 | #S/RRCA/         | }
+{ #w29133 | #S/JR C/,#n29151 | Jump if the joystick was moved right }
+{ #w29135 | #S/INC L/        | #REGl=#b80='P' (RIGHT) }
+{ #w29136 | #S/RRCA/         | }
+{ #w29137 | #S/JR C/,#n29151 | Jump if the joystick was moved left }
 TABLE#
 
 This code makes ERIC move left when the Kempston joystick is moved right, and
