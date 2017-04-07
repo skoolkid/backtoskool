@@ -81,7 +81,7 @@ it out:
 POKE #R46544(46544),43
 
 This removes the first PLAYTIME that normally takes place when starting the
-game for the first time and replaces it with lesson 43.
+game for the first time and replaces it with lesson #b43.
 
 [Fact:invulnerableMoments:Invulnerable moments]
 ERIC can usually throw a punch or fire his catapult and be confident that the
@@ -175,12 +175,13 @@ random walkabouts.
 
 [Fact:initialPlaytimes:Initial playtimes]
 When demo mode or a new game starts, the timetable index is always
-#R46528#46528(192), #R46536(200), #R46544(208), #R46552(216), #R46560(224),
-#R46568(232), #R46576(240) or #R46584(248) (which are all playtime, of course).
+#R46528#46528(#b192), #R46536(#b200), #R46544(#b208), #R46552(#b216),
+#R46560(#b224), #R46568(#b232), #R46576(#b240) or #R46584(#b248) (which are all
+playtime, of course).
 
 When demo mode starts for the first time after the game has loaded, the
-timetable index is #R46536(200). When a new game is started as soon as possible
-after the game has loaded, the timetable index is #R46544(208).
+timetable index is #R46536(#b200). When a new game is started as soon as
+possible after the game has loaded, the timetable index is #R46544(#b208).
 
 [Fact:playtimeDistribution:Playtime distribution]
 Understandably, ERIC is always eager for playtime to come, but the number of
@@ -189,10 +190,10 @@ tolerate between each break varies between two and four throughout the
 #R46528(main timetable).
 
 #LIST
-{ There are two periods between playtimes at timetable indexes #R46533(198-199)
-  and #R46549(214-215) }
+{ There are two periods between playtimes at timetable indexes
+  #R46533(#b198-#b199) and #R46549(#b214-#b215) }
 { There are four periods between playtimes at timetable indexes
-  #R46528#46528(193-196) and #R46544(209-212) }
+  #R46528#46528(#b193-#b196) and #R46544(#b209-#b212) }
 { There are three periods between all the other playtimes }
 LIST#
 
@@ -208,33 +209,33 @@ built in for opening and closing it (see #R56893, for example). To bring the
 door into service, try #POKE#leftStudyDoor(these POKEs).
 
 [Fact:bottomlessBoxes:Bottomless boxes]
-Play area tiles 1, 11, 21 and 30 in base page 144 are unused:
+Play area tiles #b1, #b11, #b21 and #b30 in base page #b144 are unused:
 
 #UDGTABLE(gallery)
 { #UDG36865,,,256 | #UDG36875,,,256 | #UDG36885,,,256 | #UDG36894,,,256 }
-{ 1 | 11 | 21 | 30 }
+{ #b1 | #b11 | #b21 | #b30 }
 TABLE#
 
 However, there is evidence that they were used at one time and were later
 discarded. The evidence lies in columns 88-92 of the play area, which contain
-tiles mostly from the tail end of base page 136 and the beginning of base page
-144. The usage of tiles from base page 144 in each column is as follows:
+tiles mostly from the tail end of base page #b136 and the beginning of base
+page #b144. The usage of tiles from base page 144 in each column is as follows:
 
 #TABLE(boxData,centre)
 { =h x | =h Tiles used }
-{ 88   | 0, 2-5, 40 }
-{ 89   | 6-10, 12, 13, 40 }
-{ 90   | 14-20, 40 }
-{ 91   | 22-29, 40 }
-{ 92   | 31-45 }
+{ 88   | #b0, #b2-#b5, #b40 }
+{ 89   | #b6-#b10, #b12, #b13, #b40 }
+{ 90   | #b14-#b20, #b40 }
+{ 91   | #b22-#b29, #b40 }
+{ 92   | #b31-#b45 }
 TABLE#
 
-Note the gaps where tiles 1, 11, 21 and 30 seem to be missing from columns
-88-91, and tile 40 is present instead. Furthermore, tile 40 is used at the same
-y-coordinate (14) in each of those columns. So what would the relevant region
-of the play area - on the middle floor next to the window at the right end of
-the boys' skool - look like if tiles 1, 11, 21 and 30 were used instead of tile
-40? Here are the 'before' and 'after' pictures:
+Note the gaps where tiles #b1, #b11, #b21 and #b30 seem to be missing from
+columns 88-91, and tile #b40 is present instead. Furthermore, tile #b40 is used
+at the same y-coordinate (14) in each of those columns. So what would the
+relevant region of the play area - on the middle floor next to the window at
+the right end of the boys' skool - look like if tiles #b1, #b11, #b21 and #b30
+were used instead of tile 40? Here are the 'before' and 'after' pictures:
 
 #PUSHS
 #UDGTABLE(gallery)
@@ -247,8 +248,8 @@ TABLE#
 To my eye, the 'after' picture looks nicer: the bottoms of the boxes (or
 whatever those objects are) no longer look as if they've been chopped off.
 
-So why were tiles 1, 11, 21 and 30 left unused? Probably because when they
-<em>are</em> used, the bottoms of the boxes appear under the feet of any
+So why were tiles #b1, #b11, #b21 and #b30 left unused? Probably because when
+they <em>are</em> used, the bottoms of the boxes appear under the feet of any
 characters walking past, which looks a bit wrong:
 
 #CALL:hide_chars()
@@ -258,7 +259,7 @@ characters walking past, which looks a bit wrong:
 TABLE#
 #POPS
 
-To use tiles 1, 11, 21 and 30:
+To use tiles #b1, #b11, #b21 and #b30:
 
 POKE 44626,1: POKE 44627,11: POKE 44628,21: POKE 44629,30
 
@@ -352,7 +353,7 @@ points, and a unique sound effect is played. See the section of code at
 
 [Fact:bullyHeroine:ANGELFACE hates HAYLEY]
 During some playtimes, ANGELFACE specifically hunts down HAYLEY for the sole
-purpose of hitting her (see command list #R58844(44)). Which is bad, because
+purpose of hitting her (see command list #R58844(#b44)). Which is bad, because
 ERIC's chances of scoring a kiss diminish every time HAYLEY hits the floor (see
 below).
 
@@ -418,7 +419,7 @@ the girls' skool after releasing a bunch of mice, they'll all be dead before
 you reach the far left end of the boys' skool. See #R31254.
 
 Don't bother trying to catch any of the mice released by ERIC: they cannot be
-re-caught. Only the 'main' mouse (using buffer 212) can ever be caught. See
+re-caught. Only the 'main' mouse (using buffer #b212) can ever be caught. See
 #R31573.
 
 The aforementioned 'main' mouse always begins life in a new game at coordinates

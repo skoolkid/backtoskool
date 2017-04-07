@@ -58,8 +58,9 @@ SectionType=BulletPoints
 - Added a trivia entry: #FACT#slashDot()
 - In the #FACT#saverPokes() trivia entry, added an explanation of line 33 of
   the BASIC saver program
-- Fixed the entries for the characters '#CHR8593' (code 94) and '#CHR163' (code
-  96) in the #LINK:Keys(keypress table) and the #R58624(keypress offset table)
+- Fixed the entries for the characters '#CHR8593' (code #b94) and '#CHR163'
+  (code #b96) in the #LINK:Keys(keypress table) and the #R58624(keypress offset
+  table)
 
 [Changelog:20120411]
 -
@@ -72,10 +73,10 @@ SectionType=BulletPoints
 -
 
 - Added a trivia entry: #FACT#bottomlessBoxes()
-- Added images of unused play area tiles in base page 144 to the entry at
+- Added images of unused play area tiles in base page #b144 to the entry at
   #R36864
 - Added comments to the entries containing graphic data for play area tiles
-  0-223 (base page 152) describing unused tiles (e.g. see #R38912)
+  #b0-#b223 (base page #b152) describing unused tiles (e.g. see #R38912)
 - Added an explanation of the significance of Q values in determining the
   appearance of the play area (see #R24684 and #R46336)
 - Removed leading zeroes from bytes in DEFB statements
@@ -116,7 +117,7 @@ Included in SkoolKit 2.0.
 - Moved all the startup routines and data blocks (resident in the display file)
   from the main disassembly to the startup code disassembly
 - Fixed the comments about modified instructions in the POKE table at #R20650
-- Marked bytes 73-75 in pages 183-198 as unused
+- Marked bytes #b73-#b75 in pages #b183-#b198 as unused
 
 [Changelog:20101111]
 Included in SkoolKit 1.4.
@@ -196,9 +197,9 @@ Included in SkoolKit 1.0.
   - #POKE#ringBell()
   - #POKE#alwaysRun()
 - Supplied missing entries to the #LINK:CharacterBuffers(character buffer
-  documentation) for bytes 11-14, 19, 21 and 22
+  documentation) for bytes #b11-#b14, #b19, #b21 and #b22
 - Added command list usage info to the command list entries (e.g. see command
-  list #R58828(42))
+  list #R58828(#b42))
 - Added an entry for the message graphic buffer at #R23296
 - Made memory map entry titles, character buffer entry descriptions, and
   animatory state descriptions less terse

@@ -261,7 +261,7 @@ the tree and get firing through the top-floor window.)
 Unfortunately, owing to a technicality, the other non-human objects - mouse,
 frog, BOY WANDER's pellet etc. - are not vulnerable to the conker's destructive
 effects. (That technicality being that each is controlled by a routine whose
-address is stored in bytes 17 and 18 of the character buffer, so they are
+address is stored in bytes #b17 and #b18 of the character buffer, so they are
 passed over by the routine at #R27820.) Oh well.
 
 [Bug:noBlackboardTales:No blackboard tales]
@@ -277,19 +277,19 @@ POKE 61853,242: POKE 61854,111
 
 But this reveals another bug in the section of code at #R61852: instead of
 placing the message number for the name of the character EINSTEIN is grassing
-up (#R61345(27) or #R61397(31)) into #R32656, it places the character number
-(206 or 210) there, which means EINSTEIN ends up saying either:
+up (#R61345(#b27) or #R61397(#b31)) into #R32656, it places the character
+number (#b206 or #b210) there, which means EINSTEIN ends up saying either:
 
 'Please Sir I cannot tell a lie . . 714 wrote on the board'
 
-('714' being message #R64884(206)) or:
+('714' being message #R64884(#b206)) or:
 
 'Please Sir I cannot tell a lie . . X wrote on the board'
 
 where 'X' is the textual representation of whatever happens to be at address
 #w20289 (in the display file) at the time of grassing (#w20289 being equal to
 PEEK (#b210+#R65024) + 256 * PEEK (#b210+#R65280), which is how the address of
-message 210 would be determined if it existed).
+message #b210 would be determined if it existed).
 
 [Bug:doubleWipe:Double wipe]
 If ERIC leaves class at some point after the teacher has started wiping the
@@ -468,9 +468,9 @@ considers moving the following characters (after MR CREAK) in this order:
 <li>EINSTEIN</li>
 </ul>
 
-A character will be moved if bit 7 of byte 29 of his buffer is set (which is
+A character will be moved if bit 7 of byte #b29 of his buffer is set (which is
 true for kids half the time on average, and true for teachers only when they're
-running), or if byte 30 of his buffer (which is decremented on each pass
+running), or if byte #b30 of his buffer (which is decremented on each pass
 through the character-moving routine) holds an even number. If either of these
 is true for EINSTEIN, he will get to speak next. When he's finished answering
 MR CREAK's question, the character-moving routine considers moving the
@@ -486,14 +486,14 @@ following characters (after EINSTEIN) in this order:
 <li>MR CREAK</li>
 </ul>
 
-If, on MR ROCKITT's turn, byte 30 of his buffer holds an odd number, he will
+If, on MR ROCKITT's turn, byte #b30 of his buffer holds an odd number, he will
 not be moved, and will therefore not start speaking before MR CREAK. If, on MR
-CREAK's turn, byte 30 of his buffer holds an even number, he will be moved and
-therefore start speaking before MR ROCKITT's next turn.
+CREAK's turn, byte #b30 of his buffer holds an even number, he will be moved
+and therefore start speaking before MR ROCKITT's next turn.
 
 Thus MR ROCKITT could spend quite a while waiting at the blackboard before
-telling the kids what to do, all depending on the contents of byte 30 of his,
-MR CREAK's and EINSTEIN's buffers (and also bit 7 of byte 29 of EINSTEIN's
+telling the kids what to do, all depending on the contents of byte #b30 of his,
+MR CREAK's and EINSTEIN's buffers (and also bit 7 of byte #b29 of EINSTEIN's
 buffer) on their turns to be moved.
 
 [Bug:jumpAbsent:Jump out of class]
