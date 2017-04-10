@@ -60,7 +60,7 @@ d16384 DEFS 6144
 ; floating point number stored underneath is actually #w23831. }
 ; TABLE#
 ; .
-; Entering the code here from BASIC means that #REGc=23 (the LSB of #w23831);
+; Entering the code here from BASIC means that #REGc=#b23 (the LSB of #w23831);
 ; this value is used later on in the routine at #R32815.
 c23831 DI            ; Disable interrupts
  23832 LD B,49       ;
@@ -140,7 +140,7 @@ c23831 DI            ; Disable interrupts
 ;
 ; Used by the routine at #R32815.
 @label=EDGE2
-c32768 INC SP        ; {Place the address 0 on the stack above the current
+c32768 INC SP        ; {Place the address #w0 on the stack above the current
  32769 INC SP        ; return address, so the Spectrum will reset if there's a
  32770 EX (SP),HL    ; loading error
  32771 LD H,0        ;
