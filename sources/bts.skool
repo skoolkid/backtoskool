@@ -5239,7 +5239,7 @@ c27497 PUSH DE       ; Save the display file address
 ; The graphic data for the digits has been rolled into the buffer at #R58123.
 ; Now we copy the buffer to the screen.
 *27552 LD L,11       ; #REGhl=#R58123 (start address of the buffer)
- 27554 LD BC,2047    ; #REGb=7 (number of pixel rows), #REGc=255
+ 27554 LD BC,2047    ; #REGb=7 (number of pixel rows), #REGc=#b255
  27557 POP DE        ; #REGde=appropriate display file address
  27558 LD A,E        ;
 *27559 LDI           ; {Copy three bytes (one pixel row) from the buffer to the
@@ -20009,8 +20009,8 @@ c62668 LD L,0        ; Point #REGhl at byte #b0 of ALBERT's buffer
  62755 CALL 27276    ; Save the area of the screen that will be overwritten by
                      ; the message box
 @keep
- 62758 LD BC,25138   ; #REGb=#R60937(#b98) (MR WACKER^HE'S ESCAPING), #REGc=50
-                     ; (INK 2: PAPER 6)
+ 62758 LD BC,25138   ; #REGb=#R60937(#b98) (MR WACKER^HE'S ESCAPING),
+                     ; #REGc=#b50 (INK 2: PAPER 6)
  62761 LD A,2        ; The border colour will be red
  62763 JP 29811      ; Make ALBERT sound the alarm
 
