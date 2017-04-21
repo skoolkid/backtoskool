@@ -12,6 +12,7 @@ GameStatusBufferIncludes=32648,32650,32652,32654,32656
 StyleSheet=skoolkit.css;bts.css
 Release=The complete Back to Skool RAM disassembly YYYYMMDD
 Copyright=&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).
+AddressAnchor={address#IF({base}==16)(:04x)}
 
 [Links]
 DataMap=[Data] (just the data)
@@ -84,6 +85,7 @@ start-Index=Startup code
 start-Asm-c=Startup routine
 
 [Paths]
+CodeFiles={address#IF({base}==16)(:04#S/X/)}.html
 PlayAreaImagePath=images/play_area
 AnimatoryStateImagePath=images/animatory_states
 MutableImagePath=images/mutables
@@ -144,6 +146,12 @@ PersonalTimetables
 LessonIndex
 CommandLists
 Keys
+
+[MemoryMap:MemoryMap]
+PageByteColumns=#IF({base}==16)(0,1)
+
+[MemoryMap:DataMap]
+PageByteColumns=#IF({base}==16)(0,1)
 
 [MemoryMap:MessagesMap]
 Intro=#INCLUDE(MessagesMapIntro)

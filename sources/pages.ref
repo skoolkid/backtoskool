@@ -551,7 +551,7 @@ TABLE#
 </td>
 
 [Page:MainTimetable]
-Content=asm/46528.html
+Content=asm/#N46528.html
 
 [Page:PersonalTimetables]
 PageContent=#INCLUDE(PersonalTimetables)
@@ -703,7 +703,7 @@ PageContent=#CALL:lesson(59)
 </tr>
 
 [Page:CommandLists]
-Content=asm/59392.html
+Content=asm/#N59392.html
 
 [Page:Keys]
 PageContent=#INCLUDE(Keys)
