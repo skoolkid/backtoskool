@@ -22,12 +22,12 @@ from skoolkit.skoolmacro import parse_ints, parse_brackets
 
 def parse_as(text, index):
     end, state = parse_ints(text, index, 1, (None,))
-    end, link_text = parse_brackets(text, end, '#N({})'.format(state))
+    end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(state))
     return end, state, link_text
 
 def parse_lesson(text, index):
     end, lesson = parse_ints(text, index, 1)
-    end, link_text = parse_brackets(text, end, '#N({})'.format(lesson))
+    end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(lesson))
     return end, lesson, link_text
 
 def parse_s(text, index):
@@ -48,7 +48,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         self.max_character = 209
         self.font_address = 55040
         self._calculate_tap_index(59392, 88)
-        self.b_fmt = '{:02X}' if self.base == 16 else '{}'
+        self.b_fmt = '0x{:02X}' if self.base == 16 else '{}'
         self.w_fmt = '{:04X}' if self.base == 16 else '{}'
         if self.case == 1:
             self.b_fmt = self.b_fmt.lower()
@@ -507,10 +507,10 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                 routine_link = '#R{}'.format(routine)
                 purpose = self.keypress_routines[routine]
             subs = {
-                'index': '#N{}'.format(index),
+                'index': self.b_fmt.format(index),
                 'key': self.get_chr(index + 48),
                 'address': '#N{}'.format(address),
-                'offset': '#N{}'.format(offset),
+                'offset': self.b_fmt.format(offset),
                 'lookup': '#N{}'.format(lookup) if lookup else '',
                 'routine': routine_link,
                 'purpose': purpose

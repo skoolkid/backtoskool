@@ -377,7 +377,7 @@ d26429 DEFB 198 ; 26428 SET 0,(HL)
 @replace=/#POKE(?![A-Z])/#LINK:Pokes
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#nn\i/#N(\1,4,,1)($)
-@replace=/#b\i/#N(\1)/ (byte)
+@replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 @writer=:backtoskool.BackToSkoolAsmWriter
 ; Back to Skool disassembly
@@ -1911,7 +1911,7 @@ s24677 DEFS 7
 ; .
 ; The play area graphic data is laid out across pages #b128 to #b181:
 ; .
-; #TABLE(default,centre,centre)
+; #TABLE(default,centre,centre,:w)
 ; { =h Page(s)      | =h Bytes     | =h Contents }
 ; { #b128-#b135     | #b0-#b255    | Skool graphic data }
 ; { #b136-#b143     | #b0-#b255    | Skool graphic data }
@@ -21765,7 +21765,7 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
 ; TABLE#
 ; .
 ; #HTML(<span id="dt253" />)
-; #TABLE(default,,,centre)
+; #TABLE(default,,,centre,:w)
 ; { =c4,h #REGe=#b253 (from the bike saddle over the closed skool gate) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
 ; { #b160    | #R41213   | #b160       | Animatory state #AS0(#b0 or #b128); ascend; move forward }
@@ -21782,7 +21782,7 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
 ; TABLE#
 ; .
 ; #HTML(<span id="dt254" />)
-; #TABLE(default,,,centre)
+; #TABLE(default,,,centre,:w)
 ; { =c4,h #REGe=#b254 (from the bike saddle into a wall or closed door) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
 ; { #b160    | #R41214   | #b160       | Animatory state #AS0(#b0 or #b128); ascend; move forward }

@@ -710,7 +710,7 @@ PageContent=#INCLUDE(Keys)
 
 [Keys]
 <div class="details">
-<div>Key = CHR$(Index + #N48,,,1(0x))</div>
+<div>Key = CHR$(Index + #b48)</div>
 <div>Address = Index + #R58624</div>
 <div>Offset = PEEK(Address)</div>
 <div>
