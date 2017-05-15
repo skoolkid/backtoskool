@@ -53,7 +53,7 @@ Used by the routines at <a href="54A0.html">54A0</a>, <a href="5D63.html">5D63</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6d8"></span>F6D8</td>
 <td class="instruction">LD HL,$7FDE</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=255 if we're in demo mode, 0 if a game has just ended, or 1 if ERIC has just gone up a year</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=0xFF if we're in demo mode, 0x00 if a game has just ended, or 0x01 if ERIC has just gone up a year</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -101,13 +101,13 @@ Used by the routines at <a href="54A0.html">54A0</a>, <a href="5D63.html">5D63</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6e2"></span>F6E2</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=255 if we're in demo mode, 0 if a game has just ended, or 1 if ERIC has just gone up a year</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xFF if we're in demo mode, 0x00 if a game has just ended, or 0x01 if ERIC has just gone up a year</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f6e3"></span>F6E3</td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="3">0 becomes 255 (demo mode), and 1 and 255 become 0</td>
+<td class="comment-11" rowspan="3">0x00 becomes 0xFF (demo mode), and 0x01 and 0xFF become 0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -142,9 +142,9 @@ Used by the routines at <a href="54A0.html">54A0</a>, <a href="5D63.html">5D63</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

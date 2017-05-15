@@ -35,7 +35,7 @@ Used by the routine at <a href="76AC.html">76AC</a>. Returns with the zero flag 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Pellet's character number (213 or 214)</td>
+<td class="register-desc">Pellet's character number (0xD5 or 0xD6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -128,7 +128,7 @@ Used by the routine at <a href="76AC.html">76AC</a>. Returns with the zero flag 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="762f"></span>762F</td>
 <td class="instruction">LD HL,$7854</td>
-<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="7854.html">7854</a> into bytes 17 and 18 of the frog's buffer, thus releasing the frog</td>
+<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="7854.html">7854</a> into bytes 0x11 and 0x12 of the frog's buffer, thus releasing the frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -224,7 +224,7 @@ Used by the routine at <a href="76AC.html">76AC</a>. Returns with the zero flag 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="764a"></span>764A</td>
 <td class="instruction">LD A,$1F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#31">31</a>: Drop of water</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#31">0x1F</a>: Drop of water</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -248,7 +248,7 @@ Used by the routine at <a href="76AC.html">76AC</a>. Returns with the zero flag 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7650"></span>7650</td>
 <td class="instruction">LD A,$9F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#159">159</a>: Drop of sherry</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#159">0x9F</a>: Drop of sherry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -265,9 +265,9 @@ Used by the routine at <a href="76AC.html">76AC</a>. Returns with the zero flag 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

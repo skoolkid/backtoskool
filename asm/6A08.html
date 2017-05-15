@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 9 and 10 of the character's buffer by the routine at <a href="F05D.html">F05D</a>, <a href="F073.html">F073</a>, <a href="F100.html">F100</a>, <a href="F250.html">F250</a> or <a href="F55F.html">F55F</a>.
+The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of the character's buffer by the routine at <a href="F05D.html">F05D</a>, <a href="F073.html">F073</a>, <a href="F100.html">F100</a>, <a href="F250.html">F250</a> or <a href="F55F.html">F55F</a>.
 </div>
 </div>
 <table class="input-1">
@@ -39,7 +39,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (200-204, 208)</td>
+<td class="register-desc">Character number (0xC8-0xCC, 0xD0)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -54,7 +54,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a08"></span>6A08</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Store the message number in byte 11 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Store the message number in byte 0x0B of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -67,7 +67,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <span id="6a0b"></span>
 <div class="comments">
 <div class="paragraph">
-The address of this entry point is placed into bytes 9 and 10 of EINSTEIN's buffer by the routine at <a href="F000.html">F000</a>.
+The address of this entry point is placed into bytes 0x09 and 0x0A of EINSTEIN's buffer by the routine at <a href="F000.html">F000</a>.
 </div>
 </div>
 </td>
@@ -76,7 +76,7 @@ The address of this entry point is placed into bytes 9 and 10 of EINSTEIN's buff
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a0b"></span>6A0B</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="5">Clear bytes 12-16 of the character's buffer, thus removing the addresses of any old (sub)(sub)messages</td>
+<td class="comment-11" rowspan="5">Clear bytes 0x0C-0x10 of the character's buffer, thus removing the addresses of any old (sub)(sub)messages</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -112,7 +112,7 @@ The address of this entry point is placed into bytes 9 and 10 of EINSTEIN's buff
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a15"></span>6A15</td>
 <td class="instruction">LD D,$FE</td>
-<td class="comment-11" rowspan="7">Pick up the address of the message and place it into bytes 11 and 12 of the character's buffer</td>
+<td class="comment-11" rowspan="7">Pick up the address of the message and place it into bytes 0x0B and 0x0C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -170,7 +170,7 @@ If somebody else is already speaking, this entry point is used while this charac
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a20"></span>6A20</td>
 <td class="instruction">LD L,$09</td>
-<td class="comment-11" rowspan="2">Place the address of the entry point at <a href="6A08.html#6a1d">6A1D</a> into bytes 9 and 10 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Place the address of the entry point at <a href="6A08.html#6a1d">6A1D</a> into bytes 0x09 and 0x0A of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -194,7 +194,7 @@ If somebody else is already speaking, this entry point is used while this charac
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a26"></span>6A26</td>
 <td class="instruction">LD (HL),$2E</td>
-<td class="comment-11" rowspan="1">Place the address of the entry point at <a href="6A08.html#6a2e">6A2E</a> into bytes 9 and 10 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Place the address of the entry point at <a href="6A08.html#6a2e">6A2E</a> into bytes 0x09 and 0x0A of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -350,7 +350,7 @@ The character has not finished speaking.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a4f"></span>6A4F</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Reset the walk/run bit in byte 29 of the character's buffer to make sure he speaks slowly</td>
+<td class="comment-11" rowspan="2">Reset the walk/run bit in byte 0x1D of the character's buffer to make sure he speaks slowly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -583,9 +583,9 @@ The character has not finished speaking.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

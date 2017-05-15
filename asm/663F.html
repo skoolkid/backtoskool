@@ -35,7 +35,7 @@ Used by the routines at <a href="6697.html">6697</a> and <a href="F3FC.html">F3F
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Number of the character looking for a seat (183-209)</td>
+<td class="register-desc">Number of the character looking for a seat (0xB7-0xD1)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the routines at <a href="6697.html">6697</a> and <a href="F3FC.html">F3F
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="663f"></span>663F</td>
 <td class="instruction">LD D,$B7</td>
-<td class="comment-11" rowspan="1">183=little girl no. 1</td>
+<td class="comment-11" rowspan="1">0xB7=little girl no. 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ Used by the routines at <a href="6697.html">6697</a> and <a href="F3FC.html">F3F
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6643"></span>6643</td>
 <td class="instruction">LD BC,$1187</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=17 (7 girls, 10 boys), <span class="register">C</span>=135 (animatory state mask)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=0x11 (7 girls, 10 boys), <span class="register">C</span>=0x87 (animatory state mask)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -80,13 +80,13 @@ Used by the routines at <a href="6697.html">6697</a> and <a href="F3FC.html">F3F
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="664b"></span>664B</td>
 <td class="instruction">LD BC,$0287</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=2 (EINSTEIN and HAYLEY), <span class="register">C</span>=135 (animatory state mask)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=0x02 (EINSTEIN and HAYLEY), <span class="register">C</span>=0x87 (animatory state mask)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="664e"></span>664E</td>
 <td class="instruction">LD D,$D0</td>
-<td class="comment-11" rowspan="1">208=EINSTEIN</td>
+<td class="comment-11" rowspan="1">0xD0=EINSTEIN</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -104,7 +104,7 @@ Used by the routines at <a href="6697.html">6697</a> and <a href="F3FC.html">F3F
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6655"></span>6655</td>
 <td class="instruction">LD DE,$D212</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=210 (ERIC), <span class="register">E</span>=18</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=0xD2 (ERIC), <span class="register">E</span>=0x12</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -116,7 +116,7 @@ Used by the routines at <a href="6697.html">6697</a> and <a href="F3FC.html">F3F
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6659"></span>6659</td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="2">Zero out byte 18 of ERIC's buffer (to indicate that he may be pushed out of the seat if he's in it)</td>
+<td class="comment-11" rowspan="2">Zero out byte 0x12 of ERIC's buffer (to indicate that he may be pushed out of the seat if he's in it)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -180,7 +180,7 @@ A character (other than ERIC) must be knocked out of the chair.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6667"></span>6667</td>
 <td class="instruction">LD A,$66</td>
-<td class="comment-11" rowspan="5">Place the address of the uninterruptible subcommand routine at <a href="6670.html">6670</a> into bytes 17 and 18 of the buffer of the character who's been knocked out of the chair</td>
+<td class="comment-11" rowspan="5">Place the address of the uninterruptible subcommand routine at <a href="6670.html">6670</a> into bytes 0x11 and 0x12 of the buffer of the character who's been knocked out of the chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -221,9 +221,9 @@ A character (other than ERIC) must be knocked out of the chair.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -39,11 +39,11 @@ Used by the routine at <a href="F9AB.html">F9AB</a>. On entry, <span class="regi
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">214 (water)</td>
+<td class="register-desc">0xD6 (water)</td>
 </tr>
 <tr>
 <td class="register">L</td>
-<td class="register-desc">19</td>
+<td class="register-desc">0x13</td>
 </tr>
 </table>
 <table class="output-0">
@@ -70,7 +70,7 @@ Used by the routine at <a href="F9AB.html">F9AB</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa50"></span>FA50</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the water's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the water's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -94,7 +94,7 @@ Used by the routine at <a href="F9AB.html">F9AB</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa56"></span>FA56</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -124,7 +124,7 @@ Used by the routine at <a href="F9AB.html">F9AB</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa5e"></span>FA5E</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -160,7 +160,7 @@ Used by the routine at <a href="F9AB.html">F9AB</a>. On entry, <span class="regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa69"></span>FA69</td>
 <td class="instruction">LD HL,$DC77</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=220, <span class="register">L</span>=119</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0xDC, <span class="register">L</span>=0x77</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -273,7 +273,7 @@ Now <span class="register">HL</span> points at the start of the appropriate UDG 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa79"></span>FA79</td>
 <td class="instruction">LD H,$D6</td>
-<td class="comment-11" rowspan="1">214=water</td>
+<td class="comment-11" rowspan="1">0xD6=water</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -295,7 +295,7 @@ The water is at phase 6 or above of its trajectory. Has it hit the floor?
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa7e"></span>FA7E</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrement the water animation phase identifier in byte 19 of the water's buffer from 156 to 155; this has the effect of bringing us back through this section of code (via the routine at <a href="F9AB.html">F9AB</a>) until the water has hit either a plant or the floor</td>
+<td class="comment-11" rowspan="1">Decrement the water animation phase identifier in byte 0x13 of the water's buffer from 0x9C to 0x9B; this has the effect of bringing us back through this section of code (via the routine at <a href="F9AB.html">F9AB</a>) until the water has hit either a plant or the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -335,7 +335,7 @@ The water has reached the level of the top or middle floor. We terminate it here
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa88"></span>FA88</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -447,7 +447,7 @@ The water hasn't hit a cup or the floor. Has it hit a plant pot?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faa7"></span>FAA7</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Store the x-coordinate of the plant in byte 20 of the buffer for retrieval later when it starts growing</td>
+<td class="comment-11" rowspan="2">Store the x-coordinate of the plant in byte 0x14 of the buffer for retrieval later when it starts growing</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -465,20 +465,20 @@ The water hasn't hit a cup or the floor. Has it hit a plant pot?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faab"></span>FAAB</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1">And its initial animatory state will be <a href="../graphics/as.html#0">0</a> (ERIC standing, facing left), so it's a good thing it will be off-screen!</td>
+<td class="comment-11" rowspan="1">And its initial animatory state will be <a href="../graphics/as.html#0">0x00</a> (ERIC standing, facing left), so it's a good thing it will be off-screen!</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faac"></span>FAAC</td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Place address <a href="FA4D.html#faaf">FAAF</a> (below) into bytes 17 and 18 of the plant's buffer and update the SRB for the plant's appearance</td>
+<td class="comment-11" rowspan="1">Place address <a href="FA4D.html#faaf">FAAF</a> (below) into bytes 0x11 and 0x12 of the plant's buffer and update the SRB for the plant's appearance</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="faaf"></span>
 <div class="comments">
 <div class="paragraph">
-The address of this entry point is placed into bytes 17 and 18 of the plant's buffer by the instruction above just after the plant has been watered.
+The address of this entry point is placed into bytes 0x11 and 0x12 of the plant's buffer by the instruction above just after the plant has been watered.
 </div>
 </div>
 </td>
@@ -487,7 +487,7 @@ The address of this entry point is placed into bytes 17 and 18 of the plant's bu
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faaf"></span>FAAF</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Byte 19 holds the counter that determines the phases of growth (and death) of the plant</td>
+<td class="comment-11" rowspan="1">Byte 0x13 holds the counter that determines the phases of growth (and death) of the plant</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -569,7 +569,7 @@ The plant is not dead yet. Plan its next move.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fac8"></span>FAC8</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2"><span class="register">E</span>=x-coordinate of the plant (stored in byte 20 earlier)</td>
+<td class="comment-11" rowspan="2"><span class="register">E</span>=x-coordinate of the plant (stored in byte 0x14 earlier)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -581,7 +581,7 @@ The plant is not dead yet. Plan its next move.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faca"></span>FACA</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the plant's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the plant's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -593,7 +593,7 @@ The plant is not dead yet. Plan its next move.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="facd"></span>FACD</td>
 <td class="instruction">LD A,$2A</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#42">42</a>: flower, half-grown</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#42">0x2A</a>: flower, half-grown</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -623,7 +623,7 @@ The plant is not dead yet. Plan its next move.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fad7"></span>FAD7</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#43">43</a>: flower, fully grown</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#43">0x2B</a>: flower, fully grown</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -659,7 +659,7 @@ The plant is not dead yet. Plan its next move.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fae4"></span>FAE4</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the plant's buffer (which holds its x-coordinate)</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the plant's buffer (which holds its x-coordinate)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -677,7 +677,7 @@ The plant is not dead yet. Plan its next move.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fae8"></span>FAE8</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -706,9 +706,9 @@ The plant is not dead yet. Plan its next move.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

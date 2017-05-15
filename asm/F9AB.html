@@ -35,7 +35,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a h
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">210 (ERIC)</td>
+<td class="register-desc">0xD2 (ERIC)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,13 +50,13 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a h
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f9ab"></span>F9AB</td>
 <td class="instruction">LD B,$54</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#84">84</a>: water fired from the pistol, phase 1 (facing left)</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#84">0x54</a>: water fired from the pistol, phase 1 (facing left)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ad"></span>F9AD</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -68,7 +68,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9b0"></span>F9B0</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -86,7 +86,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9b4"></span>F9B4</td>
 <td class="instruction">LD B,$D4</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#212">212</a>: water fired from the pistol, phase 1 (facing right)</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#212">0xD4</a>: water fired from the pistol, phase 1 (facing right)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -140,7 +140,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9bf"></span>F9BF</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -188,7 +188,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9c9"></span>F9C9</td>
 <td class="instruction">LD A,$88</td>
-<td class="comment-11" rowspan="1">Message <a href="FC4F.html">136</a>: NO WATERPISTOLS</td>
+<td class="comment-11" rowspan="1">Message <a href="FC4F.html">0x88</a>: NO WATERPISTOLS</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -212,7 +212,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d0"></span>F9D0</td>
 <td class="instruction">LD HL,$D613</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of the water's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of the water's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -224,14 +224,14 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d5"></span>F9D5</td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Place address <a href="F9AB.html#f9d8">F9D8</a> (below) into bytes 17 and 18 of the water's buffer and update the SRB for the water's appearance</td>
+<td class="comment-11" rowspan="1">Place address <a href="F9AB.html#f9d8">F9D8</a> (below) into bytes 0x11 and 0x12 of the water's buffer and update the SRB for the water's appearance</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f9d8"></span>
 <div class="comments">
 <div class="paragraph">
-The address of this entry point is placed into bytes 17 and 18 of the water's buffer by the instruction above just after the water has been fired from the pistol, and is used throughout the water's lifespan. First, check whether the water has hit a cup, a plant, or the floor.
+The address of this entry point is placed into bytes 0x11 and 0x12 of the water's buffer by the instruction above just after the water has been fired from the pistol, and is used throughout the water's lifespan. First, check whether the water has hit a cup, a plant, or the floor.
 </div>
 </div>
 </td>
@@ -240,7 +240,7 @@ The address of this entry point is placed into bytes 17 and 18 of the water's bu
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d8"></span>F9D8</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="2">Increment the water animation phase identifier (which starts off at 151) held in byte 19 of the buffer</td>
+<td class="comment-11" rowspan="2">Increment the water animation phase identifier (which starts off at 0x97) held in byte 0x13 of the buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -252,7 +252,7 @@ The address of this entry point is placed into bytes 17 and 18 of the water's bu
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9db"></span>F9DB</td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up this identifier (152-156) in <span class="register">B</span></td>
+<td class="comment-11" rowspan="1">Pick up this identifier (0x98-0x9C) in <span class="register">B</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -283,7 +283,7 @@ The address of this entry point is placed into bytes 17 and 18 of the water's bu
 <span id="f9e3"></span>
 <div class="comments">
 <div class="paragraph">
-Next, determine the water's new animatory state and coordinates as it moves through the air. For this we use the water animation table, which comprises five 4-byte entries located in bytes 252-255 of pages 152-156, corresponding to the phases of animation of the water as it flies from the pistol to the ground. Each entry contains the animatory state (AS), the x-coordinate increment (x+), the y-coordinate increment (y+), and a parameter (P) that is passed to the routine at <a href="FA4D.html">FA4D</a> when non-zero. When P=1, the water is at the right phase to fill a cup; when P=2, the water may have hit a plant or the ground.
+Next, determine the water's new animatory state and coordinates as it moves through the air. For this we use the water animation table, which comprises five 4-byte entries located in bytes 0xFC-0xFF of pages 0x98-0x9C, corresponding to the phases of animation of the water as it flies from the pistol to the ground. Each entry contains the animatory state (AS), the x-coordinate increment (x+), the y-coordinate increment (y+), and a parameter (P) that is passed to the routine at <a href="FA4D.html">FA4D</a> when non-zero. When P=1, the water is at the right phase to fill a cup; when P=2, the water may have hit a plant or the ground.
 </div>
 <div class="paragraph">
 <table class="default">
@@ -298,7 +298,7 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="98FC.html">98FC</a></td>
 <td class="centre" colspan="1" rowspan="1">2</td>
-<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#92">92</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#92">0x5C</a></td>
 <td class="centre" colspan="1" rowspan="1">-2</td>
 <td class="centre" colspan="1" rowspan="1">-1</td>
 <td class="centre" colspan="1" rowspan="1">0</td>
@@ -306,7 +306,7 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="99FC.html">99FC</a></td>
 <td class="centre" colspan="1" rowspan="1">3</td>
-<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#108">108</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#108">0x6C</a></td>
 <td class="centre" colspan="1" rowspan="1">-2</td>
 <td class="centre" colspan="1" rowspan="1">0</td>
 <td class="centre" colspan="1" rowspan="1">1</td>
@@ -314,7 +314,7 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="9AFC.html">9AFC</a></td>
 <td class="centre" colspan="1" rowspan="1">4</td>
-<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#116">116</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#116">0x74</a></td>
 <td class="centre" colspan="1" rowspan="1">-1</td>
 <td class="centre" colspan="1" rowspan="1">0</td>
 <td class="centre" colspan="1" rowspan="1">0</td>
@@ -322,7 +322,7 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="9BFC.html">9BFC</a></td>
 <td class="centre" colspan="1" rowspan="1">5</td>
-<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#124">124</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#124">0x7C</a></td>
 <td class="centre" colspan="1" rowspan="1">0</td>
 <td class="centre" colspan="1" rowspan="1">1</td>
 <td class="centre" colspan="1" rowspan="1">0</td>
@@ -330,7 +330,7 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="9CFC.html">9CFC</a></td>
 <td class="centre" colspan="1" rowspan="1">6+</td>
-<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#124">124</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="../graphics/as.html#124">0x7C</a></td>
 <td class="centre" colspan="1" rowspan="1">0</td>
 <td class="centre" colspan="1" rowspan="1">1</td>
 <td class="centre" colspan="1" rowspan="1">2</td>
@@ -344,7 +344,7 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e3"></span>F9E3</td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=254</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=0xFE</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -386,7 +386,7 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ec"></span>F9EC</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=253</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0xFD</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -398,7 +398,7 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ee"></span>F9EE</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=252</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0xFC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -410,7 +410,7 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9f0"></span>F9F0</td>
 <td class="instruction">LD HL,$D600</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the water's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the water's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -457,9 +457,9 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command lists <a href="E256.html">20</a>, <a href="E70F.html">40</a> and <a href="E5EE.html">88</a>. Makes a boy find a spot to sit down in the assembly hall, and stay seated until assembly is finished.
+Used by command lists <a href="E256.html">0x14</a>, <a href="E70F.html">0x28</a> and <a href="E5EE.html">0x58</a>. Makes a boy find a spot to sit down in the assembly hall, and stay seated until assembly is finished.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by command lists <a href="E256.html">20</a>, <a href="E70F.html">40</a> and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Boy's character number (190-199, 206-208)</td>
+<td class="register-desc">Boy's character number (0xBE-0xC7, 0xCE-0xD0)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by command lists <a href="E256.html">20</a>, <a href="E70F.html">40</a> and
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6d00"></span>6D00</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="5">Determine the x-coordinate at which this boy will sit during assembly based on his character number (<span class="register">H</span>) and his current x-coordinate (in byte 1 of the character buffer)</td>
+<td class="comment-11" rowspan="5">Determine the x-coordinate at which this boy will sit during assembly based on his character number (<span class="register">H</span>) and his current x-coordinate (in byte 0x01 of the character buffer)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -80,7 +80,7 @@ Used by command lists <a href="E256.html">20</a>, <a href="E70F.html">40</a> and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d07"></span>6D07</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Store this x-coordinate in byte 11 of the boy's character buffer</td>
+<td class="comment-11" rowspan="2">Store this x-coordinate in byte 0x0B of the boy's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -124,7 +124,7 @@ This entry point is used after the boy has reached the point where he will sit.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6d10"></span>6D10</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Byte 0 of the character buffer holds the boy's animatory state</td>
+<td class="comment-11" rowspan="1">Byte 0x00 of the character buffer holds the boy's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -142,7 +142,7 @@ This entry point is used after the boy has reached the point where he will sit.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d17"></span>6D17</td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="2">Remove the address of this routine's entry point (<a href="6D00.html#6d10">6D10</a>) from bytes 3 and 4 of the character buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of this routine's entry point (<a href="6D00.html#6d10">6D10</a>) from bytes 0x03 and 0x04 of the character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -172,7 +172,7 @@ This entry point is used after the boy has reached the point where he will sit.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d22"></span>6D22</td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Update the boy's animatory state, update the SRB, and place the address of the entry point at <a href="6D00.html#6d25">6D25</a> (below) into bytes 17 and 18 of the character buffer</td>
+<td class="comment-11" rowspan="1">Update the boy's animatory state, update the SRB, and place the address of the entry point at <a href="6D00.html#6d25">6D25</a> (below) into bytes 0x11 and 0x12 of the character buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -206,7 +206,7 @@ This entry point is used after the boy has sat down facing the stage.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d2a"></span>6D2A</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="2">Remove the address of this routine's entry point (<a href="6D00.html#6d25">6D25</a>) from bytes 17 and 18 of the character's buffer, triggering a move to the next command in the command list</td>
+<td class="comment-11" rowspan="2">Remove the address of this routine's entry point (<a href="6D00.html#6d25">6D25</a>) from bytes 0x11 and 0x12 of the character's buffer, triggering a move to the next command in the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -229,9 +229,9 @@ This entry point is used after the boy has sat down facing the stage.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

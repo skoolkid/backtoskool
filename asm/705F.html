@@ -35,23 +35,23 @@ Used by the routines at <a href="64F3.html">64F3</a> and <a href="708E.html">708
 <th colspan="1" rowspan="1">Door</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">0x01</td>
 <td class="" colspan="1" rowspan="1">Left study door</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">0x02</td>
 <td class="" colspan="1" rowspan="1">Right study door</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">0x04</td>
 <td class="" colspan="1" rowspan="1">Science Lab storeroom door</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">8</td>
+<td class="centre" colspan="1" rowspan="1">0x08</td>
 <td class="" colspan="1" rowspan="1">Boys' skool door</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">16</td>
+<td class="centre" colspan="1" rowspan="1">0x10</td>
 <td class="" colspan="1" rowspan="1">Skool gate</td>
 </tr>
 </table>
@@ -63,7 +63,7 @@ Used by the routines at <a href="64F3.html">64F3</a> and <a href="708E.html">708
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-210)</td>
+<td class="register-desc">Character number (0xB7-0xD2)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -120,7 +120,7 @@ Used by the routines at <a href="64F3.html">64F3</a> and <a href="708E.html">708
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7067"></span>7067</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Byte 1 of the character's buffer holds his x-coordinate</td>
+<td class="comment-11" rowspan="1">Byte 0x01 of the character's buffer holds his x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -138,7 +138,7 @@ Used by the routines at <a href="64F3.html">64F3</a> and <a href="708E.html">708
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="706a"></span>706A</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -297,9 +297,9 @@ The character is standing in front of a door.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

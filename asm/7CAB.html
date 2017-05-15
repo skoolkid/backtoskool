@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="7CD0.html">7CD0</a> and <a href="7CE1.html">7CE1</a> after a character has reached a walkabout destination. It checks the signal for the event specified by byte 6 of the character's buffer, and returns with the carry flag reset if the signal has been raised and the character has returned to the walkabout origin.
+Used by the routines at <a href="7CD0.html">7CD0</a> and <a href="7CE1.html">7CE1</a> after a character has reached a walkabout destination. It checks the signal for the event specified by byte 0x06 of the character's buffer, and returns with the carry flag reset if the signal has been raised and the character has returned to the walkabout origin.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routines at <a href="7CD0.html">7CD0</a> and <a href="7CE1.html">7CE
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-209)</td>
+<td class="register-desc">Character number (0xB7-0xD1)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -62,7 +62,7 @@ Used by the routines at <a href="7CD0.html">7CD0</a> and <a href="7CE1.html">7CE
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cae"></span>7CAE</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=5</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x05</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -90,13 +90,13 @@ This entry point is used by the routine at <a href="7CE1.html">7CE1</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7cb4"></span>7CB4</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the location relative to which the character is performing his walkabout (the 'walkabout origin'), stored in byte 5</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the location relative to which the character is performing his walkabout (the 'walkabout origin'), stored in byte 0x05</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cb5"></span>7CB5</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Byte 1 of the character's buffer holds his current x-coordinate</td>
+<td class="comment-11" rowspan="1">Byte 0x01 of the character's buffer holds his current x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -114,7 +114,7 @@ This entry point is used by the routine at <a href="7CE1.html">7CE1</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cba"></span>7CBA</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -207,9 +207,9 @@ The time hasn't come or the event hasn't happened yet, so set the character off 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

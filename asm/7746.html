@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="5F08.html">5F08</a>, <a href="6D00.html">6D00</a>, <a href="76AC.html">76AC</a>, <a href="775B.html">775B</a>, <a href="77B3.html">77B3</a>, <a href="7813.html">7813</a>, <a href="7854.html">7854</a>, <a href="F2E2.html">F2E2</a>, <a href="F862.html">F862</a>, <a href="F939.html">F939</a>, <a href="F9AB.html">F9AB</a> and <a href="FA4D.html">FA4D</a> to place the address of the instruction following CALL <a href="7746.html">7746</a> into bytes 17 and 18 of the character's buffer. Thus that address becomes the address of the character's current uninterruptible subcommand routine.
+Used by the routines at <a href="5F08.html">5F08</a>, <a href="6D00.html">6D00</a>, <a href="76AC.html">76AC</a>, <a href="775B.html">775B</a>, <a href="77B3.html">77B3</a>, <a href="7813.html">7813</a>, <a href="7854.html">7854</a>, <a href="F2E2.html">F2E2</a>, <a href="F862.html">F862</a>, <a href="F939.html">F939</a>, <a href="F9AB.html">F9AB</a> and <a href="FA4D.html">FA4D</a> to place the address of the instruction following CALL <a href="7746.html">7746</a> into bytes 0x11 and 0x12 of the character's buffer. Thus that address becomes the address of the character's current uninterruptible subcommand routine.
 </div>
 </div>
 <table class="input-1">
@@ -43,7 +43,7 @@ Used by the routines at <a href="5F08.html">5F08</a>, <a href="6D00.html">6D00</
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-214)</td>
+<td class="register-desc">Character number (0xB7-0xD6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -64,7 +64,7 @@ Used by the routines at <a href="5F08.html">5F08</a>, <a href="6D00.html">6D00</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7747"></span>7747</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="4">Place it into bytes 17 and 18 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Place it into bytes 0x11 and 0x12 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -99,9 +99,9 @@ Used by the routines at <a href="5F08.html">5F08</a>, <a href="6D00.html">6D00</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

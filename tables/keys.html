@@ -14,10 +14,12 @@
 </tr>
 </table>
 <div class="details">
-<div>Key = CHR$(Index + 48)</div>
+<div>Key = CHR$(Index + 0x30)</div>
 <div>Address = Index + <a href="../asm/E500.html">E500</a></div>
 <div>Offset = PEEK(Address)</div>
-<div>Lookup = Offset + 58624 (points to an entry in the table at <a href="../asm/E550.html">E550</a>)</div>
+<div>
+Lookup = Offset + E500 (points to an entry in the table at <a href="../asm/E550.html">E550</a>)
+</div>
 <div>Routine = address at (Lookup, Lookup + 1)</div>
 </div>
 <table class="keytable">
@@ -31,730 +33,730 @@
 <th>Purpose</th>
 </tr>
 <tr>
-<td class="keyIndex">0</td>
+<td class="keyIndex">0x00</td>
 <td class="key">0</td>
-<td class="keyAddress">58624</td>
-<td class="keyOffset">104</td>
-<td class="keyAddress">58728</td>
+<td class="keyAddress">E500</td>
+<td class="keyOffset">0x68</td>
+<td class="keyAddress">E568</td>
 <td class="keyAddress"><a href="../asm/5EE8.html">5EE8</a></td>
 <td class="keyPurpose">Fire catapult</td>
 </tr>
 <tr>
-<td class="keyIndex">1</td>
+<td class="keyIndex">0x01</td>
 <td class="key">1</td>
-<td class="keyAddress">58625</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E501</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">2</td>
+<td class="keyIndex">0x02</td>
 <td class="key">2</td>
-<td class="keyAddress">58626</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E502</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">3</td>
+<td class="keyIndex">0x03</td>
 <td class="key">3</td>
-<td class="keyAddress">58627</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E503</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">4</td>
+<td class="keyIndex">0x04</td>
 <td class="key">4</td>
-<td class="keyAddress">58628</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E504</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">5</td>
+<td class="keyIndex">0x05</td>
 <td class="key">5</td>
-<td class="keyAddress">58629</td>
-<td class="keyOffset">80</td>
-<td class="keyAddress">58704</td>
+<td class="keyAddress">E505</td>
+<td class="keyOffset">0x50</td>
+<td class="keyAddress">E550</td>
 <td class="keyAddress"><a href="../asm/6F2C.html">6F2C</a></td>
 <td class="keyPurpose">Left</td>
 </tr>
 <tr>
-<td class="keyIndex">6</td>
+<td class="keyIndex">0x06</td>
 <td class="key">6</td>
-<td class="keyAddress">58630</td>
-<td class="keyOffset">86</td>
-<td class="keyAddress">58710</td>
+<td class="keyAddress">E506</td>
+<td class="keyOffset">0x56</td>
+<td class="keyAddress">E556</td>
 <td class="keyAddress"><a href="../asm/6FA0.html">6FA0</a></td>
 <td class="keyPurpose">Down</td>
 </tr>
 <tr>
-<td class="keyIndex">7</td>
+<td class="keyIndex">0x07</td>
 <td class="key">7</td>
-<td class="keyAddress">58631</td>
-<td class="keyOffset">84</td>
-<td class="keyAddress">58708</td>
+<td class="keyAddress">E507</td>
+<td class="keyOffset">0x54</td>
+<td class="keyAddress">E554</td>
 <td class="keyAddress"><a href="../asm/6F44.html">6F44</a></td>
 <td class="keyPurpose">Up</td>
 </tr>
 <tr>
-<td class="keyIndex">8</td>
+<td class="keyIndex">0x08</td>
 <td class="key">8</td>
-<td class="keyAddress">58632</td>
-<td class="keyOffset">82</td>
-<td class="keyAddress">58706</td>
+<td class="keyAddress">E508</td>
+<td class="keyOffset">0x52</td>
+<td class="keyAddress">E552</td>
 <td class="keyAddress"><a href="../asm/6F14.html">6F14</a></td>
 <td class="keyPurpose">Right</td>
 </tr>
 <tr>
-<td class="keyIndex">9</td>
+<td class="keyIndex">0x09</td>
 <td class="key">9</td>
-<td class="keyAddress">58633</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E509</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">10</td>
+<td class="keyIndex">0x0A</td>
 <td class="key">:</td>
-<td class="keyAddress">58634</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E50A</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">11</td>
+<td class="keyIndex">0x0B</td>
 <td class="key">;</td>
-<td class="keyAddress">58635</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E50B</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">12</td>
+<td class="keyIndex">0x0C</td>
 <td class="key">&lt;</td>
-<td class="keyAddress">58636</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E50C</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">13</td>
+<td class="keyIndex">0x0D</td>
 <td class="key">=</td>
-<td class="keyAddress">58637</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E50D</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">14</td>
+<td class="keyIndex">0x0E</td>
 <td class="key">&gt;</td>
-<td class="keyAddress">58638</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E50E</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">15</td>
+<td class="keyIndex">0x0F</td>
 <td class="key">?</td>
-<td class="keyAddress">58639</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E50F</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">16</td>
+<td class="keyIndex">0x10</td>
 <td class="key">@</td>
-<td class="keyAddress">58640</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E510</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">17</td>
+<td class="keyIndex">0x11</td>
 <td class="key">A</td>
-<td class="keyAddress">58641</td>
-<td class="keyOffset">86</td>
-<td class="keyAddress">58710</td>
+<td class="keyAddress">E511</td>
+<td class="keyOffset">0x56</td>
+<td class="keyAddress">E556</td>
 <td class="keyAddress"><a href="../asm/6FA0.html">6FA0</a></td>
 <td class="keyPurpose">Down</td>
 </tr>
 <tr>
-<td class="keyIndex">18</td>
+<td class="keyIndex">0x12</td>
 <td class="key">B</td>
-<td class="keyAddress">58642</td>
-<td class="keyOffset">106</td>
-<td class="keyAddress">58730</td>
+<td class="keyAddress">E512</td>
+<td class="keyOffset">0x6A</td>
+<td class="keyAddress">E56A</td>
 <td class="keyAddress"><a href="../asm/7386.html">7386</a></td>
 <td class="keyPurpose">Mount bike</td>
 </tr>
 <tr>
-<td class="keyIndex">19</td>
+<td class="keyIndex">0x13</td>
 <td class="key">C</td>
-<td class="keyAddress">58643</td>
-<td class="keyOffset">100</td>
-<td class="keyAddress">58724</td>
+<td class="keyAddress">E513</td>
+<td class="keyOffset">0x64</td>
+<td class="keyAddress">E564</td>
 <td class="keyAddress"><a href="../asm/E125.html">E125</a></td>
 <td class="keyPurpose">Catch mouse/frog</td>
 </tr>
 <tr>
-<td class="keyIndex">20</td>
+<td class="keyIndex">0x14</td>
 <td class="key">D</td>
-<td class="keyAddress">58644</td>
-<td class="keyOffset">108</td>
-<td class="keyAddress">58732</td>
+<td class="keyAddress">E514</td>
+<td class="keyOffset">0x6C</td>
+<td class="keyAddress">E56C</td>
 <td class="keyAddress"><a href="../asm/7140.html">7140</a></td>
 <td class="keyPurpose">Drop stinkbomb</td>
 </tr>
 <tr>
-<td class="keyIndex">21</td>
+<td class="keyIndex">0x15</td>
 <td class="key">E</td>
-<td class="keyAddress">58645</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E515</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">22</td>
+<td class="keyIndex">0x16</td>
 <td class="key">F</td>
-<td class="keyAddress">58646</td>
-<td class="keyOffset">104</td>
-<td class="keyAddress">58728</td>
+<td class="keyAddress">E516</td>
+<td class="keyOffset">0x68</td>
+<td class="keyAddress">E568</td>
 <td class="keyAddress"><a href="../asm/5EE8.html">5EE8</a></td>
 <td class="keyPurpose">Fire catapult</td>
 </tr>
 <tr>
-<td class="keyIndex">23</td>
+<td class="keyIndex">0x17</td>
 <td class="key">G</td>
-<td class="keyAddress">58647</td>
-<td class="keyOffset">110</td>
-<td class="keyAddress">58734</td>
+<td class="keyAddress">E517</td>
+<td class="keyOffset">0x6E</td>
+<td class="keyAddress">E56E</td>
 <td class="keyAddress"><a href="../asm/F99A.html">F99A</a></td>
 <td class="keyPurpose">Fire water pistol</td>
 </tr>
 <tr>
-<td class="keyIndex">24</td>
+<td class="keyIndex">0x18</td>
 <td class="key">H</td>
-<td class="keyAddress">58648</td>
-<td class="keyOffset">112</td>
-<td class="keyAddress">58736</td>
+<td class="keyAddress">E518</td>
+<td class="keyOffset">0x70</td>
+<td class="keyAddress">E570</td>
 <td class="keyAddress"><a href="../asm/5EC7.html">5EC7</a></td>
 <td class="keyPurpose">Hit</td>
 </tr>
 <tr>
-<td class="keyIndex">25</td>
+<td class="keyIndex">0x19</td>
 <td class="key">I</td>
-<td class="keyAddress">58649</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E519</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">26</td>
+<td class="keyIndex">0x1A</td>
 <td class="key">J</td>
-<td class="keyAddress">58650</td>
-<td class="keyOffset">114</td>
-<td class="keyAddress">58738</td>
+<td class="keyAddress">E51A</td>
+<td class="keyOffset">0x72</td>
+<td class="keyAddress">E572</td>
 <td class="keyAddress"><a href="../asm/5D4F.html">5D4F</a></td>
 <td class="keyPurpose">Jump</td>
 </tr>
 <tr>
-<td class="keyIndex">27</td>
+<td class="keyIndex">0x1B</td>
 <td class="key">K</td>
-<td class="keyAddress">58651</td>
-<td class="keyOffset">116</td>
-<td class="keyAddress">58740</td>
+<td class="keyAddress">E51B</td>
+<td class="keyOffset">0x74</td>
+<td class="keyAddress">E574</td>
 <td class="keyAddress"><a href="../asm/5F1C.html">5F1C</a></td>
 <td class="keyPurpose">Kiss</td>
 </tr>
 <tr>
-<td class="keyIndex">28</td>
+<td class="keyIndex">0x1C</td>
 <td class="key">L</td>
-<td class="keyAddress">58652</td>
-<td class="keyOffset">114</td>
-<td class="keyAddress">58738</td>
+<td class="keyAddress">E51C</td>
+<td class="keyOffset">0x72</td>
+<td class="keyAddress">E572</td>
 <td class="keyAddress"><a href="../asm/5D4F.html">5D4F</a></td>
 <td class="keyPurpose">Jump</td>
 </tr>
 <tr>
-<td class="keyIndex">29</td>
+<td class="keyIndex">0x1D</td>
 <td class="key">M</td>
-<td class="keyAddress">58653</td>
-<td class="keyOffset">106</td>
-<td class="keyAddress">58730</td>
+<td class="keyAddress">E51D</td>
+<td class="keyOffset">0x6A</td>
+<td class="keyAddress">E56A</td>
 <td class="keyAddress"><a href="../asm/7386.html">7386</a></td>
 <td class="keyPurpose">Mount bike</td>
 </tr>
 <tr>
-<td class="keyIndex">30</td>
+<td class="keyIndex">0x1E</td>
 <td class="key">N</td>
-<td class="keyAddress">58654</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E51E</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">31</td>
+<td class="keyIndex">0x1F</td>
 <td class="key">O</td>
-<td class="keyAddress">58655</td>
-<td class="keyOffset">80</td>
-<td class="keyAddress">58704</td>
+<td class="keyAddress">E51F</td>
+<td class="keyOffset">0x50</td>
+<td class="keyAddress">E550</td>
 <td class="keyAddress"><a href="../asm/6F2C.html">6F2C</a></td>
 <td class="keyPurpose">Left</td>
 </tr>
 <tr>
-<td class="keyIndex">32</td>
+<td class="keyIndex">0x20</td>
 <td class="key">P</td>
-<td class="keyAddress">58656</td>
-<td class="keyOffset">82</td>
-<td class="keyAddress">58706</td>
+<td class="keyAddress">E520</td>
+<td class="keyOffset">0x52</td>
+<td class="keyAddress">E552</td>
 <td class="keyAddress"><a href="../asm/6F14.html">6F14</a></td>
 <td class="keyPurpose">Right</td>
 </tr>
 <tr>
-<td class="keyIndex">33</td>
+<td class="keyIndex">0x21</td>
 <td class="key">Q</td>
-<td class="keyAddress">58657</td>
-<td class="keyOffset">84</td>
-<td class="keyAddress">58708</td>
+<td class="keyAddress">E521</td>
+<td class="keyOffset">0x54</td>
+<td class="keyAddress">E554</td>
 <td class="keyAddress"><a href="../asm/6F44.html">6F44</a></td>
 <td class="keyPurpose">Up</td>
 </tr>
 <tr>
-<td class="keyIndex">34</td>
+<td class="keyIndex">0x22</td>
 <td class="key">R</td>
-<td class="keyAddress">58658</td>
-<td class="keyOffset">102</td>
-<td class="keyAddress">58726</td>
+<td class="keyAddress">E522</td>
+<td class="keyOffset">0x66</td>
+<td class="keyAddress">E566</td>
 <td class="keyAddress"><a href="../asm/E225.html">E225</a></td>
 <td class="keyPurpose">Release mice</td>
 </tr>
 <tr>
-<td class="keyIndex">35</td>
+<td class="keyIndex">0x23</td>
 <td class="key">S</td>
-<td class="keyAddress">58659</td>
-<td class="keyOffset">98</td>
-<td class="keyAddress">58722</td>
+<td class="keyAddress">E523</td>
+<td class="keyOffset">0x62</td>
+<td class="keyAddress">E562</td>
 <td class="keyAddress"><a href="../asm/F3D7.html">F3D7</a></td>
 <td class="keyPurpose">Sit</td>
 </tr>
 <tr>
-<td class="keyIndex">36</td>
+<td class="keyIndex">0x24</td>
 <td class="key">T</td>
-<td class="keyAddress">58660</td>
-<td class="keyOffset">118</td>
-<td class="keyAddress">58742</td>
+<td class="keyAddress">E524</td>
+<td class="keyOffset">0x76</td>
+<td class="keyAddress">E576</td>
 <td class="keyAddress"><a href="../asm/5D37.html">5D37</a></td>
 <td class="keyPurpose">Throw away water pistol</td>
 </tr>
 <tr>
-<td class="keyIndex">37</td>
+<td class="keyIndex">0x25</td>
 <td class="key">U</td>
-<td class="keyAddress">58661</td>
-<td class="keyOffset">108</td>
-<td class="keyAddress">58732</td>
+<td class="keyAddress">E525</td>
+<td class="keyOffset">0x6C</td>
+<td class="keyAddress">E56C</td>
 <td class="keyAddress"><a href="../asm/7140.html">7140</a></td>
 <td class="keyPurpose">Drop stinkbomb</td>
 </tr>
 <tr>
-<td class="keyIndex">38</td>
+<td class="keyIndex">0x26</td>
 <td class="key">V</td>
-<td class="keyAddress">58662</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E526</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">39</td>
+<td class="keyIndex">0x27</td>
 <td class="key">W</td>
-<td class="keyAddress">58663</td>
-<td class="keyOffset">120</td>
-<td class="keyAddress">58744</td>
+<td class="keyAddress">E527</td>
+<td class="keyOffset">0x78</td>
+<td class="keyAddress">E578</td>
 <td class="keyAddress"><a href="../asm/5E45.html">5E45</a></td>
 <td class="keyPurpose">Write</td>
 </tr>
 <tr>
-<td class="keyIndex">40</td>
+<td class="keyIndex">0x28</td>
 <td class="key">X</td>
-<td class="keyAddress">58664</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E528</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">41</td>
+<td class="keyIndex">0x29</td>
 <td class="key">Y</td>
-<td class="keyAddress">58665</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E529</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">42</td>
+<td class="keyIndex">0x2A</td>
 <td class="key">Z</td>
-<td class="keyAddress">58666</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E52A</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">43</td>
+<td class="keyIndex">0x2B</td>
 <td class="key">[</td>
-<td class="keyAddress">58667</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E52B</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">44</td>
+<td class="keyIndex">0x2C</td>
 <td class="key">\</td>
-<td class="keyAddress">58668</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E52C</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">45</td>
+<td class="keyIndex">0x2D</td>
 <td class="key">]</td>
-<td class="keyAddress">58669</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E52D</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">46</td>
+<td class="keyIndex">0x2E</td>
 <td class="key">&#8593;</td>
-<td class="keyAddress">58670</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E52E</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">47</td>
+<td class="keyIndex">0x2F</td>
 <td class="key">_</td>
-<td class="keyAddress">58671</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E52F</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">48</td>
+<td class="keyIndex">0x30</td>
 <td class="key">&#163;</td>
-<td class="keyAddress">58672</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E530</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">49</td>
+<td class="keyIndex">0x31</td>
 <td class="key">a</td>
-<td class="keyAddress">58673</td>
-<td class="keyOffset">94</td>
-<td class="keyAddress">58718</td>
+<td class="keyAddress">E531</td>
+<td class="keyOffset">0x5E</td>
+<td class="keyAddress">E55E</td>
 <td class="keyAddress"><a href="../asm/6FA0.html">6FA0</a></td>
 <td class="keyPurpose">Down</td>
 </tr>
 <tr>
-<td class="keyIndex">50</td>
+<td class="keyIndex">0x32</td>
 <td class="key">b</td>
-<td class="keyAddress">58674</td>
-<td class="keyOffset">106</td>
-<td class="keyAddress">58730</td>
+<td class="keyAddress">E532</td>
+<td class="keyOffset">0x6A</td>
+<td class="keyAddress">E56A</td>
 <td class="keyAddress"><a href="../asm/7386.html">7386</a></td>
 <td class="keyPurpose">Mount bike</td>
 </tr>
 <tr>
-<td class="keyIndex">51</td>
+<td class="keyIndex">0x33</td>
 <td class="key">c</td>
-<td class="keyAddress">58675</td>
-<td class="keyOffset">100</td>
-<td class="keyAddress">58724</td>
+<td class="keyAddress">E533</td>
+<td class="keyOffset">0x64</td>
+<td class="keyAddress">E564</td>
 <td class="keyAddress"><a href="../asm/E125.html">E125</a></td>
 <td class="keyPurpose">Catch mouse/frog</td>
 </tr>
 <tr>
-<td class="keyIndex">52</td>
+<td class="keyIndex">0x34</td>
 <td class="key">d</td>
-<td class="keyAddress">58676</td>
-<td class="keyOffset">108</td>
-<td class="keyAddress">58732</td>
+<td class="keyAddress">E534</td>
+<td class="keyOffset">0x6C</td>
+<td class="keyAddress">E56C</td>
 <td class="keyAddress"><a href="../asm/7140.html">7140</a></td>
 <td class="keyPurpose">Drop stinkbomb</td>
 </tr>
 <tr>
-<td class="keyIndex">53</td>
+<td class="keyIndex">0x35</td>
 <td class="key">e</td>
-<td class="keyAddress">58677</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E535</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">54</td>
+<td class="keyIndex">0x36</td>
 <td class="key">f</td>
-<td class="keyAddress">58678</td>
-<td class="keyOffset">104</td>
-<td class="keyAddress">58728</td>
+<td class="keyAddress">E536</td>
+<td class="keyOffset">0x68</td>
+<td class="keyAddress">E568</td>
 <td class="keyAddress"><a href="../asm/5EE8.html">5EE8</a></td>
 <td class="keyPurpose">Fire catapult</td>
 </tr>
 <tr>
-<td class="keyIndex">55</td>
+<td class="keyIndex">0x37</td>
 <td class="key">g</td>
-<td class="keyAddress">58679</td>
-<td class="keyOffset">110</td>
-<td class="keyAddress">58734</td>
+<td class="keyAddress">E537</td>
+<td class="keyOffset">0x6E</td>
+<td class="keyAddress">E56E</td>
 <td class="keyAddress"><a href="../asm/F99A.html">F99A</a></td>
 <td class="keyPurpose">Fire water pistol</td>
 </tr>
 <tr>
-<td class="keyIndex">56</td>
+<td class="keyIndex">0x38</td>
 <td class="key">h</td>
-<td class="keyAddress">58680</td>
-<td class="keyOffset">112</td>
-<td class="keyAddress">58736</td>
+<td class="keyAddress">E538</td>
+<td class="keyOffset">0x70</td>
+<td class="keyAddress">E570</td>
 <td class="keyAddress"><a href="../asm/5EC7.html">5EC7</a></td>
 <td class="keyPurpose">Hit</td>
 </tr>
 <tr>
-<td class="keyIndex">57</td>
+<td class="keyIndex">0x39</td>
 <td class="key">i</td>
-<td class="keyAddress">58681</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E539</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">58</td>
+<td class="keyIndex">0x3A</td>
 <td class="key">j</td>
-<td class="keyAddress">58682</td>
-<td class="keyOffset">114</td>
-<td class="keyAddress">58738</td>
+<td class="keyAddress">E53A</td>
+<td class="keyOffset">0x72</td>
+<td class="keyAddress">E572</td>
 <td class="keyAddress"><a href="../asm/5D4F.html">5D4F</a></td>
 <td class="keyPurpose">Jump</td>
 </tr>
 <tr>
-<td class="keyIndex">59</td>
+<td class="keyIndex">0x3B</td>
 <td class="key">k</td>
-<td class="keyAddress">58683</td>
-<td class="keyOffset">116</td>
-<td class="keyAddress">58740</td>
+<td class="keyAddress">E53B</td>
+<td class="keyOffset">0x74</td>
+<td class="keyAddress">E574</td>
 <td class="keyAddress"><a href="../asm/5F1C.html">5F1C</a></td>
 <td class="keyPurpose">Kiss</td>
 </tr>
 <tr>
-<td class="keyIndex">60</td>
+<td class="keyIndex">0x3C</td>
 <td class="key">l</td>
-<td class="keyAddress">58684</td>
-<td class="keyOffset">114</td>
-<td class="keyAddress">58738</td>
+<td class="keyAddress">E53C</td>
+<td class="keyOffset">0x72</td>
+<td class="keyAddress">E572</td>
 <td class="keyAddress"><a href="../asm/5D4F.html">5D4F</a></td>
 <td class="keyPurpose">Jump</td>
 </tr>
 <tr>
-<td class="keyIndex">61</td>
+<td class="keyIndex">0x3D</td>
 <td class="key">m</td>
-<td class="keyAddress">58685</td>
-<td class="keyOffset">106</td>
-<td class="keyAddress">58730</td>
+<td class="keyAddress">E53D</td>
+<td class="keyOffset">0x6A</td>
+<td class="keyAddress">E56A</td>
 <td class="keyAddress"><a href="../asm/7386.html">7386</a></td>
 <td class="keyPurpose">Mount bike</td>
 </tr>
 <tr>
-<td class="keyIndex">62</td>
+<td class="keyIndex">0x3E</td>
 <td class="key">n</td>
-<td class="keyAddress">58686</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E53E</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">63</td>
+<td class="keyIndex">0x3F</td>
 <td class="key">o</td>
-<td class="keyAddress">58687</td>
-<td class="keyOffset">88</td>
-<td class="keyAddress">58712</td>
+<td class="keyAddress">E53F</td>
+<td class="keyOffset">0x58</td>
+<td class="keyAddress">E558</td>
 <td class="keyAddress"><a href="../asm/6F2C.html">6F2C</a></td>
 <td class="keyPurpose">Left</td>
 </tr>
 <tr>
-<td class="keyIndex">64</td>
+<td class="keyIndex">0x40</td>
 <td class="key">p</td>
-<td class="keyAddress">58688</td>
-<td class="keyOffset">90</td>
-<td class="keyAddress">58714</td>
+<td class="keyAddress">E540</td>
+<td class="keyOffset">0x5A</td>
+<td class="keyAddress">E55A</td>
 <td class="keyAddress"><a href="../asm/6F14.html">6F14</a></td>
 <td class="keyPurpose">Right</td>
 </tr>
 <tr>
-<td class="keyIndex">65</td>
+<td class="keyIndex">0x41</td>
 <td class="key">q</td>
-<td class="keyAddress">58689</td>
-<td class="keyOffset">92</td>
-<td class="keyAddress">58716</td>
+<td class="keyAddress">E541</td>
+<td class="keyOffset">0x5C</td>
+<td class="keyAddress">E55C</td>
 <td class="keyAddress"><a href="../asm/6F44.html">6F44</a></td>
 <td class="keyPurpose">Up</td>
 </tr>
 <tr>
-<td class="keyIndex">66</td>
+<td class="keyIndex">0x42</td>
 <td class="key">r</td>
-<td class="keyAddress">58690</td>
-<td class="keyOffset">102</td>
-<td class="keyAddress">58726</td>
+<td class="keyAddress">E542</td>
+<td class="keyOffset">0x66</td>
+<td class="keyAddress">E566</td>
 <td class="keyAddress"><a href="../asm/E225.html">E225</a></td>
 <td class="keyPurpose">Release mice</td>
 </tr>
 <tr>
-<td class="keyIndex">67</td>
+<td class="keyIndex">0x43</td>
 <td class="key">s</td>
-<td class="keyAddress">58691</td>
-<td class="keyOffset">98</td>
-<td class="keyAddress">58722</td>
+<td class="keyAddress">E543</td>
+<td class="keyOffset">0x62</td>
+<td class="keyAddress">E562</td>
 <td class="keyAddress"><a href="../asm/F3D7.html">F3D7</a></td>
 <td class="keyPurpose">Sit</td>
 </tr>
 <tr>
-<td class="keyIndex">68</td>
+<td class="keyIndex">0x44</td>
 <td class="key">t</td>
-<td class="keyAddress">58692</td>
-<td class="keyOffset">118</td>
-<td class="keyAddress">58742</td>
+<td class="keyAddress">E544</td>
+<td class="keyOffset">0x76</td>
+<td class="keyAddress">E576</td>
 <td class="keyAddress"><a href="../asm/5D37.html">5D37</a></td>
 <td class="keyPurpose">Throw away water pistol</td>
 </tr>
 <tr>
-<td class="keyIndex">69</td>
+<td class="keyIndex">0x45</td>
 <td class="key">u</td>
-<td class="keyAddress">58693</td>
-<td class="keyOffset">108</td>
-<td class="keyAddress">58732</td>
+<td class="keyAddress">E545</td>
+<td class="keyOffset">0x6C</td>
+<td class="keyAddress">E56C</td>
 <td class="keyAddress"><a href="../asm/7140.html">7140</a></td>
 <td class="keyPurpose">Drop stinkbomb</td>
 </tr>
 <tr>
-<td class="keyIndex">70</td>
+<td class="keyIndex">0x46</td>
 <td class="key">v</td>
-<td class="keyAddress">58694</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E546</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">71</td>
+<td class="keyIndex">0x47</td>
 <td class="key">w</td>
-<td class="keyAddress">58695</td>
-<td class="keyOffset">120</td>
-<td class="keyAddress">58744</td>
+<td class="keyAddress">E547</td>
+<td class="keyOffset">0x78</td>
+<td class="keyAddress">E578</td>
 <td class="keyAddress"><a href="../asm/5E45.html">5E45</a></td>
 <td class="keyPurpose">Write</td>
 </tr>
 <tr>
-<td class="keyIndex">72</td>
+<td class="keyIndex">0x48</td>
 <td class="key">x</td>
-<td class="keyAddress">58696</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E548</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">73</td>
+<td class="keyIndex">0x49</td>
 <td class="key">y</td>
-<td class="keyAddress">58697</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E549</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">74</td>
+<td class="keyIndex">0x4A</td>
 <td class="key">z</td>
-<td class="keyAddress">58698</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E54A</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">75</td>
+<td class="keyIndex">0x4B</td>
 <td class="key">{</td>
-<td class="keyAddress">58699</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E54B</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">76</td>
+<td class="keyIndex">0x4C</td>
 <td class="key">|</td>
-<td class="keyAddress">58700</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E54C</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">77</td>
+<td class="keyIndex">0x4D</td>
 <td class="key">}</td>
-<td class="keyAddress">58701</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E54D</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">78</td>
+<td class="keyIndex">0x4E</td>
 <td class="key">~</td>
-<td class="keyAddress">58702</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E54E</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 <tr>
-<td class="keyIndex">79</td>
+<td class="keyIndex">0x4F</td>
 <td class="key">&#169;</td>
-<td class="keyAddress">58703</td>
-<td class="keyOffset">0</td>
+<td class="keyAddress">E54F</td>
+<td class="keyOffset">0x00</td>
 <td class="keyAddress"></td>
 <td class="keyAddress"></td>
 <td class="keyPurpose"></td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

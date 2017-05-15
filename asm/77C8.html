@@ -39,7 +39,7 @@ Used by the routines at <a href="77F2.html">77F2</a> and <a href="7813.html">781
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">207 (ANGELFACE) or 210 (ERIC)</td>
+<td class="register-desc">0xCF (ANGELFACE) or 0xD2 (ERIC)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -54,7 +54,7 @@ Used by the routines at <a href="77F2.html">77F2</a> and <a href="7813.html">781
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="77c8"></span>77C8</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the punching character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the punching character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -114,7 +114,7 @@ Used by the routines at <a href="77F2.html">77F2</a> and <a href="7813.html">781
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77d7"></span>77D7</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -126,7 +126,7 @@ Used by the routines at <a href="77F2.html">77F2</a> and <a href="7813.html">781
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77d9"></span>77D9</td>
 <td class="instruction">CPL</td>
-<td class="comment-11" rowspan="3"><span class="register">C</span>=0 if the character's facing right, 128 if left</td>
+<td class="comment-11" rowspan="3"><span class="register">C</span>=0x00 if the character's facing right, 0x80 if left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -144,7 +144,7 @@ Used by the routines at <a href="77F2.html">77F2</a> and <a href="7813.html">781
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77dd"></span>77DD</td>
 <td class="instruction">LD D,$CE</td>
-<td class="comment-11" rowspan="1">206=BOY WANDER (first main kid)</td>
+<td class="comment-11" rowspan="1">0xCE=BOY WANDER (first main kid)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -168,7 +168,7 @@ Used by the routines at <a href="77F2.html">77F2</a> and <a href="7813.html">781
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77e6"></span>77E6</td>
 <td class="instruction">LD D,$B7</td>
-<td class="comment-11" rowspan="1">183=little girl no. 1</td>
+<td class="comment-11" rowspan="1">0xB7=little girl no. 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -215,9 +215,9 @@ Used by the routines at <a href="77F2.html">77F2</a> and <a href="7813.html">781
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

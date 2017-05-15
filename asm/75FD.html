@@ -35,7 +35,7 @@ Used by routine at <a href="7615.html">7615</a>. Returns with the zero flag set 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Pellet's character number (213 or 214)</td>
+<td class="register-desc">Pellet's character number (0xD5 or 0xD6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by routine at <a href="7615.html">7615</a>. Returns with the zero flag set 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="75fd"></span>75FD</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the pellet's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ Used by routine at <a href="7615.html">7615</a>. Returns with the zero flag set 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7600"></span>7600</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -183,9 +183,9 @@ This entry point is used by the routine at <a href="FA4D.html">FA4D</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

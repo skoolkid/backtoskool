@@ -47,7 +47,7 @@ Used by the routine at <a href="F6D5.html">F6D5</a>. First of all, wipe the blac
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f5be"></span>F5BE</td>
 <td class="instruction">LD H,$87</td>
-<td class="comment-11" rowspan="11">The blackboards use UDGs 0-79 (0-15 for the Blue Room board, 16-31 for the Yellow Room, 32-47 for the top-floor room in the girls' skool, 48-63 for the Science Lab, and 64-79 for the middle-floor room in the girls' skool) with base page 128; wipe them clean by setting every byte of graphic data for these UDGs to 255</td>
+<td class="comment-11" rowspan="11">The blackboards use UDGs 0x00-0x4F (0x00-0x0F for the Blue Room board, 0x10-0x1F for the Yellow Room, 0x20-0x2F for the top-floor room in the girls' skool, 0x30-0x3F for the Science Lab, and 0x40-0x4F for the middle-floor room in the girls' skool) with base page 0x80; wipe them clean by setting every byte of graphic data for these UDGs to 0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -265,7 +265,7 @@ Reset various counters, flags and identifiers.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5ef"></span>F5EF</td>
 <td class="instruction">LD (HL),$D6</td>
-<td class="comment-11" rowspan="1"><a href="7FFC.html">7FFC</a> holds the number of the last character moved; set this to 214 so it immediately rewinds to 183 (little boy no. 1)</td>
+<td class="comment-11" rowspan="1"><a href="7FFC.html">7FFC</a> holds the number of the last character moved; set this to 0xD6 so it immediately rewinds to 0xB7 (little boy no. 1)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -289,7 +289,7 @@ Reset various counters, flags and identifiers.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f5f6"></span>F5F6</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span> (192-255)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span> (0xC0-0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -407,7 +407,7 @@ Set up the bike and storeroom combinations.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f617"></span>F617</td>
 <td class="instruction">LD C,$2F</td>
-<td class="comment-11" rowspan="1">47+1=48 (ASCII code for '0')</td>
+<td class="comment-11" rowspan="1">0x2F+0x01=0x30 (ASCII code for '0')</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -419,7 +419,7 @@ Set up the bike and storeroom combinations.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f61a"></span>F61A</td>
 <td class="instruction">INC C</td>
-<td class="comment-11" rowspan="3"><span class="register">C</span>=ASCII code of the number INT(<span class="register">A</span>/26)</td>
+<td class="comment-11" rowspan="3"><span class="register">C</span>=ASCII code of the number INT(<span class="register">A</span>/0x1A)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -461,7 +461,7 @@ Set up the bike and storeroom combinations.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f625"></span>F625</td>
 <td class="instruction">LD C,$40</td>
-<td class="comment-11" rowspan="1">64+1=65 (ASCII code for 'A')</td>
+<td class="comment-11" rowspan="1">0x40+0x01=0x41 (ASCII code for 'A')</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -473,7 +473,7 @@ Set up the bike and storeroom combinations.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f628"></span>F628</td>
 <td class="instruction">INC C</td>
-<td class="comment-11" rowspan="3"><span class="register">C</span>=ASCII code of the Nth letter of the alphabet (where N=1+INT(<span class="register">A</span>/10))</td>
+<td class="comment-11" rowspan="3"><span class="register">C</span>=ASCII code of the Nth letter of the alphabet (where N=1+INT(<span class="register">A</span>/0x0A))</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -543,13 +543,13 @@ Place the game characters in their initial positions.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f639"></span>F639</td>
 <td class="instruction">LD B,$20</td>
-<td class="comment-11" rowspan="1">There are 32 game characters (183-214)</td>
+<td class="comment-11" rowspan="1">There are 32 game characters (0xB7-0xD6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f63b"></span>F63B</td>
 <td class="instruction">LD H,$B7</td>
-<td class="comment-11" rowspan="1">183=little girl no. 1</td>
+<td class="comment-11" rowspan="1">0xB7=little girl no. 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -567,7 +567,7 @@ Place the game characters in their initial positions.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f63f"></span>F63F</td>
 <td class="instruction">LD L,$20</td>
-<td class="comment-11" rowspan="5">Collect the initial animatory state and location of the character from bytes 32-34 of the character's buffer and copy them into bytes 0-2</td>
+<td class="comment-11" rowspan="5">Collect the initial animatory state and location of the character from bytes 0x20-0x22 of the character's buffer and copy them into bytes 0x00-0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -603,7 +603,7 @@ Place the game characters in their initial positions.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f649"></span>F649</td>
 <td class="instruction">LD (HL),$24</td>
-<td class="comment-11" rowspan="3">Place the address of the routine at <a href="D224.html">D224</a> (RET) into bytes 3 and 4 of the character's buffer (thus making it the character's primary command; this is useful only for the non-human characters, which do not use command lists and therefore need a default primary command)</td>
+<td class="comment-11" rowspan="3">Place the address of the routine at <a href="D224.html">D224</a> (RET) into bytes 0x03 and 0x04 of the character's buffer (thus making it the character's primary command; this is useful only for the non-human characters, which do not use command lists and therefore need a default primary command)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -621,7 +621,7 @@ Place the game characters in their initial positions.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f64e"></span>F64E</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=5</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x05</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -633,7 +633,7 @@ Place the game characters in their initial positions.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f650"></span>F650</td>
 <td class="instruction">LD B,$18</td>
-<td class="comment-11" rowspan="4">Zero out bytes 5-28 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Zero out bytes 0x05-0x1C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -657,19 +657,19 @@ Place the game characters in their initial positions.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f656"></span>F656</td>
 <td class="instruction">LDI</td>
-<td class="comment-11" rowspan="1">Copy byte 35 into byte 29</td>
+<td class="comment-11" rowspan="1">Copy byte 0x23 into byte 0x1D</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f658"></span>F658</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (183-214)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (0xB7-0xD6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f659"></span>F659</td>
 <td class="instruction">AND $0F</td>
-<td class="comment-11" rowspan="2">Initialise the walking speed change delay counter at byte 30 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Initialise the walking speed change delay counter at byte 0x1E of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -715,13 +715,13 @@ Set up a free mouse.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f663"></span>F663</td>
 <td class="instruction">LD ($D411),HL</td>
-<td class="comment-11" rowspan="1">Place this uninterruptible subcommand routine address into bytes 17 and 18 of the mouse's buffer</td>
+<td class="comment-11" rowspan="1">Place this uninterruptible subcommand routine address into bytes 0x11 and 0x12 of the mouse's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f666"></span>F666</td>
 <td class="instruction">LD HL,$0101</td>
-<td class="comment-11" rowspan="2">Set bytes 20 and 21 of the mouse's buffer to 1; this has the effect of making the mouse hide initially</td>
+<td class="comment-11" rowspan="2">Set bytes 0x14 and 0x15 of the mouse's buffer to 1; this has the effect of making the mouse hide initially</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -954,9 +954,9 @@ Scroll the play area onto the screen and play the theme tune.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

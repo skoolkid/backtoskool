@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a character's buffer by the routine at <a href="667F.html">667F</a> (after he's been knocked out of his chair and just got up to look for another one - or the same one, in EINSTEIN's case), or by the routine at <a href="66C0.html">66C0</a>.
+The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of a character's buffer by the routine at <a href="667F.html">667F</a> (after he's been knocked out of his chair and just got up to look for another one - or the same one, in EINSTEIN's case), or by the routine at <a href="66C0.html">66C0</a>.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-209)</td>
+<td class="register-desc">Character number (0xB7-0xD1)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6697"></span>6697</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Byte 0 holds the character's animatory state</td>
+<td class="comment-11" rowspan="1">Byte 0x00 holds the character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -110,7 +110,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="66ae"></span>66AE</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 17 and 18 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x11 and 0x12 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -128,7 +128,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="66b5"></span>66B5</td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=0 if the character must walk back to the rightmost chair in the room, or 255 if there is one in front of him</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=0x00 if the character must walk back to the rightmost chair in the room, or 0xFF if there is one in front of him</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -140,7 +140,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="66b8"></span>66B8</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Byte 0 holds the character's animatory state</td>
+<td class="comment-11" rowspan="1">Byte 0x00 holds the character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -169,9 +169,9 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of BOY WANDER's buffer by the routine at <a href="775B.html">775B</a> just after BOY WANDER has raised his catapult and fired. It controls BOY WANDER while he is lowering the catapult.
+The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of BOY WANDER's buffer by the routine at <a href="775B.html">775B</a> just after BOY WANDER has raised his catapult and fired. It controls BOY WANDER while he is lowering the catapult.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">206 (BOY WANDER)</td>
+<td class="register-desc">0xCE (BOY WANDER)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,14 +56,14 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77b6"></span>77B6</td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#26">26 or 154</a>: BOY WANDER lowering his arm</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#26">0x1A or 0x9A</a>: BOY WANDER lowering his arm</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="77b7"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="7813.html">7813</a> with <span class="register">H</span>=207 (ANGELFACE) or <span class="register">H</span>=210 (ERIC).
+This entry point is used by the routine at <a href="7813.html">7813</a> with <span class="register">H</span>=0xCF (ANGELFACE) or <span class="register">H</span>=0xD2 (ERIC).
 </div>
 </div>
 </td>
@@ -79,7 +79,7 @@ This entry point is used by the routine at <a href="7813.html">7813</a> with <sp
 <span id="77ba"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="5F08.html">5F08</a> with <span class="register">H</span>=209 (HAYLEY).
+This entry point is used by the routine at <a href="5F08.html">5F08</a> with <span class="register">H</span>=0xD1 (HAYLEY).
 </div>
 </div>
 </td>
@@ -95,7 +95,7 @@ This entry point is used by the routine at <a href="5F08.html">5F08</a> with <sp
 <span id="77bd"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="5F1C.html">5F1C</a> with <span class="register">H</span>=209 (HAYLEY).
+This entry point is used by the routine at <a href="5F1C.html">5F1C</a> with <span class="register">H</span>=0xD1 (HAYLEY).
 </div>
 </div>
 </td>
@@ -104,7 +104,7 @@ This entry point is used by the routine at <a href="5F1C.html">5F1C</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="77bd"></span>77BD</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="1">Byte 20 of the character's buffer holds the animatory state of the character that was saved before this action (firing/hitting/kissing) started</td>
+<td class="comment-11" rowspan="1">Byte 0x14 of the character's buffer holds the animatory state of the character that was saved before this action (firing/hitting/kissing) started</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -133,9 +133,9 @@ This entry point is used by the routine at <a href="5F1C.html">5F1C</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

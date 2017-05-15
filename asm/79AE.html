@@ -35,7 +35,7 @@ Used by the routine at <a href="7A16.html">7A16</a>. Does nothing if the mouse i
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Mouse's character number (198, 199, 206-208, 212)</td>
+<td class="register-desc">Mouse's character number (0xC6, 0xC7, 0xCE-0xD0, 0xD4)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -62,7 +62,7 @@ Used by the routine at <a href="7A16.html">7A16</a>. Does nothing if the mouse i
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79b2"></span>79B2</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the mouse's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the mouse's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -104,7 +104,7 @@ Used by the routine at <a href="7A16.html">7A16</a>. Does nothing if the mouse i
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79bb"></span>79BB</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -116,7 +116,7 @@ Used by the routine at <a href="7A16.html">7A16</a>. Does nothing if the mouse i
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79bd"></span>79BD</td>
 <td class="instruction">LD H,$B7</td>
-<td class="comment-11" rowspan="1">183=little girl no. 1</td>
+<td class="comment-11" rowspan="1">0xB7=little girl no. 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -134,7 +134,7 @@ Used by the routine at <a href="7A16.html">7A16</a>. Does nothing if the mouse i
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79c4"></span>79C4</td>
 <td class="instruction">LD H,$CC</td>
-<td class="comment-11" rowspan="1">204=MISS TAKE</td>
+<td class="comment-11" rowspan="1">0xCC=MISS TAKE</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -152,7 +152,7 @@ Used by the routine at <a href="7A16.html">7A16</a>. Does nothing if the mouse i
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79ca"></span>79CA</td>
 <td class="instruction">LD H,$D1</td>
-<td class="comment-11" rowspan="1">209=HAYLEY</td>
+<td class="comment-11" rowspan="1">0xD1=HAYLEY</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -174,7 +174,7 @@ At this point <span class="register">H</span> holds the number of the first fema
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="79cd"></span>79CD</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the female character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the female character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -210,7 +210,7 @@ At this point <span class="register">H</span> holds the number of the first fema
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79d6"></span>79D6</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="2">Pick up the MSB of any uninterruptible subcommand routine address in bytes 17 and 18 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Pick up the MSB of any uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -222,7 +222,7 @@ At this point <span class="register">H</span> holds the number of the first fema
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79d9"></span>79D9</td>
 <td class="instruction">CP $79</td>
-<td class="comment-11" rowspan="1">Is this character jumping (121=MSB of <a href="7966.html">7966</a> or <a href="7974.html">7974</a>)?</td>
+<td class="comment-11" rowspan="1">Is this character jumping (0x79=MSB of <a href="7966.html">7966</a> or <a href="7974.html">7974</a>)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -234,7 +234,7 @@ At this point <span class="register">H</span> holds the number of the first fema
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="79dd"></span>79DD</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -252,7 +252,7 @@ At this point <span class="register">H</span> holds the number of the first fema
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79e1"></span>79E1</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -334,7 +334,7 @@ The female character is located within 5 spaces of the mouse, and is facing it. 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="79f9"></span>79F9</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="2">Pick up the MSB of any uninterruptible subcommand routine address in bytes 17 and 18 of the female character's buffer</td>
+<td class="comment-11" rowspan="2">Pick up the MSB of any uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the female character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -352,7 +352,7 @@ The female character is located within 5 spaces of the mouse, and is facing it. 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="79fe"></span>79FE</td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -364,7 +364,7 @@ The female character is located within 5 spaces of the mouse, and is facing it. 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a01"></span>7A01</td>
 <td class="instruction">SET 4,(HL)</td>
-<td class="comment-11" rowspan="1">Otherwise ensure this character continues jumping for a little longer by setting the counter in byte 19 to at least 16</td>
+<td class="comment-11" rowspan="1">Otherwise ensure this character continues jumping for a little longer by setting the counter in byte 0x13 to at least 0x10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -376,7 +376,7 @@ The female character is located within 5 spaces of the mouse, and is facing it. 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7a05"></span>7A05</td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is there an uninterruptible subcommand routine address other than <a href="7966.html">7966</a> or <a href="7974.html">7974</a> in bytes 17 and 18 of the character's buffer (meaning she is otherwise occupied)?</td>
+<td class="comment-11" rowspan="1">Is there an uninterruptible subcommand routine address other than <a href="7966.html">7966</a> or <a href="7974.html">7974</a> in bytes 0x11 and 0x12 of the character's buffer (meaning she is otherwise occupied)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -398,7 +398,7 @@ The female character is not jumping at the moment. Make her start.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a08"></span>7A08</td>
 <td class="instruction">LD (HL),$15</td>
-<td class="comment-11" rowspan="2">Set the delay parameter at byte 19 determining how long the female character will jump up and down</td>
+<td class="comment-11" rowspan="2">Set the delay parameter at byte 0x13 determining how long the female character will jump up and down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -410,7 +410,7 @@ The female character is not jumping at the moment. Make her start.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a0b"></span>7A0B</td>
 <td class="instruction">LD (HL),$79</td>
-<td class="comment-11" rowspan="3">Place the address of the uninterruptible subcommand routine at <a href="7974.html">7974</a> into bytes 17 and 18 of the female character's buffer</td>
+<td class="comment-11" rowspan="3">Place the address of the uninterruptible subcommand routine at <a href="7974.html">7974</a> into bytes 0x11 and 0x12 of the female character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -451,9 +451,9 @@ The female character is not jumping at the moment. Make her start.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

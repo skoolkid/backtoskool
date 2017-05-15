@@ -35,15 +35,15 @@ Continues from the routine at <a href="../start/81B4.html">81B4</a>. Counts down
 </tr>
 <tr>
 <td class="register">BC</td>
-<td class="register-desc">256</td>
+<td class="register-desc">0100</td>
 </tr>
 <tr>
 <td class="register">DE</td>
-<td class="register-desc">33024</td>
+<td class="register-desc">8100</td>
 </tr>
 <tr>
 <td class="register">HL</td>
-<td class="register-desc">23296</td>
+<td class="register-desc">5B00</td>
 </tr>
 </table>
 <table class="output-0">
@@ -58,7 +58,7 @@ Continues from the routine at <a href="../start/81B4.html">81B4</a>. Counts down
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="55a0"></span>55A0</td>
 <td class="instruction">LDIR</td>
-<td class="comment-11" rowspan="1">Copy 256 bytes from 23296 to 33024</td>
+<td class="comment-11" rowspan="1">Copy 256 bytes from 5B00 to 8100</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -100,7 +100,7 @@ Continues from the routine at <a href="../start/81B4.html">81B4</a>. Counts down
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="55ac"></span>55AC</td>
 <td class="instruction">LD HL,$5C3B</td>
-<td class="comment-11" rowspan="2">Reset bit 5 at 23611, ready for future keypresses</td>
+<td class="comment-11" rowspan="2">Reset bit 5 at 5C3B, ready for future keypresses</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -166,7 +166,7 @@ Continues from the routine at <a href="../start/81B4.html">81B4</a>. Counts down
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="55c0"></span>55C0</td>
 <td class="instruction">LD HL,$59EC</td>
-<td class="comment-11" rowspan="1">23020 is the attribute file address where the bottom row of 'big pixels' will be drawn</td>
+<td class="comment-11" rowspan="1">59EC is the attribute file address where the bottom row of 'big pixels' will be drawn</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -190,7 +190,7 @@ Continues from the routine at <a href="../start/81B4.html">81B4</a>. Counts down
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="55c9"></span>55C9</td>
 <td class="instruction">BIT 7,L</td>
-<td class="comment-11" rowspan="1">Set the zero flag when <span class="register">HL'</span> hits 15743</td>
+<td class="comment-11" rowspan="1">Set the zero flag when <span class="register">HL'</span> hits 3D7F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -298,7 +298,7 @@ Continues from the routine at <a href="../start/81B4.html">81B4</a>. Counts down
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="55e9"></span>55E9</td>
 <td class="instruction">RES 5,(HL)</td>
-<td class="comment-11" rowspan="1">Reset bit 5 at 23611, ready for future keypresses</td>
+<td class="comment-11" rowspan="1">Reset bit 5 at 5C3B, ready for future keypresses</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -321,9 +321,9 @@ Continues from the routine at <a href="../start/81B4.html">81B4</a>. Counts down
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

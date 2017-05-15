@@ -75,7 +75,7 @@ ERIC has not begun his descent yet, which means we need to figure out what his t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbd3"></span>FBD3</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -87,14 +87,14 @@ ERIC has not begun his descent yet, which means we need to figure out what his t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbd8"></span>FBD8</td>
 <td class="instruction">AND $80</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0 if ERIC's facing left, 128 if facing right</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x00 if ERIC's facing left, 0x80 if facing right</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="fbda"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="7316.html">7316</a> when ERIC has jumped from the saddle of the bike (with <span class="register">A</span>=2 or 130, and <span class="register">D</span> holding the y-coordinate of the spot above ERIC's hand).
+This entry point is used by the routine at <a href="7316.html">7316</a> when ERIC has jumped from the saddle of the bike (with <span class="register">A</span>=0x02 or 0x82, and <span class="register">D</span> holding the y-coordinate of the spot above ERIC's hand).
 </div>
 </div>
 </td>
@@ -103,7 +103,7 @@ This entry point is used by the routine at <a href="7316.html">7316</a> when ERI
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fbda"></span>FBDA</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="1">Now <span class="register">B</span>=0 (or 2) if ERIC's facing left, 128 (or 130) if facing right</td>
+<td class="comment-11" rowspan="1">Now <span class="register">B</span>=0x00 (or 0x02) if ERIC's facing left, 0x80 (or 0x82) if facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -157,7 +157,7 @@ This entry point is used by the routine at <a href="7316.html">7316</a> when ERI
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbe8"></span>FBE8</td>
 <td class="instruction">ADD A,$A6</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=159-165 (normal descent table entry pointer)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x9F-0xA5 (normal descent table entry pointer)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -169,7 +169,7 @@ This entry point is used by the routine at <a href="7316.html">7316</a> when ERI
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbeb"></span>FBEB</td>
 <td class="instruction">LD A,$05</td>
-<td class="comment-11" rowspan="2">Now <span class="register">A</span>=animatory state of ERIC sitting on the floor (<a href="../graphics/as.html#5">5/133</a>) or with his arm up (<a href="../graphics/as.html#7">7/135</a>)</td>
+<td class="comment-11" rowspan="2">Now <span class="register">A</span>=animatory state of ERIC sitting on the floor (<a href="../graphics/as.html#5">0x05/0x85</a>) or with his arm up (<a href="../graphics/as.html#7">0x07/0x87</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -193,7 +193,7 @@ This entry point is used by the routine at <a href="7316.html">7316</a> when ERI
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fbf2"></span>FBF2</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the appropriate entry (<span class="register">H</span>=159-165) in the normal descent table (<span class="register">L</span>=252) for ERIC's current height above the floor</td>
+<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the appropriate entry (<span class="register">H</span>=0x9F-0xA5) in the normal descent table (<span class="register">L</span>=0xFC) for ERIC's current height above the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -206,7 +206,7 @@ This entry point is used by the routine at <a href="7316.html">7316</a> when ERI
 <span id="fbf5"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="5D23.html">5D23</a> (with <span class="register">H</span>=159, <span class="register">L</span>=253 or 254) and <a href="5D33.html">5D33</a> (with <span class="register">H</span>=159, <span class="register">L</span>=255).
+This entry point is used by the routines at <a href="5D23.html">5D23</a> (with <span class="register">H</span>=0x9F, <span class="register">L</span>=0xFD or 0xFE) and <a href="5D33.html">5D33</a> (with <span class="register">H</span>=0x9F, <span class="register">L</span>=0xFF).
 </div>
 </div>
 </td>
@@ -419,7 +419,7 @@ ERIC hasn't landed yet. Determine his next move through the air.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc23"></span>FC23</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -431,7 +431,7 @@ ERIC hasn't landed yet. Determine his next move through the air.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fc28"></span>FC28</td>
 <td class="instruction">AND $80</td>
-<td class="comment-11" rowspan="2"><span class="register">B</span>=0 if ERIC's facing left, 128 if facing right</td>
+<td class="comment-11" rowspan="2"><span class="register">B</span>=0x00 if ERIC's facing left, 0x80 if facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -498,7 +498,7 @@ The descent tables themselves contain the following entries:
 <div class="paragraph">
 <span id="dt252" /> <table class="default">
 <tr>
-<th colspan="4" rowspan="1"><span class="register">E</span>=252 (normal descent)</th>
+<th colspan="4" rowspan="1"><span class="register">E</span>=0xFC (normal descent)</th>
 </tr>
 <tr>
 <th colspan="1" rowspan="1"><span class="register">D</span></th>
@@ -507,63 +507,63 @@ The descent tables themselves contain the following entries:
 <th colspan="1" rowspan="1">Meaning</th>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1">0xA0</td>
 <td class="" colspan="1" rowspan="1"><a href="A0FC.html">A0FC</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">161</td>
+<td class="" colspan="1" rowspan="1">0xA1</td>
 <td class="" colspan="1" rowspan="1"><a href="A1FC.html">A1FC</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">162</td>
+<td class="" colspan="1" rowspan="1">0xA2</td>
 <td class="" colspan="1" rowspan="1"><a href="A2FC.html">A2FC</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">163</td>
+<td class="" colspan="1" rowspan="1">0xA3</td>
 <td class="" colspan="1" rowspan="1"><a href="A3FC.html">A3FC</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">164</td>
+<td class="" colspan="1" rowspan="1">0xA4</td>
 <td class="" colspan="1" rowspan="1"><a href="A4FC.html">A4FC</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">165</td>
+<td class="" colspan="1" rowspan="1">0xA5</td>
 <td class="" colspan="1" rowspan="1"><a href="A5FC.html">A5FC</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">166</td>
+<td class="" colspan="1" rowspan="1">0xA6</td>
 <td class="" colspan="1" rowspan="1"><a href="A6FC.html">A6FC</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">167</td>
+<td class="" colspan="1" rowspan="1">0xA7</td>
 <td class="" colspan="1" rowspan="1"><a href="A7FC.html">A7FC</a></td>
-<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
 <td class="" colspan="1" rowspan="1">ERIC has landed</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">168</td>
+<td class="" colspan="1" rowspan="1">0xA8</td>
 <td class="" colspan="1" rowspan="1"><a href="A8FC.html">A8FC</a></td>
-<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">0x04</td>
 <td class="" colspan="1" rowspan="1">Set bit 2 at <a href="7FFB.html">7FFB</a> (ERIC is sitting)</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">169</td>
+<td class="" colspan="1" rowspan="1">0xA9</td>
 <td class="" colspan="1" rowspan="1"><a href="A9FC.html">A9FC</a></td>
-<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
 <td class="" colspan="1" rowspan="1">Reset all bits at <a href="7FED.html">7FED</a> (ERIC landed safely)</td>
 </tr>
 </table>
@@ -571,7 +571,7 @@ The descent tables themselves contain the following entries:
 <div class="paragraph">
 <span id="dt253" /> <table class="default">
 <tr>
-<th colspan="4" rowspan="1"><span class="register">E</span>=253 (from the bike saddle over the closed skool gate)</th>
+<th colspan="4" rowspan="1"><span class="register">E</span>=0xFD (from the bike saddle over the closed skool gate)</th>
 </tr>
 <tr>
 <th colspan="1" rowspan="1"><span class="register">D</span></th>
@@ -580,69 +580,69 @@ The descent tables themselves contain the following entries:
 <th colspan="1" rowspan="1">Meaning</th>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1">0xA0</td>
 <td class="" colspan="1" rowspan="1"><a href="A0FC.html#a0fd">A0FD</a></td>
-<td class="centre" colspan="1" rowspan="1">160</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+<td class="centre" colspan="1" rowspan="1">0xA0</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; ascend; move forward</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">161</td>
+<td class="" colspan="1" rowspan="1">0xA1</td>
 <td class="" colspan="1" rowspan="1"><a href="A1FC.html#a1fd">A1FD</a></td>
-<td class="centre" colspan="1" rowspan="1">160</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+<td class="centre" colspan="1" rowspan="1">0xA0</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; ascend; move forward</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">162</td>
+<td class="" colspan="1" rowspan="1">0xA2</td>
 <td class="" colspan="1" rowspan="1"><a href="A2FC.html#a2fd">A2FD</a></td>
-<td class="centre" colspan="1" rowspan="1">160</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+<td class="centre" colspan="1" rowspan="1">0xA0</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; ascend; move forward</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">163</td>
+<td class="" colspan="1" rowspan="1">0xA3</td>
 <td class="" colspan="1" rowspan="1"><a href="A3FC.html#a3fd">A3FD</a></td>
-<td class="centre" colspan="1" rowspan="1">96</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forward</td>
+<td class="centre" colspan="1" rowspan="1">0x60</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend; move forward</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">164</td>
+<td class="" colspan="1" rowspan="1">0xA4</td>
 <td class="" colspan="1" rowspan="1"><a href="A4FC.html#a4fd">A4FD</a></td>
-<td class="centre" colspan="1" rowspan="1">100</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">4 or 132</a>; descend; move forward</td>
+<td class="centre" colspan="1" rowspan="1">0x64</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">0x04 or 0x84</a>; descend; move forward</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">165</td>
+<td class="" colspan="1" rowspan="1">0xA5</td>
 <td class="" colspan="1" rowspan="1"><a href="A5FC.html#a5fd">A5FD</a></td>
-<td class="centre" colspan="1" rowspan="1">37</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; move forward</td>
+<td class="centre" colspan="1" rowspan="1">0x25</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; move forward</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">166</td>
+<td class="" colspan="1" rowspan="1">0xA6</td>
 <td class="" colspan="1" rowspan="1"><a href="A6FC.html#a6fd">A6FD</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">167</td>
+<td class="" colspan="1" rowspan="1">0xA7</td>
 <td class="" colspan="1" rowspan="1"><a href="A7FC.html#a7fd">A7FD</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">168</td>
+<td class="" colspan="1" rowspan="1">0xA8</td>
 <td class="" colspan="1" rowspan="1"><a href="A8FC.html#a8fd">A8FD</a></td>
-<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
 <td class="" colspan="1" rowspan="1">ERIC has landed</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">169</td>
+<td class="" colspan="1" rowspan="1">0xA9</td>
 <td class="" colspan="1" rowspan="1"><a href="A9FC.html#a9fd">A9FD</a></td>
-<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">0x04</td>
 <td class="" colspan="1" rowspan="1">Set bit 2 at <a href="7FFB.html">7FFB</a> (ERIC is sitting)</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">170</td>
+<td class="" colspan="1" rowspan="1">0xAA</td>
 <td class="" colspan="1" rowspan="1"><a href="AAFD.html">AAFD</a></td>
-<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
 <td class="" colspan="1" rowspan="1">Reset all bits at <a href="7FED.html">7FED</a> (ERIC landed safely)</td>
 </tr>
 </table>
@@ -650,7 +650,7 @@ The descent tables themselves contain the following entries:
 <div class="paragraph">
 <span id="dt254" /> <table class="default">
 <tr>
-<th colspan="4" rowspan="1"><span class="register">E</span>=254 (from the bike saddle into a wall or closed door)</th>
+<th colspan="4" rowspan="1"><span class="register">E</span>=0xFE (from the bike saddle into a wall or closed door)</th>
 </tr>
 <tr>
 <th colspan="1" rowspan="1"><span class="register">D</span></th>
@@ -659,63 +659,63 @@ The descent tables themselves contain the following entries:
 <th colspan="1" rowspan="1">Meaning</th>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1">0xA0</td>
 <td class="" colspan="1" rowspan="1"><a href="A0FC.html#a0fe">A0FE</a></td>
-<td class="centre" colspan="1" rowspan="1">160</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+<td class="centre" colspan="1" rowspan="1">0xA0</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; ascend; move forward</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">161</td>
+<td class="" colspan="1" rowspan="1">0xA1</td>
 <td class="" colspan="1" rowspan="1"><a href="A1FC.html#a1fe">A1FE</a></td>
-<td class="centre" colspan="1" rowspan="1">160</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; ascend; move forward</td>
+<td class="centre" colspan="1" rowspan="1">0xA0</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; ascend; move forward</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">162</td>
+<td class="" colspan="1" rowspan="1">0xA2</td>
 <td class="" colspan="1" rowspan="1"><a href="A2FC.html#a2fe">A2FE</a></td>
-<td class="centre" colspan="1" rowspan="1">2</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#2">2 or 130</a>; ascend</td>
+<td class="centre" colspan="1" rowspan="1">0x02</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#2">0x02 or 0x82</a>; ascend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">163</td>
+<td class="" colspan="1" rowspan="1">0xA3</td>
 <td class="" colspan="1" rowspan="1"><a href="A3FC.html#a3fe">A3FE</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">164</td>
+<td class="" colspan="1" rowspan="1">0xA4</td>
 <td class="" colspan="1" rowspan="1"><a href="A4FC.html#a4fe">A4FE</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">165</td>
+<td class="" colspan="1" rowspan="1">0xA5</td>
 <td class="" colspan="1" rowspan="1"><a href="A5FC.html#a5fe">A5FE</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">166</td>
+<td class="" colspan="1" rowspan="1">0xA6</td>
 <td class="" colspan="1" rowspan="1"><a href="A6FC.html#a6fe">A6FE</a></td>
-<td class="centre" colspan="1" rowspan="1">22</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#6">6 or 134</a>; move backwards</td>
+<td class="centre" colspan="1" rowspan="1">0x16</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#6">0x06 or 0x86</a>; move backwards</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">167</td>
+<td class="" colspan="1" rowspan="1">0xA7</td>
 <td class="" colspan="1" rowspan="1"><a href="A7FC.html#a7fe">A7FE</a></td>
-<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
 <td class="" colspan="1" rowspan="1">ERIC has landed</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">168</td>
+<td class="" colspan="1" rowspan="1">0xA8</td>
 <td class="" colspan="1" rowspan="1"><a href="A8FC.html#a8fe">A8FE</a></td>
-<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">0x04</td>
 <td class="" colspan="1" rowspan="1">Set bit 2 at <a href="7FFB.html">7FFB</a> (ERIC is sitting)</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">169</td>
+<td class="" colspan="1" rowspan="1">0xA9</td>
 <td class="" colspan="1" rowspan="1"><a href="A9FC.html#a9fe">A9FE</a></td>
-<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
 <td class="" colspan="1" rowspan="1">Reset all bits at <a href="7FED.html">7FED</a> (ERIC landed safely)</td>
 </tr>
 </table>
@@ -723,7 +723,7 @@ The descent tables themselves contain the following entries:
 <div class="paragraph">
 <span id="dt255" /> <table class="default">
 <tr>
-<th colspan="4" rowspan="1"><span class="register">E</span>=255 (from the top-floor window)</th>
+<th colspan="4" rowspan="1"><span class="register">E</span>=0xFF (from the top-floor window)</th>
 </tr>
 <tr>
 <th colspan="1" rowspan="1"><span class="register">D</span></th>
@@ -732,129 +732,129 @@ The descent tables themselves contain the following entries:
 <th colspan="1" rowspan="1">Meaning</th>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">160</td>
+<td class="" colspan="1" rowspan="1">0xA0</td>
 <td class="" colspan="1" rowspan="1"><a href="A0FC.html#a0ff">A0FF</a></td>
-<td class="centre" colspan="1" rowspan="1">96</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forwards</td>
+<td class="centre" colspan="1" rowspan="1">0x60</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend; move forwards</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">161</td>
+<td class="" colspan="1" rowspan="1">0xA1</td>
 <td class="" colspan="1" rowspan="1"><a href="A1FC.html#a1ff">A1FF</a></td>
-<td class="centre" colspan="1" rowspan="1">96</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forwards</td>
+<td class="centre" colspan="1" rowspan="1">0x60</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend; move forwards</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">162</td>
+<td class="" colspan="1" rowspan="1">0xA2</td>
 <td class="" colspan="1" rowspan="1"><a href="A2FC.html#a2ff">A2FF</a></td>
-<td class="centre" colspan="1" rowspan="1">96</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forwards</td>
+<td class="centre" colspan="1" rowspan="1">0x60</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend; move forwards</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">163</td>
+<td class="" colspan="1" rowspan="1">0xA3</td>
 <td class="" colspan="1" rowspan="1"><a href="A3FC.html#a3ff">A3FF</a></td>
-<td class="centre" colspan="1" rowspan="1">96</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend; move forwards</td>
+<td class="centre" colspan="1" rowspan="1">0x60</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend; move forwards</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">164</td>
+<td class="" colspan="1" rowspan="1">0xA4</td>
 <td class="" colspan="1" rowspan="1"><a href="A4FC.html#a4ff">A4FF</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">165</td>
+<td class="" colspan="1" rowspan="1">0xA5</td>
 <td class="" colspan="1" rowspan="1"><a href="A5FC.html#a5ff">A5FF</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">166</td>
+<td class="" colspan="1" rowspan="1">0xA6</td>
 <td class="" colspan="1" rowspan="1"><a href="A6FC.html#a6ff">A6FF</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">167</td>
+<td class="" colspan="1" rowspan="1">0xA7</td>
 <td class="" colspan="1" rowspan="1"><a href="A7FC.html#a7ff">A7FF</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">168</td>
+<td class="" colspan="1" rowspan="1">0xA8</td>
 <td class="" colspan="1" rowspan="1"><a href="A8FC.html#a8ff">A8FF</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">169</td>
+<td class="" colspan="1" rowspan="1">0xA9</td>
 <td class="" colspan="1" rowspan="1"><a href="A9FC.html#a9ff">A9FF</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0 or 128</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#0">0x00 or 0x80</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">170</td>
+<td class="" colspan="1" rowspan="1">0xAA</td>
 <td class="" colspan="1" rowspan="1"><a href="AAFF.html">AAFF</a></td>
-<td class="centre" colspan="1" rowspan="1">68</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">4 or 132</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x44</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">0x04 or 0x84</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">171</td>
+<td class="" colspan="1" rowspan="1">0xAB</td>
 <td class="" colspan="1" rowspan="1"><a href="ABFF.html">ABFF</a></td>
-<td class="centre" colspan="1" rowspan="1">68</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">4 or 132</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x44</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">0x04 or 0x84</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">172</td>
+<td class="" colspan="1" rowspan="1">0xAC</td>
 <td class="" colspan="1" rowspan="1"><a href="ACFF.html">ACFF</a></td>
-<td class="centre" colspan="1" rowspan="1">68</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">4 or 132</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x44</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#4">0x04 or 0x84</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">173</td>
+<td class="" colspan="1" rowspan="1">0xAD</td>
 <td class="" colspan="1" rowspan="1"><a href="ADFF.html">ADFF</a></td>
-<td class="centre" colspan="1" rowspan="1">5</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a></td>
+<td class="centre" colspan="1" rowspan="1">0x05</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a></td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">174</td>
+<td class="" colspan="1" rowspan="1">0xAE</td>
 <td class="" colspan="1" rowspan="1"><a href="AEFF.html">AEFF</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">175</td>
+<td class="" colspan="1" rowspan="1">0xAF</td>
 <td class="" colspan="1" rowspan="1"><a href="AFFF.html">AFFF</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">176</td>
+<td class="" colspan="1" rowspan="1">0xB0</td>
 <td class="" colspan="1" rowspan="1"><a href="B0FF.html">B0FF</a></td>
-<td class="centre" colspan="1" rowspan="1">69</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">5 or 133</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x45</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#5">0x05 or 0x85</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">177</td>
+<td class="" colspan="1" rowspan="1">0xB1</td>
 <td class="" colspan="1" rowspan="1"><a href="B1FF.html">B1FF</a></td>
-<td class="centre" colspan="1" rowspan="1">70</td>
-<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#6">6 or 134</a>; descend</td>
+<td class="centre" colspan="1" rowspan="1">0x46</td>
+<td class="" colspan="1" rowspan="1">Animatory state <a href="../graphics/as.html#6">0x06 or 0x86</a>; descend</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">178</td>
+<td class="" colspan="1" rowspan="1">0xB2</td>
 <td class="" colspan="1" rowspan="1"><a href="B2FF.html">B2FF</a></td>
-<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
 <td class="" colspan="1" rowspan="1">ERIC has landed</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">179</td>
+<td class="" colspan="1" rowspan="1">0xB3</td>
 <td class="" colspan="1" rowspan="1"><a href="B3FF.html">B3FF</a></td>
-<td class="centre" colspan="1" rowspan="1">64</td>
+<td class="centre" colspan="1" rowspan="1">0x40</td>
 <td class="" colspan="1" rowspan="1">Set bit 6 at <a href="7FFB.html">7FFB</a> (MR WACKER should expel ERIC)</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">180</td>
+<td class="" colspan="1" rowspan="1">0xB4</td>
 <td class="" colspan="1" rowspan="1"><a href="B4FF.html">B4FF</a></td>
-<td class="centre" colspan="1" rowspan="1">32</td>
+<td class="centre" colspan="1" rowspan="1">0x20</td>
 <td class="" colspan="1" rowspan="1">Set bit 5 at <a href="7FED.html">7FED</a> (ERIC fell out of the top-floor window)</td>
 </tr>
 </table>
@@ -871,9 +871,9 @@ The descent tables themselves contain the following entries:
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

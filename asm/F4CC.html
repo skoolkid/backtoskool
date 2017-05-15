@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this continual subcommand routine is placed into bytes 23 and 24 of ALBERT's buffer by command list <a href="E94C.html">76</a>. Makes ALBERT raise his arm and alert MR WACKER if ERIC enters the 'danger zone' (within 6 spaces to the left of ALBERT). Also makes ALBERT lower his arm if ERIC leaves the danger zone.
+The address of this continual subcommand routine is placed into bytes 0x17 and 0x18 of ALBERT's buffer by command list <a href="E94C.html">0x4C</a>. Makes ALBERT raise his arm and alert MR WACKER if ERIC enters the 'danger zone' (within 6 spaces to the left of ALBERT). Also makes ALBERT lower his arm if ERIC leaves the danger zone.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">205 (ALBERT)</td>
+<td class="register-desc">0xCD (ALBERT)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f4cc"></span>F4CC</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ALBERT's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ALBERT's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -116,7 +116,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f4e0"></span>F4E0</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of ALBERT's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of ALBERT's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -162,7 +162,7 @@ ERIC's not in the danger zone. Make ALBERT lower his arm if he has it raised.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f4ea"></span>F4EA</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ALBERT's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ALBERT's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -174,7 +174,7 @@ ERIC's not in the danger zone. Make ALBERT lower his arm if he has it raised.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f4ed"></span>F4ED</td>
 <td class="instruction">CP $7F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#127">127</a>: Is ALBERT facing left with his arm up?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#127">0x7F</a>: Is ALBERT facing left with his arm up?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -198,7 +198,7 @@ ERIC's not in the danger zone. Make ALBERT lower his arm if he has it raised.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f4f2"></span>F4F2</td>
 <td class="instruction">LD A,$78</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#120">120</a>: ALBERT facing left, standing, with his arm down</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#120">0x78</a>: ALBERT facing left, standing, with his arm down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -220,7 +220,7 @@ ERIC is in the danger zone near ALBERT.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f4f7"></span>F4F7</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -250,7 +250,7 @@ ERIC is in the danger zone near ALBERT.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f4ff"></span>F4FF</td>
 <td class="instruction">LD A,$7F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#127">127</a>: ALBERT facing left with his arm up</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#127">0x7F</a>: ALBERT facing left with his arm up</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -310,7 +310,7 @@ ERIC is in the danger zone near ALBERT.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f513"></span>F513</td>
 <td class="instruction">LD HL,$C81B</td>
-<td class="comment-11" rowspan="4">Place the address of the command list at <a href="F52E.html">F52E</a> into bytes 27 and 28 of MR WACKER's buffer; this command list contains a single entry: the address of the routine at <a href="7D36.html">7D36</a></td>
+<td class="comment-11" rowspan="4">Place the address of the command list at <a href="F52E.html">F52E</a> into bytes 0x1B and 0x1C of MR WACKER's buffer; this command list contains a single entry: the address of the routine at <a href="7D36.html">7D36</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -334,7 +334,7 @@ ERIC is in the danger zone near ALBERT.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f51b"></span>F51B</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set bit 0 of byte 29 of MR WACKER's buffer, triggering a command list restart (at <a href="F52E.html">F52E</a>)</td>
+<td class="comment-11" rowspan="2">Set bit 0 of byte 0x1D of MR WACKER's buffer, triggering a command list restart (at <a href="F52E.html">F52E</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -346,7 +346,7 @@ ERIC is in the danger zone near ALBERT.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f51e"></span>F51E</td>
 <td class="instruction">LD H,$CD</td>
-<td class="comment-11" rowspan="1">205=ALBERT</td>
+<td class="comment-11" rowspan="1">0xCD=ALBERT</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -364,7 +364,7 @@ ERIC is in the danger zone near ALBERT.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f526"></span>F526</td>
 <td class="instruction">LD BC,$6232</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="EE09.html">98</a> (MR WACKER^HE'S ESCAPING), <span class="register">C</span>=50 (INK 2: PAPER 6)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="EE09.html">0x62</a> (MR WACKER^HE'S ESCAPING), <span class="register">C</span>=0x32 (INK 2: PAPER 6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -387,9 +387,9 @@ ERIC is in the danger zone near ALBERT.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

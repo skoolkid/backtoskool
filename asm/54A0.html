@@ -165,7 +165,7 @@ The input method has been established. Now prepare the screen for the cast of ch
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="54c9"></span>54C9</td>
 <td class="instruction">LD HL,$B701</td>
-<td class="comment-11" rowspan="9">Draw a line (the catwalk) across the screen, and set byte 1 of each character's buffer (which holds the character's x-coordinate) to a number between 1 and 32 (so that they are off-screen: the column of the play area at the far left of the screen, stored at <a href="7FFF.html">7FFF</a>, was set to 128 earlier on)</td>
+<td class="comment-11" rowspan="9">Draw a line (the catwalk) across the screen, and set byte 0x01 of each character's buffer (which holds the character's x-coordinate) to a number between 1 and 32 (so that they are off-screen: the column of the play area at the far left of the screen, stored at <a href="7FFF.html">7FFF</a>, was set to 128 earlier on)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -219,7 +219,7 @@ The input method has been established. Now prepare the screen for the cast of ch
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54d9"></span>54D9</td>
 <td class="instruction">LD HL,$D202</td>
-<td class="comment-11" rowspan="2">Set byte 2 of ERIC's character buffer (which holds his y-coordinate) to 8; this will be the y-coordinate of the characters as they proceed along the catwalk</td>
+<td class="comment-11" rowspan="2">Set byte 0x02 of ERIC's character buffer (which holds his y-coordinate) to 8; this will be the y-coordinate of the characters as they proceed along the catwalk</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -231,7 +231,7 @@ The input method has been established. Now prepare the screen for the cast of ch
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54de"></span>54DE</td>
 <td class="instruction">LD A,$F8</td>
-<td class="comment-11" rowspan="1">Message <a href="56CF.html">248</a>: 'THE CHARACTERS'</td>
+<td class="comment-11" rowspan="1">Message <a href="56CF.html">0xF8</a>: 'THE CHARACTERS'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -288,9 +288,9 @@ This entry point is used by the routine at <a href="55A0.html">55A0</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

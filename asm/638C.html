@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The main entry point is used by the routines at <a href="6464.html">6464</a>, <a href="7CD0.html">7CD0</a>, <a href="7CE1.html">7CE1</a>, <a href="7EF1.html">7EF1</a>, <a href="F073.html">F073</a>, <a href="F0B8.html">F0B8</a>, <a href="F0BF.html">F0BF</a>, <a href="F0DA.html">F0DA</a>, <a href="F250.html">F250</a>, <a href="F460.html">F460</a>, <a href="F46C.html">F46C</a>, <a href="F487.html">F487</a>, <a href="F49C.html">F49C</a> and <a href="F80D.html">F80D</a>. Removes the primary command routine address from bytes 3 and 4 of the character's buffer, which has the effect of making the routine at <a href="62D0.html">62D0</a> move immediately to the next command in the command list.
+The main entry point is used by the routines at <a href="6464.html">6464</a>, <a href="7CD0.html">7CD0</a>, <a href="7CE1.html">7CE1</a>, <a href="7EF1.html">7EF1</a>, <a href="F073.html">F073</a>, <a href="F0B8.html">F0B8</a>, <a href="F0BF.html">F0BF</a>, <a href="F0DA.html">F0DA</a>, <a href="F250.html">F250</a>, <a href="F460.html">F460</a>, <a href="F46C.html">F46C</a>, <a href="F487.html">F487</a>, <a href="F49C.html">F49C</a> and <a href="F80D.html">F80D</a>. Removes the primary command routine address from bytes 0x03 and 0x04 of the character's buffer, which has the effect of making the routine at <a href="62D0.html">62D0</a> move immediately to the next command in the command list.
 </div>
 </div>
 <table class="input-0">
@@ -47,7 +47,7 @@ The main entry point is used by the routines at <a href="6464.html">6464</a>, <a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="638c"></span>638C</td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="1">Byte 4 of the buffer contains the MSB of the primary command routine address</td>
+<td class="comment-11" rowspan="1">Byte 0x04 of the buffer contains the MSB of the primary command routine address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -60,7 +60,7 @@ The main entry point is used by the routines at <a href="6464.html">6464</a>, <a
 <span id="6390"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="63ED.html">63ED</a>, <a href="6438.html">6438</a>, <a href="644D.html">644D</a>, <a href="680F.html">680F</a>, <a href="6880.html">6880</a>, <a href="6A08.html">6A08</a>, <a href="7E7B.html">7E7B</a> and <a href="F017.html">F017</a>. Removes the interruptible subcommand routine address from bytes 9 and 10 of the character's buffer, which has the effect of making the routine at <a href="62D0.html">62D0</a> immediately hand control of the character back to the primary command.
+This entry point is used by the routines at <a href="63ED.html">63ED</a>, <a href="6438.html">6438</a>, <a href="644D.html">644D</a>, <a href="680F.html">680F</a>, <a href="6880.html">6880</a>, <a href="6A08.html">6A08</a>, <a href="7E7B.html">7E7B</a> and <a href="F017.html">F017</a>. Removes the interruptible subcommand routine address from bytes 0x09 and 0x0A of the character's buffer, which has the effect of making the routine at <a href="62D0.html">62D0</a> immediately hand control of the character back to the primary command.
 </div>
 </div>
 </td>
@@ -69,7 +69,7 @@ This entry point is used by the routines at <a href="63ED.html">63ED</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6390"></span>6390</td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="1">Byte 10 of the buffer contains the MSB of the interruptible subcommand routine address</td>
+<td class="comment-11" rowspan="1">Byte 0x0A of the buffer contains the MSB of the interruptible subcommand routine address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -82,7 +82,7 @@ This entry point is used by the routines at <a href="63ED.html">63ED</a>, <a hre
 <span id="6394"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="7596.html">7596</a>, <a href="77B3.html">77B3</a> and <a href="7A16.html">7A16</a>. Removes the uninterruptible subcommand routine address from bytes 17 and 18 of the character's buffer, which has the effect of making the routine at <a href="62D0.html">62D0</a> immediately hand control of the character back to the interruptible subcommand or the primary command.
+This entry point is used by the routines at <a href="7596.html">7596</a>, <a href="77B3.html">77B3</a> and <a href="7A16.html">7A16</a>. Removes the uninterruptible subcommand routine address from bytes 0x11 and 0x12 of the character's buffer, which has the effect of making the routine at <a href="62D0.html">62D0</a> immediately hand control of the character back to the interruptible subcommand or the primary command.
 </div>
 </div>
 </td>
@@ -91,19 +91,19 @@ This entry point is used by the routines at <a href="7596.html">7596</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6394"></span>6394</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="1">Byte 18 of the buffer contains the MSB of the uninterruptible subcommand routine address</td>
+<td class="comment-11" rowspan="1">Byte 0x12 of the buffer contains the MSB of the uninterruptible subcommand routine address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6396"></span>6396</td>
 <td class="instruction">LD A,($7FFC)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being worked on (183-214)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the character being worked on (0xB7-0xD6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6399"></span>6399</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="2">Zero out the relevant routine address MSB (in byte 4, 10 or 18) in the character's buffer</td>
+<td class="comment-11" rowspan="2">Zero out the relevant routine address MSB (in byte 0x04, 0x0A or 0x12) in the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -126,9 +126,9 @@ This entry point is used by the routines at <a href="7596.html">7596</a>, <a hre
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

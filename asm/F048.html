@@ -35,7 +35,7 @@ Used by the routine at <a href="F100.html">F100</a>. If EINSTEIN is in class, th
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (201-203)</td>
+<td class="register-desc">Teacher's character number (0xC9-0xCB)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,7 +56,7 @@ Used by the routine at <a href="F100.html">F100</a>. If EINSTEIN is in class, th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f04b"></span>F04B</td>
 <td class="instruction">CP $34</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#52">52</a>: Is EINSTEIN sitting down (i.e. in class)?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#52">0x34</a>: Is EINSTEIN sitting down (i.e. in class)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -98,7 +98,7 @@ Used by the routine at <a href="F100.html">F100</a>. If EINSTEIN is in class, th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f057"></span>F057</td>
 <td class="instruction">LD L,$03</td>
-<td class="comment-11" rowspan="4">Place this address into bytes 3 and 4 of the teacher's buffer, so that we keep returning here (and the teacher stands still) until EINSTEIN arrives in class</td>
+<td class="comment-11" rowspan="4">Place this address into bytes 0x03 and 0x04 of the teacher's buffer, so that we keep returning here (and the teacher stands still) until EINSTEIN arrives in class</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -133,9 +133,9 @@ Used by the routine at <a href="F100.html">F100</a>. If EINSTEIN is in class, th
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

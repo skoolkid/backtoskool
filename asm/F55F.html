@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this routine is found in the command list at <a href="F530.html">F530</a>, the address of which is placed into bytes 27 and 28 of MR WACKER's buffer by the routine at <a href="F532.html">F532</a>.
+The address of this routine is found in the command list at <a href="F530.html">F530</a>, the address of which is placed into bytes 0x1B and 0x1C of MR WACKER's buffer by the routine at <a href="F532.html">F532</a>.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this routine is found in the command list at <a href="F530.html">
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">200 (MR WACKER)</td>
+<td class="register-desc">0xC8 (MR WACKER)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this routine is found in the command list at <a href="F530.html">
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f55f"></span>F55F</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 29 of MR WACKER's buffer, making him run</td>
+<td class="comment-11" rowspan="2">Set bit 7 of byte 0x1D of MR WACKER's buffer, making him run</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ The address of this routine is found in the command list at <a href="F530.html">
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f563"></span>F563</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-11" rowspan="2">Set the MSB of the lesson clock at <a href="7FE3.html">7FE3</a> to 255 (this lesson will not end until ERIC's expelled)</td>
+<td class="comment-11" rowspan="2">Set the MSB of the lesson clock at <a href="7FE3.html">7FE3</a> to 0xFF (this lesson will not end until ERIC's expelled)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -80,7 +80,7 @@ The address of this routine is found in the command list at <a href="F530.html">
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f56b"></span>F56B</td>
 <td class="instruction">LD HL,$C800</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of MR WACKER's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of MR WACKER's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -98,7 +98,7 @@ The address of this routine is found in the command list at <a href="F530.html">
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f571"></span>F571</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -140,7 +140,7 @@ The address of this routine is found in the command list at <a href="F530.html">
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f57d"></span>F57D</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -210,13 +210,13 @@ MR WACKER has found ERIC.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f58e"></span>F58E</td>
 <td class="instruction">LD H,$C8</td>
-<td class="comment-11" rowspan="1">200=MR WACKER</td>
+<td class="comment-11" rowspan="1">0xC8=MR WACKER</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f590"></span>F590</td>
 <td class="instruction">LD E,$63</td>
-<td class="comment-11" rowspan="1">Message <a href="EE19.html">99</a>: YOU HAVE 10000 LINES...</td>
+<td class="comment-11" rowspan="1">Message <a href="EE19.html">0x63</a>: YOU HAVE 10000 LINES...</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -228,7 +228,7 @@ MR WACKER has found ERIC.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f594"></span>F594</td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=<a href="EE2F.html">100</a>: YOU ARE NOT A BIRD...</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=<a href="EE2F.html">0x64</a>: YOU ARE NOT A BIRD...</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -311,9 +311,9 @@ MR WACKER has found ERIC.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

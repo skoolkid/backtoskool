@@ -47,7 +47,7 @@ Called from the main loop at <a href="F6EA.html">F6EA</a>. Returns with <span cl
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f413"></span>F413</td>
 <td class="instruction">LD A,($7FDE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=255 if we're in demo mode, 0 otherwise</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xFF if we're in demo mode, 0x00 otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -121,7 +121,7 @@ No keys have been pressed, so figure out ERIC's next move by seeing what little 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f42d"></span>F42D</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -202,7 +202,7 @@ Now <span class="register">A</span> holds a value that will be translated into a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f43b"></span>F43B</td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is the LSB of FRAMES &lt; 128?</td>
+<td class="comment-11" rowspan="1">Is the LSB of FRAMES &lt; 0x80?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -220,7 +220,7 @@ Now <span class="register">A</span> holds a value that will be translated into a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f441"></span>F441</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=80+2n where 0&lt;=n&lt;=7 (simulated keypress for LEFT, RIGHT, UP, DOWN or left, right, up, down)</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=0x50+2n where 0&lt;=n&lt;=7 (simulated keypress for LEFT, RIGHT, UP, DOWN or left, right, up, down)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -254,13 +254,13 @@ ERIC's coordinates match those of little boy no. 10 exactly.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f448"></span>F448</td>
 <td class="instruction">CP $44</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#68">68</a>: little boy sitting in a chair</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#68">0x44</a>: little boy sitting in a chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f44a"></span>F44A</td>
 <td class="instruction">LD HL,$D200</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -272,7 +272,7 @@ ERIC's coordinates match those of little boy no. 10 exactly.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f44f"></span>F44F</td>
 <td class="instruction">CP $C5</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#197">197</a>: Is little boy no. 10 sitting on the floor facing right (as in assembly)?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#197">0xC5</a>: Is little boy no. 10 sitting on the floor facing right (as in assembly)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -318,7 +318,7 @@ Little boy no. 10 is sitting in a chair or sitting on the floor facing right (as
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f457"></span>F457</td>
 <td class="instruction">LD A,$62</td>
-<td class="comment-11" rowspan="1">98=keypress code for 'S' (sit)</td>
+<td class="comment-11" rowspan="1">0x62=keypress code for 'S' (sit)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -336,7 +336,7 @@ Little boy no. 10 is sitting in a chair or sitting on the floor facing right (as
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f45b"></span>F45B</td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="4">Set <span class="register">A</span> to 1 if ERIC is facing left (leading to a simulated keypress code of 82, or RIGHT), 0 if he's facing right (leading to a simulated keypress code of 80, or LEFT); that is, make ERIC turn round</td>
+<td class="comment-11" rowspan="4">Set <span class="register">A</span> to 1 if ERIC is facing left (leading to a simulated keypress code of 0x52, or RIGHT), 0 if he's facing right (leading to a simulated keypress code of 0x50, or LEFT); that is, make ERIC turn round</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -365,9 +365,9 @@ Little boy no. 10 is sitting in a chair or sitting on the floor facing right (as
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

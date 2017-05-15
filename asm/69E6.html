@@ -58,7 +58,7 @@ Used by the routines at <a href="6B1B.html">6B1B</a> and <a href="6A08.html">6A0
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="69e6"></span>69E6</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=ASCII code (32-127)</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=ASCII code (0x20-0x7F)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -152,7 +152,7 @@ This entry point is used by the routine at <a href="6B1B.html">6B1B</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="69f9"></span>69F9</td>
 <td class="instruction">LD B,$20</td>
-<td class="comment-11" rowspan="1">32 (during startup) or 8 bytes per pixel row (this instruction is set to LD B,8 before the game starts; see <a href="53A0.html">53A0</a>)</td>
+<td class="comment-11" rowspan="1">32 (during startup) or 8 bytes per pixel row (this instruction is set to LD B,$08 before the game starts; see <a href="53A0.html">53A0</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -217,9 +217,9 @@ This entry point is used by the routine at <a href="6B1B.html">6B1B</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

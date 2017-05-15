@@ -53,7 +53,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fa3"></span>6FA3</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -125,7 +125,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fba"></span>6FBA</td>
 <td class="instruction">CP $50</td>
-<td class="comment-11" rowspan="1">80=top of the stairs leading from the stage to the bottom floor</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the top of the stairs leading from the stage to the bottom floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -181,7 +181,7 @@ ERIC is on the middle floor, facing right.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fc4"></span>6FC4</td>
 <td class="instruction">CP $0F</td>
-<td class="comment-11" rowspan="1">15=top of the stairs leading down to the bottom floor at the far left of the boy's skool</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the top of the stairs leading down to the bottom floor at the far left of the boy's skool</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -209,7 +209,7 @@ ERIC is on the top floor, facing right.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fc9"></span>6FC9</td>
 <td class="instruction">CP $54</td>
-<td class="comment-11" rowspan="1">84=top of the stairs just outside the head's study</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the top of the stairs just outside the head's study</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -221,7 +221,7 @@ ERIC is on the top floor, facing right.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fcd"></span>6FCD</td>
 <td class="instruction">CP $B3</td>
-<td class="comment-11" rowspan="1">179=top of the stairs leading down to the middle floor in the girls' skool</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the top of the stairs leading down to the middle floor in the girls' skool</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -273,7 +273,7 @@ ERIC is facing left.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fdb"></span>6FDB</td>
 <td class="instruction">CP $1A</td>
-<td class="comment-11" rowspan="1">26=top of the stairs leading down from the Revision Library</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the top of the stairs leading down from the Revision Library</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -307,7 +307,7 @@ ERIC is on the middle floor, facing left.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fe2"></span>6FE2</td>
 <td class="instruction">CP $55</td>
-<td class="comment-11" rowspan="1">85=top of the stairs leading down to the stage</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the top of the stairs leading down to the stage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -319,7 +319,7 @@ ERIC is on the middle floor, facing left.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fe6"></span>6FE6</td>
 <td class="instruction">CP $B7</td>
-<td class="comment-11" rowspan="1">183=top of the stairs leading down to the bottom floor in the girls' skool</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the top of the stairs leading down to the bottom floor in the girls' skool</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -370,9 +370,9 @@ ERIC is on a staircase.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

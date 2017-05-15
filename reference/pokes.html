@@ -55,7 +55,8 @@ POKE <a href="../asm/7414.html">29716</a>,201
 <div class="box box-1">
 <div class="box-title">Some lines</div>
 <div class="paragraph">
-If 'Infinite lines' or 'No lines' makes things too easy, use a selection of these POKEs that disable lines-giving for specific infractions:
+If 'Infinite lines' or 'No lines' makes things too easy, use a selection of
+these POKEs that disable lines-giving for specific infractions:
 </div>
 <div class="paragraph">
 DON'T BE LATE AGAIN/STAY TILL I DISMISS YOU - POKE <a href="../asm/F100.html#f172">61810</a>,1
@@ -73,13 +74,16 @@ DON'T RIDE BIKES IN HERE - POKE <a href="../asm/7D3E.html#7d58">32089</a>,0
 DON'T TOUCH BLACKBOARDS - POKE <a href="../asm/5E6F.html#5e87">24199</a>,201
 </div>
 <div class="paragraph">
-GET ALONG NOW/COME ALONG YOU MONSTER/DON'T KEEP ME WAITING - POKE <a href="../asm/7D3E.html#7dab">32172</a>,22
+GET ALONG NOW/COME ALONG YOU MONSTER/DON'T KEEP ME WAITING - POKE
+<a href="../asm/7D3E.html#7dab">32172</a>,22
 </div>
 <div class="paragraph">
 GET BACK TO SCHOOL - POKE <a href="../asm/7D3E.html#7d94">32149</a>,0
 </div>
 <div class="paragraph">
-GET OFF THE FLOOR - POKE <a href="../asm/7D3E.html#7d7d">32126</a>,133 (when ERIC is sitting on the floor outside the assembly hall or lying down, and it's too soon to be told to GET ALONG NOW)
+GET OFF THE FLOOR - POKE <a href="../asm/7D3E.html#7d7d">32126</a>,133 (when ERIC is sitting on the floor
+outside the assembly hall or lying down, and it's too soon to be told to GET
+ALONG NOW)
 </div>
 <div class="paragraph">
 GET OFF THE FLOOR - POKE <a href="../asm/7D3E.html#7da2">32162</a>,201 (when it's time to GET ALONG NOW)
@@ -123,10 +127,13 @@ To change the lines limit from 10000 to 10N:
 where M=65536-N.
 </div>
 <div class="paragraph">
-To change the expulsion message MR WACKER delivers (at <a href="../asm/EE19.html">EE19</a>) accordingly, you will need to POKE the ASCII codes of the digits of the new lines limit into addresses 60962-60966.
+To change the expulsion message MR WACKER delivers (at <a href="../asm/EE19.html">EE19</a>) accordingly,
+you will need to POKE the ASCII codes of the digits of the new lines limit into
+addresses EE22-EE26.
 </div>
 <div class="paragraph">
-For example, to change the lines limit to 20000 and adjust the expulsion message to match:
+For example, to change the lines limit to 20000 and adjust the expulsion
+message to match:
 </div>
 <div class="paragraph">
 POKE 29652,48: POKE 29653,248: POKE 60962,50
@@ -142,7 +149,8 @@ To make sure that EINSTEIN never tells tales:
 POKE <a href="../asm/F100.html#f187">61831</a>,24
 </div>
 <div class="paragraph">
-Alternatively, to make the teacher always give lines to EINSTEIN for telling tales:
+Alternatively, to make the teacher always give lines to EINSTEIN for telling
+tales:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/F02F.html#f034">61492</a>,24
@@ -162,37 +170,47 @@ POKE <a href="../asm/F4CC.html#f503">62723</a>,195
 <div class="box box-1">
 <div class="box-title">Lesson length</div>
 <div class="paragraph">
-Normally the lesson clock (at <a href="../asm/7FE3.html">7FE3</a>) counts down from 4096 (16*256) to 0, at which point the bell rings. To make the lesson clock count down from N*256 to 0 instead:
+Normally the lesson clock (at <a href="../asm/7FE3.html">7FE3</a>) counts down from 4096 (16*256) to 0, at
+which point the bell rings. To make the lesson clock count down from N*256 to 0
+instead:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/F74D.html">63310</a>,N
 </div>
 <div class="paragraph">
-If you are extending the lesson length, it's a good idea to also adjust the time at which teachers will tell the kids to sit down. Normally this is 3072 (12*256); to change it to M*256 (M=N-4 is a good choice):
+If you are extending the lesson length, it's a good idea to also adjust the
+time at which teachers will tell the kids to sit down. Normally this is 3072
+(12*256); to change it to M*256 (M=N-4 is a good choice):
 </div>
 <div class="paragraph">
 POKE <a href="../asm/F073.html#f076">61559</a>,M
 </div>
 <div class="paragraph">
-If, on the other hand, you are shortening the lesson, it's a good idea to also adjust the time at which teachers will start giving lines to ERIC for being in the wrong classroom. Normally this is 3072 (12*256); to change it to G*256 (G=N-4 is a good choice):
+If, on the other hand, you are shortening the lesson, it's a good idea to also
+adjust the time at which teachers will start giving lines to ERIC for being in
+the wrong classroom. Normally this is 3072 (12*256); to change it to G*256
+(G=N-4 is a good choice):
 </div>
 <div class="paragraph">
 POKE <a href="../asm/7D3E.html#7d6a">32107</a>,G
 </div>
 <div class="paragraph">
-You might also want to change the time at which the kids will sit down for assembly. Normally this is 2816 (11*256); to change it to S*256:
+You might also want to change the time at which the kids will sit down for
+assembly. Normally this is 2816 (11*256); to change it to S*256:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/F0DA.html#f0e2">61667</a>,S
 </div>
 <div class="paragraph">
-To change the time at which MR WITHIT will come looking for ERIC if he's not in the assembly hall from 2560 (10*256) to A*256:
+To change the time at which MR WITHIT will come looking for ERIC if he's not in
+the assembly hall from 2560 (10*256) to A*256:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/F0DA.html#f0f3">61684</a>,A
 </div>
 <div class="paragraph">
-And to change the time at which MR WACKER will come down from his study for assembly from 2304 (9*256) to W*256:
+And to change the time at which MR WACKER will come down from his study for
+assembly from 2304 (9*256) to W*256:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/F80D.html#f810">63505</a>,W
@@ -205,21 +223,27 @@ POKE <a href="../asm/F80D.html#f810">63505</a>,W
 To put ERIC in charge of ringing the bell:
 </div>
 <div class="paragraph">
-<div>POKE <a href="../asm/E500.html#e51c">58652</a>,96 (points 'L' at the unused slot at <a href="../asm/E550.html#e560">E560</a> in the table of keypress handling routines)</div>
-<div>POKE 58720,122: POKE 58721,229 (sets the keypress-handling routine for 'L' to <a href="../asm/E57A.html">E57A</a>)</div>
-<div>POKE 58746,33: POKE 58747,1: POKE 58748,0 (LD HL,1)</div>
-<div>POKE 58749,34: POKE 58750,227: POKE 58751,127 (LD (<a href="../asm/7FE3.html">7FE3</a>),HL)</div>
+<div>POKE <a href="../asm/E500.html#e51c">58652</a>,96 (points 'L' at the unused slot at <a href="../asm/E550.html#e560">E560</a> in the
+table of keypress handling routines)</div>
+<div>POKE 58720,122: POKE 58721,229 (sets the keypress-handling routine for 'L'
+to <a href="../asm/E57A.html">E57A</a>)</div>
+<div>POKE 58746,33: POKE 58747,1: POKE 58748,0 (LD HL,$0001)</div>
+<div>POKE 58749,34: POKE 58750,227: POKE 58751,127
+(LD (<a href="../asm/7FE3.html">$7FE3</a>),HL)</div>
 <div>POKE 58752,201 (RET)</div>
 </div>
 <div class="paragraph">
-Now whenever 'L' (upper case) is pressed, the bell will ring and the next lesson will begin (which could prove handy if ERIC is found playing truant, or simply cannot wait any longer for playtime).
+Now whenever 'L' (upper case) is pressed, the bell will ring and the next
+lesson will begin (which could prove handy if ERIC is found playing truant, or
+simply cannot wait any longer for playtime).
 </div>
 </div>
 <div><span id="alwaysRun"></span></div>
 <div class="box box-1">
 <div class="box-title">Always run</div>
 <div class="paragraph">
-Normally 'q', 'a', 'o' and 'p' make ERIC walk, and 'Q', 'A', 'O' and 'P' make him run. To make ERIC always run, regardless of whether SHIFT is held down:
+Normally 'q', 'a', 'o' and 'p' make ERIC walk, and 'Q', 'A', 'O' and 'P' make
+him run. To make ERIC always run, regardless of whether SHIFT is held down:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/6DD2.html#6df0">28144</a>,24: POKE <a href="../asm/6E38.html#6e43">28227</a>,24
@@ -257,7 +281,9 @@ To extend the range of the catapult from 13 to N:
 POKE <a href="../asm/775B.html#77b0">30641</a>,N
 </div>
 <div class="paragraph">
-However, this doesn't extend the 'hit zone' of the pellet (the portion of its flight where it can hit something). To change the hit zone from the last 4 stages of its flight to the last M stages (M=N-6 is a good choice):
+However, this doesn't extend the 'hit zone' of the pellet (the portion of its
+flight where it can hit something). To change the hit zone from the last 4
+stages of its flight to the last M stages (M=N-6 is a good choice):
 </div>
 <div class="paragraph">
 POKE <a href="../asm/76AC.html#76b3">30388</a>,M+1
@@ -273,7 +299,9 @@ POKE <a href="../asm/76AC.html#76e8">30441</a>,6
 <div class="box box-2">
 <div class="box-title">Unhide the bike</div>
 <div class="paragraph">
-Before ERIC writes the bike combination on a blackboard, the bike is actually hiding at x-coordinate 224. To change the bike's initial x-coordinate from 224 to X (so that it's visible from the start of the game):
+Before ERIC writes the bike combination on a blackboard, the bike is actually
+hiding at x-coordinate 224. To change the bike's initial x-coordinate from 224
+to X (so that it's visible from the start of the game):
 </div>
 <div class="paragraph">
 POKE <a href="../asm/D300.html#d321">54049</a>,X
@@ -289,9 +317,15 @@ Any choice of X in the range 0-189 will bring the bike into view.
 To make the frog visible and catchable from the start of the game:
 </div>
 <div class="paragraph">
-<div>POKE <a href="../asm/D400.html#d420">54304</a>,<a href="../graphics/as.html#28">28</a> (initial animatory state)</div>
-<div>POKE <a href="../asm/D400.html#d421">54305</a>,48: POKE 54306,10 (initial location: Science Lab)</div>
-<div>POKE <a href="../asm/F5BE.html#f660">63073</a>,186: POKE 63074,120 (controlling routine: <a href="../asm/78BA.html">78BA</a>)</div>
+<div>
+POKE <a href="../asm/D400.html#d420">54304</a>,<a href="../graphics/as.html#28">28</a> (initial animatory state)
+</div>
+<div>
+POKE <a href="../asm/D400.html#d421">54305</a>,48: POKE 54306,10 (initial location: Science Lab)
+</div>
+<div>
+POKE <a href="../asm/F5BE.html#f660">63073</a>,186: POKE 63074,120 (controlling routine: <a href="../asm/78BA.html">78BA</a>)
+</div>
 </div>
 <div class="paragraph">
 Note that this means there will be no mice in the game.
@@ -301,28 +335,41 @@ Note that this means there will be no mice in the game.
 <div class="box box-2">
 <div class="box-title">Open the left study door</div>
 <div class="paragraph">
-No one ever opens the left study door in Back to Skool, but that's only because the character routing information leads everyone round it instead of through it; there is support built in to the game for opening the door, but it is never used. To bring the left study door into service, try the following POKEs, which change the routing information for characters going from certain starting points to the top floor of the boys' skool.
+No one ever opens the left study door in Back to Skool, but that's only because
+the character routing information leads everyone round it instead of through
+it; there is support built in to the game for opening the door, but it is never
+used. To bring the left study door into service, try the following POKEs, which
+change the routing information for characters going from certain starting
+points to the top floor of the boys' skool.
 </div>
 <div class="paragraph">
-Modify the route for anyone on the top floor on the left side of the door and going to the other side of the door (e.g. from the Yellow Room to the top-floor window) so that they go through the door:
+Modify the route for anyone on the top floor on the left side of the door and
+going to the other side of the door (e.g. from the Yellow Room to the top-floor
+window) so that they go through the door:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/BD3C.html#bd41">48449</a>,<a href="../asm/C744.html">199</a>
 </div>
 <div class="paragraph">
-Modify the route for anyone on the top floor on the right side of the door and going to the other side of the door (e.g. from the head's study to the Revision Library) so that they go through the door:
+Modify the route for anyone on the top floor on the right side of the door and
+going to the other side of the door (e.g. from the head's study to the Revision
+Library) so that they go through the door:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/C23C.html">49724</a>,<a href="../asm/BD44.html">189</a>
 </div>
 <div class="paragraph">
-Modify the route for anyone on the middle floor of the boys' skool near the window and going to anywhere on the top floor to the left of the door so that they first go up the stairs to the head's study:
+Modify the route for anyone on the middle floor of the boys' skool near the
+window and going to anywhere on the top floor to the left of the door so that
+they first go up the stairs to the head's study:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/C13C.html">49468</a>,<a href="../asm/C644.html">198</a>
 </div>
 <div class="paragraph">
-Modify the route for anyone on the assembly hall stage going to anywhere on the top floor to the left of the door so that they first go up the stairs towards the middle-floor window:
+Modify the route for anyone on the assembly hall stage going to anywhere on the
+top floor to the left of the door so that they first go up the stairs towards
+the middle-floor window:
 </div>
 <div class="paragraph">
 POKE <a href="../asm/C03C.html">49212</a>,<a href="../asm/C444.html">196</a>
@@ -360,14 +407,19 @@ And ride the bike through any wall or door (or ALBERT):
 <div>POKE 28673,201</div>
 </div>
 <div class="paragraph">
-But now when ERIC walks or rides the bike through the far left wall in the boys' skool or the far right wall in the girls' skool, you lose sight of him. To make the screen scroll however far left or right ERIC goes (and therefore reveal the 'no man's land' between the two skools):
+But now when ERIC walks or rides the bike through the far left wall in the
+boys' skool or the far right wall in the girls' skool, you lose sight of
+him. To make the screen scroll however far left or right ERIC goes (and
+therefore reveal the 'no man's land' between the two skools):
 </div>
 <div class="paragraph">
 <div>POKE <a href="../asm/6E00.html#6e1f">28191</a>,0</div>
 <div>POKE <a href="../asm/6E00.html#6e2b">28203</a>,0</div>
 </div>
 <div class="paragraph">
-But this also reveals a limitation of the routine at <a href="../asm/6130.html">6130</a>: the SRB is not updated correctly when the leftmost column of the skool on screen is 232, 240 or 248. To fix this:
+But this also reveals a limitation of the routine at <a href="../asm/6130.html">6130</a>: the SRB is not
+updated correctly when the leftmost column of the skool on screen is 232, 240
+or 248. To fix this:
 </div>
 <div class="paragraph">
 <div>POKE 24893,47</div>
@@ -379,13 +431,16 @@ But this also reveals a limitation of the routine at <a href="../asm/6130.html">
 <div>POKE 24904,47</div>
 </div>
 <div class="paragraph">
-Now you may notice that some of the little boys stop moving as ERIC approaches the far left wall of the boys' skool. This is because the routine at <a href="../asm/62D0.html">62D0</a> does not move certain minor characters depending on which part of the play area is visible.
+Now you may notice that some of the little boys stop moving as ERIC approaches
+the far left wall of the boys' skool. This is because the routine at <a href="../asm/62D0.html">62D0</a>
+does not move certain minor characters depending on which part of the play area
+is visible.
 </div>
 </div>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

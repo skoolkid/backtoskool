@@ -70,7 +70,7 @@ In addition, bit 3 of <span class="register">A</span> will be set if the followe
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Follower's character number (200-204, 210)</td>
+<td class="register-desc">Follower's character number (0xC8-0xCC, 0xD2)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -104,7 +104,7 @@ In addition, bit 3 of <span class="register">A</span> will be set if the followe
 <span id="64f9"></span>
 <div class="comments">
 <div class="paragraph">
-The follower is on a staircase. At this point, <span class="register">A</span>=0 if the staircase goes up and to the left, 128 (bit 7 set) if it goes up and to the right.
+The follower is on a staircase. At this point, <span class="register">A</span>=0x00 if the staircase goes up and to the left, 0x80 (bit 7 set) if it goes up and to the right.
 </div>
 </div>
 </td>
@@ -113,7 +113,7 @@ The follower is on a staircase. At this point, <span class="register">A</span>=0
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64f9"></span>64F9</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -207,7 +207,7 @@ The follower is not on a staircase.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="650e"></span>650E</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the follower's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the follower's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -265,7 +265,7 @@ The follower is in the same region as his target, but still has some walking to 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6519"></span>6519</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the follower's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the follower's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -377,7 +377,7 @@ The follower is in the same region as his target, and is facing the right way to
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6532"></span>6532</td>
 <td class="instruction">ADD A,$08</td>
-<td class="comment-11" rowspan="1">Set bit 3 (<span class="register">A</span>=11, 12): closed door ahead</td>
+<td class="comment-11" rowspan="1">Set bit 3 (<span class="register">A</span>=0x0B, 0x0C): closed door ahead</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -463,13 +463,13 @@ The follower is at the top or bottom of the first staircase he must negotiate in
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6541"></span>6541</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6542"></span>6542</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0 if the follower must face left to negotiate the stairs, 128 (bit 7 set) if right</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x00 if the follower must face left to negotiate the stairs, 0x80 (bit 7 set) if right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -539,7 +539,7 @@ The follower is facing the right way to begin his ascent or descent of the stair
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="654e"></span>654E</td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=LSB of the routine to make the follower ascend (56/<a href="6438.html">6438</a>) or descend (77/<a href="644D.html">644D</a>) the stairs</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=LSB of the routine to make the follower ascend (0x38/<a href="6438.html">6438</a>) or descend (0x4D/<a href="644D.html">644D</a>) the stairs</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -574,9 +574,9 @@ The follower is facing the right way to begin his ascent or descent of the stair
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

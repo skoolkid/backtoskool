@@ -35,7 +35,7 @@ Used by the routines at <a href="7E7B.html">7E7B</a>, <a href="F09B.html">F09B</
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (200-204)</td>
+<td class="register-desc">Teacher's character number (0xC8-0xCC)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the routines at <a href="7E7B.html">7E7B</a>, <a href="F09B.html">F09B</
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6558"></span>6558</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -90,7 +90,7 @@ This entry point is used by the routines at <a href="7E7B.html">7E7B</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6562"></span>6562</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Byte 15 holds the y-coordinate adjustment to make as the teacher finishes this stride: 0 normally, 1 if descending a staircase (see later in this routine)</td>
+<td class="comment-11" rowspan="2">Byte 0x0F holds the y-coordinate adjustment to make as the teacher finishes this stride: 0 normally, 1 if descending a staircase (see later in this routine)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -154,7 +154,7 @@ The teacher is not midstride. Is he close enough to ERIC to stop the chase?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6574"></span>6574</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Byte 0 holds the teacher's animatory state</td>
+<td class="comment-11" rowspan="1">Byte 0x00 holds the teacher's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -220,7 +220,7 @@ The teacher is not midstride. Is he close enough to ERIC to stop the chase?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6586"></span>6586</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -372,7 +372,7 @@ There is no closed door in the way. Is the teacher on a staircase?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65ae"></span>65AE</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Byte 0 holds the teacher's animatory state</td>
+<td class="comment-11" rowspan="1">Byte 0x00 holds the teacher's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -424,7 +424,7 @@ Now <span class="register">BC</span> is still 0 if the teacher is not on a stair
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="65bd"></span>65BD</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Set byte 15 of teacher's buffer to 1 if the teacher is descending a staircase, or 0 if he's ascending a staircase or not on one</td>
+<td class="comment-11" rowspan="2">Set byte 0x0F of teacher's buffer to 1 if the teacher is descending a staircase, or 0 if he's ascending a staircase or not on one</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -489,9 +489,9 @@ Now <span class="register">BC</span> is still 0 if the teacher is not on a stair
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

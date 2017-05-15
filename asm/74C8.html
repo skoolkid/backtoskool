@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a catapult pellet's buffer by the routine at <a href="76AC.html">76AC</a> when it has hit either the tree or a water/sherry-filled cup, and thus released a conker or a drop of water or sherry.
+The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of a catapult pellet's buffer by the routine at <a href="76AC.html">76AC</a> when it has hit either the tree or a water/sherry-filled cup, and thus released a conker or a drop of water or sherry.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Falling object's character number (213 or 214)</td>
+<td class="register-desc">Falling object's character number (0xD5 or 0xD6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -84,7 +84,7 @@ This entry point is used by the routines at <a href="7380.html">7380</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74cf"></span>74CF</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 17 and 18 of the object's buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x11 and 0x12 of the object's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -190,7 +190,7 @@ The object is at the right height to hit someone. Check if it has.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74e6"></span>74E6</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the object's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the object's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -202,7 +202,7 @@ The object is at the right height to hit someone. Check if it has.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74e9"></span>74E9</td>
 <td class="instruction">LD D,$11</td>
-<td class="comment-11" rowspan="1">17=bottom floor (the only floor on which characters can be hit by a falling object)</td>
+<td class="comment-11" rowspan="1">This is the y-coordinate of the bottom floor (the only floor on which characters can be hit by a falling object)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -214,7 +214,7 @@ The object is at the right height to hit someone. Check if it has.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74ee"></span>74EE</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the object's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the object's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -232,7 +232,7 @@ The object is at the right height to hit someone. Check if it has.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74f3"></span>74F3</td>
 <td class="instruction">CP $37</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#55">55</a>: Is the falling object a conker?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#55">0x37</a>: Is the falling object a conker?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -267,7 +267,7 @@ The falling object is a conker.
 <span id="74fb"></span>
 <div class="comments">
 <div class="paragraph">
-Before calling the routine at <a href="6CAC.html">6CAC</a> to check whether any of the four main kids (besides ERIC) have been hit, <span class="register">D</span> should be set to 206 (BOY WANDER, the first main kid), and <span class="register">B</span> should be set to 4 (the number of kids to check). However, at this point <span class="register">D</span>=17 and <span class="register">B</span>=206, which means that instead of checking the character buffers in pages 206-209, we end up checking pages 17-222. In that range, only pages 183-214 contain character buffers; treating the other pages in RAM as if they contained character buffers could lead to data/code corruption. Needless to say, this is a <a href="../reference/bugs.html#conkerMD">bug</a>.
+Before calling the routine at <a href="6CAC.html">6CAC</a> to check whether any of the four main kids (besides ERIC) have been hit, <span class="register">D</span> should be set to 206 (BOY WANDER, the first main kid), and <span class="register">B</span> should be set to 4 (the number of kids to check). However, at this point <span class="register">D</span>=0x11 and <span class="register">B</span>=0xCE, which means that instead of checking the character buffers in pages 0xCE-0xD1, we end up checking pages 0x11-0xDE. In that range, only pages 0xB7-0xD6 contain character buffers; treating the other pages in RAM as if they contained character buffers could lead to data/code corruption. Needless to say, this is a <a href="../reference/bugs.html#conkerMD">bug</a>.
 </div>
 </div>
 </td>
@@ -306,7 +306,7 @@ Before calling the routine at <a href="6CAC.html">6CAC</a> to check whether any 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7505"></span>7505</td>
 <td class="instruction">CP $CF</td>
-<td class="comment-11" rowspan="1">Was it BOY WANDER (206)?</td>
+<td class="comment-11" rowspan="1">Was it BOY WANDER (0xCE)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -330,7 +330,7 @@ Before calling the routine at <a href="6CAC.html">6CAC</a> to check whether any 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="750d"></span>750D</td>
 <td class="instruction">JR NC,$751E</td>
-<td class="comment-11" rowspan="1">Jump unless ANGELFACE (207) or EINSTEIN (208) was hit</td>
+<td class="comment-11" rowspan="1">Jump unless ANGELFACE (0xCF) or EINSTEIN (0xD0) was hit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -348,7 +348,7 @@ Before calling the routine at <a href="6CAC.html">6CAC</a> to check whether any 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7513"></span>7513</td>
 <td class="instruction">LD D,$28</td>
-<td class="comment-11" rowspan="4">Make a sound effect with <span class="register">A</span>=7 and <span class="register">C</span>=18 (border alternating white and cyan)</td>
+<td class="comment-11" rowspan="4">Make a sound effect with <span class="register">A</span>=0x07 and <span class="register">C</span>=0x12 (border alternating white and cyan)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -510,7 +510,7 @@ An adult character has been hit by either a conker or a drop of water or sherry.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7533"></span>7533</td>
 <td class="instruction">LD C,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -540,7 +540,7 @@ An adult character has been hit by either a conker or a drop of water or sherry.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="753d"></span>753D</td>
 <td class="instruction">LD C,$12</td>
-<td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 17 and 18 of the character's buffer (which would prevent the character from being knocked over)?</td>
+<td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the character's buffer (which would prevent the character from being knocked over)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -586,7 +586,7 @@ This section of code sets up the uninterruptible subcommand that will control th
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7547"></span>7547</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="7596.html">7596</a> into bytes 17 and 18 of the stricken character's buffer</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="7596.html">7596</a> into bytes 0x11 and 0x12 of the stricken character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -610,7 +610,7 @@ This section of code sets up the uninterruptible subcommand that will control th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="754e"></span>754E</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Initialise the knockout delay counter in byte 19 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Initialise the knockout delay counter in byte 0x13 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -644,7 +644,7 @@ An adult character has been hit by a drop of water or sherry.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7555"></span>7555</td>
 <td class="instruction">CP $1F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#31">31</a>: Is the falling object a drop of water?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#31">0x1F</a>: Is the falling object a drop of water?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -758,7 +758,7 @@ An adult character has been hit by a drop of water or sherry.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7575"></span>7575</td>
 <td class="instruction">LD ($7F8A),A</td>
-<td class="comment-11" rowspan="1">Store this in the first byte of message <a href="7F8A.html">5</a>, which is used as a submessage of message <a href="E9F9.html">14</a>: '[5]^ '</td>
+<td class="comment-11" rowspan="1">Store this in the first byte of message <a href="7F8A.html">0x05</a>, which is used as a submessage of message <a href="E9F9.html">0x0E</a>: '[5]^ '</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -776,7 +776,7 @@ An adult character has been hit by a drop of water or sherry.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="757a"></span>757A</td>
 <td class="instruction">LD H,B</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=character number of the teacher just struck (200-203)</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=character number of the teacher just struck (0xC8-0xCB)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -800,7 +800,7 @@ An adult character has been hit by a drop of water or sherry.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7583"></span>7583</td>
 <td class="instruction">LD BC,$0E46</td>
-<td class="comment-11" rowspan="3">Print the letter/number message box (message number <span class="register">B</span>=<a href="E9F9.html">14</a>) and make a sound effect</td>
+<td class="comment-11" rowspan="3">Print the letter/number message box (message number <span class="register">B</span>=<a href="E9F9.html">0x0E</a>) and make a sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -841,9 +841,9 @@ An adult character has been hit by a drop of water or sherry.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

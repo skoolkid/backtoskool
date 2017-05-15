@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of ANGELFACE's buffer by the routine at <a href="77F2.html">77F2</a>. It controls ANGELFACE from the beginning to the end of the swing, and knocks over any unfortunate kid whose face comes into contact with the fist.
+The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of ANGELFACE's buffer by the routine at <a href="77F2.html">77F2</a>. It controls ANGELFACE from the beginning to the end of the swing, and knocks over any unfortunate kid whose face comes into contact with the fist.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">207 (ANGELFACE)</td>
+<td class="register-desc">0xCF (ANGELFACE)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,7 +56,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7816"></span>7816</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Store ANGELFACE's current (pre-punch) animatory state in byte 20 of his buffer temporarily</td>
+<td class="comment-11" rowspan="2">Store ANGELFACE's current (pre-punch) animatory state in byte 0x14 of his buffer temporarily</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -74,7 +74,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="781b"></span>781B</td>
 <td class="instruction">ADD A,$08</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#40">40 or 168</a>: ANGELFACE raising his arm</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#40">0x28 or 0xA8</a>: ANGELFACE raising his arm</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -197,9 +197,9 @@ This entry point is used by the routine at <a href="5EC7.html">5EC7</a> to check
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

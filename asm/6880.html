@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 9 and 10 of the character's buffer by the routines at <a href="7EF1.html">7EF1</a> and <a href="F100.html">F100</a>.
+The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of the character's buffer by the routines at <a href="7EF1.html">7EF1</a> and <a href="F100.html">F100</a>.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (201-204, 206)</td>
+<td class="register-desc">Character number (0xC9-0xCC, 0xCE)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -122,7 +122,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6892"></span>6892</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="4">Make sure there are no (sub)submessage addresses lying around in bytes 13-16 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Make sure there are no (sub)submessage addresses lying around in bytes 0x0D-0x10 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -146,13 +146,13 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="689a"></span>689A</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's number (201-204, 206)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's number (0xC9-0xCC, 0xCE)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="689b"></span>689B</td>
 <td class="instruction">CP $CE</td>
-<td class="comment-11" rowspan="7">Set <span class="register">E</span> as follows: 32=MR WITHIT, 38=MR ROCKITT, 44=MR CREAK, 50=MISS TAKE, 56=BOY WANDER</td>
+<td class="comment-11" rowspan="7">Set <span class="register">E</span> as follows: 0x20=MR WITHIT, 0x26=MR ROCKITT, 0x2C=MR CREAK, 0x32=MISS TAKE, 0x38=BOY WANDER</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -230,7 +230,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68af"></span>68AF</td>
 <td class="instruction">LD D,$FE</td>
-<td class="comment-11" rowspan="8">Pick up the address of the message and place it into bytes 11 and 12 of the character's buffer</td>
+<td class="comment-11" rowspan="8">Pick up the address of the message and place it into bytes 0x0B and 0x0C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -278,7 +278,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68b9"></span>68B9</td>
 <td class="instruction">LD L,$09</td>
-<td class="comment-11" rowspan="2">Replace the address of this routine in bytes 9 and 10 of the character's buffer with <a href="6880.html#68bd">68BD</a> (below)</td>
+<td class="comment-11" rowspan="2">Replace the address of this routine in bytes 0x09 and 0x0A of the character's buffer with <a href="6880.html#68bd">68BD</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -399,9 +399,9 @@ The character hasn't finished writing yet. Figure out his next arm movement (up 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

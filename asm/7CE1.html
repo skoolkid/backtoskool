@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command lists <a href="D23C.html">18</a>, <a href="E5CC.html">42</a> and <a href="E5DC.html">44</a> to make a character walk about a fixed location until a specified time, or until a certain number of walkabouts have been performed.
+Used by command lists <a href="D23C.html">0x12</a>, <a href="E5CC.html">0x2A</a> and <a href="E5DC.html">0x2C</a> to make a character walk about a fixed location until a specified time, or until a certain number of walkabouts have been performed.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by command lists <a href="D23C.html">18</a>, <a href="E5CC.html">42</a> and
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-209)</td>
+<td class="register-desc">Character number (0xB7-0xD1)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by command lists <a href="D23C.html">18</a>, <a href="E5CC.html">42</a> and
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7ce1"></span>7CE1</td>
 <td class="instruction">LD L,$06</td>
-<td class="comment-11" rowspan="2">Collect the event ID (always 0, denoting the end of the lesson) and the maximum walkabout count from the command list and copy them into bytes 6 and 7 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Collect the event ID (always 0, denoting the end of the lesson) and the maximum walkabout count from the command list and copy them into bytes 0x06 and 0x07 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ Used by command lists <a href="D23C.html">18</a>, <a href="E5CC.html">42</a> and
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7ce6"></span>7CE6</td>
 <td class="instruction">LD L,$07</td>
-<td class="comment-11" rowspan="2">Decrease the walkabout counter at byte 7 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Decrease the walkabout counter at byte 0x07 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -86,7 +86,7 @@ Used by command lists <a href="D23C.html">18</a>, <a href="E5CC.html">42</a> and
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cec"></span>7CEC</td>
 <td class="instruction">LD L,$05</td>
-<td class="comment-11" rowspan="1">Byte 5 holds the x-coordinate of the walkabout origin</td>
+<td class="comment-11" rowspan="1">Byte 0x05 holds the x-coordinate of the walkabout origin</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -133,9 +133,9 @@ Used by command lists <a href="D23C.html">18</a>, <a href="E5CC.html">42</a> and
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

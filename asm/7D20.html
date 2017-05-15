@@ -65,7 +65,7 @@ Used by the routine at <a href="F6B4.html">F6B4</a>. Makes any nearby teacher gi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d25"></span>7D25</td>
 <td class="instruction">LD (HL),$0F</td>
-<td class="comment-11" rowspan="1">Reset the LSB to 15</td>
+<td class="comment-11" rowspan="1">Reset the LSB to 0x0F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -120,7 +120,7 @@ Used by the routine at <a href="F6B4.html">F6B4</a>. Makes any nearby teacher gi
 <span id="7d31"></span>
 <div class="comments">
 <div class="paragraph">
-The MSB of the lines-giving delay counter (which is reset to 10 by the routine at <a href="7D3E.html">7D3E</a> when ERIC is given lines) is now 5 or less. This means the minimum interval between two lines-givings (75 passes through the main loop) has elapsed. However, the teacher who gave ERIC lines last time must wait until the MSB reaches zero before he can give ERIC lines again.
+The MSB of the lines-giving delay counter (which is reset to 0x0A by the routine at <a href="7D3E.html">7D3E</a> when ERIC is given lines) is now 0x05 or less. This means the minimum interval between two lines-givings (75 passes through the main loop) has elapsed. However, the teacher who gave ERIC lines last time must wait until the MSB reaches zero before he can give ERIC lines again.
 </div>
 </div>
 </td>
@@ -146,9 +146,9 @@ The MSB of the lines-giving delay counter (which is reset to 10 by the routine a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

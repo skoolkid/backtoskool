@@ -35,7 +35,7 @@ Used by the routines at <a href="5E45.html">5E45</a>, <a href="6791.html">6791</
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (200-204, 206)</td>
+<td class="register-desc">Character number (0xC8-0xCC, 0xCE)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -62,7 +62,7 @@ Used by the routines at <a href="5E45.html">5E45</a>, <a href="6791.html">6791</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="675a"></span>675A</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Byte 2 of the character's buffer holds his y-coordinate</td>
+<td class="comment-11" rowspan="1">Byte 0x02 of the character's buffer holds his y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -74,7 +74,7 @@ Used by the routines at <a href="5E45.html">5E45</a>, <a href="6791.html">6791</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="675d"></span>675D</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -259,31 +259,31 @@ The contents of the blackboard info tables are as follows:
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="D337.html">3</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D437.html">84</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D437.html">0x54</a></td>
 <td class="centre" colspan="1" rowspan="1"><a href="D537.html">3</a></td>
 <td class="" colspan="1" rowspan="1">Blue Room</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="D337.html#d338">41</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D437.html#d438">90</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D437.html#d438">0x5A</a></td>
 <td class="centre" colspan="1" rowspan="1"><a href="D537.html#d538">3</a></td>
 <td class="" colspan="1" rowspan="1">Yellow Room</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="D337.html#d339">161</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D437.html#d439">96</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D437.html#d439">0x60</a></td>
 <td class="centre" colspan="1" rowspan="1"><a href="D537.html#d539">3</a></td>
 <td class="" colspan="1" rowspan="1">Top-floor room in the girls' skool</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="D337.html#d33a">32</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D437.html#d43a">102</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D437.html#d43a">0x66</a></td>
 <td class="centre" colspan="1" rowspan="1"><a href="D537.html#d53a">9</a></td>
 <td class="" colspan="1" rowspan="1">Science Lab</td>
 </tr>
 <tr>
 <td class="centre" colspan="1" rowspan="1"><a href="D337.html#d33b">161</a></td>
-<td class="centre" colspan="1" rowspan="1"><a href="D437.html#d43b">108</a></td>
+<td class="centre" colspan="1" rowspan="1"><a href="D437.html#d43b">0x6C</a></td>
 <td class="centre" colspan="1" rowspan="1"><a href="D537.html#d53b">9</a></td>
 <td class="" colspan="1" rowspan="1">Middle-floor room in the girls' skool</td>
 </tr>
@@ -301,9 +301,9 @@ The contents of the blackboard info tables are as follows:
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

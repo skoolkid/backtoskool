@@ -64,13 +64,13 @@ Used by the routines at <a href="6C9C.html">6C9C</a>, <a href="74C8.html">74C8</
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6cad"></span>6CAD</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the next potential target's character buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the next potential target's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6caf"></span>6CAF</td>
 <td class="instruction">LD E,L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 1 of the puncher's, pellet's or conker's character buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x01 of the puncher's, pellet's or conker's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -134,13 +134,13 @@ A potential victim of the fist, pellet or conker was found at the right x-coordi
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6cba"></span>6CBA</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the next potential target's character buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the next potential target's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cbb"></span>6CBB</td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 2 of the puncher's, pellet's, or conker's character buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x02 of the puncher's, pellet's, or conker's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -192,7 +192,7 @@ The potential victim's coordinates are a perfect match.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cc5"></span>6CC5</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="2">Bytes 17 and 18 of the character's buffer may hold the address of an uninterruptible subcommand routine (which would prevent him from being knocked over); pick up the MSB in <span class="register">A</span></td>
+<td class="comment-11" rowspan="2">Bytes 0x11 and 0x12 of the character's buffer may hold the address of an uninterruptible subcommand routine (which would prevent him from being knocked over); pick up the MSB in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -255,9 +255,9 @@ ERIC was the potential victim.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

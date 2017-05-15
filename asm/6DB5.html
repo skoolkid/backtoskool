@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Continues from the routine at <a href="63BE.html">63BE</a>, having determined that ERIC's feet are not on the floor. On entry, the zero flag is set if (a) ERIC is jumping and the zero flag was set (by chance) upon entering the routine at <a href="63BE.html">63BE</a>, or (b) bits 1 and 2 of ERIC's status flags at <a href="7FED.html">7FED</a> are both reset. Returns with <span class="register">D</span>=17 if the zero flag is set upon entry (regardless of which floor ERIC is on, which is a <a href="../reference/bugs.html#jumpAbsent">bug</a>); otherwise returns with <span class="register">D</span>=3, 10, 14 or 17, indicating which floor ERIC is directly above.
+Continues from the routine at <a href="63BE.html">63BE</a>, having determined that ERIC's feet are not on the floor. On entry, the zero flag is set if (a) ERIC is jumping and the zero flag was set (by chance) upon entering the routine at <a href="63BE.html">63BE</a>, or (b) bits 1 and 2 of ERIC's status flags at <a href="7FED.html">7FED</a> are both reset. Returns with <span class="register">D</span>=0x11 if the zero flag is set upon entry (regardless of which floor ERIC is on, which is a <a href="../reference/bugs.html#jumpAbsent">bug</a>); otherwise returns with <span class="register">D</span>=0x03, 0x0A, 0x0E or 0x11, indicating which floor ERIC is directly above.
 </div>
 </div>
 <table class="input-1">
@@ -60,19 +60,19 @@ Continues from the routine at <a href="63BE.html">63BE</a>, having determined th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6db6"></span>6DB6</td>
 <td class="instruction">LD D,$11</td>
-<td class="comment-11" rowspan="1">17=bottom floor</td>
+<td class="comment-11" rowspan="1">0x11=bottom floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6db8"></span>6DB8</td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">D</span>=17 if the zero flag was set upon entry (regardless of which floor ERIC is on, which is a <a href="../reference/bugs.html#jumpAbsent">bug</a>)</td>
+<td class="comment-11" rowspan="1">Return with <span class="register">D</span>=0x11 if the zero flag was set upon entry (regardless of which floor ERIC is on, which is a <a href="../reference/bugs.html#jumpAbsent">bug</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6db9"></span>6DB9</td>
 <td class="instruction">LD D,$03</td>
-<td class="comment-11" rowspan="1">3=top floor</td>
+<td class="comment-11" rowspan="1">0x03=top floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -84,13 +84,13 @@ Continues from the routine at <a href="63BE.html">63BE</a>, having determined th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dbd"></span>6DBD</td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">D</span>=3 if so</td>
+<td class="comment-11" rowspan="1">Return with <span class="register">D</span>=0x03 if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dbe"></span>6DBE</td>
 <td class="instruction">LD D,$0A</td>
-<td class="comment-11" rowspan="1">10=middle floor</td>
+<td class="comment-11" rowspan="1">0x0A=middle floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -102,13 +102,13 @@ Continues from the routine at <a href="63BE.html">63BE</a>, having determined th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dc2"></span>6DC2</td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">D</span>=10 if so</td>
+<td class="comment-11" rowspan="1">Return with <span class="register">D</span>=0x0A if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dc3"></span>6DC3</td>
 <td class="instruction">LD D,$11</td>
-<td class="comment-11" rowspan="1">17=bottom floor</td>
+<td class="comment-11" rowspan="1">0x11=bottom floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -120,7 +120,7 @@ Continues from the routine at <a href="63BE.html">63BE</a>, having determined th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dc7"></span>6DC7</td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return with <span class="register">D</span>=17 if so</td>
+<td class="comment-11" rowspan="1">Return with <span class="register">D</span>=0x11 if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -132,7 +132,7 @@ Continues from the routine at <a href="63BE.html">63BE</a>, having determined th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dc9"></span>6DC9</td>
 <td class="instruction">CP $4C</td>
-<td class="comment-11" rowspan="4">Return with <span class="register">D</span>=17 if ERIC is not directly above the assembly hall stage</td>
+<td class="comment-11" rowspan="4">Return with <span class="register">D</span>=0x11 if ERIC is not directly above the assembly hall stage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -156,7 +156,7 @@ Continues from the routine at <a href="63BE.html">63BE</a>, having determined th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dcf"></span>6DCF</td>
 <td class="instruction">LD D,$0E</td>
-<td class="comment-11" rowspan="1">14=assembly hall stage</td>
+<td class="comment-11" rowspan="1">0x0E=assembly hall stage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -173,9 +173,9 @@ Continues from the routine at <a href="63BE.html">63BE</a>, having determined th
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="6464.html">6464</a> and <a href="7D36.html">7D36</a>. Copies the routine address from <span class="register">BC</span> into bytes 9 and 10 of the character's buffer (thus setting the interruptible subcommand), and then jumps to that routine.
+Used by the routines at <a href="6464.html">6464</a> and <a href="7D36.html">7D36</a>. Copies the routine address from <span class="register">BC</span> into bytes 0x09 and 0x0A of the character's buffer (thus setting the interruptible subcommand), and then jumps to that routine.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routines at <a href="6464.html">6464</a> and <a href="7D36.html">7D3
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-214)</td>
+<td class="register-desc">Character number (0xB7-0xD6)</td>
 </tr>
 <tr>
 <td class="register">BC</td>
@@ -60,13 +60,13 @@ Used by the routines at <a href="6464.html">6464</a> and <a href="7D36.html">7D3
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63b1"></span>63B1</td>
 <td class="instruction">LD L,$09</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 9 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x09 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63b3"></span>63B3</td>
 <td class="instruction">JR <a href="639F.html#63ac">$63AC</a></td>
-<td class="comment-11" rowspan="1">Place the interruptible subcommand routine address into bytes 9 and 10 of the character's buffer, then jump to it</td>
+<td class="comment-11" rowspan="1">Place the interruptible subcommand routine address into bytes 0x09 and 0x0A of the character's buffer, then jump to it</td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -77,9 +77,9 @@ Used by the routines at <a href="6464.html">6464</a> and <a href="7D36.html">7D3
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

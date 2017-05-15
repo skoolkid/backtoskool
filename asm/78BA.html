@@ -35,7 +35,7 @@ This uninterruptible subcommand routine controls the frog's movements. The main 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">212 (frog)</td>
+<td class="register-desc">0xD4 (frog)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,7 +56,7 @@ This uninterruptible subcommand routine controls the frog's movements. The main 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="78be"></span>78BE</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the frog's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the frog's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -80,7 +80,7 @@ This uninterruptible subcommand routine controls the frog's movements. The main 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="78c4"></span>78C4</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -122,7 +122,7 @@ This uninterruptible subcommand routine controls the frog's movements. The main 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="78cf"></span>78CF</td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=random number &gt;= 192</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=random number &gt;= 0xC0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -168,13 +168,13 @@ The frog has decided to move. It has three options: turn round, short hop (one s
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="78dc"></span>78DC</td>
 <td class="instruction">CP $F0</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>&gt;=192 at this point</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>&gt;=0xC0 at this point</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="78de"></span>78DE</td>
 <td class="instruction">JR C,$78F0</td>
-<td class="comment-11" rowspan="1">Jump if 192&lt;=<span class="register">A</span>&lt;240 (75% of the time) to make a short or long hop</td>
+<td class="comment-11" rowspan="1">Jump if 0xC0&lt;=<span class="register">A</span>&lt;0xF0 (75% of the time) to make a short or long hop</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -186,7 +186,7 @@ The frog has decided to move. It has three options: turn round, short hop (one s
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="78e3"></span>78E3</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">29/157</a>: frog airborne (phase one)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">0x1D/0x9D</a>: frog airborne (phase one)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -214,7 +214,7 @@ This entry point is used when the frog has jumped into the air in order to turn 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="78ea"></span>78EA</td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#28">28/156</a>: frog sitting</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#28">0x1C/0x9C</a>: frog sitting</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -242,13 +242,13 @@ The frog is planning a hop. Decide between a short hop (one space forward) and a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="78f0"></span>78F0</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the frog's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the frog's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="78f2"></span>78F2</td>
 <td class="instruction">CP $D8</td>
-<td class="comment-11" rowspan="1">Set the carry flag if 192&lt;=<span class="register">A</span>&lt;216</td>
+<td class="comment-11" rowspan="1">Set the carry flag if 0xC0&lt;=<span class="register">A</span>&lt;0xD8</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -284,7 +284,7 @@ The frog is planning a hop. Decide between a short hop (one space forward) and a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="78fc"></span>78FC</td>
 <td class="instruction">JR C,$7928</td>
-<td class="comment-11" rowspan="1">Jump if <span class="register">A</span>&lt;216 (50% of the time) to consider a long hop</td>
+<td class="comment-11" rowspan="1">Jump if <span class="register">A</span>&lt;0xD8 (50% of the time) to consider a long hop</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -356,7 +356,7 @@ The frog is planning a hop. Decide between a short hop (one space forward) and a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="790f"></span>790F</td>
 <td class="instruction">LD H,$D4</td>
-<td class="comment-11" rowspan="1">212=frog</td>
+<td class="comment-11" rowspan="1">0xD4=frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -374,7 +374,7 @@ The frog is planning a hop. Decide between a short hop (one space forward) and a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7916"></span>7916</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">29/157</a>: frog airborne (phase one)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">0x1D/0x9D</a>: frog airborne (phase one)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -438,7 +438,7 @@ This entry point is used when the frog has just jumped into the air for a short 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7924"></span>7924</td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#28">28/156</a>: frog sitting</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#28">0x1C/0x9C</a>: frog sitting</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -484,7 +484,7 @@ The frog is planning a long hop. Check whether the coast is clear up to three sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="792e"></span>792E</td>
 <td class="instruction">INC C</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=1 if the frog's facing right, 255 if facing left</td>
+<td class="comment-11" rowspan="1"><span class="register">C</span>=0x01 if the frog's facing right, 0xFF if facing left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -592,7 +592,7 @@ The frog is planning a long hop. Check whether the coast is clear up to three sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7948"></span>7948</td>
 <td class="instruction">LD H,$D4</td>
-<td class="comment-11" rowspan="1">212=frog</td>
+<td class="comment-11" rowspan="1">0xD4=frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -604,13 +604,13 @@ The frog is planning a long hop. Check whether the coast is clear up to three sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="794d"></span>794D</td>
 <td class="instruction">CALL $7913</td>
-<td class="comment-11" rowspan="1">Otherwise move the frog one space forward and adjust its animatory state to <a href="../graphics/as.html#29">29/157</a> (airborne, phase one)</td>
+<td class="comment-11" rowspan="1">Otherwise move the frog one space forward and adjust its animatory state to <a href="../graphics/as.html#29">0x1D/0x9D</a> (airborne, phase one)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7950"></span>7950</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Change the address in bytes 17 and 18 of the frog's buffer to <a href="78BA.html#7955">7955</a> (below) so that we resume there</td>
+<td class="comment-11" rowspan="2">Change the address in bytes 0x11 and 0x12 of the frog's buffer to <a href="78BA.html#7955">7955</a> (below) so that we resume there</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -629,7 +629,7 @@ The frog is planning a long hop. Check whether the coast is clear up to three sp
 <span id="7955"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used when the frog has just jumped into the air in order to make a long hop (three spaces forward). It is also used by the routine at <a href="7A16.html">7A16</a> to introduce the frog into the game with an initial animatory state of <a href="../graphics/as.html#29">29</a> (facing left, airborne, phase 1) and location (59,10).
+This entry point is used when the frog has just jumped into the air in order to make a long hop (three spaces forward). It is also used by the routine at <a href="7A16.html">7A16</a> to introduce the frog into the game with an initial animatory state of <a href="../graphics/as.html#29">0x1D</a> (facing left, airborne, phase 1) and location (59,10).
 </div>
 </div>
 </td>
@@ -638,13 +638,13 @@ This entry point is used when the frog has just jumped into the air in order to 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7955"></span>7955</td>
 <td class="instruction">CALL $7913</td>
-<td class="comment-11" rowspan="1">Move the frog one space forward and adjust its animatory state to <a href="../graphics/as.html#30">30/158</a> (airborne, phase 2)</td>
+<td class="comment-11" rowspan="1">Move the frog one space forward and adjust its animatory state to <a href="../graphics/as.html#30">0x1E/0x9E</a> (airborne, phase 2)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7958"></span>7958</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Change the address in bytes 17 and 18 of the frog's buffer to <a href="78BA.html#795d">795D</a> (below) so that we resume there</td>
+<td class="comment-11" rowspan="2">Change the address in bytes 0x11 and 0x12 of the frog's buffer to <a href="78BA.html#795d">795D</a> (below) so that we resume there</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -678,7 +678,7 @@ This entry point is used when the frog is at the highest point of a long hop.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7960"></span>7960</td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">29/157</a>: frog airborne (phase one)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">0x1D/0x9D</a>: frog airborne (phase one)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -695,9 +695,9 @@ This entry point is used when the frog is at the highest point of a long hop.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

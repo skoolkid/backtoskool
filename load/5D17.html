@@ -29,12 +29,12 @@
 <table class="">
 <tr>
 <td class="" colspan="1" rowspan="1"><img alt="loader" src="../images/scr/loader.gif" /></td>
-<td class="" colspan="1" rowspan="1">This is the initial loader program for Back to Skool (as it appears after doing 'POKE 23762,0' to change the INK for the BASIC listing from white to black). Don't be fooled by the 'RANDOMIZE USR 23794': the floating point number stored underneath is actually 23831.</td>
+<td class="" colspan="1" rowspan="1">This is the initial loader program for Back to Skool (as it appears after doing 'POKE 23762,0' to change the INK for the BASIC listing from white to black). Don't be fooled by the 'RANDOMIZE USR 23794': the floating point number stored underneath is actually 5D17.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-Entering the code here from BASIC means that <span class="register">C</span>=23 (the LSB of 23831); this value is used later on in the routine at <a href="802F.html">802F</a>.
+Entering the code here from BASIC means that <span class="register">C</span>=0x17 (the LSB of 5D17); this value is used later on in the routine at <a href="802F.html">802F</a>.
 </div>
 </div>
 <table class="input-0">
@@ -89,13 +89,13 @@ And so begins the misdirection.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5dee"></span>5DEE</td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=23840</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=5D20</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5def"></span>5DEF</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=23791</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=5CEF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -113,13 +113,13 @@ And so begins the misdirection.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5df4"></span>5DF4</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=23798</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=5CF6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5df5"></span>5DF5</td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Jump to 23791</td>
+<td class="comment-11" rowspan="1">Jump to 5CEF</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -135,7 +135,7 @@ Undo some code obfuscation before continuing.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5cef"></span>5CEF</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="6">Do some XORing on the 49 bytes from 23798 to 23846</td>
+<td class="comment-11" rowspan="6">Do some XOR-ing on the 49 bytes from 5CF6 to 5D26</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -172,7 +172,7 @@ Undo some code obfuscation before continuing.
 <span id="5cf6"></span>
 <div class="comments">
 <div class="paragraph">
-After the XORing:
+After the XOR-ing:
 </div>
 </div>
 </td>
@@ -187,49 +187,49 @@ After the XORing:
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5cf7"></span>5CF7</td>
 <td class="instruction">EX (SP),HL</td>
-<td class="comment-11" rowspan="1"><span class="register">HL'</span>=11563</td>
+<td class="comment-11" rowspan="1"><span class="register">HL'</span>=2D2B</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5cf8"></span>5CF8</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=45</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x2D</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5cf9"></span>5CF9</td>
 <td class="instruction">AND L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=41</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x29</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5cfa"></span>5CFA</td>
 <td class="instruction">ADD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=84</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x54</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5cfb"></span>5CFB</td>
 <td class="instruction">ADD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=127</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x7F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5cfc"></span>5CFC</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="1"><span class="register">H'</span>=127</td>
+<td class="comment-11" rowspan="1"><span class="register">H'</span>=0x7F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5cfd"></span>5CFD</td>
 <td class="instruction">ADD A,$4E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=205</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xCD</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5cff"></span>5CFF</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">HL'</span>=32717</td>
+<td class="comment-11" rowspan="1"><span class="register">HL'</span>=7FCD</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -295,7 +295,7 @@ After the XORing:
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d12"></span>5D12</td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="2"><span class="register">DE</span>=9</td>
+<td class="comment-11" rowspan="2"><span class="register">DE</span>=0009</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -323,13 +323,13 @@ More misdirection.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5dee"></span>5DEE</td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=23831</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=5D17</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5def"></span>5DEF</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=23840</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=5D20</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -347,13 +347,13 @@ More misdirection.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5df4"></span>5DF4</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=23847</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=5D27</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5df5"></span>5DF5</td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Jump to 23840</td>
+<td class="comment-11" rowspan="1">Jump to 5D20</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -369,7 +369,7 @@ Undo some more code obfuscation before continuing.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d20"></span>5D20</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="6">Do some XORing and RLCing on the 217 bytes from 23847 to 24063</td>
+<td class="comment-11" rowspan="6">Do some XOR-ing and RLC-ing on the 217 bytes from 5D27 to 5DFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -406,7 +406,7 @@ Undo some more code obfuscation before continuing.
 <span id="5d27"></span>
 <div class="comments">
 <div class="paragraph">
-After the XORing and RLCing:
+After the XOR-ing and RLC-ing:
 </div>
 </div>
 </td>
@@ -415,7 +415,7 @@ After the XORing and RLCing:
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d27"></span>5D27</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=23808</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=5D00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -427,19 +427,19 @@ After the XORing and RLCing:
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d29"></span>5D29</td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1"><span class="register">DE'</span>=23808</td>
+<td class="comment-11" rowspan="1"><span class="register">DE'</span>=5D00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d2a"></span>5D2A</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"><span class="register">DE'</span>=32717</td>
+<td class="comment-11" rowspan="1"><span class="register">DE'</span>=7FCD</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d2b"></span>5D2B</td>
 <td class="instruction">LD BC,$00FF</td>
-<td class="comment-11" rowspan="2">Copy 255 bytes from 23808-24062 to 32717-32971</td>
+<td class="comment-11" rowspan="2">Copy 255 bytes from 5D00-5DFE to 7FCD-80CB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -451,13 +451,13 @@ After the XORing and RLCing:
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d30"></span>5D30</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1"><span class="register">E'</span>=47</td>
+<td class="comment-11" rowspan="1"><span class="register">E'</span>=0x2F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d31"></span>5D31</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"><span class="register">HL'</span>=32815</td>
+<td class="comment-11" rowspan="1"><span class="register">HL'</span>=802F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -474,9 +474,9 @@ After the XORing and RLCing:
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -47,7 +47,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e125"></span>E125</td>
 <td class="instruction">LD A,$27</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#39">39</a>=ERIC bending over, facing left</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#39">0x27</a>=ERIC bending over, facing left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -97,7 +97,7 @@ This entry point is used by the routine at <a href="5EB7.html">5EB7</a> with ERI
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e132"></span>E132</td>
 <td class="instruction">LD HL,$D200</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -127,7 +127,7 @@ This entry point is used by the routine at <a href="5EB7.html">5EB7</a> with ERI
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e13e"></span>E13E</td>
 <td class="instruction">LD D,H</td>
-<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at byte 3 of ERIC's buffer</td>
+<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at byte 0x03 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -139,7 +139,7 @@ This entry point is used by the routine at <a href="5EB7.html">5EB7</a> with ERI
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e140"></span>E140</td>
 <td class="instruction">LDIR</td>
-<td class="comment-11" rowspan="1">Copy bytes 0-2 of ERIC's buffer (which hold ERIC's current animatory state and location) into bytes 3-5 for retrieval when ERIC has completed this action</td>
+<td class="comment-11" rowspan="1">Copy bytes 0x00-0x02 of ERIC's buffer (which hold ERIC's current animatory state and location) into bytes 0x03-0x05 for retrieval when ERIC has completed this action</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -156,9 +156,9 @@ This entry point is used by the routine at <a href="5EB7.html">5EB7</a> with ERI
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

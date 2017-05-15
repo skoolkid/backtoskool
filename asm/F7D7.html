@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command lists <a href="E590.html">32</a>, <a href="E59B.html">34</a>, <a href="E5AE.html">36</a>, <a href="E5BD.html">38</a>, <a href="E70F.html">40</a>, <a href="E5CC.html">42</a>, <a href="E5DC.html">44</a>, <a href="E860.html">46</a>, <a href="E86B.html">48</a>, <a href="E87F.html">50</a>, <a href="E88A.html">52</a>, <a href="E89E.html">54</a>, <a href="E8C0.html">56</a> and <a href="E94C.html">76</a>. Collects a continual subcommand routine address from the command list and places it into bytes 23 and 24 of the character's buffer. The routine address will be one of the following:
+Used by command lists <a href="E590.html">0x20</a>, <a href="E59B.html">0x22</a>, <a href="E5AE.html">0x24</a>, <a href="E5BD.html">0x26</a>, <a href="E70F.html">0x28</a>, <a href="E5CC.html">0x2A</a>, <a href="E5DC.html">0x2C</a>, <a href="E860.html">0x2E</a>, <a href="E86B.html">0x30</a>, <a href="E87F.html">0x32</a>, <a href="E88A.html">0x34</a>, <a href="E89E.html">0x36</a>, <a href="E8C0.html">0x38</a> and <a href="E94C.html">0x4C</a>. Collects a continual subcommand routine address from the command list and places it into bytes 0x17 and 0x18 of the character's buffer. The routine address will be one of the following:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -59,7 +59,7 @@ Used by command lists <a href="E590.html">32</a>, <a href="E59B.html">34</a>, <a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (205-207)</td>
+<td class="register-desc">Character number (0xCD-0xCF)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -74,7 +74,7 @@ Used by command lists <a href="E590.html">32</a>, <a href="E59B.html">34</a>, <a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f7d7"></span>F7D7</td>
 <td class="instruction">LD L,$17</td>
-<td class="comment-11" rowspan="2">Collect the routine address from the command list and place it into bytes 23 and 24 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Collect the routine address from the command list and place it into bytes 0x17 and 0x18 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -97,9 +97,9 @@ Used by command lists <a href="E590.html">32</a>, <a href="E59B.html">34</a>, <a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

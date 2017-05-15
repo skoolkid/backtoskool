@@ -35,19 +35,19 @@ Used by the routines at <a href="6697.html">6697</a>, <a href="7974.html">7974</
 <th colspan="1" rowspan="1">Meaning</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
 <td class="" colspan="1" rowspan="1">Character is facing left and standing beside a chair</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">0x03</td>
 <td class="" colspan="1" rowspan="1">Character must walk to the next chair to the left</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">0x04</td>
 <td class="" colspan="1" rowspan="1">Character must walk to the rightmost chair</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">255</td>
+<td class="centre" colspan="1" rowspan="1">0xFF</td>
 <td class="" colspan="1" rowspan="1">Character is not in a classroom</td>
 </tr>
 </table>
@@ -59,7 +59,7 @@ Used by the routines at <a href="6697.html">6697</a>, <a href="7974.html">7974</
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-210)</td>
+<td class="register-desc">Character number (0xB7-0xD2)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -74,7 +74,7 @@ Used by the routines at <a href="6697.html">6697</a>, <a href="7974.html">7974</
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="65d4"></span>65D4</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -440,9 +440,9 @@ The contents of the classroom/chairs location tables are as follows:
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

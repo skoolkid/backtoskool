@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a catapult pellet's buffer by the routine at <a href="775B.html">775B</a>. It controls the pellet from the beginning of its flight to the end, including any collisions with cups, trees, other characters, and teachers' heads.
+The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of a catapult pellet's buffer by the routine at <a href="775B.html">775B</a>. It controls the pellet from the beginning of its flight to the end, including any collisions with cups, trees, other characters, and teachers' heads.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">213 (BOY WANDER's pellet) or 214 (ERIC's pellet)</td>
+<td class="register-desc">0xD5 (BOY WANDER's pellet) or 0xD6 (ERIC's pellet)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76ac"></span>76AC</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Byte 19 of the pellet's buffer holds the distance left to travel</td>
+<td class="comment-11" rowspan="1">Byte 0x13 of the pellet's buffer holds the distance left to travel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -96,7 +96,7 @@ The pellet is merrily wending its way through the air. It's not ready to hit any
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76b7"></span>76B7</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the pellet's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -156,7 +156,7 @@ The pellet is merrily wending its way through the air. It's not ready to hit any
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c2"></span>76C2</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -218,7 +218,7 @@ The pellet has hit a water- or sherry-filled cup, or a conker in the tree. The <
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76d2"></span>76D2</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="74C8.html">74C8</a> into bytes 17 and 18 of the catapult pellet's buffer</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="74C8.html">74C8</a> into bytes 0x11 and 0x12 of the catapult pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -288,7 +288,7 @@ The pellet hasn't hit a water- or sherry-filled cup. Has it hit a teacher?
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76e3"></span>76E3</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the pellet's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -300,7 +300,7 @@ The pellet hasn't hit a water- or sherry-filled cup. Has it hit a teacher?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76e6"></span>76E6</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -330,7 +330,7 @@ The pellet hasn't hit a water- or sherry-filled cup. Has it hit a teacher?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76ef"></span>76EF</td>
 <td class="instruction">LD C,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0 of the stricken teacher's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0x00 of the stricken teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -360,7 +360,7 @@ The pellet hasn't hit a water- or sherry-filled cup. Has it hit a teacher?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76f8"></span>76F8</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="2">Place 6 into byte 19 of the pellet's buffer (the distance the pellet will travel after bouncing off the teacher's head)</td>
+<td class="comment-11" rowspan="2">Place 6 into byte 0x13 of the pellet's buffer (the distance the pellet will travel after bouncing off the teacher's head)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -382,7 +382,7 @@ This section of code controls the pellet's motion on its ascent from the teacher
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76fb"></span>76FB</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Byte 19 of the pellet's buffer holds the distance left to travel</td>
+<td class="comment-11" rowspan="1">Byte 0x13 of the pellet's buffer holds the distance left to travel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -436,7 +436,7 @@ This section of code controls the pellet's motion on its ascent from the teacher
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="770d"></span>770D</td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Replace the address of this routine in bytes 17 and 18 of the pellet's buffer with <a href="76AC.html#7710">7710</a> (the address of the next instruction)</td>
+<td class="comment-11" rowspan="1">Replace the address of this routine in bytes 0x11 and 0x12 of the pellet's buffer with <a href="76AC.html#7710">7710</a> (the address of the next instruction)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -458,7 +458,7 @@ The pellet has hit a teacher who's standing up.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7712"></span>7712</td>
 <td class="instruction">LD C,$12</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 18 of the teacher's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0x12 of the teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -476,7 +476,7 @@ The pellet has hit a teacher who's standing up.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7716"></span>7716</td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is there an uninterruptible subcommand routine address in bytes 17 and 18 of the teacher's buffer?</td>
+<td class="comment-11" rowspan="1">Is there an uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the teacher's buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -504,7 +504,7 @@ The pellet hasn't hit any liquid-containing cups or vulnerable teachers. Has it 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="771b"></span>771B</td>
 <td class="instruction">LD D,$CE</td>
-<td class="comment-11" rowspan="1">206=BOY WANDER</td>
+<td class="comment-11" rowspan="1">0xCE=BOY WANDER</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -538,7 +538,7 @@ The pellet hasn't hit any liquid-containing cups, teachers or kids. Has it hit a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7725"></span>7725</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Byte 19 of the pellet's buffer holds the distance left to travel</td>
+<td class="comment-11" rowspan="1">Byte 0x13 of the pellet's buffer holds the distance left to travel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -562,7 +562,7 @@ The pellet hasn't hit any liquid-containing cups, teachers or kids. Has it hit a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="772c"></span>772C</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the pellet's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -586,7 +586,7 @@ The pellet hasn't hit any liquid-containing cups, teachers or kids. Has it hit a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7733"></span>7733</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -628,7 +628,7 @@ The pellet hasn't hit any liquid-containing cups, teachers or kids. Has it hit a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="773f"></span>773F</td>
 <td class="instruction">LD A,$37</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#55">55</a>: animatory state of a conker</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#55">0x37</a>: animatory state of a conker</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -645,9 +645,9 @@ The pellet hasn't hit any liquid-containing cups, teachers or kids. Has it hit a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

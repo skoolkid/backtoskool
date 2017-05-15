@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the teachers' command lists <a href="E400.html">22</a>, <a href="E600.html">24</a>, <a href="E8DC.html">58</a>, <a href="E8ED.html">60</a> and <a href="E8FE.html">62</a>. Restarts the teacher's command list if it's not time to start the class yet; otherwise makes the teacher tell the kids to sit down.
+Used by the teachers' command lists <a href="E400.html">0x16</a>, <a href="E600.html">0x18</a>, <a href="E8DC.html">0x3A</a>, <a href="E8ED.html">0x3C</a> and <a href="E8FE.html">0x3E</a>. Restarts the teacher's command list if it's not time to start the class yet; otherwise makes the teacher tell the kids to sit down.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the teachers' command lists <a href="E400.html">22</a>, <a href="E600.ht
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (201-204)</td>
+<td class="register-desc">Teacher's character number (0xC9-0xCC)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the teachers' command lists <a href="E400.html">22</a>, <a href="E600.ht
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f073"></span>F073</td>
 <td class="instruction">LD A,($7FE4)</td>
-<td class="comment-11" rowspan="1">Collect the MSB of the lesson clock (which starts at 16)</td>
+<td class="comment-11" rowspan="1">Collect the MSB of the lesson clock (which starts at 0x10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -86,7 +86,7 @@ Used by the teachers' command lists <a href="E400.html">22</a>, <a href="E600.ht
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f080"></span>F080</td>
 <td class="instruction">CALL <a href="627D.html">$627D</a></td>
-<td class="comment-11" rowspan="1">Collect the event indicator for the start of the lesson (8, 9, 10, 11 or 12) from the command list</td>
+<td class="comment-11" rowspan="1">Collect the event indicator for the start of the lesson (0x08, 0x09, 0x0A, 0x0B or 0x0C) from the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -128,7 +128,7 @@ Used by the teachers' command lists <a href="E400.html">22</a>, <a href="E600.ht
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f08e"></span>F08E</td>
 <td class="instruction">SUB $6D</td>
-<td class="comment-11" rowspan="2"><span class="register">E</span>=<a href="ED8E.html">92</a>, <a href="ED96.html">93</a>, <a href="EDA3.html">94</a> or <a href="EDBB.html">95</a> (appropriate SIT DOWN message for this teacher)</td>
+<td class="comment-11" rowspan="2"><span class="register">E</span>=<a href="ED8E.html">0x5C</a>, <a href="ED96.html">0x5D</a>, <a href="EDA3.html">0x5E</a> or <a href="EDBB.html">0x5F</a> (appropriate SIT DOWN message for this teacher)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -163,9 +163,9 @@ Used by the teachers' command lists <a href="E400.html">22</a>, <a href="E600.ht
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

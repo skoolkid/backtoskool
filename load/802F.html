@@ -53,19 +53,19 @@ Continues from <a href="5D17.html">5D17</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8032"></span>8032</td>
 <td class="instruction">LD IX,$4000</td>
-<td class="comment-11" rowspan="1">The fast code block starts loading at address 16384 (the start of the display file)</td>
+<td class="comment-11" rowspan="1">The fast code block starts loading at address 4000 (the start of the display file)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8036"></span>8036</td>
 <td class="instruction">LD DE,$C000</td>
-<td class="comment-11" rowspan="1">Set <span class="register">DE</span> (the byte counter) to a high enough value that it won't reach 0 before the first 16570 bytes (16384-32953) have been loaded</td>
+<td class="comment-11" rowspan="1">Set <span class="register">DE</span> (the byte counter) to a high enough value that it won't reach 0 before the first 16570 bytes (4000-80B9) have been loaded</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8039"></span>8039</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-11" rowspan="1">We expect the first byte loaded (the flag byte) to be 255</td>
+<td class="comment-11" rowspan="1">We expect the first byte loaded (the flag byte) to be 0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -443,7 +443,7 @@ This is the byte-loading loop. The first byte loaded is the flag byte.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8096"></span>8096</td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Reset the Spectrum if it wasn't 255</td>
+<td class="comment-11" rowspan="1">Reset the Spectrum if it wasn't 0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -614,7 +614,7 @@ A full byte has just been read from the tape.
 <span id="80b8"></span>
 <div class="comments">
 <div class="paragraph">
-When the computer has loaded up to 32953, the instruction at 32952 is changed thus:
+When the computer has loaded up to 80B9, the instruction at 80B8 is changed thus:
 </div>
 </div>
 </td>
@@ -630,7 +630,7 @@ When the computer has loaded up to 32953, the instruction at 32952 is changed th
 <span id="807d"></span>
 <div class="comments">
 <div class="paragraph">
-At this stage, 32893 reads as follows:
+At this stage, 807D reads as follows:
 </div>
 </div>
 </td>
@@ -639,7 +639,7 @@ At this stage, 32893 reads as follows:
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="807d"></span>807D</td>
 <td class="instruction">LD (IX-$34),L</td>
-<td class="comment-11" rowspan="1">POKE 32902,32</td>
+<td class="comment-11" rowspan="1">Effectively LD ($8086),$20</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -670,7 +670,7 @@ At this stage, 32893 reads as follows:
 <span id="8086"></span>
 <div class="comments">
 <div class="paragraph">
-The POKE at 32893 above changes the instruction at 32902 from 'LD SP,23833' to:
+The instruction at 807D above changes the instruction at 8086 from 'LD SP,$5D19' to:
 </div>
 </div>
 </td>
@@ -686,7 +686,7 @@ The POKE at 32893 above changes the instruction at 32902 from 'LD SP,23833' to:
 <span id="8086"></span>
 <div class="comments">
 <div class="paragraph">
-Now 65536 more bytes are loaded, the last of which is at 32902 (even though there is one more byte, 32925, left on the tape: see the <a href="../save/80F5.html">save routine</a>). Then 32902 reads as follows:
+Now 65536 more bytes are loaded, the last of which is at 8086 (even though there is one more byte, 809D, left on the tape: see the <a href="../save/80F5.html">save routine</a>). Then 8086 reads as follows:
 </div>
 </div>
 </td>
@@ -695,7 +695,7 @@ Now 65536 more bytes are loaded, the last of which is at 32902 (even though ther
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="8086"></span>8086</td>
 <td class="instruction">LD SP,$5D19</td>
-<td class="comment-11" rowspan="1">Point the stack pointer at the game start address that was placed at 23833 by the <a href="../save/80F5.html">save routine</a></td>
+<td class="comment-11" rowspan="1">Point the stack pointer at the game start address that was placed at 5D19 by the <a href="../save/80F5.html">save routine</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -707,7 +707,7 @@ Now 65536 more bytes are loaded, the last of which is at 32902 (even though ther
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="808a"></span>808A</td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">To (23833)=<a href="../start/81B4.html">81B4</a></td>
+<td class="comment-11" rowspan="1">To ($5D19)=<a href="../start/81B4.html">81B4</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -718,9 +718,9 @@ Now 65536 more bytes are loaded, the last of which is at 32902 (even though ther
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

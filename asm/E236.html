@@ -20,13 +20,13 @@
 <td class="next"><span class="next-1">Next: <a href="E24D.html">E24D</a></span></td>
 </tr>
 </table>
-<div class="description">E236: Prepare buffer 213 for use by a stinkbomb cloud</div>
+<div class="description">E236: Prepare buffer 0xD5 for use by a stinkbomb cloud</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="7140.html">7140</a> and <a href="F862.html">F862</a>. Prepares buffer 213 (normally used by BOY WANDER's catapult pellet) for use by a stinkbomb cloud. Returns to the main loop if the buffer is already in use by a stinkbomb cloud; otherwise returns to the caller with buffer 213 ready to go.
+Used by the routines at <a href="7140.html">7140</a> and <a href="F862.html">F862</a>. Prepares buffer 0xD5 (normally used by BOY WANDER's catapult pellet) for use by a stinkbomb cloud. Returns to the main loop if the buffer is already in use by a stinkbomb cloud; otherwise returns to the caller with buffer 0xD5 ready to go.
 </div>
 </div>
 <table class="input-0">
@@ -47,7 +47,7 @@ Used by the routines at <a href="7140.html">7140</a> and <a href="F862.html">F86
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e236"></span>E236</td>
 <td class="instruction">LD HL,$D501</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of buffer 213</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of buffer 0xD5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -71,7 +71,7 @@ Used by the routines at <a href="7140.html">7140</a> and <a href="F862.html">F86
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e23e"></span>E23E</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -95,7 +95,7 @@ Used by the routines at <a href="7140.html">7140</a> and <a href="F862.html">F86
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e243"></span>E243</td>
 <td class="instruction">CP $4F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#79">79</a>: Is this buffer being used by BOY WANDER's catapult pellet?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#79">0x4F</a>: Is this buffer being used by BOY WANDER's catapult pellet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -119,7 +119,7 @@ Used by the routines at <a href="7140.html">7140</a> and <a href="F862.html">F86
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e24a"></span>E24A</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -136,9 +136,9 @@ Used by the routines at <a href="7140.html">7140</a> and <a href="F862.html">F86
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

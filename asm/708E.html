@@ -35,7 +35,7 @@ Used by the routine at <a href="63ED.html">63ED</a>. Checks for a closed door in
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-209)</td>
+<td class="register-desc">Character number (0xB7-0xD1)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -130,7 +130,7 @@ This entry point is used by the routine at <a href="6558.html">6558</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70a2"></span>70A2</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="2">Place the identifier of the closed door (see <a href="705F.html">705F</a>) into byte 19 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Place the identifier of the closed door (see <a href="705F.html">705F</a>) into byte 0x13 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -142,7 +142,7 @@ This entry point is used by the routine at <a href="6558.html">6558</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70a5"></span>70A5</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=20</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x14</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -164,7 +164,7 @@ This entry point is used by the routines at <a href="717C.html">717C</a> and <a 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70a8"></span>70A8</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="70B7.html">70B7</a> into bytes 17 and 18 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="70B7.html">70B7</a> into bytes 0x11 and 0x12 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -211,9 +211,9 @@ This entry point is used by the routines at <a href="717C.html">717C</a> and <a 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

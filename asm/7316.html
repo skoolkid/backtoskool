@@ -159,7 +159,7 @@ This entry point is used by the routine at <a href="7386.html">7386</a> when ERI
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7336"></span>7336</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -171,7 +171,7 @@ This entry point is used by the routine at <a href="7386.html">7386</a> when ERI
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="733b"></span>733B</td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=211: bike</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0xD3: bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -183,7 +183,7 @@ This entry point is used by the routine at <a href="7386.html">7386</a> when ERI
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="733f"></span>733F</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the bike's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the bike's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -195,7 +195,7 @@ This entry point is used by the routine at <a href="7386.html">7386</a> when ERI
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7343"></span>7343</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="2">Remove the address of the routine at <a href="720A.html">720A</a> from bytes 17 and 18 of the bike's buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of the routine at <a href="720A.html">720A</a> from bytes 0x11 and 0x12 of the bike's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -207,7 +207,7 @@ This entry point is used by the routine at <a href="7386.html">7386</a> when ERI
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7347"></span>7347</td>
 <td class="instruction">DEC H</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=210: ERIC</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0xD2: ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -235,7 +235,7 @@ ERIC has tried to jump off the saddle of the bike. Check whether he has the frog
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="734d"></span>734D</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -247,7 +247,7 @@ ERIC has tried to jump off the saddle of the bike. Check whether he has the frog
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7352"></span>7352</td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#2">2 or 130</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#2">0x02 or 0x82</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -271,7 +271,7 @@ ERIC has tried to jump off the saddle of the bike. Check whether he has the frog
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7359"></span>7359</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -283,7 +283,7 @@ ERIC has tried to jump off the saddle of the bike. Check whether he has the frog
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="735c"></span>735C</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -307,7 +307,7 @@ ERIC has tried to jump off the saddle of the bike. Check whether he has the frog
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7363"></span>7363</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -361,13 +361,13 @@ ERIC has tried to jump off the saddle of the bike. Check whether he has the frog
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7372"></span>7372</td>
 <td class="instruction">LD H,$D4</td>
-<td class="comment-11" rowspan="1">212=frog</td>
+<td class="comment-11" rowspan="1">0xD4=frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7374"></span>7374</td>
 <td class="instruction">LD A,$1C</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#28">28</a>: frog sitting (as on the floor or in a cup)</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#28">0x1C</a>: frog sitting (as on the floor or in a cup)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -402,9 +402,9 @@ ERIC has tried to jump off the saddle of the bike. Check whether he has the frog
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

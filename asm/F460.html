@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command lists <a href="E400.html">22</a>, <a href="E600.html">24</a>, <a href="E264.html">28</a> and <a href="E975.html">78</a>. Copies the address of the point reached in the current command list (stored in bytes 25 and 26 of the character's buffer) into bytes 27 and 28 (where the start address of the current command list is stored). This means that whenever the command list is restarted, it will restart from this point instead of the actual beginning.
+Used by command lists <a href="E400.html">0x16</a>, <a href="E600.html">0x18</a>, <a href="E264.html">0x1C</a> and <a href="E975.html">0x4E</a>. Copies the address of the point reached in the current command list (stored in bytes 0x19 and 0x1A of the character's buffer) into bytes 0x1B and 0x1C (where the start address of the current command list is stored). This means that whenever the command list is restarted, it will restart from this point instead of the actual beginning.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by command lists <a href="E400.html">22</a>, <a href="E600.html">24</a>, <a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">204 (MISS TAKE) or 205 (ALBERT)</td>
+<td class="register-desc">0xCC (MISS TAKE) or 0xCD (ALBERT)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by command lists <a href="E400.html">22</a>, <a href="E600.html">24</a>, <a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f460"></span>F460</td>
 <td class="instruction">LD L,$19</td>
-<td class="comment-11" rowspan="5">Copy the address reached in the current command list from bytes 25 and 26 into bytes 27 and 28 (where the command list's start address is usually stored)</td>
+<td class="comment-11" rowspan="5">Copy the address reached in the current command list from bytes 0x19 and 0x1A into bytes 0x1B and 0x1C (where the command list's start address is usually stored)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -91,9 +91,9 @@ Used by command lists <a href="E400.html">22</a>, <a href="E600.html">24</a>, <a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

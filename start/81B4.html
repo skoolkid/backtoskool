@@ -101,25 +101,25 @@ We jump here from the load routine at <a href="../load/802F.html">802F</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="81cc"></span>81CC</td>
 <td class="instruction">CALL <a href="../asm/54F2.html">$54F2</a></td>
-<td class="comment-11" rowspan="1">Prepare 23808 to 24063</td>
+<td class="comment-11" rowspan="1">Prepare 5D00 to 5DFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="81cf"></span>81CF</td>
 <td class="instruction">CALL <a href="../asm/54F2.html">$54F2</a></td>
-<td class="comment-11" rowspan="1">Prepare 24064 to 24319</td>
+<td class="comment-11" rowspan="1">Prepare 5E00 to 5EFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="81d2"></span>81D2</td>
 <td class="instruction">CALL <a href="../asm/54F2.html">$54F2</a></td>
-<td class="comment-11" rowspan="1">Prepare 24320 to 24575</td>
+<td class="comment-11" rowspan="1">Prepare 5F00 to 5FFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="81d5"></span>81D5</td>
 <td class="instruction">LD DE,$8000</td>
-<td class="comment-11" rowspan="4">Copy 256 bytes from 58112 to 32768</td>
+<td class="comment-11" rowspan="4">Copy 256 bytes from E300 to 8000</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -143,7 +143,7 @@ We jump here from the load routine at <a href="../load/802F.html">802F</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="81e0"></span>81E0</td>
 <td class="instruction">LD H,$61</td>
-<td class="comment-11" rowspan="4">Move 7936 bytes from 24832 down to 24576</td>
+<td class="comment-11" rowspan="4">Move 7936 bytes from 6100 down to 6000</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -173,7 +173,7 @@ We jump here from the load routine at <a href="../load/802F.html">802F</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="81ea"></span>81EA</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="3">Zero out addresses 32512 to 32763 (the <a href="../buffers/gbuffer.html">game status buffer</a>)</td>
+<td class="comment-11" rowspan="3">Zero out addresses 7F00 to 7FFB (the <a href="../buffers/gbuffer.html">game status buffer</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -191,7 +191,7 @@ We jump here from the load routine at <a href="../load/802F.html">802F</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="81ee"></span>81EE</td>
 <td class="instruction">LD DE,$8100</td>
-<td class="comment-11" rowspan="3">Prepare to copy 256 bytes from 23296 to 33024 (thus overwriting this routine)</td>
+<td class="comment-11" rowspan="3">Prepare to copy 256 bytes from 5B00 to 8100 (thus overwriting this routine)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -220,9 +220,9 @@ We jump here from the load routine at <a href="../load/802F.html">802F</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

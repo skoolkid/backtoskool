@@ -65,7 +65,7 @@ Used by the routine at <a href="F7AD.html">F7AD</a> when bit 2 at <a href="7FFB.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2e7"></span>F2E7</td>
 <td class="instruction">LD A,($7FDE)</td>
-<td class="comment-11" rowspan="1"><a href="7FDE.html">7FDE</a> holds 255 if we're in demo mode, 0 otherwise</td>
+<td class="comment-11" rowspan="1"><a href="7FDE.html">7FDE</a> holds 0xFF if we're in demo mode, 0x00 otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -99,13 +99,13 @@ We're in demo mode. Figure out ERIC's next move depending on what little boy no.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2f0"></span>F2F0</td>
 <td class="instruction">LD HL,$C700</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of little boy no. 10's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of little boy no. 10's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2f3"></span>F2F3</td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">4</a>: Is ERIC sitting in a chair?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">0x04</a>: Is ERIC sitting in a chair?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -117,7 +117,7 @@ We're in demo mode. Figure out ERIC's next move depending on what little boy no.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2f7"></span>F2F7</td>
 <td class="instruction">CP $85</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#133">133</a>: Is ERIC sitting on the floor facing right?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#133">0x85</a>: Is ERIC sitting on the floor facing right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -129,7 +129,7 @@ We're in demo mode. Figure out ERIC's next move depending on what little boy no.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f2fb"></span>F2FB</td>
 <td class="instruction">ADD A,$40</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#68">68</a> (little boy sitting on a chair) or <a href="../graphics/as.html#197">197</a> (little boy sitting on the floor facing right)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#68">0x44</a> (little boy sitting on a chair) or <a href="../graphics/as.html#197">0xC5</a> (little boy sitting on the floor facing right)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -205,7 +205,7 @@ This entry point is used by the routine at <a href="5E6F.html">5E6F</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f310"></span>F310</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -217,7 +217,7 @@ This entry point is used by the routine at <a href="5E6F.html">5E6F</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f315"></span>F315</td>
 <td class="instruction">AND $80</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#0">0/128</a>: ERIC standing up</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#0">0x00/0x80</a>: ERIC standing up</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -315,7 +315,7 @@ We're not in demo mode.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f330"></span>F330</td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">4</a>: Is ERIC sitting in a chair?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">0x04</a>: Is ERIC sitting in a chair?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -337,7 +337,7 @@ ERIC is sitting in a chair and 'O' (open desk) was pressed. Compute the ID of th
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f333"></span>F333</td>
 <td class="instruction">LD A,($D601)</td>
-<td class="comment-11" rowspan="1">Pick up the x-coordinate of whatever object is using buffer 214</td>
+<td class="comment-11" rowspan="1">Pick up the x-coordinate of whatever object is using buffer 0xD6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -497,23 +497,23 @@ At this point <span class="register">B</span> holds the identifier of the desk t
 <th colspan="1" rowspan="1">Room</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">1-6</td>
+<td class="centre" colspan="1" rowspan="1">0x01-0x06</td>
 <td class="" colspan="1" rowspan="1">Blue Room</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">7-12</td>
+<td class="centre" colspan="1" rowspan="1">0x07-0x0C</td>
 <td class="" colspan="1" rowspan="1">Yellow Room</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">13-18</td>
+<td class="centre" colspan="1" rowspan="1">0x0D-0x12</td>
 <td class="" colspan="1" rowspan="1">Top-floor room in the girls' skool</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">19-25</td>
+<td class="centre" colspan="1" rowspan="1">0x13-0x19</td>
 <td class="" colspan="1" rowspan="1">Science Lab</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">26-31</td>
+<td class="centre" colspan="1" rowspan="1">0x1A-0x1F</td>
 <td class="" colspan="1" rowspan="1">Middle-floor room in the girls' skool</td>
 </tr>
 </table>
@@ -562,7 +562,7 @@ The water pistol hasn't been placed in a desk yet. Pick one at random that doesn
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f368"></span>F368</td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=random desk ID from 1 to 31</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=random desk ID from 0x01 to 0x1F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -656,7 +656,7 @@ Check whether ERIC has found the water pistol.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f380"></span>F380</td>
 <td class="instruction">LD A,$2C</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#44">44</a>: animatory state of a desk lid</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#44">0x2C</a>: animatory state of a desk lid</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -674,7 +674,7 @@ Check whether ERIC has found the water pistol.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f386"></span>F386</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#45">45</a>: animatory state of a desk lid with a water pistol</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#45">0x2D</a>: animatory state of a desk lid with a water pistol</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -730,7 +730,7 @@ The stinkbombs haven't been placed in a desk yet. Pick one at random that doesn'
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f38e"></span>F38E</td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=random desk ID from 1 to 31</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=random desk ID from 0x01 to 0x1F</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -794,7 +794,7 @@ Check whether ERIC has found the stinkbombs.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f39d"></span>F39D</td>
 <td class="instruction">LD A,$2C</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#44">44</a>: animatory state of a desk lid</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#44">0x2C</a>: animatory state of a desk lid</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -830,14 +830,14 @@ Check whether ERIC has found the stinkbombs.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3a7"></span>F3A7</td>
 <td class="instruction">LD A,$2E</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#46">46</a>: animatory state of a desk lid with stinkbombs</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#46">0x2E</a>: animatory state of a desk lid with stinkbombs</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f3a9"></span>
 <div class="comments">
 <div class="paragraph">
-Now <span class="register">A</span> holds the animatory state of the desk lid: <a href="../graphics/as.html#44">44</a> (empty desk), <a href="../graphics/as.html#45">45</a> (with pistol), or <a href="../graphics/as.html#46">46</a> (with stinkbombs).
+Now <span class="register">A</span> holds the animatory state of the desk lid: <a href="../graphics/as.html#44">0x2C</a> (empty desk), <a href="../graphics/as.html#45">0x2D</a> (with pistol), or <a href="../graphics/as.html#46">0x2E</a> (with stinkbombs).
 </div>
 </div>
 </td>
@@ -846,7 +846,7 @@ Now <span class="register">A</span> holds the animatory state of the desk lid: <
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f3a9"></span>F3A9</td>
 <td class="instruction">LD HL,$D613</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of the desk lid's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of the desk lid's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -864,14 +864,14 @@ Now <span class="register">A</span> holds the animatory state of the desk lid: <
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3af"></span>F3AF</td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the desk lid's appearance and place address <a href="F2E2.html#f3b2">F3B2</a> (below) into bytes 17 and 18 of its buffer</td>
+<td class="comment-11" rowspan="1">Update the SRB for the desk lid's appearance and place address <a href="F2E2.html#f3b2">F3B2</a> (below) into bytes 0x11 and 0x12 of its buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f3b2"></span>
 <div class="comments">
 <div class="paragraph">
-The address of this entry point is placed into bytes 17 and 18 of the desk lid's buffer by the instruction above.
+The address of this entry point is placed into bytes 0x11 and 0x12 of the desk lid's buffer by the instruction above.
 </div>
 </div>
 </td>
@@ -880,7 +880,7 @@ The address of this entry point is placed into bytes 17 and 18 of the desk lid's
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f3b2"></span>F3B2</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Byte 19 of the desk lid's buffer holds the delay counter that determines when the desk lid will shut</td>
+<td class="comment-11" rowspan="1">Byte 0x13 of the desk lid's buffer holds the delay counter that determines when the desk lid will shut</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -916,7 +916,7 @@ The address of this entry point is placed into bytes 17 and 18 of the desk lid's
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3bc"></span>F3BC</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -928,7 +928,7 @@ The address of this entry point is placed into bytes 17 and 18 of the desk lid's
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3be"></span>F3BE</td>
 <td class="instruction">CP $2C</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#44">44</a>: Is the desk empty?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#44">0x2C</a>: Is the desk empty?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -1025,9 +1025,9 @@ This entry point is used by the routine at <a href="5F1C.html">5F1C</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

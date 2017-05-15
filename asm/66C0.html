@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command lists <a href="C93C.html">0</a>, <a href="CA3C.html">2</a>, <a href="CB3C.html">4</a>, <a href="CC3C.html">6</a>, <a href="CD3C.html">8</a>, <a href="E590.html">32</a>, <a href="E59B.html">34</a>, <a href="E860.html">46</a>, <a href="E86B.html">48</a>, <a href="E87F.html">50</a>, <a href="E88A.html">52</a>, <a href="E999.html">82</a>, <a href="E9A4.html">84</a> and <a href="E9AF.html">86</a>. Makes a character start looking for a seat.
+Used by command lists <a href="C93C.html">0x00</a>, <a href="CA3C.html">0x02</a>, <a href="CB3C.html">0x04</a>, <a href="CC3C.html">0x06</a>, <a href="CD3C.html">0x08</a>, <a href="E590.html">0x20</a>, <a href="E59B.html">0x22</a>, <a href="E860.html">0x2E</a>, <a href="E86B.html">0x30</a>, <a href="E87F.html">0x32</a>, <a href="E88A.html">0x34</a>, <a href="E999.html">0x52</a>, <a href="E9A4.html">0x54</a> and <a href="E9AF.html">0x56</a>. Makes a character start looking for a seat.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by command lists <a href="C93C.html">0</a>, <a href="CA3C.html">2</a>, <a h
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-209)</td>
+<td class="register-desc">Character number (0xB7-0xD1)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by command lists <a href="C93C.html">0</a>, <a href="CA3C.html">2</a>, <a h
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="66c0"></span>66C0</td>
 <td class="instruction">LD L,$04</td>
-<td class="comment-11" rowspan="2">Remove the address of this primary command routine from bytes 3 and 4 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Remove the address of this primary command routine from bytes 0x03 and 0x04 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ Used by command lists <a href="C93C.html">0</a>, <a href="CA3C.html">2</a>, <a h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="66c4"></span>66C4</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="6697.html">6697</a> (make character look for a seat) into bytes 17 and 18 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="6697.html">6697</a> (make character look for a seat) into bytes 0x11 and 0x12 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -97,9 +97,9 @@ Used by command lists <a href="C93C.html">0</a>, <a href="CA3C.html">2</a>, <a h
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

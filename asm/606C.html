@@ -29,7 +29,7 @@
 Used by the routines at <a href="61C2.html">61C2</a>, <a href="61F8.html">61F8</a> and <a href="62A0.html">62A0</a>. Copies a tile of the play area into the back buffer at <a href="E170.html">E170</a>, superimposes character sprite tiles as appropriate, and then copies the resultant tile to the screen. Also sets the corresponding attribute byte.
 </div>
 <div class="paragraph">
-The play area graphic data is laid out across pages 128 to 181:
+The play area graphic data is laid out across pages 0x80 to 0xB5:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -39,56 +39,56 @@ The play area graphic data is laid out across pages 128 to 181:
 <th colspan="1" rowspan="1">Contents</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">128-135</td>
-<td class="centre" colspan="1" rowspan="1">0-255</td>
+<td class="centre" colspan="1" rowspan="1">0x80-0x87</td>
+<td class="centre" colspan="1" rowspan="1">0x00-0xFF</td>
 <td class="" colspan="1" rowspan="1">Skool graphic data</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">136-143</td>
-<td class="centre" colspan="1" rowspan="1">0-255</td>
+<td class="centre" colspan="1" rowspan="1">0x88-0x8F</td>
+<td class="centre" colspan="1" rowspan="1">0x00-0xFF</td>
 <td class="" colspan="1" rowspan="1">Skool graphic data</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">144-151</td>
-<td class="centre" colspan="1" rowspan="1">0-255</td>
-<td class="" colspan="1" rowspan="1">Skool graphic data (except bytes 1, 11, 21, 30)</td>
+<td class="centre" colspan="1" rowspan="1">0x90-0x97</td>
+<td class="centre" colspan="1" rowspan="1">0x00-0xFF</td>
+<td class="" colspan="1" rowspan="1">Skool graphic data (except bytes 0x01, 0x0B, 0x15, 0x1E)</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">152-159</td>
-<td class="centre" colspan="1" rowspan="1">0-249</td>
-<td class="" colspan="1" rowspan="1">Skool graphic data (except bytes 224-239)</td>
+<td class="centre" colspan="1" rowspan="1">0x98-0x9F</td>
+<td class="centre" colspan="1" rowspan="1">0x00-0xF9</td>
+<td class="" colspan="1" rowspan="1">Skool graphic data (except bytes 0xE0-0xEF)</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="3">160-180</td>
-<td class="centre" colspan="1" rowspan="1">0-143</td>
+<td class="centre" colspan="1" rowspan="3">0xA0-0xB4</td>
+<td class="centre" colspan="1" rowspan="1">0x00-0x8F</td>
 <td class="" colspan="1" rowspan="1">LSBs of tile base addresses</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">144-179</td>
+<td class="centre" colspan="1" rowspan="1">0x90-0xB3</td>
 <td class="" colspan="1" rowspan="1">Tile MSB indicator bit-pairs (see below)</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">180-251</td>
+<td class="centre" colspan="1" rowspan="1">0xB4-0xFB</td>
 <td class="" colspan="1" rowspan="1">Tile BRIGHT/PAPER attribute nibbles</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">181</td>
-<td class="centre" colspan="1" rowspan="1">0-191</td>
-<td class="" colspan="1" rowspan="1">Q (0&lt;=Q&lt;=143; see below)</td>
+<td class="centre" colspan="1" rowspan="1">0xB5</td>
+<td class="centre" colspan="1" rowspan="1">0x00-0xBF</td>
+<td class="" colspan="1" rowspan="1">Q (0x00&lt;=Q&lt;=0x8F; see below)</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-For the tile at skool coordinates (X,Y) (0&lt;=X&lt;=191, 0&lt;=Y&lt;=20), the column pointer Q (0&lt;=Q&lt;=143) is collected from byte X of page <a href="B500.html">181</a>. Then Q and Y together determine the location of the attribute byte, and where to look up the base address of the tile graphic data.
+For the tile at skool coordinates (X,Y) (0&lt;=X&lt;=191, 0&lt;=Y&lt;=20), the column pointer Q (0x00&lt;=Q&lt;=0x8F) is collected from byte X of page <a href="B500.html">0xB5</a>. Then Q and Y together determine the location of the attribute byte, and where to look up the base address of the tile graphic data.
 </div>
 <div class="paragraph">
-The BRIGHT/PAPER bits for row Y are arranged in a set of 144 nibbles in bytes 180-251 of page Y+160, from bits 7-4 of byte 180 (nibble 0) to bits 3-0 of byte 251 (nibble 143). Q is the index of the nibble in the set of 144 that corresponds to the tile at (X,Y). In other words, the BRIGHT/PAPER bits for the skool location (X,Y) can be found in byte 180+INT(Q/2) of page Y+160: bits 4-7 if Q is even, bits 0-3 if Q is odd.
+The BRIGHT/PAPER bits for row Y are arranged in a set of 144 nibbles in bytes 0xB4-0xFB of page Y+0xA0, from bits 7-4 of byte 0xB4 (nibble 0x00) to bits 3-0 of byte 0xFB (nibble 0x8F). Q is the index of the nibble that corresponds to the tile at (X,Y). In other words, the BRIGHT/PAPER bits for the skool location (X,Y) can be found in byte 0xB4+INT(Q/2) of page Y+0xA0: bits 4-7 if Q is even, bits 0-3 if Q is odd.
 </div>
 <div class="paragraph">
-By default, the INK is 0 (black). However, if the BRIGHT/PAPER bits are all 0, this indicates a tile with non-black INK, of which there are normally four: the three shields in MR WACKER's study (which are red, blue, and red), and the top of the entrance to the girls' skool (which is blue). (However, when the left study door is open - which never happens in an unhacked game - there is a fifth tile with non-black INK: the top of the left study doorway, which is magenta.) When a tile has non-black INK, the BRIGHT/PAPER bits are taken from byte 180+INT(Q/2) of page Y+161 (i.e. the attribute byte corresponding to the skool location (X,Y+1)); then the INK is 2 (red) if Q is even, 1 (blue) if 4|Q-1, or 3 (magenta) if 4|Q-3.
+By default, the INK is 0 (black). However, if the BRIGHT/PAPER bits are all 0, this indicates a tile with non-black INK, of which there are normally four: the three shields in MR WACKER's study (which are red, blue, and red), and the top of the entrance to the girls' skool (which is blue). (However, when the left study door is open - which never happens in an unhacked game - there is a fifth tile with non-black INK: the top of the left study doorway, which is magenta.) When a tile has non-black INK, the BRIGHT/PAPER bits are taken from byte 0xB4+INT(Q/2) of page Y+0xA1 (i.e. the attribute byte corresponding to the skool location (X,Y+1)); then the INK is 2 (red) if Q is even, 1 (blue) if 4|Q-1, or 3 (magenta) if 4|Q-3.
 </div>
 <div class="paragraph">
-So much for the attributes. The LSB of the base address of the tile graphic data is found in byte Q of page Y+160. Information on which MSB (128, 136, 144 or 152) applies is arranged in a set of 144 bit-pairs in bytes 144-179 of page Y+160. Bit-pair 0 is bits 7 and 3 of byte 144; bit-pair 1 is bits 6 and 2; bit-pair 2 is bits 5 and 1; bit-pair 3 is bits 4 and 0; bit-pair 4 is bits 7 and 3 of byte 145; and so on up to bit-pair 143, which is bits 4 and 0 of byte 179. Q is the index of the bit-pair in the set of 144 that corresponds to the tile at (X,Y). In other words, the tile MSB indicator for the skool location (X,Y) can be found in byte 144+INT(Q/4) of page Y+160: bits 7 and 3 if 4|Q, 6 and 2 if 4|Q-1, 5 and 1 if 4|Q-2, 4 and 0 if 4|Q-3. The bit-pair forms a 2-digit binary number from 0 to 3; if we call this P, then the MSB is 128+8P.
+So much for the attributes. The LSB of the base address of the tile graphic data is found in byte Q of page Y+0xA0. Information on which MSB (0x80, 0x88, 0x90 or 0x98) applies is arranged in a set of 144 bit-pairs in bytes 0x90-0xB3 of page Y+0xA0. Bit-pair 0x00 is bits 7 and 3 of byte 0x90; bit-pair 0x01 is bits 6 and 2; bit-pair 0x02 is bits 5 and 1; bit-pair 0x03 is bits 4 and 0; bit-pair 0x04 is bits 7 and 3 of byte 0x91; and so on up to bit-pair 0x8F, which is bits 4 and 0 of byte 0xB3. Q is the index of the bit-pair that corresponds to the tile at (X,Y). In other words, the tile MSB indicator for the skool location (X,Y) can be found in byte 0x90+INT(Q/4) of page Y+0xA0: bits 7 and 3 if 4|Q, 6 and 2 if 4|Q-1, 5 and 1 if 4|Q-2, 4 and 0 if 4|Q-3. The bit-pair forms a 2-digit binary number from 0 to 3; if we call this P, then the MSB is 0x80+8P.
 </div>
 <div class="paragraph">
 To summarise, then, the attributes and graphic data for the tile at skool location (X,Y) can be found thus, where Q=PEEK(<a href="B500.html">B500</a>+X):
@@ -101,19 +101,19 @@ To summarise, then, the attributes and graphic data for the tile at skool locati
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">BRIGHT/PAPER</td>
-<td class="" colspan="1" rowspan="1">Nibble Q of bytes 180-251 in page Y+160 (or Y+161 if nibble Q in page Y+160 is 0)</td>
+<td class="" colspan="1" rowspan="1">Nibble Q of bytes 0xB4-0xFB in page Y+0xA0 (or Y+0xA1 if nibble Q in page Y+0xA0 is 0)</td>
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">INK</td>
-<td class="" colspan="1" rowspan="1">0 if nibble Q in page Y+160 is not 0; 1, 2 or 3 as explained above otherwise</td>
+<td class="" colspan="1" rowspan="1">0 if nibble Q in page Y+0xA0 is not 0; 1, 2 or 3 as explained above otherwise</td>
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">Tile LSB</td>
-<td class="" colspan="1" rowspan="1">Byte Q in page Y+160</td>
+<td class="" colspan="1" rowspan="1">Byte Q in page Y+0xA0</td>
 </tr>
 <tr>
 <td class="" colspan="1" rowspan="1">Tile MSB</td>
-<td class="" colspan="1" rowspan="1">Bit-pair Q of bytes 144-179 in page Y+160</td>
+<td class="" colspan="1" rowspan="1">Bit-pair Q of bytes 0x90-0xB3 in page Y+0xA0</td>
 </tr>
 </table>
 </div>
@@ -299,13 +299,13 @@ To summarise, then, the attributes and graphic data for the tile at skool locati
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="608e"></span>608E</td>
 <td class="instruction">LD L,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=Q (0&lt;=Q&lt;=143)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=Q (0x00&lt;=Q&lt;=0x8F)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="608f"></span>608F</td>
 <td class="instruction">ADD A,$A0</td>
-<td class="comment-11" rowspan="2"><span class="register">H</span>=Y+160</td>
+<td class="comment-11" rowspan="2"><span class="register">H</span>=Y+0xA0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -317,7 +317,7 @@ To summarise, then, the attributes and graphic data for the tile at skool locati
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6092"></span>6092</td>
 <td class="instruction">LD E,L</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=Q (0&lt;=Q&lt;=143)</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=Q (0x00&lt;=Q&lt;=0x8F)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -342,7 +342,7 @@ To summarise, then, the attributes and graphic data for the tile at skool locati
 <span id="6097"></span>
 <div class="comments">
 <div class="paragraph">
-Q (the contents of (<a href="B500.html">B500</a>+X)) is even, which means the PAPER colour and BRIGHT status can be found in bits 4-7 of byte 180+Q/2 in page Y+160. At this point <span class="register">A</span>=Q/2.
+Q (the contents of (<a href="B500.html">B500</a>+X)) is even, which means the PAPER colour and BRIGHT status can be found in bits 4-7 of byte 0xB4+Q/2 in page Y+0xA0. At this point <span class="register">A</span>=Q/2.
 </div>
 </div>
 </td>
@@ -351,7 +351,7 @@ Q (the contents of (<a href="B500.html">B500</a>+X)) is even, which means the PA
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6097"></span>6097</td>
 <td class="instruction">ADD A,$B4</td>
-<td class="comment-11" rowspan="1">180&lt;=<span class="register">A</span>&lt;=251</td>
+<td class="comment-11" rowspan="1">0xB4&lt;=<span class="register">A</span>&lt;=0xFB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -388,7 +388,7 @@ Q (the contents of (<a href="B500.html">B500</a>+X)) is even, which means the PA
 <span id="60a1"></span>
 <div class="comments">
 <div class="paragraph">
-We are dealing with one of the few character squares with non-black INK. In this case the PAPER colour and BRIGHT status can be found in bits 4-7 (since Q is even) of byte 180+Q/2 in page Y+161.
+We are dealing with one of the few character squares with non-black INK. In this case the PAPER colour and BRIGHT status can be found in bits 4-7 (since Q is even) of byte 0xB4+Q/2 in page Y+0xA1.
 </div>
 </div>
 </td>
@@ -397,7 +397,7 @@ We are dealing with one of the few character squares with non-black INK. In this
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="60a1"></span>60A1</td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the attribute byte in page Y+161</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the attribute byte in page Y+0xA1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -427,7 +427,7 @@ We are dealing with one of the few character squares with non-black INK. In this
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="60a7"></span>60A7</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=Q (0&lt;=Q&lt;=143)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=Q (0x00&lt;=Q&lt;=0x8F)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -457,7 +457,7 @@ We are dealing with one of the few character squares with non-black INK. In this
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="60af"></span>60AF</td>
 <td class="instruction">DEC H</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=Y+160</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=Y+0xA0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -470,7 +470,7 @@ We are dealing with one of the few character squares with non-black INK. In this
 <span id="60b2"></span>
 <div class="comments">
 <div class="paragraph">
-Q (the contents of (<a href="B500.html">B500</a>+X)) is odd, which means the PAPER colour and BRIGHT status can be found in bits 0-3 of byte 180+(Q-1)/2 in page Y+160. At this point <span class="register">A</span>=(Q-1)/2.
+Q (the contents of (<a href="B500.html">B500</a>+X)) is odd, which means the PAPER colour and BRIGHT status can be found in bits 0-3 of byte 0xB4+(Q-1)/2 in page Y+0xA0. At this point <span class="register">A</span>=(Q-1)/2.
 </div>
 </div>
 </td>
@@ -479,7 +479,7 @@ Q (the contents of (<a href="B500.html">B500</a>+X)) is odd, which means the PAP
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="60b2"></span>60B2</td>
 <td class="instruction">ADD A,$B4</td>
-<td class="comment-11" rowspan="1">180&lt;=<span class="register">A</span>&lt;=251</td>
+<td class="comment-11" rowspan="1">0xB4&lt;=<span class="register">A</span>&lt;=0xFB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -510,7 +510,7 @@ Q (the contents of (<a href="B500.html">B500</a>+X)) is odd, which means the PAP
 <span id="60ba"></span>
 <div class="comments">
 <div class="paragraph">
-We are dealing with one of the few character squares with non-black INK. In this case the PAPER colour and BRIGHT status can be found in bits 0-3 (since Q is odd) of byte 180+(Q-1)/2 in page Y+161.
+We are dealing with one of the few character squares with non-black INK. In this case the PAPER colour and BRIGHT status can be found in bits 0-3 (since Q is odd) of byte 0xB4+(Q-1)/2 in page Y+0xA1.
 </div>
 </div>
 </td>
@@ -519,7 +519,7 @@ We are dealing with one of the few character squares with non-black INK. In this
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="60ba"></span>60BA</td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the attribute byte in page Y+161</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the attribute byte in page Y+0xA1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -595,7 +595,7 @@ The appropriate attribute byte has been poked onto the screen. Now to find the a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="60c7"></span>60C7</td>
 <td class="instruction">LD L,E</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=Q (0&lt;=Q&lt;=143), <span class="register">H</span>=Y+160</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=Q (0x00&lt;=Q&lt;=0x8F), <span class="register">H</span>=Y+0xA0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -661,7 +661,7 @@ The appropriate attribute byte has been poked onto the screen. Now to find the a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="60d7"></span>60D7</td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the byte containing the MSB indicator bit-pair: <span class="register">H</span>=Y+160, 144&lt;=<span class="register">L</span>=144+INT(Q/4)&lt;=179</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the byte containing the MSB indicator bit-pair: <span class="register">H</span>=Y+0xA0, 0x90&lt;=<span class="register">L</span>=0x90+INT(Q/4)&lt;=0xB3</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -744,7 +744,7 @@ The base page of the tile graphic data depends on the bits set in <span class="r
 <span id="60eb"></span>
 <div class="comments">
 <div class="paragraph">
-Now <span class="register">D</span>=128, 136, 144 or 152, and <span class="register">DE</span> points at the first byte of the graphic data for the tile at skool coordinates (X,Y).
+Now <span class="register">D</span>=0x80, 0x88, 0x90 or 0x98, and <span class="register">DE</span> points at the first byte of the graphic data for the tile at skool coordinates (X,Y).
 </div>
 </div>
 </td>
@@ -805,7 +805,7 @@ The appropriate play area tile has been copied into the back buffer at <a href="
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="60f6"></span>60F6</td>
 <td class="instruction">LD H,$B7</td>
-<td class="comment-11" rowspan="1">183=character number of little girl no. 1</td>
+<td class="comment-11" rowspan="1">0xB7=character number of little girl no. 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -823,7 +823,7 @@ The appropriate play area tile has been copied into the back buffer at <a href="
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="60fc"></span>60FC</td>
 <td class="instruction">CP $78</td>
-<td class="comment-11" rowspan="1">120=roughly halfway between the tree and the gate</td>
+<td class="comment-11" rowspan="1">This x-coordinate is roughly halfway between the tree and the gate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -847,13 +847,13 @@ The appropriate play area tile has been copied into the back buffer at <a href="
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6105"></span>6105</td>
 <td class="instruction">LD H,$C6</td>
-<td class="comment-11" rowspan="1">198=character number of little boy no. 9</td>
+<td class="comment-11" rowspan="1">0xC6=character number of little boy no. 9</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6107"></span>6107</td>
 <td class="instruction">LD B,$11</td>
-<td class="comment-11" rowspan="1">2 little boys, 11 main characters, plus the objects using character buffers 211-214</td>
+<td class="comment-11" rowspan="1">2 little boys, 11 main characters, plus the objects using character buffers 0xD3-0xD6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -865,7 +865,7 @@ The appropriate play area tile has been copied into the back buffer at <a href="
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="610b"></span>610B</td>
 <td class="instruction">CP $50</td>
-<td class="comment-11" rowspan="1">80=assembly hall stage (or thereabouts)</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the assembly hall stage (or thereabouts)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -877,7 +877,7 @@ The appropriate play area tile has been copied into the back buffer at <a href="
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="610f"></span>610F</td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-11" rowspan="1">3 little girls (183-185)</td>
+<td class="comment-11" rowspan="1">3 little girls (0xB7-0xB9)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -889,13 +889,13 @@ The appropriate play area tile has been copied into the back buffer at <a href="
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6114"></span>6114</td>
 <td class="instruction">LD H,$C1</td>
-<td class="comment-11" rowspan="1">193=character number of little boy no. 4</td>
+<td class="comment-11" rowspan="1">0xC1=character number of little boy no. 4</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6116"></span>6116</td>
 <td class="instruction">LD B,$16</td>
-<td class="comment-11" rowspan="1">7 little boys, 11 main characters, plus the objects using character buffers 211-214</td>
+<td class="comment-11" rowspan="1">7 little boys, 11 main characters, plus the objects using character buffers 0xD3-0xD6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -907,13 +907,13 @@ The appropriate play area tile has been copied into the back buffer at <a href="
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="611a"></span>611A</td>
 <td class="instruction">LD H,$BE</td>
-<td class="comment-11" rowspan="1">190=character number of little boy no. 1</td>
+<td class="comment-11" rowspan="1">0xBE=character number of little boy no. 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="611c"></span>611C</td>
 <td class="instruction">LD B,$19</td>
-<td class="comment-11" rowspan="1">All 10 little boys, 11 main characters, plus the objects using character buffers 211-214</td>
+<td class="comment-11" rowspan="1">All 10 little boys, 11 main characters, plus the objects using character buffers 0xD3-0xD6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -994,9 +994,9 @@ This entry point is used by the routine at <a href="693D.html">693D</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

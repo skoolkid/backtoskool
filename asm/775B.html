@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this continual subcommand routine is placed into bytes 23 and 24 of BOY WANDER's buffer by command lists <a href="E590.html">32</a>, <a href="E860.html">46</a> and <a href="E87F.html">50</a>, and is also used by the routine at <a href="F804.html">F804</a>. It decides whether BOY WANDER should let rip with a pellet, and gets the catapult-firing action under way if so.
+The address of this continual subcommand routine is placed into bytes 0x17 and 0x18 of BOY WANDER's buffer by command lists <a href="E590.html">0x20</a>, <a href="E860.html">0x2E</a> and <a href="E87F.html">0x32</a>, and is also used by the routine at <a href="F804.html">F804</a>. It decides whether BOY WANDER should let rip with a pellet, and gets the catapult-firing action under way if so.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">206 (BOY WANDER)</td>
+<td class="register-desc">0xCE (BOY WANDER)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,13 +50,13 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="775b"></span>775B</td>
 <td class="instruction">LD A,($D512)</td>
-<td class="comment-11" rowspan="1">Pick up byte 18 of buffer 213 (BOY WANDER's pellet)</td>
+<td class="comment-11" rowspan="1">Pick up byte 0x12 of buffer 0xD5 (BOY WANDER's pellet)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="775e"></span>775E</td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is there a uninterruptible subcommand routine address in bytes 17 and 18 of the buffer?</td>
+<td class="comment-11" rowspan="1">Is there a uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -68,7 +68,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7760"></span>7760</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -86,7 +86,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7764"></span>7764</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -170,7 +170,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="777b"></span>777B</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Store BOY WANDER's current animatory state in byte 20 of his buffer for the time being</td>
+<td class="comment-11" rowspan="2">Store BOY WANDER's current animatory state in byte 0x14 of his buffer for the time being</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -188,7 +188,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7780"></span>7780</td>
 <td class="instruction">ADD A,$0A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#26">26 or 154</a>: BOY WANDER raising his arm to fire</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#26">0x1A or 0x9A</a>: BOY WANDER raising his arm to fire</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -206,7 +206,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7788"></span>7788</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#27">27 or 155</a>: BOY WANDER firing the catapult</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#27">0x1B or 0x9B</a>: BOY WANDER firing the catapult</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -218,7 +218,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="778c"></span>778C</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="77B3.html">77B3</a> into bytes 17 and 18 of BOY WANDER's buffer</td>
+<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="77B3.html">77B3</a> into bytes 0x11 and 0x12 of BOY WANDER's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -230,7 +230,7 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7790"></span>7790</td>
 <td class="instruction">LD A,($D512)</td>
-<td class="comment-11" rowspan="1">Pick up byte 18 of buffer 213 (BOY WANDER's pellet)</td>
+<td class="comment-11" rowspan="1">Pick up byte 0x12 of buffer 0xD5 (BOY WANDER's pellet)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -248,14 +248,14 @@ The address of this continual subcommand routine is placed into bytes 23 and 24 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7795"></span>7795</td>
 <td class="instruction">LD B,$D5</td>
-<td class="comment-11" rowspan="1">Use buffer 213 for BOY WANDER's catapult pellet</td>
+<td class="comment-11" rowspan="1">Use buffer 0xD5 for BOY WANDER's catapult pellet</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="7797"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="F975.html">F975</a> with <span class="register">H</span>=210 (ERIC) and <span class="register">B</span>=214 (ERIC's pellet).
+This entry point is used by the routine at <a href="F975.html">F975</a> with <span class="register">H</span>=0xD2 (ERIC) and <span class="register">B</span>=0xD6 (ERIC's pellet).
 </div>
 </div>
 </td>
@@ -264,7 +264,7 @@ This entry point is used by the routine at <a href="F975.html">F975</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7797"></span>7797</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the shooter's character buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the shooter's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -276,13 +276,13 @@ This entry point is used by the routine at <a href="F975.html">F975</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="779a"></span>779A</td>
 <td class="instruction">AND $80</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=128 if the pellet will travel right, 0 if left</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x80 if the pellet will travel right, 0x00 if left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="779c"></span>779C</td>
 <td class="instruction">ADD A,$4F</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#79">79/207</a>: catapult pellet travelling left/right</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#79">0x4F/0xCF</a>: catapult pellet travelling left/right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -312,7 +312,7 @@ This entry point is used by the routine at <a href="F975.html">F975</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77a2"></span>77A2</td>
 <td class="instruction">LD H,B</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=buffer to be used for the pellet (213 if it's BOY WANDER's, 214 if it's ERIC's)</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=buffer to be used for the pellet (0xD5 if it's BOY WANDER's, 0xD6 if it's ERIC's)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -348,7 +348,7 @@ This entry point is used by the routine at <a href="F975.html">F975</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77a8"></span>77A8</td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="4">Place the address of the pellet-controlling uninterruptible subcommand routine at <a href="76AC.html">76AC</a> into bytes 17 and 18 of the pellet's buffer</td>
+<td class="comment-11" rowspan="4">Place the address of the pellet-controlling uninterruptible subcommand routine at <a href="76AC.html">76AC</a> into bytes 0x11 and 0x12 of the pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -372,7 +372,7 @@ This entry point is used by the routine at <a href="F975.html">F975</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77af"></span>77AF</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=19</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x13</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -395,9 +395,9 @@ This entry point is used by the routine at <a href="F975.html">F975</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

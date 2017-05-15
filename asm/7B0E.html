@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice from ERIC's pocket. Each mouse will use a character buffer at page 198, 199 or 206-208, provided that the character who usually occupies it is off-screen.
+Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice from ERIC's pocket. Each mouse will use a character buffer at page 0xC6, 0xC7 or 0xCE-0xD0, provided that the character who usually occupies it is off-screen.
 </div>
 </div>
 <table class="input-1">
@@ -50,7 +50,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7b0e"></span>7B0E</td>
 <td class="instruction">LD H,$C6</td>
-<td class="comment-11" rowspan="2">Use buffers 198 and 199 (little boys nos. 9 and 10) for released mice if possible</td>
+<td class="comment-11" rowspan="2">Use buffers 0xC6 and 0xC7 (little boys nos. 9 and 10) for released mice if possible</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -74,7 +74,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b16"></span>7B16</td>
 <td class="instruction">LD H,$CE</td>
-<td class="comment-11" rowspan="2">Also use buffers 206-208 (BOY WANDER, ANGELFACE and EINSTEIN) for released mice if possible</td>
+<td class="comment-11" rowspan="2">Also use buffers 0xCE-0xD0 (BOY WANDER, ANGELFACE and EINSTEIN) for released mice if possible</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -86,7 +86,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7b1a"></span>7B1A</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="2">Pick up the MSB of the uninterruptible subcommand routine address in bytes 17 and 18 of the character's buffer</td>
+<td class="comment-11" rowspan="2">Pick up the MSB of the uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -134,7 +134,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b28"></span>7B28</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -146,7 +146,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b2a"></span>7B2A</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Store this in byte 15 of the buffer for retrieval when the mouse dies</td>
+<td class="comment-11" rowspan="2">Store this in byte 0x0F of the buffer for retrieval when the mouse dies</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -158,7 +158,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b2d"></span>7B2D</td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=random number between 10 and 41; this determines the lifespan of the mouse</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=random number between 0x0A and 0x29; this determines the lifespan of the mouse</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -176,7 +176,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b34"></span>7B34</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Store this lifespan parameter in byte 16 of the buffer</td>
+<td class="comment-11" rowspan="2">Store this lifespan parameter in byte 0x10 of the buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -188,7 +188,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b36"></span>7B36</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="7A16.html">7A16</a> into bytes 17 and 18 of the character's buffer</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="7A16.html">7A16</a> into bytes 0x11 and 0x12 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -212,7 +212,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b3c"></span>7B3C</td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="5">Set bytes 19 and 20 to 0 so that the mouse is initially hidden (see <a href="7A16.html">7A16</a> for details on how these bytes are used)</td>
+<td class="comment-11" rowspan="5">Set bytes 0x13 and 0x14 to 0 so that the mouse is initially hidden (see <a href="7A16.html">7A16</a> for details on how these bytes are used)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -242,7 +242,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b41"></span>7B41</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set byte 21 (time remaining before coming out of hiding) to 3, 2 or 1</td>
+<td class="comment-11" rowspan="2">Set byte 0x15 (time remaining before coming out of hiding) to 3, 2 or 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -254,7 +254,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b43"></span>7B43</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Store the x-coordinate of the mouse in byte 22, so it appears there when it comes out of hiding</td>
+<td class="comment-11" rowspan="2">Store the x-coordinate of the mouse in byte 0x16, so it appears there when it comes out of hiding</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -266,7 +266,7 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7b45"></span>7B45</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="2">Store the y-coordinate in byte 2</td>
+<td class="comment-11" rowspan="2">Store the y-coordinate in byte 0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -325,9 +325,9 @@ Used by the routine at <a href="7AE6.html">7AE6</a>. Releases up to five mice fr
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

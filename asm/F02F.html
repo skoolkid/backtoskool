@@ -39,11 +39,11 @@ Used by the routine at <a href="F100.html">F100</a>. Makes a teacher give lines 
 </tr>
 <tr>
 <td class="register">C</td>
-<td class="register-desc">Character number of the kid to give lines to (206, 208 or 210)</td>
+<td class="register-desc">Character number of the kid to give lines to (0xCE, 0xD0 or 0xD2)</td>
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (201-203)</td>
+<td class="register-desc">Teacher's character number (0xC9-0xCB)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -100,13 +100,13 @@ Used by the routine at <a href="F100.html">F100</a>. Makes a teacher give lines 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f03c"></span>F03C</td>
 <td class="instruction">LD A,$D0</td>
-<td class="comment-11" rowspan="1">208=EINSTEIN</td>
+<td class="comment-11" rowspan="1">0xD0=EINSTEIN</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f03e"></span>F03E</td>
 <td class="instruction">LD B,$55</td>
-<td class="comment-11" rowspan="1">Message <a href="ECD2.html">85</a>: DON'T TELL TALES</td>
+<td class="comment-11" rowspan="1">Message <a href="ECD2.html">0x55</a>: DON'T TELL TALES</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -151,9 +151,9 @@ This entry point also is used by the routine at <a href="F100.html">F100</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -47,7 +47,7 @@ Called from the main loop at <a href="F6EA.html">F6EA</a> when ERIC is midstride
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6e00"></span>6E00</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -96,7 +96,7 @@ Called from the main loop at <a href="F6EA.html">F6EA</a> when ERIC is midstride
 <span id="6e0c"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="5D00.html">5D00</a> and <a href="FB03.html">FB03</a> with <span class="register">H</span>=210 (ERIC).
+This entry point is used by the routines at <a href="5D00.html">5D00</a> and <a href="FB03.html">FB03</a> with <span class="register">H</span>=0xD2 (ERIC).
 </div>
 </div>
 </td>
@@ -118,7 +118,7 @@ This entry point is used by the routines at <a href="5D00.html">5D00</a> and <a 
 <span id="6e12"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="7BEB.html">7BEB</a> with <span class="register">H</span>=210 (ERIC).
+This entry point is used by the routine at <a href="7BEB.html">7BEB</a> with <span class="register">H</span>=0xD2 (ERIC).
 </div>
 </div>
 </td>
@@ -127,7 +127,7 @@ This entry point is used by the routine at <a href="7BEB.html">7BEB</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6e12"></span>6E12</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -145,7 +145,7 @@ This entry point is used by the routine at <a href="7BEB.html">7BEB</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e19"></span>6E19</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Byte 1 of ERIC's buffer holds his x-coordinate</td>
+<td class="comment-11" rowspan="1">Byte 0x01 of ERIC's buffer holds his x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -266,9 +266,9 @@ ERIC is facing left. Check whether the screen should be scrolled right.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

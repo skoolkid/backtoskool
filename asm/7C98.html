@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="F073.html">F073</a> to raise the signal for the event identifier in <span class="register">A</span>. In practice only event IDs 8-12 are used, which indicate to anyone listening that the teacher has arrived at the classroom door.
+Used by the routine at <a href="F073.html">F073</a> to raise the signal for the event identifier in <span class="register">A</span>. In practice only event IDs 0x08-0x0C are used, which indicate to anyone listening that the teacher has arrived at the classroom door.
 </div>
 </div>
 <table class="input-1">
@@ -35,11 +35,11 @@ Used by the routine at <a href="F073.html">F073</a> to raise the signal for the 
 </tr>
 <tr>
 <td class="register">A</td>
-<td class="register-desc">Event identifier (8-12) from the teacher's command list</td>
+<td class="register-desc">Event identifier (0x08-0x0C) from the teacher's command list</td>
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (201-204)</td>
+<td class="register-desc">Teacher's character number (0xC9-0xCC)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -54,7 +54,7 @@ Used by the routine at <a href="F073.html">F073</a> to raise the signal for the 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7c98"></span>7C98</td>
 <td class="instruction">CALL <a href="7C75.html">$7C75</a></td>
-<td class="comment-11" rowspan="1">Convert the event ID into an appropriate bit mask (1, 2, 4, 8 or 16)</td>
+<td class="comment-11" rowspan="1">Convert the event ID into an appropriate bit mask (0x01, 0x02, 0x04, 0x08 or 0x10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -99,9 +99,9 @@ This entry point is used by the (unused) routine at <a href="7CA1.html">7CA1</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

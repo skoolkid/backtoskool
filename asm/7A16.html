@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of a mouse's buffer by the routine at <a href="7B0E.html">7B0E</a> (if the mouse was released by ERIC) or by the routine at <a href="F5BE.html">F5BE</a> (when preparing for a new game). Bytes 16 and 19-22 of the mouse's buffer are used to store the following values that control its movement:
+The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of a mouse's buffer by the routine at <a href="7B0E.html">7B0E</a> (if the mouse was released by ERIC) or by the routine at <a href="F5BE.html">F5BE</a> (when preparing for a new game). Bytes 0x10 and 0x13-0x16 of the mouse's buffer are used to store the following values that control its movement:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -35,23 +35,23 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <th colspan="1" rowspan="1">Contents</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">16</td>
+<td class="centre" colspan="1" rowspan="1">0x10</td>
 <td class="" colspan="1" rowspan="1">Counter decremented each time the mouse hides (if the mouse was released by ERIC); when it reaches 0, the mouse dies (returns control to the character whose buffer it borrowed)</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">19</td>
+<td class="centre" colspan="1" rowspan="1">0x13</td>
 <td class="" colspan="1" rowspan="1">Direction of travel, and the distance remaining to travel before hiding or considering a change of direction: it is positive (bit 7 reset) if the mouse is travelling right, and decremented on each pass; it is negative (bit 7 set) if the mouse is travelling left, and incremented on each pass; while the mouse is hiding, it is 0</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">20</td>
+<td class="centre" colspan="1" rowspan="1">0x14</td>
 <td class="" colspan="1" rowspan="1">Counter decremented on each change of direction or distance to travel; when it reaches 0, the mouse hides</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">21</td>
+<td class="centre" colspan="1" rowspan="1">0x15</td>
 <td class="" colspan="1" rowspan="1">Counter determining how much longer the mouse has left to hide</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">22</td>
+<td class="centre" colspan="1" rowspan="1">0x16</td>
 <td class="" colspan="1" rowspan="1">x-coordinate of the mouse when it last hid</td>
 </tr>
 </table>
@@ -63,7 +63,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Mouse's character number (198, 199, 206-208, 212)</td>
+<td class="register-desc">Mouse's character number (0xC6, 0xC7, 0xCE-0xD0, 0xD4)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -168,7 +168,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a2f"></span>7A2F</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -316,7 +316,7 @@ There are no walls or closed doors in the mouse's path.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a57"></span>7A57</td>
 <td class="instruction">LD A,$2F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#47">47</a>: animatory state of a mouse travelling left</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#47">0x2F</a>: animatory state of a mouse travelling left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -340,7 +340,7 @@ There are no walls or closed doors in the mouse's path.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7a5d"></span>7A5D</td>
 <td class="instruction">LD A,$AF</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#175">175</a>: animatory state of a mouse travelling right</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#175">0xAF</a>: animatory state of a mouse travelling right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -353,7 +353,7 @@ There are no walls or closed doors in the mouse's path.
 <span id="7a62"></span>
 <div class="comments">
 <div class="paragraph">
-Byte 19 holds 0, which means (a) the mouse is hiding at the moment, or (b) it's time for the mouse to consider a change of direction and distance to travel, or (c) it's time to hide for a bit.
+Byte 0x13 holds 0, which means (a) the mouse is hiding at the moment, or (b) it's time for the mouse to consider a change of direction and distance to travel, or (c) it's time to hide for a bit.
 </div>
 </div>
 </td>
@@ -362,7 +362,7 @@ Byte 19 holds 0, which means (a) the mouse is hiding at the moment, or (b) it's 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7a62"></span>7A62</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Pick up byte 20 in <span class="register">A</span></td>
+<td class="comment-11" rowspan="2">Pick up byte 0x14 in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -398,7 +398,7 @@ Byte 19 holds 0, which means (a) the mouse is hiding at the moment, or (b) it's 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a6a"></span>7A6A</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the mouse's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the mouse's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -410,7 +410,7 @@ Byte 19 holds 0, which means (a) the mouse is hiding at the moment, or (b) it's 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a6d"></span>7A6D</td>
 <td class="instruction">LD L,$16</td>
-<td class="comment-11" rowspan="2">Store this in byte 22 of the mouse's buffer for later retrieval</td>
+<td class="comment-11" rowspan="2">Store this in byte 0x16 of the mouse's buffer for later retrieval</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -462,7 +462,7 @@ It's time for the mouse to consider a change of direction and distance to travel
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a7b"></span>7A7B</td>
 <td class="instruction">AND $83</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=2-5 (bit 7 reset) or 130-133 (bit 7 set)</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=0x02-0x05 (bit 7 reset) or 0x82-0x85 (bit 7 set)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -474,7 +474,7 @@ It's time for the mouse to consider a change of direction and distance to travel
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a7f"></span>7A7F</td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=2-5 (bit 7 reset), with the carry flag holding the previous contents of bit 7</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=0x02-0x05 (bit 7 reset), with the carry flag holding the previous contents of bit 7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -532,7 +532,7 @@ The mouse is currently hiding. Check whether it should transform into a frog bef
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7a8c"></span>7A8C</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=21</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x15</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -586,7 +586,7 @@ The mouse is currently hiding. Check whether it should transform into a frog bef
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7a9b"></span>7A9B</td>
 <td class="instruction">LD A,$1D</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#29">29</a>: animatory state of the frog</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#29">0x1D</a>: animatory state of the frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -620,7 +620,7 @@ It's time for this mouse to come out of hiding.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7aa6"></span>7AA6</td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=random number between 5 and 20; this determines how long the mouse will hide next time</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=random number between 0x05 and 0x14; this determines how long the mouse will hide next time</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -638,7 +638,7 @@ It's time for this mouse to come out of hiding.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7aad"></span>7AAD</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Store this in byte 21 of the mouse's buffer</td>
+<td class="comment-11" rowspan="1">Store this in byte 0x15 of the mouse's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -662,7 +662,7 @@ It's time for this mouse to come out of hiding.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab5"></span>7AB5</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">Store this in byte 20 of the mouse's buffer</td>
+<td class="comment-11" rowspan="2">Store this in byte 0x14 of the mouse's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -714,7 +714,7 @@ This mouse was released by ERIC and is currently hiding. It's due to come out of
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7ac0"></span>7AC0</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="1">Byte 16 holds the mouse's lifespan counter</td>
+<td class="comment-11" rowspan="1">Byte 0x10 holds the mouse's lifespan counter</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -733,7 +733,7 @@ This mouse was released by ERIC and is currently hiding. It's due to come out of
 <span id="7ac5"></span>
 <div class="comments">
 <div class="paragraph">
-This mouse must die, and return control of the buffer it hijacked (198, 199, 206-208) to its original owner (little boy no. 9 or 10, BOY WANDER, ANGELFACE or EINSTEIN).
+This mouse must die, and return control of the buffer it hijacked (0xC6, 0xC7, 0xCE-0xD0) to its original owner (little boy no. 9 or 10, BOY WANDER, ANGELFACE or EINSTEIN).
 </div>
 </div>
 </td>
@@ -742,7 +742,7 @@ This mouse must die, and return control of the buffer it hijacked (198, 199, 206
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7ac5"></span>7AC5</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Set bits 0 and 7 at byte 29: restart the command list and make the character run</td>
+<td class="comment-11" rowspan="2">Set bits 0 and 7 at byte 0x1D: restart the command list and make the character run</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -766,7 +766,7 @@ This mouse must die, and return control of the buffer it hijacked (198, 199, 206
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7acd"></span>7ACD</td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Pick up from byte 15 the animatory state of the character whose buffer the mouse borrowed</td>
+<td class="comment-11" rowspan="2">Pick up from byte 0x0F the animatory state of the character whose buffer the mouse borrowed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -859,9 +859,9 @@ This mouse (released by ERIC) is about to come out of hiding.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

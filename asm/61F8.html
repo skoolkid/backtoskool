@@ -165,7 +165,7 @@ The screen has been scrolled right 8 columns. Check whether any of the minor cha
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="621f"></span>621F</td>
 <td class="instruction">LD B,$04</td>
-<td class="comment-11" rowspan="2">4 little girls, starting with 186=little girl no. 4</td>
+<td class="comment-11" rowspan="2">4 little girls, starting with 0xBA=little girl no. 4</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -201,14 +201,14 @@ The screen has been scrolled right 8 columns. Check whether any of the minor cha
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="622a"></span>622A</td>
 <td class="instruction">LD H,$B7</td>
-<td class="comment-11" rowspan="1">183=little girl no. 1</td>
+<td class="comment-11" rowspan="1">0xB7=little girl no. 1</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="622c"></span>
 <div class="comments">
 <div class="paragraph">
-The next section of code moves certain off-screen minor characters straight to their destination. Sneaky! This entry point is used by the routine at <a href="61C2.html">61C2</a> with <span class="register">H</span>=190 (little boy no. 1).
+The next section of code moves certain off-screen minor characters straight to their destination. Sneaky! This entry point is used by the routine at <a href="61C2.html">61C2</a> with <span class="register">H</span>=0xBE (little boy no. 1).
 </div>
 </div>
 </td>
@@ -224,7 +224,7 @@ The next section of code moves certain off-screen minor characters straight to t
 <span id="622e"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <span class="register">H</span>=193, <span class="register">B</span>=5) and <a href="F74D.html">F74D</a>.
+This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <span class="register">H</span>=0xC1, <span class="register">B</span>=5) and <a href="F74D.html">F74D</a>.
 </div>
 </div>
 </td>
@@ -233,7 +233,7 @@ This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="622e"></span>622E</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Bit 3 of byte 29 is set if the character should be moved immediately to the next destination in his command list</td>
+<td class="comment-11" rowspan="2">Bit 3 of byte 0x1D is set if the character should be moved immediately to the next destination in his command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -257,7 +257,7 @@ This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6236"></span>6236</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=28</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x1C</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -299,7 +299,7 @@ This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="623f"></span>623F</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=26</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x1A</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -317,7 +317,7 @@ This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6242"></span>6242</td>
 <td class="instruction">LD (HL),D</td>
-<td class="comment-11" rowspan="3">Store this address in bytes 25 and 26 of the character's buffer</td>
+<td class="comment-11" rowspan="3">Store this address in bytes 0x19 and 0x1A of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -335,13 +335,13 @@ This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6245"></span>6245</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=24</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x18</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6246"></span>6246</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="3">Fill bytes 1-24 of the character's buffer with zeroes</td>
+<td class="comment-11" rowspan="3">Fill bytes 0x01-0x18 of the character's buffer with zeroes</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -377,13 +377,13 @@ This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="624e"></span>624E</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="624f"></span>624F</td>
 <td class="instruction">CALL <a href="6264.html">$6264</a></td>
-<td class="comment-11" rowspan="1">Bring the location coordinates from the command list into bytes 1 and 2 of the buffer, effecting the teleportation</td>
+<td class="comment-11" rowspan="1">Bring the location coordinates from the command list into bytes 0x01 and 0x02 of the buffer, effecting the teleportation</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -407,7 +407,7 @@ This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6255"></span>6255</td>
 <td class="instruction">LD L,$05</td>
-<td class="comment-11" rowspan="4">Copy these coordinates into bytes 5 and 6 of the buffer, which normally hold the character's destination; this is to let the routine at <a href="6464.html">6464</a> know it has nothing left to do</td>
+<td class="comment-11" rowspan="4">Copy these coordinates into bytes 0x05 and 0x06 of the buffer, which normally hold the character's destination; this is to let the routine at <a href="6464.html">6464</a> know it has nothing left to do</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -431,7 +431,7 @@ This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="625a"></span>625A</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Reset bit 0 of byte 29, cancelling any pending request to restart the command list</td>
+<td class="comment-11" rowspan="2">Reset bit 0 of byte 0x1D, cancelling any pending request to restart the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -466,9 +466,9 @@ This entry point is used by the routines at <a href="61C2.html">61C2</a> (with <
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

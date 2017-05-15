@@ -91,7 +91,7 @@ Used by the routine at <a href="F7AD.html">F7AD</a> when bit 2 at <a href="7FED.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb0a"></span>FB0A</td>
 <td class="instruction">LD HL,$D200</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC' buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC' buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -133,7 +133,7 @@ Used by the routine at <a href="F7AD.html">F7AD</a> when bit 2 at <a href="7FED.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb1a"></span>FB1A</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -145,7 +145,7 @@ Used by the routine at <a href="F7AD.html">F7AD</a> when bit 2 at <a href="7FED.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb1c"></span>FB1C</td>
 <td class="instruction">CP $5C</td>
-<td class="comment-11" rowspan="1">92=x-coordinate of the plant pot on the top floor</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the plant pot on the top floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -181,7 +181,7 @@ Used by the routine at <a href="F7AD.html">F7AD</a> when bit 2 at <a href="7FED.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb2a"></span>FB2A</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -246,9 +246,9 @@ Used by the routine at <a href="F7AD.html">F7AD</a> when bit 2 at <a href="7FED.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

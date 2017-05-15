@@ -165,7 +165,7 @@ The 'left' key was pressed after a non-left key, or the 'right' key was pressed 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7281"></span>7281</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="5">Increase the bike's momentum, but not beyond 255</td>
+<td class="comment-11" rowspan="5">Increase the bike's momentum, but not beyond 0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -195,7 +195,7 @@ The 'left' key was pressed after a non-left key, or the 'right' key was pressed 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7289"></span>7289</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -207,7 +207,7 @@ The 'left' key was pressed after a non-left key, or the 'right' key was pressed 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="728e"></span>728E</td>
 <td class="instruction">XOR $01</td>
-<td class="comment-11" rowspan="1">Now <span class="register">A</span>=ERIC's new animatory state (<a href="../graphics/as.html#12">12</a>, <a href="../graphics/as.html#13">13</a>, <a href="../graphics/as.html#140">140</a> or <a href="../graphics/as.html#141">141</a>)</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=ERIC's new animatory state (<a href="../graphics/as.html#12">0x0C</a>, <a href="../graphics/as.html#13">0x0D</a>, <a href="../graphics/as.html#140">0x8C</a> or <a href="../graphics/as.html#141">0x8D</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -259,7 +259,7 @@ Neither 'left' nor 'right' was pressed.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="729d"></span>729D</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -343,13 +343,13 @@ Neither 'left' nor 'right' was pressed.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72b3"></span>72B3</td>
 <td class="instruction">ADD A,$19</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the bike standing upright (<a href="../graphics/as.html#25">25 or 153</a>)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the bike standing upright (<a href="../graphics/as.html#25">0x19 or 0x99</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72b5"></span>72B5</td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=211: bike</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0xD3: bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -361,7 +361,7 @@ Neither 'left' nor 'right' was pressed.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72b9"></span>72B9</td>
 <td class="instruction">LD HL,$720A</td>
-<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="720A.html">720A</a> into bytes 17 and 18 of the bike's buffer</td>
+<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="720A.html">720A</a> into bytes 0x11 and 0x12 of the bike's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -437,7 +437,7 @@ Not one of 'left', 'right' and 'up' was pressed.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72d2"></span>72D2</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -489,7 +489,7 @@ The following section of code is executed on every pass through this routine whi
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="72e0"></span>72E0</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC, who will now fall off the bike</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC, who will now fall off the bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -519,7 +519,7 @@ The following section of code is executed on every pass through this routine whi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72e9"></span>72E9</td>
 <td class="instruction">ADD A,$04</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#4">4 or 132</a> (ERIC sitting on a chair)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#4">0x04 or 0x84</a> (ERIC sitting on a chair)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -531,7 +531,7 @@ The following section of code is executed on every pass through this routine whi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72ee"></span>72EE</td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0 if ERIC's facing left, 128 if facing right</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x00 if ERIC's facing left, 0x80 if facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -543,13 +543,13 @@ The following section of code is executed on every pass through this routine whi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72f0"></span>72F0</td>
 <td class="instruction">ADD A,$18</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#24">24 or 152</a> (bike lying on the floor)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#24">0x18 or 0x98</a> (bike lying on the floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="72f2"></span>72F2</td>
 <td class="instruction">LD H,$D3</td>
-<td class="comment-11" rowspan="1">211=bike</td>
+<td class="comment-11" rowspan="1">0xD3=bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -672,9 +672,9 @@ The bike still has momentum.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

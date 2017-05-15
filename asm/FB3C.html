@@ -187,7 +187,7 @@ It wasn't 'down'. Was it 'left' or 'right'?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb57"></span>FB57</td>
 <td class="instruction">LD HL,$D200</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -227,7 +227,7 @@ It wasn't 'down'. Was it 'left' or 'right'?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb63"></span>FB63</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -251,7 +251,7 @@ It wasn't 'down'. Was it 'left' or 'right'?
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb67"></span>FB67</td>
 <td class="instruction">CP $84</td>
-<td class="comment-11" rowspan="1">132=x-coordinate of the plant pot to the left of the gate</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the plant pot to the left of the gate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -303,13 +303,13 @@ ERIC is standing on one of the plant pots on either side of the skool gate, and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb76"></span>FB76</td>
 <td class="instruction">LD B,$0E</td>
-<td class="comment-11" rowspan="1">14=y-coordinate of ERIC if he's standing on a fully grown plant on the bottom floor</td>
+<td class="comment-11" rowspan="1">This is the y-coordinate of ERIC if he's standing on a fully grown plant on the bottom floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fb78"></span>FB78</td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 2 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x02 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -361,7 +361,7 @@ ERIC is standing on one of the plant pots in the boys' skool, and has tried to s
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb83"></span>FB83</td>
 <td class="instruction">LD B,$00</td>
-<td class="comment-11" rowspan="1">0=y-coordinate of ERIC if he's standing on a fully-grown plant on the top floor</td>
+<td class="comment-11" rowspan="1">This is the y-coordinate of ERIC if he's standing on a fully-grown plant on the top floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -385,7 +385,7 @@ ERIC is standing on one of the plant pots in the boys' skool, and has tried to s
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fb8a"></span>FB8A</td>
 <td class="instruction">LD B,$07</td>
-<td class="comment-11" rowspan="1">7=y-coordinate of ERIC if he's standing on a fully-grown plant on the middle floor</td>
+<td class="comment-11" rowspan="1">This is the y-coordinate of ERIC if he's standing on a fully-grown plant on the middle floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -447,7 +447,7 @@ ERIC is standing on one of the plant pots in the boys' skool, and has tried to s
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb98"></span>FB98</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -471,7 +471,7 @@ ERIC is standing on one of the plant pots in the boys' skool, and has tried to s
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb9c"></span>FB9C</td>
 <td class="instruction">CP $87</td>
-<td class="comment-11" rowspan="1">135=x-coordinate of the plant pot to the right of the gate; set the carry flag if ERIC is to the left of this, or set the zero flag if he's standing on it</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the plant pot to the right of the gate; set the carry flag if ERIC is to the left of this, or set the zero flag if he's standing on it</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -488,9 +488,9 @@ ERIC is standing on one of the plant pots in the boys' skool, and has tried to s
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

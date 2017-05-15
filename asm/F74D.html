@@ -35,7 +35,7 @@ This routine is called from the main loop at <a href="F6EA.html">F6EA</a> when t
 </tr>
 <tr>
 <td class="register">HL</td>
-<td class="register-desc">32740 (MSB of the lesson clock)</td>
+<td class="register-desc">7FE4 (MSB of the <a href="7FE3.html">lesson clock</a>)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ This routine is called from the main loop at <a href="F6EA.html">F6EA</a> when t
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f74d"></span>F74D</td>
 <td class="instruction">LD (HL),$10</td>
-<td class="comment-11" rowspan="1">Reset the MSB of the lesson clock to 16</td>
+<td class="comment-11" rowspan="1">Reset the MSB of the lesson clock to 0x10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -68,7 +68,7 @@ This routine is called from the main loop at <a href="F6EA.html">F6EA</a> when t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f754"></span>F754</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span> (192-255)</td>
+<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span> (0xC0-0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -80,7 +80,7 @@ This routine is called from the main loop at <a href="F6EA.html">F6EA</a> when t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f756"></span>F756</td>
 <td class="instruction">OR $C0</td>
-<td class="comment-11" rowspan="1">Roll over from 255 to 192 if necessary</td>
+<td class="comment-11" rowspan="1">Roll over from 0xFF to 0xC0 if necessary</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -104,7 +104,7 @@ This routine is called from the main loop at <a href="F6EA.html">F6EA</a> when t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f75c"></span>F75C</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1">Pick up the lesson identifier (37-59) in <span class="register">A</span></td>
+<td class="comment-11" rowspan="1">Pick up the lesson identifier (0x25-0x3B) in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -140,14 +140,14 @@ This routine is called from the main loop at <a href="F6EA.html">F6EA</a> when t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f763"></span>F763</td>
 <td class="instruction">DEC D</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=209 (HAYLEY)</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=0xD1 (HAYLEY)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f764"></span>
 <div class="comments">
 <div class="paragraph">
-We now enter a loop to transfer the start address of a command list into bytes 27 and 28 of each character's buffer.
+We now enter a loop to transfer the start address of a command list into bytes 0x1B and 0x1C of each character's buffer.
 </div>
 </div>
 </td>
@@ -174,7 +174,7 @@ We now enter a loop to transfer the start address of a command list into bytes 2
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f767"></span>F767</td>
 <td class="instruction">LD H,$E8</td>
-<td class="comment-11" rowspan="1">Page <a href="E800.html">232</a> holds the start addresses of the command lists</td>
+<td class="comment-11" rowspan="1">Page <a href="E800.html">0xE8</a> holds the start addresses of the command lists</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -204,7 +204,7 @@ We now enter a loop to transfer the start address of a command list into bytes 2
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f76d"></span>F76D</td>
 <td class="instruction">LD L,$1B</td>
-<td class="comment-11" rowspan="2">The LSB of the command list start address goes into byte 27 of the character's buffer</td>
+<td class="comment-11" rowspan="2">The LSB of the command list start address goes into byte 0x1B of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -216,7 +216,7 @@ We now enter a loop to transfer the start address of a command list into bytes 2
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f770"></span>F770</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 28 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x1C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -240,13 +240,13 @@ We now enter a loop to transfer the start address of a command list into bytes 2
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f774"></span>F774</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Place this into byte 28 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Place this into byte 0x1C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f775"></span>F775</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set bit 0 of byte 29 of the character's buffer, which will trigger a command list restart at the next available opportunity (i.e. after any subcommand routine whose address is currently in bytes 17 and 18 or bytes 9 and 10 of the character's buffer has finished its job; see <a href="62D0.html">62D0</a>)</td>
+<td class="comment-11" rowspan="2">Set bit 0 of byte 0x1D of the character's buffer, which will trigger a command list restart at the next available opportunity (i.e. after any subcommand routine whose address is currently in bytes 0x11 and 0x12 or bytes 0x09 and 0x0A of the character's buffer has finished its job; see <a href="62D0.html">62D0</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -264,7 +264,7 @@ We now enter a loop to transfer the start address of a command list into bytes 2
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f779"></span>F779</td>
 <td class="instruction">CP $C6</td>
-<td class="comment-11" rowspan="1">Are we dealing with one of the characters 198-209 (little boys nos. 9 and 10, the adults and the main kids)?</td>
+<td class="comment-11" rowspan="1">Are we dealing with one of the characters 0xC6-0xD1 (little boys nos. 9 and 10, the adults and the main kids)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -277,7 +277,7 @@ We now enter a loop to transfer the start address of a command list into bytes 2
 <span id="f77d"></span>
 <div class="comments">
 <div class="paragraph">
-We are dealing with one of the characters 183-197 (all the little girls, and little boys 1-8), who get special treatment at the start of a new lesson. Any of them who never venture into the area that's currently on-screen will be 'teleported' to the first destination in their new command list.
+We are dealing with one of the characters 0xB7-0xC5 (all the little girls, and little boys 1-8), who get special treatment at the start of a new lesson. Any of them who never venture into the area that's currently on-screen will be 'teleported' to the first destination in their new command list.
 </div>
 </div>
 </td>
@@ -286,7 +286,7 @@ We are dealing with one of the characters 183-197 (all the little girls, and lit
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f77d"></span>F77D</td>
 <td class="instruction">SET 3,(HL)</td>
-<td class="comment-11" rowspan="1">Set bit 3 of byte 29, signalling to the routine at <a href="61F8.html#622e">622E</a> (called later) that this character may be teleported</td>
+<td class="comment-11" rowspan="1">Set bit 3 of byte 0x1D, signalling to the routine at <a href="61F8.html#622e">622E</a> (called later) that this character may be teleported</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -304,7 +304,7 @@ We are dealing with one of the characters 183-197 (all the little girls, and lit
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f782"></span>F782</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="1"><span class="register">H'</span>=character number (183-197)</td>
+<td class="comment-11" rowspan="1"><span class="register">H'</span>=character number (0xB7-0xC5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -328,7 +328,7 @@ We are dealing with one of the characters 183-197 (all the little girls, and lit
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f78a"></span>F78A</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (183-197)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (0xB7-0xC5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -352,7 +352,7 @@ We are dealing with one of the characters 183-197 (all the little girls, and lit
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f791"></span>F791</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (183-197)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (0xB7-0xC5)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -457,9 +457,9 @@ The loop that prepares each character for the new lesson continues here.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

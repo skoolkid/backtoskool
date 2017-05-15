@@ -62,7 +62,7 @@ Used by the routine at <a href="606C.html">606C</a>. Checks through <span class=
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6000"></span>6000</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -92,7 +92,7 @@ Used by the routine at <a href="606C.html">606C</a>. Checks through <span class=
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6008"></span>6008</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -140,7 +140,7 @@ Used by the routine at <a href="606C.html">606C</a>. Checks through <span class=
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6013"></span>6013</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -176,7 +176,7 @@ Used by the routine at <a href="606C.html">606C</a>. Checks through <span class=
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="601c"></span>601C</td>
 <td class="instruction">ADD A,$D7</td>
-<td class="comment-11" rowspan="1">215&lt;=<span class="register">A</span>&lt;=226</td>
+<td class="comment-11" rowspan="1">0xD7&lt;=<span class="register">A</span>&lt;=0xE2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -200,7 +200,7 @@ Used by the routine at <a href="606C.html">606C</a>. Checks through <span class=
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6021"></span>6021</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -224,13 +224,13 @@ Used by the routine at <a href="606C.html">606C</a>. Checks through <span class=
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6027"></span>6027</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1">128&lt;=<span class="register">L'</span>&lt;=255 (215&lt;=<span class="register">H'</span>&lt;=226)</td>
+<td class="comment-11" rowspan="1">0x80&lt;=<span class="register">L'</span>&lt;=0xFF (0xD7&lt;=<span class="register">H'</span>&lt;=0xE2)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6028"></span>6028</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=sprite tile UDG reference (73-255)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=sprite tile UDG reference (0x49-0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -248,19 +248,19 @@ Used by the routine at <a href="606C.html">606C</a>. Checks through <span class=
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="602c"></span>602C</td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1"><span class="register">E'</span>=UDG reference (73-255)</td>
+<td class="comment-11" rowspan="1"><span class="register">E'</span>=UDG reference (0x49-0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="602d"></span>602D</td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=(normalised) animatory state (128-255)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=(normalised) animatory state (0x80-0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="602e"></span>602E</td>
 <td class="instruction">CP $D0</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#208">208</a>=animatory state of MR WACKER, the first teacher</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#208">0xD0</a>=animatory state of MR WACKER, the first teacher</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -272,7 +272,7 @@ Used by the routine at <a href="606C.html">606C</a>. Checks through <span class=
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6031"></span>6031</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's (true) animatory state (0-255)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's (true) animatory state (0x00-0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -284,19 +284,19 @@ Used by the routine at <a href="606C.html">606C</a>. Checks through <span class=
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6033"></span>6033</td>
 <td class="instruction">LD D,$B7</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE'</span> at the graphic data at page 183 onwards (for animatory states 0-79 and 128-207)</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE'</span> at the graphic data at page 0xB7 onwards (for animatory states 0x00-0x4F and 0x80-0xCF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6035"></span>6035</td>
 <td class="instruction">JR C,$6039</td>
-<td class="comment-11" rowspan="1">Jump unless we're dealing with animatory states 80-127 or 208-255 (teachers, ALBERT, and water fired from the pistol)</td>
+<td class="comment-11" rowspan="1">Jump unless we're dealing with animatory states 0x50-0x7F or 0xD0-0xFF (teachers, ALBERT, and water fired from the pistol)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6037"></span>6037</td>
 <td class="instruction">LD D,$C7</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE'</span> at the graphic data at page 199 onwards (for animatory states 80-127 and 208-255)</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE'</span> at the graphic data at page 0xC7 onwards (for animatory states 0x50-0x7F and 0xD0-0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -414,7 +414,7 @@ The character is facing right, so we have to produce a mirror image of the graph
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6050"></span>6050</td>
 <td class="instruction">LD B,$B6</td>
-<td class="comment-11" rowspan="1">Page <a href="B600.html">182</a> contains mirror images of 0-255</td>
+<td class="comment-11" rowspan="1">Page <a href="B600.html">0xB6</a> contains mirror images of 0x00-0xFF</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -521,9 +521,9 @@ The character is facing right, so we have to produce a mirror image of the graph
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

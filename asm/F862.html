@@ -107,13 +107,13 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> by the r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f872"></span>F872</td>
 <td class="instruction">CALL <a href="E236.html">$E236</a></td>
-<td class="comment-11" rowspan="1">Prepare buffer 213 for the stinkbomb cloud (or return to the main loop if the buffer is already in use by a stinkbomb cloud)</td>
+<td class="comment-11" rowspan="1">Prepare buffer 0xD5 for the stinkbomb cloud (or return to the main loop if the buffer is already in use by a stinkbomb cloud)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f875"></span>F875</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -125,7 +125,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> by the r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f878"></span>F878</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -167,7 +167,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> by the r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f87f"></span>F87F</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -179,7 +179,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> by the r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f881"></span>F881</td>
 <td class="instruction">LD HL,$D513</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of the stinkbomb cloud's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of the stinkbomb cloud's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -191,20 +191,20 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> by the r
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f886"></span>F886</td>
 <td class="instruction">LD A,$47</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#71">71</a>: stinkbomb cloud (phase 1)</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#71">0x47</a>: stinkbomb cloud (phase 1)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f888"></span>F888</td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the stinkbomb cloud's appearance and place address <a href="F862.html#f88b">F88B</a> (below) into bytes 17 and 18 of the cloud's buffer</td>
+<td class="comment-11" rowspan="1">Update the SRB for the stinkbomb cloud's appearance and place address <a href="F862.html#f88b">F88B</a> (below) into bytes 0x11 and 0x12 of the cloud's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f88b"></span>
 <div class="comments">
 <div class="paragraph">
-The address of the entry point below is placed into bytes 17 and 18 of the cloud's buffer by the instruction above.
+The address of the entry point below is placed into bytes 0x11 and 0x12 of the cloud's buffer by the instruction above.
 </div>
 </div>
 </td>
@@ -213,7 +213,7 @@ The address of the entry point below is placed into bytes 17 and 18 of the cloud
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f88b"></span>F88B</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Byte 19 of the cloud's buffer holds the counter that determines how much longer the cloud will stick around (which starts off at 29)</td>
+<td class="comment-11" rowspan="1">Byte 0x13 of the cloud's buffer holds the counter that determines how much longer the cloud will stick around (which starts off at 0x1D)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -249,7 +249,7 @@ The address of the entry point below is placed into bytes 17 and 18 of the cloud
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f896"></span>F896</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1">Message <a href="FC34.html">1</a>: NO STINKBOMBS</td>
+<td class="comment-11" rowspan="1">Message <a href="FC34.html">0x01</a>: NO STINKBOMBS</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -265,7 +265,7 @@ This entry point is used by the routines at <a href="5E6F.html">5E6F</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f898"></span>F898</td>
 <td class="instruction">SUB $3E</td>
-<td class="comment-11" rowspan="1">Subtract 62 now (it's added back later on)</td>
+<td class="comment-11" rowspan="1">Subtract 0x3E now (it's added back later on)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -293,19 +293,19 @@ Now deal with animating the stinkbomb cloud and checking whether it's near a win
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f89e"></span>F89E</td>
 <td class="instruction">CALL <a href="63ED.html#6430">$6430</a></td>
-<td class="comment-11" rowspan="1">Toggle between cloud animation phases 1 (<a href="../graphics/as.html#71">71</a>) and 2 (<a href="../graphics/as.html#199">199</a>) and update the SRB accordingly</td>
+<td class="comment-11" rowspan="1">Toggle between cloud animation phases 1 (<a href="../graphics/as.html#71">0x47</a>) and 2 (<a href="../graphics/as.html#199">0xC7</a>) and update the SRB accordingly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8a1"></span>F8A1</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the cloud's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the cloud's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8a3"></span>F8A3</td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="2">Bit 0 of the cloud's animatory state (<a href="../graphics/as.html#71">71 or 199</a>) is always set, so this RET never happens</td>
+<td class="comment-11" rowspan="2">Bit 0 of the cloud's animatory state (<a href="../graphics/as.html#71">0x47 or 0xC7</a>) is always set, so this RET never happens</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -317,7 +317,7 @@ Now deal with animating the stinkbomb cloud and checking whether it's near a win
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8a6"></span>F8A6</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -353,7 +353,7 @@ Now deal with animating the stinkbomb cloud and checking whether it's near a win
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8ae"></span>F8AE</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -387,7 +387,7 @@ The stinkbomb cloud is on the top floor or middle floor, somewhere between the h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8b3"></span>F8B3</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 2 of the cloud's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x02 of the cloud's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -423,7 +423,7 @@ The stinkbomb cloud is on the top floor or middle floor, somewhere between the h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8be"></span>F8BE</td>
 <td class="instruction">LD BC,$805D</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=128 (middle floor window), <span class="register">C</span>=93 (x-coordinate)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=0x80 (middle floor window), <span class="register">C</span>=93 (x-coordinate)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -447,7 +447,7 @@ The stinkbomb cloud is on the top floor or middle floor, somewhere between the h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8c6"></span>F8C6</td>
 <td class="instruction">LD BC,$405B</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=64 (top-floor window), <span class="register">C</span>=91 (x-coordinate)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=0x40 (top-floor window), <span class="register">C</span>=91 (x-coordinate)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -463,7 +463,7 @@ Now <span class="register">B</span> holds the identifier of a closed window on t
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f8c9"></span>F8C9</td>
 <td class="instruction">LD HL,$C802</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of MR WACKER's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of MR WACKER's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -481,13 +481,13 @@ Now <span class="register">B</span> holds the identifier of a closed window on t
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8ce"></span>F8CE</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8cf"></span>F8CF</td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -551,7 +551,7 @@ MR WACKER is close enough to the stinkbomb cloud to be affected by its stench. C
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8da"></span>F8DA</td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 17 and 18 of MR WACKER's buffer (meaning he is otherwise occupied at the moment)?</td>
+<td class="comment-11" rowspan="3">Is there an uninterruptible subcommand routine address in bytes 0x11 and 0x12 of MR WACKER's buffer (meaning he is otherwise occupied at the moment)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -575,7 +575,7 @@ MR WACKER is close enough to the stinkbomb cloud to be affected by its stench. C
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8df"></span>F8DF</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -605,7 +605,7 @@ MR WACKER is close enough to the stinkbomb cloud to be affected by its stench. C
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8e4"></span>F8E4</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="4">Store MR WACKER's current x-coordinate and animatory state in bytes 19 and 20 of his buffer for later retrieval</td>
+<td class="comment-11" rowspan="4">Store MR WACKER's current x-coordinate and animatory state in bytes 0x13 and 0x14 of his buffer for later retrieval</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -629,7 +629,7 @@ MR WACKER is close enough to the stinkbomb cloud to be affected by its stench. C
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8e9"></span>F8E9</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Store the x-coordinate of the window in byte 21</td>
+<td class="comment-11" rowspan="2">Store the x-coordinate of the window in byte 0x15</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -641,7 +641,7 @@ MR WACKER is close enough to the stinkbomb cloud to be affected by its stench. C
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8eb"></span>F8EB</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Byte 22 holds 128 (middle-floor window) or 64 (top-floor window)</td>
+<td class="comment-11" rowspan="2">Byte 0x16 holds 0x80 (middle-floor window) or 0x40 (top-floor window)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -665,14 +665,14 @@ MR WACKER is close enough to the stinkbomb cloud to be affected by its stench. C
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8f2"></span>F8F2</td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Place address <a href="F862.html#f8f5">F8F5</a> (below) into bytes 17 and 18 of MR WACKER's buffer and update his animatory state</td>
+<td class="comment-11" rowspan="1">Place address <a href="F862.html#f8f5">F8F5</a> (below) into bytes 0x11 and 0x12 of MR WACKER's buffer and update his animatory state</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f8f5"></span>
 <div class="comments">
 <div class="paragraph">
-The address of the entry point below is placed into bytes 17 and 18 of MR WACKER's buffer by the instruction above.
+The address of the entry point below is placed into bytes 0x11 and 0x12 of MR WACKER's buffer by the instruction above.
 </div>
 </div>
 </td>
@@ -681,7 +681,7 @@ The address of the entry point below is placed into bytes 17 and 18 of MR WACKER
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f8f5"></span>F8F5</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of MR WACKER's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of MR WACKER's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -710,9 +710,9 @@ The address of the entry point below is placed into bytes 17 and 18 of MR WACKER
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

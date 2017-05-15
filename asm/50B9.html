@@ -50,7 +50,7 @@ Used by the routine at <a href="52A0.html">52A0</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="50b9"></span>50B9</td>
 <td class="instruction">LD HL,$5000</td>
-<td class="comment-11" rowspan="1">20480=display file address</td>
+<td class="comment-11" rowspan="1">5000=display file address</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -78,7 +78,7 @@ This entry point is used by the routines at <a href="51A0.html">51A0</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50be"></span>50BE</td>
 <td class="instruction">BIT 7,A</td>
-<td class="comment-11" rowspan="1">Is the message number &lt; 128?</td>
+<td class="comment-11" rowspan="1">Is the message number &lt; 0x80?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -114,7 +114,7 @@ This entry point is used by the routines at <a href="51A0.html">51A0</a>, <a hre
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="50c8"></span>50C8</td>
 <td class="instruction">LD H,$FE</td>
-<td class="comment-11" rowspan="1">Use the regular message address table for message numbers &lt; 128</td>
+<td class="comment-11" rowspan="1">Use the regular message address table for message numbers &lt; 0x80</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -221,9 +221,9 @@ This entry point is used by the routines at <a href="51A0.html">51A0</a>, <a hre
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 9 and 10 of MISS TAKE's buffer by the routine at <a href="7E75.html">7E75</a>. It makes MISS TAKE stalk ERIC while he's in the girls' skool or the girls' playground, but stand on guard by the skool gate if ERIC is on the boys' side.
+The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of MISS TAKE's buffer by the routine at <a href="7E75.html">7E75</a>. It makes MISS TAKE stalk ERIC while he's in the girls' skool or the girls' playground, but stand on guard by the skool gate if ERIC is on the boys' side.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">204 (MISS TAKE)</td>
+<td class="register-desc">0xCC (MISS TAKE)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,31 +50,31 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7e7b"></span>7E7B</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 29 of MISS TAKE's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x1D of MISS TAKE's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7e7d"></span>7E7D</td>
 <td class="instruction">LD A,$CD</td>
-<td class="comment-11" rowspan="1">205=ALBERT</td>
+<td class="comment-11" rowspan="1">0xCD=ALBERT</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7e7f"></span>7E7F</td>
 <td class="instruction">SET 7,(HL)</td>
-<td class="comment-11" rowspan="1">Set bit 7 at byte 29 of MISS TAKE's buffer, making her run</td>
+<td class="comment-11" rowspan="1">Set bit 7 at byte 0x1D of MISS TAKE's buffer, making her run</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7e81"></span>7E81</td>
 <td class="instruction">LD ($7FF5),A</td>
-<td class="comment-11" rowspan="1">Set the character number of the adult who last gave ERIC lines (stored at <a href="7FF5.html">7FF5</a>) to 205 (ALBERT); this has the effect of making any teacher (including whoever last gave ERIC lines) available for lines-giving ASAP (see <a href="7D20.html">7D20</a> and <a href="7D3E.html">7D3E</a>)</td>
+<td class="comment-11" rowspan="1">Set the character number of the adult who last gave ERIC lines (stored at <a href="7FF5.html">7FF5</a>) to 0xCD (ALBERT); this has the effect of making any teacher (including whoever last gave ERIC lines) available for lines-giving ASAP (see <a href="7D20.html">7D20</a> and <a href="7D3E.html">7D3E</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7e84"></span>7E84</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of MISS TAKE's character buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of MISS TAKE's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -167,7 +167,7 @@ This entry point is used by the routines at <a href="F09B.html">F09B</a> and <a 
 <span id="7e9c"></span>
 <div class="comments">
 <div class="paragraph">
-The chase is over, and the teacher is on a staircase. It's not a good idea to remove the interruptible subcommand routine address from bytes 9 and 10 of the teacher's buffer at this point, though, because the next command in the teacher's command list will be <a href="6464.html">6464</a>, and that command will not work if the teacher's starting point is on a staircase. So continue chasing ERIC until the top or bottom of the staircase has been reached.
+The chase is over, and the teacher is on a staircase. It's not a good idea to remove the interruptible subcommand routine address from bytes 0x09 and 0x0A of the teacher's buffer at this point, though, because the next command in the teacher's command list will be <a href="6464.html">6464</a>, and that command will not work if the teacher's starting point is on a staircase. So continue chasing ERIC until the top or bottom of the staircase has been reached.
 </div>
 </div>
 </td>
@@ -216,7 +216,7 @@ MISS TAKE is chasing ERIC, but she only chases so far.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7ea5"></span>7EA5</td>
 <td class="instruction">CP $8A</td>
-<td class="comment-11" rowspan="1">138=just to the right of the plant in the girls' playground</td>
+<td class="comment-11" rowspan="1">This x-coordinate is just to the right of the plant in the girls' playground</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -234,7 +234,7 @@ MISS TAKE is chasing ERIC, but she only chases so far.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7eaa"></span>7EAA</td>
 <td class="instruction">CP $89</td>
-<td class="comment-11" rowspan="1">137=where MISS TAKE stands on guard for the truant ERIC</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate where MISS TAKE stands on guard for the truant ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -257,9 +257,9 @@ MISS TAKE is chasing ERIC, but she only chases so far.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

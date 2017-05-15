@@ -47,7 +47,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5e45"></span>5E45</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -65,7 +65,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5e4b"></span>5E4B</td>
 <td class="instruction">LD HL,$7FD8</td>
-<td class="comment-11" rowspan="2">Copy the blackboard identifier (84, 90, 96, 102 or 108) from <span class="register">B</span> to <a href="7FD8.html">7FD8</a></td>
+<td class="comment-11" rowspan="2">Copy the blackboard identifier (0x54, 0x5A, 0x60, 0x66 or 0x6C) from <span class="register">B</span> to <a href="7FD8.html">7FD8</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -77,7 +77,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5e4f"></span>5E4F</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">While ERIC is writing on the board, <a href="7FD7.html">7FD7</a> will be used to store the ASCII code of the last character written; initialise this with something other than 13 (ENTER)</td>
+<td class="comment-11" rowspan="2">While ERIC is writing on the board, <a href="7FD7.html">7FD7</a> will be used to store the ASCII code of the last character written; initialise this with something other than 0x0D (ENTER)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -125,7 +125,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5e5a"></span>5E5A</td>
 <td class="instruction">CPL</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=128 if the board is clean, 0 otherwise</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=0x80 if the board is clean, 0x00 otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -177,7 +177,7 @@ This entry point is used by the routine at <a href="5E6F.html">5E6F</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5e65"></span>5E65</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -189,7 +189,7 @@ This entry point is used by the routine at <a href="5E6F.html">5E6F</a>.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5e6a"></span>5E6A</td>
 <td class="instruction">OR $07</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#7">7/135</a>: ERIC with his arm up (as if writing on a board)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#7">0x07/0x87</a>: ERIC with his arm up (as if writing on a board)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -206,9 +206,9 @@ This entry point is used by the routine at <a href="5E6F.html">5E6F</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

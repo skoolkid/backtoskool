@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 9 and 10 of a teacher's buffer by the routine at <a href="F0BF.html">F0BF</a>. It makes the teacher run after and stalk ERIC until he goes to wherever he should be (the dinner hall, the assembly hall, or the classroom).
+The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of a teacher's buffer by the routine at <a href="F0BF.html">F0BF</a>. It makes the teacher run after and stalk ERIC until he goes to wherever he should be (the dinner hall, the assembly hall, or the classroom).
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (201-203)</td>
+<td class="register-desc">Teacher's character number (0xC9-0xCB)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f09b"></span>F09B</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 29 of the teacher's buffer, making him run</td>
+<td class="comment-11" rowspan="2">Set bit 7 of byte 0x1D of the teacher's buffer, making him run</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f09f"></span>F09F</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Byte 0 of the teacher's buffer holds his animatory state</td>
+<td class="comment-11" rowspan="1">Byte 0x00 of the teacher's buffer holds his animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -102,7 +102,7 @@ Now check whether a command list restart has been requested. This request will h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0aa"></span>F0AA</td>
 <td class="instruction">JP NZ,<a href="7E7B.html#7e8f">$7E8F</a></td>
-<td class="comment-11" rowspan="1">If so, do some post-chase cleanup, remove the address of this routine from bytes 9 and 10 of the teacher's buffer, and restart the command list</td>
+<td class="comment-11" rowspan="1">If so, do some post-chase cleanup, remove the address of this routine from bytes 0x09 and 0x0A of the teacher's buffer, and restart the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -120,7 +120,7 @@ Now check whether a command list restart has been requested. This request will h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0b3"></span>F0B3</td>
 <td class="instruction">SET 0,(HL)</td>
-<td class="comment-11" rowspan="1">Otherwise set bit 0 of byte 29 of the teacher's buffer, indicating that the command list should be restarted</td>
+<td class="comment-11" rowspan="1">Otherwise set bit 0 of byte 0x1D of the teacher's buffer, indicating that the command list should be restarted</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -137,9 +137,9 @@ Now check whether a command list restart has been requested. This request will h
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

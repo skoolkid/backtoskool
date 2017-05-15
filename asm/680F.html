@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 9 and 10 of the teacher's buffer by the routine at <a href="F100.html">F100</a>.
+The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of the teacher's buffer by the routine at <a href="F100.html">F100</a>.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (201-204)</td>
+<td class="register-desc">Teacher's character number (0xC9-0xCC)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,7 +56,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6812"></span>6812</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">32 distinct actions are needed to wipe the board; store this counter in byte 11 of the teacher's buffer</td>
+<td class="comment-11" rowspan="2">32 distinct actions are needed to wipe the board; store this counter in byte 0x0B of the teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -68,7 +68,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6816"></span>6816</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=12</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0C</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -86,13 +86,13 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="681a"></span>681A</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Store this in byte 12 of the teacher's buffer</td>
+<td class="comment-11" rowspan="1">Store this in byte 0x0C of the teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="681b"></span>681B</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Place the y-coordinate of the top line of the board into byte 13 of the teacher's buffer</td>
+<td class="comment-11" rowspan="2">Place the y-coordinate of the top line of the board into byte 0x0D of the teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -104,7 +104,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="681d"></span>681D</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">And the board identifier (LSB of <a href="7F54.html">7F54</a>, <a href="7F5A.html">7F5A</a>, <a href="7F60.html">7F60</a>, <a href="7F66.html">7F66</a> or <a href="7F6C.html">7F6C</a>) into byte 14</td>
+<td class="comment-11" rowspan="2">And the board identifier (LSB of <a href="7F54.html">7F54</a>, <a href="7F5A.html">7F5A</a>, <a href="7F60.html">7F60</a>, <a href="7F66.html">7F66</a> or <a href="7F6C.html">7F6C</a>) into byte 0x0E</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -116,7 +116,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="681f"></span>681F</td>
 <td class="instruction">LD L,$09</td>
-<td class="comment-11" rowspan="2">Change the routine address in bytes 9 and 10 of the teacher's buffer to <a href="680F.html#6823">6823</a> (below)</td>
+<td class="comment-11" rowspan="2">Change the routine address in bytes 0x09 and 0x0A of the teacher's buffer to <a href="680F.html#6823">6823</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -128,7 +128,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6823"></span>6823</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="1">Byte 11 holds the board-wiping action counter</td>
+<td class="comment-11" rowspan="1">Byte 0x0B holds the board-wiping action counter</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -350,7 +350,7 @@ The teacher's next action will be a wipe, so raise his arm.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="685f"></span>685F</td>
 <td class="instruction">LD D,$B5</td>
-<td class="comment-11" rowspan="3">Pick up the Q value (0&lt;=Q&lt;=143) for the lower blackboard tile being wiped from page <a href="B500.html">181</a> in <span class="register">L</span></td>
+<td class="comment-11" rowspan="3">Pick up the Q value (0x00&lt;=Q&lt;=0x8F) for the lower blackboard tile being wiped from page <a href="B500.html">0xB5</a> in <span class="register">L</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -392,7 +392,7 @@ The teacher's next action will be a wipe, so raise his arm.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6868"></span>6868</td>
 <td class="instruction">LD H,$80</td>
-<td class="comment-11" rowspan="2">The base page for all blackboard tile UDGs is 128</td>
+<td class="comment-11" rowspan="2">The base page for all blackboard tile UDGs is 0x80</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -410,7 +410,7 @@ The teacher's next action will be a wipe, so raise his arm.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="686d"></span>686D</td>
 <td class="instruction">LD A,$FF</td>
-<td class="comment-11" rowspan="1">255=blank blackboard byte</td>
+<td class="comment-11" rowspan="1">0xFF=blank blackboard byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -491,9 +491,9 @@ The teacher is either wiping or midstride while on his way to the next spot alon
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

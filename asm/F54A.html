@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 9 and 10 of MR WACKER's buffer by the routine at <a href="7D36.html">7D36</a> after ALBERT has spotted ERIC trying to escape and raised the alarm.
+The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of MR WACKER's buffer by the routine at <a href="7D36.html">7D36</a> after ALBERT has spotted ERIC trying to escape and raised the alarm.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">200 (MR WACKER)</td>
+<td class="register-desc">0xC8 (MR WACKER)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f54a"></span>F54A</td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 29 of MR WACKER's buffer, making him run</td>
+<td class="comment-11" rowspan="2">Set bit 7 of byte 0x1D of MR WACKER's buffer, making him run</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -62,7 +62,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f54e"></span>F54E</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of MR WACKER's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of MR WACKER's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -119,9 +119,9 @@ Now check whether a command list restart has been requested. This request will h
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

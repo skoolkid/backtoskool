@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command list <a href="E933.html">72</a>. Builds a detention message (using a random noun and verb) and makes MR WACKER deliver it.
+Used by command list <a href="E933.html">0x48</a>. Builds a detention message (using a random noun and verb) and makes MR WACKER deliver it.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by command list <a href="E933.html">72</a>. Builds a detention message (usi
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">200 (MR WACKER)</td>
+<td class="register-desc">0xC8 (MR WACKER)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -86,7 +86,7 @@ Used by command list <a href="E933.html">72</a>. Builds a detention message (usi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f25c"></span>F25C</td>
 <td class="instruction">LD DE,$7F8C</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a href="7F8C.html">10</a>, which will be the verb</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a href="7F8C.html">0x0A</a>, which will be the verb</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -98,7 +98,7 @@ Used by command list <a href="E933.html">72</a>. Builds a detention message (usi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f260"></span>F260</td>
 <td class="instruction">AND $07</td>
-<td class="comment-11" rowspan="3">Store the verb message number (<a href="EDEF.html">144</a>, <a href="E9FD.html">145</a>, <a href="EEA3.html">146</a>, <a href="EEAF.html">147</a>, <a href="EEB7.html">148</a>, <a href="EED5.html">149</a>, <a href="EEE5.html">150</a> or <a href="EEEE.html">151</a>) at <a href="7F8C.html">7F8C</a></td>
+<td class="comment-11" rowspan="3">Store the verb message number (<a href="EDEF.html">0x90</a>, <a href="E9FD.html">0x91</a>, <a href="EEA3.html">0x92</a>, <a href="EEAF.html">0x93</a>, <a href="EEB7.html">0x94</a>, <a href="EED5.html">0x95</a>, <a href="EEE5.html">0x96</a> or <a href="EEEE.html">0x97</a>) at <a href="7F8C.html">7F8C</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -146,13 +146,13 @@ Used by command list <a href="E933.html">72</a>. Builds a detention message (usi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f26b"></span>F26B</td>
 <td class="instruction">LD E,$8E</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a href="7F8E.html">11</a>, which will be the noun</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a href="7F8E.html">0x0B</a>, which will be the noun</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f26d"></span>F26D</td>
 <td class="instruction">ADD A,$98</td>
-<td class="comment-11" rowspan="2">Store the noun message number (<a href="EEF7.html">152</a>, <a href="EF00.html">153</a>, <a href="EF0B.html">154</a>, <a href="EF18.html">155</a>, <a href="EF26.html">156</a>, <a href="EF2A.html">157</a>, <a href="EF3D.html">158</a> or <a href="EF4A.html">159</a>) at <a href="7F8E.html">7F8E</a></td>
+<td class="comment-11" rowspan="2">Store the noun message number (<a href="EEF7.html">0x98</a>, <a href="EF00.html">0x99</a>, <a href="EF0B.html">0x9A</a>, <a href="EF18.html">0x9B</a>, <a href="EF26.html">0x9C</a>, <a href="EF2A.html">0x9D</a>, <a href="EF3D.html">0x9E</a> or <a href="EF4A.html">0x9F</a>) at <a href="7F8E.html">7F8E</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -164,7 +164,7 @@ Used by command list <a href="E933.html">72</a>. Builds a detention message (usi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f270"></span>F270</td>
 <td class="instruction">LD E,$60</td>
-<td class="comment-11" rowspan="1">Message <a href="EDBD.html">96</a>: YOU'RE ALL IN DETENTION...</td>
+<td class="comment-11" rowspan="1">Message <a href="EDBD.html">0x60</a>: YOU'RE ALL IN DETENTION...</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -252,7 +252,7 @@ Control of MR WACKER resumes here when he has finished delivering the detention 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f288"></span>F288</td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Restore MR WACKER's character number (200) to <span class="register">H</span></td>
+<td class="comment-11" rowspan="1">Restore MR WACKER's character number (0xC8) to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -269,9 +269,9 @@ Control of MR WACKER resumes here when he has finished delivering the detention 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

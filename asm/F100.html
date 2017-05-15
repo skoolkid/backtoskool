@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command lists <a href="E400.html">22</a>, <a href="E600.html">24</a>, <a href="E8DC.html">58</a>, <a href="E8ED.html">60</a> and <a href="E8FE.html">62</a> to make a teacher conduct a class (after having walked to the edge of the blackboard).
+Used by command lists <a href="E400.html">0x16</a>, <a href="E600.html">0x18</a>, <a href="E8DC.html">0x3A</a>, <a href="E8ED.html">0x3C</a> and <a href="E8FE.html">0x3E</a> to make a teacher conduct a class (after having walked to the edge of the blackboard).
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by command lists <a href="E400.html">22</a>, <a href="E600.html">24</a>, <a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (201-204)</td>
+<td class="register-desc">Teacher's character number (0xC9-0xCC)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -86,7 +86,7 @@ Used by command lists <a href="E400.html">22</a>, <a href="E600.html">24</a>, <a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f109"></span>F109</td>
 <td class="instruction">ADD A,$C7</td>
-<td class="comment-11" rowspan="1">Now <span class="register">A</span>=character number of the teacher taking ERIC's class (201-203)</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=character number of the teacher taking ERIC's class (0xC9-0xCB)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -126,7 +126,7 @@ This teacher is not conducting ERIC's class, so he has it easy: wipe the board, 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f114"></span>F114</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -144,7 +144,7 @@ This teacher is not conducting ERIC's class, so he has it easy: wipe the board, 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f119"></span>F119</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Place this in byte 11 ready for the routine at <a href="63ED.html">63ED</a></td>
+<td class="comment-11" rowspan="2">Place this in byte 0x0B ready for the routine at <a href="63ED.html">63ED</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -198,7 +198,7 @@ This teacher is not conducting ERIC's class, so he has it easy: wipe the board, 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f130"></span>F130</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -216,7 +216,7 @@ This teacher is not conducting ERIC's class, so he has it easy: wipe the board, 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f135"></span>F135</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Place this in byte 11 of the teacher's buffer, ready for the routine at <a href="63ED.html">63ED</a></td>
+<td class="comment-11" rowspan="2">Place this in byte 0x0B of the teacher's buffer, ready for the routine at <a href="63ED.html">63ED</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -302,7 +302,7 @@ ERIC is not in class, but EINSTEIN is. EINSTEIN must therefore grass.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f150"></span>F150</td>
 <td class="instruction">LD E,$12</td>
-<td class="comment-11" rowspan="1"><a href="EA28.html">18</a>: Please Sir...ERIC is not here</td>
+<td class="comment-11" rowspan="1"><a href="EA28.html">0x12</a>: Please Sir...ERIC is not here</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -314,7 +314,7 @@ ERIC is not in class, but EINSTEIN is. EINSTEIN must therefore grass.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f155"></span>F155</td>
 <td class="instruction">LD C,$D0</td>
-<td class="comment-11" rowspan="1">208=EINSTEIN</td>
+<td class="comment-11" rowspan="1">0xD0=EINSTEIN</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -378,13 +378,13 @@ ERIC is in class now, having shown up while EINSTEIN was grassing on him for bei
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f16b"></span>F16B</td>
 <td class="instruction">LD B,$14</td>
-<td class="comment-11" rowspan="1"><a href="EA4E.html">20</a>: STAY TILL I DISMISS YOU</td>
+<td class="comment-11" rowspan="1"><a href="EA4E.html">0x14</a>: STAY TILL I DISMISS YOU</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f16d"></span>F16D</td>
 <td class="instruction">LD A,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -396,7 +396,7 @@ ERIC is in class now, having shown up while EINSTEIN was grassing on him for bei
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f171"></span>F171</td>
 <td class="instruction">DEC B</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="EA38.html">19</a>: DON'T BE LATE AGAIN</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="EA38.html">0x13</a>: DON'T BE LATE AGAIN</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -466,7 +466,7 @@ Now is EINSTEIN's chance to grass on ERIC for hitting him.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f189"></span>F189</td>
 <td class="instruction">LD E,$57</td>
-<td class="comment-11" rowspan="1"><a href="ECF1.html">87</a>: Please Sir...ERIC hit me</td>
+<td class="comment-11" rowspan="1"><a href="ECF1.html">0x57</a>: Please Sir...ERIC hit me</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -484,7 +484,7 @@ Now is EINSTEIN's chance to grass on ERIC for hitting him.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f191"></span>F191</td>
 <td class="instruction">LD BC,$61D2</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="EDF9.html">97</a>: DON'T HIT YOUR MATES; <span class="register">C</span>=210 (ERIC)</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="EDF9.html">0x61</a>: DON'T HIT YOUR MATES; <span class="register">C</span>=0xD2 (ERIC)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -524,7 +524,7 @@ Now is EINSTEIN's opportunity to grass on someone for writing on the blackboard.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f19f"></span>F19F</td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="3">The intent here is to point <span class="register">BC</span> at the second byte of the blackboard's buffer, which holds the character number of the person who last wrote on it; instead, <span class="register">BC</span> points at 32516 if the teacher is on the top floor, or 32515 if he's on the middle floor</td>
+<td class="comment-11" rowspan="3">The intent here is to point <span class="register">BC</span> at the second byte of the blackboard's buffer, which holds the character number of the person who last wrote on it; instead, <span class="register">BC</span> points at 7F04 if the teacher is on the top floor, or 7F03 if he's on the middle floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -542,7 +542,7 @@ Now is EINSTEIN's opportunity to grass on someone for writing on the blackboard.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1a3"></span>F1A3</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-11" rowspan="1">Now <span class="register">A</span> is supposed to hold the character number of the person who last wrote on the board; instead it holds the contents of 32515 or 32516 (bytes 3 and 4 of the <a href="7F00.html">SRB</a>), which will never be 206 or 210</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span> is supposed to hold the character number of the person who last wrote on the board; instead it holds the contents of 7F03 or 7F04 (bytes 0x03 and 0x04 of the <a href="7F00.html">SRB</a>), which will never be 0xCE or 0xD2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -584,7 +584,7 @@ Now is EINSTEIN's opportunity to grass on someone for writing on the blackboard.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1b1"></span>F1B1</td>
 <td class="instruction">LD A,$CE</td>
-<td class="comment-11" rowspan="1">206=BOY WANDER</td>
+<td class="comment-11" rowspan="1">0xCE=BOY WANDER</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -614,7 +614,7 @@ Now is EINSTEIN's opportunity to grass on someone for writing on the blackboard.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1bd"></span>F1BD</td>
 <td class="instruction">LD E,$58</td>
-<td class="comment-11" rowspan="1"><a href="ECFC.html">88</a>: Please Sir...[<a href="7F90.html">7</a>] wrote on the board</td>
+<td class="comment-11" rowspan="1"><a href="ECFC.html">0x58</a>: Please Sir...[<a href="7F90.html">0x07</a>] wrote on the board</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -626,7 +626,7 @@ Now is EINSTEIN's opportunity to grass on someone for writing on the blackboard.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f1c2"></span>F1C2</td>
 <td class="instruction">LD A,($7F90)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=206 (BOY WANDER) or 210 (ERIC)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0xCE (BOY WANDER) or 0xD2 (ERIC)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -638,7 +638,7 @@ Now is EINSTEIN's opportunity to grass on someone for writing on the blackboard.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1c6"></span>F1C6</td>
 <td class="instruction">LD B,$56</td>
-<td class="comment-11" rowspan="1"><a href="ECDE.html">86</a>: DON'T TOUCH BLACKBOARDS</td>
+<td class="comment-11" rowspan="1"><a href="ECDE.html">0x56</a>: DON'T TOUCH BLACKBOARDS</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -672,7 +672,7 @@ The next section of code makes the teacher wipe the board. Note that the teacher
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f1d1"></span>F1D1</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -690,7 +690,7 @@ The next section of code makes the teacher wipe the board. Note that the teacher
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f1d6"></span>F1D6</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Place this in byte 11 of the teacher's buffer, ready for the routine at <a href="63ED.html">63ED</a></td>
+<td class="comment-11" rowspan="2">Place this in byte 0x0B of the teacher's buffer, ready for the routine at <a href="63ED.html">63ED</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -818,7 +818,7 @@ This is not going to be a questions-and-answers lesson.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f204"></span>F204</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -836,7 +836,7 @@ This is not going to be a questions-and-answers lesson.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f209"></span>F209</td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-11" rowspan="2">Place this in byte 11 of the teacher's buffer ready for the routine at <a href="63ED.html">63ED</a></td>
+<td class="comment-11" rowspan="2">Place this in byte 0x0B of the teacher's buffer ready for the routine at <a href="63ED.html">63ED</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -900,13 +900,13 @@ This is going to be a questions-and-answers lesson. Pick a question-answer word 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f21b"></span>F21B</td>
 <td class="instruction">LD DE,$7F8C</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a href="7F8C.html">10</a></td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a href="7F8C.html">0x0A</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f21e"></span>F21E</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="6">Set <span class="register">A</span>=<a href="FC8E.html">160</a> (if the teacher is MR WITHIT), <a href="FD7C.html">176</a> (MR ROCKITT), or <a href="FD18.html">192</a> (MR CREAK)</td>
+<td class="comment-11" rowspan="6">Set <span class="register">A</span>=<a href="FC8E.html">0xA0</a> (if the teacher is MR WITHIT), <a href="FD7C.html">0xB0</a> (MR ROCKITT), or <a href="FD18.html">0xC0</a> (MR CREAK)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -948,7 +948,7 @@ This is going to be a questions-and-answers lesson. Pick a question-answer word 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f225"></span>F225</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="1">Place this into <a href="7F8C.html">7F8C</a> (message <a href="7F8C.html">10</a>)</td>
+<td class="comment-11" rowspan="1">Place this into <a href="7F8C.html">7F8C</a> (message <a href="7F8C.html">0x0A</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -960,7 +960,7 @@ This is going to be a questions-and-answers lesson. Pick a question-answer word 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f228"></span>F228</td>
 <td class="instruction">LD E,$8E</td>
-<td class="comment-11" rowspan="2">Place this into <a href="7F8E.html">7F8E</a> (the first byte of message <a href="7F8E.html">11</a>)</td>
+<td class="comment-11" rowspan="2">Place this into <a href="7F8E.html">7F8E</a> (the first byte of message <a href="7F8E.html">0x0B</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -984,7 +984,7 @@ This is going to be a questions-and-answers lesson. Pick a question-answer word 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f22d"></span>F22D</td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-11" rowspan="5">Set <span class="register">A</span> to <a href="FEF4.html">73</a> or <a href="EFEA.html">75</a> (MR WITHIT), <a href="FEFB.html">77</a> or <a href="FFFB.html">79</a> (MR ROCKITT), <a href="EFF1.html">81</a> or <a href="FF70.html">83</a> (MR CREAK); this is the message number for EINSTEIN's reply</td>
+<td class="comment-11" rowspan="5">Set <span class="register">A</span> to <a href="FEF4.html">0x49</a> or <a href="EFEA.html">0x4B</a> (MR WITHIT), <a href="FEFB.html">0x4D</a> or <a href="FFFB.html">0x4F</a> (MR ROCKITT), <a href="EFF1.html">0x51</a> or <a href="FF70.html">0x53</a> (MR CREAK); this is the message number for EINSTEIN's reply</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -1014,13 +1014,13 @@ This is going to be a questions-and-answers lesson. Pick a question-answer word 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f233"></span>F233</td>
 <td class="instruction">LD ($D00B),A</td>
-<td class="comment-11" rowspan="1">Store it in byte 11 of EINSTEIN's buffer, ready for the routine at <a href="F017.html#f01b">F01B</a></td>
+<td class="comment-11" rowspan="1">Store it in byte 0x0B of EINSTEIN's buffer, ready for the routine at <a href="F017.html#f01b">F01B</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f236"></span>F236</td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="2">Set <span class="register">E</span> to <a href="FE70.html">74</a> or <a href="FED0.html">76</a> (MR WITHIT), <a href="FC79.html">78</a> or <a href="FFE8.html">80</a> (MR ROCKITT), <a href="FC60.html">82</a> or <a href="FFD0.html">84</a> (MR CREAK); this is the message number for the teacher's question</td>
+<td class="comment-11" rowspan="2">Set <span class="register">E</span> to <a href="FE70.html">0x4A</a> or <a href="FED0.html">0x4C</a> (MR WITHIT), <a href="FC79.html">0x4E</a> or <a href="FFE8.html">0x50</a> (MR ROCKITT), <a href="FC60.html">0x52</a> or <a href="FFD0.html">0x54</a> (MR CREAK); this is the message number for the teacher's question</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -1079,9 +1079,9 @@ This is going to be a questions-and-answers lesson. Pick a question-answer word 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

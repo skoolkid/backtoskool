@@ -58,7 +58,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5f1c"></span>5F1C</td>
 <td class="instruction">LD HL,$D100</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of HAYLEY's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of HAYLEY's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -154,7 +154,7 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f32"></span>5F32</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -200,7 +200,7 @@ At this point the zero flag is set if HAYLEY is kissable (i.e. ERIC and HAYLEY a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5f3a"></span>5F3A</td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#1">1</a>: ERIC midstride</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#1">0x01</a>: ERIC midstride</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -242,7 +242,7 @@ At this point the zero flag is set if HAYLEY is kissable (i.e. ERIC and HAYLEY a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5f4b"></span>5F4B</td>
 <td class="instruction">LD ($D111),HL</td>
-<td class="comment-11" rowspan="1">Place the appropriate uninterruptible subcommand routine address (<a href="5F08.html">5F08</a>: hit ERIC, or <a href="D224.html">D224</a>: do nothing) into bytes 17 and 18 of HAYLEY's buffer</td>
+<td class="comment-11" rowspan="1">Place the appropriate uninterruptible subcommand routine address (<a href="5F08.html">5F08</a>: hit ERIC, or <a href="D224.html">D224</a>: do nothing) into bytes 0x11 and 0x12 of HAYLEY's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -342,7 +342,7 @@ ERIC has scored a kiss.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f6a"></span>5F6A</td>
 <td class="instruction">LD H,$D1</td>
-<td class="comment-11" rowspan="1">209=HAYLEY</td>
+<td class="comment-11" rowspan="1">0xD1=HAYLEY</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -354,7 +354,7 @@ ERIC has scored a kiss.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f6f"></span>5F6F</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Save HAYLEY's current animatory state in byte 20 of her buffer for later retrieval</td>
+<td class="comment-11" rowspan="2">Save HAYLEY's current animatory state in byte 0x14 of her buffer for later retrieval</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -366,7 +366,7 @@ ERIC has scored a kiss.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f72"></span>5F72</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">Save HAYLEY's current x-coordinate in byte 19 of her buffer for later retrieval</td>
+<td class="comment-11" rowspan="2">Save HAYLEY's current x-coordinate in byte 0x13 of her buffer for later retrieval</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -390,7 +390,7 @@ ERIC has scored a kiss.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f78"></span>5F78</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -402,7 +402,7 @@ ERIC has scored a kiss.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f7d"></span>5F7D</td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of ERIC's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -438,7 +438,7 @@ ERIC has scored a kiss.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f85"></span>5F85</td>
 <td class="instruction">LD A,$0F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#15">15</a>: ERIC and HAYLEY kissing</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#15">0x0F</a>: ERIC and HAYLEY kissing</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -456,7 +456,7 @@ ERIC has scored a kiss.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f8d"></span>5F8D</td>
 <td class="instruction">LD HL,$D113</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of HAYLEY's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of HAYLEY's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -468,7 +468,7 @@ ERIC has scored a kiss.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f91"></span>5F91</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of HAYLEY's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of HAYLEY's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -486,7 +486,7 @@ ERIC has scored a kiss.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f97"></span>5F97</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -503,9 +503,9 @@ ERIC has scored a kiss.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

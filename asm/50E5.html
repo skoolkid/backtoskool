@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes of machine code from the source (either the top row of the screen, or character buffers 183-190) to the destination (the second or third row from the bottom of the screen), in eight 32-byte blocks.
+Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes of machine code from the source (either the top row of the screen, or character buffers 0xB7-0xBE) to the destination (the second or third row from the bottom of the screen), in eight 32-byte blocks.
 </div>
 </div>
 <table class="input-1">
@@ -35,11 +35,11 @@ Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes o
 </tr>
 <tr>
 <td class="register">HL</td>
-<td class="register-desc">Source (16384 or 46848)</td>
+<td class="register-desc">Source (4000 or B700)</td>
 </tr>
 <tr>
 <td class="register">DE</td>
-<td class="register-desc">Destination display file address (20640 or 20672)</td>
+<td class="register-desc">Destination display file address (50A0 or 50C0)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -72,7 +72,7 @@ Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes o
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50eb"></span>50EB</td>
 <td class="instruction">LD L,B</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -119,9 +119,9 @@ Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes o
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -129,7 +129,7 @@ ERIC has just been hit. Determine the manner of his descent to the floor.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2a2"></span>F2A2</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -153,7 +153,7 @@ ERIC has just been hit. Determine the manner of his descent to the floor.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2a9"></span>F2A9</td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">4</a>: Was ERIC sitting on a chair?</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">0x04</a>: Was ERIC sitting on a chair?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -171,7 +171,7 @@ ERIC has just been hit. Determine the manner of his descent to the floor.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2b0"></span>F2B0</td>
 <td class="instruction">LD B,$05</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#5">5</a>: ERIC sitting on the floor</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#5">0x05</a>: ERIC sitting on the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -189,7 +189,7 @@ ERIC has just been hit. Determine the manner of his descent to the floor.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f2b6"></span>F2B6</td>
 <td class="instruction">LD B,$06</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#6">6</a>: ERIC lying on his back</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#6">0x06</a>: ERIC lying on his back</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -241,14 +241,14 @@ Now to initialise the sound effect parameters.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f2c3"></span>F2C3</td>
 <td class="instruction">LD HL,$0113</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=1 (pitch adjustment), <span class="register">L</span>=19 (border colour XOR mask)</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0x01 (pitch adjustment), <span class="register">L</span>=0x13 (border colour XOR mask)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f2c6"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="5D63.html">5D63</a> with <span class="register">H</span>=2 and <span class="register">L</span>=22.
+This entry point is used by the routine at <a href="5D63.html">5D63</a> with <span class="register">H</span>=0x02 and <span class="register">L</span>=0x16.
 </div>
 </div>
 </td>
@@ -257,20 +257,20 @@ This entry point is used by the routine at <a href="5D63.html">5D63</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f2c6"></span>F2C6</td>
 <td class="instruction">LD DE,$0000</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=0 (duration), <span class="register">E</span>=0 (initial pitch)</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=0x00 (duration), <span class="register">E</span>=0x00 (initial pitch)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f2c9"></span>F2C9</td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2 (initial border colour)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0x02 (initial border colour)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="f2cb"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routines at <a href="F2E2.html">F2E2</a> (with <span class="register">H</span>=255, <span class="register">L</span>=23, <span class="register">D</span>=255, <span class="register">E</span>=255) and <a href="F975.html">F975</a> (with <span class="register">H</span>=248, <span class="register">L</span>=18, <span class="register">D</span>=128, <span class="register">E</span>=0, <span class="register">A</span>=4).
+This entry point is used by the routines at <a href="F2E2.html">F2E2</a> (with <span class="register">H</span>=0xFF, <span class="register">L</span>=0x17, <span class="register">D</span>=0xFF, <span class="register">E</span>=0xFF) and <a href="F975.html">F975</a> (with <span class="register">H</span>=0xF8, <span class="register">L</span>=0x12, <span class="register">D</span>=0x80, <span class="register">E</span>=0x00, <span class="register">A</span>=0x04).
 </div>
 </div>
 </td>
@@ -384,9 +384,9 @@ This entry point is used by the routine at <a href="5F9D.html">5F9D</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

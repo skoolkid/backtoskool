@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="5D4F.html">5D4F</a>, <a href="5EC7.html">5EC7</a>, <a href="6F14.html">6F14</a>, <a href="6F2C.html">6F2C</a>, <a href="6F44.html">6F44</a>, <a href="6FA0.html">6FA0</a>, <a href="7140.html">7140</a> and <a href="F3D7.html">F3D7</a> to check whether ERIC is on a staircase, and by the routines at <a href="64F3.html">64F3</a> and <a href="6558.html">6558</a> to check whether ERIC or a teacher is on a staircase. Returns with the carry flag reset if the character is not on a staircase. Otherwise returns with the carry flag set and <span class="register">A</span> holding 0 (if the staircase goes up and to the left) or 128 (if the staircase goes up and to the right).
+Used by the routines at <a href="5D4F.html">5D4F</a>, <a href="5EC7.html">5EC7</a>, <a href="6F14.html">6F14</a>, <a href="6F2C.html">6F2C</a>, <a href="6F44.html">6F44</a>, <a href="6FA0.html">6FA0</a>, <a href="7140.html">7140</a> and <a href="F3D7.html">F3D7</a> to check whether ERIC is on a staircase, and by the routines at <a href="64F3.html">64F3</a> and <a href="6558.html">6558</a> to check whether ERIC or a teacher is on a staircase. Returns with the carry flag reset if the character is not on a staircase. Otherwise returns with the carry flag set and <span class="register">A</span> holding 0x00 (if the staircase goes up and to the left) or 0x80 (if the staircase goes up and to the right).
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routines at <a href="5D4F.html">5D4F</a>, <a href="5EC7.html">5EC7</
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (200-204, 210)</td>
+<td class="register-desc">Character number (0xC8-0xCC, 0xD2)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the routines at <a href="5D4F.html">5D4F</a>, <a href="5EC7.html">5EC7</
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6e50"></span>6E50</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -150,7 +150,7 @@ This entry point is used by the routines at <a href="64F3.html">64F3</a> and <a 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e66"></span>6E66</td>
 <td class="instruction">CP $52</td>
-<td class="comment-11" rowspan="1">81 is the x-coordinate of the right-hand edge of the assembly hall stage</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the right-hand edge of the assembly hall stage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -162,7 +162,7 @@ This entry point is used by the routines at <a href="64F3.html">64F3</a> and <a 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e6a"></span>6E6A</td>
 <td class="instruction">CP $4C</td>
-<td class="comment-11" rowspan="1">76 is the x-coordinate of the left-hand edge of the assembly hall stage</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the left-hand edge of the assembly hall stage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -232,7 +232,7 @@ The character is not standing on the top floor, middle floor, bottom floor or as
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e7a"></span>6E7A</td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return with the carry flag set and <span class="register">A</span>=0</td>
+<td class="comment-11" rowspan="1">Return with the carry flag set and <span class="register">A</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -250,7 +250,7 @@ The character is not standing on the top floor, middle floor, bottom floor or as
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e7e"></span>6E7E</td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return with the carry flag set and <span class="register">A</span>=128</td>
+<td class="comment-11" rowspan="1">Return with the carry flag set and <span class="register">A</span>=0x80</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -321,9 +321,9 @@ The character is not standing on the top floor, middle floor, bottom floor or as
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

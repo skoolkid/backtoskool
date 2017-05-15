@@ -47,7 +47,7 @@ Used by the routine at <a href="F6B4.html">F6B4</a>. Checks the left study door,
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70cd"></span>70CD</td>
 <td class="instruction">LD A,($7FF6)</td>
-<td class="comment-11" rowspan="3">Return unless <a href="7FF6.html">7FF6</a> (which is decremented on every pass through the main loop, and cycles through the values 1-15) holds 4 at the moment</td>
+<td class="comment-11" rowspan="3">Return unless <a href="7FF6.html">7FF6</a> (which is decremented on every pass through the main loop, and cycles through the values 0x01-0x0F) holds 0x04 at the moment</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -71,7 +71,7 @@ Used by the routine at <a href="F6B4.html">F6B4</a>. Checks the left study door,
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70d6"></span>70D6</td>
 <td class="instruction">LD HL,$013E</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=1 (left study door), <span class="register">L</span>=62</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0x01 (left study door), <span class="register">L</span>=0x3E</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -89,7 +89,7 @@ Used by the routine at <a href="F6B4.html">F6B4</a>. Checks the left study door,
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70de"></span>70DE</td>
 <td class="instruction">LD HL,$0240</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=2 (right study door), <span class="register">L</span>=64</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0x02 (right study door), <span class="register">L</span>=0x40</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -119,7 +119,7 @@ Used by the routine at <a href="F6B4.html">F6B4</a>. Checks the left study door,
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70e9"></span>70E9</td>
 <td class="instruction">LD HL,$0442</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=4 (Science Lab storeroom door), <span class="register">L</span>=66</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=0x04 (Science Lab storeroom door), <span class="register">L</span>=0x42</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -189,13 +189,13 @@ At this point <span class="register">H</span> holds the identifier of a door tha
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70f7"></span>70F7</td>
 <td class="instruction">LD HL,$B701</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1, <span class="register">H</span>=183 (little girl no. 1)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01, <span class="register">H</span>=0xB7 (little girl no. 1)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70fa"></span>70FA</td>
 <td class="instruction">LD B,$20</td>
-<td class="comment-11" rowspan="1">32 game characters (183-214)</td>
+<td class="comment-11" rowspan="1">32 game characters (0xB7-0xD6)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -231,7 +231,7 @@ At this point <span class="register">H</span> holds the identifier of a door tha
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7103"></span>7103</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -249,7 +249,7 @@ At this point <span class="register">H</span> holds the identifier of a door tha
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7106"></span>7106</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -320,9 +320,9 @@ At this point <span class="register">H</span> holds the identifier of a door tha
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

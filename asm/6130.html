@@ -47,7 +47,7 @@ Used by many routines. Sets the new animatory state and location of a character,
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-214)</td>
+<td class="register-desc">Character number (0xB7-0xD6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -62,7 +62,7 @@ Used by many routines. Sets the new animatory state and location of a character,
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6130"></span>6130</td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -74,7 +74,7 @@ Used by many routines. Sets the new animatory state and location of a character,
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6133"></span>6133</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -86,7 +86,7 @@ Used by many routines. Sets the new animatory state and location of a character,
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6135"></span>6135</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -347,7 +347,7 @@ Now <span class="register">B</span> holds a value (1, 2 or 3) equal to the numbe
 <span id="6171"></span>
 <div class="comments">
 <div class="paragraph">
-Now <span class="register">H</span> holds 215, 219 or 223 - the page containing the UDG reference for the tile on the top row of the leftmost column of the sprite that is on-screen. <span class="register">C</span> is 0 if the character is facing left, or -8 if he's facing right.
+Now <span class="register">H</span> holds 0xD7, 0xDB or 0xDF - the page containing the UDG reference for the tile on the top row of the leftmost column of the sprite that is on-screen. <span class="register">C</span> is 0 if the character is facing left, or -8 if he's facing right.
 </div>
 </div>
 </td>
@@ -411,7 +411,7 @@ Now <span class="register">H</span> holds 215, 219 or 223 - the page containing 
 <span id="617e"></span>
 <div class="comments">
 <div class="paragraph">
-Now <span class="register">C'</span> holds 1, 2, 4, 8, 16, 32, 64 or 128. The bit set in <span class="register">C'</span> corresponds to the bit that needs to be set in the relevant byte of the screen refresh buffer (SRB).
+Now <span class="register">C'</span> holds 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40 or 0x80. The bit set in <span class="register">C'</span> corresponds to the bit that needs to be set in the relevant byte of the screen refresh buffer (SRB).
 </div>
 </div>
 </td>
@@ -486,7 +486,7 @@ Now <span class="register">C'</span> holds 1, 2, 4, 8, 16, 32, 64 or 128. The bi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="618a"></span>618A</td>
 <td class="instruction">LD H,$7F</td>
-<td class="comment-11" rowspan="1">The SRB starts at page 127 (<a href="7F00.html">7F00</a>)</td>
+<td class="comment-11" rowspan="1">The SRB starts at page 0x7F (<a href="7F00.html">7F00</a>)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -676,7 +676,7 @@ Here we enter a loop to set the appropriate bits in the SRB.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="61b1"></span>61B1</td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span> (<span class="register">L</span>=0)</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span> (<span class="register">L</span>=0x00)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -693,9 +693,9 @@ Here we enter a loop to set the appropriate bits in the SRB.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

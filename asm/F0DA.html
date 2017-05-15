@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by command list <a href="E98C.html">80</a>. Makes the teacher stand still until the period is nearly over, and also perform assembly duty (if the teacher is MR WITHIT).
+Used by command list <a href="E98C.html">0x50</a>. Makes the teacher stand still until the period is nearly over, and also perform assembly duty (if the teacher is MR WITHIT).
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by command list <a href="E98C.html">80</a>. Makes the teacher stand still u
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (201-203)</td>
+<td class="register-desc">Teacher's character number (0xC9-0xCB)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by command list <a href="E98C.html">80</a>. Makes the teacher stand still u
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f0da"></span>F0DA</td>
 <td class="instruction">LD A,($7FE4)</td>
-<td class="comment-11" rowspan="1">Collect the MSB of the lesson clock (which starts off at 16)</td>
+<td class="comment-11" rowspan="1">Collect the MSB of the lesson clock (which starts off at 0x10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -98,7 +98,7 @@ Used by command list <a href="E98C.html">80</a>. Makes the teacher stand still u
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0e9"></span>F0E9</td>
 <td class="instruction">LD DE,$7F80</td>
-<td class="comment-11" rowspan="4">Set bits 6 (ERIC should be here now) and 7 (time to sit down: this is checked by command lists <a href="E256.html">20</a>, <a href="E70F.html">40</a> and <a href="E5EE.html">88</a>) at <a href="7F80.html">7F80</a></td>
+<td class="comment-11" rowspan="4">Set bits 6 (ERIC should be here now) and 7 (time to sit down: this is checked by command lists <a href="E256.html">0x14</a>, <a href="E70F.html">0x28</a> and <a href="E5EE.html">0x58</a>) at <a href="7F80.html">7F80</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -163,9 +163,9 @@ Used by command list <a href="E98C.html">80</a>. Makes the teacher stand still u
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="F100.html">F100</a>. Makes the teacher choose between messages <a href="ED13.html">89</a>, <a href="ED32.html">90</a> and <a href="ED63.html">91</a> (in a lesson without ERIC and EINSTEIN, or a lesson with no question-and-answer session).
+Used by the routine at <a href="F100.html">F100</a>. Makes the teacher choose between messages <a href="ED13.html">0x59</a>, <a href="ED32.html">0x5A</a> and <a href="ED63.html">0x5B</a> (in a lesson without ERIC and EINSTEIN, or a lesson with no question-and-answer session).
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ Used by the routine at <a href="F100.html">F100</a>. Makes the teacher choose be
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Teacher's character number (201-204)</td>
+<td class="register-desc">Teacher's character number (0xC9-0xCC)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -56,7 +56,7 @@ Used by the routine at <a href="F100.html">F100</a>. Makes the teacher choose be
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f060"></span>F060</td>
 <td class="instruction">CP $F0</td>
-<td class="comment-11" rowspan="2">Set the carry flag if <span class="register">A</span>&lt;240, and set the zero flag if <span class="register">A</span>&lt;128</td>
+<td class="comment-11" rowspan="2">Set the carry flag if <span class="register">A</span>&lt;0xF0, and set the zero flag if <span class="register">A</span>&lt;0x80</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -74,19 +74,19 @@ Used by the routine at <a href="F100.html">F100</a>. Makes the teacher choose be
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f066"></span>F066</td>
 <td class="instruction">JR NC,$F06C</td>
-<td class="comment-11" rowspan="1">Jump if it's essay time (<span class="register">A</span>&gt;=240)</td>
+<td class="comment-11" rowspan="1">Jump if it's essay time (<span class="register">A</span>&gt;=0xF0)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f068"></span>F068</td>
 <td class="instruction">JR Z,$F06B</td>
-<td class="comment-11" rowspan="1">Jump if it's book-reading time (<span class="register">A</span>&lt;128)</td>
+<td class="comment-11" rowspan="1">Jump if it's book-reading time (<span class="register">A</span>&lt;0x80)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f06a"></span>F06A</td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1">It's revision time (128&lt;=<span class="register">A</span>&lt;240)</td>
+<td class="comment-11" rowspan="1">It's revision time (0x80&lt;=<span class="register">A</span>&lt;0xF0)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -108,15 +108,15 @@ Now <span class="register">E</span> holds the appropriate message number:
 <th colspan="1" rowspan="1">Message</th>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1"><a href="ED13.html">89</a></td>
+<td class="" colspan="1" rowspan="1"><a href="ED13.html">0x59</a></td>
 <td class="" colspan="1" rowspan="1">START REVISING FOR YOUR EXAMS</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1"><a href="ED32.html">90</a></td>
+<td class="" colspan="1" rowspan="1"><a href="ED32.html">0x5A</a></td>
 <td class="" colspan="1" rowspan="1">START READING AT THE NEXT CHAPTER IN YOUR BOOKS</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1"><a href="ED63.html">91</a></td>
+<td class="" colspan="1" rowspan="1"><a href="ED63.html">0x5B</a></td>
 <td class="" colspan="1" rowspan="1">WRITE AN ESSAY TITLED 'WHY I LOVE SCHOOL'</td>
 </tr>
 </table>
@@ -145,9 +145,9 @@ Now <span class="register">E</span> holds the appropriate message number:
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

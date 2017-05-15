@@ -77,7 +77,7 @@ Called by the routine at <a href="F7AD.html">F7AD</a> when bit 0 at <a href="7FF
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d6c"></span>5D6C</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -141,7 +141,7 @@ This entry point is used by the routine at <a href="5EC7.html">5EC7</a> with <sp
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d7f"></span>5D7F</td>
 <td class="instruction">AND $80</td>
-<td class="comment-11" rowspan="1">Restore ERIC's animatory state to <a href="../graphics/as.html#0">0</a> (facing left) or <a href="../graphics/as.html#128">128</a> (facing right) as appropriate</td>
+<td class="comment-11" rowspan="1">Restore ERIC's animatory state to <a href="../graphics/as.html#0">0x00</a> (facing left) or <a href="../graphics/as.html#128">0x80</a> (facing right) as appropriate</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -173,7 +173,7 @@ ERIC has jumped, but not onto a plant pot.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d84"></span>5D84</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -197,7 +197,7 @@ ERIC has jumped, but not onto a plant pot.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d89"></span>5D89</td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -231,7 +231,7 @@ ERIC jumped while on the top floor. Up to the drinks cabinet?
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d91"></span>5D91</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -459,7 +459,7 @@ ERIC has jumped up to the safe, and he has the safe key. Celebration time.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5dce"></span>5DCE</td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="FDEF.html">0</a>: 'ONTO THE NEXT YEAR'</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="FDEF.html">0x00</a>: 'ONTO THE NEXT YEAR'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -494,9 +494,9 @@ ERIC has jumped up to the safe, and he has the safe key. Celebration time.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

@@ -35,35 +35,35 @@ Used by the routines at <a href="6464.html">6464</a>, <a href="64F3.html">64F3</
 <th colspan="1" rowspan="1">Region</th>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">189</td>
+<td class="" colspan="1" rowspan="1">0xBD</td>
 <td class="" colspan="1" rowspan="1">Top floor, left of the left study door in the boys' skool</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">190</td>
+<td class="" colspan="1" rowspan="1">0xBE</td>
 <td class="" colspan="1" rowspan="1">Middle floor, left of the far wall of the Science Lab storeroom</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">191</td>
+<td class="" colspan="1" rowspan="1">0xBF</td>
 <td class="" colspan="1" rowspan="1">Anywhere on the bottom floor (or in mid-air!)</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">192</td>
+<td class="" colspan="1" rowspan="1">0xC0</td>
 <td class="" colspan="1" rowspan="1">Assembly hall stage</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">193</td>
+<td class="" colspan="1" rowspan="1">0xC1</td>
 <td class="" colspan="1" rowspan="1">Near the middle-floor window in the boys' skool</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">194</td>
+<td class="" colspan="1" rowspan="1">0xC2</td>
 <td class="" colspan="1" rowspan="1">Top floor, right of the left study door in the boys' skool</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">195</td>
+<td class="" colspan="1" rowspan="1">0xC3</td>
 <td class="" colspan="1" rowspan="1">Middle floor, girls' skool</td>
 </tr>
 <tr>
-<td class="" colspan="1" rowspan="1">196</td>
+<td class="" colspan="1" rowspan="1">0xC4</td>
 <td class="" colspan="1" rowspan="1">Top floor, girls' skool</td>
 </tr>
 </table>
@@ -78,39 +78,39 @@ Used by the routines at <a href="6464.html">6464</a>, <a href="64F3.html">64F3</
 <th colspan="1" rowspan="1">Region</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
 <td class="" colspan="1" rowspan="1">None of the places below (ERIC is never allowed here)</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">0x01</td>
 <td class="" colspan="1" rowspan="1">Playground</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">0x02</td>
 <td class="" colspan="1" rowspan="1">Various places in the boys' skool outside classrooms</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">0x03</td>
 <td class="" colspan="1" rowspan="1">Assembly hall</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">0x04</td>
 <td class="" colspan="1" rowspan="1">Dining hall</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="centre" colspan="1" rowspan="1">0x05</td>
 <td class="" colspan="1" rowspan="1">Revision Library, outside the Yellow Room door</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1">0x06</td>
 <td class="" colspan="1" rowspan="1">Science Lab</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">0x07</td>
 <td class="" colspan="1" rowspan="1">Blue Room</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">8</td>
+<td class="centre" colspan="1" rowspan="1">0x08</td>
 <td class="" colspan="1" rowspan="1">Yellow Room</td>
 </tr>
 </table>
@@ -144,14 +144,14 @@ The carry flag is set upon return to the caller of this routine if the coordinat
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63d2"></span>63D2</td>
 <td class="instruction">CALL <a href="6DA3.html">$6DA3</a></td>
-<td class="comment-11" rowspan="1">Divert back to the calling routine with <span class="register">A</span>=192 and the carry flag reset if the character is on the assembly hall stage; otherwise return here with <span class="register">B</span>=182 and <span class="register">C</span>=59</td>
+<td class="comment-11" rowspan="1">Divert back to the calling routine with <span class="register">A</span>=0xC0 and the carry flag reset if the character is on the assembly hall stage; otherwise return here with <span class="register">B</span>=0xB6 and <span class="register">C</span>=0x3B</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
 <span id="63d5"></span>
 <div class="comments">
 <div class="paragraph">
-This entry point is used by the routine at <a href="7D00.html">7D00</a> with ERIC's coordinates in <span class="register">DE</span>, <span class="register">B</span>=185, and <span class="register">C</span>=59.
+This entry point is used by the routine at <a href="7D00.html">7D00</a> with ERIC's coordinates in <span class="register">DE</span>, <span class="register">B</span>=0xB9, and <span class="register">C</span>=0x3B.
 </div>
 </div>
 </td>
@@ -166,7 +166,7 @@ This entry point is used by the routine at <a href="7D00.html">7D00</a> with ERI
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63d6"></span>63D6</td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="3">Set <span class="register">B</span> to 183 (186) if <span class="register">D</span>&lt;=6 (top floor), 184 (187) if 7&lt;=<span class="register">D</span>&lt;=13 (middle floor), or 185 (188) if 14&lt;=<span class="register">D</span>&lt;=18 (bottom floor)</td>
+<td class="comment-11" rowspan="3">Set <span class="register">B</span> to 0xB7 (0xBA) if <span class="register">D</span>&lt;=0x06 (top floor), 0xB8 (0xBB) if 0x07&lt;=<span class="register">D</span>&lt;=0x0D (middle floor), or 0xB9 (0xBC) if 0x0E&lt;=<span class="register">D</span>&lt;=0x12 (bottom floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -226,7 +226,7 @@ Now <span class="register">BC</span> will be used to index one of the skool regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63db"></span>63DB</td>
 <td class="instruction">CP $FC</td>
-<td class="comment-11" rowspan="1">Does <span class="register">D</span>=3, 10 or 17 (top, middle, bottom floor)?</td>
+<td class="comment-11" rowspan="1">Does <span class="register">D</span>=0x03, 0x0A or 0x11 (top, middle, bottom floor)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -298,13 +298,13 @@ Now <span class="register">BC</span> will be used to index one of the skool regi
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63ea"></span>63EA</td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the carry flag (reset if <span class="register">D</span>=3, 10 or 17; set otherwise)</td>
+<td class="comment-11" rowspan="1">Restore the carry flag (reset if <span class="register">D</span>=0x03, 0x0A or 0x11; set otherwise)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63eb"></span>63EB</td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=region identifier (189-196 or 0-8; see the tables above)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=region identifier (0xBD-0xC4 or 0x00-0x08; see the tables above)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -321,9 +321,9 @@ Now <span class="register">BC</span> will be used to index one of the skool regi
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

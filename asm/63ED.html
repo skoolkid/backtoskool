@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this interruptible subcommand routine is placed into bytes 9 and 10 of the character's buffer by the routines at <a href="6464.html">6464</a>, <a href="6D00.html">6D00</a>, <a href="7CAB.html">7CAB</a> and <a href="F100.html">F100</a>. It is used to make a character go straight to a destination (or intermediate destination) that is reachable without negotiating any staircases.
+The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of the character's buffer by the routines at <a href="6464.html">6464</a>, <a href="6D00.html">6D00</a>, <a href="7CAB.html">7CAB</a> and <a href="F100.html">F100</a>. It is used to make a character go straight to a destination (or intermediate destination) that is reachable without negotiating any staircases.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-214)</td>
+<td class="register-desc">Character number (0xB7-0xD6)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63ed"></span>63ED</td>
 <td class="instruction">LD L,$0C</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 12 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x0C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -63,7 +63,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <span id="63f1"></span>
 <div class="comments">
 <div class="paragraph">
-Byte 12 is used to count the number of paces the character has taken while under the control of this routine. It is decremented on each pass (at <a href="63ED.html#6412">6412</a> below). If it reaches 0, the address of this routine is removed from bytes 9 and 10 of the character's buffer. This has the effect of allowing the character-moving routine at <a href="62D0.html">62D0</a> the chance to check whether a command list restart (bit 0 of byte 29 set) has been requested in the meantime. This ensures that the character does not proceed all the way to the (intermediate) destination before responding to some important event, such as the start of a new lesson (important for every character), ERIC playing truant (important for MR WACKER), or ERIC being present in the girls' skool when it's not playtime (important for MISS TAKE). If no command list restart has been requested in the meantime, the address of this routine will be placed into bytes 9 and 10 of the character's buffer again by the routine at <a href="6464.html">6464</a>, and the character will continue towards his destination.
+Byte 0x0C is used to count the number of paces the character has taken while under the control of this routine. It is decremented on each pass (at <a href="63ED.html#6412">6412</a> below). If it reaches 0, the address of this routine is removed from bytes 0x09 and 0x0A of the character's buffer. This has the effect of allowing the character-moving routine at <a href="62D0.html">62D0</a> the chance to check whether a command list restart (bit 0 of byte 0x1D set) has been requested in the meantime. This ensures that the character does not proceed all the way to the (intermediate) destination before responding to some important event, such as the start of a new lesson (important for every character), ERIC playing truant (important for MR WACKER), or ERIC being present in the girls' skool when it's not playtime (important for MISS TAKE). If no command list restart has been requested in the meantime, the address of this routine will be placed into bytes 0x09 and 0x0A of the character's buffer again by the routine at <a href="6464.html">6464</a>, and the character will continue towards his destination.
 </div>
 </div>
 </td>
@@ -84,7 +84,7 @@ Byte 12 is used to count the number of paces the character has taken while under
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63f3"></span>63F3</td>
 <td class="instruction">LD L,$09</td>
-<td class="comment-11" rowspan="2">Replace the address of this routine in bytes 9 and 10 of the character's buffer with <a href="63ED.html#63f7">63F7</a> (below)</td>
+<td class="comment-11" rowspan="2">Replace the address of this routine in bytes 0x09 and 0x0A of the character's buffer with <a href="63ED.html#63f7">63F7</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -106,7 +106,7 @@ The second and subsequent calls to this routine (from <a href="62D0.html">62D0</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63f7"></span>63F7</td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -232,7 +232,7 @@ The character is not midstride. If he hasn't reached his destination yet, make h
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6412"></span>6412</td>
 <td class="instruction">LD L,$0C</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 12 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x0C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -250,7 +250,7 @@ The character is not midstride. If he hasn't reached his destination yet, make h
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6418"></span>6418</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=11</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0B</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -290,7 +290,7 @@ This entry point is used by the routine at <a href="F939.html">F939</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6420"></span>6420</td>
 <td class="instruction">DEC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -391,9 +391,9 @@ This entry point is used by the routines at <a href="6464.html">6464</a>, <a hre
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

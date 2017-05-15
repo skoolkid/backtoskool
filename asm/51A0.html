@@ -35,7 +35,7 @@ Used by the routine at <a href="52A0.html">52A0</a>. Waits for keypresses while 
 </tr>
 <tr>
 <td class="register">A</td>
-<td class="register-desc">Message number of the character's name (21-31)</td>
+<td class="register-desc">Message number of the character's name (0x15-0x1F)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -86,7 +86,7 @@ Used by the routine at <a href="52A0.html">52A0</a>. Waits for keypresses while 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51a7"></span>51A7</td>
 <td class="instruction">LD BC,$0C00</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=12, <span class="register">C</span>=0</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=0x0C, <span class="register">C</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -116,7 +116,7 @@ Used by the routine at <a href="52A0.html">52A0</a>. Waits for keypresses while 
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51af"></span>51AF</td>
 <td class="instruction">LD HL,$5040</td>
-<td class="comment-11" rowspan="1">20544=display file address at which to print the name</td>
+<td class="comment-11" rowspan="1">5040=display file address at which to print the name</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -311,9 +311,9 @@ A key was pressed, and it wasn't ENTER. Place the ASCII code in the right slot o
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

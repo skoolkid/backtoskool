@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-Used by the routine at <a href="7C8F.html">7C8F</a>, and also by the unused routines at <a href="7C95.html">7C95</a> and <a href="7CA1.html">7CA1</a>. The event identifier in <span class="register">A</span> (0, 7-12), taken modulo 8, corresponds to a bit in one of the bytes at <a href="7F80.html">7F80</a> (<span class="register">A</span>&lt;=7) or <a href="7F81.html">7F81</a> (<span class="register">A</span>&gt;=8). On exit, <span class="register">HL</span> points to the appropriate byte and <span class="register">A</span> holds the bit mask (single bit set), as follows:
+Used by the routine at <a href="7C8F.html">7C8F</a>, and also by the unused routines at <a href="7C95.html">7C95</a> and <a href="7CA1.html">7CA1</a>. The event identifier in <span class="register">A</span> (0x00, 0x07-0x0C), taken modulo 8, corresponds to a bit in one of the bytes at <a href="7F80.html">7F80</a> (<span class="register">A</span>&lt;=7) or <a href="7F81.html">7F81</a> (<span class="register">A</span>&gt;=8). On exit, <span class="register">HL</span> points to the appropriate byte and <span class="register">A</span> holds the bit mask (single bit set), as follows:
 </div>
 <div class="paragraph">
 <table class="default">
@@ -36,38 +36,38 @@ Used by the routine at <a href="7C8F.html">7C8F</a>, and also by the unused rout
 <th colspan="1" rowspan="1">Event</th>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">0</td>
-<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">0x00</td>
+<td class="centre" colspan="1" rowspan="1">0x01</td>
 <td class="" colspan="1" rowspan="1">End of lesson</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">7</td>
-<td class="centre" colspan="1" rowspan="1">128</td>
+<td class="centre" colspan="1" rowspan="1">0x07</td>
+<td class="centre" colspan="1" rowspan="1">0x80</td>
 <td class="" colspan="1" rowspan="1">Time to sit down for assembly</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">8</td>
-<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">0x08</td>
+<td class="centre" colspan="1" rowspan="1">0x01</td>
 <td class="" colspan="1" rowspan="1">Teacher has arrived at the top-floor room in the girls' skool</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">9</td>
-<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">0x09</td>
+<td class="centre" colspan="1" rowspan="1">0x02</td>
 <td class="" colspan="1" rowspan="1">Teacher has arrived at the middle-floor room in the girls' skool</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">10</td>
-<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">0x0A</td>
+<td class="centre" colspan="1" rowspan="1">0x04</td>
 <td class="" colspan="1" rowspan="1">Teacher has arrived at the Blue Room</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">11</td>
-<td class="centre" colspan="1" rowspan="1">8</td>
+<td class="centre" colspan="1" rowspan="1">0x0B</td>
+<td class="centre" colspan="1" rowspan="1">0x08</td>
 <td class="" colspan="1" rowspan="1">Teacher has arrived at the Yellow Room</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">12</td>
-<td class="centre" colspan="1" rowspan="1">16</td>
+<td class="centre" colspan="1" rowspan="1">0x0C</td>
+<td class="centre" colspan="1" rowspan="1">0x10</td>
 <td class="" colspan="1" rowspan="1">Teacher has arrived at the Science Lab</td>
 </tr>
 </table>
@@ -112,7 +112,7 @@ Used by the routine at <a href="7C8F.html">7C8F</a>, and also by the unused rout
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c78"></span>7C78</td>
 <td class="instruction">LD A,$00</td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=1 if the event ID is an even number, 2 if it's an odd number</td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=0x01 if the event ID is an even number, 0x02 if it's an odd number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -136,13 +136,13 @@ Used by the routine at <a href="7C8F.html">7C8F</a>, and also by the unused rout
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c7e"></span>7C7E</td>
 <td class="instruction">JR NC,$7C82</td>
-<td class="comment-11" rowspan="1">Jump if the event ID is 0, 8, 9 or 12 (bit 1 reset)</td>
+<td class="comment-11" rowspan="1">Jump if the event ID is 0x00, 0x08, 0x09 or 0x0C (bit 1 reset)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c80"></span>7C80</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=4 (event ID = 10) or 8 (event ID = 7 or 11)</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=0x04 (event ID = 0x0A) or 8 (event ID = 0x07 or 0x0B)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -160,19 +160,19 @@ Used by the routine at <a href="7C8F.html">7C8F</a>, and also by the unused rout
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c83"></span>7C83</td>
 <td class="instruction">RR E</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=128 (event ID &lt;= 7) or 129</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=0x80 (event ID &lt;= 0x07) or 0x81</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c85"></span>7C85</td>
 <td class="instruction">JR NC,$7C8B</td>
-<td class="comment-11" rowspan="1">Jump if the event ID is 0, 8, 9, 10 or 11 (bit 2 reset)</td>
+<td class="comment-11" rowspan="1">Jump if the event ID is 0x00, 0x08, 0x09, 0x0A or 0x0B (bit 2 reset)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c87"></span>7C87</td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="4"><span class="register">A</span>=16 (event ID = 12) or 128 (event ID = 7)</td>
+<td class="comment-11" rowspan="4"><span class="register">A</span>=0x10 (event ID = 0x0C) or 0x80 (event ID = 0x07)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -219,9 +219,9 @@ Used by the routine at <a href="7C8F.html">7C8F</a>, and also by the unused rout
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

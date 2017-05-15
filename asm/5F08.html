@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of HAYLEY's buffer by the routine at <a href="5F1C.html">5F1C</a> when ERIC has tried to steal one kiss too many.
+The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of HAYLEY's buffer by the routine at <a href="5F1C.html">5F1C</a> when ERIC has tried to steal one kiss too many.
 </div>
 </div>
 <table class="input-1">
@@ -35,11 +35,11 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="register">A</td>
-<td class="register-desc">95 (MSB of the address of this routine)</td>
+<td class="register-desc">0x5F (MSB of the address of this routine)</td>
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">209 (HAYLEY)</td>
+<td class="register-desc">0xD1 (HAYLEY)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -66,7 +66,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f0e"></span>5F0E</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Store HAYLEY's current animatory state in byte 20 of her buffer for the time being</td>
+<td class="comment-11" rowspan="2">Store HAYLEY's current animatory state in byte 0x14 of her buffer for the time being</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -78,7 +78,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f11"></span>5F11</td>
 <td class="instruction">OR $07</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#63">63/191</a>: HAYLEY with her arm up (as if hitting ERIC)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#63">0x3F/0xBF</a>: HAYLEY with her arm up (as if hitting ERIC)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -107,9 +107,9 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

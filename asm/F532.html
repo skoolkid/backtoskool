@@ -71,7 +71,7 @@ Used by the routines at <a href="73CB.html">73CB</a> (when ERIC has 10000 or mor
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f53a"></span>F53A</td>
 <td class="instruction">LD L,$E4</td>
-<td class="comment-11" rowspan="2">Set the MSB of the lesson clock at <a href="7FE3.html">7FE3</a> to 255, so that the lesson will not end until ERIC's expelled</td>
+<td class="comment-11" rowspan="2">Set the MSB of the lesson clock at <a href="7FE3.html">7FE3</a> to 0xFF, so that the lesson will not end until ERIC's expelled</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -83,13 +83,13 @@ Used by the routines at <a href="73CB.html">73CB</a> (when ERIC has 10000 or mor
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f53e"></span>F53E</td>
 <td class="instruction">LD HL,$C81B</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 27 of MR WACKER's buffer</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x1B of MR WACKER's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f541"></span>F541</td>
 <td class="instruction">LD (HL),$30</td>
-<td class="comment-11" rowspan="3">Place the address of the command list at <a href="F530.html">F530</a> (which contains the single routine address <a href="F55F.html">F55F</a>) into bytes 27 and 28 of MR WACKER's buffer</td>
+<td class="comment-11" rowspan="3">Place the address of the command list at <a href="F530.html">F530</a> (which contains the single routine address <a href="F55F.html">F55F</a>) into bytes 0x1B and 0x1C of MR WACKER's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -107,7 +107,7 @@ Used by the routines at <a href="73CB.html">73CB</a> (when ERIC has 10000 or mor
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f546"></span>F546</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set bit 0 of byte 29 of MR WACKER's buffer, triggering a command list restart (at <a href="F530.html">F530</a>)</td>
+<td class="comment-11" rowspan="2">Set bit 0 of byte 0x1D of MR WACKER's buffer, triggering a command list restart (at <a href="F530.html">F530</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -130,9 +130,9 @@ Used by the routines at <a href="73CB.html">73CB</a> (when ERIC has 10000 or mor
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

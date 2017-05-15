@@ -35,7 +35,7 @@ Used by the routines at <a href="6791.html">6791</a>, <a href="6A08.html">6A08</
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Number of the character speaking or writing (183-209)</td>
+<td class="register-desc">Number of the character speaking or writing (0xB7-0xD1)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ Used by the routines at <a href="6791.html">6791</a>, <a href="6A08.html">6A08</
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="66ce"></span>66CE</td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="2">Bytes 15 and 16 hold the address of the next character in the sub-submessage being written/spoken (if any)</td>
+<td class="comment-11" rowspan="2">Bytes 0x0F and 0x10 hold the address of the next character in the sub-submessage being written/spoken (if any)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -74,7 +74,7 @@ Used by the routines at <a href="6791.html">6791</a>, <a href="6A08.html">6A08</
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="66d4"></span>66D4</td>
 <td class="instruction">LD L,$0E</td>
-<td class="comment-11" rowspan="2">Bytes 13 and 14 hold the address of the next character in the submessage being written/spoken (if any)</td>
+<td class="comment-11" rowspan="2">Bytes 0x0D and 0x0E hold the address of the next character in the submessage being written/spoken (if any)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -180,13 +180,13 @@ We've reached the end of the (sub)(sub)message.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="66e9"></span>66E9</td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=11 (top-level message), 13 (submessage) or 15 (sub-submessage)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0B (top-level message), 0x0D (submessage) or 0x0F (sub-submessage)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="66ea"></span>66EA</td>
 <td class="instruction">BIT 2,L</td>
-<td class="comment-11" rowspan="1">Has the end of the top-level message been reached (<span class="register">L</span>=11)?</td>
+<td class="comment-11" rowspan="1">Has the end of the top-level message been reached (<span class="register">L</span>=0x0B)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -232,7 +232,7 @@ We haven't reached the end of the (sub)(sub)message yet. Determine whether the n
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="66f4"></span>66F4</td>
 <td class="instruction">JR NC,$66F9</td>
-<td class="comment-11" rowspan="1">Jump with character codes 1-31 or 128 onwards</td>
+<td class="comment-11" rowspan="1">Jump with character codes 0x01-0x1F or 0x80 onwards</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -262,7 +262,7 @@ We haven't reached the end of the (sub)(sub)message yet. Determine whether the n
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="66fd"></span>66FD</td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return with character codes 1 and 2 (end of line)</td>
+<td class="comment-11" rowspan="1">Return with character codes 0x01 and 0x02 (end of line)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="4">
@@ -290,7 +290,7 @@ The next character in the message is actually a pointer to another message. Find
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6701"></span>6701</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=13 (submessage) or 15 (sub-submessage)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0D (submessage) or 0x0F (sub-submessage)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -302,13 +302,13 @@ The next character in the message is actually a pointer to another message. Find
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6703"></span>6703</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Store it in byte 13 or 15 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Store it in byte 0x0D or 0x0F of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6704"></span>6704</td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=14 (submessage) or 16 (sub-submessage)</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0x0E (submessage) or 0x10 (sub-submessage)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -326,7 +326,7 @@ The next character in the message is actually a pointer to another message. Find
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6707"></span>6707</td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Store it in byte 14 or 16 of the character's buffer</td>
+<td class="comment-11" rowspan="1">Store it in byte 0x0E or 0x10 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -343,9 +343,9 @@ The next character in the message is actually a pointer to another message. Find
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>

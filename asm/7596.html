@@ -26,7 +26,7 @@
 <td class="routine-comment" colspan="4">
 <div class="details">
 <div class="paragraph">
-The address of this uninterruptible subcommand routine is placed into bytes 17 and 18 of the stricken character's buffer by the routine at <a href="74C8.html">74C8</a>. It knocks the character to the floor, makes him give lines to any nearby kids (if he's a teacher), and then makes him get up.
+The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of the stricken character's buffer by the routine at <a href="74C8.html">74C8</a>. It knocks the character to the floor, makes him give lines to any nearby kids (if he's a teacher), and then makes him get up.
 </div>
 </div>
 <table class="input-1">
@@ -35,7 +35,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 </tr>
 <tr>
 <td class="register">H</td>
-<td class="register-desc">Character number (183-209)</td>
+<td class="register-desc">Character number (0xB7-0xD1)</td>
 </tr>
 </table>
 <table class="output-0">
@@ -50,7 +50,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 17 a
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7596"></span>7596</td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Byte 19 of the character's buffer holds the knockout delay counter</td>
+<td class="comment-11" rowspan="1">Byte 0x13 of the character's buffer holds the knockout delay counter</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -112,7 +112,7 @@ This entry point is used by the routine at <a href="7132.html">7132</a>.
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="75a3"></span>75A3</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="1">Byte 20 of the character's buffer holds the pre-knockout animatory state saved earlier</td>
+<td class="comment-11" rowspan="1">Byte 0x14 of the character's buffer holds the pre-knockout animatory state saved earlier</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -252,7 +252,7 @@ The knockout delay counter has not reached 2 yet. Is it time to knock the charac
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75c5"></span>75C5</td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="3">Add 12 to the MSB of the lesson clock if ALBERT was knocked down, thus giving ERIC some extra time to work with</td>
+<td class="comment-11" rowspan="3">Add 0x0C to the MSB of the lesson clock if ALBERT was knocked down, thus giving ERIC some extra time to work with</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -340,7 +340,7 @@ Knock the character down.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75da"></span>75DA</td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Store the character's current animatory state in byte 20 of the buffer for retrieval later (when the character gets up)</td>
+<td class="comment-11" rowspan="2">Store the character's current animatory state in byte 0x14 of the buffer for retrieval later (when the character gets up)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -452,7 +452,7 @@ It's not time to knock the character down.
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75f5"></span>75F5</td>
 <td class="instruction">LD B,$0F</td>
-<td class="comment-11" rowspan="1">Message <a href="EA01.html">15</a>: NOW DON'T DO IT AGAIN</td>
+<td class="comment-11" rowspan="1">Message <a href="EA01.html">0x0F</a>: NOW DON'T DO IT AGAIN</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
@@ -469,9 +469,9 @@ It's not time to knock the character down.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20151012</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd (Back to Skool). &#169; 2015 Richard Dymond (this disassembly).</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 5.1.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20170515</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.</div>
+<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 6.0.</div>
 </footer>
 </body>
 </html>
