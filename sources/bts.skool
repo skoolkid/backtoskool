@@ -1571,7 +1571,7 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
 @nowarn
  24326 JR 24289      ; This is a #BUG#fire(bug); it should be #S/JR/ #R24287
 @ofix+else
-       JR 24287      ; Update ERIC's animatory state and update the SRB
+ 24326 JR 24287      ; Update ERIC's animatory state and update the SRB
 @ofix+end
 
 ; Make HAYLEY hit ERIC
@@ -3856,7 +3856,7 @@ c26175 LD D,183      ; #b183=little girl no. 1
                      ; set), so ERIC actually stays in his seat (which is a
                      ; #BUG#seat(bug))
 @bfix+else
-       LD (HL),128   ; Set bit 7 of ERIC's primary status flags, indicating
+ 26211 LD (HL),128   ; Set bit 7 of ERIC's primary status flags, indicating
                      ; that he's been knocked to the floor
 @bfix+end
  26213 EX DE,HL      ; Restore the number of the character looking for a seat
@@ -5879,8 +5879,8 @@ c28085 LD A,D        ; #REGa=ERIC's y-coordinate
                      ; entry (regardless of which floor ERIC is on, which is a
                      ; #BUG#jumpAbsent(bug))
 @bfix+else
-       CP 17         ; Is ERIC on the bottom floor?
-       RET Z         ; Return with #REGd=#b17 if so
+ 28086 CP 17         ; Is ERIC on the bottom floor?
+ 28088 RET Z         ; Return with #REGd=#b17 if so
 @bfix+end
  28089 LD D,3        ; #b3=top floor
  28091 CP 4          ; Is ERIC directly above the top floor?
@@ -5976,8 +5976,8 @@ c28160 LD H,210      ; #b210=ERIC
  28195 RET NC        ; handle the case where ERIC's x-coordinate is 0, which is
                      ; a #BUG#farLeft(bug)}
 @bfix+else
-       ADD A,21      ; screen (no need to scroll)
-       RET P         ; }
+ 28193 ADD A,21      ; screen (no need to scroll)
+ 28195 RET P         ; }
 @bfix+end
  28196 CALL 25248    ; Update the display
  28199 JP 25026      ; Scroll the screen to the left
@@ -8125,7 +8125,7 @@ c30380 LD L,19       ; Byte #b19 of the pellet's buffer holds the distance left
                      ; ceiling on the top floor before disappearing, which is a
                      ; #BUG#pelletHover(bug)
 @bfix+else
-       JP M,29903    ; Terminate the pellet if so
+ 30474 JP M,29903    ; Terminate the pellet if so
 @bfix+end
 *30477 CALL 30534    ; Replace the address of this routine in bytes #b17 and
                      ; #b18 of the pellet's buffer with #R30480 (the address of
@@ -9990,7 +9990,7 @@ c32062 AND A         ; Is ERIC in a forbidden zone?
  32205 JR Z,32232    ; Tell ERIC to sit facing the stage if not (this is a
                      ; #BUG#assemblySit(bug))
 @bfix+else
-       JR NZ,32232   ; Tell ERIC to sit facing the stage if so
+ 32205 JR NZ,32232   ; Tell ERIC to sit facing the stage if so
 @bfix+end
  32207 JR 32228      ; Otherwise tell ERIC to sit down
 ; This lesson takes place in a classroom, and ERIC is present. Check whether
