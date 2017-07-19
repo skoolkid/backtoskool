@@ -18,7 +18,7 @@ import html
 from skoolkit.graphics import Frame, Udg as BaseUdg
 from skoolkit.skoolhtml import HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
-from skoolkit.skoolmacro import parse_ints, parse_brackets
+from skoolkit.skoolmacro import parse_ints, parse_brackets, parse_strings
 
 def parse_as(text, index):
     end, state = parse_ints(text, index, 1, (None,))
@@ -30,10 +30,9 @@ def parse_lesson(text, index):
     end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(lesson))
     return end, lesson, link_text
 
-def parse_s(text, index):
-    sep = text[index]
-    end, s = parse_brackets(text, index, '', sep, sep)
-    return end, '#IF({{case}}==1){0}{0}{1}{0}{2}{0}{0}'.format(sep, s.lower(), s)
+def parse_s(text, index, case):
+    end, s = parse_strings(text, index, 1)
+    return end, s.lower() if case == 1 else s
 
 class BackToSkoolHtmlWriter(HtmlWriter):
     def init(self):
@@ -372,7 +371,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
 
     def expand_s(self, text, index, cwd):
         # #S/text/
-        return parse_s(text, index)
+        return parse_s(text, index, self.case)
 
     def get_skool_udg(self, y, x, show_chars=False):
         q_addr = x + 46336
@@ -552,7 +551,7 @@ class BackToSkoolAsmWriter(AsmWriter):
 
     def expand_s(self, text, index):
         # #S/text/
-        return parse_s(text, index)
+        return parse_s(text, index, self.case)
 
 class Udg(BaseUdg):
     def __init__(self, attr, data, mask=None, attr_addr=None, q_addr=None, q=None, ref_addr=None, ref=None, udg_page=None, x=None, y=None):
