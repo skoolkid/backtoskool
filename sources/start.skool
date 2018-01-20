@@ -1,9 +1,12 @@
-; Copyright 2008-2013, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2013, 2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
 
 @start
+@remote=main:20709
+@remote=main:21746
+@remote=main:21920
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2008-2013, 2015, 2017 Richard Dymond (this disassembly)
+; Copyright 2008-2013, 2015, 2017, 2018 Richard Dymond (this disassembly)
 @org=33204
 
 ; Start
@@ -39,11 +42,3 @@ c33204 LD SP,23806   ; Put the stack somewhere safe
  33268 INC B         ; }
  33269 JP 21920      ;
 @end
-
-r20709 main
-
-r21746 main
-
-r21920 main
-
-r63189 main
