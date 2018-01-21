@@ -125,7 +125,7 @@ c23831 DI            ; Disable interrupts
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
 ; Copyright 2001, 2008-2013, 2015, 2017, 2018 Richard Dymond (this disassembly)
-@org=32768
+@org
 
 ; Collect one bit from tape
 ;

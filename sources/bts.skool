@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2018 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @replace=/#BUG(?![A-Z])/#LINK:Bugs
@@ -13,7 +13,7 @@
 ; http://skoolkit.ca/
 ;
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2017 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2018 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -47,7 +47,7 @@
 @bfix+end
 
 @isub+begin
-@org=20631
+@org
 @nowarn
 c20631 LD HL,23808
  20634 LD SP,HL
@@ -9926,7 +9926,7 @@ c32497 CALL 25213    ; Collect the event identifier parameter from the command
                      ; #R32509 (below)}
 *32509 JP 25484      ; Move to the next command in the command list
 
-@org=32512
+@org
 ; Screen refresh buffer (SRB)
 ;
 ; Used by the routines at #R24880, #R25248, #R26380, #R26849 and #R26910. Each
@@ -10442,7 +10442,7 @@ g32765 DEFW 36035 ; This is the initial value of the seed
 @label=LEFTCOL
 g32767 DEFB 0
 
-@org=32768
+@org
 ; Skool graphic data (tiles #b0-#b255, base page #b128)
 ;
 ; Used by the routine at #R24684. Tiles #b0-#b79 are used by the blackboards:
@@ -17012,7 +17012,7 @@ b59176 DEFB 31,31,31,31,31,31,31,31 ; {Attributes (PAPER 3: INK 7)
  59376 DEFB 0,0,0,0,34,0,0,0        ;
  59384 DEFB 0,0,0,0,12,0,0,0        ; }
 
-@org=59392
+@org
 ; Addresses of command lists
 ;
 ; Used by the routine at #R63309.
@@ -20604,7 +20604,7 @@ c63586 LD HL,32747   ; #R32747 holds the inventory flags
 s63743 DEFB 0
 @rsub-end
 
-@org=63744
+@org
 ; UDG reference table for the skool gate when shut
 ;
 ; Used by the routine at #R27672. The UDG reference table for the skool gate
@@ -20855,7 +20855,7 @@ s63996 DEFS 4
 
 @rem=This table must be 256 bytes after the UDG reference table for the skool
 @rem=gate when shut
-@org=64000
+@org
 ; UDG reference table for the skool gate when open
 ;
 ; Used by the routine at #R27672. The UDG reference table for the skool gate
@@ -21866,7 +21866,7 @@ t65007 DEFM "ONTO"
 u65023 DEFB 32
 @rsub-end
 
-@org=65024
+@org
 ; Addresses of messages #b0-#b111 (LSBs)
 ;
 ; Used by the routine at #R26318. The LSBs of the addresses of messages
@@ -22114,7 +22114,7 @@ t65136 DEFM "WHERE IS MT."
  65150 DEFB 4  ; #R59876(#b4): '#SPACE9' (9 spaces)
  65151 DEFB 0  ; End marker
 
-@org=65152
+@org
 ; Addresses of messages #b128-#b207 (LSBs)
 ;
 ; Used by the routine at #R26318. The LSBs of the addresses of messages
@@ -22312,7 +22312,7 @@ t65275 DEFB 137 ; #R61410(#b137): '{Please Sir I cannot tell a lie . . }it is '
  65278 DEFB 4   ; #R59876(#b4): '#SPACE9' (9 spaces)
  65279 DEFB 0   ; End marker
 
-@org=65280
+@org
 ; Addresses of messages #b0-#b111 (MSBs)
 ;
 ; Used by the routine at #R26318. The MSBs of the addresses of messages
@@ -22561,7 +22561,7 @@ t65392 DEFB 3  ; #R59840(#b3): 'Please Sir I cannot tell a lie . . '
  65406 DEFB 4  ; #R59876(#b4): '#SPACE9' (9 spaces)
  65407 DEFB 0  ; End marker
 
-@org=65408
+@org
 ; Addresses of messages #b128-#b207 (MSBs)
 ;
 ; Used by the routine at #R26318. The MSBs of the addresses of messages
