@@ -1,4 +1,4 @@
-; Copyright 2008-2015, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2018 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
 RefFiles=bugs.ref;changelog.ref;data.ref;facts.ref;glossary.ref;graphics.ref;pages.ref;pokes.ref
@@ -7,7 +7,7 @@ GameDir=back_to_skool
 
 [Game]
 Game=Back to Skool
-Logo=#UDGARRAY8,31,,8;59200-59335-1-64(/images/logo|Back to Skool)
+Logo=#UDGARRAY8,31,,8;59200-59335-1-64({ImagePath}/logo|Back to Skool)
 StyleSheet=skoolkit.css;bts.css
 Release=The complete Back to Skool RAM disassembly 20170515
 Copyright=&#169; 1985 Microsphere Computer Services Ltd. &#169; 2017 Richard Dymond.
