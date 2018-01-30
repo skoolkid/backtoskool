@@ -12,16 +12,16 @@ if not os.path.isdir(SKOOLKIT_HOME):
 sys.path.insert(0, '{}/tools'.format(SKOOLKIT_HOME))
 from testwriter import write_tests
 
-SKOOL = 'sources/bts.skool'
+SKOOL = 'bts.skool'
 
 SNAPSHOT = 'build/back_to_skool.z80'
 
-OUTPUT = """Using skool file: sources/bts.skool
-Using ref files: sources/bts.ref, sources/bugs.ref, sources/changelog.ref, sources/data.ref, sources/facts.ref, sources/glossary.ref, sources/graphics.ref, sources/pages.ref, sources/pokes.ref
-Parsing sources/bts.skool
+OUTPUT = """Using skool file: bts.skool
+Using ref files: bts.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref
+Parsing bts.skool
 Creating directory {odir}/back_to_skool
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/back_to_skool/skoolkit.css
-Copying sources/bts.css to {odir}/back_to_skool/bts.css
+Copying bts.css to {odir}/back_to_skool/bts.css
   Writing disassembly files in back_to_skool/asm
   Writing back_to_skool/maps/all.html
   Writing back_to_skool/maps/routines.html
@@ -36,7 +36,7 @@ Copying sources/bts.css to {odir}/back_to_skool/bts.css
   Writing back_to_skool/reference/pokes.html
   Writing back_to_skool/graphics/graphics.html
   Writing back_to_skool/graphics/playarea.html
-  Copying sources/tiles.js to {odir}/back_to_skool/tiles.js
+  Copying tiles.js to {odir}/back_to_skool/tiles.js
   Writing back_to_skool/graphics/patiles/patiles.html
   Writing back_to_skool/graphics/asstart.html
   Writing back_to_skool/graphics/as.html
@@ -68,19 +68,15 @@ Copying sources/bts.css to {odir}/back_to_skool/bts.css
   Writing back_to_skool/lessons/#N58.html
   Writing back_to_skool/lessons/#N59.html
   Writing back_to_skool/tables/keys.html
-  Parsing sources/load.skool
+  Parsing load.skool
     Writing back_to_skool/load/load.html
     Writing disassembly files in back_to_skool/load
-  Parsing sources/save.skool
+  Parsing save.skool
     Writing back_to_skool/save/save.html
     Writing disassembly files in back_to_skool/save
-  Parsing sources/start.skool
+  Parsing start.skool
     Writing back_to_skool/start/start.html
     Writing disassembly files in back_to_skool/start
   Writing back_to_skool/index.html"""
 
-HTML_WRITER = 'sources:backtoskool.BackToSkoolHtmlWriter'
-
-ASM_WRITER = 'sources:backtoskool.BackToSkoolAsmWriter'
-
-write_tests(SKOOL, SNAPSHOT, OUTPUT, HTML_WRITER, ASM_WRITER)
+write_tests(SKOOL, SNAPSHOT, OUTPUT)
