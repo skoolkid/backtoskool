@@ -1,4 +1,4 @@
-# Copyright 2008-2015, 2017 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -196,9 +196,8 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             for tile in row:
                 if tile:
                     img_fname = '{0:x}{1:x}.{2}'.format(tile.udg_addr, tile.attr, self.default_image_format)
-                    img_path = join(cwd, img_fname)
-                    if self.need_image(img_path):
-                        self.write_image(img_path, [[tile]], scale=4)
+                    img_path = '/' + join(cwd, img_fname)
+                    self.handle_image([Frame([[tile]], 4)], img_path, cwd)
                     subs = {
                         'x': tile.x,
                         'x_offset': self.b_fmt.format(181),
@@ -231,9 +230,6 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         states_desc = (self.b_fmt + ': {}').format(n, self.as_descs[n])
         return [(states, states_desc)]
 
-    def _get_sprite_tile_img_fname(self, tile, state):
-        return '{0:x}.{1}'.format(tile.udg_addr, self.default_image_format)
-
     def astiles(self, cwd):
         rows = []
         attr = 120
@@ -250,10 +246,9 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                             tile = row[col_num]
                             bubble_id_suffix = '{0:02x}'.format(udg_page) if udg_page is not None else ''
                             bubble_id = 'B{0:02x}{1:x}{2}'.format(state, row_num + num_rows * col_num, bubble_id_suffix)
-                            img_fname = self._get_sprite_tile_img_fname(tile, state)
-                            img_path = join(cwd, img_fname)
-                            if self.need_image(img_path):
-                                self.write_image(img_path, [[tile]], scale=4, mask=1)
+                            img_fname = '{:x}.{}'.format(tile.udg_addr, self.default_image_format)
+                            img_path = '/' + join(cwd, img_fname)
+                            self.handle_image([Frame([[tile]], 4, 1)], img_path, cwd)
                             template_name = 'astile' if tile.ref else 'astile_null'
                             astile_subs = {
                                 'bubble_id': bubble_id,
