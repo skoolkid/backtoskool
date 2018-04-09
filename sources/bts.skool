@@ -8898,9 +8898,7 @@ c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
 @bfix+end
  31607 LD HL,32767   ; #R32767 holds the column of the play area at the far
                      ; left of the screen
-@bfix+begin
-@nolabel
-@bfix+end
+@if({fix}>1)(label=)
 *31610 CALL 25233    ; {#REGa=R, a random number from 0 to 7; we'll use this to
  31613 AND 7         ; determine where the new free mouse will be placed}
  31615 LD D,A        ; Copy this random number to #REGd
