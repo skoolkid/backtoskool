@@ -3478,16 +3478,12 @@ c26175 LD D,183      ; #b183=little girl no. 1
  26206 RET NZ        ; Return if not
  26207 LD DE,32763   ; {#REGhl=#R32763 (ERIC's primary status flags)
  26210 EX DE,HL      ; }
-@bfix-begin
+@bfix=LD (HL),128
  26211 SET 7,(HL)    ; Set bit 7 of ERIC's primary status flags, indicating
-                     ; that he's been knocked to the floor; however, bit 7 is
-                     ; ignored by the routine at #R63405 (because bit 2 is also
-                     ; set), so ERIC actually stays in his seat (which is a
-                     ; #BUG#seat(bug))
-@bfix+else
- 26211 LD (HL),128   ; Set bit 7 of ERIC's primary status flags, indicating
-                     ; that he's been knocked to the floor
-@bfix+end
+                     ; that he's been knocked to the floor#IF({fix}<2)//;
+                     ; however, bit 7 is ignored by the routine at #R63405
+                     ; (because bit 2 is also set), so ERIC actually stays in
+                     ; his seat (which is a #BUG#seat(bug))//
  26213 EX DE,HL      ; Restore the number of the character looking for a seat
                      ; to #REGh
  26214 RET           ;
