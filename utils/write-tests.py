@@ -16,67 +16,66 @@ SKOOL = 'bts.skool'
 
 SNAPSHOT = 'build/back_to_skool.z80'
 
-OUTPUT = """Using skool file: bts.skool
-Using ref files: bts.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref
+OUTPUT = """Using ref files: bts.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref
 Parsing bts.skool
-Creating directory {odir}/back_to_skool
-Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to {odir}/back_to_skool/skoolkit.css
-Copying bts.css to {odir}/back_to_skool/bts.css
-  Writing disassembly files in back_to_skool/asm
-  Writing back_to_skool/maps/all.html
-  Writing back_to_skool/maps/routines.html
-  Writing back_to_skool/maps/data.html
-  Writing back_to_skool/maps/messages.html
-  Writing back_to_skool/buffers/gbuffer.html
-  Writing back_to_skool/reference/bugs.html
-  Writing back_to_skool/reference/changelog.html
-  Writing back_to_skool/reference/facts.html
-  Writing back_to_skool/reference/glossary.html
-  Writing back_to_skool/graphics/glitches.html
-  Writing back_to_skool/reference/pokes.html
-  Writing back_to_skool/graphics/graphics.html
-  Writing back_to_skool/graphics/playarea.html
-  Copying tiles.js to {odir}/back_to_skool/tiles.js
-  Writing back_to_skool/graphics/patiles/patiles.html
-  Writing back_to_skool/graphics/asstart.html
-  Writing back_to_skool/graphics/as.html
-  Writing back_to_skool/graphics/astiles/astiles.html
-  Writing back_to_skool/buffers/cbuffer.html
-  Writing back_to_skool/lessons/timetables.html
-  Writing back_to_skool/lessons/index.html
-  Writing back_to_skool/lessons/#N37.html
-  Writing back_to_skool/lessons/#N38.html
-  Writing back_to_skool/lessons/#N39.html
-  Writing back_to_skool/lessons/#N40.html
-  Writing back_to_skool/lessons/#N41.html
-  Writing back_to_skool/lessons/#N42.html
-  Writing back_to_skool/lessons/#N43.html
-  Writing back_to_skool/lessons/#N44.html
-  Writing back_to_skool/lessons/#N45.html
-  Writing back_to_skool/lessons/#N46.html
-  Writing back_to_skool/lessons/#N47.html
-  Writing back_to_skool/lessons/#N48.html
-  Writing back_to_skool/lessons/#N49.html
-  Writing back_to_skool/lessons/#N50.html
-  Writing back_to_skool/lessons/#N51.html
-  Writing back_to_skool/lessons/#N52.html
-  Writing back_to_skool/lessons/#N53.html
-  Writing back_to_skool/lessons/#N54.html
-  Writing back_to_skool/lessons/#N55.html
-  Writing back_to_skool/lessons/#N56.html
-  Writing back_to_skool/lessons/#N57.html
-  Writing back_to_skool/lessons/#N58.html
-  Writing back_to_skool/lessons/#N59.html
-  Writing back_to_skool/tables/keys.html
-  Parsing load.skool
-    Writing back_to_skool/load/load.html
-    Writing disassembly files in back_to_skool/load
-  Parsing save.skool
-    Writing back_to_skool/save/save.html
-    Writing disassembly files in back_to_skool/save
-  Parsing start.skool
-    Writing back_to_skool/start/start.html
-    Writing disassembly files in back_to_skool/start
-  Writing back_to_skool/index.html"""
+Output directory: {odir}/back_to_skool
+Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to skoolkit.css
+Copying bts.css to bts.css
+Writing disassembly files in asm
+Writing maps/all.html
+Writing maps/routines.html
+Writing maps/data.html
+Writing maps/messages.html
+Writing buffers/gbuffer.html
+Writing reference/bugs.html
+Writing reference/changelog.html
+Writing reference/facts.html
+Writing reference/glossary.html
+Writing graphics/glitches.html
+Writing reference/pokes.html
+Writing graphics/graphics.html
+Writing graphics/playarea.html
+Copying tiles.js to tiles.js
+Writing graphics/patiles/patiles.html
+Writing graphics/asstart.html
+Writing graphics/as.html
+Writing graphics/astiles/astiles.html
+Writing buffers/cbuffer.html
+Writing lessons/timetables.html
+Writing lessons/index.html
+Writing lessons/#N37.html
+Writing lessons/#N38.html
+Writing lessons/#N39.html
+Writing lessons/#N40.html
+Writing lessons/#N41.html
+Writing lessons/#N42.html
+Writing lessons/#N43.html
+Writing lessons/#N44.html
+Writing lessons/#N45.html
+Writing lessons/#N46.html
+Writing lessons/#N47.html
+Writing lessons/#N48.html
+Writing lessons/#N49.html
+Writing lessons/#N50.html
+Writing lessons/#N51.html
+Writing lessons/#N52.html
+Writing lessons/#N53.html
+Writing lessons/#N54.html
+Writing lessons/#N55.html
+Writing lessons/#N56.html
+Writing lessons/#N57.html
+Writing lessons/#N58.html
+Writing lessons/#N59.html
+Writing tables/keys.html
+Parsing load.skool
+Writing load/load.html
+Writing disassembly files in load
+Parsing save.skool
+Writing save/save.html
+Writing disassembly files in save
+Parsing start.skool
+Writing start/start.html
+Writing disassembly files in start
+Writing index.html"""
 
 write_tests(SKOOL, SNAPSHOT, OUTPUT)
