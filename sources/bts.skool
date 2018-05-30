@@ -1,7 +1,5 @@
-@retain
 ; Copyright 2001, 2008-2018 Richard Dymond (rjdymond@gmail.com)
 
-@retain
 @start
 @replace=/#BUG(?![A-Z])/#LINK:Bugs
 @replace=/#FACT(?![A-Z])/#LINK:Facts
