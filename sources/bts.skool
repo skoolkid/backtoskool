@@ -5592,14 +5592,11 @@ c28160 LD H,210      ; #b210=ERIC
  28189 CP 160        ; {Return if the whole of the girls' skool is on-screen
  28191 RET Z         ; (no need to scroll)}
  28192 SUB (HL)      ; {Return if ERIC is 1-21 spaces from the left edge of the
-@bfix-begin
+@bfix=ADD A,21       ; screen (no need to scroll)
+@bfix=RET P          ; }
  28193 CP 235        ; screen (no need to scroll); note that this doesn't
  28195 RET NC        ; handle the case where ERIC's x-coordinate is 0, which is
                      ; a #BUG#farLeft(bug)}
-@bfix+else
- 28193 ADD A,21      ; screen (no need to scroll)
- 28195 RET P         ; }
-@bfix+end
  28196 CALL 25248    ; Update the display
  28199 JP 25026      ; Scroll the screen to the left
 ; ERIC is facing left. Check whether the screen should be scrolled right.
