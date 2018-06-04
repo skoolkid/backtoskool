@@ -8879,9 +8879,7 @@ c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
  31604 CALL 25012    ; Update the SRB for the mouse's current animatory state
                      ; and location
 ; Determine where to release another mouse.
-@bfix+begin
-@label=NEXTR
-@bfix+end
+@bfix=NEXTR:
  31607 LD HL,32767   ; #R32767 holds the column of the play area at the far
                      ; left of the screen
 @if({fix}>1)(label=)
