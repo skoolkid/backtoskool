@@ -925,10 +925,9 @@ c23907 LD HL,32755   ; #R32755 holds ERIC's main action timer
  24021 CALL 24485    ; }
  24024 JP 63189      ; Restart the game
 
-@rsub-begin
 ; Unused
+@if({asm}>2)(remove=24027)
 s24027 DEFB 0
-@rsub-end
 
 ; Compare blackboard contents with combinations
 ;
