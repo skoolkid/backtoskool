@@ -1195,12 +1195,9 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
                      ; return to #R24324 (below) when it's time to deal with
                      ; ERIC again
 *24324 LD A,10       ; #AS10: ERIC lowering the catapult
-@ofix-begin
 @nowarn
+@ofix=JR 24287       ; Update ERIC's animatory state and update the SRB
  24326 JR 24289      ; This is a #BUG#fire(bug); it should be #S/JR/ #R24287
-@ofix+else
- 24326 JR 24287      ; Update ERIC's animatory state and update the SRB
-@ofix+end
 
 ; Make HAYLEY hit ERIC
 ;
