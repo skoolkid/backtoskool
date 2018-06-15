@@ -8887,27 +8887,23 @@ c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
  31615 LD D,A        ; Copy this random number to #REGd
  31616 CP 2          ; {Jump if R>=2
  31618 JR NC,31628   ; }
-@bfix-begin
 @ignoreua
-; R=0 or 1. The next section of code is intended to set the x-coordinate for
-; the the new free mouse to 170 provided that X<128, or try again with a new
-; random number (R) if X>=128. However, at this point #REGhl may have been set
-; to #w32522 (byte #b10 of the #R32512(screen refresh buffer)) or #w32600 (byte
-; 4 of the #R32596(buffer for the Blue Room blackboard)) by the #S/LD L/,#n10
-; or #S/LD L/,#n88 instruction below, and so the contents of #w32522 or #w32600
-; (instead of X at #R32767) may be compared with 128. Thus it is possible for
-; the new free mouse to appear at x-coordinate 170 even when X>=128, which
-; means it could appear on-screen. This is a #BUG#rematerialisingMouse(bug).
+; #IF({fix}<2)||R=0 or 1. The next section of code is intended to set the
+; x-coordinate for the the new free mouse to 170 provided that X<128, or try
+; again with a new random number (R) if X>=128. However, at this point #REGhl
+; may have been set to #w32522 (byte #b10 of the #R32512(screen refresh
+; buffer)) or #w32600 (byte 4 of the #R32596(buffer for the Blue Room
+; blackboard)) by the #S/LD L/,#n10 or #S/LD L/,#n88 instruction below, and so
+; the contents of #w32522 or #w32600 (instead of X at #R32767) may be compared
+; with 128. Thus it is possible for the new free mouse to appear at
+; x-coordinate 170 even when X>=128, which means it could appear on-screen.
+; This is a #BUG#rematerialisingMouse(bug).|R=0 or 1. The next section of code
+; sets the x-coordinate for the the new free mouse to 170 provided that X<128,
+; or tries again with a new random number (R) if X>=128.||
 @ignoreua
  31620 LD A,(HL)     ; #REGa=X (column of the play area at the far left of the
-                     ; screen), or the contents of #w32522 or #w32600
-@bfix+else
-; R=0 or 1. The next section of code sets the x-coordinate for the the new free
-; mouse to 170 provided that X<128, or tries again with a new random number (R)
-; if X>=128.
- 31620 LD A,(HL)     ; #REGa=X (column of the play area at the far left of the
-                     ; screen)
-@bfix+end
+                     ; screen)#IF({fix}<2)||, or the contents of #w32522 or
+                     ; #w32600||
  31621 RLCA          ;
 @bfix=JR C,31607
  31622 JR C,31610    ; Jump if #REGa>=128 to get another random number
@@ -8916,27 +8912,20 @@ c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
 *31628 CP 5          ;
 @ignoreua
  31630 LD A,(HL)     ; #REGa=X (column of the play area at the far left of the
-@bfix-begin
-                     ; screen), or the contents of #w32522 or #w32600
-@bfix+else
-                     ; screen)
-@bfix+end
+                     ; screen)#IF({fix}<2)||, or the contents of #w32522 or
+                     ; #w32600||
  31631 JR NC,31645   ; Jump if R>=5
-@bfix-begin
 @ignoreua
-; R=2, 3 or 4. The next section of code is intended to set the x-coordinate for
-; the new free mouse to 88 provided that X<56 or X>=104, or try again with a
-; new random number (R) if 56<=X<104. However, as noted above, #REGhl may now
-; hold #w32522 or #w32600 instead of #R32767, and so the contents of #w32522 or
-; #w32600 (instead of X) may be compared with 56 and 104. Thus it is possible
-; for the new free mouse to appear at x-coordinate 88 even when 56<=X<104,
-; which means it could appear on-screen. This is a
-; #BUG#rematerialisingMouse(bug).
-@bfix+else
-; R=2, 3 or 4. The next section of code sets the x-coordinate for the new free
-; mouse to 88 provided that X<56 or X>=104, or tries again with a new random
-; number (R) if 56<=X<104.
-@bfix+end
+; #IF({fix}<2)||R=2, 3 or 4. The next section of code is intended to set the
+; x-coordinate for the new free mouse to 88 provided that X<56 or X>=104, or
+; try again with a new random number (R) if 56<=X<104. However, as noted above,
+; #REGhl may now hold #w32522 or #w32600 instead of #R32767, and so the
+; contents of #w32522 or #w32600 (instead of X) may be compared with 56 and
+; 104. Thus it is possible for the new free mouse to appear at x-coordinate 88
+; even when 56<=X<104, which means it could appear on-screen. This is a
+; #BUG#rematerialisingMouse(bug).|R=2, 3 or 4. The next section of code sets
+; the x-coordinate for the new free mouse to 88 provided that X<56 or X>=104,
+; or tries again with a new random number (R) if 56<=X<104.||
  31633 CP 56         ;
  31635 LD L,88       ; This is a possible x-coordinate for the new free mouse
  31637 JR C,31651    ; Jump if #REGa<56 to figure out the y-coordinate
@@ -8944,20 +8933,17 @@ c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
 @bfix=JR C,31607
  31641 JR C,31610    ; }
  31643 JR 31651      ; Go and figure out the y-coordinate for the mouse
-@bfix-begin
 @ignoreua
-; R=5, 6 or 7. The next section of code is intended to set the x-coordinate for
-; the new free mouse to 10 provided that X>=56, or try again with a new random
-; number (R) if X<56. However, as noted above, #REGhl may now hold #w32522 or
-; #w32600 instead of #R32767, and so the contents of #w32522 or #w32600
-; (instead of X) may be compared with 56. Thus it is possible for the new free
-; mouse to appear at x-coordinate 10 even when X<56, which means it could
-; appear on-screen. This is a #BUG#rematerialisingMouse(bug).
-@bfix+else
-; R=5, 6 or 7. The next section of code sets the x-coordinate for the new free
-; mouse to 10 provided that X>=56, or tries again with a new random number (R)
-; if X<56.
-@bfix+end
+; #IF({fix}<2)||R=5, 6 or 7. The next section of code is intended to set the
+; x-coordinate for the new free mouse to 10 provided that X>=56, or try again
+; with a new random number (R) if X<56. However, as noted above, #REGhl may now
+; hold #w32522 or #w32600 instead of #R32767, and so the contents of #w32522 or
+; #w32600 (instead of X) may be compared with 56. Thus it is possible for the
+; new free mouse to appear at x-coordinate 10 even when X<56, which means it
+; could appear on-screen. This is a #BUG#rematerialisingMouse(bug).|R=5, 6 or
+; 7. The next section of code sets the x-coordinate for the new free mouse to
+; 10 provided that X>=56, or tries again with a new random number (R) if
+; X<56.||
 *31645 LD L,10       ; This is a possible x-coordinate for the new free mouse
  31647 CP 56         ; {Jump if #REGa<56 to get another random number
 @bfix=JR C,31607
@@ -9596,12 +9582,10 @@ c32062 AND A         ; Is ERIC in a forbidden zone?
  32199 LD L,251      ; #REGhl=#R32763 (ERIC's status flags)
  32201 LD A,7        ; #b7+#b62=#R60565(#b69): SIT FACING THE STAGE
  32203 BIT 2,(HL)    ; Is ERIC sitting (facing left) or lying down?
-@bfix-begin
+@bfix=JR NZ,32232    ; Tell ERIC to sit facing the stage if so
+@bfix=               ;
  32205 JR Z,32232    ; Tell ERIC to sit facing the stage if not (this is a
                      ; #BUG#assemblySit(bug))
-@bfix+else
- 32205 JR NZ,32232   ; Tell ERIC to sit facing the stage if so
-@bfix+end
  32207 JR 32228      ; Otherwise tell ERIC to sit down
 ; This lesson takes place in a classroom, and ERIC is present. Check whether
 ; ERIC is sitting in a chair.
