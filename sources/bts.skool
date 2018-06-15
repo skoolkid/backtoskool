@@ -7273,20 +7273,17 @@ c29896 LD L,2        ;
 ; The falling object is a conker.
  29943 LD L,2        ; {Set the conker's y-coordinate to 17 (bottom floor) for
  29945 LD (HL),17    ; comparison with that of the potential targets}
-@rfix-begin
-; Before calling the routine at #R27820 to check whether any of the four main
-; kids (besides ERIC) have been hit, #REGd should be set to 206 (BOY WANDER,
-; the first main kid), and #REGb should be set to 4 (the number of kids to
-; check). However, at this point #REGd=#b17 and #REGb=#b206, which means that
-; instead of checking the character buffers in pages #b206-#b209, we end up
-; checking pages #b17-#b222. In that range, only pages #b183-#b214 contain
-; character buffers; treating the other pages in RAM as if they contained
-; character buffers could lead to data/code corruption. Needless to say, this
-; is a #BUG#conkerMD(bug).
-@rfix+else
-       LD D,206      ; #b206=BOY WANDER
-       LD B,4        ; There are four main kids to check
-@rfix+end
+; #IF({fix}<3)||Before calling the routine at #R27820 to check whether any of
+; the four main kids (besides ERIC) have been hit, #REGd should be set to 206
+; (BOY WANDER, the first main kid), and #REGb should be set to 4 (the number of
+; kids to check). However, at this point #REGd=#b17 and #REGb=#b206, which
+; means that instead of checking the character buffers in pages #b206-#b209, we
+; end up checking pages #b17-#b222. In that range, only pages #b183-#b214
+; contain character buffers; treating the other pages in RAM as if they
+; contained character buffers could lead to data/code corruption. Needless to
+; say, this is a #BUG#conkerMD(bug).||
+@rfix=<LD D,206      ; #b206=BOY WANDER
+@rfix=<LD B,4        ; There are four main kids to check
  29947 CALL 27820    ; Check whether anyone was hit by the conker
  29950 LD L,2        ; {Set the conker's y-coordinate back to 13
  29952 LD (HL),13    ; }
@@ -10039,21 +10036,17 @@ t32654 DEFB 0 ; The message number for the country, year (last three digits),
 
 ; Message 7: '{grassee}'
 ;
-@rfix-begin
-; Used by the routine at #R61696 to hold the character number of whoever is
-; being grassed up by EINSTEIN for writing on the board (#b206=BOY WANDER, or
-; #b210=ERIC); it is a submessage of message #R60668(#b88). Note that storing
-; the character number (#b206 or #b210) here is a mistake; it should be the
-; message number of the character's name (#R61345(#b27) or #R61397(#b31))
-; instead. In any case, this message (along with parent message #R60668(#b88))
-; is never used, because of a #BUG#noBlackboardTales(bug) in the section of
-; code at #R61852.
-@rfix+else
-; Used by the routine at #R61696 to hold the message number of the name of the
-; character who is being grassed up by EINSTEIN for writing on the board
-; (#R61345(#b27)=BOY WANDER, or #R61397(#b31)=ERIC); it is a submessage of
-; message #R60668(#b88).
-@rfix+end
+; #IF({fix}<3)//Used by the routine at #R61696 to hold the character number of
+; whoever is being grassed up by EINSTEIN for writing on the board (#b206=BOY
+; WANDER, or #b210=ERIC); it is a submessage of message #R60668(#b88). Note
+; that storing the character number (#b206 or #b210) here is a mistake; it
+; should be the message number of the character's name (#R61345(#b27) or
+; #R61397(#b31)) instead. In any case, this message (along with parent message
+; #R60668(#b88)) is never used, because of a #BUG#noBlackboardTales(bug) in the
+; section of code at #R61852./Used by the routine at #R61696 to hold the
+; message number of the name of the character who is being grassed up by
+; EINSTEIN for writing on the board (#R61345(#b27)=BOY WANDER, or
+; #R61397(#b31)=ERIC); it is a submessage of message #R60668(#b88).//
 @label=MSG007
 t32656 DEFB 0
  32657 DEFB 0 ; End marker
@@ -17951,10 +17944,8 @@ t60657 DEFB 3  ; #R59840(#b3): 'Please Sir I cannot tell a lie . . '
 ; board{9sp}'
 ;
 ; Used by the routine at #R61696.
-@rfix-begin
-; This message is never actually used in the game, because of a
-; #BUG#noBlackboardTales(bug) in the section of code at #R61852.
-@rfix-end
+; #IF({fix}<3)//This message is never actually used in the game, because of a
+; #BUG#noBlackboardTales(bug) in the section of code at #R61852.//
 @label=MSG088
 t60668 DEFB 3 ; #R59840(#b3): 'Please Sir I cannot tell a lie . . '
  60669 DEFB 7 ; #R32656(#b7): '{grassee}'
@@ -18827,12 +18818,9 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
                      ; board
  61887 CALL 25503    ; Redirect control to the routine at #R61463 and return to
                      ; #R61890 (below) when done
-@rfix-begin
+@rfix=               ; #REGa=#b27 (BOY WANDER) or #b31 (ERIC)
+@rfix=ADD A,179      ; #REGa=#b206 (BOY WANDER) or #b210 (ERIC)
 *61890 LD A,(32656)  ; #REGa=#b206 (BOY WANDER) or #b210 (ERIC)
-@rfix+else
-*61890 LD A,(32656)  ; #REGa=#b27 (BOY WANDER) or #b31 (ERIC)
-       ADD A,179     ; #REGa=#b206 (BOY WANDER) or #b210 (ERIC)
-@rfix+end
  61893 LD C,A        ; Copy the scapegoat's character number to #REGc
  61894 LD B,86       ; #R60638(#b86): DON'T TOUCH BLACKBOARDS
  61896 CALL 61487    ; Give lines to EINSTEIN, ERIC or BOY WANDER
