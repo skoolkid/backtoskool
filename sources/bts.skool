@@ -9576,8 +9576,7 @@ c32062 AND A         ; Is ERIC in a forbidden zone?
  32199 LD L,251      ; #REGhl=#R32763 (ERIC's status flags)
  32201 LD A,7        ; #b7+#b62=#R60565(#b69): SIT FACING THE STAGE
  32203 BIT 2,(HL)    ; Is ERIC sitting (facing left) or lying down?
-@bfix=JR NZ,32232    ; Tell ERIC to sit facing the stage if so
-@bfix=               ;
+@bfix=/JR NZ,32232   ; Tell ERIC to sit facing the stage if so
  32205 JR Z,32232    ; Tell ERIC to sit facing the stage if not (this is a
                      ; #BUG#assemblySit(bug))
  32207 JR 32228      ; Otherwise tell ERIC to sit down
