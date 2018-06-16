@@ -18760,57 +18760,47 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
  61847 CALL 61512    ; Is ERIC in class?
  61850 JR NZ,61773   ; Jump if not
 ; Now is EINSTEIN's opportunity to grass on someone for writing on the
-; blackboard.
-@rfix-begin
-; However, the opportunity is wasted, because the #S/CALL/ to #R26453 (at
-; #R61852 below) returns a valid blackboard ID only if the character is
-; standing within four spaces of the left edge of the blackboard, which is not
-; the case when the teacher is waiting for EINSTEIN to grass (teachers stand at
-; the right edge of the blackboard for that, more than four spaces away). This
-; is a #BUG#noBlackboardTales(bug).
+; blackboard. #IF({fix}<3)||However, the opportunity is wasted, because the
+; #S/CALL/ to #R26453 (at #R61852 below) returns a valid blackboard ID only if
+; the character is standing within four spaces of the left edge of the
+; blackboard, which is not the case when the teacher is waiting for EINSTEIN to
+; grass (teachers stand at the right edge of the blackboard for that, more than
+; four spaces away). This is a #BUG#noBlackboardTales(bug).||
+@rfix=CALL 28658
 *61852 CALL 26453    ; Collect information about the blackboard
 @ignoreua
+@rfix=               ; {Point #REGbc at the second byte of the blackboard's
  61855 INC B         ; {The intent here is to point #REGbc at the second byte
+@rfix=               ; buffer, which holds the character number of the person
  61856 LD C,B        ; of the blackboard's buffer, which holds the character
+@rfix=/              ; who last wrote on it}
  61857 LD B,127      ; number of the person who last wrote on it; instead,
                      ; #REGbc points at #w32516 if the teacher is on the top
                      ; floor, or #w32515 if he's on the middle floor}
 @ignoreua
+@rfix=               ; #REGa=character number of the person who last wrote on
+@rfix=/              ; the board
  61859 LD A,(BC)     ; Now #REGa is supposed to hold the character number of
                      ; the person who last wrote on the board; instead it holds
                      ; the contents of #w32515 or #w32516 (bytes #b3 and #b4 of
                      ; the #R32512(SRB)), which will never be #b206 or #b210
  61860 CP 210        ; Did ERIC write on the board?
+@rfix=JR Z,61877     ; Jump if so
  61862 JR Z,61879    ; Jump if so (this jump is never made)
  61864 CP 206        ; Or did BOY WANDER?
+@rfix=               ; Jump if not
  61866 JR NZ,61899   ; Jump if not (this jump is always made)
  61868 CALL 25233    ; #REGa=random number
  61871 CP 195        ; Should EINSTEIN blame BOY WANDER for writing on the
                      ; board?
+@rfix=LD A,27        ; #R61345(#b27): 'BOY WANDER'
  61873 LD A,206      ; #b206=BOY WANDER
  61875 JR C,61879    ; Jump if so
+@rfix=*:LD A,31      ; #R61397(#b31): 'ERIC'
  61877 LD A,210      ; Blame ERIC instead
+@rfix=               ; Place the message number of the scapegoat's name into
+@rfix=               ; #R32656
 *61879 LD (32656),A  ; Place the character number of the scapegoat into #R32656
-@rfix+else
-*61852 CALL 28658    ; Collect information about the blackboard
-       INC B         ; {Point #REGbc at the second byte of the blackboard's
-       LD C,B        ; buffer, which holds the character number of the person
-       LD B,127      ; who last wrote on it}
-       LD A,(BC)     ; #REGa=character number of the person who last wrote on
-                     ; the board
-       CP 210        ; Did ERIC write on the board?
-       JR Z,61877    ; Jump if so
-       CP 206        ; Or did BOY WANDER?
-       JR NZ,61899   ; Jump if not
-       CALL 25233    ; #REGa=random number
-       CP 195        ; Should EINSTEIN blame BOY WANDER for writing on the
-                     ; board?
-       LD A,27       ; #R61345(#b27): 'BOY WANDER'
-       JR C,61879    ; Jump if so
-*61877 LD A,31       ; #R61397(#b31): 'ERIC'
-*61879 LD (32656),A  ; Place the message number of the scapegoat's name into
-                     ; #R32656
-@rfix+end
 @nowarn
  61882 LD BC,61463   ; Routine at #R61463: make EINSTEIN talk
  61885 LD E,88       ; #R60668(#b88): Please Sir...[#R32656(#b7)] wrote on the
