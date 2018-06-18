@@ -5497,9 +5497,10 @@ c28067 LD BC,46651   ; #REGb=#b182, #REGc=#b59
 c28085 LD A,D        ; #REGa=ERIC's y-coordinate
 @bfix=CP 17          ; Is ERIC on the bottom floor?
  28086 LD D,17       ; #b17=bottom floor
- 28088 RET Z         ; Return with #REGd=#b17 if #IF({fix}>1)//so/the zero flag
-                     ; was set upon entry (regardless of which floor ERIC is
-                     ; on, which is a #BUG#jumpAbsent(bug))//
+@bfix=/              ; Return with #REGd=#b17 if so
+ 28088 RET Z         ; Return with #REGd=#b17 if the zero flag was set upon
+                     ; entry (regardless of which floor ERIC is on, which is a
+                     ; #BUG#jumpAbsent(bug))
  28089 LD D,3        ; #b3=top floor
  28091 CP 4          ; Is ERIC directly above the top floor?
  28093 RET C         ; Return with #REGd=#b3 if so
