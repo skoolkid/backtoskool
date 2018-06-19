@@ -334,26 +334,20 @@ i21248 DEFS 160
 ;
 ; HL #R20650
 @label=GAMEPOKES
-@rsub-begin
+@rsub=LD A,5         ; There are 5 POKEs to do
 c21408 BIT 0,(HL)    ; Have we reached the end of the POKE table?
+@rsub=!21410
  21410 RET NZ        ; Return if so
- 21411 LD E,(HL)     ; {Otherwise pick up the address that needs to be POKEd in
- 21412 INC L         ; #REGde
+@rsub=*:
+ 21411 LD E,(HL)     ; {Pick up the address that needs to be POKEd in #REGde
+ 21412 INC L         ;
  21413 LD D,(HL)     ; }
  21414 INC L         ; Point #REGhl at the POKE operand
  21415 LDI           ; Do the POKE
+@rsub=<DEC A         ; Are there any POKEs left to do?
+@rsub=JR NZ,21411    ; Jump back if so
+@rsub=RET
  21417 JR 21408      ; Jump back to do the next POKE
-@rsub+else
-c21408 LD A,5        ; There are 5 POKEs to do
-*21410 LD E,(HL)     ; {Pick up the address that needs to be POKEd in #REGde
-       INC L         ;
-       LD D,(HL)     ; }
-       INC L         ; Point #REGhl at the POKE operand
-       LDI           ; Do the POKE
-       DEC A         ; Are there any POKEs left to do?
-       JR NZ,21410   ; Jump back if so
-       RET
-@rsub+end
 
 ; Make a walking sound effect (yellow border)
 ;
@@ -393,10 +387,9 @@ c21425 LD BC,640     ; {INK 0: PAPER 6 for the top 20 lines of screen
  21465 JR Z,21455    ; }
  21467 LD A,128      ; {Set the column of the play area at the far left of the
  21469 LD (32767),A  ; screen to 128}
-@rsub-begin
+@rsub=!21472-21473
  21472 NOP           ;
  21473 CALL 20640    ; Clear character buffer #b214 (for no good reason)
-@rsub-end
  21476 LD A,246      ; Message #R22176(#b246): 'None/Cursor/Kempston/Int2?
                      ; (N,C,K or I)'
  21478 LD HL,16448   ; {Print this message
@@ -1015,10 +1008,9 @@ c24028 LD D,H        ; #REGd=#b127
  24130 JR 24106      ; Add 1000 to the score, print the inventory, and make a
                      ; sound effect
 
-@rsub-begin
 ; Unused
+@rsub=!24132
 s24132 DEFB 0
-@rsub-end
 
 ; 'W' pressed - write on a blackboard
 ;
@@ -1101,10 +1093,9 @@ c24175 LD HL,32755   ; #R32755 holds ERIC's main action timer
  24231 CALL NZ,26516 ; Write a character on the board unless ENTER was pressed
  24234 JR 24165      ; Raise ERIC's arm and update the SRB
 
-@rsub-begin
 ; Unused
+@rsub=!24236
 s24236 DEFB 0
-@rsub-end
 
 ; Deal with ERIC when he's firing the catapult, hitting or kissing
 ;
@@ -1164,10 +1155,9 @@ c24263 CALL 28240    ; Is ERIC on a staircase?
                      ; firing, hitting or kissing, update his animatory state
                      ; and update the SRB
 
-@rsub-begin
 ; Unused
+@rsub=!24294
 s24294 DEFS 2
-@rsub-end
 
 ; 'F' pressed - fire catapult
 ;
