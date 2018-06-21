@@ -5548,8 +5548,8 @@ c28160 LD H,210      ; #b210=ERIC
  28189 CP 160        ; {Return if the whole of the girls' skool is on-screen
  28191 RET Z         ; (no need to scroll)}
  28192 SUB (HL)      ; {Return if ERIC is 1-21 spaces from the left edge of the
-@bfix=ADD A,21       ; screen (no need to scroll)
-@bfix=RET P          ; }
+@bfix=|ADD A,21      ; screen (no need to scroll)
+@bfix=|RET P         ; }
  28193 CP 235        ; screen (no need to scroll); note that this doesn't
  28195 RET NC        ; handle the case where ERIC's x-coordinate is 0, which is
                      ; a #BUG#farLeft(bug)}
@@ -7671,7 +7671,7 @@ c30380 LD L,19       ; Byte #b19 of the pellet's buffer holds the distance left
  30468 JR Z,30418    ; Jump if so
  30470 CALL 25012    ; Update the SRB for the pellet's current location
  30473 DEC D         ; Has the pellet hit the ceiling on the top floor?
-@bfix=JP M,29903     ; Terminate the pellet if so
+@bfix=|JP M,29903    ; Terminate the pellet if so
  30474 JR NZ,30477   ; Jump if not (having raised the pellet one level)
  30476 INC D         ; #REGd=1; this makes the pellet hover just below the
                      ; ceiling on the top floor before disappearing, which is a
