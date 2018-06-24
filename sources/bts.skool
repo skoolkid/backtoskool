@@ -2507,9 +2507,8 @@ c25503 LD L,9        ; {Copy the routine address from #REGbc into bytes #b9 and
  25510 PUSH BC       ; Push the routine address in #REGbc onto the stack
  25511 LD C,L        ;
  25512 LD L,3        ;
-@rsub-begin
-; This entry point is used by the (unused) routine at #R25525 with #REGl=#b9.
-@rsub-end
+; #IF({asm}<3)(This entry point is used by the (unused) routine at #R25525 with
+; #REGl=#b9.)
 *25514 LD B,H        ; Now #REGbc=address of the instruction after the #S/CALL/
                      ; that got us here
  25515 LD H,A        ; #REGh=character number
@@ -2646,11 +2645,10 @@ c25554 CALL 28067    ; Divert back to the calling routine with #REGa=#b192 and
  25565 JR Z,25571    ; Jump if so
  25567 SCF           ; Signal: #REGd does not correspond exactly to the top,
                      ; middle or bottom floor
-@rsub-begin
+@rsub=!25568-25570
  25568 NOP           ; {
  25569 NOP           ;
  25570 NOP           ; }
-@rsub-end
 *25571 PUSH AF       ; Save the carry flag temporarily
 *25572 INC C         ; {Point #REGbc at the appropriate entry in one of the
  25573 LD A,(BC)     ; region tables
@@ -2689,10 +2687,9 @@ c25581 LD L,12       ; Point #REGhl at byte #b12 of the character's buffer
 ; has been requested in the meantime, the address of this routine will be
 ; placed into bytes #b9 and #b10 of the character's buffer again by the routine
 ; at #R25700, and the character will continue towards his destination.
-@rsub-begin
+@rsub=!25585-25586
  25585 NOP           ; {
  25586 NOP           ; }
-@rsub-end
  25587 LD L,9        ; {Replace the address of this routine in bytes #b9 and
 @ssub=LD (HL),25591%256
  25589 LD (HL),247   ; #b10 of the character's buffer with #R25591 (below)
@@ -4515,9 +4512,8 @@ c27144 LD L,11       ; {Store the message number in byte #b11 of the
  27234 ADD A,A       ;
  27235 ADD A,A       ;
  27236 LD L,A        ;
-@rsub-begin
+@rsub=!27237
  27237 NOP           ;
-@rsub-end
  27238 INC L         ; }
 @nowarn
  27239 LD DE,23298   ; The speech text graphic data is stored in the 64-byte
@@ -4820,9 +4816,8 @@ c27497 PUSH DE       ; Save the display file address
  27545 XOR A         ; {Then jump back to add a blank pixel column
  27546 JR 27522      ; }
 *27548 POP HL        ; #REGhl=address of the next digit
-@rsub-begin
+@rsub=!27549
  27549 NOP           ;
-@rsub-end
  27550 JR 27509      ; Jump back to deal with this digit
 ; The graphic data for the digits has been rolled into the buffer at #R58123.
 ; Now we copy the buffer to the screen.
@@ -6266,10 +6261,9 @@ c28877 LD A,(32758)  ; {Return unless #R32758 (which is decremented on every
 *28943 POP HL        ; Restore the door identifier to #REGh
  28944 LD A,H        ; Copy it to #REGa
  28945 CALL NC,28736 ; Close the door if no one's in the way
-@rsub-begin
+@rsub=!28948
  28948 LD A,(32756)  ; Pick up the doors flags in #REGa before returning
                      ; (ignored by the caller)
-@rsub-end
  28951 RET           ;
 
 ; Score 100 points and make the sound of a mouse being caught
@@ -6653,9 +6647,8 @@ c29278 LD HL,32755   ; #R32755 holds ERIC's main action timer
                      ; location
  29346 PUSH DE       ;
  29347 DEC D         ; #REGd=ERIC's new y-coordinate (up a level)
-@rsub-begin
+@rsub=!29348
  29348 NOP           ;
-@rsub-end
  29349 INC E         ;
  29350 BIT 7,A       ; Is ERIC facing left?
  29352 JR Z,29356    ; Jump if so
@@ -7015,11 +7008,10 @@ c29716 PUSH AF       ; Save the lines recipient's character number briefly
  29731 ADD A,A       ;
  29732 DEC A         ; }
  29733 LD C,A        ; Copy the lines message attribute byte to #REGc
-@rsub-begin
+@rsub=!29734-29736
  29734 NOP           ;
  29735 NOP           ;
  29736 NOP           ;
-@rsub-end
  29737 PUSH BC       ;
  29738 CALL 27276    ; Save the area of screen that will be overwritten by the
                      ; lines message
@@ -8074,11 +8066,10 @@ c30804 LD A,(32747)  ; #R32747 holds the inventory flags
  30866 CALL 29836    ;
  30869 DEC L         ;
  30870 JR NZ,30856   ; }
-@rsub-begin
+@rsub=!30872-30874
  30872 NOP           ; {
  30873 NOP           ;
  30874 NOP           ; }
-@rsub-end
  30875 CALL 31746    ; Print the inventory (which now includes the safe key)
  30878 LD H,212      ; #b212=frog
  30880 CALL 25012    ; Update the SRB for the frog's current animatory state
@@ -9144,9 +9135,7 @@ c31893 CALL 25213    ; Collect the next byte (the event identifier) from the
 c31896 CALL 31861    ; Convert the event ID into an appropriate bit mask (#b1,
                      ; #b2, #b4, #b8 or #b16)
  31899 OR (HL)       ; Merge the existing event flags in #R32641
-@rsub-begin
-; This entry point is used by the (unused) routine at #R31905.
-@rsub-end
+; #IF({asm}<3)(This entry point is used by the (unused) routine at #R31905.)
 *31900 LD (HL),A     ; Set or reset the appropriate bit at #R32641
  31901 EX DE,HL      ; Restore the character number to #REGh
  31902 RET           ;
@@ -9523,10 +9512,9 @@ c32062 AND A         ; Is ERIC in a forbidden zone?
  32225 BIT 7,(HL)    ; Should ERIC be seated by now (bit 7 is set by #R61696)?
  32227 RET Z         ; Return if not
 *32228 LD A,8        ; #b8+#b62=#R60580(#b70): NOW SIT DOWN
-@rsub-begin
+@rsub=!32230-32231
  32230 NOP           ;
  32231 NOP           ;
-@rsub-end
 ; At this point, #REGa holds the lines reprimand ID.
 *32232 AND A         ; Is ERIC in a forbidden zone?
  32233 JR NZ,32278   ; Jump if not
@@ -9570,10 +9558,9 @@ c32062 AND A         ; Is ERIC in a forbidden zone?
 ; (meaning any teacher may give ERIC lines) and #REGa holding a lines reprimand
 ; ID.
 *32282 PUSH AF       ; Save the lines reprimand ID and the zero flag
-@rsub-begin
+@rsub=!32283-32284
  32283 NOP           ;
  32284 NOP           ;
-@rsub-end
  32285 JR Z,32296    ; Jump if any teacher (including the one who gave him
                      ; lines last time) can give ERIC lines now
 ; It's too soon for the teacher who gave ERIC lines last time to give him lines
@@ -9711,11 +9698,10 @@ c32379 LD L,29       ; Point #REGhl at byte #b29 of MISS TAKE's buffer
 ; the teacher's starting point is on a staircase. So continue chasing ERIC
 ; until the top or bottom of the staircase has been reached.
  32412 JP 25944      ; Continue chasing ERIC
-@rsub-begin
+@rsub=!32415-32417
  32415 NOP           ; {
  32416 NOP           ;
  32417 NOP           ; }
-@rsub-end
 ; MISS TAKE is chasing ERIC, but she only chases so far.
 @ssub=LD A,(53760+1)
 *32418 LD A,(53761)  ; #REGa=ERIC's x-coordinate
@@ -18871,12 +18857,11 @@ c62032 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  62073 LD HL,32640   ; {Reset bit 6 (ERIC no longer has to be in the assembly
  62076 RES 7,(HL)    ; hall) and bit 7 (the kids can stand up now) at #R32640
  62078 RES 6,(HL)    ; }
-@rsub-begin
+@rsub=!62080-62083
  62080 NOP           ; {
  62081 NOP           ;
  62082 NOP           ;
  62083 NOP           ; }
-@rsub-end
 @ssub=LD L,32739%256+1
  62084 LD L,228      ; {Set the MSB of the lesson clock to 1 so that the bell
  62086 LD (HL),1     ; will ring soon}
@@ -19636,11 +19621,10 @@ c62910 LD H,135      ; {The blackboards use UDGs #b0-#b79 (#b0-#b15 for the
  62933 DJNZ 62931    ; }
 ; Reset various counters, flags and identifiers.
 @ssub=LD L,32736%256
-@rsub-begin
+@rsub=!62935-62937
  62935 LD L,224      ; {Set the lesson descriptor at #R32736 to 0 (for no good
  62937 LD (HL),A     ; reason: it will be set again by the routine at #R63309
                      ; when demo mode or a new game starts)}
-@rsub-end
 @rsub=LD L,32737%256
  62938 INC L         ; {Reset the number of mice caught at #R32737
  62939 LD (HL),A     ; }
@@ -19789,9 +19773,8 @@ c62910 LD H,135      ; {The blackboards use UDGs #b0-#b79 (#b0-#b15 for the
  63150 DJNZ 63145    ; Jump back until all 4 quarters have been scrolled on
 @rsub=JP 24477
  63152 CALL 24477    ; Play the theme tune
-@rsub-begin
+@rsub=!63155
  63155 RET           ;
-@rsub-end
 
 ; Move the characters, close doors, and give ERIC lines if necessary
 ;
@@ -19802,9 +19785,8 @@ c63156 CALL 25296    ; Move the game characters
 @rsub=JP 32032
  63162 CALL 32032    ; Make a teacher give ERIC lines if he's up to something
                      ; he shouldn't be
-@rsub-begin
+@rsub=!63165
  63165 RET           ; Return to the main loop
-@rsub-end
 
 ; Start a new game if a key is pressed while ERIC's sitting or lying down in
 ; demo mode
@@ -19829,7 +19811,7 @@ t63176 DEFM "D.S.REIDY 85 "
 c63189 LD SP,23806   ; Put the stack somewhere safe
  63192 LD HL,32734   ; {#REGa=#b255 if we're in demo mode, #b0 if a game has
  63195 LD A,(HL)     ; just ended, or #b1 if ERIC has just gone up a year}
-@rsub-begin
+@rsub=!63196-63202
  63196 INC A         ;
  63197 PUSH HL       ;
  63198 NOP           ; {Who knows what used to happen here?
@@ -19838,7 +19820,6 @@ c63189 LD SP,23806   ; Put the stack somewhere safe
  63201 POP HL        ;
  63202 LD A,(HL)     ; #REGa=#b255 if we're in demo mode, #b0 if a game has
                      ; just ended, or #b1 if ERIC has just gone up a year
-@rsub-end
  63203 RRCA          ; {#b0 becomes #b255 (demo mode), and #b1 and #b255 become
  63204 CCF           ; #b0
  63205 SBC A,A       ; }
@@ -20365,11 +20346,10 @@ c63586 LD HL,32747   ; #R32747 holds the inventory flags
 ; window.
 *63646 CALL 25648    ; Toggle between cloud animation phases 1 (#AS71) and 2
                      ; (#AS199) and update the SRB accordingly
-@rsub-begin
+@rsub=!63649-63653
  63649 LD L,0        ; Point #REGhl at byte #b0 of the cloud's buffer
  63651 BIT 0,(HL)    ; {Bit 0 of the cloud's animatory state (#AS71(#b71 or
  63653 RET Z         ; #b199)) is always set, so this #S/RET/ never happens}
-@rsub-end
  63654 INC L         ; #REGl=#b1
  63655 LD A,(HL)     ; #REGa=stinkbomb cloud's x-coordinate
  63656 CP 84         ; The head's right study door is at x-coordinate 84
