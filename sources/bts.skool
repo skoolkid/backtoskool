@@ -1195,11 +1195,8 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
 ; #b17 and #b18 of HAYLEY's buffer by the routine at #R24348 when ERIC has
 ; tried to steal one kiss too many.
 ;
-@rsub-begin
-; A #b95 (MSB of the address of this routine)
-@rsub+else
-; A MSB of the address of this routine
-@rsub+end
+; A #IF({asm}<3)[#b95 (MSB of the address of this routine),MSB of the address
+; . of this routine]
 ; H #b209 (HAYLEY)
 @label=HITERIC
 c24328 LD (32755),A  ; Place a large value into ERIC's main action timer at
@@ -1362,15 +1359,11 @@ c24477 LD HL,23611   ; {Reset bit 5 at #w23611, clearing the record of any
  24518 ADD A,240     ; data table at #R24560
  24520 LD L,A        ;
 @ssub=LD H,24560/256
- 24521 LD H,95       ;
-@rsub+begin
-       JR NC,24523
-       INC H
-@rsub+end
-                     ; }
-@rsub+begin
-@label=MSBOK
-@rsub+end
+@rsub=LD H,24560/256 ;
+@rsub=JR NC,24523
+@rsub=INC H          ; }
+ 24521 LD H,95       ; }
+@rsub=MSBOK:
  24523 LD A,B        ; #REGa=original tune datum rotated right one bit
  24524 RRCA          ; {Obtain the note frequency parameter in #REGe and the
  24525 RRCA          ; note duration parameter in #REGhl
@@ -2080,14 +2073,9 @@ c25188 PUSH DE       ; Save #REGde
 
 ; Collect one byte from a command list
 ;
-@rsub-begin
-; Used by the routines at #R31952, #R32497, #R61555 and #R62599, and also by
-; the unused routines at #R31893 and #R31905.
-@rsub+else
-; Used by the routines at #R31952, #R32497, #R61555 and #R62599.
-@rsub+end
-; Collects a byte from a character's current command list and returns it in
-; #REGa.
+; Used by the routines at #R31952, #R32497, #R61555 and #IF({asm}<3)//#R62599,
+; and also by the unused routines at #R31893 and #R31905/#R62599//. Collects a
+; byte from a character's current command list and returns it in #REGa.
 ;
 ; H Character number (#b183-#b214)
 @label=GETPARAM
@@ -2692,12 +2680,10 @@ c25581 LD L,12       ; Point #REGhl at byte #b12 of the character's buffer
  25586 NOP           ; }
  25587 LD L,9        ; {Replace the address of this routine in bytes #b9 and
 @ssub=LD (HL),25591%256
- 25589 LD (HL),247   ; #b10 of the character's buffer with #R25591 (below)
-@rsub+begin
-       INC L
-       LD (HL),25591/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),25591%256 ; #b10 of the character's buffer with #R25591 (below)
+@rsub=INC L
+@rsub=LD (HL),25591/256 ; }
+ 25589 LD (HL),247   ; #b10 of the character's buffer with #R25591 (below)}
 ; The second and subsequent calls to this routine (from #R25296) enter here:
 @label=WALK0
  25591 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
@@ -2827,12 +2813,10 @@ c25700 LD L,5        ; {Copy the destination coordinates from the command list
 ; This entry point is used by the routine at #R25815.
 *25705 LD L,3        ; {Replace the address of this routine in bytes #b3 and
 @ssub=LD (HL),25726%256
- 25707 LD (HL),126   ; #b4 of the character's buffer with #R25726 (below)
-@rsub+begin
-       INC L
-       LD (HL),25726/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),25726%256 ; #b4 of the character's buffer with #R25726 (below)
+@rsub=INC L
+@rsub=LD (HL),25726/256 ; }
+ 25707 LD (HL),126   ; #b4 of the character's buffer with #R25726 (below)}
  25709 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
  25711 LD A,(HL)     ; #REGa=character's animatory state
  25712 AND 7         ; {Is the character sitting on a chair (kids only)?
@@ -2955,18 +2939,15 @@ c25700 LD L,5        ; {Copy the destination coordinates from the command list
  25781 EX DE,HL      ; Swap #REGde and #REGhl back again
  25782 LD E,11       ; Point #REGde at byte #b11 of the character's buffer
  25784 INC L         ; #REGl=#b70
-@rsub-begin
+@rsub=LD BC,25656
  25785 LD C,(HL)     ; {#REGbc=#R25656 if the stairs are to be ascended,
+@rsub=LD A,(HL)      ; #R25677 if descended
  25786 LD B,100      ; #R25677 if descended}
+@rsub=CP 56
+@rsub=JR Z,25789     ;
+@rsub=LD BC,25677    ; }
  25788 NOP           ;
-@rsub+else
-       LD BC,25656   ; {#REGbc=#R25656 if the stairs are to be ascended,
-       LD A,(HL)     ; #R25677 if descended
-       CP 56         ;
-       JR Z,25789    ;
-       LD BC,25677   ; }
-@label=UPSTAIRS
-@rsub+end
+@rsub=UPSTAIRS:
  25789 INC L         ; #REGl=#b71
  25790 LD A,(HL)     ; #REGa=1 + number of steps in the staircase
  25791 LD (DE),A     ; Place this number of steps in byte #b11 of the
@@ -3487,12 +3468,10 @@ c26224 LD L,19       ; {Set the parameter controlling the delay before the
  26226 LD (HL),4     ; character gets up to look for another seat}
  26228 LD L,17       ; {Replace the address of this routine in bytes #b17 and
 @ssub=LD (HL),26239%256
- 26230 LD (HL),127   ; #b18 of the character's buffer with #R26239
-@rsub+begin
-       INC L
-       LD (HL),26239/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),26239%256 ; #b18 of the character's buffer with #R26239
+@rsub=INC L
+@rsub=LD (HL),26239/256 ; }
+ 26230 LD (HL),127   ; #b18 of the character's buffer with #R26239}
  26232 CALL 25012    ; Update the SRB for the character's current animatory
                      ; state and location
  26235 INC A         ; #REGa=animatory state of character sitting on the floor
@@ -3513,12 +3492,10 @@ c26239 LD L,19       ; Byte #b19 of the character's buffer holds the delay
  26242 RET NZ        ; Return if not
  26243 LD L,17       ; {Replace the address of this routine in bytes #b17 and
 @ssub=LD (HL),26263%256
- 26245 LD (HL),151   ; #b18 of the character's buffer with #R26263
-@rsub+begin
-       INC L
-       LD (HL),26263/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),26263%256 ; #b18 of the character's buffer with #R26263
+@rsub=INC L
+@rsub=LD (HL),26263/256 ; }
+ 26245 LD (HL),151   ; #b18 of the character's buffer with #R26263}
  26247 CALL 25012    ; Update the SRB for the character's current animatory
                      ; state and location
  26250 AND 248       ; #REGa=animatory state of the character standing up
@@ -3965,12 +3942,10 @@ c26639 CALL 28658    ; Collect information about the board
  26654 LD (HL),B     ; #R32608, #R32614 or #R32620) into byte #b14}
  26655 LD L,9        ; {Change the routine address in bytes #b9 and #b10 of the
 @ssub=LD (HL),26659%256
- 26657 LD (HL),35    ; teacher's buffer to #R26659 (below)
-@rsub+begin
-       INC L
-       LD (HL),26659/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),26659%256 ; teacher's buffer to #R26659 (below)
+@rsub=INC L
+@rsub=LD (HL),26659/256 ; }
+ 26657 LD (HL),35    ; teacher's buffer to #R26659 (below)}
 @label=WIPE0
  26659 LD L,11       ; Byte #b11 holds the board-wiping action counter
  26661 DEC (HL)      ; Decrement the counter
@@ -4092,12 +4067,10 @@ c26752 CALL 26453    ; Collect information about the board
  26808 LD (HL),A     ; }
  26809 LD L,9        ; {Replace the address of this routine in bytes #b9 and
 @ssub=LD (HL),26813%256
- 26811 LD (HL),189   ; #b10 of the character's buffer with #R26813 (below)
-@rsub+begin
-       INC L
-       LD (HL),26813/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),26813%256 ; #b10 of the character's buffer with #R26813 (below)
+@rsub=INC L
+@rsub=LD (HL),26813/256 ; }
+ 26811 LD (HL),189   ; #b10 of the character's buffer with #R26813 (below)}
 @label=WRITEBRD0
  26813 CALL 26513    ; Write one letter on the board
  26816 JR NZ,26829   ; Jump unless the character has finished writing
@@ -4448,24 +4421,18 @@ c27144 LD L,11       ; {Store the message number in byte #b11 of the
                      ; bubble on-screen)
  27168 LD L,9        ; {Place the address of the entry point at #R27165 into
 @ssub=LD (HL),27165%256
- 27170 LD (HL),29    ; bytes #b9 and #b10 of the character's buffer
-@rsub+begin
-       INC L
-       LD (HL),27165/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),27165%256 ; bytes #b9 and #b10 of the character's buffer
+@rsub=INC L
+@rsub=LD (HL),27165/256 ; }
+ 27170 LD (HL),29    ; bytes #b9 and #b10 of the character's buffer}
  27172 AND A         ; Is anyone else speaking at the moment?
  27173 RET NZ        ; Return if so
-@rsub+begin
-       LD (HL),27182/256 ; {
-       DEC L             ;
-@rsub+end
 @ssub=LD (HL),27182%256
- 27174 LD (HL),46    ; Place the address of the entry point at #R27182 into
-                     ; bytes #b9 and #b10 of the character's buffer
-@rsub+begin
-                     ; }
-@rsub+end
+@rsub=<LD (HL),27182/256 ; {
+@rsub=<DEC L             ;
+@rsub=LD (HL),27182%256  ; Place the address of the entry point at #R27182 into
+ 27174 LD (HL),46    ; {Place the address of the entry point at #R27182 into
+                     ; bytes #b9 and #b10 of the character's buffer}
  27176 CALL 26958    ; Print the speech bubble if the character's head is
                      ; on-screen
  27179 RET NC        ; Return if the character's head is on-screen
@@ -6393,12 +6360,10 @@ s29050 DEFS 2
 @label=MOVEDOOR
 c29052 LD L,3        ; {Replace the address of this routine in bytes #b3 and
 @ssub=LD (HL),29061%256
- 29054 LD (HL),133   ; #b4 of the character's buffer with #R29061 (below)
-@rsub+begin
-       INC L
-       LD (HL),29061/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),29061%256 ; #b4 of the character's buffer with #R29061 (below)
+@rsub=INC L
+@rsub=LD (HL),29061/256 ; }
+ 29054 LD (HL),133   ; #b4 of the character's buffer with #R29061 (below)}
  29056 LD L,19       ; {Copy the door identifier and open/close parameter from
  29058 CALL 25188    ; the command list into bytes #b19 and #b20 of the
                      ; character's buffer}
@@ -7801,13 +7766,12 @@ c30555 LD A,(54546)  ; Pick up byte #b18 of buffer #b213 (BOY WANDER's pellet)
                      ; #R30604 (below)
 *30604 LD L,17       ; {Place the address of the uninterruptible subcommand
 @ssub=LD (HL),30643%256
+@rsub=LD (HL),30643%256
+@rsub=                  ; WANDER's buffer
+@rsub=INC L
+@rsub=LD (HL),30643/256 ; }
  30606 LD (HL),179   ; routine at #R30643 into bytes #b17 and #b18 of BOY
-                     ; WANDER's buffer
-@rsub+begin
-       INC L
-       LD (HL),30643/256
-@rsub+end
-                     ; }
+                     ; WANDER's buffer}
 @ssub=LD A,(54528+18)
  30608 LD A,(54546)  ; Pick up byte #b18 of buffer #b213 (BOY WANDER's pellet)
  30611 AND A         ; Is this buffer already being used?
@@ -8218,12 +8182,10 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
                      ; one)
  31056 LD L,17       ; {Change the address in bytes #b17 and #b18 of the frog's
 @ssub=LD (HL),31061%256
- 31058 LD (HL),85    ; buffer to #R31061 (below) so that we resume there
-@rsub+begin
-       INC L
-       LD (HL),31061/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),31061%256 ; buffer to #R31061 (below) so that we resume there
+@rsub=INC L
+@rsub=LD (HL),31061/256 ; }
+ 31058 LD (HL),85    ; buffer to #R31061 (below) so that we resume there}
  31060 RET           ;
 ; This entry point is used when the frog has just jumped into the air in order
 ; to make a long hop (three spaces forward). It is also used by the routine at
@@ -8233,12 +8195,10 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
                      ; state to #AS30(#b30/#b158) (airborne, phase 2)
  31064 LD L,17       ; {Change the address in bytes #b17 and #b18 of the frog's
 @ssub=LD (HL),31069%256
- 31066 LD (HL),93    ; buffer to #R31069 (below) so that we resume there
-@rsub+begin
-       INC L
-       LD (HL),31069/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),31069%256 ; buffer to #R31069 (below) so that we resume there
+@rsub=INC L
+@rsub=LD (HL),31069/256 ; }
+ 31066 LD (HL),93    ; buffer to #R31069 (below) so that we resume there}
  31068 RET           ;
 ; This entry point is used when the frog is at the highest point of a long hop.
 @label=FROGHIGH
@@ -8284,12 +8244,10 @@ s31091 DEFB 0
 @label=STARTJPING
 c31092 LD L,17       ; {Replace the address of this routine in bytes #b17 and
 @ssub=LD (HL),31078%256
- 31094 LD (HL),102   ; #b18 of the character's buffer with that of #R31078
-@rsub+begin
-       INC L
-       LD (HL),31078/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),31078%256 ; #b18 of the character's buffer with that of #R31078
+@rsub=INC L
+@rsub=LD (HL),31078/256 ; }
+ 31094 LD (HL),102   ; #b18 of the character's buffer with that of #R31078}
  31096 CALL 25012    ; Update the SRB for the character's current animatory
                      ; state and location
  31099 LD L,20       ; {Store the character's current animatory state in byte
@@ -8379,17 +8337,15 @@ c31150 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
                      ; floor as the mouse
  31187 DEC A         ; Is the female character one level above the mouse?
  31188 JR NZ,31248   ; Jump ahead to consider the next character if not
-@rsub-begin
+@rsub=!31190-31193
  31190 LD L,18       ; {Pick up the MSB of any uninterruptible subcommand
  31192 LD A,(HL)     ; routine address in bytes #b17 and #b18 of the
                      ; character's buffer}
 @ssub=CP 31078/256
  31193 CP 121        ; Is this character jumping (#b121=MSB of #R31078 or
                      ; #R31092)?
-@rsub+else
-       CALL 31252    ; Is this character already under the control of the
-                     ; routine at #R31078 or #R31092?
-@rsub+end
+@rsub=<CALL 31252    ; Is this character already under the control of the
+@rsub=<              ; routine at #R31078 or #R31092?
  31195 JR NZ,31248   ; Jump ahead to consider the next character if not
 *31197 LD L,1        ; Point #REGhl at byte #b1 of the character's buffer
  31199 LD A,(HL)     ; #REGa=female character's x-coordinate
@@ -8408,18 +8364,16 @@ c31150 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  31223 JR NZ,31248   ; Jump ahead to consider the next character if so
 ; The female character is located within 5 spaces of the mouse, and is facing
 ; it. Figure out whether she's already jumping, or can start jumping.
-@rsub-begin
+@rsub=CALL 31252     ; Set the zero flag if the character is under the control
+@rsub=               ; of the routine at #R31078 or #R31092 (i.e. is already
+@rsub=               ; jumping)
 *31225 LD L,18       ; {Pick up the MSB of any uninterruptible subcommand
+@rsub=!31227-31228
  31227 LD A,(HL)     ; routine address in bytes #b17 and #b18 of the female
                      ; character's buffer}
 @ssub=CP 31078/256
  31228 CP 121        ; Set the zero flag if the routine address is #R31078 or
                      ; #R31092 (i.e. the character is already jumping)
-@rsub+else
-*31225 CALL 31252    ; Set the zero flag if the character is under the control
-                     ; of the routine at #R31078 or #R31092 (i.e. is already
-                     ; jumping)
-@rsub+end
  31230 INC HL        ; Point #REGhl at byte #b19 of the character's buffer
  31231 JR NZ,31237   ; Jump if the character is not jumping
  31233 SET 4,(HL)    ; Otherwise ensure this character continues jumping for a
@@ -8707,18 +8661,15 @@ c31502 LD H,198      ; {Use buffers #b198 and #b199 (little boys nos. 9 and 10)
  31516 LD A,(HL)     ; routine address in bytes #b17 and #b18 of the
                      ; character's buffer}
 @ssub=CP 31254/256
+@rsub=CP 31254/256
+@rsub=JR NZ,31521    ; Jump if not
+@rsub=DEC L          ; #REGl=#b17
+@rsub=LD A,(HL)      ; #REGa=LSB of the uninterruptible subcommand routine
+@rsub=               ; address in bytes #b17 and #b18
+@rsub=CP 31254%256   ; Does the LSB match that of #R31254?
  31517 CP 122        ; Does the MSB match that of #R31254?
-@rsub+begin
-       JR NZ,31521   ; Jump if not
-       DEC L         ; #REGl=#b17
-       LD A,(HL)     ; #REGa=LSB of the uninterruptible subcommand routine
-                     ; address in bytes #b17 and #b18
-       CP 31254%256  ; Does the LSB match that of #R31254?
-@rsub+end
  31519 JR Z,31568    ; Jump if so
-@rsub+begin
-@label=NOTMOUSE
-@rsub+end
+@rsub=NOTMOUSE:
  31521 LD L,1        ; {#REGa=x-coordinate of the character using this buffer
  31523 LD A,(HL)     ; }
  31524 CP 142        ; Is this character inside or close to the girls' skool?
@@ -9048,16 +8999,11 @@ c31844 LD D,90       ; {Set the attribute byte
 
 ; Collect the bit mask and game status buffer address for an event identifier
 ;
-@rsub-begin
-; Used by the routine at #R31887, and also by the unused routines at #R31893
-; and #R31905.
-@rsub+else
-; Used by the routine at #R31887.
-@rsub+end
-; The event identifier in #REGa (#b0, #b7-#b12), taken modulo 8, corresponds to
-; a bit in one of the bytes at #R32640 (#REGa<=7) or #R32641 (#REGa>=8). On
-; exit, #REGhl points to the appropriate byte and #REGa holds the bit mask
-; (single bit set), as follows:
+; Used by the routine at #IF({asm}<3)//#R31887, and also by the unused routines
+; at #R31893 and #R31905/#R31887//. The event identifier in #REGa (#b0,
+; #b7-#b12), taken modulo 8, corresponds to a bit in one of the bytes at
+; #R32640 (#REGa<=7) or #R32641 (#REGa>=8). On exit, #REGhl points to the
+; appropriate byte and #REGa holds the bit mask (single bit set), as follows:
 ; .
 ; #TABLE(default,centre,centre,:w)
 ; { =h Entry | =h Exit | =h Event }
@@ -18310,12 +18256,10 @@ c61463 LD A,E        ; #REGa=message number for EINSTEIN
  61473 EX DE,HL      ;
  61474 LD L,9        ; {Replace the address of this routine in bytes #b9 and
 @ssub=LD (HL),61478%256
- 61476 LD (HL),38    ; #b10 of the teacher's buffer with #R61478 (below)
-@rsub+begin
-       INC L
-       LD (HL),61478/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),61478%256 ; #b10 of the teacher's buffer with #R61478 (below)
+@rsub=INC L
+@rsub=LD (HL),61478/256 ; }
+ 61476 LD (HL),38    ; #b10 of the teacher's buffer with #R61478 (below)}
 ; This entry point is used while the teacher is waiting for EINSTEIN to finish
 ; speaking.
 @label=SWOTSPK0
@@ -20468,12 +20412,10 @@ c63801 LD L,21       ; {Pick up the x-coordinate of the window to be opened
 ; needs opening.
 *63818 LD L,17       ; {Replace the address of this entry point in bytes
 @ssub=LD (HL),63830%256
- 63820 LD (HL),86    ; #b17 and #b18 of MR WACKER's buffer with #R63830
-@rsub+begin
-       INC L
-       LD (HL),63830/256
-@rsub+end
-                     ; }
+@rsub=LD (HL),63830%256 ; #b17 and #b18 of MR WACKER's buffer with #R63830
+@rsub=INC L
+@rsub=LD (HL),63830/256 ; }
+ 63820 LD (HL),86    ; #b17 and #b18 of MR WACKER's buffer with #R63830}
  63822 LD B,1        ; #REGb=1 (open window)
  63824 LD L,22       ; {Pick up the window identifier (#b64/#b128) from byte
  63826 LD A,(HL)     ; #b22 of MR WACKER's buffer}
