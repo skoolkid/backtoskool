@@ -344,7 +344,7 @@ c21408 BIT 0,(HL)    ; Have we reached the end of the POKE table?
  21413 LD D,(HL)     ; }
  21414 INC L         ; Point #REGhl at the POKE operand
  21415 LDI           ; Do the POKE
-@rsub=<DEC A         ; Are there any POKEs left to do?
+@rsub=>DEC A         ; Are there any POKEs left to do?
 @rsub=JR NZ,21411    ; Jump back if so
 @rsub=RET
  21417 JR 21408      ; Jump back to do the next POKE
@@ -4428,8 +4428,8 @@ c27144 LD L,11       ; {Store the message number in byte #b11 of the
  27172 AND A         ; Is anyone else speaking at the moment?
  27173 RET NZ        ; Return if so
 @ssub=LD (HL),27182%256
-@rsub=<LD (HL),27182/256 ; {
-@rsub=<DEC L             ;
+@rsub=>LD (HL),27182/256 ; {
+@rsub=>DEC L             ;
 @rsub=LD (HL),27182%256  ; Place the address of the entry point at #R27182 into
  27174 LD (HL),46    ; {Place the address of the entry point at #R27182 into
                      ; bytes #b9 and #b10 of the character's buffer}
@@ -7183,8 +7183,8 @@ c29896 LD L,2        ;
 ; contain character buffers; treating the other pages in RAM as if they
 ; contained character buffers could lead to data/code corruption. Needless to
 ; say, this is a #BUG#conkerMD(bug).||
-@rfix=<LD D,206      ; #b206=BOY WANDER
-@rfix=<LD B,4        ; There are four main kids to check
+@rfix=>LD D,206      ; #b206=BOY WANDER
+@rfix=>LD B,4        ; There are four main kids to check
  29947 CALL 27820    ; Check whether anyone was hit by the conker
  29950 LD L,2        ; {Set the conker's y-coordinate back to 13
  29952 LD (HL),13    ; }
@@ -8344,8 +8344,8 @@ c31150 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
 @ssub=CP 31078/256
  31193 CP 121        ; Is this character jumping (#b121=MSB of #R31078 or
                      ; #R31092)?
-@rsub=<CALL 31252    ; Is this character already under the control of the
-@rsub=<              ; routine at #R31078 or #R31092?
+@rsub=>CALL 31252    ; Is this character already under the control of the
+@rsub=>              ; routine at #R31078 or #R31092?
  31195 JR NZ,31248   ; Jump ahead to consider the next character if not
 *31197 LD L,1        ; Point #REGhl at byte #b1 of the character's buffer
  31199 LD A,(HL)     ; #REGa=female character's x-coordinate
