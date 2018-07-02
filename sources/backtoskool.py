@@ -53,6 +53,24 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             self.b_fmt = self.b_fmt.lower()
             self.w_fmt = self.w_fmt.lower()
 
+    def init_page(self, skoolkit, game):
+        if 'alt_base' in game:
+            path = skoolkit['path']
+            page_id = skoolkit['page_id']
+            if page_id.startswith(('Asm', 'load-Asm', 'save-Asm', 'start-Asm')):
+                addr_str = path.rsplit('/', 1)[-1][:-5]
+                if game['alt_base'] == 'decimal':
+                    path = path.replace(addr_str, str(int(addr_str, 16)))
+                else:
+                    path = path.replace(addr_str, '{:04X}'.format(int(addr_str)))
+            elif page_id.startswith('Lesson') and page_id != 'LessonIndex':
+                lesson = page_id[-2:]
+                if game['alt_base'] == 'decimal':
+                    path = path.replace('{:02X}'.format(int(lesson)), lesson)
+                else:
+                    path = path.replace(lesson, '{:02X}'.format(int(lesson)))
+            skoolkit['Path'] = path
+
     def _calculate_tap_index(self, tap_address_table, max_tap):
         min_tap = tap_address_table % 256
         self.tap_addresses = {}
