@@ -907,8 +907,8 @@ c23907 LD HL,32755   ; #R32755 holds ERIC's main action timer
  24004 JR Z,23945    ; Just bring ERIC back to the floor if not
 ; ERIC has jumped up to the safe, and he has the safe key. Celebration time.
 @ssub=LD L,32734%256
- 24006 LD L,222      ; {Set #R32734 to 1 so the game will be restarted
- 24008 INC (HL)      ; instead of going into demo mode}
+ 24006 LD L,222      ; {Set #R32734 to 1 so the game will be restarted instead
+ 24008 INC (HL)      ; of going into demo mode}
  24009 LD A,200      ; {Add 2000 to the score and print it
  24011 CALL 29621    ; }
  24014 XOR A         ; #REGa=#R65007(#b0): 'ONTO THE NEXT YEAR'
@@ -1442,8 +1442,8 @@ c24576 LD L,1        ; Point #REGhl at byte #b1 of the character's buffer
                      ; column, where 0=top-front, 4=top-middle, 8=top-back,
                      ; 11=bottom-back)
  24604 ADD A,215     ; #b215<=#REGa<=#b226
- 24606 EXX           ; {Set #REGh' to the number of the page containing the
- 24607 LD H,A        ; UDG reference for the sprite tile
+ 24606 EXX           ; {Set #REGh' to the number of the page containing the UDG
+ 24607 LD H,A        ; reference for the sprite tile
  24608 EXX           ; }
  24609 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
  24611 LD A,(HL)     ; #REGa=character's animatory state
@@ -1696,8 +1696,8 @@ c24684 PUSH HL       ;
 *24811 LD HL,57712   ; {We're going to copy the tile into the 8-byte back
  24814 LD B,8        ; buffer at #R57712}
 *24816 XOR A         ; Use a blank graphic byte (during startup), or collect
-                     ; the tile graphic byte (this instruction is set to
-                     ; #S/LD A,(DE)/ before the game starts; see #R21408)
+                     ; the tile graphic byte (this instruction is set to #S/LD
+                     ; A,(DE)/ before the game starts; see #R21408)
  24817 INC D         ; Point #REGde at the next graphic byte
  24818 LD (HL),A     ; Copy the graphic byte into the back buffer
  24819 INC L         ; Move to the next slot in the back buffer
@@ -2584,8 +2584,8 @@ c25534 LD DE,(53761) ; Get ERIC's coordinates in #REGde
 ; { #b196 | Top floor, girls' skool }
 ; TABLE#
 ; .
-; #HTML(<span id="ericLocTable" />)
-; Or if the entry point at #R25557 is used (for ERIC's location):
+; #HTML(<span id="ericLocTable" />) Or if the entry point at #R25557 is used
+; (for ERIC's location):
 ; .
 ; #TABLE(default,centre)
 ; { =h ID | =h Region }
@@ -2874,10 +2874,9 @@ c25700 LD L,5        ; {Copy the destination coordinates from the command list
  25758 SUB 129       ; {#REGe=destination region ID minus #b129 (#b60-#b67)
  25760 LD E,A        ; }
  25761 LD A,(DE)     ; Collect the appropriate staircase endpoint identifier
-; #HTML(<span id="staircaseMatrix" />)
-; The staircase endpoint identifiers are arranged in bytes #b60-#b67
-; (corresponding to the destination) of pages #b189-#b196 (corresponding to the
-; current location) as follows:
+; #HTML(<span id="staircaseMatrix" />) The staircase endpoint identifiers are
+; arranged in bytes #b60-#b67 (corresponding to the destination) of pages
+; #b189-#b196 (corresponding to the current location) as follows:
 ; .
 ; #TABLE(default)
 ; { =c2,t              | =h #b189 | =h #b190 | =h #b191 | =h #b192 | =h #b193 | =h #b194 | =h #b195 | =h #b196 }
@@ -2891,13 +2890,13 @@ c25700 LD L,5        ; {Copy the destination coordinates from the command list
 ; { #R50236 | =h #b196 |    #b207 |    #b207 |    #b207 |    #b207 |    #b207 |    #b207 |    #b207 | =t       }
 ; TABLE#
 ; .
-; #HTML(<span id="staircases" />)
-; The staircase endpoint indentifier now in #REGa (#b189-#b200, #b206 or #b207)
-; corresponds to the top or bottom of the first staircase the character will
-; have to negotiate in order to reach his destination. The x-coordinate (x),
-; direction indicator (d), appropriate routine address LSB (#b56 for #R25656,
-; #b77 for #R25677) and number of steps (n) for the staircase can be found in
-; bytes #b68-#b71 of pages #b189-#b200 and #b206-#b207, as follows:
+; #HTML(<span id="staircases" />) The staircase endpoint indentifier now in
+; #REGa (#b189-#b200, #b206 or #b207) corresponds to the top or bottom of the
+; first staircase the character will have to negotiate in order to reach his
+; destination. The x-coordinate (x), direction indicator (d), appropriate
+; routine address LSB (#b56 for #R25656, #b77 for #R25677) and number of steps
+; (n) for the staircase can be found in bytes #b68-#b71 of pages #b189-#b200
+; and #b206-#b207, as follows:
 ; .
 ; #TABLE(default,centre,centre,centre,centre,,:w)
 ; {  =h ID         | =h x | =h d  | =h LSB | =h n | =h Staircase endpoint }
@@ -2919,8 +2918,8 @@ c25700 LD L,5        ; {Copy the destination coordinates from the command list
  25762 LD D,A        ; Place the staircase endpoint identifier in #REGd
  25763 LD E,68       ; Byte #b68 holds the x-coordinate of the top or bottom of
                      ; the staircase identified by #REGd
- 25765 LD L,1        ; {Point #REGde at byte #b1 of the character's buffer,
- 25767 EX DE,HL      ; and #REGhl at the staircase endpoint x-coordinate}
+ 25765 LD L,1        ; {Point #REGde at byte #b1 of the character's buffer, and
+ 25767 EX DE,HL      ; #REGhl at the staircase endpoint x-coordinate}
  25768 LD A,(DE)     ; #REGa=character's current x-coordinate
  25769 CP (HL)       ; Is the character already at the top or bottom of the
                      ; appropriate staircase?
@@ -3391,10 +3390,10 @@ c26136 CALL 26145    ; Are any of the first #REGb potential occupants sitting
                      ; location as the character looking for a seat
  26159 DEC E         ; #REGe=#b0
  26160 LD A,(DE)     ; #REGa=potential occupant's animatory state
- 26161 AND C         ; {Discard the character-identifying bits and keep only
-                     ; the 'direction' bit and 'action' bits (#REGc=10001111
-                     ; for BOY WANDER, ANGELFACE or ERIC, and 10000111 for
-                     ; anybody else)}
+ 26161 AND C         ; Discard the character-identifying bits and keep only the
+                     ; 'direction' bit and 'action' bits (#REGc=10001111 for
+                     ; BOY WANDER, ANGELFACE or ERIC, and 10000111 for anybody
+                     ; else)
  26162 CP 4          ; Is the potential occupant sitting in the chair here?
  26164 JR NZ,26171   ; Jump if not
  26166 LD E,18       ; {Is there an uninterruptible subcommand routine address
@@ -4106,9 +4105,9 @@ s26845 DEFS 4
 ; updated. Returns with the carry flag set if the speech bubble is on-screen,
 ; and with #REGhl pointing at the first byte of the SRB.
 @label=BUBBLESRB
-c26849 LD HL,32760   ; {#R32760 holds the LSB of the SRB address
- 26852 LD A,(HL)     ; corresponding to the lip of the speech bubble (or 0 if
-                     ; there is no bubble on-screen)}
+c26849 LD HL,32760   ; {#R32760 holds the LSB of the SRB address corresponding
+ 26852 LD A,(HL)     ; to the lip of the speech bubble (or 0 if there is no
+                     ; bubble on-screen)}
  26853 LD L,A        ; #REGl=0 (and #REGhl=#R32512) if no one is speaking
  26854 AND A         ; Is anyone speaking at the moment?
  26855 RET Z         ; Return if not
@@ -4428,11 +4427,11 @@ c27144 LD L,11       ; {Store the message number in byte #b11 of the
  27172 AND A         ; Is anyone else speaking at the moment?
  27173 RET NZ        ; Return if so
 @ssub=LD (HL),27182%256
-@rsub=>LD (HL),27182/256 ; {
-@rsub=>DEC L             ;
-@rsub=LD (HL),27182%256  ; Place the address of the entry point at #R27182 into
- 27174 LD (HL),46    ; {Place the address of the entry point at #R27182 into
-                     ; bytes #b9 and #b10 of the character's buffer}
+@rsub=>LD (HL),27182/256 ; {Place the address of the entry point at #R27182
+@rsub=>DEC L             ; into bytes #b9 and #b10 of the character's buffer
+@rsub=/LD (HL),27182%256 ; }
+ 27174 LD (HL),46    ; Place the address of the entry point at #R27182 into
+                     ; bytes #b9 and #b10 of the character's buffer
  27176 CALL 26958    ; Print the speech bubble if the character's head is
                      ; on-screen
  27179 RET NC        ; Return if the character's head is on-screen
@@ -5029,8 +5028,8 @@ c27672 LD A,(HL)     ; {Pick up the y-coordinate (Y) in #REGd
 *27767 LD B,A        ; }
  27768 LD A,C        ; #REGa=Q
  27769 LD C,136      ; #REGc=10001000
- 27771 SRL A         ; {Set #REGa=INT(Q/4), and shift #REGb and #REGc right
- 27773 JR NC,27779   ; (Q #S/AND/ 3) times
+ 27771 SRL A         ; {Set #REGa=INT(Q/4), and shift #REGb and #REGc right (Q
+ 27773 JR NC,27779   ; #S/AND/ 3) times
  27775 RRC B         ;
  27777 RRC C         ;
 *27779 SRL A         ;
@@ -5220,15 +5219,15 @@ c27904 LD A,H        ; {Determine the x-coordinate at which this boy will sit
  27922 BIT 7,(HL)    ; Is he facing left?
  27924 JP Z,25648    ; Make him turn round to face the stage if so
  27927 LD L,4        ; {Remove the address of this routine's entry point
- 27929 LD (HL),0     ; (#R27920) from bytes #b3 and #b4 of the character
-                     ; buffer}
+ 27929 LD (HL),0     ; (#R27920) from bytes #b3 and #b4 of the character buffer
+                     ; }
  27931 CALL 25012    ; Update the SRB for the boy's current animatory state and
                      ; location
  27934 AND 240       ; {#REGa=animatory state of the boy sitting on the floor
  27936 ADD A,5       ; }
- 27938 CALL 30534    ; {Update the boy's animatory state, update the SRB, and
+ 27938 CALL 30534    ; Update the boy's animatory state, update the SRB, and
                      ; place the address of the entry point at #R27941 (below)
-                     ; into bytes #b17 and #b18 of the character buffer}
+                     ; into bytes #b17 and #b18 of the character buffer
 ; This entry point is used after the boy has sat down facing the stage.
 @label=SITASSEM
  27941 LD A,(32640)  ; {Check bit 7 of #R32640 (set by #R61658, reset by
@@ -5288,8 +5287,8 @@ c27954 EXX           ;
  27984 EXX           ;
  27985 XOR A         ; Signal: none of the spotters was within range
  27986 RET           ;
-; We've found a spotter within seeing range of the target. But is he facing
-; the right way?
+; We've found a spotter within seeing range of the target. But is he facing the
+; right way?
 *27987 CP E          ; Does the spotter's x-coordinate match the target's?
  27988 JR Z,27999    ; Jump if so
  27990 LD A,0        ; The carry flag is now set if the spotter is to the left
@@ -5302,8 +5301,8 @@ c27954 EXX           ;
                      ; spotter is facing
  27997 EXX           ;
  27998 RLCA          ;
-*27999 CCF           ; Set the carry flag if the spotter's facing the right
-                     ; way to see the target
+*27999 CCF           ; Set the carry flag if the spotter's facing the right way
+                     ; to see the target
  28000 LD A,B        ; Set #REGa to something non-zero to indicate that the
                      ; spotter was within range
  28001 RET           ;
@@ -5839,8 +5838,8 @@ c28484 CALL 28240    ; Check whether ERIC is on a staircase
                      ; leading up to the assembly hall stage
  28567 JR 28551      ; Move ERIC up a stair if he's here
 ; ERIC is on a staircase.
-*28569 XOR (HL)      ; {Set the carry flag if ERIC is facing the wrong way
- 28570 RLA           ; to ascend the stairs}
+*28569 XOR (HL)      ; {Set the carry flag if ERIC is facing the wrong way to
+ 28570 RLA           ; ascend the stairs}
  28571 JP C,28216    ; Turn ERIC round if he's facing the wrong way
  28574 JR 28514      ; Make ERIC go up a stair otherwise
 
@@ -6267,8 +6266,8 @@ c28978 CALL 25012    ; Update the SRB for the character's current animatory
  28985 CP D          ;
  28986 JR C,28983    ; }
  28988 LD D,A        ; #REGd=#b3, #b10 or #b17 (top, middle or bottom floor)
- 28989 JP 30115      ; Restore the character's original animatory state and
-                     ; put her feet back on the floor
+ 28989 JP 30115      ; Restore the character's original animatory state and put
+                     ; her feet back on the floor
 
 ; 'D' pressed - drop stinkbomb
 ;
@@ -8048,8 +8047,8 @@ c30804 LD A,(32747)  ; #R32747 holds the inventory flags
                      ; and location
  30892 BIT 4,D       ; Is the frog about to hit the floor (#REGd=16)?
  30894 JR Z,30885    ; Jump if not (to make it fall another level)
- 30896 CP 28         ; The frog's animatory state will be
-                     ; #AS29 if it bounced off MISS TAKE's head
+ 30896 CP 28         ; The frog's animatory state will be #AS29 if it bounced
+                     ; off MISS TAKE's head
  30898 LD A,28       ; #AS28=frog sitting still, facing left
  30900 JR NZ,30886   ; Jump if the frog bounced off MISS TAKE's head
  30902 INC D         ; #REGd=17 (bottom floor)
@@ -9215,9 +9214,9 @@ s31998 DEFS 2
 ; Get the identifier for ERIC's location
 ;
 ; Used by the routines at #R32021, #R32032 and #R62094. Returns with the carry
-; flag set if ERIC's on the stage or a forbidden staircase (though this flag
-; is ignored by the callers), and the location identifier (0-8) in #REGa. See
-; the routine at #R25554 for a description of the location identifiers.
+; flag set if ERIC's on the stage or a forbidden staircase (though this flag is
+; ignored by the callers), and the location identifier (0-8) in #REGa. See the
+; routine at #R25554 for a description of the location identifiers.
 @label=ERICLOCID
 c32000 CALL 25534    ; #REGd=ERIC's y-coordinate (or the y-coordinate of the
                      ; floor he's closest to if his feet are not on the floor)
@@ -9512,8 +9511,8 @@ c32062 AND A         ; Is ERIC in a forbidden zone?
 ; It's too soon for the teacher who gave ERIC lines last time to give him lines
 ; again. Remove that teacher from lines-giving range temporarily.
 @ssub=LD L,32757%256
- 32287 LD L,245      ; {Collect from #R32757 into #REGh the character number
- 32289 LD H,(HL)     ; of the teacher who last gave ERIC lines}
+ 32287 LD L,245      ; {Collect from #R32757 into #REGh the character number of
+ 32289 LD H,(HL)     ; the teacher who last gave ERIC lines}
  32290 LD L,1        ; {#REGa=this teacher's x-coordinate
  32292 LD A,(HL)     ; }
  32293 LD (HL),224   ; Set this teacher's x-coordinate to 224 temporarily to
@@ -10031,8 +10030,7 @@ g32737 DEFB 0
 ;
 ; Used by the routines at #R24348 (which decreases the counter by 7 whenever
 ; ERIC kisses HAYLEY) and #R30102 (which decreases the counter by 1 whenever
-; HAYLEY is knocked over). Initialised to #b40 by the routine
-; at #R62910.
+; HAYLEY is knocked over). Initialised to #b40 by the routine at #R62910.
 @label=KISSCOUNT
 g32738 DEFB 0
 
@@ -11985,8 +11983,8 @@ b46336 DEFB 0,1,2,3,4,5,6,7                 ; {0<=x<=31
  46344 DEFB 8,9,10,11,12,11,13,14           ;
  46352 DEFB 15,16,17,18,19,20,21,22         ;
  46360 DEFB 23,24,25,26,27,27,28,29         ; }
-; The next 32 Q values correspond to x-coordinates 32-63. No two
-; x-coordinates in this range have the same Q value.
+; The next 32 Q values correspond to x-coordinates 32-63. No two x-coordinates
+; in this range have the same Q value.
 ; .
 ; #UDGTABLE
 ; { #CALL:play_area(qvalues2,32,0,32,21,1,0,4) }
@@ -12283,8 +12281,8 @@ b47141 DEFB 0  ; Lesson #LESSON37 (MR CREAK - BLUE ROOM): #R51516(#b0)
 
 ; Skool region identifier table for the middle floor
 ;
-; Used by the routine at #R25554. The skool region identifier table for the
-; top floor is at #R46908, and the table for the bottom floor is at #R47420.
+; Used by the routine at #R25554. The skool region identifier table for the top
+; floor is at #R46908, and the table for the bottom floor is at #R47420.
 @label=MIDFLOOR
 b47164 DEFB 63,190  ; Region #b190: middle floor, left of the far wall of the
                     ; Science Lab storeroom (x<=63)
@@ -12375,8 +12373,8 @@ b47397 DEFB 0  ; Lesson #LESSON37 (MR CREAK - BLUE ROOM): #R51516(#b0)
 
 ; Skool region identifier table for the bottom floor
 ;
-; Used by the routine at #R25554. The skool region identifier table for the
-; top floor is at #R46908, and the table for the middle floor is at #R47164.
+; Used by the routine at #R25554. The skool region identifier table for the top
+; floor is at #R46908, and the table for the middle floor is at #R47164.
 @label=BOTFLOOR
 b47420 DEFB 224,191 ; Region #b191: Anywhere on the bottom floor
 
@@ -17800,9 +17798,9 @@ t60657 DEFB 3  ; #R59840(#b3): 'Please Sir I cannot tell a lie . . '
 ; Message #b88: '{Please Sir I cannot tell a lie . . }[7] wrote on the
 ; board{9sp}'
 ;
-; Used by the routine at #R61696.
-; #IF({fix}<3)//This message is never actually used in the game, because of a
-; #BUG#noBlackboardTales(bug) in the section of code at #R61852.//
+; Used by the routine at #R61696. #IF({fix}<3)//This message is never actually
+; used in the game, because of a #BUG#noBlackboardTales(bug) in the section of
+; code at #R61852.//
 @label=MSG088
 t60668 DEFB 3 ; #R59840(#b3): 'Please Sir I cannot tell a lie . . '
  60669 DEFB 7 ; #R32656(#b7): '{grassee}'
@@ -17869,7 +17867,7 @@ t60859 DEFB 139 ; #R60435(#b139): 'SIT DOWN '
  60860 DEFB 0   ; End marker
 
 ; Message #b96: 'YOU'RE ALL IN DETENTION UNTIL I FIND OUT WHO
-; [10]{ THE }[11]{9sp}'
+; [10]{#SPACE()THE#SPACE}[11]{9sp}'
 ;
 ; Used by the routine at #R62032.
 @label=MSG096
@@ -18170,8 +18168,8 @@ t61384 DEFM "HAYLEY"
 
 ; Message #b31: 'ERIC'
 ;
-; Used by the routines at #R21152 and #R29716. Also used as a submessage
-; of messages #R59944(#b18), #R60657(#b87) and #R60995(#b138).
+; Used by the routines at #R21152 and #R29716. Also used as a submessage of
+; messages #R59944(#b18), #R60657(#b87) and #R60995(#b138).
 @label=MSG031
 t61397 DEFM "ERIC"
  61401 DEFB 0 ; End marker
@@ -18745,12 +18743,12 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
                      ; message number for the teacher's question}
 @nowarn
  62008 LD BC,27144   ; {Redirect control to the routine at #R27144 (make
- 62011 CALL 25503    ; character speak) and return to #R62014 (below) when
-                     ; done}
+ 62011 CALL 25503    ; character speak) and return to #R62014 (below) when done
+                     ; }
 @nowarn
 *62014 LD BC,61467   ; {Redirect control to the routine at #R61467 (make
- 62017 CALL 25503    ; EINSTEIN answer) and return to #R62020 (below) when
-                     ; done}
+ 62017 CALL 25503    ; EINSTEIN answer) and return to #R62020 (below) when done
+                     ; }
 *62020 CALL 61512    ; Is ERIC in class?
  62023 JR Z,61972    ; Jump if so
  62025 JP 61773      ; Otherwise make EINSTEIN grass on the absent ERIC
@@ -19524,8 +19522,8 @@ c62815 LD L,29       ; {Set bit 7 of byte #b29 of MR WACKER's buffer, making
  62868 INC E         ; #REGe=#R60975(#b100): YOU ARE NOT A BIRD...
 @nowarn
 *62869 LD BC,27144   ; {Redirect control to the routine at #R27144 (make
- 62872 CALL 25503    ; character speak) and return to #R62875 (below) when
-                     ; done}
+ 62872 CALL 25503    ; character speak) and return to #R62875 (below) when done
+                     ; }
 *62875 LD DE,(32741) ; Collect the score from #R32741 into #REGde
  62879 LD HL,(32745) ; Collect the current hi-score from #R32745 into #REGhl
  62882 AND A         ; Clear the carry flag ready for subtraction
@@ -20201,11 +20199,11 @@ c63561 LD BC,47149   ; #REGc=#b45 (#S/DEC L/), #REGb=#b184 (#S/LDDR/ after
                      ; #b237)
  63564 LD DE,16415   ; Initialise #REGde to the appropriate display file
                      ; address
-; This entry point is used by the routine at #R63553 with #REGc=#b44
-; (#S/INC L/), #REGb=#b176 (#S/LDIR/ after #b237), and #REGde=#w16384.
+; This entry point is used by the routine at #R63553 with #REGc=#b44 (#S/INC
+; L/), #REGb=#b176 (#S/LDIR/ after #b237), and #REGde=#w16384.
 @nowarn
-*63567 LD HL,63522   ; {Set the instruction at #R63522 to #S/INC L/ or
- 63570 LD (HL),C     ; #S/DEC L/, and the instruction at #R63526 to #S/LDIR/ or
+*63567 LD HL,63522   ; {Set the instruction at #R63522 to #S/INC L/ or #S/DEC
+ 63570 LD (HL),C     ; L/, and the instruction at #R63526 to #S/LDIR/ or
 @ssub=LD L,(63526+1)%256
  63571 LD L,39       ; #S/LDDR/
  63573 LD (HL),B     ; }
@@ -20410,12 +20408,12 @@ c63801 LD L,21       ; {Pick up the x-coordinate of the window to be opened
 ; The address of this entry point is placed into bytes #b17 and #b18 of MR
 ; WACKER's buffer by the instruction above when he has reached the window that
 ; needs opening.
-*63818 LD L,17       ; {Replace the address of this entry point in bytes
+*63818 LD L,17       ; {Replace the address of this entry point in bytes #b17
 @ssub=LD (HL),63830%256
-@rsub=LD (HL),63830%256 ; #b17 and #b18 of MR WACKER's buffer with #R63830
+@rsub=LD (HL),63830%256 ; and #b18 of MR WACKER's buffer with #R63830
 @rsub=INC L
 @rsub=LD (HL),63830/256 ; }
- 63820 LD (HL),86    ; #b17 and #b18 of MR WACKER's buffer with #R63830}
+ 63820 LD (HL),86    ; and #b18 of MR WACKER's buffer with #R63830}
  63822 LD B,1        ; #REGb=1 (open window)
  63824 LD L,22       ; {Pick up the window identifier (#b64/#b128) from byte
  63826 LD A,(HL)     ; #b22 of MR WACKER's buffer}
@@ -21064,8 +21062,8 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
  64478 JR NZ,64482   ; Jump if not
  64480 DEC D         ; #REGd=16
  64481 DEC A         ; #REGa=16
-*64482 ADD A,4       ; {Set #REGa=-7+(y-3)%7 if y<17, or -1 if y=17 (where y
-*64484 SUB 7         ; is ERIC's y-coordinate); this is the distance (negated)
+*64482 ADD A,4       ; {Set #REGa=-7+(y-3)%7 if y<17, or -1 if y=17 (where y is
+*64484 SUB 7         ; ERIC's y-coordinate); this is the distance (negated)
  64486 JR NC,64484   ; left to travel till ERIC reaches the floor}
  64488 ADD A,166     ; #REGa=#b159-#b165 (normal descent table entry pointer)
  64490 PUSH AF       ; Save this briefly
@@ -21125,9 +21123,8 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
  64555 POP AF        ; Restore the descent table entry to #REGa
  64556 LD C,A        ; Copy it to #REGc
  64557 JP 23808      ; The routine continues at #R23808
-; #HTML(<span id="tables" />)
-; This routine uses a descent table to guide ERIC to the floor. The bits in
-; each table entry have the following significance:
+; #HTML(<span id="tables" />) This routine uses a descent table to guide ERIC
+; to the floor. The bits in each table entry have the following significance:
 ; .
 ; #TABLE(default,centre)
 ; { =h Bit(s) | =h Meaning }
