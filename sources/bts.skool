@@ -805,6 +805,7 @@ c23863 LD A,(32747)  ; #R32747 holds the inventory flags
  23874 JP 57642      ; this point on, update ERIC's animatory state, and update
                      ; the SRB}
 ; This is where we deal with ERIC after 'T' has been pressed:
+@label=*
 *23877 LD HL,32747   ; {Reset bits 3 and 4 of the inventory flags at #R32747,
  23880 LD A,(HL)     ; thus dropping the water pistol
  23881 AND 231       ;
@@ -1140,6 +1141,7 @@ c24263 CALL 28240    ; Is ERIC on a staircase?
  24269 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24272 (below) when it's time to deal with
                      ; ERIC again
+@label=*
 *24272 LD HL,53760   ; Point #REGhl at byte #b0 of ERIC's buffer
  24275 LD A,(HL)     ; #REGa=ERIC's animatory state
  24276 RRCA          ; Is ERIC raising his fist (#REGa=#AS8(#b8/#b136))?
@@ -1174,12 +1176,14 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
  24301 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24304 (below) when it's time to deal with
                      ; ERIC again
+@label=*
 *24304 LD A,2        ; Message #R64578(#b2): NO CATAPULTS
  24306 CALL 63640    ; Make any nearby teachers give ERIC lines
  24309 LD A,11       ; #AS11: ERIC firing the catapult
  24311 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24314 (below) when it's time to deal with
                      ; ERIC again
+@label=*
 *24314 LD B,214      ; ERIC's catapult pellet uses buffer #b214
  24316 CALL 63861    ; Prepare the pellet's buffer and make a catapult sound
                      ; effect
@@ -1187,6 +1191,7 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
  24321 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24324 (below) when it's time to deal with
                      ; ERIC again
+@label=*
 *24324 LD A,10       ; #AS10: ERIC lowering the catapult
 @nowarn
 @ofix=JR 24287       ; Update ERIC's animatory state and update the SRB
@@ -1212,6 +1217,7 @@ c24328 LD (32755),A  ; Place a large value into ERIC's main action timer at
                      ; hitting ERIC)
  24339 CALL 30534    ; Update HAYLEY's animatory state, update the SRB, and
                      ; return to #R24342 (below) next time
+@label=*
 *24342 CALL 29993    ; Knock ERIC over
  24345 JP 30650      ; Restore HAYLEY's original animatory state and update the
                      ; SRB
@@ -1303,6 +1309,7 @@ c24348 LD HL,53504   ; Point #REGhl at byte #b0 of HAYLEY's buffer
  24453 LD A,15       ; #AS15: ERIC and HAYLEY kissing
  24455 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24458 (below) next time
+@label=*
 *24458 CALL 62404    ; Make a sound effect
 @ssub=LD HL,53504+19
  24461 LD HL,53523   ; Point #REGhl at byte #b19 of HAYLEY's buffer
@@ -2377,6 +2384,7 @@ c25296 CALL 25302    ; Move one character
  25428 LD C,(HL)     ; #REGbc and push it onto the stack
  25429 PUSH BC       ; }
  25430 RET           ; #S/JP (BC)/ and then return to #R25431 below
+@label=*
 *25431 POP HL        ; Restore the character number to #REGh
 ; This entry point is used by the routine at #R25492.
 *25432 LD L,10       ; {Jump if there is an interruptible subcommand routine
@@ -4402,6 +4410,7 @@ c27144 LD L,11       ; {Store the message number in byte #b11 of the
  27146 LD (HL),E     ; character's buffer}
 ; The address of this entry point is placed into bytes #b9 and #b10 of
 ; EINSTEIN's buffer by the routine at #R61440.
+@label=*
 *27147 LD L,16       ; {Clear bytes #b12-#b16 of the character's buffer, thus
  27149 LD B,5        ; removing the addresses of any old (sub)(sub)messages
 *27151 LD (HL),0     ;
@@ -5217,6 +5226,7 @@ c27904 LD A,H        ; {Determine the x-coordinate at which this boy will sit
  27917 CALL 25503    ; location) and then return to #R27920}
 ; This entry point is used after the boy has reached the point where he will
 ; sit.
+@label=*
 *27920 LD L,0        ; Byte #b0 of the character buffer holds the boy's
                      ; animatory state
  27922 BIT 7,(HL)    ; Is he facing left?
@@ -7638,6 +7648,7 @@ c30380 LD L,19       ; Byte #b19 of the pellet's buffer holds the distance left
 *30477 CALL 30534    ; Replace the address of this routine in bytes #b17 and
                      ; #b18 of the pellet's buffer with #R30480 (the address of
                      ; the next instruction)
+@label=*
 *30480 JR 30459      ;
 ; The pellet has hit a teacher who's standing up.
 *30482 LD C,18       ; Point #REGbc at byte #b18 of the teacher's buffer
@@ -7761,11 +7772,13 @@ c30555 LD A,(54546)  ; Pick up byte #b18 of buffer #b213 (BOY WANDER's pellet)
                      ; to fire
  30594 CALL 30534    ; Update BOY WANDER's animatory state and hand over to
                      ; #R30597 (below)
+@label=*
 *30597 CALL 25012    ; Update the SRB for BOY WANDER's current animatory state
  30600 INC A         ; #REGa=#AS27(#b27 or #b155): BOY WANDER firing the
                      ; catapult
  30601 CALL 30534    ; Update BOY WANDER's animatory state and hand over to
                      ; #R30604 (below)
+@label=*
 *30604 LD L,17       ; {Place the address of the uninterruptible subcommand
 @ssub=LD (HL),30643%256
 @rsub=LD (HL),30643%256
@@ -7834,6 +7847,7 @@ c30643 CALL 25012    ; Update the SRB for BOY WANDER's current animatory state
  30655 LD A,(HL)     ; Pick this up in #REGa so it can be restored
  30656 CALL 30534    ; Update the character's animatory state and return to
                      ; #R30659 (below) next time
+@label=*
 *30659 JP 25492      ; Terminate this uninterruptible subcommand
 
 ; Unused
@@ -8099,6 +8113,7 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
 ; This entry point is used when the frog has jumped into the air in order to
 ; turn round (either by choice, or because a wall or closed door is in the
 ; way).
+@label=*
 *30951 CALL 25012    ; Update the SRB for the frog's current animatory state
  30954 DEC A         ; #REGa=#AS28(#b28/#b156): frog sitting
  30955 XOR 128       ; Turn the frog round
@@ -8145,6 +8160,7 @@ c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
 ; This entry point is used when the frog has just jumped into the air for a
 ; short hop, or is just about to finish a long hop. Either way, the frog is
 ; going to land now.
+@label=*
 *31009 CALL 25012    ; Update the SRB for the frog's current animatory state
                      ; and location
  31012 DEC A         ; #REGa=#AS28(#b28/#b156): frog sitting
@@ -9173,6 +9189,7 @@ c31952 CALL 25213    ; Get the next byte (the event identifier) from the
  31964 CALL 25503    ; Otherwise send the character off to another walkabout
                      ; destination via the routine at #R25581, and return to
                      ; the instruction at #R31967 (below) when done
+@label=*
 *31967 JR 31958      ;
 
 ; Make a character walk up and down a few times or until a certain time
@@ -9205,6 +9222,7 @@ c31969 LD L,6        ; {Collect the event ID (always 0, denoting the end of the
  31988 CALL 25503    ; Otherwise send the character off to another walkabout
                      ; destination via the routine at #R25581, and return to
                      ; the instruction at #R31991 (below) when done
+@label=*
 *31991 JR 31974      ;
 *31993 CALL 31915    ; Reset the carry flag if the specified time has arrived
                      ; and the character is at the walkabout origin
@@ -9742,6 +9760,7 @@ c32497 CALL 25213    ; Collect the event identifier parameter from the command
  32503 LD BC,26752   ; {Redirect control to the routine at #R26752 (write on
  32506 CALL Z,25503  ; board) if the event has not happened, then return to
                      ; #R32509 (below)}
+@label=*
 *32509 JP 25484      ; Move to the next command in the command list
 
 @org
@@ -18316,6 +18335,7 @@ c61440 LD A,(32640)  ; {Bit 3 of #R32640 is set by the routine at #R61463 when
  61446 LD BC,27147   ; {Direct control of EINSTEIN to the routine at #R27147
  61449 CALL 25503    ; (make character speak) and then return to #R61452
                      ; (below)}
+@label=*
 @rsub=LD HL,61440
 *61452 LD L,3        ; {Reset the address of the primary command routine in
 @ssub=LD (HL),61440%256
@@ -18345,6 +18365,7 @@ c61463 LD A,E        ; #REGa=message number for EINSTEIN
 ; The address of this entry point is placed into bytes #b9 and #b10 of the
 ; buffer of the teacher who is taking ERIC's class by the routine at #R61696.
 ; It is used to make EINSTEIN answer the teacher's question.
+@label=*
 *61467 EX DE,HL      ;
  61468 LD HL,32640   ; {Set bit 3 at #R32640 to indicate that it's EINSTEIN's
  61471 SET 3,(HL)    ; turn to speak}
@@ -18630,6 +18651,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 @nowarn
  61710 LD BC,26639   ; {Redirect control to the routine at #R26639 (wipe board)
  61713 CALL 25503    ; and return to #R61716 (below) when done}
+@label=*
 *61716 LD L,1        ; Point #REGhl at byte #b1 of the teacher's buffer
  61718 LD A,(HL)     ; #REGa=teacher's x-coordinate
  61719 ADD A,3       ; #REGa=x-coordinate of the middle of the blackboard
@@ -18638,12 +18660,14 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 @nowarn
  61724 LD BC,25581   ; {Redirect control to the routine at #R25581 (walk to a
  61727 CALL 25503    ; location) and return to #R61730 (below) when done}
+@label=*
 *61730 CALL 25233    ; #REGa=random number
 @nowarn
  61733 LD BC,26752   ; Routine at #R26752: write on board
  61736 CP 160        ; Should the teacher write on the board?
  61738 CALL NC,25503 ; If so, redirect control to the routine at #R26752 and
                      ; return to #R61741 (below) when done
+@label=*
 *61741 CALL 61533    ; Tell the class what to do
 *61744 LD L,1        ; Point #REGhl at byte #b1 of the teacher's buffer
  61746 LD A,(HL)     ; #REGa=teacher's x-coordinate
@@ -18654,6 +18678,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 @nowarn
  61752 LD BC,25581   ; {Redirect control to the routine at #R25581 (walk to a
  61755 CALL 25503    ; location) and return to #R61758 (below) when done}
+@label=*
 *61758 JR 61744      ; Make the teacher pace up (or down) again
 ; The teacher is taking ERIC's class. This is a far more difficult task.
 *61760 LD A,(32640)  ; {Set bit 6 at #R32640, indicating that ERIC should be in
@@ -18667,6 +18692,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
  61776 LD E,18       ; #R59944(#b18): Please Sir...ERIC is not here
  61778 CALL 25503    ; Make EINSTEIN grass on ERIC, and return to #R61781
                      ; (below) when done
+@label=*
 *61781 LD C,208      ; #b208=EINSTEIN
  61783 CALL 61487    ; Give lines to EINSTEIN (maybe)
  61786 CALL 32021    ; Set the zero flag if ERIC is in class
@@ -18698,6 +18724,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
  61835 LD BC,61463   ; {Redirect control to the routine at #R61463 (make
  61838 CALL 25503    ; EINSTEIN talk) and return to #R61841 (below) when done}
 @keep
+@label=*
 *61841 LD BC,25042   ; #REGb=#R60921(#b97): DON'T HIT YOUR MATES; #REGc=#b210
                      ; (ERIC)
  61844 CALL 61487    ; Give EINSTEIN or ERIC lines
@@ -18751,6 +18778,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
                      ; board
  61887 CALL 25503    ; Redirect control to the routine at #R61463 and return to
                      ; #R61890 (below) when done
+@label=*
 @rfix=               ; #REGa=#b27 (BOY WANDER) or #b31 (ERIC)
 @rfix=ADD A,179      ; #REGa=#b206 (BOY WANDER) or #b210 (ERIC)
 *61890 LD A,(32656)  ; #REGa=#b206 (BOY WANDER) or #b210 (ERIC)
@@ -18764,6 +18792,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 @nowarn
 *61899 LD BC,26639   ; {Redirect control to the routine at #R26639 (wipe board)
  61902 CALL 25503    ; and return to #R61905 (below) when done}
+@label=*
 *61905 LD L,1        ; Point #REGhl at byte #b1 of the teacher's buffer
  61907 LD A,(HL)     ; #REGa=teacher's x-coordinate
  61908 ADD A,3       ; #REGa=x-coordinate of the middle of the blackboard
@@ -18773,6 +18802,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
  61913 LD BC,25581   ; {Redirect control to the routine at #R25581 (walk to
  61916 CALL 25503    ; location) and return to #R61919 (below) when done}
 ; The teacher has wiped the board, and is ready to start the class.
+@label=*
 *61919 CALL 61512    ; Is ERIC in class?
 *61922 JP NZ,61773   ; Jump if not
  61925 CALL 25233    ; #REGa=random number
@@ -18781,6 +18811,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
  61931 CP 184        ; Should the teacher write on the board?
  61933 CALL NC,25503 ; Redirect control to #R26752 if so, and return to #R61936
                      ; (below) when done
+@label=*
 *61936 CALL 61512    ; Is ERIC in class?
  61939 JR NZ,61922   ; Jump if not
  61941 CALL 25233    ; #REGa=random number
@@ -18799,6 +18830,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 @nowarn
  61964 LD BC,25581   ; {Redirect control to the routine at #R25581 (walk to
  61967 CALL 25503    ; location) and return to #R61970 (below) when done}
+@label=*
 *61970 JR 61951      ; Check whether ERIC's in class, then pace up (or down)
                      ; again
 ; This is going to be a questions-and-answers lesson. Pick a question-answer
@@ -18843,9 +18875,11 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
  62011 CALL 25503    ; character speak) and return to #R62014 (below) when done
                      ; }
 @nowarn
+@label=*
 *62014 LD BC,61467   ; {Redirect control to the routine at #R61467 (make
  62017 CALL 25503    ; EINSTEIN answer) and return to #R62020 (below) when done
                      ; }
+@label=*
 *62020 CALL 61512    ; Is ERIC in class?
  62023 JR Z,61972    ; Jump if so
  62025 JP 61773      ; Otherwise make EINSTEIN grass on the absent ERIC
@@ -18892,6 +18926,7 @@ c62032 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  62069 CALL 25503    ; character speak) and then return to #R62072 (below)}
 ; Control of MR WACKER resumes here when he has finished delivering the
 ; detention message.
+@label=*
 *62072 EX DE,HL      ; Save MR WACKER's character number in #REGd briefly
  62073 LD HL,32640   ; {Reset bit 6 (ERIC no longer has to be in the assembly
  62076 RES 7,(HL)    ; hall) and bit 7 (the kids can stand up now) at #R32640
@@ -19168,7 +19203,7 @@ c62178 LD HL,32755   ; #R32755 holds ERIC's main action timer
                      ; buffer
 ; The address of this entry point is placed into bytes #b17 and #b18 of the
 ; desk lid's buffer by the instruction above.
-@label=DESKLID
+@label=*DESKLID
 *62386 LD L,19       ; Byte #b19 of the desk lid's buffer holds the delay
                      ; counter that determines when the desk lid will shut
  62388 DEC (HL)      ; Decrement this counter
@@ -19621,6 +19656,7 @@ c62815 LD L,29       ; {Set bit 7 of byte #b29 of MR WACKER's buffer, making
 *62869 LD BC,27144   ; {Redirect control to the routine at #R27144 (make
  62872 CALL 25503    ; character speak) and return to #R62875 (below) when done
                      ; }
+@label=*
 *62875 LD DE,(32741) ; Collect the score from #R32741 into #REGde
  62879 LD HL,(32745) ; Collect the current hi-score from #R32745 into #REGhl
  62882 AND A         ; Clear the carry flag ready for subtraction
@@ -20365,7 +20401,7 @@ c63586 LD HL,32747   ; #R32747 holds the inventory flags
                      ; of the cloud's buffer
 ; The address of the entry point below is placed into bytes #b17 and #b18 of
 ; the cloud's buffer by the instruction above.
-@label=SBCLOUD
+@label=*SBCLOUD
 *63627 LD L,19       ; Byte #b19 of the cloud's buffer holds the counter that
                      ; determines how much longer the cloud will stick around
                      ; (which starts off at #b29)
@@ -20505,6 +20541,7 @@ c63801 LD L,21       ; {Pick up the x-coordinate of the window to be opened
 ; The address of this entry point is placed into bytes #b17 and #b18 of MR
 ; WACKER's buffer by the instruction above when he has reached the window that
 ; needs opening.
+@label=*
 *63818 LD L,17       ; {Replace the address of this entry point in bytes #b17
 @ssub=LD (HL),63830%256
 @rsub=LD (HL),63830%256 ; and #b18 of MR WACKER's buffer with #R63830
@@ -20524,6 +20561,7 @@ c63801 LD L,21       ; {Pick up the x-coordinate of the window to be opened
                      ; of MR WACKER's buffer and update his animatory state
 ; This entry point is used after MR WACKER has turned round to begin his return
 ; journey from the window.
+@label=*
 *63838 LD L,0        ; Point #REGhl at byte #b0 of MR WACKER's buffer
  63840 BIT 0,(HL)    ; Is MR WACKER midstride?
  63842 JP NZ,25597   ; Finish his stride if so
