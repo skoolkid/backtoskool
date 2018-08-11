@@ -1527,7 +1527,7 @@ s24677 DEFS 7
 ; .
 ; The play area graphic data is laid out across pages #b128 to #b181:
 ; .
-; #TABLE(default,centre,centre,:w)
+; #TABLE(default,centre,centre,:w)<wrapalign>
 ; { =h Page(s)      | =h Bytes     | =h Contents }
 ; { #b128-#b135     | #b0-#b255    | Skool graphic data }
 ; { #b136-#b143     | #b0-#b255    | Skool graphic data }
@@ -1580,7 +1580,7 @@ s24677 DEFS 7
 ; To summarise, then, the attributes and graphic data for the tile at skool
 ; location (X,Y) can be found thus, where Q=PEEK(#R46336+X):
 ; .
-; #TABLE(default,,:w)
+; #TABLE(default,,:w)<wrapalign>
 ; { =h Data      | =h Look at... }
 ; { BRIGHT/PAPER | Nibble Q of bytes #b180-#b251 in page Y+#b160 (or Y+#b161 if
 ;                  nibble Q in page Y+#b160 is 0) }
@@ -2286,7 +2286,7 @@ c25296 CALL 25302    ; Move one character
  25408 RET Z         ; Return if so
 ; The character shall be moved. From this point, the following steps are taken:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Step | =h Action }
 ; { 1       | If there is an uninterruptible subcommand routine address in
 ;             bytes #b17 and #b18 of the character's buffer, jump to it }
@@ -2310,7 +2310,7 @@ c25296 CALL 25302    ; Move one character
 ; an entry point thereof) may be present in bytes #b17 and #b18 of the
 ; character's buffer:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Address | =h Description }
 ; { #R24328    | #D24328 }
 ; { #R26224    | #D26224 }
@@ -2398,7 +2398,7 @@ c25296 CALL 25302    ; Move one character
 ; requested, by inspecting bit 0 of byte #b29. This bit is set in the following
 ; routines on particular occasions:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Routine | =h Occasion }
 ; { #R32062    | MISS TAKE needs to chase ERIC out of the girls' skool }
 ; { #R61595    | A teacher must find the absent ERIC during class, dinner or
@@ -2889,7 +2889,7 @@ c25700 LD L,5        ; {Copy the destination coordinates from the command list
 ; arranged in bytes #b60-#b67 (corresponding to the destination) of pages
 ; #b189-#b196 (corresponding to the current location) as follows:
 ; .
-; #TABLE(default)
+; #TABLE(default)<nowrap>
 ; { =c2,t              | =h #b189 | =h #b190 | =h #b191 | =h #b192 | =h #b193 | =h #b194 | =h #b195 | =h #b196 }
 ; { #R48444 | =h #b189 | =t       |    #b189 |    #b189 |    #b189 |    #b189 |    #b189 |    #b189 |    #b189 }
 ; { #R48700 | =h #b190 |    #b190 | =t       |    #b191 |    #b191 |    #b191 |    #b191 |    #b191 |    #b191 }
@@ -2909,7 +2909,7 @@ c25700 LD L,5        ; {Copy the destination coordinates from the command list
 ; (n) for the staircase can be found in bytes #b68-#b71 of pages #b189-#b200
 ; and #b206-#b207, as follows:
 ; .
-; #TABLE(default,centre,centre,centre,centre,,:w)
+; #TABLE(default,centre,centre,centre,centre,,:w)<nowrap>
 ; {  =h ID         | =h x | =h d  | =h LSB | =h n | =h Staircase endpoint }
 ; { #R48452(#b189) |   26 |   #b0 |   #b77 |    8 | Top of the staircase leading down from the Revision Library }
 ; { #R48708(#b190) |   19 | #b128 |   #b56 |    8 | Bottom of the staircase leading up to the Revision Library }
@@ -3050,7 +3050,7 @@ c25815 LD L,36       ; Point #REGhl at byte #b36 of the character's buffer
 ; .
 ; The eight groups of random locations used by this routine are:
 ; .
-; #TABLE(default)
+; #TABLE(default)<nowrap>
 ; { =h #REGe | =h #REGd=#b211 | =h #REGd=#b212 | =h #REGd=#b213 | =h #REGd=#b214 }
 ; { #b36     | 129,17         | 144,17         | 136,17         | 189,17 }
 ; { #b38     | 189,17         | 189,10         | 170,17         | 182,3 }
@@ -3354,7 +3354,7 @@ c26068 LD L,2        ; Point #REGhl at byte #b2 of the character's buffer
  26133 RET           ;
 ; The contents of the classroom/chairs location tables are as follows:
 ; .
-; #TABLE(default,centre,centre,centre,centre)
+; #TABLE(default,centre,centre,centre,centre)<nowrap>
 ; {  =c2,h Room                 | =c2,h Chairs }
 ; { #R54066(0)   | #R54322(23)  | #R54578(11)  | #R54834(22)  | Blue Room }
 ; { #R54067(40)  | #R54323(63)  | #R54579(50)  | #R54835(61)  | Yellow Room }
@@ -3772,7 +3772,7 @@ c26453 LD B,3        ; There are three blackboards on the top floors
  26495 RET           ;
 ; The contents of the blackboard info tables are as follows:
 ; .
-; #TABLE(default,centre,centre,centre)
+; #TABLE(default,centre,centre,centre)<wrapalign>
 ; { =h x         | =h ID          | =h y       | =h Room }
 ; { #R54071(3)   | #R54327(#b84)  | #R54583(3) | Blue Room }
 ; { #R54072(41)  | #R54328(#b90)  | #R54584(3) | Yellow Room }
@@ -6353,7 +6353,7 @@ s29050 DEFS 2
 ; #R57956(#b28), #R59724(#b76) and #R59765(#b78). This routine works on two
 ; parameters. First the door identifier:
 ; .
-; #TABLE(default,centre)
+; #TABLE(default,centre)<wrapalign>
 ; { =h ID | =h Door             | =h Command lists }
 ; { #b8   | Boys' skool door    | #R59724(#b76), #R59765(#b78) }
 ; { #b16  | Skool gate          | #R59724(#b76), #R59765(#b78) }
@@ -8460,7 +8460,7 @@ s31252 DEFS 2
 ; game). Bytes #b16 and #b19-#b22 of the mouse's buffer are used to store the
 ; following values that control its movement:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Byte | =h Contents }
 ; { #b16    | Counter decremented each time the mouse hides (if the mouse was
 ;             released by ERIC); when it reaches 0, the mouse dies (returns
@@ -9023,7 +9023,7 @@ c31844 LD D,90       ; {Set the attribute byte
 ; #R32640 (#REGa<=7) or #R32641 (#REGa>=8). On exit, #REGhl points to the
 ; appropriate byte and #REGa holds the bit mask (single bit set), as follows:
 ; .
-; #TABLE(default,centre,centre,:w)
+; #TABLE(default,centre,centre,:w)<wrapalign>
 ; { =h Entry | =h Exit | =h Event }
 ; { #b0      | #b1     | End of lesson }
 ; { #b7      | #b128   | Time to sit down for assembly }
@@ -9822,7 +9822,7 @@ g32626 DEFS 14
 ;
 ; Various status flags for the current lesson.
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit | =h Meaning if set }
 ; { 0      | End of lesson/playtime (always reset) }
 ; { 1      | MR WACKER is looking for ERIC to expel him (see #R62770) }
@@ -9851,7 +9851,7 @@ g32640 DEFB 0
 ; Used by the classroom-based #R59392(command lists) to indicate that or check
 ; whether a teacher has arrived at the classroom door to start the lesson.
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit(s) | =h Meaning if set }
 ; { 0         | Teacher has arrived at the top-floor classroom in the girls'
 ;               skool }
@@ -10090,7 +10090,7 @@ g32745 DEFW 0
 ;
 ; Used by the routine at #R31746. Bit set=got, bit reset=haven't.
 ; .
-; #TABLE(default,centre,:w,,,:w)
+; #TABLE(default,centre,:w,,,:w)<nowrap>
 ; { =h Bit | =h Item                                  | =h Set  | =h Reset | =h Checked }
 ; { 0      | Safe key                                 | #R30804 |          | #R23907, #R30804 }
 ; { 1      | Science Lab storeroom key                | #R24028 |          | #R24028, #R29681, #R30229, #R31254 }
@@ -10116,7 +10116,7 @@ g32748 DEFB 0
 ; Used by the routine at #R63405 to decide how to deal with ERIC when bit 1 is
 ; set at #R32763.
 ; .
-; #TABLE(default,centre,:w,centre)
+; #TABLE(default,centre,:w,centre)<nowrap>
 ; { =h Bit | =h Meaning if set                                        | =h Routine }
 ; { 0      | ERIC is riding the bike                                  | #R29278 }
 ; { 1      | ERIC is standing on a plant or plant pot                 | #R64316 }
@@ -20106,7 +20106,7 @@ s63404 DEFB 0
 ; #R32763 (ERIC's primary status flags) are set, indicating that ERIC is doing
 ; something other than standing or walking:
 ; .
-; #TABLE(default,centre,centre,:w,centre)
+; #TABLE(default,centre,centre,:w,centre)<nowrap>
 ; { =h Bit | =h Set by                 | =h Meaning if set                               | =h Handler }
 ; { 0      | #R23887                   | ERIC is jumping                                 | #R23907 }
 ; { 1      | #R23907, #R28305, #R29574 | Examine the secondary status flags at #R32749   |  }
@@ -20121,7 +20121,7 @@ s63404 DEFB 0
 ; If bit 1 at #R32763 is set, we examine ERIC's secondary status flags at
 ; #R32749:
 ; .
-; #TABLE(default,centre,centre,:w,centre)
+; #TABLE(default,centre,centre,:w,centre)<nowrap>
 ; { =h Bit | =h Set by                 | =h Meaning if set                                       | =h Handler }
 ; { 0      | #R29462                   | ERIC is riding the bike                                 | #R29278 }
 ; { 1      | #R23907                   | ERIC is standing on a plant or plant pot                | #R64316 }
@@ -20991,7 +20991,7 @@ c64242 LD A,12       ; Bits 2 and 3 set (ERIC is stepping off a fully grown
 ; window, over the closed skool gate, or off the assembly hall stage. On exit,
 ; ERIC's status flags at #R32749 are set as follows:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit | =h Meaning }
 ; { 2      | ERIC has completed one step towards an open window, over the
 ;            closed skool gate, or off the stage }
@@ -21042,7 +21042,7 @@ c64259 LD HL,32755   ; #R32755 holds ERIC's main action timer
 ; on a plant or plant pot, this routine will set bit 2 or 3 of ERIC's status
 ; flags at #R32749 as follows:
 ; .
-; #TABLE(default,centre,:w)
+; #TABLE(default,centre,:w)<wrapalign>
 ; { =h Bit(s) | =h Meaning }
 ; { 2         | ERIC is stepping off a plant or plant pot straight to the floor
 ;               }
@@ -21276,7 +21276,7 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
 ; The descent tables themselves contain the following entries:
 ; .
 ; #HTML(<span id="dt252" />)
-; #TABLE(default,,,centre)
+; #TABLE(default,,,centre)<nowrap>
 ; { =c4,h #REGe=#b252 (normal descent) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
 ; { #b160    | #R41212   | #b69        | Animatory state #AS5(#b5 or #b133); descend }
@@ -21292,7 +21292,7 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
 ; TABLE#
 ; .
 ; #HTML(<span id="dt253" />)
-; #TABLE(default,,,centre,:w)
+; #TABLE(default,,,centre,:w)<nowrap>
 ; { =c4,h #REGe=#b253 (from the bike saddle over the closed skool gate) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
 ; { #b160    | #R41213   | #b160       | Animatory state #AS0(#b0 or #b128); ascend; move forward }
@@ -21309,7 +21309,7 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
 ; TABLE#
 ; .
 ; #HTML(<span id="dt254" />)
-; #TABLE(default,,,centre,:w)
+; #TABLE(default,,,centre,:w)<nowrap>
 ; { =c4,h #REGe=#b254 (from the bike saddle into a wall or closed door) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
 ; { #b160    | #R41214   | #b160       | Animatory state #AS0(#b0 or #b128); ascend; move forward }
@@ -21325,7 +21325,7 @@ c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
 ; TABLE#
 ; .
 ; #HTML(<span id="dt255" />)
-; #TABLE(default,,,centre,:w)
+; #TABLE(default,,,centre,:w)<nowrap>
 ; { =c4,h #REGe=#b255 (from the top-floor window) }
 ; { =h #REGd | =h #REGde | =h (#REGde) | =h Meaning }
 ; { #b160    | #R41215   | #b96        | Animatory state #AS0(#b0 or #b128); descend; move forwards }
