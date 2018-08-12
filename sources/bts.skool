@@ -5647,8 +5647,8 @@ c28305 LD HL,32763   ; {Set bit 1 at #R32763, indicating to the routine at
 ;
 ; Code remnants.
 @rsub=!28313-28314
-u28313 DEFB 8 ;
- 28314 RET    ;
+u28313 DEFB 8
+ 28314 RET
 
 ; Check for walls and closed doors in front of ERIC
 ;
