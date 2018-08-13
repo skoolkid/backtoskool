@@ -532,8 +532,8 @@ c21920 LDIR          ; Copy 256 bytes from #w23296 to #w33024
  21948 LD A,D        ;
  21949 OR E          ;
  21950 JR NZ,21945   ; }
-@ignoreua
 @nowarn
+@ignoreua
  21952 LD HL,23020   ; #w23020 is the attribute file address where the bottom
                      ; row of 'big pixels' will be drawn
 @keep
@@ -18739,8 +18739,8 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 ; four spaces away). This is a #BUG#noBlackboardTales(bug).||
 @rfix=CALL 28658
 *61852 CALL 26453    ; Collect information about the blackboard
-@ignoreua
 @rfix=               ; {Point #REGbc at the second byte of the blackboard's
+@ignoreua
  61855 INC B         ; {The intent here is to point #REGbc at the second byte
 @rfix=               ; buffer, which holds the character number of the person
  61856 LD C,B        ; of the blackboard's buffer, which holds the character
@@ -18748,9 +18748,9 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
  61857 LD B,127      ; number of the person who last wrote on it; instead,
                      ; #REGbc points at #w32516 if the teacher is on the top
                      ; floor, or #w32515 if he's on the middle floor}
-@ignoreua
 @rfix=               ; #REGa=character number of the person who last wrote on
 @rfix=/              ; the board
+@ignoreua
  61859 LD A,(BC)     ; Now #REGa is supposed to hold the character number of
                      ; the person who last wrote on the board; instead it holds
                      ; the contents of #w32515 or #w32516 (bytes #b3 and #b4 of
@@ -20751,8 +20751,6 @@ c63915 LD B,84       ; #AS84: water fired from the pistol, phase 1 (facing
 @rsub=!63996
 s63996 DEFS 4
 
-@rem=This table must be 256 bytes after the UDG reference table for the skool
-@rem=gate when shut
 @org
 ; UDG reference table for the skool gate when open
 ;
@@ -20762,6 +20760,8 @@ s63996 DEFS 4
 ; #UDGTABLE
 ; { #CALL:mutable(64000) }
 ; TABLE#
+@rem=This table must be 256 bytes after the UDG reference table for the skool
+@rem=gate when shut
 @label=URTSGOPEN
 b64000 DEFB 17,132,223,196,17,133,240,196
  64008 DEFB 17,134,241,196,17,135,242,196
