@@ -2910,7 +2910,7 @@ c25700 LD L,5        ; {Copy the destination coordinates from the command list
 ; and #b206-#b207, as follows:
 ; .
 ; #TABLE(default,centre,centre,centre,centre,,:w)<nowrap>
-; {  =h ID         | =h x | =h d  | =h LSB | =h n | =h Staircase endpoint }
+; { =h ID          | =h x | =h d  | =h LSB | =h n | =h Staircase endpoint }
 ; { #R48452(#b189) |   26 |   #b0 |   #b77 |    8 | Top of the staircase leading down from the Revision Library }
 ; { #R48708(#b190) |   19 | #b128 |   #b56 |    8 | Bottom of the staircase leading up to the Revision Library }
 ; { #R48964(#b191) |   15 | #b128 |   #b77 |    8 | Top of the staircase leading down to the bottom floor on the far left of the boys' skool }
@@ -4911,10 +4911,10 @@ s27671 DEFB 0
 ; for the door, window, cup or bike:
 ; .
 ; #TABLE(default,centre)
-; { =h Byte | =h Contents }
-; { 1       | y-coordinate }
-; { 2       | x-coordinate }
-; { 3       | UDG reference }
+; { =h Byte        | =h Contents }
+; { 1              | y-coordinate }
+; { 2              | x-coordinate }
+; { 3              | UDG reference }
 ; { 4 (bits 0-3)   | BRIGHT/PAPER attributes }
 ; { 4 (bits 6 & 7) | UDG base page identifier }
 ; TABLE#
@@ -20109,12 +20109,12 @@ s63404 DEFB 0
 ; #TABLE(default,centre,centre,:w,centre)<nowrap>
 ; { =h Bit | =h Set by                 | =h Meaning if set                               | =h Handler }
 ; { 0      | #R23887                   | ERIC is jumping                                 | #R23907 }
-; { 1      | #R23907, #R28305, #R29574 | Examine the secondary status flags at #R32749   |  }
+; { 1      | #R23907, #R28305, #R29574 | Examine the secondary status flags at #R32749   | }
 ; { 2      | #R62094, #R62423, #R64460 | ERIC is sitting or lying down                   | #R62178 }
 ; { 3      | #R57637                   | ERIC is bending over, dropping a stinkbomb etc. | #R57669 }
 ; { 4      | #R24133                   | ERIC is writing on a blackboard                 | #R24175 }
 ; { 5      | #R24247                   | ERIC is firing, hitting or kissing              | #R24237 }
-; { 6      | #R62815, #R64460          | MR WACKER is expelling ERIC                     |  }
+; { 6      | #R62815, #R64460          | MR WACKER is expelling ERIC                     | }
 ; { 7      | #R26175, #R29896          | ERIC has been knocked over                      | #R62094 }
 ; TABLE#
 ; .
@@ -20848,7 +20848,7 @@ c64077 DEC A         ; Is the water at the right phase to fill a cup?
 ; cup:
 ; .
 ; #TABLE(default)
-; { =h #REGhl | =h Cup                       | =h Contents }
+; { =h #REGhl | =h Cup                           | =h Contents }
 ; { #R56694   | Leftmost cup in the boys' skool  | Water }
 ; { #R56699   | Leftmost cup in the boys' skool  | Sherry }
 ; { #R56950   | Middle cup in the boys' skool    | Water }
