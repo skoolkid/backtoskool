@@ -1,7 +1,12 @@
-; Copyright 2008-2015, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
 
 [Page:Changelog]
 SectionType=BulletPoints
+
+[Changelog:20181019]
+-
+
+- Ported the disassembly to SkoolKit 7
 
 [Changelog:20170515]
 -
