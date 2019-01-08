@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2018 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2019 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @replace=/#BUG(?![A-Z])/#LINK:Bugs
@@ -13,7 +13,7 @@
 ; http://skoolkit.ca/
 ;
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2018 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2019 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -165,6 +165,7 @@ b20724 DEFW 22014    ; Message #b244: '' (empty string)
  20730 DEFW 22235    ; Message #b250: 'Press 'C' to change name'
  20732 DEFW 22000    ; Message #b252: 'Enter new name'
 
+@defs=20734:162
 i20734 DEFS 162
 
 ; Change a character's name
@@ -249,6 +250,7 @@ c20956 LD B,40       ; The character will walk 40 paces
  20989 DJNZ 20958    ; Jump back until all 40 paces have been walked
  20991 RET           ;
 
+@defs=20992:160
 i20992 DEFS 160
 
 ; Display the cast of characters and change their names
@@ -328,6 +330,7 @@ b21237 DEFB 208      ; #AS208=MR WACKER
  21246 DEFB 184      ; #AS184=HAYLEY
  21247 DEFB 128      ; #AS128=ERIC
 
+@defs=21248:160
 i21248 DEFS 160
 
 ; Do essential POKEs before the game starts
@@ -423,6 +426,7 @@ b21494 DEFB 104      ; 0: Fire catapult
  21502 DEFB 86       ; 8: Down (fast)
  21503 DEFB 84       ; 9: Up (fast)
 
+@defs=21504:160
 i21504 DEFS 160
 
 ; Set the input method, change the characters' names, and start the game
@@ -496,6 +500,7 @@ c21746 LD A,8        ; There are 8 chunks of 32 bytes to copy
  21756 JR NZ,21748   ; Jump back until all 8 chunks have been copied
  21758 RET           ;
 
+@defs=21759:161
 i21759 DEFS 161
 
 ; Count down from 9 to 0
@@ -575,6 +580,7 @@ t22000 DEFM "Enter new name"
 @label=MSG244
  22014 DEFB 0                ; End marker
 
+@defs=22015:160
 i22015 DEFS 161
 
 ; Message #b246: 'None/Cursor/Kempston/Int2? (N,C,K or I)'
@@ -622,6 +628,7 @@ t22260 DEFB 8        ; #R59923(#b8): 'THE '
 t22265 DEFM "MASTER"
  22271 DEFB 0        ; End marker
 
+@defs=22272:160
 i22272 DEFS 160
 
 ; Message #b102: '{THE }GEOGRAPHY {MASTER}'
@@ -698,9 +705,11 @@ t22509 DEFB 8         ; #R59923(#b8): 'THE '
 t22518 DEFM "OUR HERO"
  22526 DEFB 0          ; End marker
 
+@defs=22527:769
 ; Attribute file
 i22527 DEFS 769
 
+@defs=23296:256
 ; Message graphic buffer
 ;
 @ignoreua
@@ -711,6 +720,7 @@ i22527 DEFS 769
 @label=MSGBUFFER
 b23296 DEFS 256
 
+@defs=23552:9
 ; System variables and BASIC program area
 i23552 DEFS 9
 
@@ -718,11 +728,13 @@ i23552 DEFS 9
 i23561 DEFB 35       ; Set REPDEL to 35
  23562 DEFB 5        ; Set REPPER to 5
 
+@defs=23563:48
 i23563 DEFS 48
 
 ; System variable FLAGS
 i23611 DEFB 8        ; Set bit 3 so that the keyboard is read in 'L' mode
 
+@defs=23612:196
 i23612 DEFS 196
 
 ; Deal with ERIC while he's falling (2)
@@ -12164,6 +12176,7 @@ b46592 DEFB 0,128,64,192,32,160,96,224,16,144,80,208,48,176,112,240
  46816 DEFB 7,135,71,199,39,167,103,231,23,151,87,215,55,183,119,247
  46832 DEFB 15,143,79,207,47,175,111,239,31,159,95,223,63,191,127,255
 
+@defs=46848:32
 ; Character buffer for little girl no. 1 (#b183)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -12253,6 +12266,7 @@ b46924 DEFB 32,0,69,49,112,16,0,224,224,224,0,1,8,0,0,0
  47084 DEFB 0,163,0,132,0,4,0,127,239,0,127,205,24,60,73,0
  47100 DEFB 0,3,0,254
 
+@defs=47104:32
 ; Character buffer for little girl no. 2 (#b184)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -12345,6 +12359,7 @@ b47180 DEFB 47,255,69,53,116,215,254,255,255,255,255,255,235,243,255,255
  47340 DEFB 255,171,255,133,255,228,255,127,239,127,127,205,219,189,73,255
  47356 DEFB 252,115,3,254
 
+@defs=47360:32
 ; Character buffer for little girl no. 3 (#b185)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -12438,6 +12453,7 @@ b47436 DEFB 32,0,50,203,139,16,1,192,192,192,0,3,20,12,0,0
  47596 DEFB 0,86,0,66,0,1,0,255,102,128,255,126,36,66,42,0
  47612 DEFB 3,7,252,170
 
+@defs=47616:32
 ; Character buffer for little girl no. 4 (#b186)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -12528,6 +12544,7 @@ b47692 DEFB 47,127,178,203,139,214,253,255,255,255,255,255,213,237,255,255
  47852 DEFB 255,86,255,66,255,249,255,255,102,191,255,126,165,66,170,255
  47868 DEFB 139,247,253,170
 
+@defs=47872:32
 ; Character buffer for little girl no. 5 (#b187)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -12614,6 +12631,7 @@ b47948 DEFB 160,128,74,4,4,9,2,128,132,128,0,7,36,18,0,0
  48108 DEFB 0,95,0,226,0,0,0,127,87,192,127,95,66,129,42,0
  48124 DEFB 119,7,254,42
 
+@defs=48128:32
 ; Character buffer for little girl no. 6 (#b188)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -12703,6 +12721,7 @@ b48204 DEFB 175,191,74,52,116,223,250,243,149,255,255,255,165,210,255,251
  48364 DEFB 127,95,255,226,255,252,255,127,87,223,127,95,66,129,170,255
  48380 DEFB 119,247,254,42
 
+@defs=48384:32
 ; Character buffer for little girl no. 7 (#b189)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -12816,6 +12835,7 @@ b48460 DEFB 64,64,90,28,4,6,2,12,42,0,12,0,42,34,0,4
  48620 DEFB 128,95,0,242,0,3,0,255,79,192,255,127,36,153,42,0
  48636 DEFB 239,15,255,42
 
+@defs=48640:32
 ; Character buffer for little boy no. 1 (#b190)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -12931,6 +12951,7 @@ b48716 DEFB 95,95,90,221,245,246,250,205,42,255,255,255,170,162,63,244
  48876 DEFB 184,95,127,242,252,251,255,255,79,223,255,127,165,153,170,255
  48892 DEFB 239,239,255,42
 
+@defs=48896:32
 ; Character buffer for little boy no. 2 (#b191)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13044,6 +13065,7 @@ b48972 DEFB 64,160,38,34,6,2,7,62,84,0,30,0,36,76,192,15
  49132 DEFB 135,90,128,34,3,4,0,255,78,192,251,126,24,66,42,0
  49148 DEFB 239,18,255,42
 
+@defs=49152:32
 ; Character buffer for little boy no. 3 (#b192)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13157,6 +13179,7 @@ b49228 DEFB 95,175,166,162,54,250,247,190,85,255,255,255,165,77,195,239
  49388 DEFB 135,90,191,34,251,244,127,255,78,223,251,126,219,66,170,255
  49404 DEFB 239,210,255,170
 
+@defs=49408:32
 ; Character buffer for little boy no. 4 (#b193)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13270,6 +13293,7 @@ b49484 DEFB 128,32,36,66,197,2,8,0,40,0,60,0,80,80,252,3
  49644 DEFB 255,95,0,194,7,3,128,243,79,128,193,95,8,60,44,0
  49660 DEFB 203,12,255,62
 
+@defs=49664:32
 ; Character buffer for little boy no. 5 (#b194)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13384,6 +13408,7 @@ b49740 DEFB 191,47,165,90,213,250,232,193,171,255,255,255,83,83,252,243
  49900 DEFB 255,95,127,194,247,251,143,243,79,191,193,95,233,61,173,207
  49916 DEFB 203,237,255,190
 
+@defs=49920:32
 ; Character buffer for little boy no. 6 (#b195)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13497,6 +13522,7 @@ b49996 DEFB 0,144,20,71,40,1,8,0,20,0,120,0,80,32,3,4
  50156 DEFB 193,145,0,4,15,1,240,147,153,0,135,153,26,136,28,48
  50172 DEFB 239,0,255,62
 
+@defs=50176:32
 ; Character buffer for little boy no. 7 (#b196)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13611,6 +13637,7 @@ b50252 DEFB 127,151,213,87,42,253,235,255,213,255,255,255,87,175,3,244
  50412 DEFB 193,145,7,5,239,225,243,147,153,7,135,153,218,138,221,179
  50428 DEFB 239,243,255,190
 
+@defs=50432:32
 ; Character buffer for little boy no. 8 (#b197)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13704,6 +13731,7 @@ b50508 DEFB 0,144,8,137,40,0,16,0,8,0,240,0,32,0,0,0
  50668 DEFB 34,0,248,248,29,31,124,231,0,248,157,0,12,73,24,124
  50684 DEFB 139,0,255,126
 
+@defs=50688:32
 ; Character buffer for little boy no. 9 (#b198)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13798,6 +13826,7 @@ b50764 DEFB 127,151,235,169,170,254,215,255,235,255,255,255,175,223,252,251
  50924 DEFB 42,110,251,251,221,223,124,231,102,251,157,102,237,73,219,125
  50940 DEFB 139,255,255,126
 
+@defs=50944:32
 ; Character buffer for little boy no. 10 (#b199)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13892,6 +13921,7 @@ b51017 DEFB 16,1,0,0,8,0,8,128,28,0,0,243,204,0,7,1
  51177 DEFB 6,6,0,79,249,253,0,224,192,55,0,3,125,20,239,0
  51193 DEFB 211,158,127,127,0,192,248
 
+@defs=51200:32
 ; Character buffer for MR WACKER (#b200)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -13989,6 +14019,7 @@ b51273 DEFB 215,253,255,255,235,255,235,191,156,207,127,243,205,31,247,253
  51433 DEFB 246,246,7,79,249,253,127,239,223,183,255,251,125,212,239,254
  51449 DEFB 211,158,127,127,255,192,251
 
+@defs=51456:32
 ; Character buffer for MR WITHIT (#b201)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14078,6 +14109,7 @@ b51529 DEFB 16,2,0,0,4,0,8,128,113,48,0,226,18,224,7,3
  51689 DEFB 6,6,248,125,9,253,128,224,192,55,0,3,125,55,96,0
  51705 DEFB 175,110,126,127,0,255,36
 
+@defs=51712:32
 ; Character buffer for MR ROCKITT (#b202)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14167,6 +14199,7 @@ b51785 DEFB 215,250,255,135,245,255,235,191,113,183,255,226,18,231,247,251
  51945 DEFB 246,246,251,125,9,253,191,239,223,183,255,251,125,183,96,120
  51961 DEFB 175,110,126,127,255,255,37
 
+@defs=51968:32
 ; Character buffer for MR CREAK (#b203)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14255,6 +14288,7 @@ b52041 DEFB 16,4,0,120,2,0,4,64,177,40,0,182,18,24,7,3
  52201 DEFB 6,7,252,251,251,115,192,224,192,49,0,3,77,111,47,135
  52217 DEFB 222,238,126,127,0,226,132
 
+@defs=52224:32
 ; Character buffer for MISS TAKE (#b204)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14351,6 +14385,7 @@ b52297 DEFB 215,245,254,121,250,255,245,95,177,168,255,182,18,27,247,251
  52457 DEFB 246,247,253,251,251,115,223,239,223,177,255,251,77,111,175,135
  52473 DEFB 222,238,126,127,255,226,133
 
+@defs=52480:32
 ; Character buffer for ALBERT (#b205)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14446,6 +14481,7 @@ b52553 DEFB 16,4,1,134,1,0,4,64,50,47,0,158,33,28,3,3
  52713 DEFB 11,2,30,219,123,251,192,192,192,53,0,3,93,77,55,185
  52729 DEFB 220,238,126,127,0,250,36
 
+@defs=52736:32
 ; Character buffer for BOY WANDER (#b206)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14547,6 +14583,7 @@ b52809 DEFB 215,245,249,134,253,127,245,95,50,175,255,158,33,29,251,251
  52969 DEFB 235,250,30,219,123,251,223,223,223,181,255,251,93,77,183,185
  52985 DEFB 220,238,126,127,255,250,37
 
+@defs=52992:32
 ; Character buffer for ANGELFACE (#b207)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14649,6 +14686,7 @@ b53065 DEFB 16,8,6,1,0,128,2,0,62,16,0,254,233,92,3,3
  53225 DEFB 11,2,174,219,122,138,192,32,0,13,0,0,222,77,55,193
  53241 DEFB 237,238,126,127,0,204,4
 
+@defs=53248:32
 ; Character buffer for EINSTEIN (#b208)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14739,6 +14777,7 @@ b53321 DEFB 215,235,230,121,254,191,250,191,62,208,255,254,233,93,251,251
  53481 DEFB 235,250,174,219,122,138,223,47,63,205,240,252,222,77,183,193
  53497 DEFB 237,238,126,127,63,204,5
 
+@defs=53504:32
 ; Character buffer for HAYLEY (#b209)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14826,6 +14865,7 @@ b53577 DEFB 16,8,24,0,0,64,2,0,126,8,0,254,233,20,3,3
  53737 DEFB 7,2,6,251,125,137,192,32,0,13,15,0,88,207,55,128
  53753 DEFB 253,230,126,224,192,2,120
 
+@defs=53760:32
 ; Character buffer for ERIC (#b210)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -14933,6 +14973,7 @@ b53833 DEFB 215,235,153,254,255,95,250,255,126,232,255,254,233,21,251,251
  53993 DEFB 247,250,6,251,125,169,223,47,127,237,207,255,89,207,183,128
  54009 DEFB 253,230,126,224,223,2,123
 
+@defs=54016:32
 ; Character buffer for the bike (#b211)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -15041,6 +15082,7 @@ b54089 DEFB 16,8,96,0,0,32,1,0,255,7,0,254,249,132,1,3
  54249 DEFB 6,7,196,251,125,143,224,192,0,27,63,0,252,79,55,88
  54265 DEFB 251,251,126,160,64,3,152
 
+@defs=54272:32
 ; Character buffer for the frog or mouse (#b212)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -15146,6 +15188,7 @@ b54345 DEFB 215,235,103,255,255,175,253,255,255,247,255,254,249,133,253,251
  54505 DEFB 246,247,197,251,125,175,239,223,127,219,191,254,253,79,183,88
  54521 DEFB 251,251,126,160,95,3,155
 
+@defs=54528:32
 ; Character buffer for the stinkbomb cloud or BOY WANDER's pellet (#b213)
 ;
 ; See the #LINK:CharacterBuffers(character buffer documentation) for details of
@@ -15254,6 +15297,7 @@ b54601 DEFB 16,16,128,0,0,16,1,0,127,0,0,252,241,8,1,7
  54761 DEFB 6,15,132,251,125,158,224,192,0,55,61,1,248,111,55,175
  54777 DEFB 31,241,127,175,192,254,240
 
+@defs=54784:32
 ; Character buffer for water/sherry, plant, conker, desk lid or ERIC's pellet
 ; (#b214)
 ;
@@ -16419,6 +16463,7 @@ b57984 DEFB 0,0,0,0,0,121,124,0,102,102,0,0,239,239,0,0
  58080 DEFB 169,179,181,184,0,0,130,169,103,115,117,115,0,0,130,103
  58096 DEFB 231,241,231,241,0,0,250,231,202,213,202,151,0,0,255,202
 
+@defs=58112:11
 ; Message #b12: score/lines total/hi-score/number of lines being given
 ;
 ; Used by the routines at #R27497 and #R27572. The character codes of the
@@ -16427,6 +16472,7 @@ b57984 DEFB 0,0,0,0,0,121,124,0,102,102,0,0,239,239,0,0
 @label=MSG012
 t58112 DEFS 11
 
+@defs=58123:21
 ; Number graphic buffer
 ;
 ; Used by the routine at #R27497. Holds the graphic data for the number stored
@@ -16441,6 +16487,7 @@ b58123 DEFS 21
 ; of RAM remains unused thereafter.
 u58144 DEFB 255,255,255,255,255,255,255,255
 
+@defs=58152:216
 ; Temporary store for the part of the screen overwritten by a message box
 ;
 ; Used by the routines at #R27276 and #R29716.
