@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2013, 2015, 2017, 2018 Richard Dymond
+; Copyright 2001, 2008-2013, 2015, 2017-2019 Richard Dymond
 
 @defs=16384:6144
 @defs=22528:768,56
@@ -93,15 +93,15 @@
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2013, 2015, 2017, 2018 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2013, 2015, 2017-2019 Richard Dymond (this disassembly)
 @org
 
 ; Save Back to Skool to tape
 ;
 ; #UDGTABLE
-; { #SCR(saver.gif) | This is the program used to save the fast code block for
-; Back to Skool. See '#FACT#saverPokes()' for a discussion of the two POKEs
-; that appear in line 33 of the program. }
+; { #SCR(saver) | This is the program used to save the fast code block for Back
+; to Skool. See '#FACT#saverPokes()' for a discussion of the two POKEs that
+; appear in line 33 of the program. }
 ; TABLE#
 ; .
 ; The fast code block consists of two sections of data. The first section

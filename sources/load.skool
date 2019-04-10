@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2013, 2015, 2017, 2018 Richard Dymond
+; Copyright 2001, 2008-2013, 2015, 2017-2019 Richard Dymond
 
 @defs=16384:6144
 @defb=16643:60,0,124,60,66,120,60,66,62,126,126,0,66,60,124
@@ -45,8 +45,8 @@
 ; After the program 'bak2skool' has loaded, this is where it all starts...
 ;
 ; #UDGTABLE
-; { #SCR(loader.gif) | This is the initial loader program for Back to Skool (as
-; it appears after doing 'POKE 23762,0' to change the INK for the BASIC listing
+; { #SCR(loader) | This is the initial loader program for Back to Skool (as it
+; appears after doing 'POKE 23762,0' to change the INK for the BASIC listing
 ; from white to black). Don't be fooled by the 'RANDOMIZE USR 23794': the
 ; floating point number stored underneath is actually #w23831. }
 ; TABLE#
@@ -125,7 +125,7 @@ c23831 DI            ; Disable interrupts
 @replace=/#w\i/#N(\1,4)/ (word)
 @writer=:backtoskool.BackToSkoolAsmWriter
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2013, 2015, 2017, 2018 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2013, 2015, 2017-2019 Richard Dymond (this disassembly)
 @org
 
 ; Collect one bit from tape

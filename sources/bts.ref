@@ -1,4 +1,4 @@
-; Copyright 2008-2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017-2019 Richard Dymond (rjdymond@gmail.com)
 
 [Config]
 RefFiles=bugs.ref;changelog.ref;data.ref;facts.ref;glossary.ref;graphics.ref;pages.ref;pokes.ref
@@ -12,6 +12,9 @@ StyleSheet=skoolkit.css;bts.css
 Release=The complete Back to Skool RAM disassembly 20181019
 Copyright=&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.
 AddressAnchor={address#IF({base}==16)(:04x)}
+
+[ImageWriter]
+DefaultAnimationFormat=png
 
 [Links]
 DataMap=[Data] (just the data)
