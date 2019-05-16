@@ -1,8 +1,8 @@
-; Copyright 2018 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2018, 2019 Richard Dymond (rjdymond@gmail.com)
 
 [Game+]
 alt_base=#MAP({vars[pub]})(,1:hexadecimal,2:decimal)
-alt_base_url=http://#MAP({vars[pub]})(,1:skoolkid.github.io/backtoskool,2:skoolkit.ca/disassemblies/back_to_skool)
+alt_base_url=https://#MAP({vars[pub]})(,1:skoolkid.github.io/backtoskool,2:skoolkit.ca/disassemblies/back_to_skool)
 
 [Template:footer]
 <footer>

@@ -4,7 +4,7 @@
 ;
 ; to create a Z80 snapshot.
 
-http://www.worldofspectrum.org/pub/sinclair/games/b/BackToSkool.tzx.zip
+https://www.worldofspectrum.org/pub/sinclair/games/b/BackToSkool.tzx.zip
 back_to_skool.z80
 --ram load=4,16384,16570     # 16384-32953
 --ram load=4,32902,,23       # 32902-end STEP 23
