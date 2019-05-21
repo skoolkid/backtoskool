@@ -1,4 +1,4 @@
-# Copyright 2008-2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015, 2017-2019 Richard Dymond (rjdymond@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -69,7 +69,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                     path = path.replace('{:02X}'.format(int(lesson)), lesson)
                 else:
                     path = path.replace(lesson, '{:02X}'.format(int(lesson)))
-            skoolkit['Path'] = path
+            skoolkit['Path'] = skoolkit['index_href'][:-10] + game['alt_dir'] + path
 
     def _calculate_tap_index(self, tap_address_table, max_tap):
         min_tap = tap_address_table % 256
