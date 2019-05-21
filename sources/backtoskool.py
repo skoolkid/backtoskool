@@ -144,7 +144,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
     def font(self, cwd, address, num_chars=96, scale=2, fname='font'):
         width = scale * (sum(self.snapshot[address:address + num_chars]) + num_chars + 1)
         frame = Frame(lambda: self._font_udgs(address, num_chars), scale, width=width)
-        return self.handle_image([frame], fname, cwd, path_id='FontImagePath')
+        return self.handle_image(frame, fname, cwd, path_id='FontImagePath')
 
     def _draw_text(self, udgs, words, x, y):
         text_udgs = self.get_text(words)
@@ -201,11 +201,11 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         fname = 'as{0:03d}_{1}x{2}{3}{4}{5}{6}'.format(num & 255, attr, scale, mask_infix, udg_page_infix, snapshot_infix, fname_suffix)
         frame = Frame(lambda: self.build_sprite(num, attr, udg_page), scale, mask)
         alt = "Animatory state {}".format(num & 255)
-        return self.handle_image([frame], fname, cwd, alt, 'AnimatoryStateImagePath')
+        return self.handle_image(frame, fname, cwd, alt, 'AnimatoryStateImagePath')
 
     def play_area(self, cwd, fname, x, y, w=1, h=1, scale=2, show_chars=0, show_x=0):
         frame = Frame(lambda: self.get_skool_udgs(x, y, w, h, show_chars, show_x), scale)
-        return self.handle_image([frame], fname, cwd, path_id='PlayAreaImagePath')
+        return self.handle_image(frame, fname, cwd, path_id='PlayAreaImagePath')
 
     def write_playarea_tile_table(self, cwd, tiles, prefix='s'):
         lines = []
@@ -213,9 +213,9 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             cells = []
             for tile in row:
                 if tile:
-                    img_fname = '{0:x}{1:x}.{2}'.format(tile.udg_addr, tile.attr, self.default_image_format)
-                    img_path = '/' + join(cwd, img_fname)
-                    self.handle_image([Frame([[tile]], 4)], img_path, cwd)
+                    fname = '{0:x}{1:x}.{2}'.format(tile.udg_addr, tile.attr, self.default_image_format)
+                    alt = '{},{}'.format(tile.x, tile.y)
+                    img = self.handle_image(Frame([[tile]], 4), fname, cwd, alt, 'PlayAreaTileImagePath')
                     subs = {
                         'x': tile.x,
                         'x_offset': self.b_fmt.format(181),
@@ -229,7 +229,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                         'udg_addr': self.w_fmt.format(tile.udg_addr),
                         'attr': self.b_fmt.format(tile.attr),
                         'prefix': prefix,
-                        'img_fname': img_fname
+                        'img': img
                     }
                     cells.append(self.format_template('play_area_tile', subs))
                 else:
@@ -264,16 +264,16 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                             tile = row[col_num]
                             bubble_id_suffix = '{0:02x}'.format(udg_page) if udg_page is not None else ''
                             bubble_id = 'B{0:02x}{1:x}{2}'.format(state, row_num + num_rows * col_num, bubble_id_suffix)
-                            img_fname = '{:x}.{}'.format(tile.udg_addr, self.default_image_format)
-                            img_path = '/' + join(cwd, img_fname)
-                            self.handle_image([Frame([[tile]], 4, 1)], img_path, cwd)
+                            fname = '{:x}.{}'.format(tile.udg_addr, self.default_image_format)
+                            alt = '{}:{},{}'.format(self.b_fmt.format(state), row_num, col_num)
+                            img = self.handle_image(Frame([[tile]], 4, 1), fname, cwd, alt, 'AnimatoryStateTileImagePath')
                             template_name = 'astile' if tile.ref else 'astile_null'
                             astile_subs = {
                                 'bubble_id': bubble_id,
                                 'state': self.b_fmt.format(state),
                                 'row': row_num,
                                 'column': col_num,
-                                'img_fname': img_fname,
+                                'img': img,
                                 'lsb': self.b_fmt.format(tile.ref_addr % 256),
                                 'ref_page': self.b_fmt.format(tile.ref_addr // 256),
                                 'ref_addr': self.w_fmt.format(tile.ref_addr),
@@ -533,7 +533,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
     def mutable(self, cwd, address, padding=0):
         fname = 'mutable{0}_{1}'.format(address, padding) if padding else 'mutable{0}'.format(address)
         frame = Frame(lambda: self.get_mutable_udg_array(address, padding), 2)
-        return self.handle_image([frame], fname, cwd, path_id='MutableImagePath')
+        return self.handle_image(frame, fname, cwd, path_id='MutableImagePath')
 
     def adjust_mutable(self, cwd, address):
         self.alter_skool_udgs(address)

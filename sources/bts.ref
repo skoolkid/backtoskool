@@ -88,15 +88,17 @@ start-Asm-c=Startup routine
 
 [Paths]
 CodeFiles={address#IF({base}==16)(:04#S/X/)}.html
-PlayAreaImagePath=images/play_area
-AnimatoryStateImagePath=images/animatory_states
-MutableImagePath=images/mutables
+PlayAreaImagePath={ImagePath}/play_area
+AnimatoryStateImagePath={ImagePath}/animatory_states
+MutableImagePath={ImagePath}/mutables
 Graphics=graphics/graphics.html
 PlayArea=graphics/playarea.html
-PlayAreaTiles=graphics/patiles/patiles.html
+PlayAreaTiles=graphics/patiles.html
+PlayAreaTileImagePath={ImagePath}/patiles
 InitialAnimatoryStates=graphics/asstart.html
 AnimatoryStates=graphics/as.html
-AnimatoryStateTiles=graphics/astiles/astiles.html
+AnimatoryStateTiles=graphics/astiles.html
+AnimatoryStateTileImagePath={ImagePath}/astiles
 CharacterBuffers=buffers/cbuffer.html
 Keys=tables/keys.html
 PersonalTimetables=lessons/timetables.html
