@@ -212,8 +212,8 @@ door into service, try #POKE#leftStudyDoor(these POKEs).
 Play area tiles #b1, #b11, #b21 and #b30 in base page #b144 are unused:
 
 #UDGTABLE(gallery)
-{ #UDG36865,,,256(tile#b1) | #UDG36875,,,256(tile#b11) |
-  #UDG36885,,,256(tile#b21) | #UDG36894,,,256(tile#b30) }
+{ #UDG36865,,,256(tile0x01) | #UDG36875,,,256(tile0x0B) |
+  #UDG36885,,,256(tile0x15) | #UDG36894,,,256(tile0x1E) }
 { #b1 | #b11 | #b21 | #b30 }
 TABLE#
 
