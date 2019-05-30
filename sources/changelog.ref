@@ -1,7 +1,15 @@
-; Copyright 2008-2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017-2019 Richard Dymond (rjdymond@gmail.com)
 
 [Page:Changelog]
 SectionType=BulletPoints
+
+[Changelog:YYYYMMDD]
+-
+
+- Added the #IF({vars[pub]}==1)(<a href="../hex/reference/changelog.html">)
+  hexadecimal version of the disassembly#IF({vars[pub]}==1)(</a>) to the
+  distribution
+- Replaced GIF images with PNG images
 
 [Changelog:20181019]
 -
