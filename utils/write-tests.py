@@ -36,10 +36,10 @@ Writing reference/pokes.html
 Writing graphics/graphics.html
 Writing graphics/playarea.html
 Copying tiles.js to tiles.js
-Writing graphics/patiles/patiles.html
+Writing graphics/patiles.html
 Writing graphics/asstart.html
 Writing graphics/as.html
-Writing graphics/astiles/astiles.html
+Writing graphics/astiles.html
 Writing buffers/cbuffer.html
 Writing lessons/timetables.html
 Writing lessons/index.html
