@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 32032</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="32021.html">32021</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32032">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32054.html">32054</a></span></td>
+</tr>
+</table>
+<div class="description">32032: Make any nearby teacher give ERIC lines if necessary (1)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="63156.html">63156</a>. Makes any nearby teacher give ERIC lines for rule breakages other than hitting, firing a catapult, firing a waterpistol, writing on a blackboard, or dropping a stinkbomb.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="32032"></span>32032</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32758</td>
+<td class="comment-11" rowspan="2">Decrement the LSB of the lines-giving delay counter at <a href="32758.html">32758</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32035"></span>32035</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32036"></span>32036</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return unless it's time to inspect the MSB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32037"></span>32037</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),15</td>
+<td class="comment-11" rowspan="1">Reset the LSB to 15</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32039"></span>32039</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32759.html">32759</a> (MSB of the lines-giving delay counter)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32040"></span>32040</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="2">Has the lines-giving delay counter reached 0?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32041"></span>32041</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32042"></span>32042</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,32049</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32044"></span>32044</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Otherwise decrement the MSB of the counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32045"></span>32045</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the MSB in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32046"></span>32046</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 6</td>
+<td class="comment-11" rowspan="1">Has enough time passed since the last time ERIC was given lines?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32048"></span>32048</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NC</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32049"></span>
+<div class="comments">
+<div class="paragraph">
+The MSB of the lines-giving delay counter (which is reset to 10 by the routine at <a href="32062.html">32062</a> when ERIC is given lines) is now 5 or less. This means the minimum interval between two lines-givings (75 passes through the main loop) has elapsed. However, the teacher who gave ERIC lines last time must wait until the MSB reaches zero before he can give ERIC lines again.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="32049"></span>32049</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="32000.html">32000</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="25554.html#ericLocTable">location identifier</a> for ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32052"></span>32052</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR <a href="32062.html">32062</a></td>
+<td class="comment-11" rowspan="1">Skip over the routine at <a href="32054.html">32054</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="32021.html">32021</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32032">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32054.html">32054</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/7D20.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

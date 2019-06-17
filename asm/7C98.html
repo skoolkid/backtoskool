@@ -23,7 +23,7 @@
 <div class="description">7C98: Raise the signal for a certain event</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F073.html">F073</a> to raise the signal for the event identifier in <span class="register">A</span>. In practice only event IDs 0x08-0x0C are used, which indicate to anyone listening that the teacher has arrived at the classroom door.
@@ -53,17 +53,19 @@ Used by the routine at <a href="F073.html">F073</a> to raise the signal for the 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7c98"></span>7C98</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7C75.html">$7C75</a></td>
 <td class="comment-11" rowspan="1">Convert the event ID into an appropriate bit mask (0x01, 0x02, 0x04, 0x08 or 0x10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c9b"></span>7C9B</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR (HL)</td>
 <td class="comment-11" rowspan="1">Merge the existing event flags in <a href="7F81.html">7F81</a></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7c9c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -75,18 +77,21 @@ This entry point is used by the (unused) routine at <a href="7CA1.html">7CA1</a>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7c9c"></span>7C9C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Set or reset the appropriate bit at <a href="7F81.html">7F81</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c9d"></span>7C9D</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7c9e"></span>7C9E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -99,10 +104,10 @@ This entry point is used by the (unused) routine at <a href="7CA1.html">7CA1</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/31896.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31896.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

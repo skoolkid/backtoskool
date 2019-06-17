@@ -23,7 +23,7 @@
 <div class="description">73B5: Add to the score and print it</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="5D63.html">5D63</a>, <a href="5DDC.html">5DDC</a>, <a href="7118.html">7118</a>, <a href="7414.html">7414</a>, <a href="74C8.html">74C8</a>, <a href="7813.html">7813</a>, <a href="7842.html">7842</a>, <a href="7854.html">7854</a> and <a href="F5BE.html">F5BE</a>.
@@ -49,59 +49,68 @@ Used by the routines at <a href="5D63.html">5D63</a>, <a href="5DDC.html">5DDC</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="73b5"></span>73B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73b6"></span>73B6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="2"><span class="register">DE</span>=number of points to add (divided by 10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73b7"></span>73B7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73b9"></span>73B9</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73ba"></span>73BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7FE5)</td>
 <td class="comment-11" rowspan="3">Add points to the score (stored at <a href="7FE5.html">7FE5</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73bd"></span>73BD</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73be"></span>73BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FE5),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73c1"></span>73C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73c2"></span>73C2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$51A4</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=display file address for printing the score</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="73c5"></span>
 <div class="comments">
 <div class="paragraph">
@@ -113,24 +122,28 @@ This entry point is used by the routine at <a href="73CB.html">73CB</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="73c5"></span>73C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="73AD.html">$73AD</a></td>
 <td class="comment-11" rowspan="1">Print the new score or lines total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73c8"></span>73C8</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73c9"></span>73C9</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73ca"></span>73CA</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -143,10 +156,10 @@ This entry point is used by the routine at <a href="73CB.html">73CB</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/29621.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29621.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

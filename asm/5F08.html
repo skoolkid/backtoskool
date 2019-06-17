@@ -23,7 +23,7 @@
 <div class="description">5F08: Make HAYLEY hit ERIC</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of HAYLEY's buffer by the routine at <a href="5F1C.html">5F1C</a> when ERIC has tried to steal one kiss too many.
@@ -53,48 +53,56 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5f08"></span>5F08</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FF3),A</td>
 <td class="comment-11" rowspan="1">Place a large value into ERIC's main action timer at <a href="7FF3.html">7FF3</a> to ensure that he will not have time to escape HAYLEY's fist</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f0b"></span>5F0B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for HAYLEY's current animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f0e"></span>5F0E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
 <td class="comment-11" rowspan="2">Store HAYLEY's current animatory state in byte 0x14 of her buffer for the time being</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f10"></span>5F10</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f11"></span>5F11</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR $07</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#63">0x3F/0xBF</a>: HAYLEY with her arm up (as if hitting ERIC)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f13"></span>5F13</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
 <td class="comment-11" rowspan="1">Update HAYLEY's animatory state, update the SRB, and return to <a href="5F08.html#5f16">5F16</a> (below) next time</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5f16"></span>5F16</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="74C8.html#7529">$7529</a></td>
 <td class="comment-11" rowspan="1">Knock ERIC over</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f19"></span>5F19</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="77B3.html#77ba">$77BA</a></td>
 <td class="comment-11" rowspan="1">Restore HAYLEY's original animatory state and update the SRB</td>
 </tr>
@@ -107,10 +115,10 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/24328.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/24328.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

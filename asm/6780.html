@@ -23,7 +23,7 @@
 <div class="description">6780: Move the bike if it's obstructing the boys' skool door or the gate</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="717C.html">717C</a>.
@@ -53,47 +53,54 @@ Used by the routine at <a href="717C.html">717C</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6780"></span>6780</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $05</td>
 <td class="comment-11" rowspan="1">Is the bike lying on the floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6782"></span>6782</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$678E</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6784"></span>6784</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D3</td>
 <td class="comment-11" rowspan="1">0xD3=bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6786"></span>6786</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save the bike's new location temporarily</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6787"></span>6787</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the bike's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="678a"></span>678A</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore the bike's new location to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="678b"></span>678B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the bike's location and update the SRB</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="678e"></span>
 <div class="comments">
 <div class="paragraph">
@@ -105,12 +112,14 @@ The bike is not lying on the floor, so either ERIC is riding it, or it's travell
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="678e"></span>678E</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Drop the return address, which has the effect of making ALBERT wait</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="678f"></span>678F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -123,10 +132,10 @@ The bike is not lying on the floor, so either ERIC is riding it, or it's travell
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/26496.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/26496.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

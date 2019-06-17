@@ -23,7 +23,7 @@
 <div class="description">F460: Make the next command be the start of the command list</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by command lists <a href="E400.html">0x16</a>, <a href="E600.html">0x18</a>, <a href="E264.html">0x1C</a> and <a href="E975.html">0x4E</a>. Copies the address of the point reached in the current command list (stored in bytes 0x19 and 0x1A of the character's buffer) into bytes 0x1B and 0x1C (where the start address of the current command list is stored). This means that whenever the command list is restarted, it will restart from this point instead of the actual beginning.
@@ -49,36 +49,42 @@ Used by command lists <a href="E400.html">0x16</a>, <a href="E600.html">0x18</a>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f460"></span>F460</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$19</td>
 <td class="comment-11" rowspan="5">Copy the address reached in the current command list from bytes 0x19 and 0x1A into bytes 0x1B and 0x1C (where the command list's start address is usually stored)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f462"></span>F462</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f463"></span>F463</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$1B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f465"></span>F465</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDI</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f467"></span>F467</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDI</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f469"></span>F469</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="638C.html">$638C</a></td>
 <td class="comment-11" rowspan="1">Move to the next command in the command list</td>
 </tr>
@@ -91,10 +97,10 @@ Used by command lists <a href="E400.html">0x16</a>, <a href="E600.html">0x18</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/62560.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/62560.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

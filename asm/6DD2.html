@@ -23,7 +23,7 @@
 <div class="description">6DD2: Put ERIC midstride</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="6E9B.html">6E9B</a> and <a href="6F44.html">6F44</a>. Puts ERIC midstride after 'Q' (up), 'A' (down), 'O' (left) or 'P' (right) was pressed.
@@ -53,138 +53,161 @@ Used by the routines at <a href="6E9B.html">6E9B</a> and <a href="6F44.html">6F4
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6dd2"></span>6DD2</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1">Save ERIC's midstride coordinates temporarily</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dd3"></span>6DD3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D205</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x05 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dd6"></span>6DD6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
 <td class="comment-11" rowspan="3">Place ERIC's post-midstride coordinates into bytes 0x04 and 0x05 of his buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dd7"></span>6DD7</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dd8"></span>6DD8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dd9"></span>6DD9</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ddc"></span>6DDC</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore ERIC's midstride coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ddd"></span>6DDD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ddf"></span>6DDF</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's next animatory state (midstride)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6de0"></span>6DE0</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save this briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6de1"></span>6DE1</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=ERIC's post-midstride animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6de2"></span>6DE2</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $FA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6de4"></span>6DE4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Store this in byte 0x03 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6de5"></span>6DE5</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's next animatory state (midstride)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6de6"></span>6DE6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update ERIC's animatory state (to midstride) and location and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6de9"></span>6DE9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
 <td class="comment-11" rowspan="1">4=small value for ERIC's main action timer (fast)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6deb"></span>6DEB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FF1)</td>
 <td class="comment-11" rowspan="1"><a href="7FF1.html">7FF1</a> holds the keypress table offset of the last key pressed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6dee"></span>6DEE</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 3,A</td>
 <td class="comment-11" rowspan="1">Was the last key pressed upper case (fast)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6df0"></span>6DF0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$6DF4</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6df2"></span>6DF2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$09</td>
 <td class="comment-11" rowspan="1">9=large value for ERIC's main action timer (slow)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6df4"></span>6DF4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,L</td>
 <td class="comment-11" rowspan="2">Initialise ERIC's main action timer at <a href="7FF3.html">7FF3</a> and the midstride/mid-action timer at <a href="7FF2.html">7FF2</a> to the same value</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6df5"></span>6DF5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FF2),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6df8"></span>6DF8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7154.html">$7154</a></td>
 <td class="comment-11" rowspan="1">Make a walking sound effect</td>
 </tr>
@@ -197,10 +220,10 @@ Used by the routines at <a href="6E9B.html">6E9B</a> and <a href="6F44.html">6F4
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/28114.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28114.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

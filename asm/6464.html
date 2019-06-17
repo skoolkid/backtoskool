@@ -23,7 +23,7 @@
 <div class="description">6464: Make a character go to a location</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by command lists <a href="C93C.html">0x00</a>, <a href="CA3C.html">0x02</a>, <a href="CB3C.html">0x04</a>, <a href="CC3C.html">0x06</a>, <a href="CD3C.html">0x08</a>, <a href="CE3C.html">0x0A</a>, <a href="CF3C.html">0x0C</a>, <a href="D03C.html">0x0E</a>, <a href="D13C.html">0x10</a>, <a href="E256.html">0x14</a>, <a href="E400.html">0x16</a>, <a href="E600.html">0x18</a>, <a href="E700.html">0x1A</a>, <a href="E264.html">0x1C</a>, <a href="E272.html">0x1E</a>, <a href="E590.html">0x20</a>, <a href="E59B.html">0x22</a>, <a href="E5AE.html">0x24</a>, <a href="E5BD.html">0x26</a>, <a href="E70F.html">0x28</a>, <a href="E5DC.html">0x2C</a>, <a href="E860.html">0x2E</a>, <a href="E86B.html">0x30</a>, <a href="E87F.html">0x32</a>, <a href="E88A.html">0x34</a>, <a href="E89E.html">0x36</a>, <a href="E8C0.html">0x38</a>, <a href="E8DC.html">0x3A</a>, <a href="E8ED.html">0x3C</a>, <a href="E8FE.html">0x3E</a>, <a href="E90F.html">0x40</a>, <a href="E919.html">0x42</a>, <a href="E921.html">0x46</a>, <a href="E933.html">0x48</a>, <a href="E943.html">0x4A</a>, <a href="E94C.html">0x4C</a>, <a href="E975.html">0x4E</a>, <a href="E98C.html">0x50</a>, <a href="E999.html">0x52</a>, <a href="E9A4.html">0x54</a>, <a href="E9AF.html">0x56</a> and <a href="E5EE.html">0x58</a> to make a character go to a specified place.
@@ -49,17 +49,19 @@ Used by command lists <a href="C93C.html">0x00</a>, <a href="CA3C.html">0x02</a>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6464"></span>6464</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$05</td>
 <td class="comment-11" rowspan="2">Copy the destination coordinates from the command list into bytes 0x05 and 0x06 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6466"></span>6466</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6264.html">$6264</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6469"></span>
 <div class="comments">
 <div class="paragraph">
@@ -71,47 +73,54 @@ This entry point is used by the routine at <a href="64D7.html">64D7</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6469"></span>6469</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="2">Replace the address of this routine in bytes 0x03 and 0x04 of the character's buffer with <a href="6464.html#647e">647E</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="646b"></span>646B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$7E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="646d"></span>646D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="646f"></span>646F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6470"></span>6470</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
 <td class="comment-11" rowspan="2">Is the character sitting on a chair (kids only)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6472"></span>6472</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6474"></span>6474</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$647E</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6476"></span>
 <div class="comments">
 <div class="paragraph">
@@ -123,23 +132,26 @@ The character is sitting on a chair. He'll have to stand up first.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6476"></span>6476</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6479"></span>6479</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character standing up</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="647b"></span>647B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="647e"></span>
 <div class="comments">
 <div class="paragraph">
@@ -151,77 +163,89 @@ The second and subsequent calls to this routine (from <a href="62D0.html">62D0</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="647e"></span>647E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$06</td>
 <td class="comment-11" rowspan="4">Collect the destination coordinates into <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6480"></span>6480</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6481"></span>6481</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6482"></span>6482</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6483"></span>6483</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6485"></span>6485</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's current x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6486"></span>6486</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Compare it with the x-coordinate of the destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6487"></span>6487</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6488"></span>6488</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$648F</td>
 <td class="comment-11" rowspan="1">Jump forward unless the character's current x-coordinate matches that of the destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="648a"></span>648A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's current y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="648b"></span>648B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the character already at his destination?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="648c"></span>648C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="638C.html">$638C</a></td>
 <td class="comment-11" rowspan="1">Move to the next command in the command list if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="648f"></span>
 <div class="comments">
 <div class="paragraph">
@@ -233,11 +257,12 @@ The character hasn't reached his destination yet.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="648f"></span>648F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63D2.html">$63D2</a></td>
 <td class="comment-11" rowspan="1">Get the region identifier for the character's destination</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6492"></span>
 <div class="comments">
 <div class="paragraph">
@@ -289,77 +314,89 @@ Now <span class="register">A</span> holds a region ID (0xBD-0xC4) corresponding 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6492"></span>6492</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-11" rowspan="3">Collect the character's current coordinates into <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6493"></span>6493</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6494"></span>6494</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6495"></span>6495</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=destination region ID (0xBD-0xC4)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6496"></span>6496</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63D2.html">$63D2</a></td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=region ID (0xBD-0xC4) for the character's current location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6499"></span>6499</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP L</td>
 <td class="comment-11" rowspan="1">Will the character have to negotiate any staircases in order to reach his destination?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="649a"></span>649A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$64C8</td>
 <td class="comment-11" rowspan="1">Jump if not (he's in the same region as his destination)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="649c"></span>649C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=region ID of the character's current location (0xBD-0xC4)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="649d"></span>649D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=destination region ID (0xBD-0xC4)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="649e"></span>649E</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $81</td>
 <td class="comment-11" rowspan="2"><span class="register">E</span>=destination region ID minus 0x81 (0x3C-0x43)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64a0"></span>64A0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64a1"></span>64A1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1">Collect the appropriate staircase endpoint identifier</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="64a2"></span>
 <div class="comments">
 <div class="paragraph">
@@ -609,47 +646,54 @@ Now <span class="register">A</span> holds a region ID (0xBD-0xC4) corresponding 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64a2"></span>64A2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-11" rowspan="1">Place the staircase endpoint identifier in <span class="register">D</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64a3"></span>64A3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$44</td>
 <td class="comment-11" rowspan="1">Byte 0x44 holds the x-coordinate of the top or bottom of the staircase identified by <span class="register">D</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64a5"></span>64A5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="2">Point <span class="register">DE</span> at byte 0x01 of the character's buffer, and <span class="register">HL</span> at the staircase endpoint x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64a7"></span>64A7</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64a8"></span>64A8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's current x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64a9"></span>64A9</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the character already at the top or bottom of the appropriate staircase?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64aa"></span>64AA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$64C4</td>
 <td class="comment-11" rowspan="1">Jump forward if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="64ac"></span>
 <div class="comments">
 <div class="paragraph">
@@ -661,113 +705,131 @@ At this stage the character is standing at the top or bottom of the first stairc
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ac"></span>64AC</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">(<span class="register">HL</span>)=0x00 if the character has to face left to ascend or descend the stairs, 0x80 otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ad"></span>64AD</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ae"></span>64AE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64af"></span>64AF</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR (HL)</td>
 <td class="comment-11" rowspan="2">Set the carry flag if the character has to turn round to negotiate the staircase</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64b0"></span>64B0</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64b1"></span>64B1</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span> so that <span class="register">H</span> holds the character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64b2"></span>64B2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="63ED.html#6430">$6430</a></td>
 <td class="comment-11" rowspan="1">Turn the character round if he's facing the wrong way</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64b5"></span>64B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span> back again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64b6"></span>64B6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$0B</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x0B of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64b8"></span>64B8</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x46</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64b9"></span>64B9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,(HL)</td>
 <td class="comment-11" rowspan="2"><span class="register">BC</span>=<a href="6438.html">6438</a> if the stairs are to be ascended, <a href="644D.html">644D</a> if descended</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ba"></span>64BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$64</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64bc"></span>64BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64bd"></span>64BD</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x47</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64be"></span>64BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=1 + number of steps in the staircase</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64bf"></span>64BF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-11" rowspan="1">Place this number of steps in byte 0x0B of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64c0"></span>64C0</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Swap <span class="register">DE</span> and <span class="register">HL</span> so that <span class="register">H</span> holds the character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64c1"></span>64C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="63B0.html">$63B0</a></td>
 <td class="comment-11" rowspan="1">Copy the interruptible subcommand routine address from <span class="register">BC</span> into bytes 0x09 and 0x0A of the character's buffer and jump to it</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="64c4"></span>
 <div class="comments">
 <div class="paragraph">
@@ -779,23 +841,26 @@ The character is not yet at the top or bottom of the appropriate staircase.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64c4"></span>64C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the top or bottom of the staircase</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64c5"></span>64C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"><span class="register">H</span>=character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64c6"></span>64C6</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $64CB</td>
 <td class="comment-11" rowspan="1">Send the character towards the staircase</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="64c8"></span>
 <div class="comments">
 <div class="paragraph">
@@ -807,36 +872,42 @@ The character can reach his destination without negotiating any staircases.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64c8"></span>64C8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$05</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x05 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ca"></span>64CA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the character's destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64cb"></span>64CB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0B</td>
 <td class="comment-11" rowspan="2">Place the x-coordinate of the top or bottom of the staircase, or the destination, into byte 0x0B of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64cd"></span>64CD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ce"></span>64CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$63ED</td>
 <td class="comment-11" rowspan="2">Place the address of the interruptible subcommand routine at <a href="63ED.html">63ED</a> into bytes 0x09 and 0x0A of the character's buffer and jump to it, thus guiding the character to this x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64d1"></span>64D1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="63B0.html">$63B0</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
@@ -849,10 +920,10 @@ The character can reach his destination without negotiating any staircases.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/25700.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/25700.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

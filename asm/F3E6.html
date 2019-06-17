@@ -23,7 +23,7 @@
 <div class="description">F3E6: Make ERIC sit in a chair or on the floor</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F3FC.html">F3FC</a>.
@@ -46,11 +46,12 @@ Used by the routine at <a href="F3FC.html">F3FC</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f3e6"></span>F3E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">0x04</a>: ERIC sitting in a chair</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f3e8"></span>
 <div class="comments">
 <div class="paragraph">
@@ -62,41 +63,47 @@ This entry point is used by the routine at <a href="F3FC.html">F3FC</a> (with <s
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f3e8"></span>F3E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save ERIC's new animatory state briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3e9"></span>F3E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7154.html">$7154</a></td>
 <td class="comment-11" rowspan="1">Make a sitting-down sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3ec"></span>F3EC</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore ERIC's new animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3ed"></span>F3ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF3</td>
 <td class="comment-11" rowspan="2">Initialise ERIC's main action timer at <a href="7FF3.html">7FF3</a> to 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3f0"></span>F3F0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$05</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3f2"></span>F3F2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
 <td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f3f4"></span>
 <div class="comments">
 <div class="paragraph">
@@ -108,24 +115,28 @@ This entry point is used by the routines at <a href="E125.html">E125</a> and <a 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f3f4"></span>F3F4</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save the character's new animatory state briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3f5"></span>F3F5</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3f8"></span>F3F8</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the character's new animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3f9"></span>F3F9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
 </tr>
@@ -138,10 +149,10 @@ This entry point is used by the routines at <a href="E125.html">E125</a> and <a 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/62438.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/62438.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

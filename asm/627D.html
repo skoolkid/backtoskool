@@ -23,7 +23,7 @@
 <div class="description">627D: Collect one byte from a command list</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="7CD0.html">7CD0</a>, <a href="7EF1.html">7EF1</a>, <a href="F073.html">F073</a> and <a href="F487.html">F487</a>, and also by the unused routines at <a href="7C95.html">7C95</a> and <a href="7CA1.html">7CA1</a>. Collects a byte from a character's current command list and returns it in <span class="register">A</span>.
@@ -49,108 +49,126 @@ Used by the routines at <a href="7CD0.html">7CD0</a>, <a href="7EF1.html">7EF1</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="627d"></span>627D</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1">Save the character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="627e"></span>627E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$19</td>
 <td class="comment-11" rowspan="1">Bytes 0x19 and 0x1A of the character's buffer hold the address of the point reached in the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6280"></span>6280</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the LSB of this address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6281"></span>6281</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Increment the LSB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6282"></span>6282</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x1A</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6283"></span>6283</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$628C</td>
 <td class="comment-11" rowspan="1">Jump unless the LSB was incremented to 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6285"></span>6285</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Increment the MSB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6286"></span>6286</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,(HL)</td>
 <td class="comment-11" rowspan="3"><span class="register">HL</span>=address of the point reached in the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6287"></span>6287</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6288"></span>6288</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6289"></span>6289</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the byte from the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="628a"></span>628A</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="628b"></span>628B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="628c"></span>628C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,(HL)</td>
 <td class="comment-11" rowspan="2"><span class="register">HL</span>=address of the point reached in the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="628d"></span>628D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="628e"></span>628E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the byte from the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="628f"></span>628F</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6290"></span>6290</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -163,10 +181,10 @@ Used by the routines at <a href="7CD0.html">7CD0</a>, <a href="7EF1.html">7EF1</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/25213.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/25213.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

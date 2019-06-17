@@ -23,7 +23,7 @@
 <div class="description">F7DF: Make ANGELFACE stalk HAYLEY</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this continual subcommand routine is placed into bytes 0x17 and 0x18 of ANGELFACE's buffer by command list <a href="E5DC.html">0x2C</a>. Sets ANGELFACE's destination to match HAYLEY's, presumably so he has a better chance of knocking her out with a random punch.
@@ -49,96 +49,112 @@ The address of this continual subcommand routine is placed into bytes 0x17 and 0
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f7df"></span>F7DF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$D11D</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x1D of HAYLEY's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7e2"></span>F7E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7e3"></span>F7E3</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Is HAYLEY's command list due to be restarted?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7e4"></span>F7E4</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$F800</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7e6"></span>F7E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$04</td>
 <td class="comment-11" rowspan="2">Pick up the MSB of the routine address of the current command in HAYLEY's command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7e8"></span>F7E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7e9"></span>F7E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $64</td>
 <td class="comment-11" rowspan="1">Is it the routine at <a href="6464.html">6464</a> (go to a location)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7eb"></span>F7EB</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F800</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7ed"></span>F7ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,($D105)</td>
 <td class="comment-11" rowspan="1">Copy the coordinates of HAYLEY's destination from bytes 0x05 and 0x06 of HAYLEY's buffer to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7f1"></span>F7F1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($E5E2),DE</td>
 <td class="comment-11" rowspan="1">Place these coordinates directly into command list <a href="E5DC.html">0x2C</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7f5"></span>F7F5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
 <td class="comment-11" rowspan="2">Pick up the MSB of the routine address of the current command in ANGELFACE's command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7f7"></span>F7F7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7f8"></span>F7F8</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $64</td>
 <td class="comment-11" rowspan="1">Is it the routine at <a href="6464.html">6464</a> (go to a location)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7fa"></span>F7FA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F800</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7fc"></span>F7FC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($CF05),DE</td>
 <td class="comment-11" rowspan="1">Copy HAYLEY's destination into bytes 0x05 and 0x06 of ANGELFACE's buffer (i.e. make it his destination too)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f800"></span>F800</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="77F2.html">$77F2</a></td>
 <td class="comment-11" rowspan="1">Continue into <a href="77F2.html">77F2</a> (make ANGELFACE hit now and then)</td>
 </tr>
@@ -151,10 +167,10 @@ The address of this continual subcommand routine is placed into bytes 0x17 and 0
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/63455.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63455.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

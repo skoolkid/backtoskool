@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 25213</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="25188.html">25188</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25213">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25233.html">25233</a></span></td>
+</tr>
+</table>
+<div class="description">25213: Collect one byte from a command list</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="31952.html">31952</a>, <a href="32497.html">32497</a>, <a href="61555.html">61555</a> and <a href="62599.html">62599</a>, and also by the unused routines at <a href="31893.html">31893</a> and <a href="31905.html">31905</a>. Collects a byte from a character's current command list and returns it in <span class="register">A</span>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (183-214)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="25213"></span>25213</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25214"></span>25214</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,25</td>
+<td class="comment-11" rowspan="1">Bytes 25 and 26 of the character's buffer hold the address of the point reached in the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25216"></span>25216</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the LSB of this address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25217"></span>25217</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Increment the LSB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25218"></span>25218</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=26</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25219"></span>25219</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,25228</td>
+<td class="comment-11" rowspan="1">Jump unless the LSB was incremented to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25221"></span>25221</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Increment the MSB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25222"></span>25222</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,(HL)</td>
+<td class="comment-11" rowspan="3"><span class="register">HL</span>=address of the point reached in the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25223"></span>25223</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25224"></span>25224</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25225"></span>25225</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the byte from the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25226"></span>25226</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25227"></span>25227</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="25228"></span>25228</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,(HL)</td>
+<td class="comment-11" rowspan="2"><span class="register">HL</span>=address of the point reached in the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25229"></span>25229</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25230"></span>25230</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up the byte from the command list</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25231"></span>25231</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25232"></span>25232</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="25188.html">25188</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25213">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25233.html">25233</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/627D.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

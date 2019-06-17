@@ -23,7 +23,7 @@
 <div class="description">F0DA: Control a teacher during assembly</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by command list <a href="E98C.html">0x50</a>. Makes the teacher stand still until the period is nearly over, and also perform assembly duty (if the teacher is MR WITHIT).
@@ -49,108 +49,126 @@ Used by command list <a href="E98C.html">0x50</a>. Makes the teacher stand still
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f0da"></span>F0DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FE4)</td>
 <td class="comment-11" rowspan="1">Collect the MSB of the lesson clock (which starts off at 0x10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0dd"></span>F0DD</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $02</td>
 <td class="comment-11" rowspan="1">Has the teacher been standing still long enough (the routine at <a href="F250.html">F250</a> sets the MSB of the lesson clock to 1 after MR WACKER has finished his detention speech)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0df"></span>F0DF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="638C.html">$638C</a></td>
 <td class="comment-11" rowspan="1">Move to the next command in the command list if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0e2"></span>F0E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $0B</td>
 <td class="comment-11" rowspan="1">Is it time for the kids to sit down for assembly yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0e4"></span>F0E4</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0e5"></span>F0E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0e6"></span>F0E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $C9</td>
 <td class="comment-11" rowspan="1">Is this MR WITHIT (who does assembly duty)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0e8"></span>F0E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0e9"></span>F0E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$7F80</td>
 <td class="comment-11" rowspan="4">Set bits 6 (ERIC should be here now) and 7 (time to sit down: this is checked by command lists <a href="E256.html">0x14</a>, <a href="E70F.html">0x28</a> and <a href="E5EE.html">0x58</a>) at <a href="7F80.html">7F80</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0ec"></span>F0EC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0ed"></span>F0ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR $C0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0ef"></span>F0EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0f0"></span>F0F0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FE4)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=MSB of the lesson clock</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0f3"></span>F0F3</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $0A</td>
 <td class="comment-11" rowspan="1">Is it time to find ERIC if he's absent?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0f5"></span>F0F5</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0f6"></span>F0F6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7D15.html">$7D15</a></td>
 <td class="comment-11" rowspan="1">Is ERIC in the assembly hall?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0f9"></span>F0F9</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f0fa"></span>F0FA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F0BF.html#f0d0">$F0D0</a></td>
 <td class="comment-11" rowspan="1">Go and find him otherwise</td>
 </tr>
@@ -163,10 +181,10 @@ Used by command list <a href="E98C.html">0x50</a>. Makes the teacher stand still
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/61658.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61658.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

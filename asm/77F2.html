@@ -23,7 +23,7 @@
 <div class="description">77F2: Make ANGELFACE hit now and then</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="F7DF.html">F7DF</a> and <a href="F804.html">F804</a>. Decides whether ANGELFACE should throw a punch, and gets the punching action under way if so.
@@ -49,108 +49,126 @@ Used by the routines at <a href="F7DF.html">F7DF</a> and <a href="F804.html">F80
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="77f2"></span>77F2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Byte 0x00 of ANGELFACE's buffer holds his animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77f4"></span>77F4</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is ANGELFACE midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77f6"></span>77F6</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77f7"></span>77F7</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="774F.html">$774F</a></td>
 <td class="comment-11" rowspan="1">Is ANGELFACE exactly on the top, middle or bottom floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77fa"></span>77FA</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77fb"></span>77FB</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77fe"></span>77FE</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="2">Return 50% of the time</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="77ff"></span>77FF</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7800"></span>7800</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6D62.html#6d64">$6D64</a></td>
 <td class="comment-11" rowspan="1">Can any adults see ANGELFACE?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7803"></span>7803</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7804"></span>7804</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$03</td>
 <td class="comment-11" rowspan="2">Is there anyone 3 spaces in front of ANGELFACE and facing him?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7806"></span>7806</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="77C8.html">$77C8</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7809"></span>7809</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="780a"></span>780A</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Drop the return address (<a href="62D0.html#6357">6357</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="780b"></span>780B</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Pop the value of <span class="register">HL</span> that was pushed on to the stack by the routine at <a href="62D0.html">62D0</a> before coming here; RET will now take us back either to <a href="62D0.html">62D0</a> to move the next character, or to the main loop</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="780c"></span>780C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7813</td>
 <td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="7813.html">7813</a> into bytes 0x11 and 0x12 of ANGELFACE's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="780f"></span>780F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($CF11),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7812"></span>7812</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -163,10 +181,10 @@ Used by the routines at <a href="F7DF.html">F7DF</a> and <a href="F804.html">F80
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/30706.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30706.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

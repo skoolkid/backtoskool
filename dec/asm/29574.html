@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 29574</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="29568.html">29568</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29574">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29613.html">29613</a></span></td>
+</tr>
+</table>
+<div class="description">29574: 'M' pressed - mount bike</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The address of this routine is found in the table of keypress handling routines at <a href="58704.html">58704</a>. It is called from the main loop at <a href="63210.html">63210</a> when 'M' or 'B' is pressed.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">ERIC's animatory state</td>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">ERIC's y-coordinate</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">ERIC's x-coordinate</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="29574"></span>29574</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 128</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=0 if ERIC's facing left, 128 if facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29576"></span>29576</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,25</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#25">25/153</a>: bike standing upright</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29578"></span>29578</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1">Copy the bike's animatory state to <span class="register">B</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29579"></span>29579</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,54018</td>
+<td class="comment-11" rowspan="1"><span class="register">H</span>=211 (bike), <span class="register">L</span>=2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29582"></span>29582</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29583"></span>29583</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is ERIC on the same floor as the bike?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29584"></span>29584</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29585"></span>29585</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29586"></span>29586</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29587"></span>29587</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is ERIC at the same x-coordinate as the bike?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29588"></span>29588</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="29589"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC is standing beside the bike. Prepare to place him on the saddle.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29589"></span>29589</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29590"></span>29590</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-11" rowspan="1">Fill in the animatory state of the bike</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29591"></span>29591</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="29012.html">29012</a></td>
+<td class="comment-11" rowspan="1">Make a sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29594"></span>29594</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32763</td>
+<td class="comment-11" rowspan="1"><a href="32763.html">32763</a> holds ERIC's status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29597"></span>29597</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),2</td>
+<td class="comment-11" rowspan="1">Set bit 1: examine the secondary status flags at <a href="32749.html">32749</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29599"></span>29599</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,18</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29601"></span>29601</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,238</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32750.html">32750</a> (value from the <a href="58624.html">keypress offset table</a> corresponding to the last key pressed while riding the bike)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29603"></span>29603</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Initialise this to 18 (which doesn't correspond to any key)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29604"></span>29604</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Initialise the bike's speed counter (at <a href="32751.html">32751</a>) to 18 (matching its initial momentum, set below, so that it doesn't move forward before ERIC has started pedalling)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29605"></span>29605</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29606"></span>29606</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Initialise the bike's momentum (at <a href="32752.html">32752</a>) to 18 (giving ERIC a decent chance to start pedalling before the bike falls over)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29607"></span>29607</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29608"></span>29608</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,243</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32755.html">32755</a> (ERIC's main action timer)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29610"></span>29610</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP <a href="29462.html#29488">29488</a></td>
+<td class="comment-11" rowspan="1">Place ERIC on the bike</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="29568.html">29568</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29574">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29613.html">29613</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/7386.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

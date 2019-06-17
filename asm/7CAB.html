@@ -23,7 +23,7 @@
 <div class="description">7CAB: Check whether a character should continue walking up and down</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="7CD0.html">7CD0</a> and <a href="7CE1.html">7CE1</a> after a character has reached a walkabout destination. It checks the signal for the event specified by byte 0x06 of the character's buffer, and returns with the carry flag reset if the signal has been raised and the character has returned to the walkabout origin.
@@ -49,35 +49,40 @@ Used by the routines at <a href="7CD0.html">7CD0</a> and <a href="7CE1.html">7CE
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7cab"></span>7CAB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$06</td>
 <td class="comment-11" rowspan="2">Pick up the event identifier in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cad"></span>7CAD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cae"></span>7CAE</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x05</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7caf"></span>7CAF</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7C8F.html">$7C8F</a></td>
 <td class="comment-11" rowspan="1">Has the signal been raised for this event?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cb2"></span>7CB2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7CC6</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7cb4"></span>
 <div class="comments">
 <div class="paragraph">
@@ -89,77 +94,89 @@ This entry point is used by the routine at <a href="7CE1.html">7CE1</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7cb4"></span>7CB4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the location relative to which the character is performing his walkabout (the 'walkabout origin'), stored in byte 0x05</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cb5"></span>7CB5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Byte 0x01 of the character's buffer holds his current x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cb7"></span>7CB7</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the character at the walkabout origin (and therefore ready to respond to the signal)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cb8"></span>7CB8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7CBE</td>
 <td class="comment-11" rowspan="1">Return him to the walkabout origin if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cba"></span>7CBA</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cbb"></span>7CBB</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is the character midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cbd"></span>7CBD</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7cbe"></span>7CBE</td>
+<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: not ready to advance in the command list yet</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cbf"></span>7CBF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0B</td>
 <td class="comment-11" rowspan="2">Fill in the new walkabout destination (either the origin or some location within 7 spaces to the left of the origin)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cc1"></span>7CC1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cc2"></span>7CC2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$63ED</td>
 <td class="comment-11" rowspan="2">Return with <span class="register">BC</span> holding the address of the routine at <a href="63ED.html">63ED</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cc5"></span>7CC5</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7cc6"></span>
 <div class="comments">
 <div class="paragraph">
@@ -171,30 +188,35 @@ The time hasn't come or the event hasn't happened yet, so set the character off 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7cc6"></span>7CC6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cc9"></span>7CC9</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
 <td class="comment-11" rowspan="1">0&lt;=<span class="register">A</span>&lt;=7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7ccb"></span>7CCB</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $07</td>
 <td class="comment-11" rowspan="1">-7&lt;=<span class="register">A</span>&lt;=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7ccd"></span>7CCD</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-11" rowspan="1">Add the x-coordinate of the walkabout origin to give the new walkabout destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cce"></span>7CCE</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7CBE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -207,10 +229,10 @@ The time hasn't come or the event hasn't happened yet, so set the character off 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/31915.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31915.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

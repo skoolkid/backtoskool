@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 61696</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="61693.html">61693</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61696">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62028.html">62028</a></span></td>
+</tr>
+</table>
+<div class="description">61696: Make a teacher conduct a class</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by command lists <a href="58368.html">22</a>, <a href="58880.html">24</a>, <a href="59612.html">58</a>, <a href="59629.html">60</a> and <a href="59646.html">62</a> to make a teacher conduct a class (after having walked to the edge of the blackboard).
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Teacher's character number (201-204)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61696"></span>61696</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32736)</td>
+<td class="comment-11" rowspan="1"><a href="32736.html">32736</a> holds the current lesson descriptor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61699"></span>61699</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 240</td>
+<td class="comment-11" rowspan="5">Keep only the teacher-identifying bits and shift them into bits 0-3</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61701"></span>61701</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61702"></span>61702</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61703"></span>61703</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61704"></span>61704</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61705"></span>61705</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,199</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=character number of the teacher taking ERIC's class (201-203)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61707"></span>61707</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP H</td>
+<td class="comment-11" rowspan="1">Is this teacher conducting ERIC's class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61708"></span>61708</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,61760</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61710"></span>
+<div class="comments">
+<div class="paragraph">
+This teacher is not conducting ERIC's class, so he has it easy: wipe the board, write on the board (maybe), tell the class what to do, and pace up and down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61710"></span>61710</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,26639</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="26639.html">26639</a> (wipe board) and return to <a href="61696.html#61716">61716</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61713"></span>61713</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61716"></span>61716</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61718"></span>61718</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61719"></span>61719</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,3</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the middle of the blackboard</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61721"></span>61721</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,11</td>
+<td class="comment-11" rowspan="2">Place this in byte 11 ready for the routine at <a href="25581.html">25581</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61723"></span>61723</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61724"></span>61724</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,25581</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="25581.html">25581</a> (walk to a location) and return to <a href="61696.html#61730">61730</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61727"></span>61727</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61730"></span>61730</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61733"></span>61733</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,26752</td>
+<td class="comment-11" rowspan="1">Routine at <a href="26752.html">26752</a>: write on board</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61736"></span>61736</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 160</td>
+<td class="comment-11" rowspan="1">Should the teacher write on the board?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61738"></span>61738</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL NC,<a href="25503.html">25503</a></td>
+<td class="comment-11" rowspan="1">If so, redirect control to the routine at <a href="26752.html">26752</a> and return to <a href="61696.html#61741">61741</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61741"></span>61741</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61533.html">61533</a></td>
+<td class="comment-11" rowspan="1">Tell the class what to do</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61744"></span>61744</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61746"></span>61746</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61747"></span>61747</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR 3</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=x-coordinate of the location 3 paces behind the teacher</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61749"></span>61749</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,11</td>
+<td class="comment-11" rowspan="2">Place this in byte 11 of the teacher's buffer, ready for the routine at <a href="25581.html">25581</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61751"></span>61751</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61752"></span>61752</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,25581</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="25581.html">25581</a> (walk to a location) and return to <a href="61696.html#61758">61758</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61755"></span>61755</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61758"></span>61758</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 61744</td>
+<td class="comment-11" rowspan="1">Make the teacher pace up (or down) again</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61760"></span>
+<div class="comments">
+<div class="paragraph">
+The teacher is taking ERIC's class. This is a far more difficult task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61760"></span>61760</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32640)</td>
+<td class="comment-11" rowspan="3">Set bit 6 at <a href="32640.html">32640</a>, indicating that ERIC should be in class now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61763"></span>61763</td>
+<td class="bytes-0"></td>
+<td class="instruction">SET 6,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61765"></span>61765</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32640),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61768"></span>61768</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61512.html">61512</a></td>
+<td class="comment-11" rowspan="1">Are ERIC and EINSTEIN both in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61771"></span>61771</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,61813</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61773"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC is not in class, but EINSTEIN is. EINSTEIN must therefore grass.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61773"></span>61773</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,61463</td>
+<td class="comment-11" rowspan="1">Routine at <a href="61463.html">61463</a>: make EINSTEIN talk</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61776"></span>61776</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,18</td>
+<td class="comment-11" rowspan="1"><a href="59944.html">18</a>: Please Sir...ERIC is not here</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61778"></span>61778</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-11" rowspan="1">Make EINSTEIN grass on ERIC, and return to <a href="61696.html#61781">61781</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61781"></span>61781</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,208</td>
+<td class="comment-11" rowspan="1">208=EINSTEIN</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61783"></span>61783</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61487.html">61487</a></td>
+<td class="comment-11" rowspan="1">Give lines to EINSTEIN (maybe)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61786"></span>61786</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="32021.html">32021</a></td>
+<td class="comment-11" rowspan="1">Set the zero flag if ERIC is in class</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61789"></span>61789</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32640)</td>
+<td class="comment-11" rowspan="1"><a href="32640.html">32640</a> holds various game status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61792"></span>61792</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,61802</td>
+<td class="comment-11" rowspan="1">Jump if ERIC is in class</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61794"></span>61794</td>
+<td class="bytes-0"></td>
+<td class="instruction">SET 7,A</td>
+<td class="comment-11" rowspan="2">Set bit 7 at <a href="32640.html">32640</a>: the teacher's next absence reprimand should be 'STAY TILL I DISMISS YOU'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61796"></span>61796</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32640),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61799"></span>61799</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP <a href="61631.html#61648">61648</a></td>
+<td class="comment-11" rowspan="1">Go and find ERIC</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61802"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC is in class now, having shown up while EINSTEIN was grassing on him for being absent.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61802"></span>61802</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Push bit 7 of <a href="32640.html">32640</a> into the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61803"></span>61803</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,20</td>
+<td class="comment-11" rowspan="1"><a href="59982.html">20</a>: STAY TILL I DISMISS YOU</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61805"></span>61805</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,210</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61807"></span>61807</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,61810</td>
+<td class="comment-11" rowspan="1">Jump if the teacher's already had to chase or give lines to ERIC for being late or leaving early</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61809"></span>61809</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC B</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="59960.html">19</a>: DON'T BE LATE AGAIN</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61810"></span>61810</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61487.html#61504">61504</a></td>
+<td class="comment-11" rowspan="1">Give ERIC lines</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61813"></span>61813</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32640)</td>
+<td class="comment-11" rowspan="3">Set bits 6 (ERIC should be in class) and 7 (the teacher's next absence reprimand should be 'STAY TILL I DISMISS YOU') at <a href="32640.html">32640</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61816"></span>61816</td>
+<td class="bytes-0"></td>
+<td class="instruction">OR 192</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61818"></span>61818</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32640),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61821"></span>61821</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61512.html">61512</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61824"></span>61824</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,61773</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61826"></span>
+<div class="comments">
+<div class="paragraph">
+Now is EINSTEIN's chance to grass on ERIC for hitting him.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61826"></span>61826</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61829"></span>61829</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 220</td>
+<td class="comment-11" rowspan="1">Should EINSTEIN tell tales?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61831"></span>61831</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,61852</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61833"></span>61833</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,87</td>
+<td class="comment-11" rowspan="1"><a href="60657.html">87</a>: Please Sir...ERIC hit me</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61835"></span>61835</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,61463</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="61463.html">61463</a> (make EINSTEIN talk) and return to <a href="61696.html#61841">61841</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61838"></span>61838</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61841"></span>61841</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,25042</td>
+<td class="comment-11" rowspan="1"><span class="register">B</span>=<a href="60921.html">97</a>: DON'T HIT YOUR MATES; <span class="register">C</span>=210 (ERIC)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61844"></span>61844</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61487.html">61487</a></td>
+<td class="comment-11" rowspan="1">Give EINSTEIN or ERIC lines</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61847"></span>61847</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61512.html">61512</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61850"></span>61850</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,61773</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61852"></span>
+<div class="comments">
+<div class="paragraph">
+Now is EINSTEIN's opportunity to grass on someone for writing on the blackboard. However, the opportunity is wasted, because the CALL to <a href="26453.html">26453</a> (at <a href="61696.html#61852">61852</a> below) returns a valid blackboard ID only if the character is standing within four spaces of the left edge of the blackboard, which is not the case when the teacher is waiting for EINSTEIN to grass (teachers stand at the right edge of the blackboard for that, more than four spaces away). This is a <a href="../reference/bugs.html#noBlackboardTales">bug</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61852"></span>61852</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="26453.html">26453</a></td>
+<td class="comment-11" rowspan="1">Collect information about the blackboard</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61855"></span>61855</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC B</td>
+<td class="comment-11" rowspan="3">The intent here is to point <span class="register">BC</span> at the second byte of the blackboard's buffer, which holds the character number of the person who last wrote on it; instead, <span class="register">BC</span> points at 32516 if the teacher is on the top floor, or 32515 if he's on the middle floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61856"></span>61856</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61857"></span>61857</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,127</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61859"></span>61859</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span> is supposed to hold the character number of the person who last wrote on the board; instead it holds the contents of 32515 or 32516 (bytes 3 and 4 of the <a href="32512.html">SRB</a>), which will never be 206 or 210</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61860"></span>61860</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 210</td>
+<td class="comment-11" rowspan="1">Did ERIC write on the board?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61862"></span>61862</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,61879</td>
+<td class="comment-11" rowspan="1">Jump if so (this jump is never made)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61864"></span>61864</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 206</td>
+<td class="comment-11" rowspan="1">Or did BOY WANDER?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61866"></span>61866</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,61899</td>
+<td class="comment-11" rowspan="1">Jump if not (this jump is always made)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61868"></span>61868</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61871"></span>61871</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 195</td>
+<td class="comment-11" rowspan="1">Should EINSTEIN blame BOY WANDER for writing on the board?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61873"></span>61873</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,206</td>
+<td class="comment-11" rowspan="1">206=BOY WANDER</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61875"></span>61875</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,61879</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61877"></span>61877</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,210</td>
+<td class="comment-11" rowspan="1">Blame ERIC instead</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61879"></span>61879</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32656),A</td>
+<td class="comment-11" rowspan="1">Place the character number of the scapegoat into <a href="32656.html">32656</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61882"></span>61882</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,61463</td>
+<td class="comment-11" rowspan="1">Routine at <a href="61463.html">61463</a>: make EINSTEIN talk</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61885"></span>61885</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,88</td>
+<td class="comment-11" rowspan="1"><a href="60668.html">88</a>: Please Sir...[<a href="32656.html">7</a>] wrote on the board</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61887"></span>61887</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-11" rowspan="1">Redirect control to the routine at <a href="61463.html">61463</a> and return to <a href="61696.html#61890">61890</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61890"></span>61890</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32656)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=206 (BOY WANDER) or 210 (ERIC)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61893"></span>61893</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Copy the scapegoat's character number to <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61894"></span>61894</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,86</td>
+<td class="comment-11" rowspan="1"><a href="60638.html">86</a>: DON'T TOUCH BLACKBOARDS</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61896"></span>61896</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61487.html">61487</a></td>
+<td class="comment-11" rowspan="1">Give lines to EINSTEIN, ERIC or BOY WANDER</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61899"></span>
+<div class="comments">
+<div class="paragraph">
+The next section of code makes the teacher wipe the board. Note that the teacher may already have wiped the board at this point, and therefore will not be standing at the right edge of the board (the correct location to begin wiping); this is a <a href="../reference/bugs.html#doubleWipe">bug</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61899"></span>61899</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,26639</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="26639.html">26639</a> (wipe board) and return to <a href="61696.html#61905">61905</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61902"></span>61902</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61905"></span>61905</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61907"></span>61907</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61908"></span>61908</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,3</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the middle of the blackboard</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61910"></span>61910</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,11</td>
+<td class="comment-11" rowspan="2">Place this in byte 11 of the teacher's buffer, ready for the routine at <a href="25581.html">25581</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61912"></span>61912</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61913"></span>61913</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,25581</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="25581.html">25581</a> (walk to location) and return to <a href="61696.html#61919">61919</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61916"></span>61916</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61919"></span>
+<div class="comments">
+<div class="paragraph">
+The teacher has wiped the board, and is ready to start the class.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61919"></span>61919</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61512.html">61512</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61922"></span>61922</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP NZ,61773</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61925"></span>61925</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61928"></span>61928</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,26752</td>
+<td class="comment-11" rowspan="1">Routine at <a href="26752.html">26752</a>: write on board</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61931"></span>61931</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 184</td>
+<td class="comment-11" rowspan="1">Should the teacher write on the board?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61933"></span>61933</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL NC,<a href="25503.html">25503</a></td>
+<td class="comment-11" rowspan="1">Redirect control to <a href="26752.html">26752</a> if so, and return to <a href="61696.html#61936">61936</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61936"></span>61936</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61512.html">61512</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61939"></span>61939</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,61922</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61941"></span>61941</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61944"></span>61944</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 232</td>
+<td class="comment-11" rowspan="1">Should this be a questions-and-answers lesson?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61946"></span>61946</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,61972</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61948"></span>
+<div class="comments">
+<div class="paragraph">
+This is not going to be a questions-and-answers lesson.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61948"></span>61948</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61533.html">61533</a></td>
+<td class="comment-11" rowspan="1">Tell the class what to do</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61951"></span>61951</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61512.html">61512</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61954"></span>61954</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,61922</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61956"></span>61956</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the teacher's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61958"></span>61958</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61959"></span>61959</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR 3</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=x-coordinate of location three paces behind the teacher</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61961"></span>61961</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,11</td>
+<td class="comment-11" rowspan="2">Place this in byte 11 of the teacher's buffer ready for the routine at <a href="25581.html">25581</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61963"></span>61963</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61964"></span>61964</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,25581</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="25581.html">25581</a> (walk to location) and return to <a href="61696.html#61970">61970</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61967"></span>61967</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61970"></span>61970</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 61951</td>
+<td class="comment-11" rowspan="1">Check whether ERIC's in class, then pace up (or down) again</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61972"></span>
+<div class="comments">
+<div class="paragraph">
+This is going to be a questions-and-answers lesson. Pick a question-answer word pair, and decide which word will be in the question, and which in the answer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="61972"></span>61972</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61975"></span>61975</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 135</td>
+<td class="comment-11" rowspan="1">Keep only bits 0-2 (the word pair identifier) and bit 7 (indicates which word will be in the question)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61977"></span>61977</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save bit 7 for now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61978"></span>61978</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61979"></span>61979</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD DE,32652</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first byte of message <a href="32652.html">10</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61982"></span>61982</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="6">Set <span class="register">A</span>=<a href="64654.html">160</a> (if the teacher is MR WITHIT), <a href="64892.html">176</a> (MR ROCKITT), or <a href="64792.html">192</a> (MR CREAK)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61983"></span>61983</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61984"></span>61984</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61985"></span>61985</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61986"></span>61986</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61987"></span>61987</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61988"></span>61988</td>
+<td class="bytes-0"></td>
+<td class="instruction">OR C</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span> holds the message number of a random mountain, animal or king</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61989"></span>61989</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-11" rowspan="1">Place this into <a href="32652.html">32652</a> (message <a href="32652.html">10</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61990"></span>61990</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,8</td>
+<td class="comment-11" rowspan="1">Set <span class="register">A</span> to the message number of the corresponding country, habitat or date</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61992"></span>61992</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,142</td>
+<td class="comment-11" rowspan="2">Place this into <a href="32654.html">32654</a> (the first byte of message <a href="32654.html">11</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61994"></span>61994</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61995"></span>61995</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the random bit 7 to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61996"></span>61996</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Push it into the carry flag</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61997"></span>61997</td>
+<td class="bytes-0"></td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-11" rowspan="5">Set <span class="register">A</span> to <a href="65268.html">73</a> or <a href="61418.html">75</a> (MR WITHIT), <a href="65275.html">77</a> or <a href="65531.html">79</a> (MR ROCKITT), <a href="61425.html">81</a> or <a href="65392.html">83</a> (MR CREAK); this is the message number for EINSTEIN's reply</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61998"></span>61998</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="61999"></span>61999</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62000"></span>62000</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62001"></span>62001</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,39</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62003"></span>62003</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (53259),A</td>
+<td class="comment-11" rowspan="1">Store it in byte 11 of EINSTEIN's buffer, ready for the routine at <a href="61463.html#61467">61467</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62006"></span>62006</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="2">Set <span class="register">E</span> to <a href="65136.html">74</a> or <a href="65232.html">76</a> (MR WITHIT), <a href="64633.html">78</a> or <a href="65512.html">80</a> (MR ROCKITT), <a href="64608.html">82</a> or <a href="65488.html">84</a> (MR CREAK); this is the message number for the teacher's question</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62007"></span>62007</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62008"></span>62008</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,27144</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="27144.html">27144</a> (make character speak) and return to <a href="61696.html#62014">62014</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62011"></span>62011</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62014"></span>62014</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,61467</td>
+<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="61463.html#61467">61467</a> (make EINSTEIN answer) and return to <a href="61696.html#62020">62020</a> (below) when done</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62017"></span>62017</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25503.html">25503</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62020"></span>62020</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="61512.html">61512</a></td>
+<td class="comment-11" rowspan="1">Is ERIC in class?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62023"></span>62023</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,61972</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62025"></span>62025</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP 61773</td>
+<td class="comment-11" rowspan="1">Otherwise make EINSTEIN grass on the absent ERIC</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="61693.html">61693</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#61696">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62028.html">62028</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/F100.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

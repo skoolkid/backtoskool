@@ -23,7 +23,7 @@
 <div class="description">6FF2: Collect the identifier and coordinates of a blackboard that will be wiped</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="680F.html">680F</a> to collect information about the blackboard that is going to be wiped by a teacher. Returns with <span class="register">B</span> holding the blackboard identifier (the LSB of <a href="7F54.html">7F54</a>, <a href="7F5A.html">7F5A</a>, <a href="7F60.html">7F60</a>, <a href="7F66.html">7F66</a> or <a href="7F6C.html">7F6C</a>), and <span class="register">DE</span> holding the coordinates of the top left-hand square of the board.
@@ -49,36 +49,42 @@ Used by the routine at <a href="680F.html">680F</a> to collect information about
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6ff2"></span>6FF2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$0C</td>
 <td class="comment-11" rowspan="2">Change the instruction at <a href="6755.html#676c">676C</a> to ADD A,$0C (for the purpose of this routine, a teacher is considered to be standing next to a blackboard if he's within 12 spaces to the right of its left edge)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ff4"></span>6FF4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($676D),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ff7"></span>6FF7</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6755.html">$6755</a></td>
 <td class="comment-11" rowspan="1">Collect information about the blackboard the teacher is standing next to</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ffa"></span>6FFA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
 <td class="comment-11" rowspan="2">Change the instruction at <a href="6755.html#676c">676C</a> back to ADD A,$04</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ffc"></span>6FFC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($676D),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6fff"></span>6FFF</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -91,10 +97,10 @@ Used by the routine at <a href="680F.html">680F</a> to collect information about
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/28658.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28658.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

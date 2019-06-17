@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 62178</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="62175.html">62175</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#62178">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62420.html">62420</a></span></td>
+</tr>
+</table>
+<div class="description">62178: Deal with ERIC when he's sitting or lying down</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="63405.html">63405</a> when bit 2 at <a href="32763.html">32763</a> is set (by the routine at <a href="62094.html">62094</a>, <a href="62423.html">62423</a> or <a href="64460.html">64460</a>). Makes ERIC stand up if 'S' is pressed, or open a desk (and collect any contents) if 'O' is pressed.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62178"></span>62178</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32755</td>
+<td class="comment-11" rowspan="1"><a href="32755.html">32755</a> holds ERIC's main action timer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62181"></span>62181</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Is it time to deal with ERIC yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62182"></span>62182</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62183"></span>62183</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32734)</td>
+<td class="comment-11" rowspan="1"><a href="32734.html">32734</a> holds 255 if we're in demo mode, 0 otherwise</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62186"></span>62186</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1">Are we in demo mode?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62187"></span>62187</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62240</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62189"></span>
+<div class="comments">
+<div class="paragraph">
+We're in demo mode. Figure out ERIC's next move depending on what little boy no. 10 is doing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62189"></span>62189</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="63166.html">63166</a></td>
+<td class="comment-11" rowspan="1">Exit demo mode and start a new game if a key was pressed; otherwise return here with ERIC's animatory state in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62192"></span>62192</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,50944</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of little boy no. 10's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62195"></span>62195</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 4</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">4</a>: Is ERIC sitting in a chair?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62197"></span>62197</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62203</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62199"></span>62199</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 133</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#133">133</a>: Is ERIC sitting on the floor facing right?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62201"></span>62201</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62216</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62203"></span>62203</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,64</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#68">68</a> (little boy sitting on a chair) or <a href="../graphics/as.html#197">197</a> (little boy sitting on the floor facing right)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62205"></span>62205</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Compare ERIC's animatory state with that of little boy no. 10</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62206"></span>62206</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32732</td>
+<td class="comment-11" rowspan="1"><a href="32732.html">32732</a> holds the counter that determines the delay between little boy no. 10 standing up and ERIC standing up</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62209"></span>62209</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62214</td>
+<td class="comment-11" rowspan="1">Jump if ERIC's not doing what little boy no. 10 is doing</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62211"></span>62211</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),45</td>
+<td class="comment-11" rowspan="1">Initialise the stand-up delay counter at <a href="32732.html">32732</a> to 45</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62213"></span>62213</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62214"></span>62214</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrement the stand-up delay counter at <a href="32732.html">32732</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62215"></span>62215</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if it's not time for ERIC to stand up</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62216"></span>62216</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32763</td>
+<td class="comment-11" rowspan="1"><a href="32763.html">32763</a> holds ERIC's status flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62219"></span>62219</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-11" rowspan="1">Clear all of them (ERIC is no longer sitting or lying down)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62221"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="24175.html">24175</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62221"></span>62221</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="29012.html">29012</a></td>
+<td class="comment-11" rowspan="1">Make a sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62224"></span>62224</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,210</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62226"></span>62226</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62229"></span>62229</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 128</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#0">0/128</a>: ERIC standing up</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62231"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="23907.html">23907</a>, <a href="24133.html">24133</a>, <a href="64242.html">64242</a> and <a href="64416.html">64416</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62231"></span>62231</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="24880.html">24880</a></td>
+<td class="comment-11" rowspan="1">Update ERIC's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62234"></span>62234</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,6</td>
+<td class="comment-11" rowspan="2">Set ERIC's main action timer (at <a href="32755.html">32755</a>) to 6</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62236"></span>62236</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32755),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62239"></span>62239</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62240"></span>
+<div class="comments">
+<div class="paragraph">
+We're not in demo mode.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62240"></span>62240</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="29118.html">29118</a></td>
+<td class="comment-11" rowspan="1">Collect the code of the last key pressed in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62243"></span>62243</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if no keys were pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62244"></span>62244</td>
+<td class="bytes-0"></td>
+<td class="instruction">RES 5,A</td>
+<td class="comment-11" rowspan="1">Normalise the code to upper case</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62246"></span>62246</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 83</td>
+<td class="comment-11" rowspan="1">Was 'S' pressed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62248"></span>62248</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62216</td>
+<td class="comment-11" rowspan="1">Make ERIC stand up if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62250"></span>62250</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 79</td>
+<td class="comment-11" rowspan="1">Was 'O' pressed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62252"></span>62252</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62253"></span>62253</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(53760)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62256"></span>62256</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 4</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">4</a>: Is ERIC sitting in a chair?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62258"></span>62258</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62259"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC is sitting in a chair and 'O' (open desk) was pressed. Compute the ID of the desk ERIC is sitting at so we can determine whether he's found the water pistol or the stinkbombs.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62259"></span>62259</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(54785)</td>
+<td class="comment-11" rowspan="1">Pick up the x-coordinate of whatever object is using buffer 214</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62262"></span>62262</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 192</td>
+<td class="comment-11" rowspan="1">Is this buffer being used at the moment?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62264"></span>62264</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET C</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62265"></span>62265</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD DE,(53761)</td>
+<td class="comment-11" rowspan="1">Pick up ERIC's coordinates in <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62269"></span>62269</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62270"></span>62270</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 10</td>
+<td class="comment-11" rowspan="1">Is ERIC on the middle floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62272"></span>62272</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62294</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62274"></span>62274</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 3</td>
+<td class="comment-11" rowspan="1">Is ERIC on the top floor?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62276"></span>62276</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62277"></span>62277</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62278"></span>62278</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 22</td>
+<td class="comment-11" rowspan="1">Is ERIC in the Blue Room?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62280"></span>62280</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,62290</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62282"></span>62282</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 27</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62284"></span>62284</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 34</td>
+<td class="comment-11" rowspan="1">Is ERIC in the Yellow Room?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62286"></span>62286</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,62290</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62288"></span>62288</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 106</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62290"></span>62290</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 9</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62292"></span>62292</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 62303</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62294"></span>62294</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62295"></span>62295</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 53</td>
+<td class="comment-11" rowspan="1">Is ERIC in the Science lab?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62297"></span>62297</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,62301</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62299"></span>62299</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 113</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62301"></span>62301</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 2</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62303"></span>62303</td>
+<td class="bytes-0"></td>
+<td class="instruction">RRA</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62304"></span>62304</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62305"></span>
+<div class="comments">
+<div class="paragraph">
+At this point <span class="register">B</span> holds the identifier of the desk that ERIC's sitting at.
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Desk IDs</th>
+<th colspan="1" rowspan="1">Room</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1-6</td>
+<td class="" colspan="1" rowspan="1">Blue Room</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7-12</td>
+<td class="" colspan="1" rowspan="1">Yellow Room</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">13-18</td>
+<td class="" colspan="1" rowspan="1">Top-floor room in the girls' skool</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">19-25</td>
+<td class="" colspan="1" rowspan="1">Science Lab</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">26-31</td>
+<td class="" colspan="1" rowspan="1">Middle-floor room in the girls' skool</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Now we check whether the water pistol has been placed in a desk yet.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62305"></span>62305</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32730</td>
+<td class="comment-11" rowspan="1"><a href="32730.html">32730</a> holds the ID of the desk containing the water pistol</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62308"></span>62308</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="2">Has the water pistol been placed in a desk yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62309"></span>62309</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62310"></span>62310</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62326</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62312"></span>
+<div class="comments">
+<div class="paragraph">
+The water pistol hasn't been placed in a desk yet. Pick one at random that doesn't match the desk containing the stinkbombs.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62312"></span>62312</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=random desk ID from 1 to 31</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62315"></span>62315</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 31</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62317"></span>62317</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62312</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62319"></span>62319</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,219</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32731.html">32731</a> (which holds the ID of the desk containing the stinkbombs)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62321"></span>62321</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is this the desk containing the stinkbombs?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62322"></span>62322</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62312</td>
+<td class="comment-11" rowspan="1">Get another random desk ID if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62324"></span>62324</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">Otherwise place the newly determined ID of the desk containing the water pistol into <a href="32730.html">32730</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62325"></span>62325</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62326"></span>
+<div class="comments">
+<div class="paragraph">
+Check whether ERIC has found the water pistol.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62326"></span>62326</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP B</td>
+<td class="comment-11" rowspan="1">Is ERIC sitting at the desk that contains the water pistol?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62327"></span>62327</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62345</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62329"></span>62329</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-11" rowspan="1">Set <a href="32730.html">32730</a> to 0 (the water pistol is not in any desk now)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62331"></span>62331</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,235</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32747.html">32747</a> (inventory flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62333"></span>62333</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick these up in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62334"></span>62334</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 24</td>
+<td class="comment-11" rowspan="1">Keep only bits 3 and 4 (the pistol bits)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62336"></span>62336</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,44</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#44">44</a>: animatory state of a desk lid</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62338"></span>62338</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62377</td>
+<td class="comment-11" rowspan="1">Jump if ERIC already has a water pistol</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62340"></span>62340</td>
+<td class="bytes-0"></td>
+<td class="instruction">SET 3,(HL)</td>
+<td class="comment-11" rowspan="1">Give ERIC a water pistol (full of water)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62342"></span>62342</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#45">45</a>: animatory state of a desk lid with a water pistol</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62343"></span>62343</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 62377</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62345"></span>
+<div class="comments">
+<div class="paragraph">
+There was no water pistol in the desk. Check whether there are stinkbombs.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62345"></span>62345</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32731.html">32731</a> (which holds the ID of the desk containing the stinkbombs)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62346"></span>62346</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="2">Have the stinkbombs been placed in a desk yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62347"></span>62347</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62348"></span>62348</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62364</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62350"></span>
+<div class="comments">
+<div class="paragraph">
+The stinkbombs haven't been placed in a desk yet. Pick one at random that doesn't match the desk containing the water pistol.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62350"></span>62350</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=random desk ID from 1 to 31</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62353"></span>62353</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 31</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62355"></span>62355</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62350</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62357"></span>62357</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,218</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32730.html">32730</a> (which holds the ID of the desk containing the water pistol)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62359"></span>62359</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-11" rowspan="1">Is this the desk containing the water pistol?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62360"></span>62360</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,62350</td>
+<td class="comment-11" rowspan="1">Get another random desk ID if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62362"></span>62362</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Otherwise place the newly determined ID of the desk containing the stinkbombs into <a href="32731.html">32731</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62363"></span>62363</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62364"></span>
+<div class="comments">
+<div class="paragraph">
+Check whether ERIC has found the stinkbombs.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62364"></span>62364</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP B</td>
+<td class="comment-11" rowspan="1">Compare the ID of the desk ERIC's sitting at (<span class="register">A</span>) with the ID of the desk containing the stinkbombs (<span class="register">B</span>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62365"></span>62365</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,44</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#44">44</a>: animatory state of a desk lid</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62367"></span>62367</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62377</td>
+<td class="comment-11" rowspan="1">Jump if ERIC isn't sitting at the desk that contains the stinkbombs</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62369"></span>62369</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,235</td>
+<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32747.html">32747</a> (inventory flags)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62371"></span>62371</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="3">Set bits 5-7, giving ERIC three stinkbombs</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62372"></span>62372</td>
+<td class="bytes-0"></td>
+<td class="instruction">OR 224</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62374"></span>62374</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62375"></span>62375</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,46</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#46">46</a>: animatory state of a desk lid with stinkbombs</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62377"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">A</span> holds the animatory state of the desk lid: <a href="../graphics/as.html#44">44</a> (empty desk), <a href="../graphics/as.html#45">45</a> (with pistol), or <a href="../graphics/as.html#46">46</a> (with stinkbombs).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62377"></span>62377</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,54803</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of the desk lid's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62380"></span>62380</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),8</td>
+<td class="comment-11" rowspan="1">Initialise the counter determining how long the desk lid stays up</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62382"></span>62382</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC E</td>
+<td class="comment-11" rowspan="1"><span class="register">E</span>=x-coordinate of the desk lid in front of ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62383"></span>62383</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="30534.html">30534</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the desk lid's appearance and place address <a href="62178.html#62386">62386</a> (below) into bytes 17 and 18 of its buffer</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62386"></span>
+<div class="comments">
+<div class="paragraph">
+The address of this entry point is placed into bytes 17 and 18 of the desk lid's buffer by the instruction above.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62386"></span>62386</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,19</td>
+<td class="comment-11" rowspan="1">Byte 19 of the desk lid's buffer holds the delay counter that determines when the desk lid will shut</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62388"></span>62388</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1">Decrement this counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62389"></span>62389</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Copy its current value to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62390"></span>62390</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP Z,<a href="29896.html#29903">29903</a></td>
+<td class="comment-11" rowspan="1">Jump if it's time for the desk lid to close</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62393"></span>62393</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 6</td>
+<td class="comment-11" rowspan="1">Is it time for ERIC to collect the contents of the desk?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62395"></span>62395</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET NZ</td>
+<td class="comment-11" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62396"></span>62396</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,A</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62397"></span>62397</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of a desk lid (with contents, if any)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62398"></span>62398</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 44</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#44">44</a>: Is the desk empty?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62400"></span>62400</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if so</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62401"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="24028.html">24028</a>, <a href="29462.html">29462</a> and <a href="29568.html">29568</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62401"></span>62401</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="31746.html">31746</a></td>
+<td class="comment-11" rowspan="1">Print the inventory</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62404"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="24348.html">24348</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62404"></span>62404</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,5</td>
+<td class="comment-11" rowspan="8">Make a celebratory sound effect (ERIC has achieved something rather handy)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="62406"></span>62406</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62408"></span>62408</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,65303</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62411"></span>62411</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62412"></span>62412</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62413"></span>62413</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="62094.html#62155">62155</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62416"></span>62416</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62417"></span>62417</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,62406</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="62419"></span>62419</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="62175.html">62175</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#62178">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="62420.html">62420</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/F2E2.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

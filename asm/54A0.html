@@ -23,7 +23,7 @@
 <div class="description">54A0: Set the input method, change the characters' names, and start the game</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Continues from <a href="53B1.html">53B1</a>.
@@ -46,113 +46,131 @@ Continues from <a href="53B1.html">53B1</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="54a0"></span>54A0</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="71BE.html#71e2">$71E2</a></td>
 <td class="comment-11" rowspan="2">Wait for a keypress, and collect its ASCII code in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54a3"></span>54A3</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$54A0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54a5"></span>54A5</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR $20</td>
 <td class="comment-11" rowspan="1">Convert the keypress to lower case</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54a7"></span>54A7</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $63</td>
 <td class="comment-11" rowspan="1">Was 'c' (Cursor) pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54a9"></span>54A9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$54C9</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54ab"></span>54AB</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $6E</td>
 <td class="comment-11" rowspan="1">Was 'n' (None) pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54ad"></span>54AD</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$54C9</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54af"></span>54AF</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $6B</td>
 <td class="comment-11" rowspan="1">Was 'k' (Kempston) pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54b1"></span>54B1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$54BA</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54b3"></span>54B3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
 <td class="comment-11" rowspan="2">Set <a href="7FEC.html">7FEC</a> to 1: using Kempston</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54b5"></span>54B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FEC),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54b8"></span>54B8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $54C9</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="54ba"></span>54BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $69</td>
 <td class="comment-11" rowspan="1">Was 'i' (Int2) pressed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54bc"></span>54BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$54A0</td>
 <td class="comment-11" rowspan="1">Jump back to wait for another keypress if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54be"></span>54BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$53F6</td>
 <td class="comment-11" rowspan="4">Copy the 10-byte table at <a href="53F6.html">53F6</a> into the keypress offset table at <a href="E500.html">E500</a> if Int2 is being used</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54c1"></span>54C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$E500</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54c4"></span>54C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$000A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54c7"></span>54C7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="54c9"></span>
 <div class="comments">
 <div class="paragraph">
@@ -164,95 +182,110 @@ The input method has been established. Now prepare the screen for the cast of ch
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="54c9"></span>54C9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$B701</td>
 <td class="comment-11" rowspan="9">Draw a line (the catwalk) across the screen, and set byte 0x01 of each character's buffer (which holds the character's x-coordinate) to a number between 1 and 32 (so that they are off-screen: the column of the play area at the far left of the screen, stored at <a href="7FFF.html">7FFF</a>, was set to 128 earlier on)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54cc"></span>54CC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$4880</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54cf"></span>54CF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$20</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54d1"></span>54D1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$FF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="54d3"></span>54D3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54d4"></span>54D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54d5"></span>54D5</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54d6"></span>54D6</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54d7"></span>54D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $54D3</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54d9"></span>54D9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D202</td>
 <td class="comment-11" rowspan="2">Set byte 0x02 of ERIC's character buffer (which holds his y-coordinate) to 8; this will be the y-coordinate of the characters as they proceed along the catwalk</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54dc"></span>54DC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$08</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54de"></span>54DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$F8</td>
 <td class="comment-11" rowspan="1">Message <a href="56CF.html">0xF8</a>: 'THE CHARACTERS'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54e0"></span>54E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$4040</td>
 <td class="comment-11" rowspan="2">Print this message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54e3"></span>54E3</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="50B9.html#50bc">$50BC</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54e6"></span>54E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="52A0.html">$52A0</a></td>
 <td class="comment-11" rowspan="1">Display the main characters and let the user change their names</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="54e9"></span>
 <div class="comments">
 <div class="paragraph">
@@ -264,18 +297,21 @@ This entry point is used by the routine at <a href="55A0.html">55A0</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="54e9"></span>54E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$50AA</td>
 <td class="comment-11" rowspan="2">Do the POKEs specified by the table at <a href="50AA.html">50AA</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54ec"></span>54EC</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="53A0.html">$53A0</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54ef"></span>54EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F6D5.html">$F6D5</a></td>
 <td class="comment-11" rowspan="1">Start the game</td>
 </tr>
@@ -288,10 +324,10 @@ This entry point is used by the routine at <a href="55A0.html">55A0</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/21664.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/21664.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">F000: Control EINSTEIN during class</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by command lists <a href="E999.html">0x52</a>, <a href="E9A4.html">0x54</a> and <a href="E9AF.html">0x56</a>. Controls EINSTEIN from the moment after he sits down until the lesson ends.
@@ -49,60 +49,70 @@ Used by command lists <a href="E999.html">0x52</a>, <a href="E9A4.html">0x54</a>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f000"></span>F000</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7F80)</td>
 <td class="comment-11" rowspan="2">Bit 3 of <a href="7F80.html">7F80</a> is set by the routine at <a href="F017.html">F017</a> when it's EINSTEIN's turn to speak in class; is it his turn now?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f003"></span>F003</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 3,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f005"></span>F005</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f006"></span>F006</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$6A0B</td>
 <td class="comment-11" rowspan="2">Direct control of EINSTEIN to the routine at <a href="6A08.html#6a0b">6A0B</a> (make character speak) and then return to <a href="F000.html#f00c">F00C</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f009"></span>F009</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="639F.html">$639F</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f00c"></span>F00C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="2">Reset the address of the primary command routine in bytes 0x03 and 0x04 of EINSTEIN's buffer from <a href="F000.html#f00c">F00C</a> to <a href="F000.html">F000</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f00e"></span>F00E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f010"></span>F010</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7F80</td>
 <td class="comment-11" rowspan="2">Signal: EINSTEIN has finished speaking</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f013"></span>F013</td>
+<td class="bytes-0"></td>
 <td class="instruction">RES 3,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f015"></span>F015</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -115,10 +125,10 @@ Used by command lists <a href="E999.html">0x52</a>, <a href="E9A4.html">0x54</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/61440.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61440.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 20956</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="20896.html">20896</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#20956">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="21152.html">21152</a></span></td>
+</tr>
+</table>
+<div class="description">20956: Guide a character onto the catwalk or off it</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="21152.html">21152</a>. Makes a character walk in from the left to the middle of the screen (at which point his name may be changed), or from the middle of the screen and off to the right.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="20956"></span>20956</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,40</td>
+<td class="comment-11" rowspan="1">The character will walk 40 paces</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="20958"></span>20958</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20959"></span>20959</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,210</td>
+<td class="comment-11" rowspan="1">We use ERIC's buffer at page 210 to control the character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20961"></span>20961</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20964"></span>20964</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=character's next animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20965"></span>20965</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 251</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20967"></span>20967</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-11" rowspan="1">Is the character midstride now?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20969"></span>20969</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,20972</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20971"></span>20971</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC E</td>
+<td class="comment-11" rowspan="1">Otherwise move forward a pace</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="20972"></span>20972</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="24880.html">24880</a></td>
+<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20975"></span>20975</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25248.html">25248</a></td>
+<td class="comment-11" rowspan="1">Update the display</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20978"></span>20978</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="21419.html">21419</a></td>
+<td class="comment-11" rowspan="1">Make a walking sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20981"></span>20981</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,100</td>
+<td class="comment-11" rowspan="4">Wait a bit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="20983"></span>20983</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 20983</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20985"></span>20985</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20986"></span>20986</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,20983</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20988"></span>20988</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP BC</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20989"></span>20989</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 20958</td>
+<td class="comment-11" rowspan="1">Jump back until all 40 paces have been walked</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="20991"></span>20991</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="20896.html">20896</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#20956">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="21152.html">21152</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/51DC.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

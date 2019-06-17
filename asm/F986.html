@@ -23,7 +23,7 @@
 <div class="description">F986: Check for the presence of a plant pot</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="5D63.html">5D63</a> and <a href="FA4D.html">FA4D</a>. Returns with the zero flag set if either ERIC or the recently ejected contents of the water pistol are on top of a plant pot:
@@ -73,90 +73,105 @@ Used by the routines at <a href="5D63.html">5D63</a> and <a href="FA4D.html">FA4
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f986"></span>F986</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$9FFC</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the plant-pot y-coordinate table at <a href="9FFC.html">9FFC</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f989"></span>F989</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f98b"></span>F98B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the plant pot</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f98c"></span>F98C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Does this match the character's y-coordinate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f98d"></span>F98D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F995</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f98f"></span>F98F</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f990"></span>F990</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the plant-pot x-coordinate table at <a href="9EFC.html">9EFC</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f991"></span>F991</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the plant pot</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f992"></span>F992</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Does this match the character's x-coordinate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f993"></span>F993</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f994"></span>F994</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> back at the plant-pot y-coordinate table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f995"></span>F995</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Next plant pot</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f996"></span>F996</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F989</td>
 <td class="comment-11" rowspan="1">Jump back until all four plant pots have been checked</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f998"></span>F998</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Reset the zero flag to indicate the lack of any plant pot here</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f999"></span>F999</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -169,10 +184,10 @@ Used by the routines at <a href="5D63.html">5D63</a> and <a href="FA4D.html">FA4
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/63878.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63878.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

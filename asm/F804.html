@@ -23,7 +23,7 @@
 <div class="description">F804: Make ANGELFACE or BOY WANDER hit or fire now and then</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this continual subcommand routine is placed into bytes 0x17 and 0x18 of BOY WANDER's or ANGELFACE's buffer by command lists <a href="E590.html">0x20</a>, <a href="E59B.html">0x22</a>, <a href="E5AE.html">0x24</a>, <a href="E5BD.html">0x26</a>, <a href="E70F.html">0x28</a>, <a href="E5CC.html">0x2A</a>, <a href="E860.html">0x2E</a>, <a href="E86B.html">0x30</a>, <a href="E87F.html">0x32</a>, <a href="E88A.html">0x34</a>, <a href="E89E.html">0x36</a> and <a href="E8C0.html">0x38</a>.
@@ -49,24 +49,28 @@ The address of this continual subcommand routine is placed into bytes 0x17 and 0
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f804"></span>F804</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="2">Is this ANGELFACE?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f805"></span>F805</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $CF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f807"></span>F807</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="77F2.html">$77F2</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f80a"></span>F80A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="775B.html">$775B</a></td>
 <td class="comment-11" rowspan="1">Jump if it's BOY WANDER</td>
 </tr>
@@ -79,10 +83,10 @@ The address of this continual subcommand routine is placed into bytes 0x17 and 0
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/63492.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63492.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

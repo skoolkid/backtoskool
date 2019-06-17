@@ -23,7 +23,7 @@
 <div class="description">6130: Update a character's animatory state and location and update the SRB</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by many routines. Sets the new animatory state and location of a character, and updates the <a href="7F00.html">screen refresh buffer</a> (SRB) accordingly.
@@ -61,47 +61,54 @@ Used by many routines. Sets the new animatory state and location of a character,
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6130"></span>6130</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6132"></span>6132</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),D</td>
 <td class="comment-11" rowspan="1">Fill in the new y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6133"></span>6133</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6134"></span>6134</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
 <td class="comment-11" rowspan="1">Fill in the new x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6135"></span>6135</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6136"></span>6136</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Fill in the new animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6137"></span>6137</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1"><span class="register">C</span>=new animatory state</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6138"></span>
 <div class="comments">
 <div class="paragraph">
@@ -113,179 +120,208 @@ This entry point is used by the routine at <a href="61B4.html">61B4</a> to updat
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6138"></span>6138</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFF)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen (0-160)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="613b"></span>613B</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $03</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="613d"></span>613D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$6141</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="613f"></span>613F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6140"></span>6140</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if the character is entirely off-screen to the left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6141"></span>6141</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$22</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6143"></span>6143</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6144"></span>6144</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if the character is entirely off-screen to the right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6145"></span>6145</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $20</td>
 <td class="comment-11" rowspan="3"><span class="register">A</span>=<span class="register">E</span>-(<a href="7FFF.html">7FFF</a>): the character's relative x-coordinate (-2 to 31)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6147"></span>6147</td>
+<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6148"></span>6148</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6149"></span>6149</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$03</td>
 <td class="comment-11" rowspan="1">The sprites are 3 tiles wide</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="614b"></span>614B</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="614c"></span>614C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D7</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="614e"></span>614E</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $FE</td>
 <td class="comment-11" rowspan="1">Is the character either fully on-screen or walking off it to the right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6150"></span>6150</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$615C</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6152"></span>6152</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$DB</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6154"></span>6154</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC B</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=2</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6155"></span>6155</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1">Is the character one-third off (two-thirds on) at the left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6156"></span>6156</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$615C</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6158"></span>6158</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$DF</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="615a"></span>615A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC B</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=1 (the character is one-third on-screen at the left)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="615b"></span>615B</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="615c"></span>615C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=leftmost column of the screen occupied by the character's sprite (0-31)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="615d"></span>615D</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $1E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="615f"></span>615F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$6164</td>
 <td class="comment-11" rowspan="1">Jump if the character is one- or two-thirds off-screen to the right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6161"></span>6161</td>
+<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6162"></span>6162</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,B</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6163"></span>6163</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6164"></span>
 <div class="comments">
 <div class="paragraph">
@@ -297,53 +333,61 @@ Now <span class="register">B</span> holds a value (1, 2 or 3) equal to the numbe
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6164"></span>6164</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,C</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6165"></span>6165</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$00</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6167"></span>6167</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,L</td>
 <td class="comment-11" rowspan="1">Is the character facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6169"></span>6169</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$6171</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="616b"></span>616B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$F8</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="616d"></span>616D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$B6</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="616f"></span>616F</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB H</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6170"></span>6170</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6171"></span>
 <div class="comments">
 <div class="paragraph">
@@ -355,59 +399,68 @@ Now <span class="register">H</span> holds 0xD7, 0xDB or 0xDF - the page containi
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6171"></span>6171</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 7,L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the UDG reference for the sprite tile</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6173"></span>6173</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the screen occupied by the sprite (0-31)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6174"></span>6174</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6175"></span>6175</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6177"></span>6177</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$78</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6179"></span>6179</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="617a"></span>617A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$E1</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="617c"></span>617C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up a byte from the table at <a href="E178.html">E178</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="617d"></span>617D</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="617e"></span>
 <div class="comments">
 <div class="paragraph">
@@ -419,77 +472,89 @@ Now <span class="register">C'</span> holds 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="617e"></span>617E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the screen occupied by the sprite</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="617f"></span>617F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="8">Set <span class="register">A</span> to the LSB of the first byte of the SRB that needs to be modified</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6180"></span>6180</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6181"></span>6181</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6182"></span>6182</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $03</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6184"></span>6184</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6185"></span>6185</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6186"></span>6186</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6187"></span>6187</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6188"></span>6188</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6189"></span>6189</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="1">Copy this LSB to <span class="register">B'</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="618a"></span>618A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$7F</td>
 <td class="comment-11" rowspan="1">The SRB starts at page 0x7F (<a href="7F00.html">7F00</a>)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="618c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -501,186 +566,217 @@ Here we enter a loop to set the appropriate bits in the SRB.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="618c"></span>618C</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="618d"></span>618D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$00</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span> will count up to 4 (the number of rows occupied by a sprite)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="618f"></span>618F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the sprite tile UDG reference in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6190"></span>6190</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is this the 'null' UDG (blank square)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6191"></span>6191</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$619D</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6193"></span>6193</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=sprite tile row number (0-3)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6194"></span>6194</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-11" rowspan="2">Multiply by 4 (the number of bytes of the SRB that correspond to one row of the screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6195"></span>6195</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6196"></span>6196</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6197"></span>6197</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,B</td>
 <td class="comment-11" rowspan="2">Point <span class="register">HL'</span> at the relevant byte of the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6198"></span>6198</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6199"></span>6199</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1">The bit set in <span class="register">A</span> is the bit that needs setting in the SRB byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="619a"></span>619A</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR (HL)</td>
 <td class="comment-11" rowspan="2">Set the bit in the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="619b"></span>619B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="619c"></span>619C</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="619d"></span>619D</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the UDG reference for the next tile in the sprite (one row down)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="619e"></span>619E</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Next row down in this column of the sprite</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="619f"></span>619F</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 2,E</td>
 <td class="comment-11" rowspan="1">Have we done all four rows yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61a1"></span>61A1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$618F</td>
 <td class="comment-11" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61a3"></span>61A3</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC B</td>
 <td class="comment-11" rowspan="1">Have we done all the columns occupied by the sprite yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61a4"></span>61A4</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$61B1</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61a6"></span>61A6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="3">Point <span class="register">HL</span> at the UDG reference for the tile in the top row of the next column of the sprite (<span class="register">C</span>=0 if the character's facing left, -8 if facing right)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61a7"></span>61A7</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61a8"></span>61A8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61a9"></span>61A9</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61aa"></span>61AA</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRC C</td>
 <td class="comment-11" rowspan="1">Move the SRB marker bit one place to the right (possibly wrapping round to bit 7)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61ac"></span>61AC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$618C</td>
 <td class="comment-11" rowspan="1">Jump back if there are still bits to be set in the current SRB byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61ae"></span>61AE</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
 <td class="comment-11" rowspan="1">Otherwise move to the next SRB byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61af"></span>61AF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $618C</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="61b1"></span>61B1</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the character number to <span class="register">H</span> (<span class="register">L</span>=0x00)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="61b2"></span>61B2</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -693,10 +789,10 @@ Here we enter a loop to set the appropriate bits in the SRB.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/24880.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/24880.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

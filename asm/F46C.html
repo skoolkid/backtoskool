@@ -23,7 +23,7 @@
 <div class="description">F46C: Restart the command list unless the boys' skool door is closed</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by command lists <a href="E400.html">0x16</a> and <a href="E600.html">0x18</a>. If the boys' skool door is open, makes MISS TAKE close the drinks cabinet door (if it's open) and restart the command list; otherwise moves to the next command in the command list.
@@ -49,60 +49,70 @@ Used by command lists <a href="E400.html">0x16</a> and <a href="E600.html">0x18<
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f46c"></span>F46C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FF4)</td>
 <td class="comment-11" rowspan="1"><a href="7FF4.html">7FF4</a> holds the door/window status flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f46f"></span>F46F</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 3,A</td>
 <td class="comment-11" rowspan="1">Is the boys' skool door closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f471"></span>F471</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="638C.html">$638C</a></td>
 <td class="comment-11" rowspan="1">Move to the next command in the command list if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f474"></span>F474</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 5,A</td>
 <td class="comment-11" rowspan="1">Is the drinks cabinet door closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f476"></span>F476</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="F0B8.html">$F0B8</a></td>
 <td class="comment-11" rowspan="1">Restart the command list if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f479"></span>F479</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x14 of MISS TAKE's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f47b"></span>F47B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-11" rowspan="3">Place 0x00 (close door) in byte 0x14, and 0x20 (bit 5 set: drinks cabinet door) in byte 0x13, ready for the routine at <a href="70B7.html">70B7</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f47d"></span>F47D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f47e"></span>F47E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$20</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f480"></span>F480</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="708E.html#70a8">$70A8</a></td>
 <td class="comment-11" rowspan="1">Close the drinks cabinet door</td>
 </tr>
@@ -115,10 +125,10 @@ Used by command lists <a href="E400.html">0x16</a> and <a href="E600.html">0x18<
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/62572.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/62572.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

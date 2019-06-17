@@ -23,7 +23,7 @@
 <div class="description">F99A: 'G' pressed - fire water pistol</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'G' is pressed.
@@ -46,42 +46,49 @@ The address of this routine is found in the table of keypress handling routines 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f99a"></span>F99A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FEB)</td>
 <td class="comment-11" rowspan="1"><a href="7FEB.html">7FEB</a> holds the inventory flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f99d"></span>F99D</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $18</td>
 <td class="comment-11" rowspan="1">Keep only bits 3 and 4 (the pistol bits)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f99f"></span>F99F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if ERIC hasn't got the water pistol</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9a0"></span>F9A0</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E24F.html">$E24F</a></td>
 <td class="comment-11" rowspan="1">Give up now if buffer 0xD6 is already being used</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9a3"></span>F9A3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$F9AB</td>
 <td class="comment-11" rowspan="1">The routine at <a href="F9AB.html">F9AB</a> will control the water fired from the pistol</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9a6"></span>F9A6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$0E</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#14">0x0E</a>: animatory state of ERIC firing the water pistol</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f9a8"></span>F9A8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E125.html#e12a">$E12A</a></td>
 <td class="comment-11" rowspan="1">Begin the pistol-firing action</td>
 </tr>
@@ -94,10 +101,10 @@ The address of this routine is found in the table of keypress handling routines 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/63898.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63898.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

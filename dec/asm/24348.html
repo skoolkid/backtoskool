@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 24348</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="24328.html">24328</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#24348">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="24476.html">24476</a></span></td>
+</tr>
+</table>
+<div class="description">24348: 'K' pressed - kiss</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The address of this routine is found in the table of keypress handling routines at <a href="58704.html">58704</a>. It is called from the main loop at <a href="63210.html">63210</a> when 'K' is pressed.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">ERIC's animatory state</td>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">ERIC's y-coordinate</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">ERIC's x-coordinate</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="24348"></span>24348</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,53504</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of HAYLEY's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24351"></span>24351</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-11" rowspan="2">Are ERIC and HAYLEY facing the same way?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24352"></span>24352</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24353"></span>24353</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,24378</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24355"></span>24355</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 2,(HL)</td>
+<td class="comment-11" rowspan="1">Is HAYLEY standing up?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24357"></span>24357</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,24378</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24359"></span>24359</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=HAYLEY's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24360"></span>24360</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="7"><span class="register">A</span>=x-coordinate of the position two spaces in front of HAYLEY</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24361"></span>24361</td>
+<td class="bytes-0"></td>
+<td class="instruction">SBC A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24362"></span>24362</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24363"></span>24363</td>
+<td class="bytes-0"></td>
+<td class="instruction">CPL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24364"></span>24364</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24365"></span>24365</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24366"></span>24366</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24367"></span>24367</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP E</td>
+<td class="comment-11" rowspan="1">Does ERIC's x-coordinate match this?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24368"></span>24368</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,24378</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24370"></span>24370</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24371"></span>24371</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=HAYLEY's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="24372"></span>24372</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB D</td>
+<td class="comment-11" rowspan="2">Jump if ERIC's y-coordinate does not match HAYLEY's, or ERIC has used up all his kisses</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24373"></span>24373</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,24378</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24375"></span>24375</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,18</td>
+<td class="comment-11" rowspan="2">Set the zero flag if there is no uninterruptible subcommand routine address in HAYLEY's buffer (<span class="register">A</span>=0)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24377"></span>24377</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24378"></span>
+<div class="comments">
+<div class="paragraph">
+At this point the zero flag is set if HAYLEY is kissable (i.e. ERIC and HAYLEY are standing and facing each other at close proximity, and ERIC hasn't already used up all his kisses), and reset otherwise.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="24378"></span>24378</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,1</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#1">1</a>: ERIC midstride</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24380"></span>24380</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,53796</td>
+<td class="comment-11" rowspan="1">At <a href="53796.html">53796</a> lies a RET instruction</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24383"></span>24383</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP NZ,<a href="57637.html#57642">57642</a></td>
+<td class="comment-11" rowspan="1">Jump if HAYLEY is not kissable at this time</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24386"></span>24386</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32738)</td>
+<td class="comment-11" rowspan="1"><a href="32738.html">32738</a> holds HAYLEY's kiss counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24389"></span>24389</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Has ERIC used up all his kisses?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24390"></span>24390</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,24395</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24392"></span>24392</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,24328</td>
+<td class="comment-11" rowspan="1"><a href="24328.html">24328</a>: hit ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="24395"></span>24395</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (53521),HL</td>
+<td class="comment-11" rowspan="1">Place the appropriate uninterruptible subcommand routine address (<a href="24328.html">24328</a>: hit ERIC, or <a href="53796.html">53796</a>: do nothing) into bytes 17 and 18 of HAYLEY's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24398"></span>24398</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,24372</td>
+<td class="comment-11" rowspan="1">Make HAYLEY hit ERIC if he's used up all his kisses</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24400"></span>
+<div class="comments">
+<div class="paragraph">
+ERIC has scored a kiss.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24400"></span>24400</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 7</td>
+<td class="comment-11" rowspan="1">Subtract 7 from the kiss counter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24402"></span>24402</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,24405</td>
+<td class="comment-11" rowspan="1">Jump if that doesn't take it below zero</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24404"></span>24404</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1">Set it to zero otherwise</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="24405"></span>24405</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32738),A</td>
+<td class="comment-11" rowspan="1">Store the new kiss count at <a href="32738.html">32738</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24408"></span>24408</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,(32743)</td>
+<td class="comment-11" rowspan="1"><a href="32743.html">32743</a> holds the lines total (divided by 10)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24411"></span>24411</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,65436</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span>=-100</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24414"></span>24414</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24415"></span>24415</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-11" rowspan="1">Subtract 1000 from the lines total</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24416"></span>24416</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,24420</td>
+<td class="comment-11" rowspan="1">Jump if the lines total (in <span class="register">HL</span>) is still positive</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24418"></span>24418</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,A</td>
+<td class="comment-11" rowspan="2">Otherwise set <span class="register">HL</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24419"></span>24419</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="24420"></span>24420</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32743),HL</td>
+<td class="comment-11" rowspan="1">Decrease ERIC's lines total by 1000 (or to 0)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24423"></span>24423</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="29643.html">29643</a></td>
+<td class="comment-11" rowspan="1">Print the number of lines</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24426"></span>24426</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,209</td>
+<td class="comment-11" rowspan="1">209=HAYLEY</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24428"></span>24428</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for HAYLEY's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24431"></span>24431</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,20</td>
+<td class="comment-11" rowspan="2">Save HAYLEY's current animatory state in byte 20 of her buffer for later retrieval</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24433"></span>24433</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24434"></span>24434</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="2">Save HAYLEY's current x-coordinate in byte 19 of her buffer for later retrieval</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24435"></span>24435</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24436"></span>24436</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="2">Set HAYLEY's x-coordinate to 224 (out of sight) briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24438"></span>24438</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),224</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24440"></span>24440</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,210</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24442"></span>24442</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25012.html">25012</a></td>
+<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24445"></span>24445</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of ERIC's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24447"></span>24447</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Is ERIC facing right (bit 7 set)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24448"></span>24448</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,24452</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24450"></span>24450</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24451"></span>24451</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="24452"></span>24452</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-11" rowspan="1">Move ERIC one space forward for the snog (which pushes ERIC through the closed skool gate if he kisses HAYLEY from behind it; this is a <a href="../reference/bugs.html#kiss">bug</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24453"></span>24453</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,15</td>
+<td class="comment-11" rowspan="1"><a href="../graphics/as.html#15">15</a>: ERIC and HAYLEY kissing</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24455"></span>24455</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="24247.html">24247</a></td>
+<td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="24348.html#24458">24458</a> (below) next time</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="24458"></span>24458</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="62178.html#62404">62404</a></td>
+<td class="comment-11" rowspan="1">Make a sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24461"></span>24461</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,53523</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 19 of HAYLEY's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24464"></span>24464</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up HAYLEY's pre-kiss x-coordinate in <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24465"></span>24465</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,2</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of HAYLEY's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24467"></span>24467</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">D</span>=HAYLEY's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24468"></span>24468</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="30643.html#30653">30653</a></td>
+<td class="comment-11" rowspan="1">Restore HAYLEY's pre-kiss coordinates and animatory state and update the SRB</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24471"></span>24471</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,210</td>
+<td class="comment-11" rowspan="1">210=ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="24473"></span>24473</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP <a href="24263.html#24290">24290</a></td>
+<td class="comment-11" rowspan="1">Detach ERIC from HAYLEY's embrace</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="24328.html">24328</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#24348">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="24476.html">24476</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/5F1C.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

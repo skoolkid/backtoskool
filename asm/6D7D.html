@@ -23,7 +23,7 @@
 <div class="description">6D7D: Check for main kids near a teacher</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="7596.html">7596</a>. Returns with the character number of the nearest main kid (or 0 if none of them was close enough) in <span class="register">A</span>.
@@ -49,144 +49,168 @@ Used by the routine at <a href="7596.html">7596</a>. Returns with the character 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6d7d"></span>6D7D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6CEE.html">$6CEE</a></td>
 <td class="comment-11" rowspan="1">Get the lower and upper x-coordinates of the teacher's range of vision in <span class="register">C</span> and <span class="register">B</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d80"></span>6D80</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Default assumption: no kids nearby</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d82"></span>6D82</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d83"></span>6D83</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$CE</td>
 <td class="comment-11" rowspan="1">0xCE=BOY WANDER</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d85"></span>6D85</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$05FF</td>
 <td class="comment-11" rowspan="1"><span class="register">B'</span>=5 (main kids including ERIC), <span class="register">C'</span>=255 (initial value for the distance of the nearest main kid)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d88"></span>6D88</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d89"></span>6D89</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6D32.html">$6D32</a></td>
 <td class="comment-11" rowspan="1">Find the first main kid within range (if any)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6d8c"></span>6D8C</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Set the zero flag if we've checked all the main kids</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d8d"></span>6D8D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character number of the nearest kid so far, or 0 if there are none</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d8e"></span>6D8E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if we've finished checking all the main kids</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d8f"></span>6D8F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d90"></span>6D90</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d91"></span>6D91</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB E</td>
 <td class="comment-11" rowspan="1">Subtract the x-coordinate of the kid</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d92"></span>6D92</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6D96</td>
 <td class="comment-11" rowspan="1">Jump if the kid's to the left of teacher</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d94"></span>6D94</td>
+<td class="bytes-0"></td>
 <td class="instruction">NEG</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6d96"></span>6D96</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP C</td>
 <td class="comment-11" rowspan="1">Is this kid closer to the teacher than the last?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d97"></span>6D97</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6D9E</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d99"></span>6D99</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1"><span class="register">C'</span>=distance from the teacher of the nearest kid found so far</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d9a"></span>6D9A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character number of this kid</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d9b"></span>6D9B</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d9c"></span>6D9C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-11" rowspan="1">Store the character number of the nearest kid in <span class="register">L</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6d9d"></span>6D9D</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6d9e"></span>6D9E</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6D32.html#6d4d">$6D4D</a></td>
 <td class="comment-11" rowspan="1">Find the next main kid within range (if any)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6da1"></span>6DA1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $6D8C</td>
 <td class="comment-11" rowspan="1">Jump back to compare distances</td>
 </tr>
@@ -199,10 +223,10 @@ Used by the routine at <a href="7596.html">7596</a>. Returns with the character 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/28029.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28029.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

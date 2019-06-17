@@ -23,7 +23,7 @@
 <div class="description">720A: Control the bike when ERIC's not sitting on the saddle</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of the bike's buffer by the routine at <a href="725E.html">725E</a>. It controls the bike when it is wheeling along on its own (after ERIC has dismounted), or when ERIC is standing on the saddle.
@@ -46,29 +46,33 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="720a"></span>720A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF0</td>
 <td class="comment-11" rowspan="1"><a href="7FF0.html">7FF0</a> holds the bike's momentum</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="720d"></span>720D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="720e"></span>720E</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $07</td>
 <td class="comment-11" rowspan="1">Is it time for the bike to come to rest?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7210"></span>7210</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$7227</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7212"></span>
 <div class="comments">
 <div class="paragraph">
@@ -80,65 +84,75 @@ It's time for the bike to come to rest.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7212"></span>7212</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$ED</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FED.html">7FED</a> (ERIC's status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7214"></span>7214</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is ERIC standing on the saddle of the bike?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7216"></span>7216</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$721A</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7218"></span>7218</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$10</td>
 <td class="comment-11" rowspan="1">Set bit 4 at <a href="7FED.html">7FED</a>: ERIC is falling and will not land on his feet</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="721a"></span>721A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D3</td>
 <td class="comment-11" rowspan="1">0xD3=bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="721c"></span>721C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the bike's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="721f"></span>721F</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the bike resting on the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7220"></span>7220</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$12</td>
 <td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x11 and 0x12 of the bike's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7222"></span>7222</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7224"></span>7224</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the bike's animatory state and update the SRB</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7227"></span>
 <div class="comments">
 <div class="paragraph">
@@ -150,125 +164,145 @@ The bike still has some momentum left. Check whether it has hit anything.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7227"></span>7227</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Set the bike's remaining momentum at <a href="7FF0.html">7FF0</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7228"></span>7228</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,($D300)</td>
 <td class="comment-11" rowspan="3"><span class="register">E</span>=bike's x-coordinate, <span class="register">A</span>=bike's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="722b"></span>722B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="722c"></span>722C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="722d"></span>722D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7000.html">$7000</a></td>
 <td class="comment-11" rowspan="1">Check for walls, closed doors or ALBERT in the bike's path</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7230"></span>7230</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$ED</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FED.html">7FED</a> (ERIC's status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7232"></span>7232</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$723A</td>
 <td class="comment-11" rowspan="1">Jump if ALBERT's not impeding the bike's progress</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7234"></span>7234</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is ERIC standing on the saddle of the bike?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7236"></span>7236</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7244</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7238"></span>7238</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$10</td>
 <td class="comment-11" rowspan="1">Set bit 4: ERIC is falling and will not land on his feet</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="723a"></span>723A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7244</td>
 <td class="comment-11" rowspan="1">Jump if there are no walls or closed doors in the bike's path</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="723c"></span>723C</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is ERIC standing on the saddle of the bike?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="723e"></span>723E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$721A</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7240"></span>7240</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$40</td>
 <td class="comment-11" rowspan="1">Set bit 6: ERIC has hit a wall or closed door while standing on the saddle of the bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7242"></span>7242</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $721A</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7244"></span>7244</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D3</td>
 <td class="comment-11" rowspan="1">0xD3=bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7246"></span>7246</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL $7250</td>
 <td class="comment-11" rowspan="1">Move the bike and one space forward and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7249"></span>7249</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FED)</td>
 <td class="comment-11" rowspan="1"><a href="7FED.html">7FED</a> holds ERIC's status flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="724c"></span>724C</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1">Is ERIC standing on the saddle of the bike?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="724d"></span>724D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="724e"></span>
 <div class="comments">
 <div class="paragraph">
@@ -280,11 +314,12 @@ This entry point is used by the routine at <a href="725E.html">725E</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="724e"></span>724E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
 <td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7250"></span>
 <div class="comments">
 <div class="paragraph">
@@ -296,48 +331,56 @@ This entry point is used by the routine at <a href="76AC.html">76AC</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7250"></span>7250</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7253"></span>7253</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7254"></span>7254</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7255"></span>7255</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$7259</td>
 <td class="comment-11" rowspan="1">Jump if the character is facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7257"></span>7257</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7258"></span>7258</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7259"></span>7259</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Now <span class="register">E</span>=x-coordinate of the spot in front of the character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="725a"></span>725A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7BEB.html">$7BEB</a></td>
 <td class="comment-11" rowspan="1">Update the character's location, update the SRB, and scroll the screen if necessary</td>
 </tr>
@@ -350,10 +393,10 @@ This entry point is used by the routine at <a href="76AC.html">76AC</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/29194.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29194.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

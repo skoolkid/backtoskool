@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 25233</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="25213.html">25213</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25233">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25248.html">25248</a></span></td>
+</tr>
+</table>
+<div class="description">25233: Get a random number</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25296.html">25296</a>, <a href="25815.html">25815</a>, <a href="26752.html">26752</a>, <a href="29716.html">29716</a>, <a href="30555.html">30555</a>, <a href="30706.html">30706</a>, <a href="30804.html">30804</a>, <a href="31254.html">31254</a>, <a href="31502.html">31502</a>, <a href="31573.html">31573</a>, <a href="31915.html">31915</a>, <a href="61487.html">61487</a>, <a href="61533.html">61533</a>, <a href="61696.html">61696</a>, <a href="62032.html">62032</a>, <a href="62178.html">62178</a> and <a href="62910.html">62910</a>. Returns with a random number in <span class="register">A</span>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="25233"></span>25233</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25234"></span>25234</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,(32765)</td>
+<td class="comment-11" rowspan="1">Pick up the current random number seed from <a href="32765.html">32765</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25237"></span>25237</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="3">Update the seed (by adding 257)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25238"></span>25238</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25239"></span>25239</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32765),HL</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25242"></span>25242</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(23672)</td>
+<td class="comment-11" rowspan="1">Pick up the LSB of the system variable FRAMES in <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25245"></span>25245</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-11" rowspan="1">Now <span class="register">A</span>=a pseudo-random number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25246"></span>25246</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25247"></span>25247</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="25213.html">25213</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25233">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25248.html">25248</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/6291.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

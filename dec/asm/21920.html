@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 21920</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="21746.html">21746</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#21920">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="22000.html">22000</a></span></td>
+</tr>
+</table>
+<div class="description">21920: Count down from 9 to 0</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Continues from the routine at <a href="../start/33204.html">33204</a>. Counts down from 9 to 0, giving the user a chance to set the input method and change the characters' names before the game starts.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">BC</td>
+<td class="register-desc">256</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">33024</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">23296</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21920"></span>21920</td>
+<td class="bytes-0"></td>
+<td class="instruction">LDIR</td>
+<td class="comment-11" rowspan="1">Copy 256 bytes from 23296 to 33024</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21922"></span>21922</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,88</td>
+<td class="comment-11" rowspan="6">INK 1: PAPER 1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21924"></span>21924</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21926"></span>21926</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21927"></span>21927</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21928"></span>21928</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),9</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21930"></span>21930</td>
+<td class="bytes-0"></td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21932"></span>21932</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,23611</td>
+<td class="comment-11" rowspan="2">Reset bit 5 at 23611, ready for future keypresses</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21935"></span>21935</td>
+<td class="bytes-0"></td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21937"></span>21937</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL'</span> at the last byte of the graphic data for the digit '9' in the ROM</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21938"></span>21938</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,15823</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21941"></span>21941</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21942"></span>21942</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD DE,1084</td>
+<td class="comment-11" rowspan="6">Wait approximately one second</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21945"></span>21945</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 21945</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21947"></span>21947</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC DE</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21948"></span>21948</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21949"></span>21949</td>
+<td class="bytes-0"></td>
+<td class="instruction">OR E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21950"></span>21950</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,21945</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21952"></span>21952</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,23020</td>
+<td class="comment-11" rowspan="1">23020 is the attribute file address where the bottom row of 'big pixels' will be drawn</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21955"></span>21955</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD DE,65496</td>
+<td class="comment-11" rowspan="1"><span class="register">DE</span>=-40</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21958"></span>21958</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,8</td>
+<td class="comment-11" rowspan="1">There are 8 pixel rows per countdown digit</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21960"></span>21960</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21961"></span>21961</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 7,L</td>
+<td class="comment-11" rowspan="1">Set the zero flag when <span class="register">HL'</span> hits 15743</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21963"></span>21963</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1">Pick up a digit pixel row byte</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21964"></span>21964</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC HL</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL'</span> to the next pixel row up</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21965"></span>21965</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21966"></span>21966</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP Z,<a href="21664.html#21737">21737</a></td>
+<td class="comment-11" rowspan="1">Start the game if we've already printed '0'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21969"></span>21969</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,8</td>
+<td class="comment-11" rowspan="1">There are 8 bits per pixel row</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21971"></span>21971</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),9</td>
+<td class="comment-11" rowspan="1">INK 1: PAPER 1 (blue) for a reset pixel</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21973"></span>21973</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1">Is this a reset pixel?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21974"></span>21974</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,21978</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21976"></span>21976</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),36</td>
+<td class="comment-11" rowspan="1">INK 4: PAPER 4 (green) for a set pixel</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21978"></span>21978</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC HL</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL</span> along to the next attribute file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21979"></span>21979</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 21971</td>
+<td class="comment-11" rowspan="1">Jump back until all 8 'big pixels' have been drawn</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21981"></span>21981</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-11" rowspan="1">Move <span class="register">HL</span> back 8 spaces and up one row of the attribute file</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21982"></span>21982</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1">Next pixel row</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21983"></span>21983</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,21960</td>
+<td class="comment-11" rowspan="1">Jump back until all 8 pixel rows have been drawn</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21985"></span>21985</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="29012.html">29012</a></td>
+<td class="comment-11" rowspan="1">Make a ticking sound effect</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21988"></span>21988</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,23611</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21991"></span>21991</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-11" rowspan="1">Reset the zero flag if a key was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21993"></span>21993</td>
+<td class="bytes-0"></td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-11" rowspan="1">Reset bit 5 at 23611, ready for future keypresses</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21995"></span>21995</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP NZ,<a href="21425.html">21425</a></td>
+<td class="comment-11" rowspan="1">Jump if a key was pressed</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21998"></span>21998</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 21942</td>
+<td class="comment-11" rowspan="1">Wait roughly one second, then print the next digit</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="21746.html">21746</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#21920">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="22000.html">22000</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/55A0.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

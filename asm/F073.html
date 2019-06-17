@@ -23,7 +23,7 @@
 <div class="description">F073: Restart the command list or make a teacher tell the kids to sit down</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the teachers' command lists <a href="E400.html">0x16</a>, <a href="E600.html">0x18</a>, <a href="E8DC.html">0x3A</a>, <a href="E8ED.html">0x3C</a> and <a href="E8FE.html">0x3E</a>. Restarts the teacher's command list if it's not time to start the class yet; otherwise makes the teacher tell the kids to sit down.
@@ -49,108 +49,126 @@ Used by the teachers' command lists <a href="E400.html">0x16</a>, <a href="E600.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f073"></span>F073</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FE4)</td>
 <td class="comment-11" rowspan="1">Collect the MSB of the lesson clock (which starts at 0x10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f076"></span>F076</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $0C</td>
 <td class="comment-11" rowspan="1">Is it time to tell the kids to sit down yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f078"></span>F078</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$F080</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f07a"></span>F07A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
 <td class="comment-11" rowspan="2">Otherwise signal that the command list is to be restarted</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f07c"></span>F07C</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 0,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f07e"></span>F07E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $F097</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f080"></span>F080</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="627D.html">$627D</a></td>
 <td class="comment-11" rowspan="1">Collect the event indicator for the start of the lesson (0x08, 0x09, 0x0A, 0x0B or 0x0C) from the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f083"></span>F083</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1">Save the event indicator in <span class="register">C</span> briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f084"></span>F084</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7C8F.html">$7C8F</a></td>
 <td class="comment-11" rowspan="1">Has the lesson already started?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f087"></span>F087</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F097</td>
 <td class="comment-11" rowspan="1">Jump if so (the teacher must have just returned to the classroom doorway after hunting down the truant ERIC)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f089"></span>F089</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="2">Restore the event indicator to <span class="register">A</span>, and signal that the lesson has started</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f08a"></span>F08A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7C98.html">$7C98</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f08d"></span>F08D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f08e"></span>F08E</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $6D</td>
 <td class="comment-11" rowspan="2"><span class="register">E</span>=<a href="ED8E.html">0x5C</a>, <a href="ED96.html">0x5D</a>, <a href="EDA3.html">0x5E</a> or <a href="EDBB.html">0x5F</a> (appropriate SIT DOWN message for this teacher)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f090"></span>F090</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f091"></span>F091</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$6A08</td>
 <td class="comment-11" rowspan="2">Redirect control to the routine at <a href="6A08.html">6A08</a> (make character speak) and then return to <a href="F073.html#f097">F097</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f094"></span>F094</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="639F.html">$639F</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f097"></span>F097</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="638C.html">$638C</a></td>
 <td class="comment-11" rowspan="1">Move to the next command in the command list</td>
 </tr>
@@ -163,10 +181,10 @@ Used by the teachers' command lists <a href="E400.html">0x16</a>, <a href="E600.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/61555.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61555.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

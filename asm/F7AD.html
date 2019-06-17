@@ -23,7 +23,7 @@
 <div class="description">F7AD: Deal with ERIC</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F6EA.html">F6EA</a>. Deals with ERIC when any of the bits at <a href="7FFB.html">7FFB</a> (ERIC's primary status flags) are set, indicating that ERIC is doing something other than standing or walking:
@@ -168,95 +168,110 @@ If bit 1 at <a href="7FFB.html">7FFB</a> is set, we examine ERIC's secondary sta
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f7ad"></span>F7AD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$ED</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FED.html">7FED</a> (ERIC's secondary status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7af"></span>F7AF</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 5,(HL)</td>
 <td class="comment-11" rowspan="1">Has ERIC stepped out of the top-floor window?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7b1"></span>F7B1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F7BA</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7b3"></span>F7B3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($D200)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7b6"></span>F7B6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $86</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#134">0x86</a>: Is ERIC lying on his back, facing right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7b8"></span>F7B8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F7C7</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f7ba"></span>F7BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$FB</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FFB.html">7FFB</a> (ERIC's status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7bc"></span>F7BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 6,(HL)</td>
 <td class="comment-11" rowspan="1">Is MR WACKER expelling ERIC?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7be"></span>F7BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if so (ERIC is incapacitated)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7bf"></span>F7BF</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 1,(HL)</td>
 <td class="comment-11" rowspan="1">Bit 1 at <a href="7FFB.html">7FFB</a> is set if we need to look at <a href="7FED.html">7FED</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7c1"></span>F7C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$D3</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7c3"></span>F7C3</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F7C9</td>
 <td class="comment-11" rowspan="1">Jump unless we need to look at <a href="7FED.html">7FED</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7c5"></span>F7C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$ED</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FED.html">7FED</a> (ERIC's secondary status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f7c7"></span>F7C7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$D5</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f7c9"></span>F7C9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Copy the contents of <a href="7FFB.html">7FFB</a> or <a href="7FED.html">7FED</a> to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f7ca"></span>
 <div class="comments">
 <div class="paragraph">
@@ -268,60 +283,70 @@ Now <span class="register">D</span>=0xD3 and <span class="register">A</span>=(<a
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7ca"></span>F7CA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$44</td>
 <td class="comment-11" rowspan="4">Point <span class="register">DE</span> at the appropriate entry in the table of handler routine address LSBs (at <a href="D33C.html">D33C</a> or <a href="D53C.html">D53C</a>), depending on which bit of <span class="register">A</span> is set</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f7cc"></span>F7CC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7cd"></span>F7CD</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7ce"></span>F7CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F7CC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d0"></span>F7D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Transfer the table entry address to <span class="register">HL</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d1"></span>F7D1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="3">Collect the handler routine address from the table entry into <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d2"></span>F7D2</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d3"></span>F7D3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d4"></span>F7D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Transfer this handler routine address to <span class="register">HL</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f7d5"></span>F7D5</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP (HL)</td>
 <td class="comment-11" rowspan="1">Jump to the handler routine</td>
 </tr>
@@ -334,10 +359,10 @@ Now <span class="register">D</span>=0xD3 and <span class="register">A</span>=(<a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/63405.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63405.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

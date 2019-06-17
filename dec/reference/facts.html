@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Trivia</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Facts">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Trivia</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#boy10">The importance of little boy no. 10</a></li>
+<li><a href="#skoolTunes">Skool tunes</a></li>
+<li><a href="#saverPokes">BASIC saver POKEs</a></li>
+<li><a href="#assemblyWait">MR WACKER waits for ERIC</a></li>
+<li><a href="#lesson43">Lesson 43, where art thou?</a></li>
+<li><a href="#invulnerableMoments">Invulnerable moments</a></li>
+<li><a href="#teacherRooms">Teachers and classrooms</a></li>
+<li><a href="#timetableStats">Timetable stats</a></li>
+<li><a href="#playtimeProbabilities">Playtime probabilities</a></li>
+<li><a href="#initialPlaytimes">Initial playtimes</a></li>
+<li><a href="#playtimeDistribution">Playtime distribution</a></li>
+<li><a href="#teachersFreshAir">Teachers and fresh air</a></li>
+<li><a href="#unusedDoor">The usable unused door</a></li>
+<li><a href="#bottomlessBoxes">Bottomless boxes</a></li>
+<li><a href="#slashDot">Slash dot</a></li>
+<li><a href="#invisibleStatues">Invisible statues</a></li>
+<li><a href="#fastWays">Fast ways from A to B</a></li>
+<li><a href="#mouseMetamorphosis">Mouse metamorphosis</a></li>
+<li><a href="#apprehensiveAmphibian">The apprehensive amphibian</a></li>
+<li><a href="#pitchImperfect">Pitch imperfect</a></li>
+<li><a href="#closedDoorAndCaretaker">Between a closed door and a caretaker</a></li>
+<li><a href="#pointsForAPOrAP">Points for a punching or a pelleting</a></li>
+<li><a href="#bullySwotConker">ANGELFACE and EINSTEIN are conkerable</a></li>
+<li><a href="#bullyHeroine">ANGELFACE hates HAYLEY</a></li>
+<li><a href="#violenceAndKisses">Violence and kisses</a></li>
+<li><a href="#heroineLines">HAYLEY's lines count too</a></li>
+<li><a href="#hungryHayley">Hungry HAYLEY?</a></li>
+<li><a href="#lostLinesMessage">The lost lines message</a></li>
+<li><a href="#pelletVsLid">ERIC's pellet v. water v. plant v. desk lid</a></li>
+<li><a href="#pelletVsStinkbomb">BOY WANDER's pellet v. stinkbomb</a></li>
+<li><a href="#allAboutMice">All about mice</a></li>
+<li><a href="#conkerAndClock">The conker and the clock</a></li>
+<li><a href="#wackerAndClock">WACKER and the clock</a></li>
+<li><a href="#inferiorCatapult">Inferior catapult</a></li>
+</ul>
+<div><span id="boy10"></span></div>
+<div class="box box-1">
+<div class="box-title">The importance of little boy no. 10</div>
+<div class="paragraph">
+In demo mode, ERIC bases his every move on where little boy no. 10 is and what
+he's doing (see the routine at <a href="../asm/62483.html">62483</a>). One corollary of this important role
+is that little boy no. 10 is in all of ERIC's classes (if he weren't, ERIC
+would be guilty of truancy in demo mode). In fact, little boy no. 10 is the
+only character besides EINSTEIN who joins ERIC for every class.
+</div>
+</div>
+<div><span id="skoolTunes"></span></div>
+<div class="box box-2">
+<div class="box-title">Skool tunes</div>
+<div class="paragraph">
+The tune that plays just before a game (or demo mode) starts is <a
+href="https://en.wikipedia.org/wiki/Nobody_Knows_the_Trouble_I've_Seen">Nobody
+Knows the Trouble I've Seen</a>. The tune that plays when ERIC opens the safe
+is <a
+href="https://en.wikipedia.org/wiki/Here_We_Go_Round_the_Mulberry_Bush">Here We
+Go Round the Mulberry Bush</a>.
+</div>
+</div>
+<div><span id="saverPokes"></span></div>
+<div class="box box-1">
+<div class="box-title">BASIC saver POKEs</div>
+<div class="paragraph">
+There are two POKEs in line 33 of the <a href="../save/33013.html">BASIC saver program</a> that
+saves the fast code block to tape:
+</div>
+<div class="paragraph">
+POKE 29387,80: POKE 29391,45
+</div>
+<div class="paragraph">
+These POKEs set the instruction at <a href="../asm/29118.html#29130">29130</a> to 'LD L,80' and the
+instruction at <a href="../asm/29118.html#29135">29135</a> to 'DEC L'. (The contents of addresses
+24832-32767 are shifted down by 256 bytes to 24576 by the startup routine
+at <a href="../start/33204.html">33204</a> before the game starts.) Which makes one wonder what these
+instructions were before they were POKEd.
+</div>
+<div class="paragraph">
+As it turns out, some tapes of Back to Skool were released that are missing
+line 33 in the BASIC saver program, and contain 79 at address 29387
+(29131) and 44 at address 29391 (29135); with these values, the
+corresponding section of code looks like this:
+</div>
+<div class="paragraph">
+<table class="asm">
+<tr>
+<td class="address-1" colspan="1" rowspan="1">29124</td>
+<td class="instruction" colspan="1" rowspan="1">IN A,(31)</td>
+<td class="comment-11" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1" colspan="1" rowspan="1">29126</td>
+<td class="instruction" colspan="1" rowspan="1">AND 31</td>
+<td class="comment-11" colspan="1" rowspan="1">Any input from the joystick?</td>
+</tr>
+<tr>
+<td class="address-1" colspan="1" rowspan="1">29128</td>
+<td class="instruction" colspan="1" rowspan="1">JR Z,29154</td>
+<td class="comment-11" colspan="1" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="address-1" colspan="1" rowspan="1">29130</td>
+<td class="instruction" colspan="1" rowspan="1">LD L,79</td>
+<td class="comment-11" colspan="1" rowspan="1">79='O' (LEFT)</td>
+</tr>
+<tr>
+<td class="address-1" colspan="1" rowspan="1">29132</td>
+<td class="instruction" colspan="1" rowspan="1">RRCA</td>
+<td class="comment-11" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1" colspan="1" rowspan="1">29133</td>
+<td class="instruction" colspan="1" rowspan="1">JR C,29151</td>
+<td class="comment-11" colspan="1" rowspan="1">Jump if the joystick was moved right</td>
+</tr>
+<tr>
+<td class="address-1" colspan="1" rowspan="1">29135</td>
+<td class="instruction" colspan="1" rowspan="1">INC L</td>
+<td class="comment-11" colspan="1" rowspan="1"><span class="register">L</span>=80='P' (RIGHT)</td>
+</tr>
+<tr>
+<td class="address-1" colspan="1" rowspan="1">29136</td>
+<td class="instruction" colspan="1" rowspan="1">RRCA</td>
+<td class="comment-11" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1" colspan="1" rowspan="1">29137</td>
+<td class="instruction" colspan="1" rowspan="1">JR C,29151</td>
+<td class="comment-11" colspan="1" rowspan="1">Jump if the joystick was moved left</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+This code makes ERIC move left when the Kempston joystick is moved right, and
+vice versa. Which is clearly a bug, and indicates that line 33 of the BASIC
+saver program is nothing more nor less than a bugfix.
+</div>
+</div>
+<div><span id="assemblyWait"></span></div>
+<div class="box box-2">
+<div class="box-title">MR WACKER waits for ERIC</div>
+<div class="paragraph">
+Like time, MR WACKER waits for no man - except when it's assembly and the man
+(or boy) is ERIC. In fact, MR WACKER will dutifully wait on stage, silent and
+motionless, until ERIC has arrived in the vicinity of the assembly hall, before
+delivering his detention speech.
+</div>
+<div class="paragraph">
+To verify this curious phenomenon, proceed as follows. When the bell rings for
+assembly, go to the right end of the dinner hall and stand so that the stairs
+leading down to the stage are just visible at the far right of the screen. Now
+keep an eye on MR WACKER; when he decides that it's time to start assembly and
+begins his descent down those stairs, move left until the screen has scrolled
+twice and the stage is no longer in view. Then wait a bit - long enough for MR
+WACKER to have reached the stage and begun his speech. After that, move right
+until the screen scrolls once and brings MR WACKER back into view. MR WACKER
+will be standing on the stage, and only when the screen stops scrolling will he
+begin his detention speech.
+</div>
+<div class="paragraph">
+(Hanging around on the outskirts of the assembly hall during assembly is a fine
+way to get lines, so you might want to use the <a href="pokes.html#noLines">no lines POKE</a>
+before trying this for yourself.)
+</div>
+<div class="paragraph">
+The reason for this uncharacteristically patient behaviour is the routine at
+<a href="../asm/62032.html">62032</a>, which makes MR WACKER stand on the stage doing nothing until he comes
+into view (or the bell rings for the next lesson, whichever happens first).
+</div>
+</div>
+<div><span id="lesson43"></span></div>
+<div class="box box-1">
+<div class="box-title">Lesson 43, where art thou?</div>
+<div class="paragraph">
+Lesson <a href="../lessons/43.html">43</a> (MR WITHIT - YELLOW ROOM) does not appear anywhere in the
+<a href="../asm/46528.html">main timetable</a>. But it is a perfectly good lesson. If you want to try
+it out:
+</div>
+<div class="paragraph">
+POKE <a href="../asm/46528.html#46544">46544</a>,43
+</div>
+<div class="paragraph">
+This removes the first PLAYTIME that normally takes place when starting the
+game for the first time and replaces it with lesson 43.
+</div>
+</div>
+<div><span id="invulnerableMoments"></span></div>
+<div class="box box-2">
+<div class="box-title">Invulnerable moments</div>
+<div class="paragraph">
+ERIC can usually throw a punch or fire his catapult and be confident that the
+impact will send one of the kids or teachers tumbling. However, on certain
+occasions, certain characters are invulnerable to ERIC's violence. Those
+characters and occasions are as follows:
+</div>
+<div class="paragraph">
+<ul class="">
+<li>Any boy, when he's looking for a seat in a classroom (because he's under the control of the uninterruptible subcommand routine at <a href="../asm/26263.html">26263</a>)</li>
+<li>MR WACKER, when he's on his way to open a window (because he's under the control of the uninterruptible subcommand routine at <a href="../asm/63586.html#63733">63733</a>)</li>
+</ul>
+</div>
+</div>
+<div><span id="teacherRooms"></span></div>
+<div class="box box-1">
+<div class="box-title">Teachers and classrooms</div>
+<div class="paragraph">
+MR WITHIT is the only teacher who teaches ERIC in all three classrooms. See his
+<a href="../asm/51493.html">personal timetable</a>.
+</div>
+<div class="paragraph">
+MR ROCKITT never teaches in the Blue Room, and never teaches ERIC anywhere
+except in the Science Lab. See his <a href="../asm/51749.html">personal timetable</a>.
+</div>
+<div class="paragraph">
+MR CREAK never teaches in the Science Lab. See his <a href="../asm/52005.html">personal timetable</a>.
+</div>
+</div>
+<div><span id="timetableStats"></span></div>
+<div class="box box-2">
+<div class="box-title">Timetable stats</div>
+<div class="paragraph">
+There are 64 periods in the <a href="../asm/46528.html">main timetable</a>: 16 playtimes, 8
+assemblies, 2 dinner periods, and 38 lesson periods (when ERIC is supposed to
+be in either a classroom or the Revision Library).
+</div>
+<div class="paragraph">
+In the 38 lesson periods, ERIC is scheduled to be in the Science Lab 15 times,
+the Blue Room 7 times, the Yellow Room 7 times, and the Revision Library 9
+times.
+</div>
+<div class="paragraph">
+ERIC has 11 classes with MR ROCKITT, 10 classes with MR CREAK, and 8 classes
+with MR WITHIT.
+</div>
+<div class="paragraph">
+ERIC has 11 classes with MR ROCKITT in the Science Lab (which is more than any
+other teacher/classroom combination), but only one class with MR WITHIT in the
+Yellow Room.
+</div>
+<div class="paragraph">
+MR WACKER is on dinner duty for one of the dinner periods, and MR WITHIT is on
+duty for the other one.
+</div>
+<div class="paragraph">
+MR CREAK is the busiest teacher: he teaches a class in 37 of the 38 lesson
+periods (lesson <a href="../lessons/42.html">42</a> being the only time he takes a break). MR WITHIT is
+the laziest teacher, teaching a class in only 29 periods.
+</div>
+<div class="paragraph">
+MR ROCKITT teaches most often in the Science Lab (28 times), MR CREAK teaches
+most often in the Yellow Room (23 times), and MR WITHIT teaches most often in
+the Blue Room (18 times).
+</div>
+<div class="paragraph">
+MR WACKER spends 21 of the lesson periods (including 4 of the 9 Revision
+Library periods) pacing up and down in his study, and the remaining 17 lesson
+periods on a tour of the boys' skool, oscillating between the cloak room, the
+assembly hall stage, and his study.
+</div>
+<div class="paragraph">
+Every boy is taught at least 4 times by each teacher, and at least 4 times in
+each classroom. In addition, every boy has at least one lesson period in the
+Revision Library, though little boy no. 9 has only one period there (lesson
+<a href="../lessons/42.html">42</a>), while all the others have at least three.
+</div>
+<div class="paragraph">
+ANGELFACE spends more lesson periods in the Revision Library than any other boy
+(14 periods compared to ERIC's 9).
+</div>
+<div class="paragraph">
+In the 38 lesson periods, MISS TAKE teaches 24 times in the top-floor classroom
+and 14 times in the middle-floor classroom.
+</div>
+<div class="paragraph">
+HAYLEY has only one lesson period in a classroom with no teacher (lesson
+<a href="../lessons/42.html">42</a> in the top-floor classroom); each of the other little girls has at
+least three such lesson periods.
+</div>
+</div>
+<div><span id="playtimeProbabilities"></span></div>
+<div class="box box-1">
+<div class="box-title">Playtime probabilities</div>
+<div class="paragraph">
+Little boys 4-10 spend every playtime (of which there are 16 in the
+<a href="../asm/46528.html">main timetable</a>) walking around from one <a href="../asm/25815.html">randomly chosen
+location</a> to another; little boys 1-3, however, each spend two of these
+playtimes walking up and down in the Revision Library until the bell rings.
+</div>
+<div class="paragraph">
+Like little boys 4-10, all the little girls spend every playtime on a random
+walkabout; HAYLEY, however, spends 12 playtimes on random walkabouts, and 4
+playtimes walking up and down in the kitchen in the girls' skool until the bell
+rings.
+</div>
+<div class="paragraph">
+MISS TAKE spends 9 playtimes walking up and down in the kitchen in the girls'
+skool, and the remaining 7 on random walkabouts.
+</div>
+<div class="paragraph">
+BOY WANDER spends two playtimes writing on the boards in the girls' skool, 4
+writing on the boards in the boys' skool, and the remaining 10 on random
+walkabouts.
+</div>
+<div class="paragraph">
+ANGELFACE spends 9 playtimes <a href="../asm/58844.html">stalking HAYLEY</a>, and the remaining 7 on
+random walkabouts.
+</div>
+</div>
+<div><span id="initialPlaytimes"></span></div>
+<div class="box box-2">
+<div class="box-title">Initial playtimes</div>
+<div class="paragraph">
+When demo mode or a new game starts, the timetable index is always
+<a href="../asm/46528.html#46528">192</a>, <a href="../asm/46528.html#46536">200</a>, <a href="../asm/46528.html#46544">208</a>, <a href="../asm/46528.html#46552">216</a>,
+<a href="../asm/46528.html#46560">224</a>, <a href="../asm/46528.html#46568">232</a>, <a href="../asm/46528.html#46576">240</a> or <a href="../asm/46528.html#46584">248</a> (which are all
+playtime, of course).
+</div>
+<div class="paragraph">
+When demo mode starts for the first time after the game has loaded, the
+timetable index is <a href="../asm/46528.html#46536">200</a>. When a new game is started as soon as
+possible after the game has loaded, the timetable index is <a href="../asm/46528.html#46544">208</a>.
+</div>
+</div>
+<div><span id="playtimeDistribution"></span></div>
+<div class="box box-1">
+<div class="box-title">Playtime distribution</div>
+<div class="paragraph">
+Understandably, ERIC is always eager for playtime to come, but the number of
+non-playtime periods (lessons, Revision Library, dinner and assembly) he has to
+tolerate between each break varies between two and four throughout the
+<a href="../asm/46528.html">main timetable</a>.
+</div>
+<div class="paragraph">
+<ul class="">
+<li>There are two periods between playtimes at timetable indexes <a href="../asm/46528.html#46533">198-199</a> and <a href="../asm/46528.html#46549">214-215</a></li>
+<li>There are four periods between playtimes at timetable indexes <a href="../asm/46528.html#46528">193-196</a> and <a href="../asm/46528.html#46544">209-212</a></li>
+<li>There are three periods between all the other playtimes</li>
+</ul>
+</div>
+</div>
+<div><span id="teachersFreshAir"></span></div>
+<div class="box box-2">
+<div class="box-title">Teachers and fresh air</div>
+<div class="paragraph">
+The only time MR ROCKITT, MR CREAK and MISS TAKE will leave their respective
+skools is when they are chasing ERIC; if ERIC never gave them reason to chase,
+they would be permanently skoolbound. So do your bit to give these teachers
+some exercise and fresh air by playing truant once in a while.
+</div>
+</div>
+<div><span id="unusedDoor"></span></div>
+<div class="box box-1">
+<div class="box-title">The usable unused door</div>
+<div class="paragraph">
+Though the left study door is never used in a normal game, there is support
+built in for opening and closing it (see <a href="../asm/56893.html">56893</a>, for example). To bring the
+door into service, try <a href="pokes.html#leftStudyDoor">these POKEs</a>.
+</div>
+</div>
+<div><span id="bottomlessBoxes"></span></div>
+<div class="box box-2">
+<div class="box-title">Bottomless boxes</div>
+<div class="paragraph">
+Play area tiles 1, 11, 21 and 30 in base page 144 are unused:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="tile0x01" src="../../images/udgs/tile0x01.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="tile0x0B" src="../../images/udgs/tile0x0B.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="tile0x15" src="../../images/udgs/tile0x15.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="tile0x1E" src="../../images/udgs/tile0x1E.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">11</td>
+<td class="" colspan="1" rowspan="1">21</td>
+<td class="" colspan="1" rowspan="1">30</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+However, there is evidence that they were used at one time and were later
+discarded. The evidence lies in columns 88-92 of the play area, which contain
+tiles mostly from the tail end of base page 136 and the beginning of base
+page 144. The usage of tiles from base page 144 in each column is as follows:
+</div>
+<div class="paragraph">
+<table class="boxData">
+<tr>
+<th colspan="1" rowspan="1">x</th>
+<th colspan="1" rowspan="1">Tiles used</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">88</td>
+<td class="" colspan="1" rowspan="1">0, 2-5, 40</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">89</td>
+<td class="" colspan="1" rowspan="1">6-10, 12, 13, 40</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">90</td>
+<td class="" colspan="1" rowspan="1">14-20, 40</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">91</td>
+<td class="" colspan="1" rowspan="1">22-29, 40</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">92</td>
+<td class="" colspan="1" rowspan="1">31-45</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Note the gaps where tiles 1, 11, 21 and 30 seem to be missing from
+columns 88-91, and tile 40 is present instead. Furthermore, tile 40 is used
+at the same y-coordinate (14) in each of those columns. So what would the
+relevant region of the play area - on the middle floor next to the window at
+the right end of the boys' skool - look like if tiles 1, 11, 21 and 30
+were used instead of tile 40? Here are the 'before' and 'after' pictures:
+</div>
+<div class="paragraph">
+<table class="gallery">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="bottomless_boxes1" src="../../images/play_area/bottomless_boxes1.png" /></td>
+<td class="" colspan="1" rowspan="1"><img alt="bottomless_boxes2" src="../../images/play_area/bottomless_boxes2.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">Before</td>
+<td class="" colspan="1" rowspan="1">After</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To my eye, the 'after' picture looks nicer: the bottoms of the boxes (or
+whatever those objects are) no longer look as if they've been chopped off.
+</div>
+<div class="paragraph">
+So why were tiles 1, 11, 21 and 30 left unused? Probably because when
+they <em>are</em> used, the bottoms of the boxes appear under the feet of any
+characters walking past, which looks a bit wrong:
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="bottomless_boxes3" src="../../images/play_area/bottomless_boxes3.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+To use tiles 1, 11, 21 and 30:
+</div>
+<div class="paragraph">
+POKE 44626,1: POKE 44627,11: POKE 44628,21: POKE 44629,30
+</div>
+</div>
+<div><span id="slashDot"></span></div>
+<div class="box box-1">
+<div class="box-title">Slash dot</div>
+<div class="paragraph">
+The '/' (slash) character in the Back to Skool font has a bit missing:
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="slash_dot" src="../../images/font/slash_dot.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Interestingly, the corresponding bit is also missing from the slash character
+in the version of Skool Daze that was released by Alternative Software Ltd in
+1987, but it is present in the original 1984 release by Microsphere.
+</div>
+<div class="paragraph">
+To complete the symmetry, the '\' (backslash) character has the same bit
+missing:
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="backslash_dot" src="../../images/font/backslash_dot.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="invisibleStatues"></span></div>
+<div class="box box-2">
+<div class="box-title">Invisible statues</div>
+<div class="paragraph">
+Depending on which part of the play area is currently on-screen, the
+character-moving routine at <a href="../asm/25296.html">25296</a> will skip certain minor characters, thus
+giving a performance boost to the other characters. Don't let the fact that
+there are immobilised kids off-screen to the left or right distract ERIC from
+his mission, though.
+</div>
+</div>
+<div><span id="fastWays"></span></div>
+<div class="box box-1">
+<div class="box-title">Fast ways from A to B</div>
+<div class="paragraph">
+As if being immobilised while off-screen were not enough, those same minor
+characters are occasionally teleported to their destinations too. After
+scrolling the screen right (as ERIC approaches or goes deeper into the boys'
+skool), the routine at <a href="../asm/25080.html">25080</a> considers teleporting little girls 1-7; after
+scrolling the screen left (as ERIC leaves the boys' skool or approaches the
+girls' skool), the routine at <a href="../asm/25026.html">25026</a> considers teleporting little boys
+1-8. And just before the bell rings for a new lesson, the routine at <a href="../asm/63309.html">63309</a>
+considers teleporting little girls 1-7 and little boys 1-8.
+</div>
+</div>
+<div><span id="mouseMetamorphosis"></span></div>
+<div class="box box-2">
+<div class="box-title">Mouse metamorphosis</div>
+<div class="paragraph">
+After ERIC has obtained the Science Lab storeroom key, the mouse's days are
+numbered. The next time it goes into hiding will be the last: it will never
+re-emerge. Instead, its character buffer is appropriated by the frog, which
+then appears at its initial location in the storeroom (see <a href="../asm/31254.html#31372">31372</a>).
+</div>
+</div>
+<div><span id="apprehensiveAmphibian"></span></div>
+<div class="box box-1">
+<div class="box-title">The apprehensive amphibian</div>
+<div class="paragraph">
+You may have noticed that the frog is a tricky fellow to catch, and the reason
+is that it's programmed to be wary of ERIC. If ERIC is not close to the frog,
+it will decide to keep still three times out of four. But as soon as ERIC gets
+close, the frog will make a move (turn round or take a hop). See <a href="../asm/30906.html">30906</a>.
+</div>
+</div>
+<div><span id="pitchImperfect"></span></div>
+<div class="box box-2">
+<div class="box-title">Pitch imperfect</div>
+<div class="paragraph">
+Unlike the theme tune and the tune that plays when ERIC opens the safe, the
+other sound effects in the game are played with interrupts enabled, which means
+they are affected by keys being held down. This is especially noticeable with
+the bell and the lines-giving sounds, which are somewhat longer than the
+others. To make them even longer:
+</div>
+<div class="paragraph">
+<div>POKE <a href="../asm/32433.html#32489">32489</a>,80 (bell)</div>
+<div>POKE <a href="../asm/29716.html#29793">29795</a>,0: POKE <a href="../asm/29716.html#29818">29820</a>,0 (lines-giving sounds)</div>
+</div>
+<div class="paragraph">
+Now put ERIC up to mischief in front of a teacher, or wait for the bell to
+ring, and see if you can detect the change in pitch as you hold down various
+keys.
+</div>
+</div>
+<div><span id="closedDoorAndCaretaker"></span></div>
+<div class="box box-1">
+<div class="box-title">Between a closed door and a caretaker</div>
+<div class="paragraph">
+When ALBERT tells MR WACKER that ERIC is escaping, MR WACKER comes hurrying to
+the scene. However, if ERIC stands one step away from the skool door, MR WACKER
+will stand on the other side without opening it, continually giving ERIC lines
+for not being in class while at the same time preventing him from getting
+there.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="trapped" src="../../images/play_area/trapped.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+<div><span id="pointsForAPOrAP"></span></div>
+<div class="box box-2">
+<div class="box-title">Points for a punching or a pelleting</div>
+<div class="paragraph">
+ANGELFACE is unique among the cast of characters in that if ERIC knocks him
+over with a punch or a catapult pellet, 30 points are awarded (see <a href="../asm/30739.html#30773">30773</a> and
+<a href="../asm/30786.html#30796">30796</a>). No points are awarded for knocking anyone else over in this fashion.
+</div>
+</div>
+<div><span id="bullySwotConker"></span></div>
+<div class="box box-1">
+<div class="box-title">ANGELFACE and EINSTEIN are conkerable</div>
+<div class="paragraph">
+If EINSTEIN or ANGELFACE is hit by a conker, he is knocked out, you get 100
+points, and a unique sound effect is played. See the section of code at
+<a href="../asm/29896.html#29943">29943</a>.
+</div>
+</div>
+<div><span id="bullyHeroine"></span></div>
+<div class="box box-2">
+<div class="box-title">ANGELFACE hates HAYLEY</div>
+<div class="paragraph">
+During some playtimes, ANGELFACE specifically hunts down HAYLEY for the sole
+purpose of hitting her (see command list <a href="../asm/58844.html">44</a>). Which is bad, because
+ERIC's chances of scoring a kiss diminish every time HAYLEY hits the floor (see
+below).
+</div>
+</div>
+<div><span id="violenceAndKisses"></span></div>
+<div class="box box-1">
+<div class="box-title">Violence and kisses</div>
+<div class="paragraph">
+Every time HAYLEY is knocked down (by ANGELFACE's or ERIC's fist, or by BOY
+WANDER's catapult pellet, or by the conker), her <a href="../asm/32738.html">kiss counter</a> is
+decreased by one (see the section of code at <a href="../asm/30102.html#30155">30155</a>), thus making her less
+likely to pucker up in future. The lesson here is to look after your
+girlfriend!
+</div>
+</div>
+<div><span id="heroineLines"></span></div>
+<div class="box box-2">
+<div class="box-title">HAYLEY's lines count too</div>
+<div class="paragraph">
+If HAYLEY is given lines - for being the nearest main kid to a downed teacher -
+they are added to ERIC's total. See <a href="../asm/29716.html">29716</a>.
+</div>
+</div>
+<div><span id="hungryHayley"></span></div>
+<div class="box box-1">
+<div class="box-title">Hungry HAYLEY?</div>
+<div class="paragraph">
+In lesson <a href="../lessons/45.html">45</a> (MR WITHIT - SCIENCE LAB), HAYLEY is on her own in the
+dinner hall. Is she hungry, or waiting for a tryst with ERIC?
+</div>
+</div>
+<div><span id="lostLinesMessage"></span></div>
+<div class="box box-2">
+<div class="box-title">The lost lines message</div>
+<div class="paragraph">
+Recall Skool Daze, where you could sit on the stairs and be given lines for
+it. Seems so long ago, eh? Well, even though you can't sit on the stairs in
+Back to Skool (or be given lines for it), you may find consolation in evidence
+that suggests it was possible at some point while the game was being developed:
+the lost lines message at <a href="../asm/60480.html">60480</a>. Unused, but never purged. Feel any better
+now?
+</div>
+</div>
+<div><span id="pelletVsLid"></span></div>
+<div class="box box-1">
+<div class="box-title">ERIC's pellet v. water v. plant v. desk lid</div>
+<div class="paragraph">
+RAM is in short supply in Back to Skool. For example, ERIC's catapult pellet is
+forced to share its character buffer with plants, desk lids, and water/sherry
+fired from the pistol. One consequence of this is that ERIC cannot open a desk
+lid immediately after firing his catapult. Another is that ERIC cannot fire his
+catapult immediately after firing his water pistol, or while waiting for a
+watered plant to grow. Yet another is that he cannot fire his water pistol
+while his catapult pellet is still airborne.
+</div>
+</div>
+<div><span id="pelletVsStinkbomb"></span></div>
+<div class="box box-2">
+<div class="box-title">BOY WANDER's pellet v. stinkbomb</div>
+<div class="paragraph">
+As already mentioned, RAM is in short supply in Back to Skool. So much so that
+BOY WANDER's pellet is forced to share its character buffer with the stinkbomb
+cloud. However, unlike ERIC's pellet, which is allowed to complete its flight
+before giving up its buffer to some other object, BOY WANDER's pellet can be
+terminated immediately by dropping a stinkbomb. Try it and see: find the
+stinkbombs, then hang around BOY WANDER. When he lets rip with the catapult,
+drop a stinkbomb and watch the pellet die young. See <a href="../asm/57910.html">57910</a>.
+</div>
+</div>
+<div><span id="allAboutMice"></span></div>
+<div class="box box-1">
+<div class="box-title">All about mice</div>
+<div class="paragraph">
+Did I mention that RAM is in short supply in Back to Skool? So much so that
+when ERIC releases a mouse, instead of using a character buffer of its own, it
+hijacks the character buffer of one of the boys: little boy no. 9, little boy
+no. 10, BOY WANDER, ANGELFACE or EINSTEIN. See <a href="../asm/31502.html">31502</a>.
+</div>
+<div class="paragraph">
+The hijacking will only happen if the boy is far enough away from the girls'
+skool at the time of release, though, which is safe because mice can only be
+released in the girls' skool. See <a href="../asm/31462.html">31462</a>.
+</div>
+<div class="paragraph">
+How do the boys get their buffers back? Unlike the 'main' mouse in the game -
+which shares its buffer with the frog, again owing to RAM limitations - mice
+released by ERIC eventually die (either from old age, or by ERIC leaving the
+vicinity of the girls' skool). When a released mouse expires, the character
+whose buffer it hijacked will rematerialise at x-coordinate 32 on whichever
+floor the mouse was on when it passed away. That is deep enough into the boys
+skool that you will never notice it happening. No matter how fast you run from
+the girls' skool after releasing a bunch of mice, they'll all be dead before
+you reach the far left end of the boys' skool. See <a href="../asm/31254.html">31254</a>.
+</div>
+<div class="paragraph">
+Don't bother trying to catch any of the mice released by ERIC: they cannot be
+re-caught. Only the 'main' mouse (using buffer 212) can ever be caught. See
+<a href="../asm/31573.html">31573</a>.
+</div>
+<div class="paragraph">
+The aforementioned 'main' mouse always begins life in a new game at coordinates
+(17,3) in the Blue Room (see <a href="../asm/54272.html#54305">54305</a>).
+</div>
+<div class="paragraph">
+One more thing: when ERIC catches a mouse, a new one is supposed to materialise
+somewhere else off-screen. However, because of a <a href="bugs.html#rematerialisingMouse">bug</a>
+in the mouse placement code, the new mouse can sometimes be spotted appearing
+on-screen out of thin air at x-coordinate 10, 88 or 170.
+</div>
+</div>
+<div><span id="conkerAndClock"></span></div>
+<div class="box box-2">
+<div class="box-title">The conker and the clock</div>
+<div class="paragraph">
+Ever stood at the top-floor window of the boys' skool (as ERIC, naturally),
+getting more and more frustrated because time is running out for you to knock
+ALBERT out with a conker and get the sherry before the bell rings? Then you may
+find some relief in the knowledge that you will have plenty of time to visit
+the girls' skool and fill up the pistol with the contents of MISS TAKE's wine
+stash, no matter how long it took you to give ALBERT a concussion. Why? Because
+when you do manage to land the fateful nut on ALBERT's bonce, the skool clock
+is magically wound back, thus delaying the onset of the next lesson. See the
+section of code at <a href="../asm/30102.html#30145">30145</a>.
+</div>
+</div>
+<div><span id="wackerAndClock"></span></div>
+<div class="box box-1">
+<div class="box-title">WACKER and the clock</div>
+<div class="paragraph">
+When assembly finishes (that is, when MR WACKER has finished speaking), the
+skool clock's MSB is set to 1, which means the bell will ring soon after, no
+matter how early MR WACKER arrived at the stage to deliver his detention
+speech. See <a href="../asm/62032.html">62032</a>.
+</div>
+</div>
+<div><span id="inferiorCatapult"></span></div>
+<div class="box box-2">
+<div class="box-title">Inferior catapult</div>
+<div class="paragraph">
+The catapult in Back to Skool is not quite so handy as the one in Skool
+Daze. In both games, the catapult's range is the same (13 spaces), but in Back
+to Skool, its 'hit zone' is shorter (the last 4 spaces of the range instead of
+the last 7). So in Back to Skool, ERIC has to be further away from his target
+in order to hit it.
+</div>
+<div class="paragraph">
+To adjust the hit zone (and the range) of the catapult, see
+<a href="pokes.html#superCatty">these POKEs</a>.
+</div>
+</div>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../reference/facts.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

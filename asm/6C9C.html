@@ -23,7 +23,7 @@
 <div class="description">6C9C: Check whether any characters were punched</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="77C8.html">77C8</a>. Returns with the carry flag reset if someone was hit in the face, and <span class="register">D</span> holding the character number of the stricken one.
@@ -61,66 +61,77 @@ Used by the routine at <a href="77C8.html">77C8</a>. Returns with the carry flag
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6c9c"></span>6C9C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6CAC.html">$6CAC</a></td>
 <td class="comment-11" rowspan="1">Are any characters in front of the puncher's fist?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c9f"></span>6C9F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ca0"></span>6CA0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$00</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ca2"></span>6CA2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character in front of the puncher's fist</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ca3"></span>6CA3</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $80</td>
 <td class="comment-11" rowspan="1">Keep only the 'direction' bit (bit 7)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ca5"></span>6CA5</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR C</td>
 <td class="comment-11" rowspan="1">Compare with the direction bit of the punching character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ca6"></span>6CA6</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if the punched character was facing the puncher (i.e. was hit in the face)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ca7"></span>6CA7</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Otherwise move on to the next potential victim</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6ca8"></span>6CA8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $6C9C</td>
 <td class="comment-11" rowspan="1">Jump back to consider any remaining potential victim</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6caa"></span>6CAA</td>
+<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: no characters were hit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6cab"></span>6CAB</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -133,10 +144,10 @@ Used by the routine at <a href="77C8.html">77C8</a>. Returns with the carry flag
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/27804.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/27804.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

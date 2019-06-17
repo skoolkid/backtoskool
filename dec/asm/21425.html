@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 21425</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="21419.html">21419</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#21425">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="21492.html">21492</a></span></td>
+</tr>
+</table>
+<div class="description">21425: Clear the screen and request the input method (keyboard, joystick, Int2)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="21920.html">21920</a>.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21425"></span>21425</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD BC,640</td>
+<td class="comment-11" rowspan="5">INK 0: PAPER 6 for the top 20 lines of screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21428"></span>21428</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD DE,22529</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21431"></span>21431</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,22528</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21434"></span>21434</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),48</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21436"></span>21436</td>
+<td class="bytes-0"></td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21438"></span>21438</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,128</td>
+<td class="comment-11" rowspan="3">INK 6: PAPER 6 for the bottom 4 lines of screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21440"></span>21440</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),54</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21442"></span>21442</td>
+<td class="bytes-0"></td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21444"></span>21444</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="21419.html">21419</a></td>
+<td class="comment-11" rowspan="1">Make a short beep</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21447"></span>21447</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,64</td>
+<td class="comment-11" rowspan="5">Clear the top two-thirds of the display file</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21449"></span>21449</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21450"></span>21450</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21451"></span>21451</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,16</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21453"></span>21453</td>
+<td class="bytes-0"></td>
+<td class="instruction">LDIR</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21455"></span>21455</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,160</td>
+<td class="comment-11" rowspan="8">Clear the remainder of the screen, except the bottom 3 lines (which contain machine code)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21457"></span>21457</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21458"></span>21458</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21459"></span>21459</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 21457</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21461"></span>21461</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21462"></span>21462</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21463"></span>21463</td>
+<td class="bytes-0"></td>
+<td class="instruction">BIT 3,H</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21465"></span>21465</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,21455</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21467"></span>21467</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,128</td>
+<td class="comment-11" rowspan="2">Set the column of the play area at the far left of the screen to 128</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21469"></span>21469</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32767),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21472"></span>21472</td>
+<td class="bytes-0"></td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21473"></span>21473</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20640.html">20640</a></td>
+<td class="comment-11" rowspan="1">Clear character buffer 214 (for no good reason)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21476"></span>21476</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,246</td>
+<td class="comment-11" rowspan="1">Message <a href="22176.html">246</a>: 'None/Cursor/Kempston/Int2? (N,C,K or I)'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21478"></span>21478</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,16448</td>
+<td class="comment-11" rowspan="2">Print this message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21481"></span>21481</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20665.html#20668">20668</a></td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21484"></span>21484</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,23611</td>
+<td class="comment-11" rowspan="2">Clear bit 5 at 23611, ready for future keypresses</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21487"></span>21487</td>
+<td class="bytes-0"></td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21489"></span>21489</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP <a href="21664.html">21664</a></td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="21419.html">21419</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#21425">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="21492.html">21492</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/53B1.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

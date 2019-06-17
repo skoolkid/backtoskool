@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 25525</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="25520.html">25520</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25525">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25533.html">25533</a></span></td>
+</tr>
+</table>
+<div class="description">25525: Set the interruptible subcommand (unused)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+This routine is not used. It drops the return address from the stack and copies it into bytes 9 and 10 of the character's buffer (thus setting the interruptible subcommand), and then jumps to the routine whose address is in <span class="register">BC</span>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">BC</td>
+<td class="register-desc">Routine address</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Character number (183-214)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="25525"></span>25525</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,H</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25526"></span>25526</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Drop the return address from the stack into <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25527"></span>25527</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-11" rowspan="1">Push the routine address in <span class="register">BC</span> onto the stack</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25528"></span>25528</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,L</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25529"></span>25529</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,9</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25531"></span>25531</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR <a href="25503.html#25514">25514</a></td>
+<td class="comment-11" rowspan="1">Copy the return address into bytes 9 and 10 of the character's buffer, and jump to the routine whose address was in <span class="register">BC</span> on entering this routine</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="25520.html">25520</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25525">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25533.html">25533</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/63B5.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

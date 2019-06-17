@@ -23,7 +23,7 @@
 <div class="description">63B0: Jump to an interruptible subcommand</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="6464.html">6464</a> and <a href="7D36.html">7D36</a>. Copies the routine address from <span class="register">BC</span> into bytes 0x09 and 0x0A of the character's buffer (thus setting the interruptible subcommand), and then jumps to that routine.
@@ -53,18 +53,21 @@ Used by the routines at <a href="6464.html">6464</a> and <a href="7D36.html">7D3
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63b0"></span>63B0</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1">Push the routine address in <span class="register">BC</span> onto the stack</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63b1"></span>63B1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$09</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x09 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63b3"></span>63B3</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR <a href="639F.html#63ac">$63AC</a></td>
 <td class="comment-11" rowspan="1">Place the interruptible subcommand routine address into bytes 0x09 and 0x0A of the character's buffer, then jump to it</td>
 </tr>
@@ -77,10 +80,10 @@ Used by the routines at <a href="6464.html">6464</a> and <a href="7D36.html">7D3
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/25520.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/25520.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">76AC: Control the flight of a catapult pellet</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of a catapult pellet's buffer by the routine at <a href="775B.html">775B</a>. It controls the pellet from the beginning of its flight to the end, including any collisions with cups, trees, other characters, and teachers' heads.
@@ -49,41 +49,47 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76ac"></span>76AC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="1">Byte 0x13 of the pellet's buffer holds the distance left to travel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76ae"></span>76AE</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Has the pellet finished travelling?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76af"></span>76AF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="74C8.html#74cf">$74CF</a></td>
 <td class="comment-11" rowspan="1">Terminate the pellet if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76b2"></span>76B2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=distance left to travel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76b3"></span>76B3</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $05</td>
 <td class="comment-11" rowspan="1">Does the pellet have fewer than 5 spaces left to travel?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76b5"></span>76B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$76CD</td>
 <td class="comment-11" rowspan="1">Jump if so (to check for hittable obstacles)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="76b7"></span>
 <div class="comments">
 <div class="paragraph">
@@ -95,95 +101,110 @@ The pellet is merrily wending its way through the air. It's not ready to hit any
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76b7"></span>76B7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76b9"></span>76B9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=pellet's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76ba"></span>76BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="2">Set the carry flag if the pellet is travelling to the left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76bb"></span>76BB</td>
+<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76bc"></span>76BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
 <td class="comment-11" rowspan="3"><span class="register">A</span>=-1 if the pellet is travelling leftwards, 1 if rightwards</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76bd"></span>76BD</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76be"></span>76BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76bf"></span>76BF</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2">Add the pellet's x-coordinate to obtain that of the location directly in front of the pellet</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c0"></span>76C0</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c1"></span>76C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1">Store this in <span class="register">E</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c2"></span>76C2</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c3"></span>76C3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=pellet's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c4"></span>76C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7654.html">$7654</a></td>
 <td class="comment-11" rowspan="1">Check for closed doors, windows and walls in the pellet's path</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76c7"></span>76C7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="74C8.html#74cf">$74CF</a></td>
 <td class="comment-11" rowspan="1">Terminate the pellet if there is one</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76ca"></span>76CA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="720A.html#7250">$7250</a></td>
 <td class="comment-11" rowspan="1">Otherwise just advance the pellet one space</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="76cd"></span>
 <div class="comments">
 <div class="paragraph">
@@ -195,17 +216,19 @@ The pellet is ready to hit a vulnerable character, cup or tree.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76cd"></span>76CD</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7615.html">$7615</a></td>
 <td class="comment-11" rowspan="1">Has the pellet hit a water- or sherry-filled cup?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d0"></span>76D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$76E3</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="76d2"></span>
 <div class="comments">
 <div class="paragraph">
@@ -217,65 +240,75 @@ The pellet has hit a water- or sherry-filled cup, or a conker in the tree. The <
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76d2"></span>76D2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$12</td>
 <td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="74C8.html">74C8</a> into bytes 0x11 and 0x12 of the catapult pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d4"></span>76D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$74</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d6"></span>76D6</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d7"></span>76D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$C8</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76d9"></span>76D9</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save the new animatory state of the transmuted pellet</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76da"></span>76DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the pellet's current location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76dd"></span>76DD</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the transmuted pellet's animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76de"></span>76DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
 <td class="comment-11" rowspan="2">The projectile will ascend two levels</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76df"></span>76DF</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76e0"></span>76E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the projectile's location and update the SRB</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="76e3"></span>
 <div class="comments">
 <div class="paragraph">
@@ -287,89 +320,103 @@ The pellet hasn't hit a water- or sherry-filled cup. Has it hit a teacher?
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76e3"></span>76E3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76e5"></span>76E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=pellet's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76e6"></span>76E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76e7"></span>76E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=pellet's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76e8"></span>76E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$05</td>
 <td class="comment-11" rowspan="1">There are 5 teachers who can be hit by a pellet</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76ea"></span>76EA</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="74A0.html#74a2">$74A2</a></td>
 <td class="comment-11" rowspan="1">Has the pellet hit any of these teachers?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76ed"></span>76ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$771B</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76ef"></span>76EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0x00 of the stricken teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76f1"></span>76F1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of this teacher</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76f2"></span>76F2</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
 <td class="comment-11" rowspan="2">Is the teacher already sitting on the floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76f4"></span>76F4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $06</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76f6"></span>76F6</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7712</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76f8"></span>76F8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="2">Place 6 into byte 0x13 of the pellet's buffer (the distance the pellet will travel after bouncing off the teacher's head)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76fa"></span>76FA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="76fb"></span>
 <div class="comments">
 <div class="paragraph">
@@ -381,71 +428,82 @@ This section of code controls the pellet's motion on its ascent from the teacher
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="76fb"></span>76FB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="1">Byte 0x13 of the pellet's buffer holds the distance left to travel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76fd"></span>76FD</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Decrement this</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="76fe"></span>76FE</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="74C8.html#74cf">$74CF</a></td>
 <td class="comment-11" rowspan="1">Terminate the pellet if its journey is over</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7701"></span>7701</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7615.html">$7615</a></td>
 <td class="comment-11" rowspan="1">Has the pellet hit a water- or sherry-filled cup?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7704"></span>7704</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$76D2</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7706"></span>7706</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the pellet's current location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7709"></span>7709</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
 <td class="comment-11" rowspan="1">Has the pellet hit the ceiling on the top floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="770a"></span>770A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$770D</td>
 <td class="comment-11" rowspan="1">Jump if not (having raised the pellet one level)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="770c"></span>770C</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=1; this makes the pellet hover just below the ceiling on the top floor before disappearing, which is a <a href="../reference/bugs.html#pelletHover">bug</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="770d"></span>770D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
 <td class="comment-11" rowspan="1">Replace the address of this routine in bytes 0x11 and 0x12 of the pellet's buffer with <a href="76AC.html#7710">7710</a> (the address of the next instruction)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7710"></span>7710</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $76FB</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7712"></span>
 <div class="comments">
 <div class="paragraph">
@@ -457,41 +515,47 @@ The pellet has hit a teacher who's standing up.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7712"></span>7712</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$12</td>
 <td class="comment-11" rowspan="1">Point <span class="register">BC</span> at byte 0x12 of the teacher's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7714"></span>7714</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=MSB of a routine address, or 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7715"></span>7715</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7716"></span>7716</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is there an uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the teacher's buffer?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7717"></span>7717</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="74C8.html#751f">$751F</a></td>
 <td class="comment-11" rowspan="1">Jump if not (this teacher can be knocked over)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="771a"></span>771A</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="771b"></span>
 <div class="comments">
 <div class="paragraph">
@@ -503,29 +567,33 @@ The pellet hasn't hit any liquid-containing cups or vulnerable teachers. Has it 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="771b"></span>771B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$CE</td>
 <td class="comment-11" rowspan="1">0xCE=BOY WANDER</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="771d"></span>771D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$05</td>
 <td class="comment-11" rowspan="1">There are 5 kids who can be knocked over</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="771f"></span>771F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6CAC.html">$6CAC</a></td>
 <td class="comment-11" rowspan="1">Has the pellet hit any of them?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7722"></span>7722</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NC,<a href="7842.html">$7842</a></td>
 <td class="comment-11" rowspan="1">Knock them down if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7725"></span>
 <div class="comments">
 <div class="paragraph">
@@ -537,102 +605,119 @@ The pellet hasn't hit any liquid-containing cups, teachers or kids. Has it hit a
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7725"></span>7725</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="1">Byte 0x13 of the pellet's buffer holds the distance left to travel</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7727"></span>7727</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7728"></span>7728</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1">Is there only one space left to travel?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7729"></span>7729</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,$76B7</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="772c"></span>772C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="772e"></span>772E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=pellet's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="772f"></span>772F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
 <td class="comment-11" rowspan="1">Was the pellet fired on the top floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7731"></span>7731</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$773C</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7733"></span>7733</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7734"></span>7734</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=pellet's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7735"></span>7735</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $80</td>
 <td class="comment-11" rowspan="2">Jump if the pellet is to the right of the tree (it was fired in the girls' skool)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7737"></span>7737</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$773C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7739"></span>7739</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $60</td>
 <td class="comment-11" rowspan="2">Set the carry flag if <span class="register">A</span>&gt;=96 (i.e. the pellet is in the tree)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="773b"></span>773B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="773c"></span>773C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NC,$76B7</td>
 <td class="comment-11" rowspan="1">Jump unless the pellet will knock a conker out of the tree</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="773f"></span>773F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$37</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#55">0x37</a>: animatory state of a conker</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7741"></span>7741</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP $76D2</td>
 <td class="comment-11" rowspan="1">Transmute the pellet into a conker</td>
 </tr>
@@ -645,10 +730,10 @@ The pellet hasn't hit any liquid-containing cups, teachers or kids. Has it hit a
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/30380.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30380.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">F3D7: 'S' pressed - sit (1)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'S' is pressed.
@@ -46,30 +46,35 @@ The address of this routine is found in the table of keypress handling routines 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f3d7"></span>F3D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6E50.html">$6E50</a></td>
 <td class="comment-11" rowspan="1">Is ERIC on a staircase?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3da"></span>F3DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3db"></span>F3DB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
 <td class="comment-11" rowspan="2">Set bit 2 of ERIC's status flags at <a href="7FFB.html">7FFB</a>: ERIC is sitting</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3dd"></span>F3DD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FFB),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f3e0"></span>F3E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR <a href="F3FC.html">$F3FC</a></td>
 <td class="comment-11" rowspan="1">Skip over the routine at <a href="F3E6.html">F3E6</a></td>
 </tr>
@@ -82,10 +87,10 @@ The address of this routine is found in the table of keypress handling routines 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/62423.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/62423.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

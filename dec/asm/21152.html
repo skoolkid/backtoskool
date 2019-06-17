@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 21152</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="20956.html">20956</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#21152">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="21237.html">21237</a></span></td>
+</tr>
+</table>
+<div class="description">21152: Display the cast of characters and change their names</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="21664.html">21664</a>. For each member of the cast: displays his name and title, walks him onto the screen, allows the user to change the name, and then walks him off the screen.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21152"></span>21152</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,21</td>
+<td class="comment-11" rowspan="1">Message <a href="61267.html">21</a>: 'MR WACKER'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21154"></span>21154</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the message number</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21155"></span>21155</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,80</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=101-111 (message number for the character's title)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21157"></span>21157</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,16512</td>
+<td class="comment-11" rowspan="1">16512=display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21160"></span>21160</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20665.html#20668">20668</a></td>
+<td class="comment-11" rowspan="1">Print the appropriate title (e.g. 'THE HEADMASTER')</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21163"></span>21163</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,244</td>
+<td class="comment-11" rowspan="1">Message <a href="22000.html">244</a>: '' (empty string)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21165"></span>21165</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20665.html">20665</a></td>
+<td class="comment-11" rowspan="1">Print this (thus removing 'Press 'C' to change name' from the screen)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21168"></span>21168</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the message number for the character's name to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21169"></span>21169</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save it again</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21170"></span>21170</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,20544</td>
+<td class="comment-11" rowspan="1">20544=display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21173"></span>21173</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20665.html#20668">20668</a></td>
+<td class="comment-11" rowspan="1">Print the character's name there</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21176"></span>21176</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the message number for the character's name to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21177"></span>21177</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save it again</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21178"></span>21178</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,224</td>
+<td class="comment-11" rowspan="3">Point <span class="register">HL</span> at an entry in the table of animatory states at <a href="21237.html">21237</a></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21180"></span>21180</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21181"></span>21181</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,82</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21183"></span>21183</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character standing, facing right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21184"></span>21184</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,53760</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21187"></span>21187</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-11" rowspan="1">Fill in the animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21188"></span>21188</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21189"></span>21189</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),124</td>
+<td class="comment-11" rowspan="1">Fill in the character's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21191"></span>21191</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20956.html">20956</a></td>
+<td class="comment-11" rowspan="1">Walk the character to the middle of the screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21194"></span>21194</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,23611</td>
+<td class="comment-11" rowspan="2">Reset bit 5 at 23611, ready for future keypresses</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21197"></span>21197</td>
+<td class="bytes-0"></td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21199"></span>21199</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,250</td>
+<td class="comment-11" rowspan="1">Message <a href="22235.html">250</a>: 'Press 'C' to change name'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21201"></span>21201</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20665.html">20665</a></td>
+<td class="comment-11" rowspan="1">Print this message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21204"></span>21204</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="29118.html#29154">29154</a></td>
+<td class="comment-11" rowspan="2">Wait for a keypress</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21207"></span>21207</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,21204</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21209"></span>21209</td>
+<td class="bytes-0"></td>
+<td class="instruction">OR 32</td>
+<td class="comment-11" rowspan="1">Convert the keypress to lower case</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21211"></span>21211</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 99</td>
+<td class="comment-11" rowspan="1">Was 'c' pressed?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21213"></span>21213</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,21227</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="21215"></span>
+<div class="comments">
+<div class="paragraph">
+The user pressed 'c' to change the character's name.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21215"></span>21215</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,252</td>
+<td class="comment-11" rowspan="1">Message <a href="22000.html">252</a>: 'Enter new name'</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21217"></span>21217</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20665.html">20665</a></td>
+<td class="comment-11" rowspan="1">Print this message</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21220"></span>21220</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the message number for the character's name to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21221"></span>21221</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save it again</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21222"></span>21222</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20896.html">20896</a></td>
+<td class="comment-11" rowspan="1">Change the character's name</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21225"></span>21225</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 21194</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="21227"></span>
+<div class="comments">
+<div class="paragraph">
+The user pressed some key other than 'c'.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="21227"></span>21227</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="20956.html">20956</a></td>
+<td class="comment-11" rowspan="1">Walk the character off screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21230"></span>21230</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the message number for the character's name to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21231"></span>21231</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC A</td>
+<td class="comment-11" rowspan="1">Next character</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21232"></span>21232</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 32</td>
+<td class="comment-11" rowspan="1">Have we done all the main game characters yet?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21234"></span>21234</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,21154</td>
+<td class="comment-11" rowspan="1">Jump back if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="21236"></span>21236</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="20956.html">20956</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#21152">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="21237.html">21237</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/52A0.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

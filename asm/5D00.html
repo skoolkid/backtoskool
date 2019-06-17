@@ -23,7 +23,7 @@
 <div class="description">5D00: Deal with ERIC while he's falling (2)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Continues from <a href="FBCC.html">FBCC</a>.
@@ -69,144 +69,168 @@ Continues from <a href="FBCC.html">FBCC</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d00"></span>5D00</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $0F</td>
 <td class="comment-11" rowspan="1">Retain only bits 0-3 (the animatory state)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d02"></span>5D02</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,B</td>
 <td class="comment-11" rowspan="1">Now <span class="register">A</span>=ERIC's new animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d03"></span>5D03</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="1">Store this in <span class="register">B</span> for now</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d04"></span>5D04</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=descent table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d05"></span>5D05</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1">Is ERIC ascending (bit 7 of <span class="register">C</span> set)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d06"></span>5D06</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$5D09</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d08"></span>5D08</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
 <td class="comment-11" rowspan="1">Move ERIC up a level</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d09"></span>5D09</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1">Is ERIC descending (bit 6 of <span class="register">C</span> set)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d0a"></span>5D0A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$5D0D</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d0c"></span>5D0C</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Move ERIC down a level</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d0d"></span>5D0D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1">Should ERIC move forward one space (bit 5 of <span class="register">C</span> set)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d0e"></span>5D0E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$5D15</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d10"></span>5D10</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,B</td>
 <td class="comment-11" rowspan="1">Is ERIC facing right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d12"></span>5D12</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5D1E</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d14"></span>5D14</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d15"></span>5D15</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1">Should ERIC move backwards one space (bit 4 of <span class="register">C</span> set)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d16"></span>5D16</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$5D1F</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d18"></span>5D18</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d19"></span>5D19</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,B</td>
 <td class="comment-11" rowspan="1">Is ERIC facing right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d1b"></span>5D1B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5D1F</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d1d"></span>5D1D</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d1e"></span>5D1E</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Now <span class="register">E</span>=ERIC's new x-coordinate, <span class="register">D</span>=ERIC's new y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5d1f"></span>5D1F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's new animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5d20"></span>5D20</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6E00.html#6e0c">$6E0C</a></td>
 <td class="comment-11" rowspan="1">Update ERIC's animatory state and location, update the SRB make a sound effect, and scroll the screen if necessary</td>
 </tr>
@@ -219,10 +243,10 @@ Continues from <a href="FBCC.html">FBCC</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/23808.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/23808.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

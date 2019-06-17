@@ -23,7 +23,7 @@
 <div class="description">7132: Make a female character stop jumping</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="7966.html">7966</a>.
@@ -49,42 +49,49 @@ Used by the routine at <a href="7966.html">7966</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7132"></span>7132</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7135"></span>7135</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$FC</td>
 <td class="comment-11" rowspan="4">Determine which floor the character is currently on or above (she may be on a chair or still in the air)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7137"></span>7137</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$07</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7139"></span>7139</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="713a"></span>713A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$7137</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="713c"></span>713C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=0x03, 0x0A or 0x11 (top, middle or bottom floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="713d"></span>713D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7596.html#75a3">$75A3</a></td>
 <td class="comment-11" rowspan="1">Restore the character's original animatory state and put her feet back on the floor</td>
 </tr>
@@ -97,10 +104,10 @@ Used by the routine at <a href="7966.html">7966</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/28978.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28978.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

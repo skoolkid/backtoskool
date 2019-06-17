@@ -23,7 +23,7 @@
 <div class="description">6A08: Make a character speak</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of the character's buffer by the routine at <a href="F05D.html">F05D</a>, <a href="F073.html">F073</a>, <a href="F100.html">F100</a>, <a href="F250.html">F250</a> or <a href="F55F.html">F55F</a>.
@@ -53,17 +53,19 @@ The address of this interruptible subcommand routine is placed into bytes 0x09 a
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a08"></span>6A08</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$0B</td>
 <td class="comment-11" rowspan="2">Store the message number in byte 0x0B of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a0a"></span>6A0A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6a0b"></span>
 <div class="comments">
 <div class="paragraph">
@@ -75,83 +77,96 @@ The address of this entry point is placed into bytes 0x09 and 0x0A of EINSTEIN's
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a0b"></span>6A0B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$10</td>
 <td class="comment-11" rowspan="5">Clear bytes 0x0C-0x10 of the character's buffer, thus removing the addresses of any old (sub)(sub)messages</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a0d"></span>6A0D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$05</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a0f"></span>6A0F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a11"></span>6A11</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a12"></span>6A12</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $6A0F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a14"></span>6A14</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=message number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a15"></span>6A15</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$FE</td>
 <td class="comment-11" rowspan="7">Pick up the address of the message and place it into bytes 0x0B and 0x0C of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a17"></span>6A17</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a18"></span>6A18</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a19"></span>6A19</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a1a"></span>6A1A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a1b"></span>6A1B</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a1c"></span>6A1C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6a1d"></span>
 <div class="comments">
 <div class="paragraph">
@@ -163,59 +178,68 @@ If somebody else is already speaking, this entry point is used while this charac
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a1d"></span>6A1D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FF8)</td>
 <td class="comment-11" rowspan="1"><a href="7FF8.html">7FF8</a> holds the LSB of the SRB address corresponding to the lip of the speech bubble (or 0 if there is no bubble on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a20"></span>6A20</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$09</td>
 <td class="comment-11" rowspan="2">Place the address of the entry point at <a href="6A08.html#6a1d">6A1D</a> into bytes 0x09 and 0x0A of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a22"></span>6A22</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$1D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a24"></span>6A24</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is anyone else speaking at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a25"></span>6A25</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a26"></span>6A26</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$2E</td>
 <td class="comment-11" rowspan="1">Place the address of the entry point at <a href="6A08.html#6a2e">6A2E</a> into bytes 0x09 and 0x0A of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a28"></span>6A28</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="694E.html">$694E</a></td>
 <td class="comment-11" rowspan="1">Print the speech bubble if the character's head is on-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a2b"></span>6A2B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if the character's head is on-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a2c"></span>6A2C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $6A45</td>
 <td class="comment-11" rowspan="1">Otherwise make this routine relinquish control of the character</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6a2e"></span>
 <div class="comments">
 <div class="paragraph">
@@ -227,71 +251,82 @@ This entry point is used while the character is speaking.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a2e"></span>6A2E</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a2f"></span>6A2F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="68E1.html">$68E1</a></td>
 <td class="comment-11" rowspan="1">Update the SRB so that the speech bubble is not corrupted</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a32"></span>6A32</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a33"></span>6A33</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6A42</td>
 <td class="comment-11" rowspan="1">Jump if the speech bubble is no longer on-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a35"></span>6A35</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-11" rowspan="3">Point <span class="register">HL'</span> at the end of the buffer (at <a href="5B00.html">5B00</a>) which will contain the speech text graphic data</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a36"></span>6A36</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5B3F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a39"></span>6A39</td>
+<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a3a"></span>6A3A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$02</td>
 <td class="comment-11" rowspan="1">We scroll the message two letters at a time</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a3c"></span>6A3C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="66CE.html">$66CE</a></td>
 <td class="comment-11" rowspan="1">Collect in <span class="register">A</span> the next character code from the message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a3f"></span>6A3F</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Has the message finished?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a40"></span>6A40</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$6A48</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6a42"></span>
 <div class="comments">
 <div class="paragraph">
@@ -303,17 +338,19 @@ The message has finished, or the speech bubble has been scrolled off the screen.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a42"></span>6A42</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="691E.html">$691E</a></td>
 <td class="comment-11" rowspan="1">Update the SRB to get rid of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a45"></span>6A45</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="638C.html#6390">$6390</a></td>
 <td class="comment-11" rowspan="1">Terminate this interruptible subcommand</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6a48"></span>
 <div class="comments">
 <div class="paragraph">
@@ -325,252 +362,294 @@ The character has not finished speaking.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a48"></span>6A48</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a49"></span>6A49</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="69E6.html">$69E6</a></td>
 <td class="comment-11" rowspan="1">Roll the font character bitmap into the message buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a4c"></span>6A4C</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a4d"></span>6A4D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $6A3C</td>
 <td class="comment-11" rowspan="1">Jump back until two more letters have been rolled into the buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a4f"></span>6A4F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
 <td class="comment-11" rowspan="2">Reset the walk/run bit in byte 0x1D of the character's buffer to make sure he speaks slowly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a51"></span>6A51</td>
+<td class="bytes-0"></td>
 <td class="instruction">RES 7,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a53"></span>6A53</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FF8)</td>
 <td class="comment-11" rowspan="2">Now <span class="register">A</span>=LSB of the address of the SRB byte corresponding to the top line of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a56"></span>6A56</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $08</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a58"></span>6A58</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-11" rowspan="13">Set <span class="register">HL</span> to the display file address of the start of the top pixel line of text</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a59"></span>6A59</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a5a"></span>6A5A</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a5b"></span>6A5B</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $18</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a5d"></span>6A5D</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$44</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a5f"></span>6A5F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a60"></span>6A60</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a61"></span>6A61</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a62"></span>6A62</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a63"></span>6A63</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a64"></span>6A64</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a65"></span>6A65</td>
+<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a66"></span>6A66</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a67"></span>6A67</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$5B02</td>
 <td class="comment-11" rowspan="1">The speech text graphic data is stored in the 64-byte buffer at <a href="5B00.html">5B00</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a6a"></span>6A6A</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a6b"></span>6A6B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL $6A77</td>
 <td class="comment-11" rowspan="1">Print the top 4 pixel rows of the text inside the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a6e"></span>6A6E</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$20</td>
 <td class="comment-11" rowspan="6">Set <span class="register">DE</span> to the display file address of the start of the 5th pixel row of text</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a70"></span>6A70</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a71"></span>6A71</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$6A78</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a73"></span>6A73</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a74"></span>6A74</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $08</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a76"></span>6A76</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a77"></span>6A77</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1">Save the LSB of the base display file address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a78"></span>6A78</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$04</td>
 <td class="comment-11" rowspan="1">4 pixel lines at a time</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6a7a"></span>6A7A</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a7b"></span>6A7B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0006</td>
 <td class="comment-11" rowspan="1">There are 6 character squares inside the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a7e"></span>6A7E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
 <td class="comment-11" rowspan="1">Copy a row of 6 bytes to the screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a80"></span>6A80</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2">Move <span class="register">HL</span> to the start of the next row of pixel data in the message buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a81"></span>6A81</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a82"></span>6A82</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1">Restore the LSB of the base display file address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a83"></span>6A83</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Next pixel row down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a84"></span>6A84</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a85"></span>6A85</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $6A7A</td>
 <td class="comment-11" rowspan="1">Jump back until all 4 pixel rows in this half have been copied to the screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6a87"></span>6A87</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -583,10 +662,10 @@ The character has not finished speaking.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/27144.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/27144.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">F54A: Make MR WACKER find the truant ERIC</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of MR WACKER's buffer by the routine at <a href="7D36.html">7D36</a> after ALBERT has spotted ERIC trying to escape and raised the alarm.
@@ -49,35 +49,40 @@ The address of this interruptible subcommand routine is placed into bytes 0x09 a
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f54a"></span>F54A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
 <td class="comment-11" rowspan="2">Set bit 7 of byte 0x1D of MR WACKER's buffer, making him run</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f54c"></span>F54C</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 7,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f54e"></span>F54E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of MR WACKER's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f550"></span>F550</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is MR WACKER midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f552"></span>F552</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="6558.html#655e">$655E</a></td>
 <td class="comment-11" rowspan="1">Finish the stride if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f555"></span>
 <div class="comments">
 <div class="paragraph">
@@ -89,24 +94,28 @@ Now check whether a command list restart has been requested. This request will h
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f555"></span>F555</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
 <td class="comment-11" rowspan="2">Has a command list restart been requested (i.e. should MR WACKER end the chase now)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f557"></span>F557</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f559"></span>F559</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="7E7B.html#7e8f">$7E8F</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f55c"></span>F55C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6558.html">$6558</a></td>
 <td class="comment-11" rowspan="1">Otherwise continue the hunt for ERIC</td>
 </tr>
@@ -119,10 +128,10 @@ Now check whether a command list restart has been requested. This request will h
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/62794.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/62794.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

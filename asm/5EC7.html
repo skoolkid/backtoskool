@@ -23,7 +23,7 @@
 <div class="description">5EC7: 'H' pressed - hit</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'H' is pressed.
@@ -46,71 +46,82 @@ The address of this routine is found in the table of keypress handling routines 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5ec7"></span>5EC7</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6E50.html">$6E50</a></td>
 <td class="comment-11" rowspan="1">Is ERIC on a staircase?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5eca"></span>5ECA</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ecb"></span>5ECB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$08</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#8">0x08</a>: ERIC raising his fist</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ecd"></span>5ECD</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="5EB7.html">$5EB7</a></td>
 <td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="5EC7.html#5ed0">5ED0</a> (below) when it's time to deal with ERIC again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5ed0"></span>5ED0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D200</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ed3"></span>5ED3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ed4"></span>5ED4</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Is ERIC raising his fist (<span class="register">A</span>=<a href="../graphics/as.html#8">0x08/0x88</a>)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ed5"></span>5ED5</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NC,<a href="7813.html#7820">$7820</a></td>
 <td class="comment-11" rowspan="1">If so, raise ERIC's fist fully now and check for victims</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ed8"></span>5ED8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$61</td>
 <td class="comment-11" rowspan="1">Message <a href="EDF9.html">0x61</a>: DON'T HIT YOUR MATES</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5eda"></span>5EDA</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F862.html#f898">$F898</a></td>
 <td class="comment-11" rowspan="1">Make any nearby teachers give ERIC lines</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5edd"></span>5EDD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$08</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#8">0x08</a>: ERIC lowering his fist</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="5edf"></span>
 <div class="comments">
 <div class="paragraph">
@@ -122,11 +133,12 @@ This is where the routine at <a href="5EE8.html">5EE8</a> ought to enter:
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5edf"></span>5EDF</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="5EB7.html">$5EB7</a></td>
 <td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="5EC7.html#5ee2">5EE2</a> (below) when it's time to deal with ERIC again</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="5ee2"></span>
 <div class="comments">
 <div class="paragraph">
@@ -138,12 +150,14 @@ This entry point is used by the routine at <a href="5F1C.html">5F1C</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5ee2"></span>5EE2</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0 (prepare to clear all status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ee3"></span>5EE3</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="5D63.html#5d75">$5D75</a></td>
 <td class="comment-11" rowspan="1">Clear all of ERIC's status flags now that he's finished firing, hitting or kissing, update his animatory state and update the SRB</td>
 </tr>
@@ -156,10 +170,10 @@ This entry point is used by the routine at <a href="5F1C.html">5F1C</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/24263.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/24263.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

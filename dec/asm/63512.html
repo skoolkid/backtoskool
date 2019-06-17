@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 63512</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63501.html">63501</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#63512">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="63553.html">63553</a></span></td>
+</tr>
+</table>
+<div class="description">63512: Scroll the display file left or right one column</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="63561.html">63561</a>. Returns with the column of the play area that was at the far left of the screen before this routine was called in <span class="register">A</span>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">16384 or 16415</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="63512"></span>63512</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,0</td>
+<td class="comment-11" rowspan="1"><span class="register">BC</span> will be used as the counter for the LDIR/LDDR instruction at <a href="63512.html#63526">63526</a>; initialise the MSB to 0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63514"></span>63514</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63515"></span>63515</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,21</td>
+<td class="comment-11" rowspan="1">There are 21 rows to scroll (the bottom 3 rows of the screen are fixed)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="63517"></span>63517</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,8</td>
+<td class="comment-11" rowspan="1">8 pixel lines per row of the screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="63519"></span>63519</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63520"></span>63520</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,D</td>
+<td class="comment-11" rowspan="2">Copy the display file address from <span class="register">DE</span> to <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63521"></span>63521</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63522"></span>63522</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="1">This instruction is set to INC L if we're scrolling to the left, or DEC L if we're scrolling to the right (see <a href="63561.html">63561</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63523"></span>63523</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1">Save the LSB of the display file address in <span class="register">A</span> briefly</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63524"></span>63524</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,31</td>
+<td class="comment-11" rowspan="1">31 bytes to shift per pixel line</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63526"></span>63526</td>
+<td class="bytes-0"></td>
+<td class="instruction">LDIR</td>
+<td class="comment-11" rowspan="1">This instruction is set to LDIR if we're shifting to the left, or LDDR if we're shifting to the right (see <a href="63561.html">63561</a>)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63528"></span>63528</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,A</td>
+<td class="comment-11" rowspan="1">Restore the LSB of the display file address to <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63529"></span>63529</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the first (or last) byte of the next pixel line in this row</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63530"></span>63530</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63531"></span>63531</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 63519</td>
+<td class="comment-11" rowspan="1">Shift the remaining pixel lines in this row</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63533"></span>63533</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63534"></span>63534</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="3">Set <span class="register">E</span> to the LSB of the display file address for the first (or last) byte of the first pixel line in the next row down</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63535"></span>63535</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,32</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63537"></span>63537</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63538"></span>63538</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,63544</td>
+<td class="comment-11" rowspan="1">Jump if we just finished shifting the eighth or sixteenth row</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63540"></span>63540</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="3">Adjust <span class="register">D</span> appropriately in the case where we haven't finished with the current 8-row third of the screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63541"></span>63541</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 8</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63543"></span>63543</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="63544"></span>63544</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63545"></span>63545</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC C</td>
+<td class="comment-11" rowspan="1">Next row</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63546"></span>63546</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,63517</td>
+<td class="comment-11" rowspan="1">Jump back until all 21 rows have been shifted</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63548"></span>63548</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63549"></span>63549</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32767)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=column of the play area (that was) at the far left of the screen</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="63552"></span>63552</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="63501.html">63501</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#63512">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="63553.html">63553</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/F818.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

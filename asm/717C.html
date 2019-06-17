@@ -23,7 +23,7 @@
 <div class="description">717C: Make a character open or close a door</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by command lists <a href="E400.html">0x16</a>, <a href="E600.html">0x18</a>, <a href="E700.html">0x1A</a>, <a href="E264.html">0x1C</a>, <a href="E94C.html">0x4C</a> and <a href="E975.html">0x4E</a>. This routine works on two parameters. First the door identifier:
@@ -88,77 +88,89 @@ And then the action identifier:
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="717c"></span>717C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="2">Replace the address of this routine in bytes 0x03 and 0x04 of the character's buffer with <a href="717C.html#7185">7185</a> (below)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="717e"></span>717E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$85</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7180"></span>7180</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="2">Copy the door identifier and open/close parameter from the command list into bytes 0x13 and 0x14 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7182"></span>7182</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6264.html">$6264</a></td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7185"></span>7185</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7187"></span>7187</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=door identifier</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7188"></span>7188</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $08</td>
 <td class="comment-11" rowspan="1">Is it the boys' skool door?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="718a"></span>718A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,<a href="71AD.html">$71AD</a></td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="718c"></span>718C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($D301)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the bike</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="718f"></span>718F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $5E</td>
 <td class="comment-11" rowspan="1">Is the bike in the boys' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7191"></span>7191</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$719F</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7193"></span>7193</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$1160</td>
 <td class="comment-11" rowspan="1">(<span class="register">E</span>,<span class="register">D</span>)=(96,17)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7196"></span>
 <div class="comments">
 <div class="paragraph">
@@ -170,29 +182,33 @@ This entry point is used by the routine at <a href="71AD.html">71AD</a> with (<s
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7196"></span>7196</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1">Set the carry flag if the bike is blocking the way</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7197"></span>7197</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($D300)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=bike's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="719a"></span>719A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL C,<a href="6780.html">$6780</a></td>
 <td class="comment-11" rowspan="1">Move the bike to the location in <span class="register">DE</span> if it's blocking the boys' skool door or the skool gate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="719d"></span>719D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$CD</td>
 <td class="comment-11" rowspan="1">0xCD=ALBERT</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="719f"></span>
 <div class="comments">
 <div class="paragraph">
@@ -204,18 +220,21 @@ This entry point is used by the routine at <a href="71AD.html">71AD</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="719f"></span>719F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$04</td>
 <td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x03 and 0x04 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71a1"></span>71A1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71a3"></span>71A3</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="708E.html#70a8">$70A8</a></td>
 <td class="comment-11" rowspan="1">Open or close the door</td>
 </tr>
@@ -228,10 +247,10 @@ This entry point is used by the routine at <a href="71AD.html">71AD</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/29052.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29052.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

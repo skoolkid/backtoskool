@@ -23,7 +23,7 @@
 <div class="description">75FD: Check whether a pellet has hit a cup</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by routine at <a href="7615.html">7615</a>. Returns with the zero flag set if the pellet is about to hit a cup.
@@ -49,59 +49,68 @@ Used by routine at <a href="7615.html">7615</a>. Returns with the zero flag set 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="75fd"></span>75FD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the pellet's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="75ff"></span>75FF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=pellet's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7600"></span>7600</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7601"></span>7601</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=pellet's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7602"></span>7602</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="2">Adjust the coordinates for comparison with those of the cup</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7603"></span>7603</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7604"></span>7604</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=pellet's (adjusted) y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7605"></span>7605</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $0E</td>
 <td class="comment-11" rowspan="1">All the cups have a y-coordinate of 14</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7607"></span>7607</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return with the zero flag reset if the pellet's not at the right height to hit a cup</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7608"></span>
 <div class="comments">
 <div class="paragraph">
@@ -113,11 +122,12 @@ This entry point is used by the routine at <a href="7316.html">7316</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7608"></span>7608</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the pellet or ERIC's hand</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7609"></span>
 <div class="comments">
 <div class="paragraph">
@@ -129,48 +139,56 @@ This entry point is used by the routine at <a href="FA4D.html">FA4D</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7609"></span>7609</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $19</td>
 <td class="comment-11" rowspan="1">Has the leftmost cup on the shelf in the boys' skool been hit?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="760b"></span>760B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="760c"></span>760C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $1B</td>
 <td class="comment-11" rowspan="1">Has the middle cup on the shelf in the boys' skool been hit?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="760e"></span>760E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="760f"></span>760F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $1E</td>
 <td class="comment-11" rowspan="1">Has the rightmost cup on the shelf in the boys' skool been hit?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7611"></span>7611</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7612"></span>7612</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $BA</td>
 <td class="comment-11" rowspan="1">Has the cup on the shelf in the girls' skool been hit?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7614"></span>7614</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
 </tr>
@@ -183,10 +201,10 @@ This entry point is used by the routine at <a href="FA4D.html">FA4D</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/30205.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/30205.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

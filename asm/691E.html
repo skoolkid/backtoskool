@@ -23,7 +23,7 @@
 <div class="description">691E: Remove the speech bubble</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="6A08.html">6A08</a>. Sets the bits in the <a href="7F00.html">screen refresh buffer</a> (SRB) that correspond to the the speech bubble and lip, so that they are removed (replaced by play area tiles) next time the display is updated.
@@ -46,120 +46,140 @@ Used by the routine at <a href="6A08.html">6A08</a>. Sets the bits in the <a hre
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="691e"></span>691E</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="691f"></span>691F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="68E1.html">$68E1</a></td>
 <td class="comment-11" rowspan="1">Reset the bits in the SRB corresponding to speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6922"></span>6922</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$F8</td>
 <td class="comment-11" rowspan="2"><span class="register">HL</span>=<a href="7FF8.html">7FF8</a>, which holds the LSB of the SRB address corresponding to the lip of the speech bubble (if any); pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6924"></span>6924</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6925"></span>6925</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is the speech bubble on-screen?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6926"></span>6926</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$693B</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6928"></span>6928</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-11" rowspan="1">Signal: no one's talking now</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="692a"></span>692A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span> points to the SRB byte corresponding to the lip of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="692b"></span>692B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FF9)</td>
 <td class="comment-11" rowspan="1">The bit set in <span class="register">A</span> is the bit of that SRB byte that corresponds to the lip's location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="692e"></span>692E</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR (HL)</td>
 <td class="comment-11" rowspan="2">Update the speech bubble lip SRB byte with this bit set (forcing a refresh of the screen where the lip is)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="692f"></span>692F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6930"></span>6930</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="4">Update the SRB for where the bottom line of the speech bubble is</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6931"></span>6931</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$FC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6933"></span>6933</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6934"></span>6934</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$FF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6936"></span>6936</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$FC</td>
 <td class="comment-11" rowspan="3">Update the SRB for where the top line of the speech bubble is</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6938"></span>6938</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6939"></span>6939</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$FF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="693b"></span>693B</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="693c"></span>693C</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -172,10 +192,10 @@ Used by the routine at <a href="6A08.html">6A08</a>. Sets the bits in the <a hre
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/26910.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/26910.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

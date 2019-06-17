@@ -23,7 +23,7 @@
 <div class="description">7974: Make a female character stand on a chair or start jumping</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of a female character's buffer by the routine at <a href="79AE.html">79AE</a> when there's a mouse in the vicinity. It makes the female character either stand on a chair (if there's one beside her) or start jumping up and down.
@@ -49,126 +49,147 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7974"></span>7974</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$11</td>
 <td class="comment-11" rowspan="2">Replace the address of this routine in bytes 0x11 and 0x12 of the character's buffer with that of <a href="7966.html">7966</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7976"></span>7976</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$66</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7978"></span>7978</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="797b"></span>797B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
 <td class="comment-11" rowspan="2">Store the character's current animatory state in byte 0x14 of her buffer, so it can be restored when she's finished jumping</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="797d"></span>797D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="797e"></span>797E</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2">Initialise byte 0x15 to 0 on the assumption that there is no chair to stand on</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="797f"></span>797F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7981"></span>7981</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
 <td class="comment-11" rowspan="1">Jump up</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7982"></span>7982</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7983"></span>7983</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="2">Pretend the character is facing left by resetting bit 7 of her animatory state (to make the chair check work)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7985"></span>7985</td>
+<td class="bytes-0"></td>
 <td class="instruction">RES 7,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7987"></span>7987</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="65D4.html">$65D4</a></td>
 <td class="comment-11" rowspan="1">Check whether this character is beside a chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="798a"></span>798A</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="798b"></span>798B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$15</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="798d"></span>798D</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is this character standing beside a chair?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="798e"></span>798E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7991</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7990"></span>7990</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">Set byte 0x15 to 1 to indicate that the character is standing on a chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7991"></span>7991</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="2">Collect the character's original animatory state from byte 0x14</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7992"></span>7992</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7993"></span>7993</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7995"></span>7995</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
@@ -181,10 +202,10 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/31092.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31092.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

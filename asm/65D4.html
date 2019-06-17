@@ -23,7 +23,7 @@
 <div class="description">65D4: Check whether a character is beside a chair</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="6697.html">6697</a>, <a href="7974.html">7974</a> and <a href="F3FC.html">F3FC</a>. The value returned in <span class="register">A</span> is as follows:
@@ -73,149 +73,173 @@ Used by the routines at <a href="6697.html">6697</a>, <a href="7974.html">7974</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="65d4"></span>65D4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65d6"></span>65D6</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65d7"></span>65D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$D332</td>
 <td class="comment-11" rowspan="1">The table at <a href="D332.html">D332</a> contains the x-coordinates of the left ends of the classrooms</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65da"></span>65DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$03</td>
 <td class="comment-11" rowspan="1">There are three sets of chairs on the top floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65dc"></span>65DC</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP B</td>
 <td class="comment-11" rowspan="1">Is the character on the top floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65dd"></span>65DD</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$65E6</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65df"></span>65DF</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC B</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=2 (two sets of chairs on the middle floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65e0"></span>65E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $0A</td>
 <td class="comment-11" rowspan="1">Is the character on the middle floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65e2"></span>65E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$65F5</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65e4"></span>65E4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$35</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=<a href="D332.html#d335">D335</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="65e6"></span>65E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65e7"></span>65E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65e8"></span>65E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="D332.html">D332</a> if the character is on the top floor, <a href="D332.html#d335">D335</a> if he's on the middle floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="65e9"></span>65E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the character to the left of this classroom?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65ea"></span>65EA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$65F1</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65ec"></span>65EC</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the x-coordinate of the right end of the classroom (in the table at <a href="D432.html">D432</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65ed"></span>65ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the character in this classroom?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65ee"></span>65EE</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$65F8</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65f0"></span>65F0</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC H</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="65f1"></span>65F1</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65f2"></span>65F2</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $65E9</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65f4"></span>65F4</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="65f5"></span>65F5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$FF</td>
 <td class="comment-11" rowspan="1">Signal: the character is not in a classroom</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65f7"></span>65F7</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="65f8"></span>
 <div class="comments">
 <div class="paragraph">
@@ -227,77 +251,89 @@ The character is in a classroom. But is he beside a chair?
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="65f8"></span>65F8</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the x-coordinate of the leftmost seat in the classroom (in the table at <a href="D532.html">D532</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65f9"></span>65F9</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the character to the right of the leftmost chair?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65fa"></span>65FA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6600</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="65fc"></span>65FC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
 <td class="comment-11" rowspan="1">Signal: the character must walk to the rightmost chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65fe"></span>65FE</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="65ff"></span>65FF</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6600"></span>6600</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the x-coordinate of the rightmost seat in the classroom (in the table at <a href="D632.html">D632</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6601"></span>6601</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the character to the left of the rightmost chair?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6602"></span>6602</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$6608</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6604"></span>6604</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$03</td>
 <td class="comment-11" rowspan="1">Signal: the character must walk to the next chair to the left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6606"></span>6606</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6607"></span>6607</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6608"></span>
 <div class="comments">
 <div class="paragraph">
@@ -309,77 +345,89 @@ The character is between the leftmost and rightmost chairs in the classroom.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6608"></span>6608</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6609"></span>6609</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="660a"></span>660A</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="660b"></span>660B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="660c"></span>660C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$65FC</td>
 <td class="comment-11" rowspan="1">Jump if the character is facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="660e"></span>660E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="660f"></span>660F</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR (HL)</td>
 <td class="comment-11" rowspan="2">The chairs in a classroom have either all odd or all even x-coordinates; is the character standing beside one?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6610"></span>6610</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6611"></span>6611</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6604</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6613"></span>6613</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6614"></span>6614</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="1">Signal: the character is facing left and standing beside a chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6615"></span>6615</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 
 <div class="comments">
 <div class="paragraph">
@@ -440,10 +488,10 @@ The contents of the classroom/chairs location tables are as follows:
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/26068.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/26068.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

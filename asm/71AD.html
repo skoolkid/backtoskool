@@ -23,7 +23,7 @@
 <div class="description">71AD: Move the bike if it's obstructing the skool gate</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 This is a branch of the routine at <a href="717C.html">717C</a>.
@@ -49,42 +49,49 @@ This is a branch of the routine at <a href="717C.html">717C</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="71ad"></span>71AD</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $10</td>
 <td class="comment-11" rowspan="1">Is the skool gate being opened or closed?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71af"></span>71AF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,<a href="717C.html#719f">$719F</a></td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71b1"></span>71B1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($D301)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=bike's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71b4"></span>71B4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $85</td>
 <td class="comment-11" rowspan="1">Is the bike to the left of the skool gate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71b6"></span>71B6</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,<a href="717C.html#719f">$719F</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71b8"></span>71B8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$1188</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=136, <span class="register">D</span>=17</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="71bb"></span>71BB</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR <a href="717C.html#7196">$7196</a></td>
 <td class="comment-11" rowspan="1">Move the bike if it's obstructing the skool gate</td>
 </tr>
@@ -97,10 +104,10 @@ This is a branch of the routine at <a href="717C.html">717C</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/29101.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29101.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

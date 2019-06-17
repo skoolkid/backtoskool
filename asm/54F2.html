@@ -23,7 +23,7 @@
 <div class="description">54F2: Prepare addresses 5D00 to 5FFF</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes from eight 32-byte segments. The routine is called three times with the values in <span class="register">DE</span> and <span class="register">HL</span> shown below. The 24 32-byte segments are used later on as <a href="../buffers/cbuffer.html">character buffers</a>.
@@ -57,48 +57,56 @@ Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes f
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="54f2"></span>54F2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$08</td>
 <td class="comment-11" rowspan="1">There are 8 chunks of 32 bytes to copy</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="54f4"></span>54F4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0020</td>
 <td class="comment-11" rowspan="2">Copy 32 bytes</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54f7"></span>54F7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54f9"></span>54F9</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the next chunk of 32 bytes to copy</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54fa"></span>54FA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54fb"></span>54FB</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1">Next chunk</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54fc"></span>54FC</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$54F4</td>
 <td class="comment-11" rowspan="1">Jump back until all 8 chunks have been copied</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="54fe"></span>54FE</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -111,10 +119,10 @@ Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes f
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/21746.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/21746.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

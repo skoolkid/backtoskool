@@ -23,7 +23,7 @@
 <div class="description">7CD0: Make a character walk up and down until a certain time</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by command lists <a href="C93C.html">0x00</a>, <a href="CA3C.html">0x02</a>, <a href="CB3C.html">0x04</a>, <a href="CC3C.html">0x06</a>, <a href="CD3C.html">0x08</a>, <a href="CE3C.html">0x0A</a>, <a href="CF3C.html">0x0C</a>, <a href="D03C.html">0x0E</a>, <a href="D13C.html">0x10</a>, <a href="E256.html">0x14</a>, <a href="E700.html">0x1A</a>, <a href="E590.html">0x20</a>, <a href="E59B.html">0x22</a>, <a href="E5AE.html">0x24</a>, <a href="E5BD.html">0x26</a>, <a href="E70F.html">0x28</a>, <a href="E860.html">0x2E</a>, <a href="E86B.html">0x30</a>, <a href="E87F.html">0x32</a>, <a href="E88A.html">0x34</a>, <a href="E933.html">0x48</a>, <a href="E943.html">0x4A</a>, <a href="E94C.html">0x4C</a>, <a href="E98C.html">0x50</a>, <a href="E999.html">0x52</a>, <a href="E9A4.html">0x54</a>, <a href="E9AF.html">0x56</a> and <a href="E5EE.html">0x58</a> to make a character walk up and down within 7 spaces to the left of a fixed location (the 'walkabout origin') until a specified time, e.g. the end of the lesson or when a teacher arrives at the doorway of the classroom.
@@ -49,42 +49,49 @@ Used by command lists <a href="C93C.html">0x00</a>, <a href="CA3C.html">0x02</a>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7cd0"></span>7CD0</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="627D.html">$627D</a></td>
 <td class="comment-11" rowspan="1">Get the next byte (the event identifier) from the command list</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cd3"></span>7CD3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$06</td>
 <td class="comment-11" rowspan="2">Place it in byte 0x06 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cd5"></span>7CD5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7cd6"></span>7CD6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7CAB.html">$7CAB</a></td>
 <td class="comment-11" rowspan="1">Has the specified time arrived, and is the character at the walkabout origin?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cd9"></span>7CD9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NC,<a href="638C.html">$638C</a></td>
 <td class="comment-11" rowspan="1">Move to the next command in the command list if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7cdc"></span>7CDC</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="639F.html">$639F</a></td>
 <td class="comment-11" rowspan="1">Otherwise send the character off to another walkabout destination via the routine at <a href="63ED.html">63ED</a>, and return to the instruction at <a href="7CD0.html#7cdf">7CDF</a> (below) when done</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7cdf"></span>7CDF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $7CD6</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -97,10 +104,10 @@ Used by command lists <a href="C93C.html">0x00</a>, <a href="CA3C.html">0x02</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/31952.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31952.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

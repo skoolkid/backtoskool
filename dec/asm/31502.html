@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 31502</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="31462.html">31462</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31502">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31572.html">31572</a></span></td>
+</tr>
+</table>
+<div class="description">31502: Prepare character buffers for released mice</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="31462.html">31462</a>. Releases up to five mice from ERIC's pocket. Each mouse will use a character buffer at page 198, 199 or 206-208, provided that the character who usually occupies it is off-screen.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Coordinates at which to release the mice</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="31502"></span>31502</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,198</td>
+<td class="comment-11" rowspan="2">Use buffers 198 and 199 (little boys nos. 9 and 10) for released mice if possible</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31504"></span>31504</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,2</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31506"></span>31506</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL 31514</td>
+<td class="comment-11" rowspan="1">Prepare these buffers</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31509"></span>31509</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if ERIC has no mice left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31510"></span>31510</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD H,206</td>
+<td class="comment-11" rowspan="2">Also use buffers 206-208 (BOY WANDER, ANGELFACE and EINSTEIN) for released mice if possible</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31512"></span>31512</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD B,3</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="31514"></span>31514</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,18</td>
+<td class="comment-11" rowspan="2">Pick up the MSB of the uninterruptible subcommand routine address in bytes 17 and 18 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31516"></span>31516</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31517"></span>31517</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 122</td>
+<td class="comment-11" rowspan="1">Does the MSB match that of <a href="31254.html">31254</a>?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31519"></span>31519</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,31568</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31521"></span>31521</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,1</td>
+<td class="comment-11" rowspan="2"><span class="register">A</span>=x-coordinate of the character using this buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31523"></span>31523</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31524"></span>31524</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 142</td>
+<td class="comment-11" rowspan="1">Is this character inside or close to the girls' skool?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31526"></span>31526</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,31568</td>
+<td class="comment-11" rowspan="1">Jump if so (we can't use his buffer)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31528"></span>31528</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC L</td>
+<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31529"></span>31529</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31530"></span>31530</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,15</td>
+<td class="comment-11" rowspan="2">Store this in byte 15 of the buffer for retrieval when the mouse dies</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31532"></span>31532</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31533"></span>31533</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="25233.html">25233</a></td>
+<td class="comment-11" rowspan="3"><span class="register">A</span>=random number between 10 and 41; this determines the lifespan of the mouse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31536"></span>31536</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 31</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31538"></span>31538</td>
+<td class="bytes-0"></td>
+<td class="instruction">ADD A,10</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31540"></span>31540</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Store this lifespan parameter in byte 16 of the buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31541"></span>31541</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31542"></span>31542</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="4">Place the address of the uninterruptible subcommand routine at <a href="31254.html">31254</a> into bytes 17 and 18 of the character's buffer</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31543"></span>31543</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),22</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31545"></span>31545</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31546"></span>31546</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),122</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31548"></span>31548</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="5">Set bytes 19 and 20 to 0 so that the mouse is initially hidden (see <a href="31254.html">31254</a> for details on how these bytes are used)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31549"></span>31549</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31550"></span>31550</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31551"></span>31551</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31552"></span>31552</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31553"></span>31553</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Set byte 21 (time remaining before coming out of hiding) to 3, 2 or 1</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31554"></span>31554</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31555"></span>31555</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC L</td>
+<td class="comment-11" rowspan="2">Store the x-coordinate of the mouse in byte 22, so it appears there when it comes out of hiding</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31556"></span>31556</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31557"></span>31557</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,2</td>
+<td class="comment-11" rowspan="2">Store the y-coordinate in byte 2</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31559"></span>31559</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (HL),D</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31560"></span>31560</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32737)</td>
+<td class="comment-11" rowspan="1"><a href="32737.html">32737</a> holds the number of mice ERIC has caught</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31563"></span>31563</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC A</td>
+<td class="comment-11" rowspan="2">One fewer now</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31564"></span>31564</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD (32737),A</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31567"></span>31567</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET Z</td>
+<td class="comment-11" rowspan="1">Return if ERIC has no mice left</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="31568"></span>31568</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="1">Point to the next potential buffer for a released mouse</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31569"></span>31569</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 31514</td>
+<td class="comment-11" rowspan="1">Jump back until all have been considered</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="31571"></span>31571</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="31462.html">31462</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#31502">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="31572.html">31572</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/7B0E.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

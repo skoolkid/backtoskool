@@ -23,7 +23,7 @@
 <div class="description">F048: Check whether ERIC and EINSTEIN are in class</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F100.html">F100</a>. If EINSTEIN is in class, this routine returns to the caller with the zero flag set if and only if ERIC is present too. If EINSTEIN is not yet sitting down in class, it makes the teacher wait until he shows up.
@@ -49,78 +49,91 @@ Used by the routine at <a href="F100.html">F100</a>. If EINSTEIN is in class, th
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f048"></span>F048</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($D000)</td>
 <td class="comment-11" rowspan="1">Pick up EINSTEIN's current animatory state in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f04b"></span>F04B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $34</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#52">0x34</a>: Is EINSTEIN sitting down (i.e. in class)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f04d"></span>F04D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="7D15.html">$7D15</a></td>
 <td class="comment-11" rowspan="1">Check on ERIC if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f050"></span>F050</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$FFFD</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=-3</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f053"></span>F053</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Drop the return address from the stack into <span class="register">BC</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f054"></span>F054</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="3">Set <span class="register">DE</span> to the address of the CALL <a href="F048.html">F048</a> instruction in the calling routine</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f055"></span>F055</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f056"></span>F056</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f057"></span>F057</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="4">Place this address into bytes 0x03 and 0x04 of the teacher's buffer, so that we keep returning here (and the teacher stands still) until EINSTEIN arrives in class</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f059"></span>F059</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f05a"></span>F05A</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f05b"></span>F05B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f05c"></span>F05C</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return to the character-moving routine at <a href="62D0.html">62D0</a></td>
 </tr>
@@ -133,10 +146,10 @@ Used by the routine at <a href="F100.html">F100</a>. If EINSTEIN is in class, th
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/61512.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/61512.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

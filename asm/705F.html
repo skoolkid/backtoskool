@@ -23,7 +23,7 @@
 <div class="description">705F: Check for a closed door in front of a character</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="64F3.html">64F3</a> and <a href="708E.html">708E</a>. Returns with the carry flag set if the character is facing a closed door, and <span class="register">C</span> holding the door identifier:
@@ -77,173 +77,201 @@ Used by the routines at <a href="64F3.html">64F3</a> and <a href="708E.html">708
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="705f"></span>705F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="2">Pick up the character's animatory state in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7061"></span>7061</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7062"></span>7062</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="5">Set <span class="register">A</span>=-1 if the character is facing left, 1 if facing right</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7063"></span>7063</td>
+<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7064"></span>7064</td>
+<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7065"></span>7065</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7066"></span>7066</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7067"></span>7067</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1">Byte 0x01 of the character's buffer holds his x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7068"></span>7068</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-11" rowspan="1">Add this to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7069"></span>7069</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=x-coordinate of the location directly in front of the character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="706a"></span>706A</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="706b"></span>706B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the character's y-coordinate in <span class="register">D</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="706c"></span>706C</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="706d"></span>706D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$B93E</td>
 <td class="comment-11" rowspan="1"><a href="B93E.html">B93E</a> is the address of the door location table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7070"></span>7070</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0501</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=5 (there are 5 doors), <span class="register">C</span>=1 (the left study door is the first one)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7073"></span>7073</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the location directly in front of the character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7074"></span>7074</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Compare this with the x-coordinate of the door</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7075"></span>7075</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7076"></span>7076</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$707C</td>
 <td class="comment-11" rowspan="1">Jump if the x-coordinates don't match</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7078"></span>7078</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7079"></span>7079</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Compare this with the y-coordinate of the door</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="707a"></span>707A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7084</td>
 <td class="comment-11" rowspan="1">Jump if they match (the character is standing at this door)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="707c"></span>707C</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="707d"></span>707D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLC C</td>
 <td class="comment-11" rowspan="1">Move the set bit in <span class="register">C</span> one place to the left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="707f"></span>707F</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $7073</td>
 <td class="comment-11" rowspan="1">Jump back to consider the remaining doors</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7081"></span>7081</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7082"></span>7082</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="1">Reset the carry flag: there is no door in front of the character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7083"></span>7083</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7084"></span>
 <div class="comments">
 <div class="paragraph">
@@ -255,36 +283,42 @@ The character is standing in front of a door.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7084"></span>7084</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FF4)</td>
 <td class="comment-11" rowspan="1">Pick up the doors flags from <a href="7FF4.html">7FF4</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7087"></span>7087</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND C</td>
 <td class="comment-11" rowspan="1">Check the bit corresponding to the door</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7088"></span>7088</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7089"></span>7089</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset if the door is open</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="708a"></span>708A</td>
+<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Set the carry flag: the door is closed</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="708b"></span>708B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -297,10 +331,10 @@ The character is standing in front of a door.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/28767.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28767.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

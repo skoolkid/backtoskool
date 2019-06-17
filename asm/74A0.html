@@ -23,7 +23,7 @@
 <div class="description">74A0: Check whether any adults were hit by the pellet, water, sherry or conker</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="74C8.html">74C8</a>. Returns with the zero flag set if a character was hit, and the stricken character's number in <span class="register">B</span>.
@@ -53,11 +53,12 @@ Used by the routine at <a href="74C8.html">74C8</a>. Returns with the zero flag 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74a0"></span>74A0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$06</td>
 <td class="comment-11" rowspan="1">There are six adult characters</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="74a2"></span>
 <div class="comments">
 <div class="paragraph">
@@ -69,150 +70,175 @@ This entry point is used by the routine at <a href="76AC.html">76AC</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74a2"></span>74A2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,H</td>
 <td class="comment-11" rowspan="1">Save the projectile's character number in <span class="register">C</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74a3"></span>74A3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$C8</td>
 <td class="comment-11" rowspan="1">0xC8=MR WACKER</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74a5"></span>74A5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the potential target's character buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74a7"></span>74A7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=projectile's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74a8"></span>74A8</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Does it match the y-coordinate of the character?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74a9"></span>74A9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$74C1</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74ab"></span>74AB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74ad"></span>74AD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74ae"></span>74AE</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $87</td>
 <td class="comment-11" rowspan="2">Is the character sitting on the floor facing left (already struck)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74b0"></span>74B0</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $06</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74b2"></span>74B2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$74B9</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74b4"></span>74B4</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=-1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74b5"></span>74B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $86</td>
 <td class="comment-11" rowspan="1">Is the character sitting on the floor facing right (already struck)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74b7"></span>74B7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$74BA</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74b9"></span>74B9</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74ba"></span>74BA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=-1 if the character is sitting on the floor facing right, 0 if he's standing, or 1 if he's sitting on the floor facing left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74bb"></span>74BB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Byte 0x01 of the character's buffer holds his x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74bd"></span>74BD</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-11" rowspan="1">Now <span class="register">A</span>=x-coordinate of the character's head</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74be"></span>74BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
 <td class="comment-11" rowspan="1">Does it match the x-coordinate of the projectile?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74bf"></span>74BF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$74C4</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74c1"></span>74C1</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Next potential target</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74c2"></span>74C2</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $74A5</td>
 <td class="comment-11" rowspan="1">Jump back to consider any remaining characters</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="74c4"></span>74C4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,H</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=number of the character who was hit by the projectile (if any)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74c5"></span>74C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,C</td>
 <td class="comment-11" rowspan="1">Restore the projectile's character number to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="74c6"></span>74C6</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the zero flag set if a character was hit</td>
 </tr>
@@ -225,10 +251,10 @@ This entry point is used by the routine at <a href="76AC.html">76AC</a> with <sp
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/29856.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29856.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

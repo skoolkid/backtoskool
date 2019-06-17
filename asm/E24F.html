@@ -23,7 +23,7 @@
 <div class="description">E24F: Check whether buffer 0xD6 is being used</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="5EE8.html">5EE8</a> and <a href="F99A.html">F99A</a>. Returns to the main loop if buffer 0xD6 is already in use (by ERIC's catapult pellet, water or sherry fired from the pistol or falling from a cup, a plant, the conker, or a desk lid); otherwise returns to the caller.
@@ -46,30 +46,35 @@ Used by the routines at <a href="5EE8.html">5EE8</a> and <a href="F99A.html">F99
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e24f"></span>E24F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($D612)</td>
 <td class="comment-11" rowspan="2">Is there an uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the buffer in page 0xD6?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e252"></span>E252</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e253"></span>E253</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not (the buffer is free)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e254"></span>E254</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="2">Otherwise drop the return address from the stack and return to the main loop</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e255"></span>E255</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
@@ -82,10 +87,10 @@ Used by the routines at <a href="5EE8.html">5EE8</a> and <a href="F99A.html">F99
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/57935.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/57935.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

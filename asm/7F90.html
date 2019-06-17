@@ -23,7 +23,7 @@
 <div class="description">7F90: Message 7: '{grassee}'</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F100.html">F100</a> to hold the character number of whoever is being grassed up by EINSTEIN for writing on the board (0xCE=BOY WANDER, or 0xD2=ERIC); it is a submessage of message <a href="ECFC.html">0x58</a>. Note that storing the character number (0xCE or 0xD2) here is a mistake; it should be the message number of the character's name (<a href="EFA1.html">0x1B</a> or <a href="EFD5.html">0x1F</a>) instead. In any case, this message (along with parent message <a href="ECFC.html">0x58</a>) is never used, because of a <a href="../reference/bugs.html#noBlackboardTales">bug</a> in the section of code at <a href="F100.html#f19c">F19C</a>.
@@ -46,12 +46,14 @@ Used by the routine at <a href="F100.html">F100</a> to hold the character number
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7f90"></span>7F90</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7f91"></span>7F91</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
 <td class="comment-11" rowspan="1">End marker</td>
 </tr>
@@ -64,10 +66,10 @@ Used by the routine at <a href="F100.html">F100</a> to hold the character number
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/32656.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/32656.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">5F9D: Play a tune</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F5BE.html">F5BE</a>. The main entry point is used to play the theme tune.
@@ -46,23 +46,26 @@ Used by the routine at <a href="F5BE.html">F5BE</a>. The main entry point is use
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5f9d"></span>5F9D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5C3B</td>
 <td class="comment-11" rowspan="2">Reset bit 5 at 5C3B, clearing the record of any keypresses before the tune starts</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fa0"></span>5FA0</td>
+<td class="bytes-0"></td>
 <td class="instruction">RES 5,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fa2"></span>5FA2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$DC40</td>
 <td class="comment-11" rowspan="1">The theme tune data starts at <a href="DC41.html">DC41</a></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="5fa5"></span>
 <div class="comments">
 <div class="paragraph">
@@ -74,83 +77,96 @@ This entry point is used by the routine at <a href="5D63.html">5D63</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5fa5"></span>5FA5</td>
+<td class="bytes-0"></td>
 <td class="instruction">DI</td>
 <td class="comment-11" rowspan="1">Disable interrupts</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5fa6"></span>5FA6</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next tune datum</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fa7"></span>5FA7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick it up</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fa8"></span>5FA8</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1">Is it an end-of-section marker?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fa9"></span>5FA9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5FB0</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fab"></span>5FAB</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="5">Point <span class="register">HL</span> at the first datum in the next section</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fac"></span>5FAC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fad"></span>5FAD</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fae"></span>5FAE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5faf"></span>5FAF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5fb0"></span>5FB0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=tune datum</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fb1"></span>5FB1</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Have we reached the end of the tune?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fb2"></span>5FB2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="F28E.html#f2d9">$F2D9</a></td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="5fb5"></span>
 <div class="comments">
 <div class="paragraph">
@@ -162,252 +178,294 @@ A non-zero tune datum has been found, meaning the tune is not finished yet.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fb5"></span>5FB5</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1">Save the tune data table pointer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fb6"></span>5FB6</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="1">Set the carry flag if we should pause briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fb7"></span>5FB7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="1">Copy the right-rotated tune datum to <span class="register">B</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fb8"></span>5FB8</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$5FC2</td>
 <td class="comment-11" rowspan="1">Jump unless we should pause briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fba"></span>5FBA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$0F</td>
 <td class="comment-11" rowspan="5">Pause briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5fbc"></span>5FBC</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fbd"></span>5FBD</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5FBC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fbf"></span>5FBF</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fc0"></span>5FC0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5FBC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5fc2"></span>5FC2</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
 <td class="comment-11" rowspan="1">0&lt;=<span class="register">A</span>&lt;=7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fc4"></span>5FC4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1"><span class="register">C</span>=border colour for this note</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fc5"></span>5FC5</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-11" rowspan="4">Point <span class="register">HL</span> at an entry in the note duration/pitch data table at <a href="5FF0.html">5FF0</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fc6"></span>5FC6</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$F0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fc8"></span>5FC8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fc9"></span>5FC9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$5F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fcb"></span>5FCB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=original tune datum rotated right one bit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fcc"></span>5FCC</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="13">Obtain the note frequency parameter in <span class="register">E</span> and the note duration parameter in <span class="register">HL</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fcd"></span>5FCD</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fce"></span>5FCE</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fcf"></span>5FCF</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $0F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fd1"></span>5FD1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fd2"></span>5FD2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fd3"></span>5FD3</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fd4"></span>5FD4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fd5"></span>5FD5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$0000</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5fd8"></span>5FD8</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fd9"></span>5FD9</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $5FD8</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fdb"></span>5FDB</td>
+<td class="bytes-0"></td>
 <td class="instruction">RES 0,L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fdd"></span>5FDD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5fde"></span>5FDE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="11">Produce a note</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fdf"></span>5FDF</td>
+<td class="bytes-0"></td>
 <td class="instruction">OUT ($FE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fe1"></span>5FE1</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR $10</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fe3"></span>5FE3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fe4"></span>5FE4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5fe5"></span>5FE5</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $5FE5</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fe7"></span>5FE7</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fe8"></span>5FE8</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fe9"></span>5FE9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fea"></span>5FEA</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5feb"></span>5FEB</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5FDE</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fed"></span>5FED</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Restore the tune data table pointer to <span class="register">HL</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5fee"></span>5FEE</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $5FA6</td>
 <td class="comment-11" rowspan="1">Pick up the next tune datum</td>
 </tr>
@@ -420,10 +478,10 @@ A non-zero tune datum has been found, meaning the tune is not finished yet.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/24477.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/24477.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

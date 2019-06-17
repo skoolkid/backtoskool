@@ -23,7 +23,7 @@
 <div class="description">FA4D: Deal with water fired from the pistol at certain phases</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F9AB.html">F9AB</a>. On entry, <span class="register">A</span> is equal to 1 if the water is at phase 3 of its trajectory (at which point it may hit a cup), or 2 if it's at phase 6 or above (at which point it may hit a plant or the floor). In the following, 'water' may refer to either water or sherry.
@@ -57,149 +57,173 @@ Used by the routine at <a href="F9AB.html">F9AB</a>. On entry, <span class="regi
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa4d"></span>FA4D</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1">Is the water at the right phase to fill a cup?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa4e"></span>FA4E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FA7E</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa50"></span>FA50</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the water's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa52"></span>FA52</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=water's y-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa53"></span>FA53</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $0E</td>
 <td class="comment-11" rowspan="1">All cups have a y-coordinate of 14</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa55"></span>FA55</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if the water's not at the right height</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa56"></span>FA56</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa57"></span>FA57</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=-1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa58"></span>FA58</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is the water travelling to the left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa5a"></span>FA5A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$FA5E</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa5c"></span>FA5C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$03</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa5e"></span>FA5E</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa5f"></span>FA5F</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
 <td class="comment-11" rowspan="1">Now <span class="register">A</span>=x-coordinate of the spot the water is hitting</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa60"></span>FA60</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="75FD.html#7609">$7609</a></td>
 <td class="comment-11" rowspan="1">Is this the x-coordinate of one of the cups?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa63"></span>FA63</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa64"></span>FA64</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FEB</td>
 <td class="comment-11" rowspan="1"><a href="7FEB.html">7FEB</a> holds the inventory flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa67"></span>FA67</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 4,(HL)</td>
 <td class="comment-11" rowspan="1">Set the zero flag if there's water (not sherry) in the pistol</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa69"></span>FA69</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$DC77</td>
 <td class="comment-11" rowspan="1"><span class="register">H</span>=0xDC, <span class="register">L</span>=0x77</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa6c"></span>FA6C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$FA70</td>
 <td class="comment-11" rowspan="1">Jump if there's water in the pistol</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa6e"></span>FA6E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$7C</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa70"></span>FA70</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at a cup graphic data table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa71"></span>FA71</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is this the right data table for the cup?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa72"></span>FA72</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FA70</td>
 <td class="comment-11" rowspan="1">Jump back to check the next table if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa74"></span>FA74</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the appropriate UDG reference table</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="fa75"></span>
 <div class="comments">
 <div class="paragraph">
@@ -260,29 +284,33 @@ Now <span class="register">HL</span> points at the start of the appropriate UDG 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa75"></span>FA75</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6C18.html">$6C18</a></td>
 <td class="comment-11" rowspan="1">Alter the appropriate UDG and attribute references in the play area to show the cup filled with water or sherry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa78"></span>FA78</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Drop the return address (to the routine at <a href="F9AB.html">F9AB</a>) from the stack</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa79"></span>FA79</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D6</td>
 <td class="comment-11" rowspan="1">0xD6=water</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa7b"></span>FA7B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="74C8.html#74cf">$74CF</a></td>
 <td class="comment-11" rowspan="1">Remove the water from sight</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="fa7e"></span>
 <div class="comments">
 <div class="paragraph">
@@ -294,35 +322,40 @@ The water is at phase 6 or above of its trajectory. Has it hit the floor?
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa7e"></span>FA7E</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Decrement the water animation phase identifier in byte 0x13 of the water's buffer from 0x9C to 0x9B; this has the effect of bringing us back through this section of code (via the routine at <a href="F9AB.html">F9AB</a>) until the water has hit either a plant or the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa7f"></span>FA7F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="774F.html">$774F</a></td>
 <td class="comment-11" rowspan="1">Is the water's y-coordinate 3 (top floor), 10 (middle floor) or 17 (bottom floor)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa82"></span>FA82</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FA93</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa84"></span>FA84</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $11</td>
 <td class="comment-11" rowspan="1">Did it hit the bottom floor?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa86"></span>FA86</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$FA78</td>
 <td class="comment-11" rowspan="1">Terminate the water if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="fa88"></span>
 <div class="comments">
 <div class="paragraph">
@@ -334,47 +367,54 @@ The water has reached the level of the top or middle floor. We terminate it here
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa88"></span>FA88</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa89"></span>FA89</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=water's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa8a"></span>FA8A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $60</td>
 <td class="comment-11" rowspan="4">Terminate the water if <span class="register">A</span>&lt;96 (it's inside the boys' skool) or <span class="register">A</span>&gt;=160 (it's inside the girls' skool)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa8c"></span>FA8C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$FA78</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa8e"></span>FA8E</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $A0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa90"></span>FA90</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$FA78</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa92"></span>FA92</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="fa93"></span>
 <div class="comments">
 <div class="paragraph">
@@ -386,95 +426,110 @@ The water hasn't hit a cup or the floor. Has it hit a plant pot?
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fa93"></span>FA93</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F986.html">$F986</a></td>
 <td class="comment-11" rowspan="1">Has the water hit a plant pot?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa96"></span>FA96</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa97"></span>FA97</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FEB)</td>
 <td class="comment-11" rowspan="1"><a href="7FEB.html">7FEB</a> holds the inventory flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa9a"></span>FA9A</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 4,A</td>
 <td class="comment-11" rowspan="1">Has the pistol got sherry in it?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa9c"></span>FA9C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FA78</td>
 <td class="comment-11" rowspan="1">Terminate the sherry if so (sherry does not make plants grow)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa9e"></span>FA9E</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Drop the return address (to the routine at <a href="F9AB.html">F9AB</a>) from the stack</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fa9f"></span>FA9F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the water's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faa2"></span>FAA2</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Now <span class="register">D</span>=y-coordinate of the plant</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faa3"></span>FAA3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="2">Initialise the counter that determines the phases of growth of the watered plant</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faa5"></span>FAA5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$16</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faa7"></span>FAA7</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2">Store the x-coordinate of the plant in byte 0x14 of the buffer for retrieval later when it starts growing</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faa8"></span>FAA8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faa9"></span>FAA9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$00</td>
 <td class="comment-11" rowspan="1">The plant's initial x-coordinate will be 0 (which is certainly off-screen at the moment, since the leftmost plant pot is at x-coordinate 91)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faab"></span>FAAB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1">And its initial animatory state will be <a href="../graphics/as.html#0">0x00</a> (ERIC standing, facing left), so it's a good thing it will be off-screen!</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faac"></span>FAAC</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
 <td class="comment-11" rowspan="1">Place address <a href="FA4D.html#faaf">FAAF</a> (below) into bytes 0x11 and 0x12 of the plant's buffer and update the SRB for the plant's appearance</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="faaf"></span>
 <div class="comments">
 <div class="paragraph">
@@ -486,59 +541,68 @@ The address of this entry point is placed into bytes 0x11 and 0x12 of the plant'
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faaf"></span>FAAF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="1">Byte 0x13 holds the counter that determines the phases of growth (and death) of the plant</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fab1"></span>FAB1</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Is the plant ready to die?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fab2"></span>FAB2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FAC3</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fab4"></span>FAB4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FED)</td>
 <td class="comment-11" rowspan="1"><a href="7FED.html">7FED</a> holds ERIC's secondary status flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fab7"></span>FAB7</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $02</td>
 <td class="comment-11" rowspan="1">Is ERIC standing on a plant or plant pot?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fab9"></span>FAB9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FAC0</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fabb"></span>FABB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$10</td>
 <td class="comment-11" rowspan="2">Set bit 4 at <a href="7FED.html">7FED</a>, indicating that ERIC is going to take a fall (even if ERIC's standing on a different plant pot; this is a <a href="../reference/bugs.html#plant">bug</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fabd"></span>FABD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FED),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fac0"></span>FAC0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="74C8.html#74cf">$74CF</a></td>
 <td class="comment-11" rowspan="1">Kill the plant</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="fac3"></span>
 <div class="comments">
 <div class="paragraph">
@@ -550,150 +614,175 @@ The plant is not dead yet. Plan its next move.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fac3"></span>FAC3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the plant lifespan counter in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fac4"></span>FAC4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $08</td>
 <td class="comment-11" rowspan="1">Is it time for the plant to start growing?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fac6"></span>FAC6</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$FAD1</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fac8"></span>FAC8</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="2"><span class="register">E</span>=x-coordinate of the plant (stored in byte 0x14 earlier)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fac9"></span>FAC9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faca"></span>FACA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the plant's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="facc"></span>FACC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=y-coordinate of the plant</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="facd"></span>FACD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$2A</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#42">0x2A</a>: flower, half-grown</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="facf"></span>FACF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $FAD8</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fad1"></span>FAD1</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
 <td class="comment-11" rowspan="1">Is it time for the plant to reach full height?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fad3"></span>FAD3</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fad4"></span>FAD4</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the plant's current animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fad7"></span>FAD7</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#43">0x2B</a>: flower, fully grown</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fad8"></span>FAD8</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the plant's animatory state and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fadb"></span>FADB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FED)</td>
 <td class="comment-11" rowspan="1"><a href="7FED.html">7FED</a> holds ERIC's status flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fade"></span>FADE</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $02</td>
 <td class="comment-11" rowspan="1">Is ERIC standing on a plant?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fae0"></span>FAE0</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fae1"></span>FAE1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($D201)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fae4"></span>FAE4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the plant's buffer (which holds its x-coordinate)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fae6"></span>FAE6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is ERIC standing on this plant?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fae7"></span>FAE7</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fae8"></span>FAE8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
 <td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faea"></span>FAEA</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faed"></span>FAED</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
 <td class="comment-11" rowspan="1">ERIC will rise one level as the plant grows</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="faee"></span>FAEE</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update ERIC's location and update the SRB</td>
 </tr>
@@ -706,10 +795,10 @@ The plant is not dead yet. Plan its next move.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/64077.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/64077.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

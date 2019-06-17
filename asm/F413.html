@@ -23,7 +23,7 @@
 <div class="description">F413: Collect a keypress during the game (or simulate one in demo mode)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Called from the main loop at <a href="F6EA.html">F6EA</a>. Returns with <span class="register">A</span> holding the offset from the keypress table corresponding to the last (actual or simulated) keypress, or 0 if there was no (actual or simulated) keypress.
@@ -46,23 +46,26 @@ Called from the main loop at <a href="F6EA.html">F6EA</a>. Returns with <span cl
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f413"></span>F413</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FDE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0xFF if we're in demo mode, 0x00 otherwise</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f416"></span>F416</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="1">Are we in demo mode?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f417"></span>F417</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="71FA.html">$71FA</a></td>
 <td class="comment-11" rowspan="1">Read the keyboard if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f41a"></span>
 <div class="comments">
 <div class="paragraph">
@@ -74,35 +77,40 @@ We're in demo mode.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f41a"></span>F41A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$0000</td>
 <td class="comment-11" rowspan="3">Set the score (held at <a href="7FE5.html">7FE5</a>) and the number of lines (held at <a href="7FE7.html">7FE7</a>) to 0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f41d"></span>F41D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FE5),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f420"></span>F420</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FE7),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f423"></span>F423</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="71BE.html">$71BE</a></td>
 <td class="comment-11" rowspan="1">Check for keypresses</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f426"></span>F426</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="F6D5.html">$F6D5</a></td>
 <td class="comment-11" rowspan="1">Start a new game if there was one</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f429"></span>
 <div class="comments">
 <div class="paragraph">
@@ -114,53 +122,61 @@ No keys have been pressed, so figure out ERIC's next move by seeing what little 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f429"></span>F429</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,($C701)</td>
 <td class="comment-11" rowspan="1">Pick up the coordinates of little boy no. 10 in <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f42d"></span>F42D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
 <td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f42f"></span>F42F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="64F3.html">$64F3</a></td>
 <td class="comment-11" rowspan="1">Compare the coordinates of ERIC and little boy no. 10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f432"></span>F432</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Are they the same?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f433"></span>F433</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F445</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f435"></span>F435</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-11" rowspan="1">Now <span class="register">A</span>=0 (ERIC is on a staircase facing up), 1 (on a staircase facing down), 2 (to the right of little boy no. 10), or 3 (to his left)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f436"></span>F436</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5C78</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the LSB of the system variable FRAMES</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f439"></span>F439</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR $02</td>
 <td class="comment-11" rowspan="1">Flip bit 1 of <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f43b"></span>
 <div class="comments">
 <div class="paragraph">
@@ -201,41 +217,47 @@ Now <span class="register">A</span> holds a value that will be translated into a
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f43b"></span>F43B</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Is the LSB of FRAMES &lt; 0x80?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f43d"></span>F43D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F441</td>
 <td class="comment-11" rowspan="1">Jump if so: this will be an upper case (fast) keypress</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f43f"></span>F43F</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$04</td>
 <td class="comment-11" rowspan="1">4&lt;=<span class="register">A</span>&lt;=7: force a lower case (slow) keypress</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f441"></span>F441</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=0x50+2n where 0&lt;=n&lt;=7 (simulated keypress for LEFT, RIGHT, UP, DOWN or left, right, up, down)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f442"></span>F442</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$50</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f444"></span>F444</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f445"></span>
 <div class="comments">
 <div class="paragraph">
@@ -247,53 +269,61 @@ ERIC's coordinates match those of little boy no. 10 exactly.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f445"></span>F445</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($C700)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of little boy no. 10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f448"></span>F448</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $44</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#68">0x44</a>: little boy sitting in a chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f44a"></span>F44A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D200</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f44d"></span>F44D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F455</td>
 <td class="comment-11" rowspan="1">Jump if little boy no. 10 is sitting in a chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f44f"></span>F44F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $C5</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#197">0xC5</a>: Is little boy no. 10 sitting on the floor facing right (as in assembly)?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f451"></span>F451</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F455</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f453"></span>F453</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="1">No simulated keypress (ERIC stays still)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f454"></span>F454</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f455"></span>
 <div class="comments">
 <div class="paragraph">
@@ -305,54 +335,63 @@ Little boy no. 10 is sitting in a chair or sitting on the floor facing right (as
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f455"></span>F455</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR (HL)</td>
 <td class="comment-11" rowspan="2">Set the carry flag if ERIC and little boy no. 10 are facing in opposite directions</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f456"></span>F456</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f457"></span>F457</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$62</td>
 <td class="comment-11" rowspan="1">0x62=keypress code for 'S' (sit)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f459"></span>F459</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if ERIC and little boy no. 10 are facing the same way</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f45a"></span>F45A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f45b"></span>F45B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
 <td class="comment-11" rowspan="4">Set <span class="register">A</span> to 1 if ERIC is facing left (leading to a simulated keypress code of 0x52, or RIGHT), 0 if he's facing right (leading to a simulated keypress code of 0x50, or LEFT); that is, make ERIC turn round</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f45c"></span>F45C</td>
+<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f45d"></span>F45D</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f45e"></span>F45E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $F441</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
@@ -365,10 +404,10 @@ Little boy no. 10 is sitting in a chair or sitting on the floor facing right (as
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/62483.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/62483.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

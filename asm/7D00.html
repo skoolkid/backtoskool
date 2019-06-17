@@ -23,7 +23,7 @@
 <div class="description">7D00: Get the identifier for ERIC's location</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="7D15.html">7D15</a>, <a href="7D20.html">7D20</a> and <a href="F28E.html">F28E</a>. Returns with the carry flag set if ERIC's on the stage or a forbidden staircase (though this flag is ignored by the callers), and the location identifier (0-8) in <span class="register">A</span>. See the routine at <a href="63D2.html">63D2</a> for a description of the location identifiers.
@@ -46,29 +46,33 @@ Used by the routines at <a href="7D15.html">7D15</a>, <a href="7D20.html">7D20</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7d00"></span>7D00</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63BE.html">$63BE</a></td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=ERIC's y-coordinate (or the y-coordinate of the floor he's closest to if his feet are not on the floor)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d03"></span>7D03</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$B93B</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=0xB9; <span class="register">C</span>=0x3B</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d06"></span>7D06</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="63D2.html#63d5">$63D5</a></td>
 <td class="comment-11" rowspan="1">Collect the identifier for ERIC's location (0-8) in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d09"></span>7D09</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-11" rowspan="1">Return if ERIC's on the top, middle or bottom floor</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7d0a"></span>
 <div class="comments">
 <div class="paragraph">
@@ -80,54 +84,63 @@ ERIC's not on the top, middle or bottom floor. He must be on a staircase or the 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d0a"></span>7D0A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d0b"></span>7D0B</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $30</td>
 <td class="comment-11" rowspan="6">Return with <span class="register">A</span>=0 (forbidden zone) and the carry flag set if <span class="register">E</span>&gt;=0x30 (ERIC must be on the stage, or a staircase he's not allowed on)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d0d"></span>7D0D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $C0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d0f"></span>7D0F</td>
+<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d10"></span>7D10</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d11"></span>7D11</td>
+<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d12"></span>7D12</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d13"></span>7D13</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-11" rowspan="2">Otherwise return with <span class="register">A</span>=2 and the carry flag reset (ERIC's on one of the staircases at the far left of the boys' skool)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7d14"></span>7D14</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
@@ -140,10 +153,10 @@ ERIC's not on the top, middle or bottom floor. He must be on a staircase or the 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/32000.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/32000.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

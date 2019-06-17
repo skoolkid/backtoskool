@@ -23,7 +23,7 @@
 <div class="description">663F: Knock the current occupant (if any) out of a chair</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="6697.html">6697</a> and <a href="F3FC.html">F3FC</a>. Knocks the current occupant (if any) out of the chair next to the character looking for a seat.
@@ -49,125 +49,145 @@ Used by the routines at <a href="6697.html">6697</a> and <a href="F3FC.html">F3F
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="663f"></span>663F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$B7</td>
 <td class="comment-11" rowspan="1">0xB7=little girl no. 1</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6641"></span>6641</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6643"></span>6643</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$1187</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=0x11 (7 girls, 10 boys), <span class="register">C</span>=0x87 (animatory state mask)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6646"></span>6646</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6618.html#6621">$6621</a></td>
 <td class="comment-11" rowspan="1">Are any of these characters sitting in the chair?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6649"></span>6649</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$6667</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="664b"></span>664B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0287</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=0x02 (EINSTEIN and HAYLEY), <span class="register">C</span>=0x87 (animatory state mask)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="664e"></span>664E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$D0</td>
 <td class="comment-11" rowspan="1">0xD0=EINSTEIN</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6650"></span>6650</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6618.html">$6618</a></td>
 <td class="comment-11" rowspan="1">Is one of the main kids sitting here?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6653"></span>6653</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$6667</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6655"></span>6655</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$D212</td>
 <td class="comment-11" rowspan="1"><span class="register">D</span>=0xD2 (ERIC), <span class="register">E</span>=0x12</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6658"></span>6658</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=1 (just ERIC)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6659"></span>6659</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="2">Zero out byte 0x12 of ERIC's buffer (to indicate that he may be pushed out of the seat if he's in it)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="665a"></span>665A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="665b"></span>665B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6618.html#6621">$6621</a></td>
 <td class="comment-11" rowspan="1">Is ERIC sitting here?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="665e"></span>665E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="665f"></span>665F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$7FFB</td>
 <td class="comment-11" rowspan="2"><span class="register">HL</span>=<a href="7FFB.html">7FFB</a> (ERIC's primary status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6662"></span>6662</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6663"></span>6663</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 7,(HL)</td>
 <td class="comment-11" rowspan="1">Set bit 7 of ERIC's primary status flags, indicating that he's been knocked to the floor; however, bit 7 is ignored by the routine at <a href="F7AD.html">F7AD</a> (because bit 2 is also set), so ERIC actually stays in his seat (which is a <a href="../reference/bugs.html#seat">bug</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6665"></span>6665</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Restore the number of the character looking for a seat to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6666"></span>6666</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6667"></span>
 <div class="comments">
 <div class="paragraph">
@@ -179,36 +199,42 @@ A character (other than ERIC) must be knocked out of the chair.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6667"></span>6667</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$66</td>
 <td class="comment-11" rowspan="5">Place the address of the uninterruptible subcommand routine at <a href="6670.html">6670</a> into bytes 0x11 and 0x12 of the buffer of the character who's been knocked out of the chair</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6669"></span>6669</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="666a"></span>666A</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="666b"></span>666B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$70</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="666d"></span>666D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="666e"></span>666E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -221,10 +247,10 @@ A character (other than ERIC) must be knocked out of the chair.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/26175.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/26175.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

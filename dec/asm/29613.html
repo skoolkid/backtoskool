@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 29613</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="29574.html">29574</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29613">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29621.html">29621</a></span></td>
+</tr>
+</table>
+<div class="description">29613: Print the score, lines total or hi-score (1)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="29621.html">29621</a> and <a href="62910.html">62910</a>.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Number/10</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Display file address</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="29613"></span>29613</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1">Save the display file address</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29614"></span>29614</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="27572.html">27572</a></td>
+<td class="comment-11" rowspan="1">Generate ASCII codes for the digits in the decimal rendering of the number in <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29617"></span>29617</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP DE</td>
+<td class="comment-11" rowspan="1">Get the display file address in <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="29618"></span>29618</td>
+<td class="bytes-0"></td>
+<td class="instruction">JP <a href="27497.html">27497</a></td>
+<td class="comment-11" rowspan="1">Print the number on the screen</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="29574.html">29574</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#29613">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="29621.html">29621</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/73AD.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

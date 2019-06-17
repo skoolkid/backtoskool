@@ -23,7 +23,7 @@
 <div class="description">7414: Make a teacher give lines</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="7596.html">7596</a>, <a href="7D3E.html">7D3E</a> and <a href="F02F.html">F02F</a>. Prints the lines message (e.g. '100 LINES ERIC') in a message box above the teacher's head, and shortly afterwards prints the reprimand message (e.g. 'NO CATAPULTS') in the same box.
@@ -57,287 +57,334 @@ Used by the routines at <a href="7596.html">7596</a>, <a href="7D3E.html">7D3E</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7414"></span>7414</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1">Save the lines recipient's character number briefly</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7415"></span>7415</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7400.html">$7400</a></td>
 <td class="comment-11" rowspan="1">Collect in <span class="register">DE</span> the coordinates of the teacher's head</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7418"></span>7418</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1">Restore the lines recipient's character number to <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7419"></span>7419</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$4D</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="EFA1.html">0x1B</a>, <a href="EFAE.html">0x1C</a>, <a href="EFBB.html">0x1D</a>, <a href="EFC8.html">0x1E</a> or <a href="EFD5.html">0x1F</a> (message number for the lines recipient's name)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="741b"></span>741B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7F8A),A</td>
 <td class="comment-11" rowspan="1">Place it into <a href="7F8A.html">7F8A</a> (the first byte of message <a href="7F8A.html">0x05</a>, which is used as a submessage of message <a href="E9EE.html">0x0D</a>: '[12]0 LINES^[5]')</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="741e"></span>741E</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $16</td>
 <td class="comment-11" rowspan="6">Compute the attribute byte to be used for the lines message: 0x0F (blue background) for BOY WANDER; 0x17 (red background) for ANGELFACE or EINSTEIN; 0x1F (magenta background) for HAYLEY or ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7420"></span>7420</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7421"></span>7421</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7422"></span>7422</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7423"></span>7423</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7424"></span>7424</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7425"></span>7425</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1">Copy the lines message attribute byte to <span class="register">C</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7426"></span>7426</td>
+<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7427"></span>7427</td>
+<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7428"></span>7428</td>
+<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7429"></span>7429</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="742a"></span>742A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6A8C.html">$6A8C</a></td>
 <td class="comment-11" rowspan="1">Save the area of screen that will be overwritten by the lines message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="742d"></span>742D</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="742e"></span>742E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if the teacher giving lines is off-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="742f"></span>742F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7432"></span>7432</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $0E</td>
 <td class="comment-11" rowspan="7">Set <span class="register">L</span>=10, 20, 30, 40, 50, 60, 70 or 80 (number of lines divided by 10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7434"></span>7434</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$02</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7436"></span>7436</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7437"></span>7437</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7438"></span>7438</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7439"></span>7439</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="743a"></span>743A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="743b"></span>743B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=attribute byte for the lines message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="743c"></span>743C</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="743d"></span>743D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $0F</td>
 <td class="comment-11" rowspan="1">Is the teacher giving lines to BOY WANDER?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="743f"></span>743F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$744E</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7441"></span>7441</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $1F</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7443"></span>7443</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=number of lines divided by 10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7444"></span>7444</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$744B</td>
 <td class="comment-11" rowspan="1">Jump if the teacher is giving lines to ERIC or HAYLEY</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7446"></span>7446</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="73B5.html">$73B5</a></td>
 <td class="comment-11" rowspan="2">Add EINSTEIN's or ANGELFACE's lines to the score and print the score</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7449"></span>7449</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $744E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="744b"></span>744B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="73CB.html">$73CB</a></td>
 <td class="comment-11" rowspan="1">Add lines and print the new lines total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="744e"></span>744E</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="744f"></span>744F</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7450"></span>7450</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$00</td>
 <td class="comment-11" rowspan="1"><span class="register">DE</span>=number of lines divided by 10</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7452"></span>7452</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6BB4.html">$6BB4</a></td>
 <td class="comment-11" rowspan="1">Generate the ASCII codes for the decimal digits of the number in <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7455"></span>7455</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore the attribute file address for the top left corner of the lines message box to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7456"></span>7456</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Restore the lines reprimand number to <span class="register">B</span>. and the attribute byte for the lines message to <span class="register">C</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7457"></span>7457</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1">Save them again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7458"></span>7458</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7459"></span>7459</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$0D</td>
 <td class="comment-11" rowspan="1">Message <a href="E9EE.html">0x0D</a>: '[12]0 LINES^[5]'</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="745b"></span>745B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6B46.html">$6B46</a></td>
 <td class="comment-11" rowspan="1">Print the lines message</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="745e"></span>
 <div class="comments">
 <div class="paragraph">
@@ -349,77 +396,89 @@ The lines message (e.g. '100 LINES ERIC') has been printed. Now for the accompan
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="745e"></span>745E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($E428)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=attribute byte for the lines message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7461"></span>7461</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$2800</td>
 <td class="comment-11" rowspan="1">Set the duration parameter for the beep</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7464"></span>7464</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="4">The border colour for the beep will be the same as the PAPER colour of the lines message box</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7465"></span>7465</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7466"></span>7466</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7467"></span>7467</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7469"></span>7469</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="746a"></span>746A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$1410</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=0x14 (pitch), <span class="register">C</span>=0x10 (no alternating colours)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="746d"></span>746D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="748C.html">$748C</a></td>
 <td class="comment-11" rowspan="1">Beep</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7470"></span>7470</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=PAPER colour of the lines message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7471"></span>7471</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore the attribute file address for the top left corner of the lines message box to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7472"></span>7472</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1">Restore the lines reprimand number to <span class="register">B</span>. and the attribute byte for the lines message to <span class="register">C</span></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="7473"></span>
 <div class="comments">
 <div class="paragraph">
@@ -431,66 +490,77 @@ This entry point is used by the routines at <a href="74C8.html">74C8</a> (with <
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7473"></span>7473</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7474"></span>7474</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7475"></span>7475</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="E9F9.html">0x0E</a>, <a href="EE09.html">0x62</a>, or a reprimand message number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7476"></span>7476</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6B46.html">$6B46</a></td>
 <td class="comment-11" rowspan="1">Print the message</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7479"></span>7479</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=border colour to use during the beep</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="747a"></span>747A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$1400</td>
 <td class="comment-11" rowspan="1">Set the duration parameter for the beep</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="747d"></span>747D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$3210</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=0x32 (pitch), <span class="register">C</span>=0x10 (no alternating colours)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7480"></span>7480</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="748C.html">$748C</a></td>
 <td class="comment-11" rowspan="1">Beep</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7483"></span>7483</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1">Restore the attribute file address for the top left corner of the message box to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7484"></span>7484</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E328</td>
 <td class="comment-11" rowspan="1">The part of the screen overwritten by the message box was stored in the buffer at <a href="E328.html">E328</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7487"></span>7487</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6AE4.html">$6AE4</a></td>
 <td class="comment-11" rowspan="1">Restore the area of the screen overwritten by the message box</td>
 </tr>
@@ -503,10 +573,10 @@ This entry point is used by the routines at <a href="74C8.html">74C8</a> (with <
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/29716.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29716.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

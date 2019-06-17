@@ -23,7 +23,7 @@
 <div class="description">FB03: Deal with ERIC when he's stepping off a plant, a plant pot, or the assembly hall stage</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="F7AD.html">F7AD</a> when bit 2 at <a href="7FED.html">7FED</a> is set (by the routine at <a href="FAF2.html">FAF2</a> or <a href="FB3C.html">FB3C</a>, or by this routine on the first pass through). On entry, bit 3 at <a href="7FED.html">7FED</a> is also set if ERIC is stepping out of an open window, over the closed skool gate, or off the assembly hall stage. On exit, ERIC's status flags at <a href="7FED.html">7FED</a> are set as follows:
@@ -66,174 +66,203 @@ Used by the routine at <a href="F7AD.html">F7AD</a> when bit 2 at <a href="7FED.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fb03"></span>FB03</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF3</td>
 <td class="comment-11" rowspan="1"><a href="7FF3.html">7FF3</a> holds ERIC's main action timer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb06"></span>FB06</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Is it time to deal with ERIC yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb07"></span>FB07</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb08"></span>FB08</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$05</td>
 <td class="comment-11" rowspan="1">Reset ERIC's main action timer to 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb0a"></span>FB0A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D200</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC' buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb0d"></span>FB0D</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
 <td class="comment-11" rowspan="1">Is ERIC midstride?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb0f"></span>FB0F</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,<a href="FAF2.html#faf7">$FAF7</a></td>
 <td class="comment-11" rowspan="1">Make him so if not (with an accompanying sound effect)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb11"></span>FB11</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FED)</td>
 <td class="comment-11" rowspan="2">Set the zero flag if bit 3 of ERIC's secondary status flags at <a href="7FED.html">7FED</a> is also set</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb14"></span>FB14</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $0C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb16"></span>FB16</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
 <td class="comment-11" rowspan="1">Set bit 2 (only) in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb18"></span>FB18</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$FB24</td>
 <td class="comment-11" rowspan="1">Reset bit 3 at <a href="7FED.html">7FED</a> if ERIC has just stepped off a fully grown plant towards an open window or the closed skool gate, or just stepped off the stage</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb1a"></span>FB1A</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb1b"></span>FB1B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb1c"></span>FB1C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $5C</td>
 <td class="comment-11" rowspan="1">This is the x-coordinate of the plant pot on the top floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb1e"></span>FB1E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$20</td>
 <td class="comment-11" rowspan="1">Set bit 5 in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb20"></span>FB20</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$FB24</td>
 <td class="comment-11" rowspan="1">Jump if ERIC is going to fall from the top-floor window</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb22"></span>FB22</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$08</td>
 <td class="comment-11" rowspan="1">Set bit 3 in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fb24"></span>FB24</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FED),A</td>
 <td class="comment-11" rowspan="1">Set the appropriate bit (2, 3 or 5) in ERIC's secondary status flags at <a href="7FED.html">7FED</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb27"></span>FB27</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7154.html">$7154</a></td>
 <td class="comment-11" rowspan="1">Make a sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb2a"></span>FB2A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
 <td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb2c"></span>FB2C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb2f"></span>FB2F</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=ERIC's new animatory state (standing)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb30"></span>FB30</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $82</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb32"></span>FB32</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1">Decrement ERIC's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb33"></span>FB33</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,A</td>
 <td class="comment-11" rowspan="1">Is ERIC facing left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb35"></span>FB35</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$FB39</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb37"></span>FB37</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="2">Increment ERIC's x-coordinate (if he's facing right)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="fb38"></span>FB38</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="fb39"></span>FB39</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6E00.html#6e0c">$6E0C</a></td>
 <td class="comment-11" rowspan="1">Update ERIC's animatory state and location, make a sound effect, and scroll the screen if necessary</td>
 </tr>
@@ -246,10 +275,10 @@ Used by the routine at <a href="F7AD.html">F7AD</a> when bit 2 at <a href="7FED.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/64259.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/64259.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

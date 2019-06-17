@@ -23,7 +23,7 @@
 <div class="description">50E5: Populate a row of the screen with machine code</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes of machine code from the source (either the top row of the screen, or character buffers 0xB7-0xBE) to the destination (the second or third row from the bottom of the screen), in eight 32-byte blocks.
@@ -53,60 +53,70 @@ Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes o
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="50e5"></span>50E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0020</td>
 <td class="comment-11" rowspan="1">There are 32 bytes per row of pixels</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50e8"></span>50E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50e9"></span>50E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
 <td class="comment-11" rowspan="1">Copy 32 bytes to the display file</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50eb"></span>50EB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,B</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50ec"></span>50EC</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50ed"></span>50ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the start of the next row of pixels</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50ee"></span>50EE</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the next batch of 32 bytes to copy</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50ef"></span>50EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 3,D</td>
 <td class="comment-11" rowspan="1">Have we copied 8 rows of bytes yet?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50f1"></span>50F1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$50E5</td>
 <td class="comment-11" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="50f3"></span>50F3</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -119,10 +129,10 @@ Used by the routine at <a href="../start/81B4.html">81B4</a>. Copies 256 bytes o
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/20709.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/20709.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

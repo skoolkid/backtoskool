@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 25554</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="25534.html">25534</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25554">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25581.html">25581</a></span></td>
+</tr>
+</table>
+<div class="description">25554: Get the play area region identifier for a given location</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25700.html">25700</a>, <a href="25843.html">25843</a> and <a href="32379.html">32379</a>. The value returned in <span class="register">A</span> (corresponding to the location in <span class="register">DE</span>) is as follows:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">ID</th>
+<th colspan="1" rowspan="1">Region</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">189</td>
+<td class="" colspan="1" rowspan="1">Top floor, left of the left study door in the boys' skool</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">190</td>
+<td class="" colspan="1" rowspan="1">Middle floor, left of the far wall of the Science Lab storeroom</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">191</td>
+<td class="" colspan="1" rowspan="1">Anywhere on the bottom floor (or in mid-air!)</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">192</td>
+<td class="" colspan="1" rowspan="1">Assembly hall stage</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">193</td>
+<td class="" colspan="1" rowspan="1">Near the middle-floor window in the boys' skool</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">194</td>
+<td class="" colspan="1" rowspan="1">Top floor, right of the left study door in the boys' skool</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">195</td>
+<td class="" colspan="1" rowspan="1">Middle floor, girls' skool</td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">196</td>
+<td class="" colspan="1" rowspan="1">Top floor, girls' skool</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<span id="ericLocTable" /> Or if the entry point at <a href="25554.html#25557">25557</a> is used (for ERIC's location):
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">ID</th>
+<th colspan="1" rowspan="1">Region</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="" colspan="1" rowspan="1">None of the places below (ERIC is never allowed here)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1">Playground</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1">Various places in the boys' skool outside classrooms</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1">Assembly hall</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1">Dining hall</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1">Revision Library, outside the Yellow Room door</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1">Science Lab</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1">Blue Room</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">8</td>
+<td class="" colspan="1" rowspan="1">Yellow Room</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+The carry flag is set upon return to the caller of this routine if the coordinates in <span class="register">DE</span> correspond to a location on a staircase.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">y-coordinate of the play area (3-17)</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">x-coordinate of the play area (0-190)</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="25554"></span>25554</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="28067.html">28067</a></td>
+<td class="comment-11" rowspan="1">Divert back to the calling routine with <span class="register">A</span>=192 and the carry flag reset if the character is on the assembly hall stage; otherwise return here with <span class="register">B</span>=182 and <span class="register">C</span>=59</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25557"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="32000.html">32000</a> with ERIC's coordinates in <span class="register">DE</span>, <span class="register">B</span>=185, and <span class="register">C</span>=59.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="25557"></span>25557</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="25558"></span>25558</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC B</td>
+<td class="comment-11" rowspan="3">Set <span class="register">B</span> to 183 (186) if <span class="register">D</span>&lt;=6 (top floor), 184 (187) if 7&lt;=<span class="register">D</span>&lt;=13 (middle floor), or 185 (188) if 14&lt;=<span class="register">D</span>&lt;=18 (bottom floor)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25559"></span>25559</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB 7</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25561"></span>25561</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,25558</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25563"></span>
+<div class="comments">
+<div class="paragraph">
+Now <span class="register">BC</span> will be used to index one of the skool region tables that contain the location identifiers:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Region</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="46908.html">46908</a></td>
+<td class="" colspan="1" rowspan="1">Top floor</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="47164.html">47164</a></td>
+<td class="" colspan="1" rowspan="1">Middle floor</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="47420.html">47420</a></td>
+<td class="" colspan="1" rowspan="1">Bottom floor</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="47676.html">47676</a></td>
+<td class="" colspan="1" rowspan="1">Top floor (ERIC)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="47932.html">47932</a></td>
+<td class="" colspan="1" rowspan="1">Middle floor (ERIC)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="48188.html">48188</a></td>
+<td class="" colspan="1" rowspan="1">Bottom floor (ERIC)</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25563"></span>25563</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 252</td>
+<td class="comment-11" rowspan="1">Does <span class="register">D</span>=3, 10 or 17 (top, middle, bottom floor)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25565"></span>25565</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,25571</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25567"></span>25567</td>
+<td class="bytes-0"></td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Signal: <span class="register">D</span> does not correspond exactly to the top, middle or bottom floor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25568"></span>25568</td>
+<td class="bytes-0"></td>
+<td class="instruction">NOP</td>
+<td class="comment-11" rowspan="3"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25569"></span>25569</td>
+<td class="bytes-0"></td>
+<td class="instruction">NOP</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25570"></span>25570</td>
+<td class="bytes-0"></td>
+<td class="instruction">NOP</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="25571"></span>25571</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-11" rowspan="1">Save the carry flag temporarily</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="25572"></span>25572</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC C</td>
+<td class="comment-11" rowspan="5">Point <span class="register">BC</span> at the appropriate entry in one of the region tables</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25573"></span>25573</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25574"></span>25574</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC C</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25575"></span>25575</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP E</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25576"></span>25576</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,25572</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25578"></span>25578</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP AF</td>
+<td class="comment-11" rowspan="1">Restore the carry flag (reset if <span class="register">D</span>=3, 10 or 17; set otherwise)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25579"></span>25579</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=region identifier (189-196 or 0-8; see the tables above)</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="25580"></span>25580</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="25534.html">25534</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#25554">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="25581.html">25581</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/63D2.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

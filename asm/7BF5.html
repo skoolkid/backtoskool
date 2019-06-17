@@ -23,7 +23,7 @@
 <div class="description">7BF5: Make ERIC catch the frog (if possible)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="7B55.html">7B55</a>. Adds the frog to ERIC's inventory and makes a sound effect if the frog is sitting (i.e. not airborne) at the spot in front of ERIC.
@@ -49,36 +49,42 @@ Used by the routine at <a href="7B55.html">7B55</a>. Adds the frog to ERIC's inv
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7bf5"></span>7BF5</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $1C</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#28">0x1C</a>: Is the frog sitting down?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf7"></span>7BF7</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not (ERIC cannot catch an airborne frog)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf8"></span>7BF8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FEB</td>
 <td class="comment-11" rowspan="1"><a href="7FEB.html">7FEB</a> holds the inventory flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bfb"></span>7BFB</td>
+<td class="bytes-0"></td>
 <td class="instruction">SET 2,(HL)</td>
 <td class="comment-11" rowspan="1">Signal: got the frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bfd"></span>7BFD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D4</td>
 <td class="comment-11" rowspan="1">0xD4=frog</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bff"></span>7BFF</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7380.html">$7380</a></td>
 <td class="comment-11" rowspan="1">Print the inventory and make a sound effect</td>
 </tr>
@@ -91,10 +97,10 @@ Used by the routine at <a href="7B55.html">7B55</a>. Adds the frog to ERIC's inv
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/31733.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31733.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

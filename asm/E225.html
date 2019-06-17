@@ -23,7 +23,7 @@
 <div class="description">E225: 'R' pressed - release mice</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'R' is pressed.
@@ -49,54 +49,63 @@ The address of this routine is found in the table of keypress handling routines 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e225"></span>E225</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="774F.html">$774F</a></td>
 <td class="comment-11" rowspan="1">Is ERIC on a staircase or the assembly hall stage?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e228"></span>E228</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e229"></span>E229</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e22a"></span>E22A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e22b"></span>E22B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $A0</td>
 <td class="comment-11" rowspan="1">Is ERIC in the girls' skool?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e22d"></span>E22D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e22e"></span>E22E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$27</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#39">0x27</a>: animatory state of ERIC bending over</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e230"></span>E230</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7AE6</td>
 <td class="comment-11" rowspan="1">Routine at <a href="7AE6.html">7AE6</a>: release some mice</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e233"></span>E233</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E125.html#e12a">$E12A</a></td>
 <td class="comment-11" rowspan="1">Set ERIC's new animatory state</td>
 </tr>
@@ -109,10 +118,10 @@ The address of this routine is found in the table of keypress handling routines 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/57893.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/57893.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

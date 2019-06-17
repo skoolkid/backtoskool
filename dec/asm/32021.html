@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 32021</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="32000.html">32000</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32021">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32032.html">32032</a></span></td>
+</tr>
+</table>
+<div class="description">32021: Check whether ERIC is where he should be</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="61512.html">61512</a>, <a href="61595.html">61595</a>, <a href="61631.html">61631</a>, <a href="61658.html">61658</a> and <a href="61696.html">61696</a>. Returns with the zero flag set if and only if ERIC is where he should be during dinner, assembly, or class.
+</div>
+</div>
+<table class="input-0">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="32021"></span>32021</td>
+<td class="bytes-0"></td>
+<td class="instruction">CALL <a href="32000.html">32000</a></td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="25554.html#ericLocTable">location identifier</a> for ERIC</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32024"></span>32024</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD C,A</td>
+<td class="comment-11" rowspan="1">Copy this to <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32025"></span>32025</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,(32736)</td>
+<td class="comment-11" rowspan="1"><a href="32736.html">32736</a> holds the current lesson descriptor</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32028"></span>32028</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND 15</td>
+<td class="comment-11" rowspan="1">Bits 0-3 tell us which room or area ERIC should be in</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32030"></span>32030</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP C</td>
+<td class="comment-11" rowspan="1">Is ERIC in that room or area?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="32031"></span>32031</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="32000.html">32000</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#32021">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="32032.html">32032</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/7D15.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

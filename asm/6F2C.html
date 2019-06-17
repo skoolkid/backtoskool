@@ -23,7 +23,7 @@
 <div class="description">6F2C: 'O' pressed - left</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'O' or '5' is pressed.
@@ -46,35 +46,40 @@ The address of this routine is found in the table of keypress handling routines 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6f2c"></span>6F2C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($D200)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6f2f"></span>6F2F</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,A</td>
 <td class="comment-11" rowspan="1">Is ERIC facing right?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6f31"></span>6F31</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="6E38.html">$6E38</a></td>
 <td class="comment-11" rowspan="1">Turn ERIC round if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6f34"></span>6F34</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6E50.html">$6E50</a></td>
 <td class="comment-11" rowspan="1">Is ERIC on a staircase?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6f37"></span>6F37</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$6F3D</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6f39"></span>
 <div class="comments">
 <div class="paragraph">
@@ -86,17 +91,19 @@ This entry point is used by the routines at <a href="6F44.html">6F44</a> and <a 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6f39"></span>6F39</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
 <td class="comment-11" rowspan="1"><span class="register">E</span>=x-coordinate of the spot in front of ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6f3a"></span>6F3A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6E9B.html">$6E9B</a></td>
 <td class="comment-11" rowspan="1">Check for walls and closed doors in ERIC's path</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6f3d"></span>
 <div class="comments">
 <div class="paragraph">
@@ -108,18 +115,21 @@ ERIC is on a staircase.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6f3d"></span>6F3D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RLA</td>
 <td class="comment-11" rowspan="1">Does the staircase ERIC's on go down and to the left?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6f3e"></span>6F3E</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="6FA0.html#6fbe">$6FBE</a></td>
 <td class="comment-11" rowspan="1">Go down a stair if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6f41"></span>6F41</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6F44.html#6f62">$6F62</a></td>
 <td class="comment-11" rowspan="1">Otherwise go up a stair</td>
 </tr>
@@ -132,10 +142,10 @@ ERIC is on a staircase.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/28460.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28460.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

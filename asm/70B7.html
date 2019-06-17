@@ -23,7 +23,7 @@
 <div class="description">70B7: Make a character open or close a door</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of the character's buffer by the routine at <a href="708E.html">708E</a>.
@@ -49,41 +49,47 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70b7"></span>70B7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$12</td>
 <td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x11 and 0x12 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70b9"></span>70B9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70bb"></span>70BB</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x13</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70bc"></span>70BC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=door identifier (see <a href="7040.html">7040</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70bd"></span>70BD</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0x14</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70be"></span>70BE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">B</span>=0 if the character is going to close the door, or 1 if he's going to open it</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="70bf"></span>
 <div class="comments">
 <div class="paragraph">
@@ -95,24 +101,28 @@ This entry point is used by the routine at <a href="F939.html">F939</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="70bf"></span>70BF</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7040.html">$7040</a></td>
 <td class="comment-11" rowspan="1">Open or close the door</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70c2"></span>70C2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70c5"></span>70C5</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character with his arm down</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="70c7"></span>70C7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
 </tr>
@@ -125,10 +135,10 @@ This entry point is used by the routine at <a href="F939.html">F939</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/28855.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28855.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

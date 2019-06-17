@@ -23,7 +23,7 @@
 <div class="description">6C18: Alter UDG references in the play area for a door, a window, a cup or the bike</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="5DDC.html">5DDC</a>, <a href="6CD4.html">6CD4</a>, <a href="7040.html">7040</a> and <a href="FA4D.html">FA4D</a>. The UDG reference tables used by this routine are organised into entries of four bytes each. Each entry corresponds to a single UDG within the matrix of UDGs for the door, window, cup or bike:
@@ -200,95 +200,110 @@ The data tables used are located as follows:
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6c18"></span>6C18</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="2">Pick up the y-coordinate (Y) in <span class="register">D</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c19"></span>6C19</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c1a"></span>6C1A</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="2">Return if we found the end-of-table marker (0xFF)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c1b"></span>6C1B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c1c"></span>6C1C</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of this table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c1d"></span>6C1D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the x-coordinate (X) in <span class="register">E</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c1e"></span>6C1E</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 3 of this table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c1f"></span>6C1F</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c20"></span>6C20</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFF)</td>
 <td class="comment-11" rowspan="2"><span class="register">C</span>=leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c23"></span>6C23</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c24"></span>6C24</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="5">Jump if (X,Y) is off-screen (no need to update the screen refresh buffer)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c25"></span>6C25</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c26"></span>6C26</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$6C45</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c28"></span>6C28</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $20</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c2a"></span>6C2A</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6C45</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6c2c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -300,125 +315,145 @@ The data tables used are located as follows:
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c2c"></span>6C2C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1">0&lt;=<span class="register">C</span>&lt;=31 (screen x-coordinate)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c2d"></span>6C2D</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
 <td class="comment-11" rowspan="4">Point <span class="register">HL</span> at an entry in the 8-byte table at <a href="E178.html">E178</a>, whose contents are (0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c2f"></span>6C2F</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$78</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c31"></span>6C31</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c32"></span>6C32</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$E1</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c34"></span>6C34</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up this entry in <span class="register">B</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c35"></span>6C35</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1">0&lt;=<span class="register">A</span>&lt;=31 (screen x-coordinate)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c36"></span>6C36</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-11" rowspan="10">Point <span class="register">HL</span> at the byte of the SRB corresponding to (X,Y)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c37"></span>6C37</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c38"></span>6C38</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c39"></span>6C39</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $03</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c3b"></span>6C3B</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c3c"></span>6C3C</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c3d"></span>6C3D</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c3e"></span>6C3E</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c3f"></span>6C3F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c40"></span>6C40</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$7F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c42"></span>6C42</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="3">Set the appropriate bit in the SRB byte</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c43"></span>6C43</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c44"></span>6C44</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6c45"></span>
 <div class="comments">
 <div class="paragraph">
@@ -430,65 +465,75 @@ The UDG reference (i.e. the LSB of the base address of the skool UDG) for the sk
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6c45"></span>6C45</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,E</td>
 <td class="comment-11" rowspan="2">Point <span class="register">HL</span> at the Q value (0x00&lt;=Q&lt;=0x8F) in page <a href="B500.html">0xB5</a> for the x-coordinate X (see <a href="606C.html">606C</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c46"></span>6C46</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$B5</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c48"></span>6C48</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the Q value in <span class="register">E</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c49"></span>6C49</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
 <td class="comment-11" rowspan="3">Set <span class="register">DE</span> to the address where the UDG reference for (X,Y) is stored</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c4a"></span>6C4A</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$A0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c4c"></span>6C4C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c4d"></span>6C4D</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 3 of the table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c4e"></span>6C4E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the replacement UDG reference in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c4f"></span>6C4F</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 4 of the table entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c50"></span>6C50</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-11" rowspan="1">Replace the UDG reference for the skool location (X,Y) with the one collected from the table entry</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6c51"></span>
 <div class="comments">
 <div class="paragraph">
@@ -500,143 +545,166 @@ The attribute byte for the skool location (X,Y) must be modified too.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c51"></span>6C51</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up byte 4 of the table entry in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c52"></span>6C52</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $0F</td>
 <td class="comment-11" rowspan="1">Keep only bits 0-3 (the BRIGHT and PAPER attributes)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c54"></span>6C54</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-11" rowspan="1">Copy them to <span class="register">B</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c55"></span>6C55</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=Q (0x00&lt;=Q&lt;=0x8F)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c56"></span>6C56</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1">Save the Q value in <span class="register">C</span> for later</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c57"></span>6C57</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$68</td>
 <td class="comment-11" rowspan="4">Point <span class="register">DE</span> at byte 0xB4+INT(Q/2) of page Y+0xA0, where the BRIGHT and PAPER attributes for the skool location (X,Y) are stored</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c59"></span>6C59</td>
+<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c5a"></span>6C5A</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c5b"></span>6C5B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c5c"></span>6C5C</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR C,$6C69</td>
 <td class="comment-11" rowspan="1">Jump if Q is odd (BRIGHT and PAPER in bits 0-3)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c5e"></span>6C5E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
 <td class="comment-11" rowspan="6">Shift the BRIGHT and PAPER attributes from bits 0-3 to bits 4-7 of <span class="register">B</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c5f"></span>6C5F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c60"></span>6C60</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c61"></span>6C61</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c62"></span>6C62</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c63"></span>6C63</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c64"></span>6C64</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="2">Pick up the current attribute byte for the skool location (X,Y), keeping bits 0-3 as they are</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c65"></span>6C65</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $0F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c67"></span>6C67</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $6C6C</td>
 <td class="comment-11" rowspan="1">Jump forward to adjust bits 4-7 appropriately</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6c69"></span>6C69</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="2">Pick up the current attribute byte for the skool location (X,Y), keeping bits 4-7 as they are</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c6a"></span>6C6A</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $F0</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6c6c"></span>6C6C</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR B</td>
 <td class="comment-11" rowspan="2">Adjust bits 0-3 (if Q is odd) or bits 4-7 (Q is even) of the attribute byte for the skool location (X,Y)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c6d"></span>6C6D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6c6e"></span>
 <div class="comments">
 <div class="paragraph">
@@ -648,155 +716,180 @@ Finally, the base page (0x80, 0x88, 0x90 or 0x98) for the new skool UDG referenc
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c6e"></span>6C6E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up byte 4 of the table entry in <span class="register">A</span> again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c6f"></span>6C6F</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $C0</td>
 <td class="comment-11" rowspan="1">Keep only bits 6 and 7</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c71"></span>6C71</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 6,A</td>
 <td class="comment-11" rowspan="4">Set <span class="register">B</span>=10001000 if these bits are 11, 10000000 (10), 00001000 (01) or 00000000 (00)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c73"></span>6C73</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$6C77</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c75"></span>6C75</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB $38</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6c77"></span>6C77</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c78"></span>6C78</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=Q</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c79"></span>6C79</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$88</td>
 <td class="comment-11" rowspan="1"><span class="register">C</span>=10001000</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c7b"></span>6C7B</td>
+<td class="bytes-0"></td>
 <td class="instruction">SRL A</td>
 <td class="comment-11" rowspan="10">Set <span class="register">A</span>=INT(Q/4), and shift <span class="register">B</span> and <span class="register">C</span> right (Q AND 3) times</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c7d"></span>6C7D</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6C83</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c7f"></span>6C7F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRC B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c81"></span>6C81</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRC C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6c83"></span>6C83</td>
+<td class="bytes-0"></td>
 <td class="instruction">SRL A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c85"></span>6C85</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6C8F</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c87"></span>6C87</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRC B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c89"></span>6C89</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRC C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c8b"></span>6C8B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRC B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c8d"></span>6C8D</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRC C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6c8f"></span>6C8F</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$90</td>
 <td class="comment-11" rowspan="2">Point <span class="register">DE</span> at byte 0x90+INT(Q/4) of page Y+0xA0, where the UDG MSB identifier bit-pair for skool location (X,Y) is held (see <a href="606C.html">606C</a>)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c91"></span>6C91</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c92"></span>6C92</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1">Pick up the current MSB identifier byte in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c93"></span>6C93</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR C</td>
 <td class="comment-11" rowspan="3">Replace bits (0,4), (1,5), (2,6) or (3,7) in this byte with the corresponding bits in <span class="register">B</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c94"></span>6C94</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c95"></span>6C95</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR B</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c96"></span>6C96</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
 <td class="comment-11" rowspan="1">Store the new MSB identifier byte</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6c97"></span>
 <div class="comments">
 <div class="paragraph">
@@ -808,12 +901,14 @@ Move to the next entry in the table.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c97"></span>6C97</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of the next entry in the table</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6c98"></span>6C98</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP $6C18</td>
 <td class="comment-11" rowspan="1">Jump back to process it</td>
 </tr>
@@ -826,10 +921,10 @@ Move to the next entry in the table.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/27672.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/27672.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">5EE8: 'F' pressed - fire catapult</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'F' or '0' (zero) is pressed.
@@ -46,78 +46,91 @@ The address of this routine is found in the table of keypress handling routines 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5ee8"></span>5EE8</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="E24F.html">$E24F</a></td>
 <td class="comment-11" rowspan="1">Give up right now if the catapult pellet's buffer is already in use</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5eeb"></span>5EEB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$0A</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#10">0x0A</a>: ERIC raising the catapult</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5eed"></span>5EED</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="5EB7.html">$5EB7</a></td>
 <td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="5EE8.html#5ef0">5EF0</a> (below) when it's time to deal with ERIC again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5ef0"></span>5EF0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$02</td>
 <td class="comment-11" rowspan="1">Message <a href="FC42.html">0x02</a>: NO CATAPULTS</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ef2"></span>5EF2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F862.html#f898">$F898</a></td>
 <td class="comment-11" rowspan="1">Make any nearby teachers give ERIC lines</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ef5"></span>5EF5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$0B</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#11">0x0B</a>: ERIC firing the catapult</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ef7"></span>5EF7</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="5EB7.html">$5EB7</a></td>
 <td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="5EE8.html#5efa">5EFA</a> (below) when it's time to deal with ERIC again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5efa"></span>5EFA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$D6</td>
 <td class="comment-11" rowspan="1">ERIC's catapult pellet uses buffer 0xD6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5efc"></span>5EFC</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F975.html">$F975</a></td>
 <td class="comment-11" rowspan="1">Prepare the pellet's buffer and make a catapult sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5eff"></span>5EFF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$0B</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#11">0x0B</a>: ERIC (still) firing the catapult</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f01"></span>5F01</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="5EB7.html">$5EB7</a></td>
 <td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="5EE8.html#5f04">5F04</a> (below) when it's time to deal with ERIC again</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5f04"></span>5F04</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$0A</td>
 <td class="comment-11" rowspan="1"><a href="../graphics/as.html#10">0x0A</a>: ERIC lowering the catapult</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5f06"></span>5F06</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $5EE1</td>
 <td class="comment-11" rowspan="1">This is a <a href="../reference/bugs.html#fire">bug</a>; it should be JR <a href="5EC7.html#5edf">5EDF</a></td>
 </tr>
@@ -130,10 +143,10 @@ The address of this routine is found in the table of keypress handling routines 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/24296.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/24296.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

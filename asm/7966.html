@@ -23,7 +23,7 @@
 <div class="description">7966: Control a female character while she's standing on a chair or jumping (1)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of a female character's buffer by the routine at <a href="7974.html">7974</a>. It deals with a female character while she is either standing on a chair or jumping up and down (to evade a mouse).
@@ -49,42 +49,49 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7966"></span>7966</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
 <td class="comment-11" rowspan="1">Byte 0x13 of the character's buffer holds a counter determining how much longer she will continue jumping</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7968"></span>7968</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">Is it time to stop jumping?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7969"></span>7969</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,<a href="7998.html">$7998</a></td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="796b"></span>796B</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7132.html">$7132</a></td>
 <td class="comment-11" rowspan="1">Return this character to the floor</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="796e"></span>796E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$12</td>
 <td class="comment-11" rowspan="2">Remove the address of this routine from bytes 0x11 and 0x12 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7970"></span>7970</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7972"></span>7972</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -97,10 +104,10 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/31078.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31078.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

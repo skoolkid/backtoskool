@@ -23,7 +23,7 @@
 <div class="description">E145: Deal with ERIC when he's bending over, dropping a stinkbomb etc.</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 This routine is called by the routine at <a href="F7AD.html">F7AD</a> when bit 3 at <a href="7FFB.html">7FFB</a> is set by the routine at <a href="E125.html">E125</a>, indicating that ERIC is bending over (to throw away the water pistol, release a mouse, or catch a mouse or the frog), dropping a stinkbomb, firing the water pistol, or moving forward as if to kiss.
@@ -46,29 +46,33 @@ This routine is called by the routine at <a href="F7AD.html">F7AD</a> when bit 3
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e145"></span>E145</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
 <td class="comment-11" rowspan="2">Reset all flags at <a href="7FFB.html">7FFB</a>, indicating that ERIC has finished bending over, dropping a stinkbomb etc.</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e146"></span>E146</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FFB),A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e149"></span>E149</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$1406</td>
 <td class="comment-11" rowspan="2">Set ERIC's main action timer at <a href="7FF3.html">7FF3</a> to 0x14 (the delay before ERIC completes this action), and the mid-action timer at <a href="7FF2.html">7FF2</a> to 0x06 (the delay after ERIC completes this action)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e14c"></span>E14C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FF2),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="e14f"></span>
 <div class="comments">
 <div class="paragraph">
@@ -80,24 +84,28 @@ This entry point is used by the routine at <a href="5EAD.html">5EAD</a> (when bi
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="e14f"></span>E14F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7FD7)</td>
 <td class="comment-11" rowspan="2">Collect in <span class="register">HL</span> the routine address stored in <a href="7FD7.html">7FD7</a>, and push it onto the stack ready for an indirect jump</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e152"></span>E152</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e153"></span>E153</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
 <td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="e155"></span>E155</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Jump to the routine whose address is stored in <a href="7FD7.html">7FD7</a></td>
 </tr>
@@ -110,10 +118,10 @@ This entry point is used by the routine at <a href="5EAD.html">5EAD</a> (when bi
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/57669.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/57669.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

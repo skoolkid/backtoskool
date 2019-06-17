@@ -23,7 +23,7 @@
 <div class="description">68E1: Update the SRB so that the speech bubble is not corrupted</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="62A0.html">62A0</a>, <a href="691E.html">691E</a> and <a href="6A08.html">6A08</a>. Resets the bits in the <a href="7F00.html">screen refresh buffer</a> (SRB) that correspond to the speech bubble and lip, so that they are not overwritten by sprite tiles when the display is updated. Returns with the carry flag set if the speech bubble is on-screen, and with <span class="register">HL</span> pointing at the first byte of the SRB.
@@ -46,77 +46,89 @@ Used by the routines at <a href="62A0.html">62A0</a>, <a href="691E.html">691E</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="68e1"></span>68E1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF8</td>
 <td class="comment-11" rowspan="2"><a href="7FF8.html">7FF8</a> holds the LSB of the SRB address corresponding to the lip of the speech bubble (or 0 if there is no bubble on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68e4"></span>68E4</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68e5"></span>68E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0 (and <span class="register">HL</span>=<a href="7F00.html">7F00</a>) if no one is speaking</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68e6"></span>68E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is anyone speaking at the moment?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68e7"></span>68E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68e8"></span>68E8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$FF</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FFF.html">7FFF</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68ea"></span>68EA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68eb"></span>68EB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$FA</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FFA.html">7FFA</a>, which holds the column of the play area that was at the far left of the screen the last time this routine was called</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68ed"></span>68ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Set the zero flag if the screen hasn't scrolled, set the carry flag if the screen has scrolled right, or reset the carry flag if it has scrolled left</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68ee"></span>68EE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Update <a href="7FFA.html">7FFA</a> to the current leftmost column on-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68ef"></span>68EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$F8</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FF8.html">7FF8</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68f1"></span>68F1</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$6908</td>
 <td class="comment-11" rowspan="1">Jump if the screen hasn't scrolled since the last time this routine was called</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="68f3"></span>
 <div class="comments">
 <div class="paragraph">
@@ -128,17 +140,19 @@ The screen has scrolled since the last time this routine was called. Check which
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68f3"></span>68F3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=LSB of the speech bubble lip SRB address</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68f4"></span>68F4</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6903</td>
 <td class="comment-11" rowspan="1">Jump if the screen has scrolled left</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="68f6"></span>
 <div class="comments">
 <div class="paragraph">
@@ -150,23 +164,26 @@ The screen has scrolled right since the last time this routine was called.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68f6"></span>68F6</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $03</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0-3 (quarter of the screen occupied by the bubble before the scroll)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68f8"></span>68F8</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $03</td>
 <td class="comment-11" rowspan="1">Was the bubble in the rightmost quarter?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68fa"></span>68FA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$6900</td>
 <td class="comment-11" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="68fc"></span>
 <div class="comments">
 <div class="paragraph">
@@ -178,35 +195,40 @@ The speech bubble has been scrolled off the screen.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="68fc"></span>68FC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-11" rowspan="1">Set <a href="7FF8.html">7FF8</a> to 0 (the bubble is no longer on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68fe"></span>68FE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="68ff"></span>68FF</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1">Return with the carry flag reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6900"></span>6900</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
 <td class="comment-11" rowspan="1">The speech bubble has been scrolled to the right (and is still on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6901"></span>6901</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $6908</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6903"></span>
 <div class="comments">
 <div class="paragraph">
@@ -218,23 +240,26 @@ The screen has scrolled left since the last time this routine was called.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6903"></span>6903</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $03</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=0-3 (quarter of the screen occupied by the bubble before the scroll)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6905"></span>6905</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$68FC</td>
 <td class="comment-11" rowspan="1">Jump if the bubble was in the leftmost quarter (and is therefore no longer on-screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6907"></span>6907</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
 <td class="comment-11" rowspan="1">The speech bubble has been scrolled to the left (and is still on-screen)</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6908"></span>
 <div class="comments">
 <div class="paragraph">
@@ -246,90 +271,105 @@ Now that <a href="7FF8.html">7FF8</a> has been adjusted to compensate for any re
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6908"></span>6908</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=address of the SRB byte corresponding to the lip of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6909"></span>6909</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FF9)</td>
 <td class="comment-11" rowspan="1">The bit set in <span class="register">A</span> corresponds to the bit of the SRB byte that corresponds to the lip of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="690c"></span>690C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="690d"></span>690D</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND (HL)</td>
 <td class="comment-11" rowspan="1">Make sure this bit is reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="690e"></span>690E</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Restore the SRB byte with the relevant bit reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="690f"></span>690F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6910"></span>6910</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$FC</td>
 <td class="comment-11" rowspan="3">Reset the bits of the SRB corresponding to the bottom line of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6912"></span>6912</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6913"></span>6913</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6915"></span>6915</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$FC</td>
 <td class="comment-11" rowspan="3">Reset the bits of the SRB corresponding to the top line of the speech bubble</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6917"></span>6917</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6918"></span>6918</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="691a"></span>691A</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="691b"></span>691B</td>
+<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
 <td class="comment-11" rowspan="1">Signal: the speech bubble is still on-screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="691c"></span>691C</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -342,10 +382,10 @@ Now that <a href="7FF8.html">7FF8</a> has been adjusted to compensate for any re
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/26849.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/26849.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

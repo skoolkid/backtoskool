@@ -23,7 +23,7 @@
 <div class="description">51DC: Guide a character onto the catwalk or off it</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="52A0.html">52A0</a>. Makes a character walk in from the left to the middle of the screen (at which point his name may be changed), or from the middle of the screen and off to the right.
@@ -46,114 +46,133 @@ Used by the routine at <a href="52A0.html">52A0</a>. Makes a character walk in f
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="51dc"></span>51DC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD B,$28</td>
 <td class="comment-11" rowspan="1">The character will walk 40 paces</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="51de"></span>51DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51df"></span>51DF</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
 <td class="comment-11" rowspan="1">We use ERIC's buffer at page 0xD2 to control the character</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51e1"></span>51E1</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51e4"></span>51E4</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=character's next animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51e5"></span>51E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $FB</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51e7"></span>51E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 0,A</td>
 <td class="comment-11" rowspan="1">Is the character midstride now?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51e9"></span>51E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$51EC</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51eb"></span>51EB</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
 <td class="comment-11" rowspan="1">Otherwise move forward a pace</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="51ec"></span>51EC</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51ef"></span>51EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62A0.html">$62A0</a></td>
 <td class="comment-11" rowspan="1">Update the display</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51f2"></span>51F2</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="53AB.html">$53AB</a></td>
 <td class="comment-11" rowspan="1">Make a walking sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51f5"></span>51F5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,$64</td>
 <td class="comment-11" rowspan="4">Wait a bit</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="51f7"></span>51F7</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $51F7</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51f9"></span>51F9</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51fa"></span>51FA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$51F7</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51fc"></span>51FC</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51fd"></span>51FD</td>
+<td class="bytes-0"></td>
 <td class="instruction">DJNZ $51DE</td>
 <td class="comment-11" rowspan="1">Jump back until all 40 paces have been walked</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="51ff"></span>51FF</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -166,10 +185,10 @@ Used by the routine at <a href="52A0.html">52A0</a>. Makes a character walk in f
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/20956.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/20956.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

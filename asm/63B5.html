@@ -23,7 +23,7 @@
 <div class="description">63B5: Set the interruptible subcommand (unused)</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 This routine is not used. It drops the return address from the stack and copies it into bytes 0x09 and 0x0A of the character's buffer (thus setting the interruptible subcommand), and then jumps to the routine whose address is in <span class="register">BC</span>.
@@ -53,36 +53,42 @@ This routine is not used. It drops the return address from the stack and copies 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="63b5"></span>63B5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63b6"></span>63B6</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1">Drop the return address from the stack into <span class="register">HL</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63b7"></span>63B7</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
 <td class="comment-11" rowspan="1">Push the routine address in <span class="register">BC</span> onto the stack</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63b8"></span>63B8</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,L</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63b9"></span>63B9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$09</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="63bb"></span>63BB</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR <a href="639F.html#63aa">$63AA</a></td>
 <td class="comment-11" rowspan="1">Copy the return address into bytes 0x09 and 0x0A of the character's buffer, and jump to the routine whose address was in <span class="register">BC</span> on entering this routine</td>
 </tr>
@@ -95,10 +101,10 @@ This routine is not used. It drops the return address from the stack and copies 
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/25525.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/25525.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

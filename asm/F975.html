@@ -23,7 +23,7 @@
 <div class="description">F975: Prepare the buffer for ERIC's catapult pellet and make a sound effect</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="5EE8.html">5EE8</a>.
@@ -49,11 +49,12 @@ Used by the routine at <a href="5EE8.html">5EE8</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f975"></span>F975</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="775B.html#7797">$7797</a></td>
 <td class="comment-11" rowspan="1">Prepare buffer 0xD6 for the pellet</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="f978"></span>
 <div class="comments">
 <div class="paragraph">
@@ -65,42 +66,49 @@ This entry point is used by the routine at <a href="F9AB.html">F9AB</a>.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="f978"></span>F978</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f979"></span>F979</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$F812</td>
 <td class="comment-11" rowspan="3">Initialise the sound effect parameters</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f97c"></span>F97C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD DE,$8000</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f97f"></span>F97F</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,$04</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f981"></span>F981</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F28E.html#f2cb">$F2CB</a></td>
 <td class="comment-11" rowspan="1">Make a catapult/water pistol sound effect</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f984"></span>F984</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="f985"></span>F985</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -113,10 +121,10 @@ This entry point is used by the routine at <a href="F9AB.html">F9AB</a>.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/63861.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/63861.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

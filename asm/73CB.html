@@ -23,7 +23,7 @@
 <div class="description">73CB: Add to the lines total and print it</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="5F1C.html">5F1C</a>, <a href="7414.html">7414</a> and <a href="F5BE.html">F5BE</a>. Adds to the lines total and prints the new total. Also sets MR WACKER on his way to expel ERIC if the new total is 10000 lines or more.
@@ -49,126 +49,147 @@ Used by the routines at <a href="5F1C.html">5F1C</a>, <a href="7414.html">7414</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="73cb"></span>73CB</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73cc"></span>73CC</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73cd"></span>73CD</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
 <td class="comment-11" rowspan="2"><span class="register">DE</span>=number of lines to add</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73ce"></span>73CE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,$00</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73d0"></span>73D0</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7FE7)</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=current lines total (divided by 10)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73d3"></span>73D3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD BC,$FC18</td>
 <td class="comment-11" rowspan="1"><span class="register">BC</span>=-1000</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73d6"></span>73D6</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,BC</td>
 <td class="comment-11" rowspan="1">Does ERIC have less than 10000 lines?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73d7"></span>73D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$73DC</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73d9"></span>73D9</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
 <td class="comment-11" rowspan="1">Add lines to ERIC's total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73da"></span>73DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR $73E5</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="73dc"></span>73DC</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
 <td class="comment-11" rowspan="1">Add lines to ERIC's total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73dd"></span>73DD</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$73E5</td>
 <td class="comment-11" rowspan="1">Jump if ERIC still has less than 10000 lines</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73df"></span>73DF</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73e0"></span>73E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F532.html">$F532</a></td>
 <td class="comment-11" rowspan="1">Set MR WACKER on his way to expel ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73e3"></span>73E3</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Clear the carry flag ready for subtraction</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73e4"></span>73E4</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="73e5"></span>73E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">SBC HL,BC</td>
 <td class="comment-11" rowspan="1">Now <span class="register">HL</span>=new lines total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73e7"></span>73E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FE7),HL</td>
 <td class="comment-11" rowspan="1">Store the new lines total at <a href="7FE7.html">7FE7</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73ea"></span>73EA</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Transfer the new lines total to <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73eb"></span>73EB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$51C4</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=display file address for printing the lines total</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="73ee"></span>73EE</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="73B5.html#73c5">$73C5</a></td>
 <td class="comment-11" rowspan="1">Print the new lines total</td>
 </tr>
@@ -181,10 +202,10 @@ Used by the routines at <a href="5F1C.html">5F1C</a>, <a href="7414.html">7414</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/29643.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/29643.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

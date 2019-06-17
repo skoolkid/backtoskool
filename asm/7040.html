@@ -23,7 +23,7 @@
 <div class="description">7040: Open or close a door or window</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="70B7.html">70B7</a>, <a href="70CD.html">70CD</a> and <a href="73F1.html">73F1</a>. On entry, <span class="register">A</span> holds the door/window identifier:
@@ -93,138 +93,161 @@ Used by the routines at <a href="70B7.html">70B7</a>, <a href="70CD.html">70CD</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7040"></span>7040</td>
+<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7041"></span>7041</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF4</td>
 <td class="comment-11" rowspan="1"><a href="7FF4.html">7FF4</a> holds the doors flags</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7044"></span>7044</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
 <td class="comment-11" rowspan="1">Copy the door identifier to <span class="register">C</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7045"></span>7045</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the doors flags in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7046"></span>7046</td>
+<td class="bytes-0"></td>
 <td class="instruction">OR C</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7047"></span>7047</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC B</td>
 <td class="comment-11" rowspan="1">Are we opening the door/window?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7048"></span>7048</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$704B</td>
 <td class="comment-11" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="704a"></span>704A</td>
+<td class="bytes-0"></td>
 <td class="instruction">XOR C</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="704b"></span>704B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
 <td class="comment-11" rowspan="1">Restore the doors flags with the appropriate bit set or reset</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="704c"></span>704C</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=door identifier</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="704d"></span>704D</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$E155</td>
 <td class="comment-11" rowspan="5">Point <span class="register">HL</span> at the appropriate entry in the doors and windows table at <a href="E156.html">E156</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7050"></span>7050</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7051"></span>7051</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7052"></span>7052</td>
+<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7053"></span>7053</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR NC,$7050</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7055"></span>7055</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the MSB of the entry in <span class="register">A</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7056"></span>7056</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADC A,B</td>
 <td class="comment-11" rowspan="1">Add 1 if opening the door/window</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7057"></span>7057</td>
+<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the LSB of the entry</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7058"></span>7058</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,(HL)</td>
 <td class="comment-11" rowspan="1">Pick this up in <span class="register">L</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7059"></span>7059</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
 <td class="comment-11" rowspan="1">Now <span class="register">HL</span>=address from the doors and windows table (+0100 if opening)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="705a"></span>705A</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6C18.html">$6C18</a></td>
 <td class="comment-11" rowspan="1">Alter UDG references in the play area and update the SRB for the newly opened or closed door/window</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="705d"></span>705D</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="705e"></span>705E</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
@@ -237,10 +260,10 @@ Used by the routines at <a href="70B7.html">70B7</a>, <a href="70CD.html">70CD</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/28736.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28736.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

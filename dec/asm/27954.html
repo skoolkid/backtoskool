@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 27954</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="27953.html">27953</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#27954">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28002.html">28002</a></span></td>
+</tr>
+</table>
+<div class="description">27954: Check whether a target character can be seen by another character</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="28002.html">28002</a> and <a href="28029.html">28029</a>. This routine checks through <span class="register">B'</span> 'spotter' characters starting with character <span class="register">H'</span>. If any spotter is close enough to the target to be able to see it, the routine returns with <span class="register">A</span> holding a non-zero value, <span class="register">H</span> holding the spotter's character number, and the carry flag set if the spotter is facing the right way to see it (reset otherwise). If no spotters are close enough to the target to be able to see it, the routine returns with <span class="register">A</span> holding 0 and the carry flag reset.
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Upper x-coordinate of the target range</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Lower x-coordinate of the target range</td>
+</tr>
+<tr>
+<td class="register">D</td>
+<td class="register-desc">Target character's y-coordinate</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">Target character's x-coordinate</td>
+</tr>
+<tr>
+<td class="register">B'</td>
+<td class="register-desc">Number of spotters to check</td>
+</tr>
+<tr>
+<td class="register">H'</td>
+<td class="register-desc">Character number of the first spotter to check</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="27954"></span>27954</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="27955"></span>27955</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,2</td>
+<td class="comment-11" rowspan="4">Pick up the spotter's coordinates in <span class="register">DE'</span>; we are going to check whether this character can see the target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27957"></span>27957</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27958"></span>27958</td>
+<td class="bytes-0"></td>
+<td class="instruction">DEC L</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27959"></span>27959</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27960"></span>27960</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1">Transfer the spotter's y-coordinate to <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27961"></span>27961</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27962"></span>27962</td>
+<td class="bytes-0"></td>
+<td class="instruction">SUB D</td>
+<td class="comment-11" rowspan="1">Subtract the target's y-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27963"></span>27963</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,27967</td>
+<td class="comment-11" rowspan="1">Jump if the spotter is below or level with the target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27965"></span>27965</td>
+<td class="bytes-0"></td>
+<td class="instruction">NEG</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="27967"></span>27967</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 4</td>
+<td class="comment-11" rowspan="1">Is the spotter within 3 y-coordinates of the target?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27969"></span>27969</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,27980</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27971"></span>27971</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27972"></span>27972</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=spotter's x-coordinate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27973"></span>27973</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27974"></span>27974</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP C</td>
+<td class="comment-11" rowspan="4">Compare this with the lower and upper limits of the range within which the target can be seen, and jump to <a href="27954.html#27987">27987</a> if the spotter is within seeing range</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27975"></span>27975</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,27980</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27977"></span>27977</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP B</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27978"></span>27978</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR C,27987</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27980"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="28002.html">28002</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="27980"></span>27980</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27981"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="28029.html">28029</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="27981"></span>27981</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC H</td>
+<td class="comment-11" rowspan="2">The last spotter was not within seeing range of the target; try the next spotter</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27982"></span>27982</td>
+<td class="bytes-0"></td>
+<td class="instruction">DJNZ 27955</td>
+<td class="comment-01" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27984"></span>27984</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27985"></span>27985</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR A</td>
+<td class="comment-11" rowspan="1">Signal: none of the spotters was within range</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27986"></span>27986</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27987"></span>
+<div class="comments">
+<div class="paragraph">
+We've found a spotter within seeing range of the target. But is he facing the right way?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="27987"></span>27987</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP E</td>
+<td class="comment-11" rowspan="1">Does the spotter's x-coordinate match the target's?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27988"></span>27988</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,27999</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27990"></span>27990</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,0</td>
+<td class="comment-11" rowspan="1">The carry flag is now set if the spotter is to the left of the target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27992"></span>27992</td>
+<td class="bytes-0"></td>
+<td class="instruction">RRA</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=128 if the spotter is to the left of the target, 0 if to the right</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27993"></span>27993</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27994"></span>27994</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD L,0</td>
+<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the spotter's animatory state</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27996"></span>27996</td>
+<td class="bytes-0"></td>
+<td class="instruction">XOR (HL)</td>
+<td class="comment-11" rowspan="1">Compare this orientation with the direction in which the spotter is facing</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27997"></span>27997</td>
+<td class="bytes-0"></td>
+<td class="instruction">EXX</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="27998"></span>27998</td>
+<td class="bytes-0"></td>
+<td class="instruction">RLCA</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="27999"></span>27999</td>
+<td class="bytes-0"></td>
+<td class="instruction">CCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag if the spotter's facing the right way to see the target</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="28000"></span>28000</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,B</td>
+<td class="comment-11" rowspan="1">Set <span class="register">A</span> to something non-zero to indicate that the spotter was within range</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="28001"></span>28001</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="27953.html">27953</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#27954">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="28002.html">28002</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/6D32.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

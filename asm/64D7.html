@@ -23,7 +23,7 @@
 <div class="description">64D7: Make a character go to a random location</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by command lists <a href="D23C.html">0x12</a>, <a href="E256.html">0x14</a>, <a href="E264.html">0x1C</a>, <a href="E70F.html">0x28</a>, <a href="E5CC.html">0x2A</a>, <a href="E919.html">0x42</a>, <a href="E91D.html">0x44</a>, <a href="E975.html">0x4E</a> and <a href="E5EE.html">0x58</a> to make a character go to a place at random. The random locations are arranged in eight groups of four. The group of locations that is suitable for a particular character to choose from is determined by byte 0x24 of the character's buffer.
@@ -49,101 +49,117 @@ Used by command lists <a href="D23C.html">0x12</a>, <a href="E256.html">0x14</a>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64d7"></span>64D7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$24</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x24 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64d9"></span>64D9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-11" rowspan="1">Pick up the contents in <span class="register">E</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64da"></span>64DA</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="64db"></span>64DB</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64de"></span>64DE</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND $03</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=0xD3, 0xD4, 0xD5 or 0xD6</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e0"></span>64E0</td>
+<td class="bytes-0"></td>
 <td class="instruction">ADD A,$D3</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e2"></span>64E2</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at an entry in the table of random locations</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e3"></span>64E3</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$01</td>
 <td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 0x01 of the character's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e5"></span>64E5</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e6"></span>64E6</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
 <td class="comment-11" rowspan="1">Is the character already at this x-coordinate?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e7"></span>64E7</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$64DB</td>
 <td class="comment-11" rowspan="1">Get another random location if so</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64e9"></span>64E9</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,$05</td>
 <td class="comment-11" rowspan="3">Copy the random location's coordinates into bytes 0x05 and 0x06 of the character's buffer, thus making it his next destination</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64eb"></span>64EB</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDI</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ed"></span>64ED</td>
+<td class="bytes-0"></td>
 <td class="instruction">LDI</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64ef"></span>64EF</td>
+<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
 <td class="comment-11" rowspan="1">Transfer the character number back to <span class="register">H</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="64f0"></span>64F0</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6464.html#6469">$6469</a></td>
 <td class="comment-11" rowspan="1">Send the character on his way</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 
 <div class="comments">
 <div class="paragraph">
@@ -403,10 +419,10 @@ The eight groups of random locations used by this routine are:
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/25815.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/25815.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">6E00: Move ERIC from the midstride or mid-action position and scroll the screen if necessary</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Called from the main loop at <a href="F6EA.html">F6EA</a> when ERIC is midstride or just about to finish an action (such as firing the water pistol or bending over to catch a mouse).
@@ -46,53 +46,61 @@ Called from the main loop at <a href="F6EA.html">F6EA</a> when ERIC is midstride
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6e00"></span>6E00</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
 <td class="comment-11" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e02"></span>6E02</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
 <td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state (midstride) and location</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e05"></span>6E05</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$03</td>
 <td class="comment-11" rowspan="2"><span class="register">A</span>=ERIC's post-midstride/post-action animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e07"></span>6E07</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e08"></span>6E08</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-11" rowspan="4">Collect ERIC's post-midstride/post-action coordinates in <span class="register">DE</span></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e09"></span>6E09</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e0a"></span>6E0A</td>
+<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e0b"></span>6E0B</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6e0c"></span>
 <div class="comments">
 <div class="paragraph">
@@ -104,17 +112,19 @@ This entry point is used by the routines at <a href="5D00.html">5D00</a> and <a 
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6e0c"></span>6E0C</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update ERIC's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e0f"></span>6E0F</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7154.html">$7154</a></td>
 <td class="comment-11" rowspan="1">Make a sound effect</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6e12"></span>
 <div class="comments">
 <div class="paragraph">
@@ -126,35 +136,40 @@ This entry point is used by the routine at <a href="7BEB.html">7BEB</a> with <sp
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6e12"></span>6E12</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
 <td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e14"></span>6E14</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFF)</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e17"></span>6E17</td>
+<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
 <td class="comment-11" rowspan="1">Check the 'direction' bit of ERIC's animatory state</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e19"></span>6E19</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
 <td class="comment-11" rowspan="1">Byte 0x01 of ERIC's buffer holds his x-coordinate</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e1b"></span>6E1B</td>
+<td class="bytes-0"></td>
 <td class="instruction">JR Z,$6E2A</td>
 <td class="comment-11" rowspan="1">Jump if ERIC's facing left</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6e1d"></span>
 <div class="comments">
 <div class="paragraph">
@@ -166,47 +181,54 @@ ERIC is facing right. Check whether the screen should be scrolled left.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e1d"></span>6E1D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $A0</td>
 <td class="comment-11" rowspan="2">Return if the whole of the girls' skool is on-screen (no need to scroll)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e1f"></span>6E1F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e20"></span>6E20</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
 <td class="comment-11" rowspan="3">Return if ERIC is 1-21 spaces from the left edge of the screen (no need to scroll); note that this doesn't handle the case where ERIC's x-coordinate is 0, which is a <a href="../reference/bugs.html#farLeft">bug</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e21"></span>6E21</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $EB</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e23"></span>6E23</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e24"></span>6E24</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62A0.html">$62A0</a></td>
 <td class="comment-11" rowspan="1">Update the display</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e27"></span>6E27</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="61C2.html">$61C2</a></td>
 <td class="comment-11" rowspan="1">Scroll the screen to the left</td>
 </tr>
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <span id="6e2a"></span>
 <div class="comments">
 <div class="paragraph">
@@ -218,42 +240,49 @@ ERIC is facing left. Check whether the screen should be scrolled right.
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="6e2a"></span>6E2A</td>
+<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
 <td class="comment-11" rowspan="1">Is the far left wall of the boys' skool on-screen?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e2b"></span>6E2B</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
 <td class="comment-11" rowspan="1">Return if so (no need to scroll the screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e2c"></span>6E2C</td>
+<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
 <td class="comment-11" rowspan="2">Is ERIC more than 9 character spaces from the left edge of the screen?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e2d"></span>6E2D</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $F7</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e2f"></span>6E2F</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
 <td class="comment-11" rowspan="1">Return if so (no need to scroll the screen)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e30"></span>6E30</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62A0.html">$62A0</a></td>
 <td class="comment-11" rowspan="1">Update the display</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="6e33"></span>6E33</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="61F8.html">$61F8</a></td>
 <td class="comment-11" rowspan="1">Scroll the screen to the right</td>
 </tr>
@@ -266,10 +295,10 @@ ERIC is facing left. Check whether the screen should be scrolled right.
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/28160.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/28160.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

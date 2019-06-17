@@ -23,7 +23,7 @@
 <div class="description">7BEB: Update the SRB for ERIC or his pellet and scroll the screen if necessary</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routine at <a href="720A.html">720A</a>. Updates the <a href="7F00.html">screen refresh buffer</a> (SRB) for ERIC's new animatory state and location when he's riding the bike, or ERIC's pellet's new location as it flies through the air.
@@ -61,30 +61,35 @@ Used by the routine at <a href="720A.html">720A</a>. Updates the <a href="7F00.h
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="7beb"></span>7BEB</td>
+<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6130.html">$6130</a></td>
 <td class="comment-11" rowspan="1">Update the animatory state and location of ERIC or his pellet and update the SRB</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bee"></span>7BEE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
 <td class="comment-11" rowspan="1"><span class="register">A</span>=character number</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bef"></span>7BEF</td>
+<td class="bytes-0"></td>
 <td class="instruction">CP $D2</td>
 <td class="comment-11" rowspan="1">Is this ERIC?</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf1"></span>7BF1</td>
+<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
 <td class="comment-11" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="7bf2"></span>7BF2</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6E00.html#6e12">$6E12</a></td>
 <td class="comment-11" rowspan="1">Scroll the screen if necessary</td>
 </tr>
@@ -97,10 +102,10 @@ Used by the routine at <a href="720A.html">720A</a>. Updates the <a href="7F00.h
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/31723.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/31723.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="description">5EB7: Signal that ERIC is firing the catapult, hitting, or kissing</div>
 <table class="disassembly">
 <tr>
-<td class="routine-comment" colspan="4">
+<td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
 Used by the routines at <a href="5EC7.html">5EC7</a>, <a href="5EE8.html">5EE8</a> and <a href="5F1C.html">5F1C</a>.
@@ -49,42 +49,49 @@ Used by the routines at <a href="5EC7.html">5EC7</a>, <a href="5EE8.html">5EE8</
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-2"><span id="5eb7"></span>5EB7</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF3</td>
 <td class="comment-11" rowspan="2">Initialise ERIC's main action timer at <a href="7FF3.html">7FF3</a> to 5</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5eba"></span>5EBA</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$05</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ebc"></span>5EBC</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD L,$FB</td>
 <td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FFB.html">7FFB</a> (ERIC's status flags)</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ebe"></span>5EBE</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$20</td>
 <td class="comment-11" rowspan="1">Set bit 5: ERIC is firing, hitting or kissing</td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ec0"></span>5EC0</td>
+<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
 <td class="comment-11" rowspan="2"><span class="register">HL</span>=address of the instruction after the CALL <a href="5EB7.html">5EB7</a> that got us here; store this at <a href="7FD7.html">7FD7</a> for collection later by the routine at <a href="5EAD.html">5EAD</a></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ec1"></span>5EC1</td>
+<td class="bytes-0"></td>
 <td class="instruction">LD ($7FD7),HL</td>
 <td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="asm-label-0"></td>
 <td class="address-1"><span id="5ec4"></span>5EC4</td>
+<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E125.html#e132">$E132</a></td>
 <td class="comment-11" rowspan="1">Begin the fire/hit/kiss action</td>
 </tr>
@@ -97,10 +104,10 @@ Used by the routines at <a href="5EC7.html">5EC7</a>, <a href="5EE8.html">5EE8</
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20181019</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2018 Richard Dymond.</div>
-<div class="created">Created using <a href="http://skoolkit.ca/">SkoolKit</a> 7.0.</div>
-<div><a href="http://skoolkit.ca/disassemblies/back_to_skool/asm/24247.html">Switch to decimal</a>.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../dec/asm/24247.html">Switch to decimal</a>.</div>
 </footer>
 </body>
 </html>

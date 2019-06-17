@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Back to Skool: Routine at 30292</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="30291.html">30291</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30292">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30380.html">30380</a></span></td>
+</tr>
+</table>
+<div class="description">30292: Check for walls, doors and windows in the path of a mouse, frog or pellet</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="30380.html">30380</a>, <a href="30804.html">30804</a> and <a href="31254.html">31254</a>. Returns with the carry flag set if there is a wall, closed door or closed window blocking the path of the mouse, frog or pellet
+</div>
+</div>
+<table class="input-1">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Coordinates of the spot in front of the mouse/frog/pellet</td>
+</tr>
+</table>
+<table class="output-0">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30292"></span>30292</td>
+<td class="bytes-0"></td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30293"></span>30293</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD HL,32756</td>
+<td class="comment-11" rowspan="1"><a href="32756.html">32756</a> contains the doors flags</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30296"></span>30296</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the point in front of the mouse/frog/pellet</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30297"></span>30297</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 190</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the far wall of the girls' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30299"></span>30299</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,30335</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this wall</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30301"></span>30301</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the mouse/frog/pellet</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30302"></span>30302</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 5</td>
+<td class="comment-11" rowspan="1">Is the mouse/frog/pellet on the top floor (or just below it)?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30304"></span>30304</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,30338</td>
+<td class="comment-11" rowspan="1">Jump if not</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30306"></span>
+<div class="comments">
+<div class="paragraph">
+The mouse/frog/pellet is on the top floor.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30306"></span>30306</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the point in front of the mouse/frog/pellet</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30307"></span>30307</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 159</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the left wall of the girls' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30309"></span>30309</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30335</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this wall</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30311"></span>30311</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,1</td>
+<td class="comment-11" rowspan="1">Set bit 0: left study door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30313"></span>30313</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 72</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the left study door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30315"></span>30315</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30331</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30317"></span>30317</td>
+<td class="bytes-0"></td>
+<td class="instruction">INC D</td>
+<td class="comment-11" rowspan="1">Set bit 1: right study door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30318"></span>30318</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 84</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the right study door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30320"></span>30320</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30331</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30322"></span>30322</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,64</td>
+<td class="comment-11" rowspan="1">Set bit 6: top-floor window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30324"></span>30324</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 92</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the top-floor window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30326"></span>30326</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30331</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30328"></span>30328</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Clear the carry flag: no obstacles ahead</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30329"></span>30329</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number of the mouse/frog/pellet to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30330"></span>30330</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the carry flag reset</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30331"></span>30331</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,D</td>
+<td class="comment-11" rowspan="1"><span class="register">A</span> holds the identifier of the door or window in front of the mouse/frog/pellet</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30332"></span>30332</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND (HL)</td>
+<td class="comment-11" rowspan="1">Is this door/window open?</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30333"></span>30333</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NZ,30329</td>
+<td class="comment-11" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30335"></span>30335</td>
+<td class="bytes-0"></td>
+<td class="instruction">SCF</td>
+<td class="comment-11" rowspan="1">Set the carry flag: no admittance</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30336"></span>30336</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number of the mouse/frog/pellet to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30337"></span>30337</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the carry flag set</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30338"></span>30338</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 12</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30340"></span>30340</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD A,E</td>
+<td class="comment-11" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30341"></span>30341</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR NC,30366</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is on the bottom floor (or just above it)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30343"></span>
+<div class="comments">
+<div class="paragraph">
+The mouse/frog/pellet is on the middle floor.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30343"></span>30343</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 159</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the left wall of the girls' skool</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30345"></span>30345</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30335</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this wall</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30347"></span>30347</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 62</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the far wall of the Science Lab storeroom</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30349"></span>30349</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30335</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this wall</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30351"></span>30351</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 53</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the Science Lab storeroom door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30353"></span>30353</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,4</td>
+<td class="comment-11" rowspan="1">Set bit 2: Science Lab storeroom door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30355"></span>30355</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30331</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30357"></span>30357</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,128</td>
+<td class="comment-11" rowspan="1">Set bit 7: middle-floor window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30359"></span>30359</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 94</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the middle-floor window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30361"></span>30361</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30331</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this window</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30363"></span>30363</td>
+<td class="bytes-0"></td>
+<td class="instruction">AND A</td>
+<td class="comment-11" rowspan="1">Clear the carry flag: no obstacles ahead</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30364"></span>30364</td>
+<td class="bytes-0"></td>
+<td class="instruction">POP HL</td>
+<td class="comment-11" rowspan="1">Restore the character number of the mouse/frog/pellet to <span class="register">H</span></td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30365"></span>30365</td>
+<td class="bytes-0"></td>
+<td class="instruction">RET</td>
+<td class="comment-11" rowspan="1">Return with the carry flag reset</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30366"></span>
+<div class="comments">
+<div class="paragraph">
+The mouse/frog/pellet is on the bottom floor.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-2"><span id="30366"></span>30366</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,8</td>
+<td class="comment-11" rowspan="1">Set bit 3: boys' skool door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30368"></span>30368</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 94</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the boys' skool door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30370"></span>30370</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30331</td>
+<td class="comment-11" rowspan="1">Jump if mouse/frog/pellet is facing this door</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30372"></span>30372</td>
+<td class="bytes-0"></td>
+<td class="instruction">LD D,16</td>
+<td class="comment-11" rowspan="1">Set bit 4: skool gate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30374"></span>30374</td>
+<td class="bytes-0"></td>
+<td class="instruction">CP 133</td>
+<td class="comment-11" rowspan="1">This is the x-coordinate of the skool gate</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30376"></span>30376</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR Z,30331</td>
+<td class="comment-11" rowspan="1">Jump if the mouse/frog/pellet is facing this</td>
+</tr>
+<tr>
+<td class="asm-label-0"></td>
+<td class="address-1"><span id="30378"></span>30378</td>
+<td class="bytes-0"></td>
+<td class="instruction">JR 30363</td>
+<td class="comment-11" rowspan="1">Otherwise it's all clear</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev"><span class="prev-1">Prev: <a href="30291.html">30291</a></span></td>
+<td class="up">Up: <a href="../maps/all.html#30292">Map</a></td>
+<td class="next"><span class="next-1">Next: <a href="30380.html">30380</a></span></td>
+</tr>
+</table>
+<footer>
+<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div><a href="../../asm/7654.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>
