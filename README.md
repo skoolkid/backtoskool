@@ -9,7 +9,7 @@ Decide which number base you prefer and then click the corresponding link below
 to browse the latest release:
 
 * [Back to Skool disassembly](https://skoolkid.github.io/backtoskool/) (hexadecimal; mirror [here](https://skoolkid.gitlab.io/backtoskool/))
-* [Back to Skool disassembly](https://skoolkit.ca/disassemblies/back_to_skool/) (decimal)
+* [Back to Skool disassembly](https://skoolkid.github.io/backtoskool/dec/) (decimal; mirror [here](https://skoolkid.gitlab.io/backtoskool/dec/))
 
 To build the current development version, first either install SkoolKit, or
 make a clone of the [SkoolKit repository](https://github.com/skoolkid/skoolkit)
