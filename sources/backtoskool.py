@@ -213,7 +213,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             cells = []
             for tile in row:
                 if tile:
-                    fname = '{0:x}{1:x}.{2}'.format(tile.udg_addr, tile.attr, self.default_image_format)
+                    fname = '{:x}{:x}.png'.format(tile.udg_addr, tile.attr)
                     alt = '{},{}'.format(tile.x, tile.y)
                     img = self.handle_image(Frame([[tile]], 4), fname, cwd, alt, 'PlayAreaTileImagePath')
                     subs = {
@@ -264,7 +264,7 @@ class BackToSkoolHtmlWriter(HtmlWriter):
                             tile = row[col_num]
                             bubble_id_suffix = '{0:02x}'.format(udg_page) if udg_page is not None else ''
                             bubble_id = 'B{0:02x}{1:x}{2}'.format(state, row_num + num_rows * col_num, bubble_id_suffix)
-                            fname = '{:x}.{}'.format(tile.udg_addr, self.default_image_format)
+                            fname = '{:x}.png'.format(tile.udg_addr)
                             alt = '{}:{},{}'.format(self.b_fmt.format(state), row_num, col_num)
                             img = self.handle_image(Frame([[tile]], 4, 1), fname, cwd, alt, 'AnimatoryStateTileImagePath')
                             template_name = 'astile' if tile.ref else 'astile_null'
