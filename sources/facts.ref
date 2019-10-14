@@ -32,7 +32,7 @@ line 33 in the BASIC saver program, and contain #b79 at address #w29387
 (#w29131) and #b44 at address #w29391 (#w29135); with these values, the
 corresponding section of code looks like this:
 
-#TABLE(asm,address-1,instruction,comment-11)
+#TABLE(asm,address-1,instruction,comment-1)
 { #w29124 | #S/IN A/,(#n31)  | }
 { #w29126 | #S/AND/ #n31     | Any input from the joystick? }
 { #w29128 | #S/JR Z/,#n29154 | Jump if not }
