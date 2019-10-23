@@ -2857,12 +2857,12 @@ c25700 LD L,5        ; {Copy the destination coordinates from the command list
  25729 DEC L         ;
  25730 LD E,(HL)     ; }
  25731 LD L,1        ; Point #REGhl at byte #b1 of the character's buffer
- 25733 LD A,E        ; #REGa=character's current x-coordinate
- 25734 CP (HL)       ; Compare it with the x-coordinate of the destination
+ 25733 LD A,E        ; #REGa=destination x-coordinate
+ 25734 CP (HL)       ; Compare it with the character's current x-coordinate
  25735 INC HL        ; #REGl=#b2
  25736 JR NZ,25743   ; Jump forward unless the character's current x-coordinate
                      ; matches that of the destination
- 25738 LD A,D        ; #REGa=character's current y-coordinate
+ 25738 LD A,D        ; #REGa=destination y-coordinate
  25739 CP (HL)       ; Is the character already at his destination?
  25740 JP Z,25484    ; Move to the next command in the command list if so
 ; The character hasn't reached his destination yet.
