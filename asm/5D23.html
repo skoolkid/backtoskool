@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 5D23</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="5D00.html">5D00</a></span></td>
+<td class="prev">
+Prev: <a href="5D00.html">5D00</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#5d23">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="5D33.html">5D33</a></span></td>
+<td class="next">
+Next: <a href="5D33.html">5D33</a>
+</td>
 </tr>
 </table>
 <div class="description">5D23: Deal with ERIC's flight from the saddle of the bike</div>
@@ -29,61 +32,35 @@
 Used by the routine at <a href="F7AD.html">F7AD</a> when bit 6 at <a href="7FED.html">7FED</a> is set on its own by the routine at <a href="720A.html">720A</a> because ERIC has hit a wall, a closed door, or the closed skool gate while standing on the saddle of the bike.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5d23"></span>5D23</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($D201)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5d26"></span>5D26</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $80</td>
-<td class="comment-11" rowspan="2">Did ERIC hit the closed skool gate?</td>
+<td class="comment-1" rowspan="2">Did ERIC hit the closed skool gate?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5d28"></span>5D28</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $10</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5d2a"></span>5D2A</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0xFF if so, 0x00 otherwise</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0xFF if so, 0x00 otherwise</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5d2b"></span>5D2B</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$FE</td>
-<td class="comment-11" rowspan="2"><span class="register">L</span>=<a href="FBCC.html#dt253">0xFD</a> if ERIC hit the skool gate, <a href="FBCC.html#dt254">0xFE</a> otherwise</td>
+<td class="comment-1" rowspan="2"><span class="register">L</span>=<a href="FBCC.html#dt253">0xFD</a> if ERIC hit the skool gate, <a href="FBCC.html#dt254">0xFE</a> otherwise</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5d2d"></span>5D2D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -96,31 +73,31 @@ This entry point is used by the routine at <a href="5D33.html">5D33</a> with <sp
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5d2e"></span>5D2E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$9F</td>
-<td class="comment-11" rowspan="1">Now <span class="register">HL</span> points at the appropriate descent table</td>
+<td class="comment-1" rowspan="1">Now <span class="register">HL</span> points at the appropriate descent table</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5d30"></span>5D30</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="FBCC.html#fbf5">$FBF5</a></td>
-<td class="comment-11" rowspan="1">Begin the descent</td>
+<td class="comment-1" rowspan="1">Begin the descent</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="5D00.html">5D00</a></span></td>
+<td class="prev">
+Prev: <a href="5D00.html">5D00</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#5d23">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="5D33.html">5D33</a></span></td>
+<td class="next">
+Next: <a href="5D33.html">5D33</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/23843.html">Switch to decimal</a>.</div>
 </footer>
 </body>

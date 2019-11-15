@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 7166</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7154.html">7154</a></span></td>
+<td class="prev">
+Prev: <a href="7154.html">7154</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7166">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="717A.html">717A</a></span></td>
+<td class="next">
+Next: <a href="717A.html">717A</a>
+</td>
 </tr>
 </table>
 <div class="description">7166: Prevent ERIC from getting past ALBERT if necessary</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="6E9B.html">6E9B</a>. Impedes ERIC's progress if ALBERT is standing right in front of him with his arm up.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,110 +41,84 @@ Used by the routine at <a href="6E9B.html">6E9B</a>. Impedes ERIC's progress if 
 <td class="register-desc">x-coordinate of the spot in front of ERIC</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7166"></span>7166</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($D200)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7169"></span>7169</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="1">Is ERIC facing left?</td>
+<td class="comment-1" rowspan="1">Is ERIC facing left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="716a"></span>716A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="716b"></span>716B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($CD00)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ALBERT's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ALBERT's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="716e"></span>716E</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $7F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#127">0x7F</a>: Is ALBERT facing left with his arm up?</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#127">0x7F</a>: Is ALBERT facing left with his arm up?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7170"></span>7170</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7171"></span>7171</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($CD01)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ALBERT's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ALBERT's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7174"></span>7174</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $01</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7176"></span>7176</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
-<td class="comment-11" rowspan="1">Is ERIC standing in front of ALBERT (facing him)?</td>
+<td class="comment-1" rowspan="1">Is ERIC standing in front of ALBERT (facing him)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7177"></span>7177</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7178"></span>7178</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Drop the return address, preventing any forward movement by ERIC</td>
+<td class="comment-1" rowspan="1">Drop the return address, preventing any forward movement by ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7179"></span>7179</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return to the main loop</td>
+<td class="comment-1" rowspan="1">Return to the main loop</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7154.html">7154</a></span></td>
+<td class="prev">
+Prev: <a href="7154.html">7154</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7166">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="717A.html">717A</a></span></td>
+<td class="next">
+Next: <a href="717A.html">717A</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/29030.html">Switch to decimal</a>.</div>
 </footer>
 </body>

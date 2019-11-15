@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 7596</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7590.html">7590</a></span></td>
+<td class="prev">
+Prev: <a href="7590.html">7590</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7596">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="75FA.html">75FA</a></span></td>
+<td class="next">
+Next: <a href="75FA.html">75FA</a>
+</td>
 </tr>
 </table>
 <div class="description">7596: Deal with a character who has been knocked over</div>
@@ -29,7 +32,7 @@
 The address of this uninterruptible subcommand routine is placed into bytes 0x11 and 0x12 of the stricken character's buffer by the routine at <a href="74C8.html">74C8</a>. It knocks the character to the floor, makes him give lines to any nearby kids (if he's a teacher), and then makes him get up.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,55 +41,37 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 <td class="register-desc">Character number (0xB7-0xD1)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7596"></span>7596</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="1">Byte 0x13 of the character's buffer holds the knockout delay counter</td>
+<td class="comment-1" rowspan="1">Byte 0x13 of the character's buffer holds the knockout delay counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7598"></span>7598</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Has the character already got up?</td>
+<td class="comment-1" rowspan="1">Has the character already got up?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7599"></span>7599</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="638C.html#6394">$6394</a></td>
-<td class="comment-11" rowspan="1">Terminate this uninterruptible subcommand if so</td>
+<td class="comment-1" rowspan="1">Terminate this uninterruptible subcommand if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="759c"></span>759C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=knockout delay counter</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=knockout delay counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="759d"></span>759D</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1">Is it time for the character to get up yet?</td>
+<td class="comment-1" rowspan="1">Is it time for the character to get up yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="759e"></span>759E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$75A9</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -99,11 +84,9 @@ This entry point is used by the routine at <a href="F939.html">F939</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75a0"></span>75A0</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -116,25 +99,19 @@ This entry point is used by the routine at <a href="7132.html">7132</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75a3"></span>75A3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="1">Byte 0x14 of the character's buffer holds the pre-knockout animatory state saved earlier</td>
+<td class="comment-1" rowspan="1">Byte 0x14 of the character's buffer holds the pre-knockout animatory state saved earlier</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75a5"></span>75A5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75a6"></span>75A6</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
-<td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the character's animatory state and update the SRB</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -147,81 +124,57 @@ It's not time for the character to get up yet.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75a9"></span>75A9</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="2">Jump forward unless the knockout delay counter has reached 2</td>
+<td class="comment-1" rowspan="2">Jump forward unless the knockout delay counter has reached 2</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75aa"></span>75AA</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$75B9</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75ac"></span>75AC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75ad"></span>75AD</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $CD</td>
-<td class="comment-11" rowspan="1">Is it ALBERT?</td>
+<td class="comment-1" rowspan="1">Is it ALBERT?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75af"></span>75AF</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b0"></span>75B0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FE4)</td>
-<td class="comment-11" rowspan="1">Pick up the MSB of the lesson clock</td>
+<td class="comment-1" rowspan="1">Pick up the MSB of the lesson clock</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b3"></span>75B3</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is the lesson nearly over?</td>
+<td class="comment-1" rowspan="1">Is the lesson nearly over?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b4"></span>75B4</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b5"></span>75B5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="2">Set the knockout delay counter to 3 so that ALBERT will not get up until the lesson's almost over</td>
+<td class="comment-1" rowspan="2">Set the knockout delay counter to 3 so that ALBERT will not get up until the lesson's almost over</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b7"></span>75B7</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75b8"></span>75B8</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -234,130 +187,91 @@ The knockout delay counter has not reached 2 yet. Is it time to knock the charac
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75b9"></span>75B9</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $0F</td>
-<td class="comment-11" rowspan="1">Is it time for the character to fall over?</td>
+<td class="comment-1" rowspan="1">Is it time for the character to fall over?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75bb"></span>75BB</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$75E4</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75bd"></span>75BD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75be"></span>75BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$7FE4</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the MSB of the lesson clock</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the MSB of the lesson clock</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75c1"></span>75C1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $CD</td>
-<td class="comment-11" rowspan="1">Was ALBERT struck?</td>
+<td class="comment-1" rowspan="1">Was ALBERT struck?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75c3"></span>75C3</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$75CB</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75c5"></span>75C5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="3">Add 0x0C to the MSB of the lesson clock if ALBERT was knocked down, thus giving ERIC some extra time to work with</td>
+<td class="comment-1" rowspan="3">Add 0x0C to the MSB of the lesson clock if ALBERT was knocked down, thus giving ERIC some extra time to work with</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75c6"></span>75C6</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$0C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75c8"></span>75C8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75c9"></span>75C9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $75D7</td>
-<td class="comment-11" rowspan="1">Knock ALBERT down</td>
+<td class="comment-1" rowspan="1">Knock ALBERT down</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75cb"></span>75CB</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $D1</td>
-<td class="comment-11" rowspan="1">Was HAYLEY struck?</td>
+<td class="comment-1" rowspan="1">Was HAYLEY struck?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75cd"></span>75CD</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$75D7</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75cf"></span>75CF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,$E2</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=<a href="7FE2.html">7FE2</a> (kiss counter)</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="7FE2.html">7FE2</a> (kiss counter)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75d1"></span>75D1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75d2"></span>75D2</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Are there any kisses left?</td>
+<td class="comment-1" rowspan="1">Are there any kisses left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75d3"></span>75D3</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$75D7</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75d5"></span>75D5</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="2">Otherwise decrease the kiss counter by 1</td>
+<td class="comment-1" rowspan="2">Otherwise decrease the kiss counter by 1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75d6"></span>75D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -370,46 +284,32 @@ Knock the character down.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75d7"></span>75D7</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75da"></span>75DA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Store the character's current animatory state in byte 0x14 of the buffer for retrieval later (when the character gets up)</td>
+<td class="comment-1" rowspan="2">Store the character's current animatory state in byte 0x14 of the buffer for retrieval later (when the character gets up)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75dc"></span>75DC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75dd"></span>75DD</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=animatory state of the character sitting or lying on the floor</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=animatory state of the character sitting or lying on the floor</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75df"></span>75DF</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$06</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75e1"></span>75E1</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
-<td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the character's animatory state and update the SRB</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -422,115 +322,88 @@ It's not time to knock the character down.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="75e4"></span>75E4</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $08</td>
-<td class="comment-11" rowspan="1">Is it time for a felled teacher to give lines?</td>
+<td class="comment-1" rowspan="1">Is it time for a felled teacher to give lines?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75e6"></span>75E6</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75e7"></span>75E7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=number of the stricken character</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75e8"></span>75E8</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $C8</td>
-<td class="comment-11" rowspan="4">Return if it's not a teacher</td>
+<td class="comment-1" rowspan="4">Return if it's not a teacher</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75ea"></span>75EA</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75eb"></span>75EB</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $CD</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75ed"></span>75ED</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75ee"></span>75EE</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75ef"></span>75EF</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6D7D.html">$6D7D</a></td>
-<td class="comment-11" rowspan="1">Find the main kid who is closest to the teacher and within lines-giving range (if any)</td>
+<td class="comment-1" rowspan="1">Find the main kid who is closest to the teacher and within lines-giving range (if any)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75f2"></span>75F2</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75f3"></span>75F3</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is there a main kid close enough to the felled teacher?</td>
+<td class="comment-1" rowspan="1">Is there a main kid close enough to the felled teacher?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75f4"></span>75F4</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75f5"></span>75F5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$0F</td>
-<td class="comment-11" rowspan="1">Message <a href="EA01.html">0x0F</a>: NOW DON'T DO IT AGAIN</td>
+<td class="comment-1" rowspan="1">Message <a href="EA01.html">0x0F</a>: NOW DON'T DO IT AGAIN</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="75f7"></span>75F7</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7414.html">$7414</a></td>
-<td class="comment-11" rowspan="1">Give lines to the nearest main kid</td>
+<td class="comment-1" rowspan="1">Give lines to the nearest main kid</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7590.html">7590</a></span></td>
+<td class="prev">
+Prev: <a href="7590.html">7590</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7596">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="75FA.html">75FA</a></span></td>
+<td class="next">
+Next: <a href="75FA.html">75FA</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/30102.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 62094</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="62092.html">62092</a></span></td>
+<td class="prev">
+Prev: <a href="62092.html">62092</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#62094">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="62175.html">62175</a></span></td>
+<td class="next">
+Next: <a href="62175.html">62175</a>
+</td>
 </tr>
 </table>
 <div class="description">62094: Deal with ERIC when he's been knocked over</div>
@@ -29,96 +32,60 @@
 Used by the routine at <a href="63405.html">63405</a> when bit 7 at <a href="32763.html">32763</a> is set (by the routine at <a href="29896.html">29896</a>). Note that the routine at <a href="26175.html">26175</a> also sets bit 7 at <a href="32763.html">32763</a> when someone sits in the seat occupied by ERIC, but in that case this routine is not called because bit 2 at <a href="32763.html">32763</a> is still set (indicating that ERIC is sitting) and takes precedence; this is a <a href="../reference/bugs.html#seat">bug</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62094"></span>62094</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32733</td>
-<td class="comment-11" rowspan="1"><a href="32733.html">32733</a> holds ERIC's knockout delay counter</td>
+<td class="comment-1" rowspan="1"><a href="32733.html">32733</a> holds ERIC's knockout delay counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62097"></span>62097</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="2">Is this the first time this routine's been called since ERIC was downed?</td>
+<td class="comment-1" rowspan="2">Is this the first time this routine's been called since ERIC was downed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62098"></span>62098</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62099"></span>62099</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,62112</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62101"></span>62101</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="2">Otherwise wait a while before enabling ERIC to stand up again</td>
+<td class="comment-1" rowspan="2">Otherwise wait a while before enabling ERIC to stand up again</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62102"></span>62102</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62103"></span>62103</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,243</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32755.html">32755</a> (ERIC's main action timer)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32755.html">32755</a> (ERIC's main action timer)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62105"></span>62105</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),1</td>
-<td class="comment-11" rowspan="1">Set this to 1 so that the keyboard is checked on the next pass through the main loop</td>
+<td class="comment-1" rowspan="1">Set this to 1 so that the keyboard is checked on the next pass through the main loop</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62107"></span>62107</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,251</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32763.html">32763</a> (ERIC's status flags)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32763.html">32763</a> (ERIC's status flags)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62109"></span>62109</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),4</td>
-<td class="comment-11" rowspan="1">Set bit 2: ERIC is sitting or lying down; the routine at <a href="62178.html">62178</a> handles ERIC from this point</td>
+<td class="comment-1" rowspan="1">Set bit 2: ERIC is sitting or lying down; the routine at <a href="62178.html">62178</a> handles ERIC from this point</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62111"></span>62111</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -131,130 +98,94 @@ ERIC has just been hit. Determine the manner of his descent to the floor.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62112"></span>62112</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),40</td>
-<td class="comment-11" rowspan="1">Initialise ERIC's knockout delay counter at <a href="32733.html">32733</a> to 40</td>
+<td class="comment-1" rowspan="1">Initialise ERIC's knockout delay counter at <a href="32733.html">32733</a> to 40</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62114"></span>62114</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,210</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-1" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62116"></span>62116</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25012.html">25012</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62119"></span>62119</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save ERIC's coordinates briefly</td>
+<td class="comment-1" rowspan="1">Save ERIC's coordinates briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62120"></span>62120</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save ERIC's current animatory state briefly</td>
+<td class="comment-1" rowspan="1">Save ERIC's current animatory state briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62121"></span>62121</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 4</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">4</a>: Was ERIC sitting on a chair?</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#4">4</a>: Was ERIC sitting on a chair?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62123"></span>62123</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,62134</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62125"></span>62125</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="32000.html">32000</a></td>
-<td class="comment-11" rowspan="1">Get the identifier of ERIC's location</td>
+<td class="comment-1" rowspan="1">Get the identifier of ERIC's location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62128"></span>62128</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,5</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#5">5</a>: ERIC sitting on the floor</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#5">5</a>: ERIC sitting on the floor</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62130"></span>62130</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 6</td>
-<td class="comment-11" rowspan="1">Is ERIC in a classroom in the boys' skool (<span class="register">A</span>=6, 7 or 8)?</td>
+<td class="comment-1" rowspan="1">Is ERIC in a classroom in the boys' skool (<span class="register">A</span>=6, 7 or 8)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62132"></span>62132</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,62136</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62134"></span>62134</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,6</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#6">6</a>: ERIC lying on his back</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#6">6</a>: ERIC lying on his back</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62136"></span>62136</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore ERIC's current animatory state to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore ERIC's current animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62137"></span>62137</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore ERIC's coordinates to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore ERIC's coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62138"></span>62138</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 128</td>
-<td class="comment-11" rowspan="1">Keep only the 'direction' bit (bit 7) of ERIC's current animatory state</td>
+<td class="comment-1" rowspan="1">Keep only the 'direction' bit (bit 7) of ERIC's current animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62140"></span>62140</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's new animatory state (sitting on the floor or lying on his back)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's new animatory state (sitting on the floor or lying on his back)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62141"></span>62141</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="24880.html">24880</a></td>
-<td class="comment-11" rowspan="1">Update ERIC's animatory state and update the SRB</td>
+<td class="comment-1" rowspan="1">Update ERIC's animatory state and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62144"></span>62144</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25248.html">25248</a></td>
-<td class="comment-11" rowspan="1">Update the display</td>
+<td class="comment-1" rowspan="1">Update the display</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -267,11 +198,9 @@ Now to initialise the sound effect parameters.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62147"></span>62147</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,275</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=1 (pitch adjustment), <span class="register">L</span>=19 (border colour XOR mask)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=1 (pitch adjustment), <span class="register">L</span>=19 (border colour XOR mask)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -284,18 +213,14 @@ This entry point is used by the routine at <a href="23907.html">23907</a> with <
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62150"></span>62150</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,0</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=0 (duration), <span class="register">E</span>=0 (initial pitch)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=0 (duration), <span class="register">E</span>=0 (initial pitch)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62153"></span>62153</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,2</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2 (initial border colour)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=2 (initial border colour)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -308,81 +233,49 @@ This entry point is used by the routines at <a href="62178.html">62178</a> (with
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62155"></span>62155</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR L</td>
-<td class="comment-11" rowspan="11">Make a sound effect</td>
+<td class="comment-1" rowspan="11">Make a sound effect</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62156"></span>62156</td>
-<td class="bytes-0"></td>
 <td class="instruction">OUT (254),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62158"></span>62158</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62159"></span>62159</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 62159</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62161"></span>62161</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62162"></span>62162</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62163"></span>62163</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62164"></span>62164</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62165"></span>62165</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62166"></span>62166</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62167"></span>62167</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,62155</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -395,45 +288,40 @@ This entry point is used by the routine at <a href="24477.html">24477</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62169"></span>62169</td>
-<td class="bytes-0"></td>
 <td class="instruction">EI</td>
-<td class="comment-11" rowspan="1">Re-enable interrupts</td>
+<td class="comment-1" rowspan="1">Re-enable interrupts</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62170"></span>62170</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,1</td>
-<td class="comment-11" rowspan="2">Reset the border colour to blue</td>
+<td class="comment-1" rowspan="2">Reset the border colour to blue</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62172"></span>62172</td>
-<td class="bytes-0"></td>
 <td class="instruction">OUT (254),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62174"></span>62174</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="62092.html">62092</a></span></td>
+<td class="prev">
+Prev: <a href="62092.html">62092</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#62094">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="62175.html">62175</a></span></td>
+<td class="next">
+Next: <a href="62175.html">62175</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F28E.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

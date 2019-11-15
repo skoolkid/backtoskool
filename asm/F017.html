@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at F017</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F016.html">F016</a></span></td>
+<td class="prev">
+Prev: <a href="F016.html">F016</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f017">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F02F.html">F02F</a></span></td>
+<td class="next">
+Next: <a href="F02F.html">F02F</a>
+</td>
 </tr>
 </table>
 <div class="description">F017: Make EINSTEIN speak</div>
@@ -29,7 +32,7 @@
 The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of the buffer of the teacher who is taking ERIC's class by the routine at <a href="F100.html">F100</a>. It is used to make EINSTEIN tell a tale.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,27 +45,17 @@ The address of this interruptible subcommand routine is placed into bytes 0x09 a
 <td class="register-desc">Teacher's character number (0xC9-0xCB)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f017"></span>F017</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=message number for EINSTEIN</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=message number for EINSTEIN</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f018"></span>F018</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($D00B),A</td>
-<td class="comment-11" rowspan="1">Place this in byte 0x0B of EINSTEIN's buffer</td>
+<td class="comment-1" rowspan="1">Place this in byte 0x0B of EINSTEIN's buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -75,46 +68,32 @@ The address of this entry point is placed into bytes 0x09 and 0x0A of the buffer
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f01b"></span>F01B</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f01c"></span>F01C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7F80</td>
-<td class="comment-11" rowspan="2">Set bit 3 at <a href="7F80.html">7F80</a> to indicate that it's EINSTEIN's turn to speak</td>
+<td class="comment-1" rowspan="2">Set bit 3 at <a href="7F80.html">7F80</a> to indicate that it's EINSTEIN's turn to speak</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f01f"></span>F01F</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 3,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f021"></span>F021</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f022"></span>F022</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$09</td>
-<td class="comment-11" rowspan="2">Replace the address of this routine in bytes 0x09 and 0x0A of the teacher's buffer with <a href="F017.html#f026">F026</a> (below)</td>
+<td class="comment-1" rowspan="2">Replace the address of this routine in bytes 0x09 and 0x0A of the teacher's buffer with <a href="F017.html#f026">F026</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f024"></span>F024</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$26</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -127,45 +106,40 @@ This entry point is used while the teacher is waiting for EINSTEIN to finish spe
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f026"></span>F026</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7F80)</td>
-<td class="comment-11" rowspan="2">Has EINSTEIN finished speaking yet?</td>
+<td class="comment-1" rowspan="2">Has EINSTEIN finished speaking yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f029"></span>F029</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f02b"></span>F02B</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f02c"></span>F02C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="638C.html#6390">$6390</a></td>
-<td class="comment-11" rowspan="1">Otherwise terminate this interruptible subcommand, thus restoring control to the main routine at <a href="F100.html">F100</a></td>
+<td class="comment-1" rowspan="1">Otherwise terminate this interruptible subcommand, thus restoring control to the main routine at <a href="F100.html">F100</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F016.html">F016</a></span></td>
+<td class="prev">
+Prev: <a href="F016.html">F016</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f017">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F02F.html">F02F</a></span></td>
+<td class="next">
+Next: <a href="F02F.html">F02F</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/61463.html">Switch to decimal</a>.</div>
 </footer>
 </body>

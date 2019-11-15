@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 25012</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25011.html">25011</a></span></td>
+<td class="prev">
+Prev: <a href="25011.html">25011</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25012">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25026.html">25026</a></span></td>
+<td class="next">
+Next: <a href="25026.html">25026</a>
+</td>
 </tr>
 </table>
 <div class="description">25012: Update the SRB for a character's current animatory state and location</div>
@@ -29,7 +32,7 @@
 Used by many routines. Updates the <a href="32512.html">screen refresh buffer</a> (SRB) for a character's current animatory state and location. Returns with the character's current coordinates in <span class="register">DE</span> and animatory state in <span class="register">A</span>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,103 +41,79 @@ Used by many routines. Updates the <a href="32512.html">screen refresh buffer</a
 <td class="register-desc">Character number (183-214)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25012"></span>25012</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,2</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25014"></span>25014</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=character's y-coordinate (0-17)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=character's y-coordinate (0-17)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25015"></span>25015</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25016"></span>25016</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=character's x-coordinate (0-189)</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=character's x-coordinate (0-189)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25017"></span>25017</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25018"></span>25018</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=character's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=character's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25019"></span>25019</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save the character's coordinates briefly</td>
+<td class="comment-1" rowspan="1">Save the character's coordinates briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25020"></span>25020</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="24880.html#24888">24888</a></td>
-<td class="comment-11" rowspan="1">Set the appropriate bits in the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Set the appropriate bits in the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25023"></span>25023</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore the character's coordinates to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore the character's coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25024"></span>25024</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25025"></span>25025</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25011.html">25011</a></span></td>
+<td class="prev">
+Prev: <a href="25011.html">25011</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25012">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25026.html">25026</a></span></td>
+<td class="next">
+Next: <a href="25026.html">25026</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/61B4.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

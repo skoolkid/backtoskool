@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 6880</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="687E.html">687E</a></span></td>
+<td class="prev">
+Prev: <a href="687E.html">687E</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6880">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="68DD.html">68DD</a></span></td>
+<td class="next">
+Next: <a href="68DD.html">68DD</a>
+</td>
 </tr>
 </table>
 <div class="description">6880: Make a character write on a blackboard</div>
@@ -29,7 +32,7 @@
 The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of the character's buffer by the routines at <a href="7EF1.html">7EF1</a> and <a href="F100.html">F100</a>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,307 +41,192 @@ The address of this interruptible subcommand routine is placed into bytes 0x09 a
 <td class="register-desc">Character number (0xC9-0xCC, 0xCE)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6880"></span>6880</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6755.html">$6755</a></td>
-<td class="comment-11" rowspan="1">Collect information about the board</td>
+<td class="comment-1" rowspan="1">Collect information about the board</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6883"></span>6883</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="3">Point <span class="register">BC</span> at the second byte of the board's buffer</td>
+<td class="comment-1" rowspan="3">Point <span class="register">BC</span> at the second byte of the board's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6884"></span>6884</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6885"></span>6885</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$7F</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6887"></span>6887</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6888"></span>6888</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Has the board been written on already?</td>
+<td class="comment-1" rowspan="1">Has the board been written on already?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6889"></span>6889</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="638C.html#6390">$6390</a></td>
-<td class="comment-11" rowspan="1">Terminate this interruptible subcommand if so</td>
+<td class="comment-1" rowspan="1">Terminate this interruptible subcommand if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="688c"></span>688C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's number</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="688d"></span>688D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (BC),A</td>
-<td class="comment-11" rowspan="1">Signal: this character wrote on the board</td>
+<td class="comment-1" rowspan="1">Signal: this character wrote on the board</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="688e"></span>688E</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="3">Point <span class="register">BC</span> at the first byte of the board's buffer (<a href="7F54.html">7F54</a>, <a href="7F5A.html">7F5A</a>, <a href="7F60.html">7F60</a>, <a href="7F66.html">7F66</a> or <a href="7F6C.html">7F6C</a>) and initialise the pixel column to 1</td>
+<td class="comment-1" rowspan="3">Point <span class="register">BC</span> at the first byte of the board's buffer (<a href="7F54.html">7F54</a>, <a href="7F5A.html">7F5A</a>, <a href="7F60.html">7F60</a>, <a href="7F66.html">7F66</a> or <a href="7F6C.html">7F6C</a>) and initialise the pixel column to 1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="688f"></span>688F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6891"></span>6891</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (BC),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6892"></span>6892</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="4">Make sure there are no (sub)submessage addresses lying around in bytes 0x0D-0x10 of the character's buffer</td>
+<td class="comment-1" rowspan="4">Make sure there are no (sub)submessage addresses lying around in bytes 0x0D-0x10 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6894"></span>6894</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6896"></span>6896</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6898"></span>6898</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="689a"></span>689A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's number (0xC9-0xCC, 0xCE)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's number (0xC9-0xCC, 0xCE)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="689b"></span>689B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $CE</td>
-<td class="comment-11" rowspan="7">Set <span class="register">E</span> as follows: 0x20=MR WITHIT, 0x26=MR ROCKITT, 0x2C=MR CREAK, 0x32=MISS TAKE, 0x38=BOY WANDER</td>
+<td class="comment-1" rowspan="7">Set <span class="register">E</span> as follows: 0x20=MR WITHIT, 0x26=MR ROCKITT, 0x2C=MR CREAK, 0x32=MISS TAKE, 0x38=BOY WANDER</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="689d"></span>689D</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADC A,$3B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="689f"></span>689F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68a0"></span>68A0</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADC A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68a1"></span>68A1</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68a2"></span>68A2</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68a3"></span>68A3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="68a4"></span>68A4</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="4">Collect a random number between 0 and 5 in <span class="register">A</span></td>
+<td class="comment-1" rowspan="4">Collect a random number between 0 and 5 in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68a7"></span>68A7</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $07</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68a9"></span>68A9</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $06</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68ab"></span>68AB</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$68A4</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68ad"></span>68AD</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,E</td>
-<td class="comment-11" rowspan="2">Now <span class="register">E</span>=blackboard message number</td>
+<td class="comment-1" rowspan="2">Now <span class="register">E</span>=blackboard message number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68ae"></span>68AE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68af"></span>68AF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$FE</td>
-<td class="comment-11" rowspan="8">Pick up the address of the message and place it into bytes 0x0B and 0x0C of the character's buffer</td>
+<td class="comment-1" rowspan="8">Pick up the address of the message and place it into bytes 0x0B and 0x0C of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68b1"></span>68B1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68b3"></span>68B3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68b4"></span>68B4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68b5"></span>68B5</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68b6"></span>68B6</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68b7"></span>68B7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68b8"></span>68B8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68b9"></span>68B9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$09</td>
-<td class="comment-11" rowspan="2">Replace the address of this routine in bytes 0x09 and 0x0A of the character's buffer with <a href="6880.html#68bd">68BD</a> (below)</td>
+<td class="comment-1" rowspan="2">Replace the address of this routine in bytes 0x09 and 0x0A of the character's buffer with <a href="6880.html#68bd">68BD</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68bb"></span>68BB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$BD</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68bd"></span>68BD</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6791.html">$6791</a></td>
-<td class="comment-11" rowspan="1">Write one letter on the board</td>
+<td class="comment-1" rowspan="1">Write one letter on the board</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68c0"></span>68C0</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$68CD</td>
-<td class="comment-11" rowspan="1">Jump unless the character has finished writing</td>
+<td class="comment-1" rowspan="1">Jump unless the character has finished writing</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -351,32 +239,24 @@ This entry point is used by the routine at <a href="6D00.html">6D00</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="68c2"></span>68C2</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68c5"></span>68C5</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=base animatory state of the character (arm down)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=base animatory state of the character (arm down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68c7"></span>68C7</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6130.html">$6130</a></td>
-<td class="comment-11" rowspan="1">Update the character's animatory state and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the character's animatory state and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68ca"></span>68CA</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="638C.html#6390">$6390</a></td>
-<td class="comment-11" rowspan="1">Terminate this interruptible subcommand</td>
+<td class="comment-1" rowspan="1">Terminate this interruptible subcommand</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -389,73 +269,60 @@ The character hasn't finished writing yet. Figure out his next arm movement (up 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="68cd"></span>68CD</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the character's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the character's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68d0"></span>68D0</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="2">Set the carry flag if the character's arm is raised</td>
+<td class="comment-1" rowspan="2">Set the carry flag if the character's arm is raised</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68d1"></span>68D1</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68d2"></span>68D2</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$68D9</td>
-<td class="comment-11" rowspan="1">Jump if the character's arm is raised</td>
+<td class="comment-1" rowspan="1">Jump if the character's arm is raised</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68d4"></span>68D4</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR $07</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=animatory state of the character with his arm up</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=animatory state of the character with his arm up</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="68d6"></span>68D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
-<td class="comment-11" rowspan="1">Update the character's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the character's animatory state and location and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="68d9"></span>68D9</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F8</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=base animatory state of character (arm down)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=base animatory state of character (arm down)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="68db"></span>68DB</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $68D6</td>
-<td class="comment-11" rowspan="1">Jump back to update the SRB</td>
+<td class="comment-1" rowspan="1">Jump back to update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="687E.html">687E</a></span></td>
+<td class="prev">
+Prev: <a href="687E.html">687E</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6880">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="68DD.html">68DD</a></span></td>
+<td class="next">
+Next: <a href="68DD.html">68DD</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/26752.html">Switch to decimal</a>.</div>
 </footer>
 </body>

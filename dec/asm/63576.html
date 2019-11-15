@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 63576</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63561.html">63561</a></span></td>
+<td class="prev">
+Prev: <a href="63561.html">63561</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63576">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63586.html">63586</a></span></td>
+<td class="next">
+Next: <a href="63586.html">63586</a>
+</td>
 </tr>
 </table>
 <div class="description">63576: Clear various game and lesson flags</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="63309.html">63309</a>. Clears the flags in <a href="32640.html">32640</a> and <a href="32641.html">32641</a>, and also sets the 6 unused bytes at <a href="32642.html">32642</a> to 0.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,68 +41,51 @@ Used by the routine at <a href="63309.html">63309</a>. Clears the flags in <a hr
 <td class="register-desc">127</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63576"></span>63576</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,128</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32640.html">32640</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32640.html">32640</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63578"></span>63578</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,8</td>
-<td class="comment-11" rowspan="4">Zero out the bytes</td>
+<td class="comment-1" rowspan="4">Zero out the bytes</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="63580"></span>63580</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63582"></span>63582</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63583"></span>63583</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 63580</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="63585"></span>63585</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="63561.html">63561</a></span></td>
+<td class="prev">
+Prev: <a href="63561.html">63561</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#63576">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="63586.html">63586</a></span></td>
+<td class="next">
+Next: <a href="63586.html">63586</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F858.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

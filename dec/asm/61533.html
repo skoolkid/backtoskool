@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 61533</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61512.html">61512</a></span></td>
+<td class="prev">
+Prev: <a href="61512.html">61512</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61533">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61554.html">61554</a></span></td>
+<td class="next">
+Next: <a href="61554.html">61554</a>
+</td>
 </tr>
 </table>
 <div class="description">61533: Make a teacher tell the class what to do</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="61696.html">61696</a>. Makes the teacher choose between messages <a href="60691.html">89</a>, <a href="60722.html">90</a> and <a href="60771.html">91</a> (in a lesson without ERIC and EINSTEIN, or a lesson with no question-and-answer session).
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,69 +41,46 @@ Used by the routine at <a href="61696.html">61696</a>. Makes the teacher choose 
 <td class="register-desc">Teacher's character number (201-204)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61533"></span>61533</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25233.html">25233</a></td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61536"></span>61536</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 240</td>
-<td class="comment-11" rowspan="2">Set the carry flag if <span class="register">A</span>&lt;240, and set the zero flag if <span class="register">A</span>&lt;128</td>
+<td class="comment-1" rowspan="2">Set the carry flag if <span class="register">A</span>&lt;240, and set the zero flag if <span class="register">A</span>&lt;128</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61538"></span>61538</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61540"></span>61540</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,91</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61542"></span>61542</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,61548</td>
-<td class="comment-11" rowspan="1">Jump if it's essay time (<span class="register">A</span>&gt;=240)</td>
+<td class="comment-1" rowspan="1">Jump if it's essay time (<span class="register">A</span>&gt;=240)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61544"></span>61544</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,61547</td>
-<td class="comment-11" rowspan="1">Jump if it's book-reading time (<span class="register">A</span>&lt;128)</td>
+<td class="comment-1" rowspan="1">Jump if it's book-reading time (<span class="register">A</span>&lt;128)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61546"></span>61546</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1">It's revision time (128&lt;=<span class="register">A</span>&lt;240)</td>
+<td class="comment-1" rowspan="1">It's revision time (128&lt;=<span class="register">A</span>&lt;240)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61547"></span>61547</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -133,31 +113,30 @@ Now <span class="register">E</span> holds the appropriate message number:
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61548"></span>61548</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,27144</td>
-<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="27144.html">27144</a> (make character speak), then return control to the calling routine</td>
+<td class="comment-1" rowspan="2">Redirect control to the routine at <a href="27144.html">27144</a> (make character speak), then return control to the calling routine</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61551"></span>61551</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="25503.html">25503</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61512.html">61512</a></span></td>
+<td class="prev">
+Prev: <a href="61512.html">61512</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61533">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61554.html">61554</a></span></td>
+<td class="next">
+Next: <a href="61554.html">61554</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F05D.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

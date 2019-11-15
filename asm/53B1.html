@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 53B1</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="53AB.html">53AB</a></span></td>
+<td class="prev">
+Prev: <a href="53AB.html">53AB</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#53b1">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="53F4.html">53F4</a></span></td>
+<td class="next">
+Next: <a href="53F4.html">53F4</a>
+</td>
 </tr>
 </table>
 <div class="description">53B1: Clear the screen and request the input method (keyboard, joystick, Int2)</div>
@@ -29,256 +32,164 @@
 Used by the routine at <a href="55A0.html">55A0</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="53b1"></span>53B1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$0280</td>
-<td class="comment-11" rowspan="5">INK 0: PAPER 6 for the top 20 lines of screen</td>
+<td class="comment-1" rowspan="5">INK 0: PAPER 6 for the top 20 lines of screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53b4"></span>53B4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$5801</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53b7"></span>53B7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5800</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53ba"></span>53BA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$30</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53bc"></span>53BC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53be"></span>53BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$80</td>
-<td class="comment-11" rowspan="3">INK 6: PAPER 6 for the bottom 4 lines of screen</td>
+<td class="comment-1" rowspan="3">INK 6: PAPER 6 for the bottom 4 lines of screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53c0"></span>53C0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$36</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53c2"></span>53C2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53c4"></span>53C4</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="53AB.html">$53AB</a></td>
-<td class="comment-11" rowspan="1">Make a short beep</td>
+<td class="comment-1" rowspan="1">Make a short beep</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53c7"></span>53C7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$40</td>
-<td class="comment-11" rowspan="5">Clear the top two-thirds of the display file</td>
+<td class="comment-1" rowspan="5">Clear the top two-thirds of the display file</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53c9"></span>53C9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53ca"></span>53CA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53cb"></span>53CB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$10</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53cd"></span>53CD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="53cf"></span>53CF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$A0</td>
-<td class="comment-11" rowspan="8">Clear the remainder of the screen, except the bottom 3 lines (which contain machine code)</td>
+<td class="comment-1" rowspan="8">Clear the remainder of the screen, except the bottom 3 lines (which contain machine code)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="53d1"></span>53D1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53d2"></span>53D2</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53d3"></span>53D3</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $53D1</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53d5"></span>53D5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53d6"></span>53D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53d7"></span>53D7</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53d9"></span>53D9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$53CF</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53db"></span>53DB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$80</td>
-<td class="comment-11" rowspan="2">Set the column of the play area at the far left of the screen to 128</td>
+<td class="comment-1" rowspan="2">Set the column of the play area at the far left of the screen to 128</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53dd"></span>53DD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7FFF),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53e0"></span>53E0</td>
-<td class="bytes-0"></td>
 <td class="instruction">NOP</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53e1"></span>53E1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="50A0.html">$50A0</a></td>
-<td class="comment-11" rowspan="1">Clear character buffer 0xD6 (for no good reason)</td>
+<td class="comment-1" rowspan="1">Clear character buffer 0xD6 (for no good reason)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53e4"></span>53E4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$F6</td>
-<td class="comment-11" rowspan="1">Message <a href="56A0.html">0xF6</a>: 'None/Cursor/Kempston/Int2? (N,C,K or I)'</td>
+<td class="comment-1" rowspan="1">Message <a href="56A0.html">0xF6</a>: 'None/Cursor/Kempston/Int2? (N,C,K or I)'</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53e6"></span>53E6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$4040</td>
-<td class="comment-11" rowspan="2">Print this message</td>
+<td class="comment-1" rowspan="2">Print this message</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53e9"></span>53E9</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="50B9.html#50bc">$50BC</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53ec"></span>53EC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5C3B</td>
-<td class="comment-11" rowspan="2">Clear bit 5 at 5C3B, ready for future keypresses</td>
+<td class="comment-1" rowspan="2">Clear bit 5 at 5C3B, ready for future keypresses</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53ef"></span>53EF</td>
-<td class="bytes-0"></td>
 <td class="instruction">RES 5,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="53f1"></span>53F1</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="54A0.html">$54A0</a></td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="53AB.html">53AB</a></span></td>
+<td class="prev">
+Prev: <a href="53AB.html">53AB</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#53b1">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="53F4.html">53F4</a></span></td>
+<td class="next">
+Next: <a href="53F4.html">53F4</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/21425.html">Switch to decimal</a>.</div>
 </footer>
 </body>

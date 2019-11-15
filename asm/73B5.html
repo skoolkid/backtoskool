@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 73B5</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="73AD.html">73AD</a></span></td>
+<td class="prev">
+Prev: <a href="73AD.html">73AD</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#73b5">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="73CB.html">73CB</a></span></td>
+<td class="next">
+Next: <a href="73CB.html">73CB</a>
+</td>
 </tr>
 </table>
 <div class="description">73B5: Add to the score and print it</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="5D63.html">5D63</a>, <a href="5DDC.html">5DDC</a>, <a href="7118.html">7118</a>, <a href="7414.html">7414</a>, <a href="74C8.html">74C8</a>, <a href="7813.html">7813</a>, <a href="7842.html">7842</a>, <a href="7854.html">7854</a> and <a href="F5BE.html">F5BE</a>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,76 +41,49 @@ Used by the routines at <a href="5D63.html">5D63</a>, <a href="5DDC.html">5DDC</
 <td class="register-desc">Points to add/10</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="73b5"></span>73B5</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73b6"></span>73B6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="2"><span class="register">DE</span>=number of points to add (divided by 10)</td>
+<td class="comment-1" rowspan="2"><span class="register">DE</span>=number of points to add (divided by 10)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73b7"></span>73B7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$00</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73b9"></span>73B9</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73ba"></span>73BA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7FE5)</td>
-<td class="comment-11" rowspan="3">Add points to the score (stored at <a href="7FE5.html">7FE5</a>)</td>
+<td class="comment-1" rowspan="3">Add points to the score (stored at <a href="7FE5.html">7FE5</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73bd"></span>73BD</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73be"></span>73BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7FE5),HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73c1"></span>73C1</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73c2"></span>73C2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$51A4</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=display file address for printing the score</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=display file address for printing the score</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -120,45 +96,41 @@ This entry point is used by the routine at <a href="73CB.html">73CB</a> with <sp
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="73c5"></span>73C5</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="73AD.html">$73AD</a></td>
-<td class="comment-11" rowspan="1">Print the new score or lines total</td>
+<td class="comment-1" rowspan="1">Print the new score or lines total</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73c8"></span>73C8</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73c9"></span>73C9</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="73ca"></span>73CA</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="73AD.html">73AD</a></span></td>
+<td class="prev">
+Prev: <a href="73AD.html">73AD</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#73b5">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="73CB.html">73CB</a></span></td>
+<td class="next">
+Next: <a href="73CB.html">73CB</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/29621.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 57669</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="57637.html">57637</a></span></td>
+<td class="prev">
+Prev: <a href="57637.html">57637</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#57669">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="57686.html">57686</a></span></td>
+<td class="next">
+Next: <a href="57686.html">57686</a>
+</td>
 </tr>
 </table>
 <div class="description">57669: Deal with ERIC when he's bending over, dropping a stinkbomb etc.</div>
@@ -29,47 +32,25 @@
 This routine is called by the routine at <a href="63405.html">63405</a> when bit 3 at <a href="32763.html">32763</a> is set by the routine at <a href="57637.html">57637</a>, indicating that ERIC is bending over (to throw away the water pistol, release a mouse, or catch a mouse or the frog), dropping a stinkbomb, firing the water pistol, or moving forward as if to kiss.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="57669"></span>57669</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="2">Reset all flags at <a href="32763.html">32763</a>, indicating that ERIC has finished bending over, dropping a stinkbomb etc.</td>
+<td class="comment-1" rowspan="2">Reset all flags at <a href="32763.html">32763</a>, indicating that ERIC has finished bending over, dropping a stinkbomb etc.</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="57670"></span>57670</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (32763),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="57673"></span>57673</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,5126</td>
-<td class="comment-11" rowspan="2">Set ERIC's main action timer at <a href="32755.html">32755</a> to 20 (the delay before ERIC completes this action), and the mid-action timer at <a href="32754.html">32754</a> to 6 (the delay after ERIC completes this action)</td>
+<td class="comment-1" rowspan="2">Set ERIC's main action timer at <a href="32755.html">32755</a> to 20 (the delay before ERIC completes this action), and the mid-action timer at <a href="32754.html">32754</a> to 6 (the delay after ERIC completes this action)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="57676"></span>57676</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (32754),HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -82,45 +63,40 @@ This entry point is used by the routine at <a href="24237.html">24237</a> (when 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="57679"></span>57679</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,(32727)</td>
-<td class="comment-11" rowspan="2">Collect in <span class="register">HL</span> the routine address stored in <a href="32727.html">32727</a>, and push it onto the stack ready for an indirect jump</td>
+<td class="comment-1" rowspan="2">Collect in <span class="register">HL</span> the routine address stored in <a href="32727.html">32727</a>, and push it onto the stack ready for an indirect jump</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="57682"></span>57682</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="57683"></span>57683</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,210</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-1" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="57685"></span>57685</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Jump to the routine whose address is stored in <a href="32727.html">32727</a></td>
+<td class="comment-1" rowspan="1">Jump to the routine whose address is stored in <a href="32727.html">32727</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="57637.html">57637</a></span></td>
+<td class="prev">
+Prev: <a href="57637.html">57637</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#57669">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="57686.html">57686</a></span></td>
+<td class="next">
+Next: <a href="57686.html">57686</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/E145.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

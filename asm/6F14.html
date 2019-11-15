@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 6F14</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6E9B.html">6E9B</a></span></td>
+<td class="prev">
+Prev: <a href="6E9B.html">6E9B</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6f14">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6F2C.html">6F2C</a></span></td>
+<td class="next">
+Next: <a href="6F2C.html">6F2C</a>
+</td>
 </tr>
 </table>
 <div class="description">6F14: 'P' pressed - right</div>
@@ -29,54 +32,32 @@
 The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'P' or '8' is pressed.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6f14"></span>6F14</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($D200)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6f17"></span>6F17</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,A</td>
-<td class="comment-11" rowspan="1">Is ERIC facing left?</td>
+<td class="comment-1" rowspan="1">Is ERIC facing left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6f19"></span>6F19</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="6E38.html">$6E38</a></td>
-<td class="comment-11" rowspan="1">Turn ERIC round if so</td>
+<td class="comment-1" rowspan="1">Turn ERIC round if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6f1c"></span>6F1C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6E50.html">$6E50</a></td>
-<td class="comment-11" rowspan="1">Is ERIC on a staircase?</td>
+<td class="comment-1" rowspan="1">Is ERIC on a staircase?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6f1f"></span>6F1F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$6F25</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -89,18 +70,14 @@ This entry point is used by the routines at <a href="6F44.html">6F44</a> and <a 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6f21"></span>6F21</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=x-coordinate of the spot in front of ERIC</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=x-coordinate of the spot in front of ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6f22"></span>6F22</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6E9B.html">$6E9B</a></td>
-<td class="comment-11" rowspan="1">Check for walls and closed doors in ERIC's path</td>
+<td class="comment-1" rowspan="1">Check for walls and closed doors in ERIC's path</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -113,38 +90,36 @@ ERIC is on a staircase.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6f25"></span>6F25</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLA</td>
-<td class="comment-11" rowspan="1">Does the staircase ERIC's on go up and to the right?</td>
+<td class="comment-1" rowspan="1">Does the staircase ERIC's on go up and to the right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6f26"></span>6F26</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP C,<a href="6F44.html#6f62">$6F62</a></td>
-<td class="comment-11" rowspan="1">Go up a stair if so</td>
+<td class="comment-1" rowspan="1">Go up a stair if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6f29"></span>6F29</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6FA0.html#6fbe">$6FBE</a></td>
-<td class="comment-11" rowspan="1">Otherwise go down a stair</td>
+<td class="comment-1" rowspan="1">Otherwise go down a stair</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6E9B.html">6E9B</a></span></td>
+<td class="prev">
+Prev: <a href="6E9B.html">6E9B</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6f14">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6F2C.html">6F2C</a></span></td>
+<td class="next">
+Next: <a href="6F2C.html">6F2C</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/28436.html">Switch to decimal</a>.</div>
 </footer>
 </body>

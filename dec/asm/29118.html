@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 29118</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29117.html">29117</a></span></td>
+<td class="prev">
+Prev: <a href="29117.html">29117</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29118">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="29178.html">29178</a></span></td>
+<td class="next">
+Next: <a href="29178.html">29178</a>
+</td>
 </tr>
 </table>
 <div class="description">29118: Get the ASCII code of the last key pressed</div>
@@ -29,173 +32,117 @@
 Used by the routines at <a href="24175.html">24175</a>, <a href="29178.html">29178</a>, <a href="62178.html">62178</a>, <a href="62483.html">62483</a> and <a href="63166.html">63166</a>. Returns with the zero flag set if no key of interest was pressed. Otherwise returns with <span class="register">A</span> holding the ASCII code of the last key pressed.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29118"></span>29118</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32748)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0 if we're using the keyboard, 1 if using Kempston</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0 if we're using the keyboard, 1 if using Kempston</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29121"></span>29121</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Are we using the keyboard?</td>
+<td class="comment-1" rowspan="1">Are we using the keyboard?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29122"></span>29122</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,29154</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29124"></span>29124</td>
-<td class="bytes-0"></td>
 <td class="instruction">IN A,(31)</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29126"></span>29126</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 31</td>
-<td class="comment-11" rowspan="1">Any input from the joystick?</td>
+<td class="comment-1" rowspan="1">Any input from the joystick?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29128"></span>29128</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,29154</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29130"></span>29130</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,80</td>
-<td class="comment-11" rowspan="1">80='P' (RIGHT)</td>
+<td class="comment-1" rowspan="1">80='P' (RIGHT)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29132"></span>29132</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29133"></span>29133</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,29151</td>
-<td class="comment-11" rowspan="1">Jump if the joystick was moved right</td>
+<td class="comment-1" rowspan="1">Jump if the joystick was moved right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29135"></span>29135</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=79='O' (LEFT)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=79='O' (LEFT)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29136"></span>29136</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29137"></span>29137</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,29151</td>
-<td class="comment-11" rowspan="1">Jump if the joystick was moved left</td>
+<td class="comment-1" rowspan="1">Jump if the joystick was moved left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29139"></span>29139</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,65</td>
-<td class="comment-11" rowspan="1">65='A' (DOWN)</td>
+<td class="comment-1" rowspan="1">65='A' (DOWN)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29141"></span>29141</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29142"></span>29142</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,29151</td>
-<td class="comment-11" rowspan="1">Jump if the joystick was moved down</td>
+<td class="comment-1" rowspan="1">Jump if the joystick was moved down</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29144"></span>29144</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,81</td>
-<td class="comment-11" rowspan="1">81='Q' (UP)</td>
+<td class="comment-1" rowspan="1">81='Q' (UP)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29146"></span>29146</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29147"></span>29147</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,29151</td>
-<td class="comment-11" rowspan="1">Jump if the joystick was moved up</td>
+<td class="comment-1" rowspan="1">Jump if the joystick was moved up</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29149"></span>29149</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,102</td>
-<td class="comment-11" rowspan="1">102='f' (fire)</td>
+<td class="comment-1" rowspan="1">102='f' (fire)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29151"></span>29151</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1">Pass the appropriate character code to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pass the appropriate character code to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29152"></span>29152</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Reset the zero flag (we have input)</td>
+<td class="comment-1" rowspan="1">Reset the zero flag (we have input)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29153"></span>29153</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -208,81 +155,59 @@ This entry point is used by the startup routines at <a href="20896.html">20896</
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29154"></span>29154</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,23611</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the system variable FLAGS</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the system variable FLAGS</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29157"></span>29157</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 5,(HL)</td>
-<td class="comment-11" rowspan="1">Check the keypress flag</td>
+<td class="comment-1" rowspan="1">Check the keypress flag</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29159"></span>29159</td>
-<td class="bytes-0"></td>
 <td class="instruction">RES 5,(HL)</td>
-<td class="comment-11" rowspan="1">Reset the flag ready for the next keypress</td>
+<td class="comment-1" rowspan="1">Reset the flag ready for the next keypress</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29161"></span>29161</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if no key was pressed</td>
+<td class="comment-1" rowspan="1">Return if no key was pressed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29162"></span>29162</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(23560)</td>
-<td class="comment-11" rowspan="1">Collect the ASCII code of the key last pressed</td>
+<td class="comment-1" rowspan="1">Collect the ASCII code of the key last pressed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29165"></span>29165</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 13</td>
-<td class="comment-11" rowspan="1">Was it ENTER?</td>
+<td class="comment-1" rowspan="1">Was it ENTER?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29167"></span>29167</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,29173</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29169"></span>29169</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 32</td>
-<td class="comment-11" rowspan="1">Was it a control character?</td>
+<td class="comment-1" rowspan="1">Was it a control character?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29171"></span>29171</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,29176</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29173"></span>29173</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 128</td>
-<td class="comment-11" rowspan="1">Was it an extended character?</td>
+<td class="comment-1" rowspan="1">Was it an extended character?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29175"></span>29175</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -295,31 +220,31 @@ This entry point is used by the routine at <a href="29118.html">29118</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="29176"></span>29176</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="1">Set the zero flag to indicate that no (relevant) key was pressed</td>
+<td class="comment-1" rowspan="1">Set the zero flag to indicate that no (relevant) key was pressed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="29177"></span>29177</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="29117.html">29117</a></span></td>
+<td class="prev">
+Prev: <a href="29117.html">29117</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#29118">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="29178.html">29178</a></span></td>
+<td class="next">
+Next: <a href="29178.html">29178</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/71BE.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

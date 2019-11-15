@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 5EAD</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="5EAC.html">5EAC</a></span></td>
+<td class="prev">
+Prev: <a href="5EAC.html">5EAC</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#5ead">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="5EB7.html">5EB7</a></span></td>
+<td class="next">
+Next: <a href="5EB7.html">5EB7</a>
+</td>
 </tr>
 </table>
 <div class="description">5EAD: Deal with ERIC when he's firing the catapult, hitting or kissing</div>
@@ -29,67 +32,49 @@
 This routine is called by the routine at <a href="F7AD.html">F7AD</a> when bit 5 at <a href="7FFB.html">7FFB</a> is set (by the routine at <a href="5EB7.html">5EB7</a>).
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5ead"></span>5EAD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF3</td>
-<td class="comment-11" rowspan="1"><a href="7FF3.html">7FF3</a> holds ERIC's main action timer</td>
+<td class="comment-1" rowspan="1"><a href="7FF3.html">7FF3</a> holds ERIC's main action timer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5eb0"></span>5EB0</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Is it time to deal with ERIC yet?</td>
+<td class="comment-1" rowspan="1">Is it time to deal with ERIC yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5eb1"></span>5EB1</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5eb2"></span>5EB2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$05</td>
-<td class="comment-11" rowspan="1">Reset the main action timer to 5</td>
+<td class="comment-1" rowspan="1">Reset the main action timer to 5</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5eb4"></span>5EB4</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="E145.html#e14f">$E14F</a></td>
-<td class="comment-11" rowspan="1">Jump to the routine address stored in <a href="7FD7.html">7FD7</a>, which will deal with the next phase of ERIC's animation</td>
+<td class="comment-1" rowspan="1">Jump to the routine address stored in <a href="7FD7.html">7FD7</a>, which will deal with the next phase of ERIC's animation</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="5EAC.html">5EAC</a></span></td>
+<td class="prev">
+Prev: <a href="5EAC.html">5EAC</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#5ead">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="5EB7.html">5EB7</a></span></td>
+<td class="next">
+Next: <a href="5EB7.html">5EB7</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/24237.html">Switch to decimal</a>.</div>
 </footer>
 </body>

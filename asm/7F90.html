@@ -4,7 +4,6 @@
 <title>Back to Skool: Text at 7F90</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-t">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7F8E.html">7F8E</a></span></td>
+<td class="prev">
+Prev: <a href="7F8E.html">7F8E</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7f90">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7F92.html">7F92</a></span></td>
+<td class="next">
+Next: <a href="7F92.html">7F92</a>
+</td>
 </tr>
 </table>
 <div class="description">7F90: Message 7: '{grassee}'</div>
@@ -29,46 +32,34 @@
 Used by the routine at <a href="F100.html">F100</a> to hold the character number of whoever is being grassed up by EINSTEIN for writing on the board (0xCE=BOY WANDER, or 0xD2=ERIC); it is a submessage of message <a href="ECFC.html">0x58</a>. Note that storing the character number (0xCE or 0xD2) here is a mistake; it should be the message number of the character's name (<a href="EFA1.html">0x1B</a> or <a href="EFD5.html">0x1F</a>) instead. In any case, this message (along with parent message <a href="ECFC.html">0x58</a>) is never used, because of a <a href="../reference/bugs.html#noBlackboardTales">bug</a> in the section of code at <a href="F100.html#f19c">F19C</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7f90"></span>7F90</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7f91"></span>7F91</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-11" rowspan="1">End marker</td>
+<td class="comment-1" rowspan="1">End marker</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7F8E.html">7F8E</a></span></td>
+<td class="prev">
+Prev: <a href="7F8E.html">7F8E</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7f90">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7F92.html">7F92</a></span></td>
+<td class="next">
+Next: <a href="7F92.html">7F92</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/32656.html">Switch to decimal</a>.</div>
 </footer>
 </body>

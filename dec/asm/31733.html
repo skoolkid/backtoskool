@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 31733</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31723.html">31723</a></span></td>
+<td class="prev">
+Prev: <a href="31723.html">31723</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31733">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31746.html">31746</a></span></td>
+<td class="next">
+Next: <a href="31746.html">31746</a>
+</td>
 </tr>
 </table>
 <div class="description">31733: Make ERIC catch the frog (if possible)</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="31573.html">31573</a>. Adds the frog to ERIC's inventory and makes a sound effect if the frog is sitting (i.e. not airborne) at the spot in front of ERIC.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,68 +41,54 @@ Used by the routine at <a href="31573.html">31573</a>. Adds the frog to ERIC's i
 <td class="register-desc">Frog's animatory state (with bit 7 reset)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31733"></span>31733</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 28</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#28">28</a>: Is the frog sitting down?</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#28">28</a>: Is the frog sitting down?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31735"></span>31735</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not (ERIC cannot catch an airborne frog)</td>
+<td class="comment-1" rowspan="1">Return if not (ERIC cannot catch an airborne frog)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31736"></span>31736</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32747</td>
-<td class="comment-11" rowspan="1"><a href="32747.html">32747</a> holds the inventory flags</td>
+<td class="comment-1" rowspan="1"><a href="32747.html">32747</a> holds the inventory flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31739"></span>31739</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 2,(HL)</td>
-<td class="comment-11" rowspan="1">Signal: got the frog</td>
+<td class="comment-1" rowspan="1">Signal: got the frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31741"></span>31741</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,212</td>
-<td class="comment-11" rowspan="1">212=frog</td>
+<td class="comment-1" rowspan="1">212=frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31743"></span>31743</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="29568.html">29568</a></td>
-<td class="comment-11" rowspan="1">Print the inventory and make a sound effect</td>
+<td class="comment-1" rowspan="1">Print the inventory and make a sound effect</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31723.html">31723</a></span></td>
+<td class="prev">
+Prev: <a href="31723.html">31723</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31733">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31746.html">31746</a></span></td>
+<td class="next">
+Next: <a href="31746.html">31746</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/7BF5.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

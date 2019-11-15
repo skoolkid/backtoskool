@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 774F</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7746.html">7746</a></span></td>
+<td class="prev">
+Prev: <a href="7746.html">7746</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#774f">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="775B.html">775B</a></span></td>
+<td class="next">
+Next: <a href="775B.html">775B</a>
+</td>
 </tr>
 </table>
 <div class="description">774F: Check whether a character is on the top, middle or bottom floor</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="775B.html">775B</a>, <a href="77F2.html">77F2</a>, <a href="E225.html">E225</a>, <a href="FA4D.html">FA4D</a> and <a href="FBA0.html">FBA0</a>. Returns with the zero flag set if and only if the character is exactly on the top, middle or bottom floor.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,82 +41,64 @@ Used by the routines at <a href="775B.html">775B</a>, <a href="77F2.html">77F2</
 <td class="register-desc">Character number (0xCE, 0xCF, 0xD2, 0xD6)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="774f"></span>774F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Byte 0x02 of the character's buffer holds his y-coordinate</td>
+<td class="comment-1" rowspan="1">Byte 0x02 of the character's buffer holds his y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7751"></span>7751</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7752"></span>7752</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $03</td>
-<td class="comment-11" rowspan="1">Is the character on the top floor?</td>
+<td class="comment-1" rowspan="1">Is the character on the top floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7754"></span>7754</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+<td class="comment-1" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7755"></span>7755</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $0A</td>
-<td class="comment-11" rowspan="1">Is the character on the middle floor?</td>
+<td class="comment-1" rowspan="1">Is the character on the middle floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7757"></span>7757</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+<td class="comment-1" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7758"></span>7758</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $11</td>
-<td class="comment-11" rowspan="1">Is the character on the bottom floor?</td>
+<td class="comment-1" rowspan="1">Is the character on the bottom floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="775a"></span>775A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return with the zero flag set if so</td>
+<td class="comment-1" rowspan="1">Return with the zero flag set if so</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7746.html">7746</a></span></td>
+<td class="prev">
+Prev: <a href="7746.html">7746</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#774f">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="775B.html">775B</a></span></td>
+<td class="next">
+Next: <a href="775B.html">775B</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/30543.html">Switch to decimal</a>.</div>
 </footer>
 </body>

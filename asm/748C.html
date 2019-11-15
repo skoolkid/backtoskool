@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 748C</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="748A.html">748A</a></span></td>
+<td class="prev">
+Prev: <a href="748A.html">748A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#748c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="74A0.html">74A0</a></span></td>
+<td class="next">
+Next: <a href="74A0.html">74A0</a>
+</td>
 </tr>
 </table>
 <div class="description">748C: Make a sound effect</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="7118.html">7118</a>, <a href="7414.html">7414</a>, <a href="74C8.html">74C8</a>, <a href="7854.html">7854</a> and <a href="7EB1.html">7EB1</a>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -50,124 +53,88 @@ Used by the routines at <a href="7118.html">7118</a>, <a href="7414.html">7414</
 <td class="register-desc">Duration</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="748c"></span>748C</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="748d"></span>748D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,B</td>
-<td class="comment-11" rowspan="1">Save the pitch parameter in <span class="register">L</span></td>
+<td class="comment-1" rowspan="1">Save the pitch parameter in <span class="register">L</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="748e"></span>748E</td>
-<td class="bytes-0"></td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-11" rowspan="2">Flip the border colour and the state of the speaker</td>
+<td class="comment-1" rowspan="2">Flip the border colour and the state of the speaker</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7490"></span>7490</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7491"></span>7491</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,L</td>
-<td class="comment-11" rowspan="2">This is the pitch timing delay</td>
+<td class="comment-1" rowspan="2">This is the pitch timing delay</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7492"></span>7492</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $7492</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7494"></span>7494</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="4">Jump back unless the sound effect is finished</td>
+<td class="comment-1" rowspan="4">Jump back unless the sound effect is finished</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7495"></span>7495</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$748E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7497"></span>7497</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7498"></span>7498</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$748E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="749a"></span>749A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="2">BORDER 1 (blue) before returning</td>
+<td class="comment-1" rowspan="2">BORDER 1 (blue) before returning</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="749c"></span>749C</td>
-<td class="bytes-0"></td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="749e"></span>749E</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="749f"></span>749F</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="748A.html">748A</a></span></td>
+<td class="prev">
+Prev: <a href="748A.html">748A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#748c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="74A0.html">74A0</a></span></td>
+<td class="next">
+Next: <a href="74A0.html">74A0</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/29836.html">Switch to decimal</a>.</div>
 </footer>
 </body>

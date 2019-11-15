@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at F74D</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F6EA.html">F6EA</a></span></td>
+<td class="prev">
+Prev: <a href="F6EA.html">F6EA</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f74d">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F7AC.html">F7AC</a></span></td>
+<td class="next">
+Next: <a href="F7AC.html">F7AC</a>
+</td>
 </tr>
 </table>
 <div class="description">F74D: Change the lesson</div>
@@ -29,7 +32,7 @@
 This routine is called from the main loop at <a href="F6EA.html">F6EA</a> when the lesson clock has counted down to zero. It sets each character up with the appropriate command list for the next lesson, and teleports some of the minor characters (specifically, little boys 1-8 and all the little girls) to their initial destinations if possible.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,125 +41,85 @@ This routine is called from the main loop at <a href="F6EA.html">F6EA</a> when t
 <td class="register-desc">7FE4 (MSB of the <a href="7FE3.html">lesson clock</a>)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f74d"></span>F74D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$10</td>
-<td class="comment-11" rowspan="1">Reset the MSB of the lesson clock to 0x10</td>
+<td class="comment-1" rowspan="1">Reset the MSB of the lesson clock to 0x10</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f74f"></span>F74F</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F858.html">$F858</a></td>
-<td class="comment-11" rowspan="1">Clear the flags at <a href="7F80.html">7F80</a> and <a href="7F81.html">7F81</a></td>
+<td class="comment-1" rowspan="1">Clear the flags at <a href="7F80.html">7F80</a> and <a href="7F81.html">7F81</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f752"></span>F752</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$DF</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FDF.html">7FDF</a> (which holds the current lesson number)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7FDF.html">7FDF</a> (which holds the current lesson number)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f754"></span>F754</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span> (0xC0-0xFF)</td>
+<td class="comment-1" rowspan="1">Pick this up in <span class="register">A</span> (0xC0-0xFF)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f755"></span>F755</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1">Next lesson</td>
+<td class="comment-1" rowspan="1">Next lesson</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f756"></span>F756</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR $C0</td>
-<td class="comment-11" rowspan="1">Roll over from 0xFF to 0xC0 if necessary</td>
+<td class="comment-1" rowspan="1">Roll over from 0xFF to 0xC0 if necessary</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f758"></span>F758</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Store the new lesson number</td>
+<td class="comment-1" rowspan="1">Store the new lesson number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f759"></span>F759</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="2">Point <span class="register">DE</span> at the <a href="B5C0.html">main timetable</a> entry for this lesson</td>
+<td class="comment-1" rowspan="2">Point <span class="register">DE</span> at the <a href="B5C0.html">main timetable</a> entry for this lesson</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f75a"></span>F75A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$B5</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f75c"></span>F75C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1">Pick up the lesson identifier (0x25-0x3B) in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick up the lesson identifier (0x25-0x3B) in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f75d"></span>F75D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1">Copy this to <span class="register">E</span></td>
+<td class="comment-1" rowspan="1">Copy this to <span class="register">E</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f75e"></span>F75E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$D2</td>
-<td class="comment-11" rowspan="1">The lesson descriptor table is at <a href="D225.html">D225</a></td>
+<td class="comment-1" rowspan="1">The lesson descriptor table is at <a href="D225.html">D225</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f760"></span>F760</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1">Pick up the lesson descriptor in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick up the lesson descriptor in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f761"></span>F761</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Store a copy of the lesson descriptor in <a href="7FE0.html">7FE0</a></td>
+<td class="comment-1" rowspan="2">Store a copy of the lesson descriptor in <a href="7FE0.html">7FE0</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f762"></span>F762</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f763"></span>F763</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=0xD1 (HAYLEY)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=0xD1 (HAYLEY)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -169,144 +132,101 @@ We now enter a loop to transfer the start address of a command list into bytes 0
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f764"></span>F764</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,D</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f765"></span>F765</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=command list number for this lesson from the character's personal timetable</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=command list number for this lesson from the character's personal timetable</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f766"></span>F766</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f767"></span>F767</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$E8</td>
-<td class="comment-11" rowspan="1">Page <a href="E800.html">0xE8</a> holds the start addresses of the command lists</td>
+<td class="comment-1" rowspan="1">Page <a href="E800.html">0xE8</a> holds the start addresses of the command lists</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f769"></span>F769</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="2">Pick up the LSB of the command list start address in <span class="register">A</span></td>
+<td class="comment-1" rowspan="2">Pick up the LSB of the command list start address in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f76a"></span>F76A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f76b"></span>F76B</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the MSB</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL'</span> at the MSB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f76c"></span>F76C</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f76d"></span>F76D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$1B</td>
-<td class="comment-11" rowspan="2">The LSB of the command list start address goes into byte 0x1B of the character's buffer</td>
+<td class="comment-1" rowspan="2">The LSB of the command list start address goes into byte 0x1B of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f76f"></span>F76F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f770"></span>F770</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x1C of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x1C of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f771"></span>F771</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f772"></span>F772</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=MSB of the command list start address</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=MSB of the command list start address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f773"></span>F773</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f774"></span>F774</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Place this into byte 0x1C of the character's buffer</td>
+<td class="comment-1" rowspan="1">Place this into byte 0x1C of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f775"></span>F775</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Set bit 0 of byte 0x1D of the character's buffer, which will trigger a command list restart at the next available opportunity (i.e. after any subcommand routine whose address is currently in bytes 0x11 and 0x12 or bytes 0x09 and 0x0A of the character's buffer has finished its job; see <a href="62D0.html">62D0</a>)</td>
+<td class="comment-1" rowspan="2">Set bit 0 of byte 0x1D of the character's buffer, which will trigger a command list restart at the next available opportunity (i.e. after any subcommand routine whose address is currently in bytes 0x11 and 0x12 or bytes 0x09 and 0x0A of the character's buffer has finished its job; see <a href="62D0.html">62D0</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f776"></span>F776</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 0,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f778"></span>F778</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1">Copy the character number to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Copy the character number to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f779"></span>F779</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $C6</td>
-<td class="comment-11" rowspan="1">Are we dealing with one of the characters 0xC6-0xD1 (little boys nos. 9 and 10, the adults and the main kids)?</td>
+<td class="comment-1" rowspan="1">Are we dealing with one of the characters 0xC6-0xD1 (little boys nos. 9 and 10, the adults and the main kids)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f77b"></span>F77B</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F7A3</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -319,151 +239,109 @@ We are dealing with one of the characters 0xB7-0xC5 (all the little girls, and l
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f77d"></span>F77D</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 3,(HL)</td>
-<td class="comment-11" rowspan="1">Set bit 3 of byte 0x1D, signalling to the routine at <a href="61F8.html#622e">622E</a> (called later) that this character may be teleported</td>
+<td class="comment-1" rowspan="1">Set bit 3 of byte 0x1D, signalling to the routine at <a href="61F8.html#622e">622E</a> (called later) that this character may be teleported</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f77f"></span>F77F</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f780"></span>F780</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$01</td>
-<td class="comment-11" rowspan="1">We let the routine at <a href="61F8.html#622e">622E</a> consider only one character at a time</td>
+<td class="comment-1" rowspan="1">We let the routine at <a href="61F8.html#622e">622E</a> consider only one character at a time</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f782"></span>F782</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="1"><span class="register">H'</span>=character number (0xB7-0xC5)</td>
+<td class="comment-1" rowspan="1"><span class="register">H'</span>=character number (0xB7-0xC5)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f783"></span>F783</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFF)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=X (leftmost column of the play area on screen)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=X (leftmost column of the play area on screen)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f786"></span>F786</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $50</td>
-<td class="comment-11" rowspan="1">Is X at least 80 (the middle of the assembly hall stage)?</td>
+<td class="comment-1" rowspan="1">Is X at least 80 (the middle of the assembly hall stage)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f788"></span>F788</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F78F</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f78a"></span>F78A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (0xB7-0xC5)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character number (0xB7-0xC5)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f78b"></span>F78B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $BE</td>
-<td class="comment-11" rowspan="1">Now X&lt;80, so set the carry flag if we're dealing with a little girl (none of whom should be on-screen)</td>
+<td class="comment-1" rowspan="1">Now X&lt;80, so set the carry flag if we're dealing with a little girl (none of whom should be on-screen)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f78d"></span>F78D</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $F79F</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f78f"></span>F78F</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $78</td>
-<td class="comment-11" rowspan="1">Set the carry flag if X&lt;120</td>
+<td class="comment-1" rowspan="1">Set the carry flag if X&lt;120</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f791"></span>F791</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character number (0xB7-0xC5)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character number (0xB7-0xC5)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f792"></span>F792</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F79C</td>
-<td class="comment-11" rowspan="1">Jump if X&gt;=120 (which means none of the little boys 1-8 should be on-screen)</td>
+<td class="comment-1" rowspan="1">Jump if X&gt;=120 (which means none of the little boys 1-8 should be on-screen)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f794"></span>F794</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $C1</td>
-<td class="comment-11" rowspan="1">Are we dealing with little boys 4-8?</td>
+<td class="comment-1" rowspan="1">Are we dealing with little boys 4-8?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f796"></span>F796</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F7A2</td>
-<td class="comment-11" rowspan="1">Jump if so (they do venture this far into the playground)</td>
+<td class="comment-1" rowspan="1">Jump if so (they do venture this far into the playground)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f798"></span>F798</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $BA</td>
-<td class="comment-11" rowspan="1">Now 80&lt;=X&lt;=112, so reset the carry flag if we're dealing with little girls 4-7 (who never leave the girls' skool) or little boys 1-3 (who never venture beyond the assembly hall stage)</td>
+<td class="comment-1" rowspan="1">Now 80&lt;=X&lt;=112, so reset the carry flag if we're dealing with little girls 4-7 (who never leave the girls' skool) or little boys 1-3 (who never venture beyond the assembly hall stage)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f79a"></span>F79A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $F79E</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f79c"></span>F79C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $BE</td>
-<td class="comment-11" rowspan="1">Now X&gt;=120, so reset the carry flag if we're dealing with a little boy</td>
+<td class="comment-1" rowspan="1">Now X&gt;=120, so reset the carry flag if we're dealing with a little boy</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f79e"></span>F79E</td>
-<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
-<td class="comment-11" rowspan="1">Set the carry flag if this character should be considered for teleportation</td>
+<td class="comment-1" rowspan="1">Set the carry flag if this character should be considered for teleportation</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f79f"></span>F79F</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL C,<a href="61F8.html#622e">$622E</a></td>
-<td class="comment-11" rowspan="1">Teleport this character if appropriate</td>
+<td class="comment-1" rowspan="1">Teleport this character if appropriate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f7a2"></span>F7A2</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -476,52 +354,46 @@ The loop that prepares each character for the new lesson continues here.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f7a3"></span>F7A3</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-11" rowspan="1">Next character</td>
+<td class="comment-1" rowspan="1">Next character</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a4"></span>F7A4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1">Copy this character's number to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Copy this character's number to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a5"></span>F7A5</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $B6</td>
-<td class="comment-11" rowspan="1">Have we done all the characters yet?</td>
+<td class="comment-1" rowspan="1">Have we done all the characters yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a7"></span>F7A7</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F764</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f7a9"></span>F7A9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7EB1.html">$7EB1</a></td>
-<td class="comment-11" rowspan="1">Print the lesson and ring the bell</td>
+<td class="comment-1" rowspan="1">Print the lesson and ring the bell</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F6EA.html">F6EA</a></span></td>
+<td class="prev">
+Prev: <a href="F6EA.html">F6EA</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f74d">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F7AC.html">F7AC</a></span></td>
+<td class="next">
+Next: <a href="F7AC.html">F7AC</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/63309.html">Switch to decimal</a>.</div>
 </footer>
 </body>

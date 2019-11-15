@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 64316</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64259.html">64259</a></span></td>
+<td class="prev">
+Prev: <a href="64259.html">64259</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64316">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64416.html">64416</a></span></td>
+<td class="next">
+Next: <a href="64416.html">64416</a>
+</td>
 </tr>
 </table>
 <div class="description">64316: Deal with ERIC when he's standing on a plant or plant pot</div>
@@ -49,61 +52,37 @@ Used by the routine at <a href="63405.html">63405</a> when bit 1 at <a href="327
 </table>
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64316"></span>64316</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32755</td>
-<td class="comment-11" rowspan="1"><a href="32755.html">32755</a> holds ERIC's main action timer</td>
+<td class="comment-1" rowspan="1"><a href="32755.html">32755</a> holds ERIC's main action timer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64319"></span>64319</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Is it time to deal with ERIC yet?</td>
+<td class="comment-1" rowspan="1">Is it time to deal with ERIC yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64320"></span>64320</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64321"></span>64321</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="1">Set ERIC's main action timer to 1, ensuring that we pass through the following section of code on the next call to this routine if no keypress is detected this time</td>
+<td class="comment-1" rowspan="1">Set ERIC's main action timer to 1, ensuring that we pass through the following section of code on the next call to this routine if no keypress is detected this time</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64322"></span>64322</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="29178.html">29178</a></td>
-<td class="comment-11" rowspan="1">Get the value from the <a href="58624.html">keypress offset table</a> corresponding to the last key pressed (if any)</td>
+<td class="comment-1" rowspan="1">Get the value from the <a href="58624.html">keypress offset table</a> corresponding to the last key pressed (if any)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64325"></span>64325</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if no keys were pressed</td>
+<td class="comment-1" rowspan="1">Return if no keys were pressed</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -116,39 +95,28 @@ A key was pressed while ERIC was standing on a plant or plant pot.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64326"></span>64326</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32755</td>
-<td class="comment-11" rowspan="2">Reset ERIC's main action timer at <a href="32755.html">32755</a> to 5</td>
+<td class="comment-1" rowspan="2">Reset ERIC's main action timer at <a href="32755.html">32755</a> to 5</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64329"></span>64329</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),5</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64331"></span>64331</td>
-<td class="bytes-0"></td>
 <td class="instruction">RES 3,A</td>
-<td class="comment-11" rowspan="1">Reset bit 3 of the keypress code to make it lower case</td>
+<td class="comment-1" rowspan="1">Reset bit 3 of the keypress code to make it lower case</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64333"></span>64333</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 86</td>
-<td class="comment-11" rowspan="1">Was 'down' pressed?</td>
+<td class="comment-1" rowspan="1">Was 'down' pressed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64335"></span>64335</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64342</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -161,25 +129,19 @@ A key was pressed while ERIC was standing on a plant or plant pot.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64337"></span>64337</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,237</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32749.html">32749</a> (ERIC's secondary status flags)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32749.html">32749</a> (ERIC's secondary status flags)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64339"></span>64339</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),8</td>
-<td class="comment-11" rowspan="1">Set bit 3: ERIC is falling and will land on his feet</td>
+<td class="comment-1" rowspan="1">Set bit 3: ERIC is falling and will land on his feet</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64341"></span>64341</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -192,32 +154,24 @@ It wasn't 'down'. Was it 'left' or 'right'?
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64342"></span>64342</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64343"></span>64343</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,53760</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0 of ERIC's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64346"></span>64346</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 82</td>
-<td class="comment-11" rowspan="1">Was 'right' pressed?</td>
+<td class="comment-1" rowspan="1">Was 'right' pressed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64348"></span>64348</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64400</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -230,81 +184,58 @@ It wasn't 'down'. Was it 'left' or 'right'?
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64350"></span>64350</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is ERIC facing left?</td>
+<td class="comment-1" rowspan="1">Is ERIC facing left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64352"></span>64352</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="28216.html">28216</a></td>
-<td class="comment-11" rowspan="1">Turn ERIC round if so</td>
+<td class="comment-1" rowspan="1">Turn ERIC round if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64355"></span>64355</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64356"></span>64356</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64357"></span>64357</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64358"></span>64358</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32756.html">32756</a> (which holds the door/window status flags)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32756.html">32756</a> (which holds the door/window status flags)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64359"></span>64359</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 132</td>
-<td class="comment-11" rowspan="1">This is the x-coordinate of the plant pot to the left of the gate</td>
+<td class="comment-1" rowspan="1">This is the x-coordinate of the plant pot to the left of the gate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64361"></span>64361</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,64383</td>
-<td class="comment-11" rowspan="1">Jump if ERIC is standing on a plant pot in the boys' skool</td>
+<td class="comment-1" rowspan="1">Jump if ERIC is standing on a plant pot in the boys' skool</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64363"></span>64363</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,64370</td>
-<td class="comment-11" rowspan="1">Jump if ERIC is standing on one of the plant pots beside the gate</td>
+<td class="comment-1" rowspan="1">Jump if ERIC is standing on one of the plant pots beside the gate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64365"></span>64365</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,4</td>
-<td class="comment-11" rowspan="2">Make a sound effect, update the SRB, and set bit 2 at <a href="32749.html">32749</a> (ERIC is stepping off a plant/plant pot)</td>
+<td class="comment-1" rowspan="2">Make a sound effect, update the SRB, and set bit 2 at <a href="32749.html">32749</a> (ERIC is stepping off a plant/plant pot)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64367"></span>64367</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="64242.html#64244">64244</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -317,60 +248,44 @@ ERIC is standing on one of the plant pots on either side of the skool gate, and 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64370"></span>64370</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 4,(HL)</td>
-<td class="comment-11" rowspan="1">Is the skool gate open?</td>
+<td class="comment-1" rowspan="1">Is the skool gate open?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64372"></span>64372</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64365</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64374"></span>64374</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,14</td>
-<td class="comment-11" rowspan="1">This is the y-coordinate of ERIC if he's standing on a fully grown plant on the bottom floor</td>
+<td class="comment-1" rowspan="1">This is the y-coordinate of ERIC if he's standing on a fully grown plant on the bottom floor</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64376"></span>64376</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at byte 2 of ERIC's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at byte 2 of ERIC's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64377"></span>64377</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64378"></span>64378</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP B</td>
-<td class="comment-11" rowspan="1">Is ERIC on top of a fully grown plant?</td>
+<td class="comment-1" rowspan="1">Is ERIC on top of a fully grown plant?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64379"></span>64379</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64380"></span>64380</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="64242.html">64242</a></td>
-<td class="comment-11" rowspan="1">Otherwise make a sound effect, update the SRB, and set bits 2 and 3 at <a href="32749.html">32749</a></td>
+<td class="comment-1" rowspan="1">Otherwise make a sound effect, update the SRB, and set bits 2 and 3 at <a href="32749.html">32749</a></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -383,67 +298,49 @@ ERIC is standing on one of the plant pots in the boys' skool, and has tried to s
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64383"></span>64383</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 91</td>
-<td class="comment-11" rowspan="1">Is ERIC standing on the top-floor plant pot?</td>
+<td class="comment-1" rowspan="1">Is ERIC standing on the top-floor plant pot?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64385"></span>64385</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,64394</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64387"></span>64387</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,0</td>
-<td class="comment-11" rowspan="1">This is the y-coordinate of ERIC if he's standing on a fully-grown plant on the top floor</td>
+<td class="comment-1" rowspan="1">This is the y-coordinate of ERIC if he's standing on a fully-grown plant on the top floor</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64389"></span>64389</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 6,(HL)</td>
-<td class="comment-11" rowspan="1">Is the top-floor window closed?</td>
+<td class="comment-1" rowspan="1">Is the top-floor window closed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64391"></span>64391</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64392"></span>64392</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 64376</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64394"></span>64394</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,7</td>
-<td class="comment-11" rowspan="1">This is the y-coordinate of ERIC if he's standing on a fully-grown plant on the middle floor</td>
+<td class="comment-1" rowspan="1">This is the y-coordinate of ERIC if he's standing on a fully-grown plant on the middle floor</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64396"></span>64396</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the middle-floor window is closed</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the middle-floor window is closed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64398"></span>64398</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 64391</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -456,18 +353,14 @@ ERIC is standing on one of the plant pots in the boys' skool, and has tried to s
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="64400"></span>64400</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 80</td>
-<td class="comment-11" rowspan="1">Was 'left' pressed?</td>
+<td class="comment-1" rowspan="1">Was 'left' pressed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64402"></span>64402</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -480,73 +373,61 @@ ERIC is standing on one of the plant pots in the boys' skool, and has tried to s
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64403"></span>64403</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is ERIC facing right?</td>
+<td class="comment-1" rowspan="1">Is ERIC facing right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64405"></span>64405</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="28216.html">28216</a></td>
-<td class="comment-11" rowspan="1">Turn ERIC round if so</td>
+<td class="comment-1" rowspan="1">Turn ERIC round if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64408"></span>64408</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of ERIC's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 1 of ERIC's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64409"></span>64409</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64410"></span>64410</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64411"></span>64411</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32756.html">32756</a> (which holds the door/window status flags)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32756.html">32756</a> (which holds the door/window status flags)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64412"></span>64412</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 135</td>
-<td class="comment-11" rowspan="1">This is the x-coordinate of the plant pot to the right of the gate; set the carry flag if ERIC is to the left of this, or set the zero flag if he's standing on it</td>
+<td class="comment-1" rowspan="1">This is the x-coordinate of the plant pot to the right of the gate; set the carry flag if ERIC is to the left of this, or set the zero flag if he's standing on it</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="64414"></span>64414</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 64363</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="64259.html">64259</a></span></td>
+<td class="prev">
+Prev: <a href="64259.html">64259</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#64316">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="64416.html">64416</a></span></td>
+<td class="next">
+Next: <a href="64416.html">64416</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/FB3C.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

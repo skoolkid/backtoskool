@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 25534</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25533.html">25533</a></span></td>
+<td class="prev">
+Prev: <a href="25533.html">25533</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25534">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25554.html">25554</a></span></td>
+<td class="next">
+Next: <a href="25554.html">25554</a>
+</td>
 </tr>
 </table>
 <div class="description">25534: Determine ERIC's y-coordinate</div>
@@ -29,95 +32,69 @@
 Used by the routines at <a href="25944.html">25944</a> and <a href="32000.html">32000</a>. Returns with <span class="register">D</span> holding ERIC's y-coordinate if he has his feet on the floor. Otherwise returns with <span class="register">D</span>=3, 10, 14 or 17, indicating the floor that ERIC is directly above.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25534"></span>25534</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,(53761)</td>
-<td class="comment-11" rowspan="1">Get ERIC's coordinates in <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Get ERIC's coordinates in <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25538"></span>25538</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32763)</td>
-<td class="comment-11" rowspan="1">Copy ERIC's status flags from <a href="32763.html">32763</a> to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Copy ERIC's status flags from <a href="32763.html">32763</a> to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25541"></span>25541</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1">Is ERIC jumping?</td>
+<td class="comment-1" rowspan="1">Is ERIC jumping?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25542"></span>25542</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,25551</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25544"></span>25544</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1">Does ERIC have his feet on the floor?</td>
+<td class="comment-1" rowspan="1">Does ERIC have his feet on the floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25545"></span>25545</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if so (with <span class="register">D</span> holding ERIC's y-coordinate)</td>
+<td class="comment-1" rowspan="1">Return if so (with <span class="register">D</span> holding ERIC's y-coordinate)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25546"></span>25546</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32749)</td>
-<td class="comment-11" rowspan="1">Copy ERIC's other status flags from <a href="32749.html">32749</a> to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Copy ERIC's other status flags from <a href="32749.html">32749</a> to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25549"></span>25549</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND 6</td>
-<td class="comment-11" rowspan="1">Set the zero flag unless bit 1 (ERIC is standing on a plant) or bit 2 (ERIC's stepping off a plant or the stage) is set</td>
+<td class="comment-1" rowspan="1">Set the zero flag unless bit 1 (ERIC is standing on a plant) or bit 2 (ERIC's stepping off a plant or the stage) is set</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25551"></span>25551</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="28085.html">28085</a></td>
-<td class="comment-11" rowspan="1">Determine which floor ERIC's closest to</td>
+<td class="comment-1" rowspan="1">Determine which floor ERIC's closest to</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25533.html">25533</a></span></td>
+<td class="prev">
+Prev: <a href="25533.html">25533</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25534">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="25554.html">25554</a></span></td>
+<td class="next">
+Next: <a href="25554.html">25554</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/63BE.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

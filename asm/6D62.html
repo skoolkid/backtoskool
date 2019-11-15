@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 6D62</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6D32.html">6D32</a></span></td>
+<td class="prev">
+Prev: <a href="6D32.html">6D32</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6d62">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6D7D.html">6D7D</a></span></td>
+<td class="next">
+Next: <a href="6D7D.html">6D7D</a>
+</td>
 </tr>
 </table>
 <div class="description">6D62: Check whether ERIC can be seen by an adult</div>
@@ -29,26 +32,12 @@
 Used by the routine at <a href="7D3E.html">7D3E</a>. Returns with the carry flag set if there is an adult nearby who can see ERIC, and <span class="register">A</span> holding the adult's character number. Otherwise returns with the carry flag reset and <span class="register">A</span> holding 0.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6d62"></span>6D62</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">0xD2=ERIC</td>
+<td class="comment-1" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -61,81 +50,59 @@ This entry point is used by the routines at <a href="775B.html">775B</a> (with <
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6d64"></span>6D64</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6CEE.html">$6CEE</a></td>
-<td class="comment-11" rowspan="1">Collect in <span class="register">C</span> and <span class="register">B</span> the lower and upper x-coordinates of the 'visibility region' (20 character spaces wide) around the boy</td>
+<td class="comment-1" rowspan="1">Collect in <span class="register">C</span> and <span class="register">B</span> the lower and upper x-coordinates of the 'visibility region' (20 character spaces wide) around the boy</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d67"></span>6D67</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d68"></span>6D68</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$C8</td>
-<td class="comment-11" rowspan="1">0xC8=MR WACKER</td>
+<td class="comment-1" rowspan="1">0xC8=MR WACKER</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d6a"></span>6D6A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$06</td>
-<td class="comment-11" rowspan="1">There are 6 adult characters</td>
+<td class="comment-1" rowspan="1">There are 6 adult characters</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d6c"></span>6D6C</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d6d"></span>6D6D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6D32.html">$6D32</a></td>
-<td class="comment-11" rowspan="1">Find the first adult character inside the visibility region (if any)</td>
+<td class="comment-1" rowspan="1">Find the first adult character inside the visibility region (if any)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d70"></span>6D70</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$6D79</td>
-<td class="comment-11" rowspan="1">Jump if we found one who can see the boy</td>
+<td class="comment-1" rowspan="1">Jump if we found one who can see the boy</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6d72"></span>6D72</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Are there any adult characters left to check?</td>
+<td class="comment-1" rowspan="1">Are there any adult characters left to check?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d73"></span>6D73</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return with the carry flag reset if not</td>
+<td class="comment-1" rowspan="1">Return with the carry flag reset if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d74"></span>6D74</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6D32.html#6d4c">$6D4C</a></td>
-<td class="comment-11" rowspan="1">We must have found an adult character who is facing the wrong way to see the boy; skip this character and find the next one inside the visibility region</td>
+<td class="comment-1" rowspan="1">We must have found an adult character who is facing the wrong way to see the boy; skip this character and find the next one inside the visibility region</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d77"></span>6D77</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$6D72</td>
-<td class="comment-11" rowspan="1">Jump if there are no others inside the visibility region, or we found another one facing the wrong way</td>
+<td class="comment-1" rowspan="1">Jump if there are no others inside the visibility region, or we found another one facing the wrong way</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -148,45 +115,41 @@ We found an adult character inside the visibility region and facing the right wa
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6d79"></span>6D79</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d7a"></span>6D7A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character number of the adult who saw the boy</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character number of the adult who saw the boy</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d7b"></span>6D7B</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6d7c"></span>6D7C</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return with the carry flag set</td>
+<td class="comment-1" rowspan="1">Return with the carry flag set</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6D32.html">6D32</a></span></td>
+<td class="prev">
+Prev: <a href="6D32.html">6D32</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6d62">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="6D7D.html">6D7D</a></span></td>
+<td class="next">
+Next: <a href="6D7D.html">6D7D</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/28002.html">Switch to decimal</a>.</div>
 </footer>
 </body>

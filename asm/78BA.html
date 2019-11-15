@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 78BA</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7854.html">7854</a></span></td>
+<td class="prev">
+Prev: <a href="7854.html">7854</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#78ba">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7964.html">7964</a></span></td>
+<td class="next">
+Next: <a href="7964.html">7964</a>
+</td>
 </tr>
 </table>
 <div class="description">78BA: Control the frog</div>
@@ -29,7 +32,7 @@
 This uninterruptible subcommand routine controls the frog's movements. The main entry point is used when the frog is sitting on the floor, deciding whether to stay put or take a hop.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,139 +41,95 @@ This uninterruptible subcommand routine controls the frog's movements. The main 
 <td class="register-desc">0xD4 (frog)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="78ba"></span>78BA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,($D201)</td>
-<td class="comment-11" rowspan="1">Pick up ERIC's coordinates in <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Pick up ERIC's coordinates in <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78be"></span>78BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the frog's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of the frog's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78c0"></span>78C0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=frog's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=frog's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78c1"></span>78C1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP D</td>
-<td class="comment-11" rowspan="1">Does it match ERIC's y-coordinate?</td>
+<td class="comment-1" rowspan="1">Does it match ERIC's y-coordinate?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78c2"></span>78C2</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$78D6</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78c4"></span>78C4</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78c5"></span>78C5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=frog's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=frog's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78c6"></span>78C6</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB E</td>
-<td class="comment-11" rowspan="1">Is ERIC to the left of the frog?</td>
+<td class="comment-1" rowspan="1">Is ERIC to the left of the frog?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78c7"></span>78C7</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$78CB</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78c9"></span>78C9</td>
-<td class="bytes-0"></td>
 <td class="instruction">NEG</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="78cb"></span>78CB</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1">Now <span class="register">A</span>=horizontal distance between the frog and ERIC</td>
+<td class="comment-1" rowspan="1">Now <span class="register">A</span>=horizontal distance between the frog and ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78cd"></span>78CD</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$78D6</td>
-<td class="comment-11" rowspan="1">Jump if this is greater than 3</td>
+<td class="comment-1" rowspan="1">Jump if this is greater than 3</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78cf"></span>78CF</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=random number &gt;= 0xC0</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=random number &gt;= 0xC0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78d2"></span>78D2</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR $C0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78d4"></span>78D4</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $78DC</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="78d6"></span>78D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78d9"></span>78D9</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $C0</td>
-<td class="comment-11" rowspan="2">Return 3 times out of 4 (without moving the frog) when ERIC is not nearby</td>
+<td class="comment-1" rowspan="2">Return 3 times out of 4 (without moving the frog) when ERIC is not nearby</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78db"></span>78DB</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -183,39 +142,29 @@ The frog has decided to move. It has three options: turn round, short hop (one s
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="78dc"></span>78DC</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $F0</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>&gt;=0xC0 at this point</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>&gt;=0xC0 at this point</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78de"></span>78DE</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$78F0</td>
-<td class="comment-11" rowspan="1">Jump if 0xC0&lt;=<span class="register">A</span>&lt;0xF0 (75% of the time) to make a short or long hop</td>
+<td class="comment-1" rowspan="1">Jump if 0xC0&lt;=<span class="register">A</span>&lt;0xF0 (75% of the time) to make a short or long hop</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="78e0"></span>78E0</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78e3"></span>78E3</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">0x1D/0x9D</a>: frog airborne (phase one)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">0x1D/0x9D</a>: frog airborne (phase one)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78e4"></span>78E4</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Update the frog's animatory state and then resume control at entry point <a href="78BA.html#78e7">78E7</a> (below)</td>
+<td class="comment-1" rowspan="1">Update the frog's animatory state and then resume control at entry point <a href="78BA.html#78e7">78E7</a> (below)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -228,32 +177,24 @@ This entry point is used when the frog has jumped into the air in order to turn 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="78e7"></span>78E7</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the frog's current animatory state</td>
+<td class="comment-1" rowspan="1">Update the SRB for the frog's current animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78ea"></span>78EA</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#28">0x1C/0x9C</a>: frog sitting</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#28">0x1C/0x9C</a>: frog sitting</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78eb"></span>78EB</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR $80</td>
-<td class="comment-11" rowspan="1">Turn the frog round</td>
+<td class="comment-1" rowspan="1">Turn the frog round</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78ed"></span>78ED</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7854.html#78b7">$78B7</a></td>
-<td class="comment-11" rowspan="1">Update the frog's animatory state and then resume control at the main entry point (<a href="78BA.html">78BA</a>)</td>
+<td class="comment-1" rowspan="1">Update the frog's animatory state and then resume control at the main entry point (<a href="78BA.html">78BA</a>)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -266,214 +207,150 @@ The frog is planning a hop. Decide between a short hop (one space forward) and a
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="78f0"></span>78F0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the frog's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the frog's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78f2"></span>78F2</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $D8</td>
-<td class="comment-11" rowspan="1">Set the carry flag if 0xC0&lt;=<span class="register">A</span>&lt;0xD8</td>
+<td class="comment-1" rowspan="1">Set the carry flag if 0xC0&lt;=<span class="register">A</span>&lt;0xD8</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78f4"></span>78F4</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the frog is facing left</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the frog is facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78f6"></span>78F6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="4">Pick up the frog's x-coordinate in <span class="register">E</span> and y-coordinate in <span class="register">D</span></td>
+<td class="comment-1" rowspan="4">Pick up the frog's x-coordinate in <span class="register">E</span> and y-coordinate in <span class="register">D</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78f8"></span>78F8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78f9"></span>78F9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78fb"></span>78FB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78fc"></span>78FC</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$7928</td>
-<td class="comment-11" rowspan="1">Jump if <span class="register">A</span>&lt;0xD8 (50% of the time) to consider a long hop</td>
+<td class="comment-1" rowspan="1">Jump if <span class="register">A</span>&lt;0xD8 (50% of the time) to consider a long hop</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="78fe"></span>78FE</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7902</td>
-<td class="comment-11" rowspan="1">Jump if the frog is facing right</td>
+<td class="comment-1" rowspan="1">Jump if the frog is facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7900"></span>7900</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7901"></span>7901</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7902"></span>7902</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=x-coordinate of the spot directly in front of the frog</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=x-coordinate of the spot directly in front of the frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7903"></span>7903</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF4</td>
-<td class="comment-11" rowspan="1"><a href="7FF4.html">7FF4</a> holds the door/window status flags</td>
+<td class="comment-1" rowspan="1"><a href="7FF4.html">7FF4</a> holds the door/window status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7906"></span>7906</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick these up in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick these up in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7907"></span>7907</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="1">Save a copy of them in <span class="register">B</span> briefly</td>
+<td class="comment-1" rowspan="1">Save a copy of them in <span class="register">B</span> briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7908"></span>7908</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $3F</td>
-<td class="comment-11" rowspan="2">Reset bits 6 and 7 of the door/window status flags (i.e. pretend that the windows are closed)</td>
+<td class="comment-1" rowspan="2">Reset bits 6 and 7 of the door/window status flags (i.e. pretend that the windows are closed)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="790a"></span>790A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="790b"></span>790B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7654.html">$7654</a></td>
-<td class="comment-11" rowspan="1">Check for closed doors and walls in the frog's path</td>
+<td class="comment-1" rowspan="1">Check for closed doors and walls in the frog's path</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="790e"></span>790E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-11" rowspan="1">Restore the original door/window status flags</td>
+<td class="comment-1" rowspan="1">Restore the original door/window status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="790f"></span>790F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$D4</td>
-<td class="comment-11" rowspan="1">0xD4=frog</td>
+<td class="comment-1" rowspan="1">0xD4=frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7911"></span>7911</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$78E0</td>
-<td class="comment-11" rowspan="1">Turn the frog round if there's a wall or closed door in its path</td>
+<td class="comment-1" rowspan="1">Turn the frog round if there's a wall or closed door in its path</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7913"></span>7913</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7916"></span>7916</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">0x1D/0x9D</a>: frog airborne (phase one)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">0x1D/0x9D</a>: frog airborne (phase one)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7917"></span>7917</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7918"></span>7918</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7919"></span>7919</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$791D</td>
-<td class="comment-11" rowspan="1">Jump if the frog is facing right</td>
+<td class="comment-1" rowspan="1">Jump if the frog is facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="791b"></span>791B</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="791c"></span>791C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="791d"></span>791D</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Now <span class="register">E</span>=x-coordinate of the spot directly in front of the frog</td>
+<td class="comment-1" rowspan="1">Now <span class="register">E</span>=x-coordinate of the spot directly in front of the frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="791e"></span>791E</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Update the frog's animatory state and then resume control at entry point <a href="78BA.html#7921">7921</a> (below)</td>
+<td class="comment-1" rowspan="1">Update the frog's animatory state and then resume control at entry point <a href="78BA.html#7921">7921</a> (below)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -486,25 +363,19 @@ This entry point is used when the frog has just jumped into the air for a short 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7921"></span>7921</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7924"></span>7924</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#28">0x1C/0x9C</a>: frog sitting</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#28">0x1C/0x9C</a>: frog sitting</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7925"></span>7925</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="7854.html#78b7">$78B7</a></td>
-<td class="comment-11" rowspan="1">Update the frog's animatory state and then resume control at the main entry point (<a href="78BA.html">78BA</a>)</td>
+<td class="comment-1" rowspan="1">Update the frog's animatory state and then resume control at the main entry point (<a href="78BA.html">78BA</a>)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -517,200 +388,140 @@ The frog is planning a long hop. Check whether the coast is clear up to three sp
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7928"></span>7928</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$00</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="792a"></span>792A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$792E</td>
-<td class="comment-11" rowspan="1">Jump if the frog is facing right</td>
+<td class="comment-1" rowspan="1">Jump if the frog is facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="792c"></span>792C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="792d"></span>792D</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="792e"></span>792E</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC C</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=0x01 if the frog's facing right, 0xFF if facing left</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=0x01 if the frog's facing right, 0xFF if facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="792f"></span>792F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF4</td>
-<td class="comment-11" rowspan="1"><a href="7FF4.html">7FF4</a> holds the door/window status flags</td>
+<td class="comment-1" rowspan="1"><a href="7FF4.html">7FF4</a> holds the door/window status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7932"></span>7932</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick these up in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick these up in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7933"></span>7933</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="1">Save a copy of them in <span class="register">B</span> briefly</td>
+<td class="comment-1" rowspan="1">Save a copy of them in <span class="register">B</span> briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7934"></span>7934</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $3F</td>
-<td class="comment-11" rowspan="2">Reset bits 6 and 7 of the door/window status flags (i.e. pretend that the windows are closed)</td>
+<td class="comment-1" rowspan="2">Reset bits 6 and 7 of the door/window status flags (i.e. pretend that the windows are closed)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7936"></span>7936</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7937"></span>7937</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7938"></span>7938</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$03</td>
-<td class="comment-11" rowspan="1">We will test up to 3 spaces in front of the frog</td>
+<td class="comment-1" rowspan="1">We will test up to 3 spaces in front of the frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="793a"></span>793A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="3">Set <span class="register">E</span> to the x-coordinate of the spot 1, 2 or 3 spaces in front of the frog</td>
+<td class="comment-1" rowspan="3">Set <span class="register">E</span> to the x-coordinate of the spot 1, 2 or 3 spaces in front of the frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="793b"></span>793B</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="793c"></span>793C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="793d"></span>793D</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="793e"></span>793E</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7654.html">$7654</a></td>
-<td class="comment-11" rowspan="1">Check for walls and closed doors in the frog's path</td>
+<td class="comment-1" rowspan="1">Check for walls and closed doors in the frog's path</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7941"></span>7941</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7942"></span>7942</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$7946</td>
-<td class="comment-11" rowspan="1">Jump if there is one</td>
+<td class="comment-1" rowspan="1">Jump if there is one</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7944"></span>7944</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $793A</td>
-<td class="comment-11" rowspan="1">Jump back until we've checked up to 3 spaces in front of the frog</td>
+<td class="comment-1" rowspan="1">Jump back until we've checked up to 3 spaces in front of the frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7946"></span>7946</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7947"></span>7947</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-11" rowspan="1">Restore the original door/window status flags to <a href="7FF4.html">7FF4</a></td>
+<td class="comment-1" rowspan="1">Restore the original door/window status flags to <a href="7FF4.html">7FF4</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7948"></span>7948</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$D4</td>
-<td class="comment-11" rowspan="1">0xD4=frog</td>
+<td class="comment-1" rowspan="1">0xD4=frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="794a"></span>794A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP C,$78E0</td>
-<td class="comment-11" rowspan="1">Turn the frog round if there's a wall or closed door less than four spaces ahead</td>
+<td class="comment-1" rowspan="1">Turn the frog round if there's a wall or closed door less than four spaces ahead</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="794d"></span>794D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL $7913</td>
-<td class="comment-11" rowspan="1">Otherwise move the frog one space forward and adjust its animatory state to <a href="../graphics/as.html#29">0x1D/0x9D</a> (airborne, phase one)</td>
+<td class="comment-1" rowspan="1">Otherwise move the frog one space forward and adjust its animatory state to <a href="../graphics/as.html#29">0x1D/0x9D</a> (airborne, phase one)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7950"></span>7950</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Change the address in bytes 0x11 and 0x12 of the frog's buffer to <a href="78BA.html#7955">7955</a> (below) so that we resume there</td>
+<td class="comment-1" rowspan="2">Change the address in bytes 0x11 and 0x12 of the frog's buffer to <a href="78BA.html#7955">7955</a> (below) so that we resume there</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7952"></span>7952</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$55</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7954"></span>7954</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -723,32 +534,23 @@ This entry point is used when the frog has just jumped into the air in order to 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7955"></span>7955</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL $7913</td>
-<td class="comment-11" rowspan="1">Move the frog one space forward and adjust its animatory state to <a href="../graphics/as.html#30">0x1E/0x9E</a> (airborne, phase 2)</td>
+<td class="comment-1" rowspan="1">Move the frog one space forward and adjust its animatory state to <a href="../graphics/as.html#30">0x1E/0x9E</a> (airborne, phase 2)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7958"></span>7958</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Change the address in bytes 0x11 and 0x12 of the frog's buffer to <a href="78BA.html#795d">795D</a> (below) so that we resume there</td>
+<td class="comment-1" rowspan="2">Change the address in bytes 0x11 and 0x12 of the frog's buffer to <a href="78BA.html#795d">795D</a> (below) so that we resume there</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="795a"></span>795A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$5D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="795c"></span>795C</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -761,38 +563,36 @@ This entry point is used when the frog is at the highest point of a long hop.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="795d"></span>795D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the frog's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7960"></span>7960</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">0x1D/0x9D</a>: frog airborne (phase one)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#29">0x1D/0x9D</a>: frog airborne (phase one)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7961"></span>7961</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP $7917</td>
-<td class="comment-11" rowspan="1">Move the frog one space forward</td>
+<td class="comment-1" rowspan="1">Move the frog one space forward</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7854.html">7854</a></span></td>
+<td class="prev">
+Prev: <a href="7854.html">7854</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#78ba">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7964.html">7964</a></span></td>
+<td class="next">
+Next: <a href="7964.html">7964</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/30906.html">Switch to decimal</a>.</div>
 </footer>
 </body>

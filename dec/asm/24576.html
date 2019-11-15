@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 24576</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="24560.html">24560</a></span></td>
+<td class="prev">
+Prev: <a href="24560.html">24560</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#24576">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="24677.html">24677</a></span></td>
+<td class="next">
+Next: <a href="24677.html">24677</a>
+</td>
 </tr>
 </table>
 <div class="description">24576: Superimpose sprite tiles onto a tile of the play area</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="24684.html">24684</a>. Checks through <span class="register">B</span> characters, starting at character <span class="register">H</span>. If any part of a character's sprite needs to be printed at the row and column specified by <span class="register">DE</span>, the appropriate UDG is located and superimposed onto the contents of the buffer at <a href="57712.html">57712</a>, which on the first call to this routine contains the appropriate skool UDG (the background).
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -50,412 +53,287 @@ Used by the routine at <a href="24684.html">24684</a>. Checks through <span clas
 <td class="register-desc">Number of the first character to consider</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24576"></span>24576</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,1</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 1 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24578"></span>24578</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=column of play area (0-191) under consideration</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=column of play area (0-191) under consideration</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24579"></span>24579</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
-<td class="comment-11" rowspan="1">Subtract the character's x-coordinate</td>
+<td class="comment-1" rowspan="1">Subtract the character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24580"></span>24580</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 3</td>
-<td class="comment-11" rowspan="1">Sprites are three character squares wide</td>
+<td class="comment-1" rowspan="1">Sprites are three character squares wide</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24582"></span>24582</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,24652</td>
-<td class="comment-11" rowspan="1">Jump if no part of this character's sprite is in this column</td>
+<td class="comment-1" rowspan="1">Jump if no part of this character's sprite is in this column</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24584"></span>24584</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24585"></span>24585</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is the character facing left?</td>
+<td class="comment-1" rowspan="1">Is the character facing left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24587"></span>24587</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,24592</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24589"></span>24589</td>
-<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
-<td class="comment-11" rowspan="2">'Flip' the number in <span class="register">A</span>, so 0 becomes 2, 1 remains 1, and 2 becomes 0 (i.e. <span class="register">A</span> becomes 2-<span class="register">A</span>)</td>
+<td class="comment-1" rowspan="2">'Flip' the number in <span class="register">A</span>, so 0 becomes 2, 1 remains 1, and 2 becomes 0 (i.e. <span class="register">A</span> becomes 2-<span class="register">A</span>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24590"></span>24590</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,3</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24592"></span>24592</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-11" rowspan="3">Now <span class="register">C</span>=0 if the front of the character is in this column, 4 if it's the middle, or 8 if it's the back</td>
+<td class="comment-1" rowspan="3">Now <span class="register">C</span>=0 if the front of the character is in this column, 4 if it's the middle, or 8 if it's the back</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24593"></span>24593</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24594"></span>24594</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24595"></span>24595</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,2</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 2 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24597"></span>24597</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=row of play area (0-20) under consideration</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=row of play area (0-20) under consideration</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24598"></span>24598</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
-<td class="comment-11" rowspan="1">Subtract the character's y-coordinate</td>
+<td class="comment-1" rowspan="1">Subtract the character's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24599"></span>24599</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 4</td>
-<td class="comment-11" rowspan="1">Sprites are 4 character squares tall</td>
+<td class="comment-1" rowspan="1">Sprites are 4 character squares tall</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24601"></span>24601</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,24652</td>
-<td class="comment-11" rowspan="1">Jump if no part of this character's sprite is in this row</td>
+<td class="comment-1" rowspan="1">Jump if no part of this character's sprite is in this row</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24603"></span>24603</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,C</td>
-<td class="comment-11" rowspan="1">0&lt;=<span class="register">A</span>&lt;=11 (index of the sprite tile at this row and column, where 0=top-front, 4=top-middle, 8=top-back, 11=bottom-back)</td>
+<td class="comment-1" rowspan="1">0&lt;=<span class="register">A</span>&lt;=11 (index of the sprite tile at this row and column, where 0=top-front, 4=top-middle, 8=top-back, 11=bottom-back)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24604"></span>24604</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,215</td>
-<td class="comment-11" rowspan="1">215&lt;=<span class="register">A</span>&lt;=226</td>
+<td class="comment-1" rowspan="1">215&lt;=<span class="register">A</span>&lt;=226</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24606"></span>24606</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="3">Set <span class="register">H'</span> to the number of the page containing the UDG reference for the sprite tile</td>
+<td class="comment-1" rowspan="3">Set <span class="register">H'</span> to the number of the page containing the UDG reference for the sprite tile</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24607"></span>24607</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24608"></span>24608</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24609"></span>24609</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,0</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24611"></span>24611</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24612"></span>24612</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR 128</td>
-<td class="comment-11" rowspan="1">Set bit 7 to obtain the LSB of the address that holds the sprite tile UDG reference</td>
+<td class="comment-1" rowspan="1">Set bit 7 to obtain the LSB of the address that holds the sprite tile UDG reference</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24614"></span>24614</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24615"></span>24615</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1">128&lt;=<span class="register">L'</span>&lt;=255 (215&lt;=<span class="register">H'</span>&lt;=226)</td>
+<td class="comment-1" rowspan="1">128&lt;=<span class="register">L'</span>&lt;=255 (215&lt;=<span class="register">H'</span>&lt;=226)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24616"></span>24616</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=sprite tile UDG reference (73-255)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=sprite tile UDG reference (73-255)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24617"></span>24617</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is this tile the 'null' UDG (a blank square)?</td>
+<td class="comment-1" rowspan="1">Is this tile the 'null' UDG (a blank square)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24618"></span>24618</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,24651</td>
-<td class="comment-11" rowspan="1">Jump if so (no need to superimpose it)</td>
+<td class="comment-1" rowspan="1">Jump if so (no need to superimpose it)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24620"></span>24620</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1"><span class="register">E'</span>=UDG reference (73-255)</td>
+<td class="comment-1" rowspan="1"><span class="register">E'</span>=UDG reference (73-255)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24621"></span>24621</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=(normalised) animatory state (128-255)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=(normalised) animatory state (128-255)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24622"></span>24622</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 208</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#208">208</a>=animatory state of MR WACKER, the first teacher</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#208">208</a>=animatory state of MR WACKER, the first teacher</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24624"></span>24624</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24625"></span>24625</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's (true) animatory state (0-255)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's (true) animatory state (0-255)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24626"></span>24626</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24627"></span>24627</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,183</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE'</span> at the graphic data at page 183 onwards (for animatory states 0-79 and 128-207)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE'</span> at the graphic data at page 183 onwards (for animatory states 0-79 and 128-207)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24629"></span>24629</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,24633</td>
-<td class="comment-11" rowspan="1">Jump unless we're dealing with animatory states 80-127 or 208-255 (teachers, ALBERT, and water fired from the pistol)</td>
+<td class="comment-1" rowspan="1">Jump unless we're dealing with animatory states 80-127 or 208-255 (teachers, ALBERT, and water fired from the pistol)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24631"></span>24631</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,199</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE'</span> at the graphic data at page 199 onwards (for animatory states 80-127 and 208-255)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE'</span> at the graphic data at page 199 onwards (for animatory states 80-127 and 208-255)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24633"></span>24633</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,57712</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the UDG back buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL'</span> at the UDG back buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24636"></span>24636</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="1">Push the character's 'direction' bit into the carry flag</td>
+<td class="comment-1" rowspan="1">Push the character's 'direction' bit into the carry flag</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24637"></span>24637</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,24656</td>
-<td class="comment-11" rowspan="1">Jump if the character is facing right</td>
+<td class="comment-1" rowspan="1">Jump if the character is facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24639"></span>24639</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24640"></span>24640</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=byte already in the UDG buffer</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=byte already in the UDG buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24641"></span>24641</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-11" rowspan="1">Superimpose the sprite tile byte</td>
+<td class="comment-1" rowspan="1">Superimpose the sprite tile byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24642"></span>24642</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the outline mask for this tile byte</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL'</span> at the outline mask for this tile byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24643"></span>24643</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND (HL)</td>
-<td class="comment-11" rowspan="1">AND with this mask</td>
+<td class="comment-1" rowspan="1">AND with this mask</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24644"></span>24644</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL'</span> at the next sprite tile byte</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL'</span> at the next sprite tile byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24645"></span>24645</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-11" rowspan="1">Place the resultant byte back in the UDG buffer</td>
+<td class="comment-1" rowspan="1">Place the resultant byte back in the UDG buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24646"></span>24646</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Move <span class="register">DE'</span> along the UDG buffer</td>
+<td class="comment-1" rowspan="1">Move <span class="register">DE'</span> along the UDG buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24647"></span>24647</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,E</td>
-<td class="comment-11" rowspan="1">Have we done all 8 bytes yet?</td>
+<td class="comment-1" rowspan="1">Have we done all 8 bytes yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24649"></span>24649</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,24640</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24651"></span>24651</td>
-<td class="bytes-0"></td>
 <td class="instruction">EXX</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24652"></span>24652</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Next game character</td>
+<td class="comment-1" rowspan="1">Next game character</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24653"></span>24653</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 24576</td>
-<td class="comment-11" rowspan="1">Jump back until all characters have been done</td>
+<td class="comment-1" rowspan="1">Jump back until all characters have been done</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24655"></span>24655</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -468,136 +346,103 @@ The character is facing right, so we have to produce a mirror image of the graph
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24656"></span>24656</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,182</td>
-<td class="comment-11" rowspan="1">Page <a href="46592.html">182</a> contains mirror images of 0-255</td>
+<td class="comment-1" rowspan="1">Page <a href="46592.html">182</a> contains mirror images of 0-255</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24658"></span>24658</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=sprite tile byte</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=sprite tile byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24659"></span>24659</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=mirror image of this byte</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=mirror image of this byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24660"></span>24660</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24661"></span>24661</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR (HL)</td>
-<td class="comment-11" rowspan="1">Superimpose what's already in the UDG buffer</td>
+<td class="comment-1" rowspan="1">Superimpose what's already in the UDG buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24662"></span>24662</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Put the result so far back in the UDG buffer</td>
+<td class="comment-1" rowspan="1">Put the result so far back in the UDG buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24663"></span>24663</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=outline mask for this sprite tile byte</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=outline mask for this sprite tile byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24664"></span>24664</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24665"></span>24665</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=mirror image of this mask</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=mirror image of this mask</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24666"></span>24666</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24667"></span>24667</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND (HL)</td>
-<td class="comment-11" rowspan="1">AND it with what's in the UDG buffer</td>
+<td class="comment-1" rowspan="1">AND it with what's in the UDG buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24668"></span>24668</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Place the result in the UDG buffer</td>
+<td class="comment-1" rowspan="1">Place the result in the UDG buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24669"></span>24669</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-11" rowspan="1">Next sprite tile byte</td>
+<td class="comment-1" rowspan="1">Next sprite tile byte</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24670"></span>24670</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Next byte of the UDG buffer</td>
+<td class="comment-1" rowspan="1">Next byte of the UDG buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24671"></span>24671</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,L</td>
-<td class="comment-11" rowspan="1">Have we done all 8 bytes yet?</td>
+<td class="comment-1" rowspan="1">Have we done all 8 bytes yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24673"></span>24673</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,24658</td>
-<td class="comment-11" rowspan="1">Jump back if not</td>
+<td class="comment-1" rowspan="1">Jump back if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24675"></span>24675</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 24651</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="24560.html">24560</a></span></td>
+<td class="prev">
+Prev: <a href="24560.html">24560</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#24576">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="24677.html">24677</a></span></td>
+<td class="next">
+Next: <a href="24677.html">24677</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/6000.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

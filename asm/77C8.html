@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 77C8</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="77C6.html">77C6</a></span></td>
+<td class="prev">
+Prev: <a href="77C6.html">77C6</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#77c8">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="77F2.html">77F2</a></span></td>
+<td class="next">
+Next: <a href="77F2.html">77F2</a>
+</td>
 </tr>
 </table>
 <div class="description">77C8: Check whether any characters were or can be punched by ERIC or ANGELFACE</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="77F2.html">77F2</a> and <a href="7813.html">7813</a>. On entry, <span class="register">B</span> holds 3 when checking whether it's worth ANGELFACE raising his fist (<a href="77F2.html">77F2</a>), or 2 when ERIC or ANGELFACE has already raised his fist (<a href="7813.html">7813</a>). Returns with the carry flag reset if anyone was hit or is within hitting range, and <span class="register">D</span> holding that unfortunate character's number.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,208 +45,150 @@ Used by the routines at <a href="77F2.html">77F2</a> and <a href="7813.html">781
 <td class="register-desc">0xCF (ANGELFACE) or 0xD2 (ERIC)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="77c8"></span>77C8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the punching character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the punching character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77ca"></span>77CA</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the character is facing left</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the character is facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77cc"></span>77CC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77ce"></span>77CE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=punching character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=punching character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77cf"></span>77CF</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Save this x-coordinate for now</td>
+<td class="comment-1" rowspan="1">Save this x-coordinate for now</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77d0"></span>77D0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=2 (fist already raised) or 3</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=2 (fist already raised) or 3</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77d1"></span>77D1</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$77D5</td>
-<td class="comment-11" rowspan="1">Jump if the punching character is facing right</td>
+<td class="comment-1" rowspan="1">Jump if the punching character is facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77d3"></span>77D3</td>
-<td class="bytes-0"></td>
 <td class="instruction">NEG</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="77d5"></span>77D5</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot 2 or 3 spaces in front of the punching character</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the spot 2 or 3 spaces in front of the punching character</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77d6"></span>77D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Set this as the character's x-coordinate temporarily</td>
+<td class="comment-1" rowspan="1">Set this as the character's x-coordinate temporarily</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77d7"></span>77D7</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77d8"></span>77D8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=punching character's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=punching character's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77d9"></span>77D9</td>
-<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
-<td class="comment-11" rowspan="3"><span class="register">C</span>=0x00 if the character's facing right, 0x80 if left</td>
+<td class="comment-1" rowspan="3"><span class="register">C</span>=0x00 if the character's facing right, 0x80 if left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77da"></span>77DA</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $80</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77dc"></span>77DC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77dd"></span>77DD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$CE</td>
-<td class="comment-11" rowspan="1">0xCE=BOY WANDER (first main kid)</td>
+<td class="comment-1" rowspan="1">0xCE=BOY WANDER (first main kid)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77df"></span>77DF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$05</td>
-<td class="comment-11" rowspan="1">There are 5 main kids</td>
+<td class="comment-1" rowspan="1">There are 5 main kids</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77e1"></span>77E1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6C9C.html">$6C9C</a></td>
-<td class="comment-11" rowspan="1">Were any of them hit?</td>
+<td class="comment-1" rowspan="1">Were any of them hit?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77e4"></span>77E4</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$77ED</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77e6"></span>77E6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,$B7</td>
-<td class="comment-11" rowspan="1">0xB7=little girl no. 1</td>
+<td class="comment-1" rowspan="1">0xB7=little girl no. 1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77e8"></span>77E8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$11</td>
-<td class="comment-11" rowspan="1">There are 17 little kids (10 boys, 7 girls)</td>
+<td class="comment-1" rowspan="1">There are 17 little kids (10 boys, 7 girls)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77ea"></span>77EA</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6C9C.html">$6C9C</a></td>
-<td class="comment-11" rowspan="1">Reset the carry flag if any of them were hit</td>
+<td class="comment-1" rowspan="1">Reset the carry flag if any of them were hit</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="77ed"></span>77ED</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="3">Restore the punching character's x-coordinate</td>
+<td class="comment-1" rowspan="3">Restore the punching character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77ee"></span>77EE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77f0"></span>77F0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77f1"></span>77F1</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return with the carry flag reset if someone was hit or found within hitting range, and <span class="register">D</span> holding that character's number</td>
+<td class="comment-1" rowspan="1">Return with the carry flag reset if someone was hit or found within hitting range, and <span class="register">D</span> holding that character's number</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="77C6.html">77C6</a></span></td>
+<td class="prev">
+Prev: <a href="77C6.html">77C6</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#77c8">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="77F2.html">77F2</a></span></td>
+<td class="next">
+Next: <a href="77F2.html">77F2</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/30664.html">Switch to decimal</a>.</div>
 </footer>
 </body>

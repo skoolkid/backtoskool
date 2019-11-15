@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 7D20</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7D15.html">7D15</a></span></td>
+<td class="prev">
+Prev: <a href="7D15.html">7D15</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7d20">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7D36.html">7D36</a></span></td>
+<td class="next">
+Next: <a href="7D36.html">7D36</a>
+</td>
 </tr>
 </table>
 <div class="description">7D20: Make any nearby teacher give ERIC lines if necessary (1)</div>
@@ -29,103 +32,65 @@
 Used by the routine at <a href="F6B4.html">F6B4</a>. Makes any nearby teacher give ERIC lines for rule breakages other than hitting, firing a catapult, firing a waterpistol, writing on a blackboard, or dropping a stinkbomb.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7d20"></span>7D20</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FF6</td>
-<td class="comment-11" rowspan="2">Decrement the LSB of the lines-giving delay counter at <a href="7FF6.html">7FF6</a></td>
+<td class="comment-1" rowspan="2">Decrement the LSB of the lines-giving delay counter at <a href="7FF6.html">7FF6</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d23"></span>7D23</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d24"></span>7D24</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return unless it's time to inspect the MSB</td>
+<td class="comment-1" rowspan="1">Return unless it's time to inspect the MSB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d25"></span>7D25</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$0F</td>
-<td class="comment-11" rowspan="1">Reset the LSB to 0x0F</td>
+<td class="comment-1" rowspan="1">Reset the LSB to 0x0F</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d27"></span>7D27</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FF7.html">7FF7</a> (MSB of the lines-giving delay counter)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7FF7.html">7FF7</a> (MSB of the lines-giving delay counter)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d28"></span>7D28</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="2">Has the lines-giving delay counter reached 0?</td>
+<td class="comment-1" rowspan="2">Has the lines-giving delay counter reached 0?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d29"></span>7D29</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d2a"></span>7D2A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7D31</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d2c"></span>7D2C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Otherwise decrement the MSB of the counter</td>
+<td class="comment-1" rowspan="1">Otherwise decrement the MSB of the counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d2d"></span>7D2D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the MSB in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick up the MSB in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d2e"></span>7D2E</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $06</td>
-<td class="comment-11" rowspan="1">Has enough time passed since the last time ERIC was given lines?</td>
+<td class="comment-1" rowspan="1">Has enough time passed since the last time ERIC was given lines?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d30"></span>7D30</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -138,31 +103,31 @@ The MSB of the lines-giving delay counter (which is reset to 0x0A by the routine
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7d31"></span>7D31</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7D00.html">$7D00</a></td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="63D2.html#ericLocTable">location identifier</a> for ERIC</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="63D2.html#ericLocTable">location identifier</a> for ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7d34"></span>7D34</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR <a href="7D3E.html">$7D3E</a></td>
-<td class="comment-11" rowspan="1">Skip over the routine at <a href="7D36.html">7D36</a></td>
+<td class="comment-1" rowspan="1">Skip over the routine at <a href="7D36.html">7D36</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7D15.html">7D15</a></span></td>
+<td class="prev">
+Prev: <a href="7D15.html">7D15</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7d20">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7D36.html">7D36</a></span></td>
+<td class="next">
+Next: <a href="7D36.html">7D36</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/32032.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 6291</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="627D.html">627D</a></span></td>
+<td class="prev">
+Prev: <a href="627D.html">627D</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6291">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="62A0.html">62A0</a></span></td>
+<td class="next">
+Next: <a href="62A0.html">62A0</a>
+</td>
 </tr>
 </table>
 <div class="description">6291: Get a random number</div>
@@ -29,95 +32,67 @@
 Used by the routines at <a href="62D0.html">62D0</a>, <a href="64D7.html">64D7</a>, <a href="6880.html">6880</a>, <a href="7414.html">7414</a>, <a href="775B.html">775B</a>, <a href="77F2.html">77F2</a>, <a href="7854.html">7854</a>, <a href="7A16.html">7A16</a>, <a href="7B0E.html">7B0E</a>, <a href="7B55.html">7B55</a>, <a href="7CAB.html">7CAB</a>, <a href="F02F.html">F02F</a>, <a href="F05D.html">F05D</a>, <a href="F100.html">F100</a>, <a href="F250.html">F250</a>, <a href="F2E2.html">F2E2</a> and <a href="F5BE.html">F5BE</a>. Returns with a random number in <span class="register">A</span>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6291"></span>6291</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6292"></span>6292</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7FFD)</td>
-<td class="comment-11" rowspan="1">Pick up the current random number seed from <a href="7FFD.html">7FFD</a></td>
+<td class="comment-1" rowspan="1">Pick up the current random number seed from <a href="7FFD.html">7FFD</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6295"></span>6295</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="3">Update the seed (by adding 257)</td>
+<td class="comment-1" rowspan="3">Update the seed (by adding 257)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6296"></span>6296</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6297"></span>6297</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7FFD),HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="629a"></span>629A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($5C78)</td>
-<td class="comment-11" rowspan="1">Pick up the LSB of the system variable FRAMES in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick up the LSB of the system variable FRAMES in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="629d"></span>629D</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR (HL)</td>
-<td class="comment-11" rowspan="1">Now <span class="register">A</span>=a pseudo-random number</td>
+<td class="comment-1" rowspan="1">Now <span class="register">A</span>=a pseudo-random number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="629e"></span>629E</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="629f"></span>629F</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="627D.html">627D</a></span></td>
+<td class="prev">
+Prev: <a href="627D.html">627D</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6291">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="62A0.html">62A0</a></span></td>
+<td class="next">
+Next: <a href="62A0.html">62A0</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/25233.html">Switch to decimal</a>.</div>
 </footer>
 </body>

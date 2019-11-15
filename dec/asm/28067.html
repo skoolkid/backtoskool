@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 28067</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="28029.html">28029</a></span></td>
+<td class="prev">
+Prev: <a href="28029.html">28029</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#28067">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="28085.html">28085</a></span></td>
+<td class="next">
+Next: <a href="28085.html">28085</a>
+</td>
 </tr>
 </table>
 <div class="description">28067: Check whether a location is on the assembly hall stage</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="25554.html">25554</a>. Returns to the caller of <a href="25554.html">25554</a> with the carry flag reset if the location is on the stage. Returns to <a href="25554.html">25554</a> otherwise.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,110 +45,81 @@ Used by the routine at <a href="25554.html">25554</a>. Returns to the caller of 
 <td class="register-desc">x-coordinate</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28067"></span>28067</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,46651</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=182, <span class="register">C</span>=59</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=182, <span class="register">C</span>=59</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28070"></span>28070</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the location</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=y-coordinate of the location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28071"></span>28071</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 14</td>
-<td class="comment-11" rowspan="1">The assembly hall stage's y-coordinate is 14</td>
+<td class="comment-1" rowspan="1">The assembly hall stage's y-coordinate is 14</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28073"></span>28073</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return to <a href="25554.html">25554</a> if the location is not there</td>
+<td class="comment-1" rowspan="1">Return to <a href="25554.html">25554</a> if the location is not there</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28074"></span>28074</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the location</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28075"></span>28075</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 90</td>
-<td class="comment-11" rowspan="4">Return to <a href="25554.html">25554</a> unless 74&lt;=<span class="register">A</span>&lt;90 (the rough vicinity of the stage)</td>
+<td class="comment-1" rowspan="4">Return to <a href="25554.html">25554</a> unless 74&lt;=<span class="register">A</span>&lt;90 (the rough vicinity of the stage)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28077"></span>28077</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28078"></span>28078</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 74</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28080"></span>28080</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28081"></span>28081</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Drop the return address from the stack</td>
+<td class="comment-1" rowspan="1">Drop the return address from the stack</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28082"></span>28082</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,192</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=192: region identifier for the assembly hall stage (see <a href="25554.html">25554</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=192: region identifier for the assembly hall stage (see <a href="25554.html">25554</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28084"></span>28084</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1">Return with the carry flag reset (indicating that the location is not on a staircase) to the caller of <a href="25554.html">25554</a></td>
+<td class="comment-1" rowspan="1">Return with the carry flag reset (indicating that the location is not on a staircase) to the caller of <a href="25554.html">25554</a></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="28029.html">28029</a></span></td>
+<td class="prev">
+Prev: <a href="28029.html">28029</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#28067">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="28085.html">28085</a></span></td>
+<td class="next">
+Next: <a href="28085.html">28085</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/6DA3.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

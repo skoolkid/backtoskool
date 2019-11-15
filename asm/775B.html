@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 775B</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="774F.html">774F</a></span></td>
+<td class="prev">
+Prev: <a href="774F.html">774F</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#775b">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="77B3.html">77B3</a></span></td>
+<td class="next">
+Next: <a href="77B3.html">77B3</a>
+</td>
 </tr>
 </table>
 <div class="description">775B: Make BOY WANDER fire his catapult now and then</div>
@@ -29,7 +32,7 @@
 The address of this continual subcommand routine is placed into bytes 0x17 and 0x18 of BOY WANDER's buffer by command lists <a href="E590.html">0x20</a>, <a href="E860.html">0x2E</a> and <a href="E87F.html">0x32</a>, and is also used by the routine at <a href="F804.html">F804</a>. It decides whether BOY WANDER should let rip with a pellet, and gets the catapult-firing action under way if so.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,251 +41,173 @@ The address of this continual subcommand routine is placed into bytes 0x17 and 0
 <td class="register-desc">0xCE (BOY WANDER)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="775b"></span>775B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($D512)</td>
-<td class="comment-11" rowspan="1">Pick up byte 0x12 of buffer 0xD5 (BOY WANDER's pellet)</td>
+<td class="comment-1" rowspan="1">Pick up byte 0x12 of buffer 0xD5 (BOY WANDER's pellet)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="775e"></span>775E</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is there a uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the buffer?</td>
+<td class="comment-1" rowspan="1">Is there a uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the buffer?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="775f"></span>775F</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if so (this buffer is in use)</td>
+<td class="comment-1" rowspan="1">Return if so (this buffer is in use)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7760"></span>7760</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x00</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x00</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7761"></span>7761</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is BOY WANDER midstride?</td>
+<td class="comment-1" rowspan="1">Is BOY WANDER midstride?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7763"></span>7763</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7764"></span>7764</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7765"></span>7765</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=BOY WANDER's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=BOY WANDER's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7766"></span>7766</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $03</td>
-<td class="comment-11" rowspan="2">Return unless BOY WANDER's x-coordinate is divisible by 4</td>
+<td class="comment-1" rowspan="2">Return unless BOY WANDER's x-coordinate is divisible by 4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7768"></span>7768</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7769"></span>7769</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="774F.html">$774F</a></td>
-<td class="comment-11" rowspan="1">Is BOY WANDER exactly on the top, middle, or bottom floor?</td>
+<td class="comment-1" rowspan="1">Is BOY WANDER exactly on the top, middle, or bottom floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="776c"></span>776C</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="776d"></span>776D</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7770"></span>7770</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-11" rowspan="2">Return half the time</td>
+<td class="comment-1" rowspan="2">Return half the time</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7771"></span>7771</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7772"></span>7772</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6D62.html#6d64">$6D64</a></td>
-<td class="comment-11" rowspan="1">Can any adults see BOY WANDER?</td>
+<td class="comment-1" rowspan="1">Can any adults see BOY WANDER?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7775"></span>7775</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7776"></span>7776</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Drop the return address (<a href="62D0.html#6357">6357</a>)</td>
+<td class="comment-1" rowspan="1">Drop the return address (<a href="62D0.html#6357">6357</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7777"></span>7777</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1">Pop the value of <span class="register">HL</span> that was pushed on to the stack by the routine at <a href="62D0.html">62D0</a> before coming here; RET will now take us back either to <a href="62D0.html">62D0</a> to move the next character, or to the main loop</td>
+<td class="comment-1" rowspan="1">Pop the value of <span class="register">HL</span> that was pushed on to the stack by the routine at <a href="62D0.html">62D0</a> before coming here; RET will now take us back either to <a href="62D0.html">62D0</a> to move the next character, or to the main loop</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7778"></span>7778</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for BOY WANDER's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for BOY WANDER's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="777b"></span>777B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Store BOY WANDER's current animatory state in byte 0x14 of his buffer for the time being</td>
+<td class="comment-1" rowspan="2">Store BOY WANDER's current animatory state in byte 0x14 of his buffer for the time being</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="777d"></span>777D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="777e"></span>777E</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F0</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7780"></span>7780</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$0A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#26">0x1A or 0x9A</a>: BOY WANDER raising his arm to fire</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#26">0x1A or 0x9A</a>: BOY WANDER raising his arm to fire</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7782"></span>7782</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Update BOY WANDER's animatory state and hand over to <a href="775B.html#7785">7785</a> (below)</td>
+<td class="comment-1" rowspan="1">Update BOY WANDER's animatory state and hand over to <a href="775B.html#7785">7785</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7785"></span>7785</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for BOY WANDER's current animatory state</td>
+<td class="comment-1" rowspan="1">Update the SRB for BOY WANDER's current animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7788"></span>7788</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#27">0x1B or 0x9B</a>: BOY WANDER firing the catapult</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#27">0x1B or 0x9B</a>: BOY WANDER firing the catapult</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7789"></span>7789</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Update BOY WANDER's animatory state and hand over to <a href="775B.html#778c">778C</a> (below)</td>
+<td class="comment-1" rowspan="1">Update BOY WANDER's animatory state and hand over to <a href="775B.html#778c">778C</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="778c"></span>778C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="77B3.html">77B3</a> into bytes 0x11 and 0x12 of BOY WANDER's buffer</td>
+<td class="comment-1" rowspan="2">Place the address of the uninterruptible subcommand routine at <a href="77B3.html">77B3</a> into bytes 0x11 and 0x12 of BOY WANDER's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="778e"></span>778E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$B3</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7790"></span>7790</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($D512)</td>
-<td class="comment-11" rowspan="1">Pick up byte 0x12 of buffer 0xD5 (BOY WANDER's pellet)</td>
+<td class="comment-1" rowspan="1">Pick up byte 0x12 of buffer 0xD5 (BOY WANDER's pellet)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7793"></span>7793</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is this buffer already being used?</td>
+<td class="comment-1" rowspan="1">Is this buffer already being used?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7794"></span>7794</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7795"></span>7795</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$D5</td>
-<td class="comment-11" rowspan="1">Use buffer 0xD5 for BOY WANDER's catapult pellet</td>
+<td class="comment-1" rowspan="1">Use buffer 0xD5 for BOY WANDER's catapult pellet</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -295,164 +220,116 @@ This entry point is used by the routine at <a href="F975.html">F975</a> with <sp
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7797"></span>7797</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the shooter's character buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the shooter's character buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7799"></span>7799</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=shooter's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=shooter's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="779a"></span>779A</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $80</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0x80 if the pellet will travel right, 0x00 if left</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0x80 if the pellet will travel right, 0x00 if left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="779c"></span>779C</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$4F</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#79">0x4F/0xCF</a>: catapult pellet travelling left/right</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#79">0x4F/0xCF</a>: catapult pellet travelling left/right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="779e"></span>779E</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="4">Collect the initial coordinates of the pellet from the shooter's buffer into <span class="register">DE</span></td>
+<td class="comment-1" rowspan="4">Collect the initial coordinates of the pellet from the shooter's buffer into <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="779f"></span>779F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77a0"></span>77A0</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77a1"></span>77A1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77a2"></span>77A2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,B</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=buffer to be used for the pellet (0xD5 if it's BOY WANDER's, 0xD6 if it's ERIC's)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=buffer to be used for the pellet (0xD5 if it's BOY WANDER's, 0xD6 if it's ERIC's)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77a3"></span>77A3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),D</td>
-<td class="comment-11" rowspan="5">Fill in the initial coordinates and animatory state of the pellet</td>
+<td class="comment-1" rowspan="5">Fill in the initial coordinates and animatory state of the pellet</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77a4"></span>77A4</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77a5"></span>77A5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77a6"></span>77A6</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77a7"></span>77A7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77a8"></span>77A8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$11</td>
-<td class="comment-11" rowspan="4">Place the address of the pellet-controlling uninterruptible subcommand routine at <a href="76AC.html">76AC</a> into bytes 0x11 and 0x12 of the pellet's buffer</td>
+<td class="comment-1" rowspan="4">Place the address of the pellet-controlling uninterruptible subcommand routine at <a href="76AC.html">76AC</a> into bytes 0x11 and 0x12 of the pellet's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77aa"></span>77AA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$AC</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77ac"></span>77AC</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77ad"></span>77AD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$76</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77af"></span>77AF</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x13</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x13</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77b0"></span>77B0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$0D</td>
-<td class="comment-11" rowspan="1">The pellet will travel 13 spaces</td>
+<td class="comment-1" rowspan="1">The pellet will travel 13 spaces</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="77b2"></span>77B2</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="774F.html">774F</a></span></td>
+<td class="prev">
+Prev: <a href="774F.html">774F</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#775b">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="77B3.html">77B3</a></span></td>
+<td class="next">
+Next: <a href="77B3.html">77B3</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/30555.html">Switch to decimal</a>.</div>
 </footer>
 </body>

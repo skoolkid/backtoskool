@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at F09B</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F09A.html">F09A</a></span></td>
+<td class="prev">
+Prev: <a href="F09A.html">F09A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f09b">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F0B7.html">F0B7</a></span></td>
+<td class="next">
+Next: <a href="F0B7.html">F0B7</a>
+</td>
 </tr>
 </table>
 <div class="description">F09B: Make a teacher find the truant ERIC</div>
@@ -29,7 +32,7 @@
 The address of this interruptible subcommand routine is placed into bytes 0x09 and 0x0A of a teacher's buffer by the routine at <a href="F0BF.html">F0BF</a>. It makes the teacher run after and stalk ERIC until he goes to wherever he should be (the dinner hall, the assembly hall, or the classroom).
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,55 +41,36 @@ The address of this interruptible subcommand routine is placed into bytes 0x09 a
 <td class="register-desc">Teacher's character number (0xC9-0xCB)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f09b"></span>F09B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 0x1D of the teacher's buffer, making him run</td>
+<td class="comment-1" rowspan="2">Set bit 7 of byte 0x1D of the teacher's buffer, making him run</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f09d"></span>F09D</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 7,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f09f"></span>F09F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Byte 0x00 of the teacher's buffer holds his animatory state</td>
+<td class="comment-1" rowspan="1">Byte 0x00 of the teacher's buffer holds his animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f0a1"></span>F0A1</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is the teacher midstride?</td>
+<td class="comment-1" rowspan="1">Is the teacher midstride?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f0a3"></span>F0A3</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="6558.html#655e">$655E</a></td>
-<td class="comment-11" rowspan="1">Finish the stride if so</td>
+<td class="comment-1" rowspan="1">Finish the stride if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f0a6"></span>F0A6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -99,59 +83,51 @@ Now check whether a command list restart has been requested. This request will h
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f0a8"></span>F0A8</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Has the teacher's command list been marked for a restart?</td>
+<td class="comment-1" rowspan="1">Has the teacher's command list been marked for a restart?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f0aa"></span>F0AA</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="7E7B.html#7e8f">$7E8F</a></td>
-<td class="comment-11" rowspan="1">If so, do some post-chase cleanup, remove the address of this routine from bytes 0x09 and 0x0A of the teacher's buffer, and restart the command list</td>
+<td class="comment-1" rowspan="1">If so, do some post-chase cleanup, remove the address of this routine from bytes 0x09 and 0x0A of the teacher's buffer, and restart the command list</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f0ad"></span>F0AD</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7D15.html">$7D15</a></td>
-<td class="comment-11" rowspan="1">Is ERIC where he should be?</td>
+<td class="comment-1" rowspan="1">Is ERIC where he should be?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f0b0"></span>F0B0</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="6558.html">$6558</a></td>
-<td class="comment-11" rowspan="1">Continue the chase if not</td>
+<td class="comment-1" rowspan="1">Continue the chase if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f0b3"></span>F0B3</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 0,(HL)</td>
-<td class="comment-11" rowspan="1">Otherwise set bit 0 of byte 0x1D of the teacher's buffer, indicating that the command list should be restarted</td>
+<td class="comment-1" rowspan="1">Otherwise set bit 0 of byte 0x1D of the teacher's buffer, indicating that the command list should be restarted</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f0b5"></span>F0B5</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $F0A8</td>
-<td class="comment-11" rowspan="1">Restart the command list now that the chase is over</td>
+<td class="comment-1" rowspan="1">Restart the command list now that the chase is over</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F09A.html">F09A</a></span></td>
+<td class="prev">
+Prev: <a href="F09A.html">F09A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f09b">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F0B7.html">F0B7</a></span></td>
+<td class="next">
+Next: <a href="F0B7.html">F0B7</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/61595.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at F9AB</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F99A.html">F99A</a></span></td>
+<td class="prev">
+Prev: <a href="F99A.html">F99A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f9ab">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F9FC.html">F9FC</a></span></td>
+<td class="next">
+Next: <a href="F9FC.html">F9FC</a>
+</td>
 </tr>
 </table>
 <div class="description">F9AB: Control water fired from the pistol (1)</div>
@@ -29,7 +32,7 @@
 The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a href="7FD8.html">7FD8</a> by the routine at <a href="F99A.html">F99A</a>. In the following, 'water' may refer to either water or sherry.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,223 +41,153 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> and <a h
 <td class="register-desc">0xD2 (ERIC)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f9ab"></span>F9AB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$54</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#84">0x54</a>: water fired from the pistol, phase 1 (facing left)</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#84">0x54</a>: water fired from the pistol, phase 1 (facing left)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ad"></span>F9AD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of ERIC's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9af"></span>F9AF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9b0"></span>F9B0</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x01</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9b1"></span>F9B1</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="1">Is ERIC facing left?</td>
+<td class="comment-1" rowspan="1">Is ERIC facing left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9b2"></span>F9B2</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F9B6</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9b4"></span>F9B4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$D4</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#212">0xD4</a>: water fired from the pistol, phase 1 (facing right)</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#212">0xD4</a>: water fired from the pistol, phase 1 (facing right)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f9b6"></span>F9B6</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-11" rowspan="4">Set <span class="register">A</span>=-2 if ERIC's facing left, 2 if he's facing right</td>
+<td class="comment-1" rowspan="4">Set <span class="register">A</span>=-2 if ERIC's facing left, 2 if he's facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9b7"></span>F9B7</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9b8"></span>F9B8</td>
-<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9b9"></span>F9B9</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ba"></span>F9BA</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-11" rowspan="1">Add ERIC's x-coordinate to get the initial x-coordinate of the water</td>
+<td class="comment-1" rowspan="1">Add ERIC's x-coordinate to get the initial x-coordinate of the water</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9bb"></span>F9BB</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $BF</td>
-<td class="comment-11" rowspan="1">Is ERIC too close to (and facing) the far left wall of the boys' skool or the far right wall of the girls' skool?</td>
+<td class="comment-1" rowspan="1">Is ERIC too close to (and facing) the far left wall of the boys' skool or the far right wall of the girls' skool?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9bd"></span>F9BD</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9be"></span>F9BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-11" rowspan="1">Copy the water's initial x-coordinate to <span class="register">E</span></td>
+<td class="comment-1" rowspan="1">Copy the water's initial x-coordinate to <span class="register">E</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9bf"></span>F9BF</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9c0"></span>F9C0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=ERIC's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=ERIC's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9c1"></span>F9C1</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-11" rowspan="2">Subtract 2 to get the initial y-coordinate of the water</td>
+<td class="comment-1" rowspan="2">Subtract 2 to get the initial y-coordinate of the water</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9c2"></span>F9C2</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9c3"></span>F9C3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=initial animatory state of the water</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=initial animatory state of the water</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9c4"></span>F9C4</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save the water's initial animatory state briefly</td>
+<td class="comment-1" rowspan="1">Save the water's initial animatory state briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9c5"></span>F9C5</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save the water's initial coordinates briefly</td>
+<td class="comment-1" rowspan="1">Save the water's initial coordinates briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9c6"></span>F9C6</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F975.html#f978">$F978</a></td>
-<td class="comment-11" rowspan="1">Make a water pistol sound effect</td>
+<td class="comment-1" rowspan="1">Make a water pistol sound effect</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9c9"></span>F9C9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$88</td>
-<td class="comment-11" rowspan="1">Message <a href="FC4F.html">0x88</a>: NO WATERPISTOLS</td>
+<td class="comment-1" rowspan="1">Message <a href="FC4F.html">0x88</a>: NO WATERPISTOLS</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9cb"></span>F9CB</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F862.html#f898">$F898</a></td>
-<td class="comment-11" rowspan="1">Give ERIC lines if any teacher is nearby</td>
+<td class="comment-1" rowspan="1">Give ERIC lines if any teacher is nearby</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ce"></span>F9CE</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore the water's initial coordinates to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore the water's initial coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9cf"></span>F9CF</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore the water's initial animatory state to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the water's initial animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d0"></span>F9D0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D613</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of the water's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of the water's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d3"></span>F9D3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$97</td>
-<td class="comment-11" rowspan="1">Initialise the water animation phase identifier</td>
+<td class="comment-1" rowspan="1">Initialise the water animation phase identifier</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d5"></span>F9D5</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7746.html">$7746</a></td>
-<td class="comment-11" rowspan="1">Place address <a href="F9AB.html#f9d8">F9D8</a> (below) into bytes 0x11 and 0x12 of the water's buffer and update the SRB for the water's appearance</td>
+<td class="comment-1" rowspan="1">Place address <a href="F9AB.html#f9d8">F9D8</a> (below) into bytes 0x11 and 0x12 of the water's buffer and update the SRB for the water's appearance</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -267,53 +200,37 @@ The address of this entry point is placed into bytes 0x11 and 0x12 of the water'
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9d8"></span>F9D8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="2">Increment the water animation phase identifier (which starts off at 0x97) held in byte 0x13 of the buffer</td>
+<td class="comment-1" rowspan="2">Increment the water animation phase identifier (which starts off at 0x97) held in byte 0x13 of the buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9da"></span>F9DA</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9db"></span>F9DB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up this identifier (0x98-0x9C) in <span class="register">B</span></td>
+<td class="comment-1" rowspan="1">Pick up this identifier (0x98-0x9C) in <span class="register">B</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9dc"></span>F9DC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$FF</td>
-<td class="comment-11" rowspan="1">Point <span class="register">BC</span> at the appropriate entry in the water animation table (see below)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the appropriate entry in the water animation table (see below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9de"></span>F9DE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(BC)</td>
-<td class="comment-11" rowspan="1">Pick up the entry in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick up the entry in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9df"></span>F9DF</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="2">Deal with the water at phase 3 (when it can hit a cup), 6 (when it can hit a plant) or 7+ (when it hits the floor)</td>
+<td class="comment-1" rowspan="2">Deal with the water at phase 3 (when it can hit a cup), 6 (when it can hit a plant) or 7+ (when it hits the floor)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e0"></span>F9E0</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,<a href="FA4D.html">$FA4D</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -378,143 +295,110 @@ Next, determine the water's new animatory state and coordinates as it moves thro
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e3"></span>F9E3</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=0xFE</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=0xFE</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e4"></span>F9E4</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1">Save the water animation table pointer</td>
+<td class="comment-1" rowspan="1">Save the water animation table pointer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e5"></span>F9E5</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the water's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the water's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e8"></span>F9E8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=water's current y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=water's current y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9e9"></span>F9E9</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the water animation table pointer to <span class="register">HL</span></td>
+<td class="comment-1" rowspan="1">Restore the water animation table pointer to <span class="register">HL</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ea"></span>F9EA</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-11" rowspan="1">Add the entry from the table to obtain the water's new y-coordinate</td>
+<td class="comment-1" rowspan="1">Add the entry from the table to obtain the water's new y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9eb"></span>F9EB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-11" rowspan="1">Copy this to <span class="register">D</span></td>
+<td class="comment-1" rowspan="1">Copy this to <span class="register">D</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ec"></span>F9EC</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0xFD</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0xFD</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ed"></span>F9ED</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the x-coordinate increment in <span class="register">C</span></td>
+<td class="comment-1" rowspan="1">Pick up the x-coordinate increment in <span class="register">C</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ee"></span>F9EE</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0xFC</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0xFC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9ef"></span>F9EF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=water's new animatory state (facing left)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=water's new animatory state (facing left)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9f0"></span>F9F0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D600</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the water's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of the water's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9f3"></span>F9F3</td>
-<td class="bytes-0"></td>
 <td class="instruction">RL (HL)</td>
-<td class="comment-11" rowspan="1">Set the carry flag if the water's travelling to the right</td>
+<td class="comment-1" rowspan="1">Set the carry flag if the water's travelling to the right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9f5"></span>F9F5</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLA</td>
-<td class="comment-11" rowspan="2">Copy the carry flag into the 'direction' bit (bit 7) of the animatory state</td>
+<td class="comment-1" rowspan="2">Copy the carry flag into the 'direction' bit (bit 7) of the animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9f6"></span>F9F6</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9f7"></span>F9F7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=water's new animatory state (facing the correct way)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=water's new animatory state (facing the correct way)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9f8"></span>F9F8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=water's current x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=water's current x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f9f9"></span>F9F9</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="FA39.html">$FA39</a></td>
-<td class="comment-11" rowspan="1">Jump over the data table at <a href="FA00.html">FA00</a> to continue this routine</td>
+<td class="comment-1" rowspan="1">Jump over the data table at <a href="FA00.html">FA00</a> to continue this routine</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F99A.html">F99A</a></span></td>
+<td class="prev">
+Prev: <a href="F99A.html">F99A</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f9ab">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F9FC.html">F9FC</a></span></td>
+<td class="next">
+Next: <a href="F9FC.html">F9FC</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/63915.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 61555</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61554.html">61554</a></span></td>
+<td class="prev">
+Prev: <a href="61554.html">61554</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61555">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61594.html">61594</a></span></td>
+<td class="next">
+Next: <a href="61594.html">61594</a>
+</td>
 </tr>
 </table>
 <div class="description">61555: Restart the command list or make a teacher tell the kids to sit down</div>
@@ -29,7 +32,7 @@
 Used by the teachers' command lists <a href="58368.html">22</a>, <a href="58880.html">24</a>, <a href="59612.html">58</a>, <a href="59629.html">60</a> and <a href="59646.html">62</a>. Restarts the teacher's command list if it's not time to start the class yet; otherwise makes the teacher tell the kids to sit down.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,152 +41,110 @@ Used by the teachers' command lists <a href="58368.html">22</a>, <a href="58880.
 <td class="register-desc">Teacher's character number (201-204)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61555"></span>61555</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32740)</td>
-<td class="comment-11" rowspan="1">Collect the MSB of the lesson clock (which starts at 16)</td>
+<td class="comment-1" rowspan="1">Collect the MSB of the lesson clock (which starts at 16)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61558"></span>61558</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 12</td>
-<td class="comment-11" rowspan="1">Is it time to tell the kids to sit down yet?</td>
+<td class="comment-1" rowspan="1">Is it time to tell the kids to sit down yet?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61560"></span>61560</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,61568</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61562"></span>61562</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,29</td>
-<td class="comment-11" rowspan="2">Otherwise signal that the command list is to be restarted</td>
+<td class="comment-1" rowspan="2">Otherwise signal that the command list is to be restarted</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61564"></span>61564</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 0,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61566"></span>61566</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 61591</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61568"></span>61568</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25213.html">25213</a></td>
-<td class="comment-11" rowspan="1">Collect the event indicator for the start of the lesson (8, 9, 10, 11 or 12) from the command list</td>
+<td class="comment-1" rowspan="1">Collect the event indicator for the start of the lesson (8, 9, 10, 11 or 12) from the command list</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61571"></span>61571</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-11" rowspan="1">Save the event indicator in <span class="register">C</span> briefly</td>
+<td class="comment-1" rowspan="1">Save the event indicator in <span class="register">C</span> briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61572"></span>61572</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="31887.html">31887</a></td>
-<td class="comment-11" rowspan="1">Has the lesson already started?</td>
+<td class="comment-1" rowspan="1">Has the lesson already started?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61575"></span>61575</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,61591</td>
-<td class="comment-11" rowspan="1">Jump if so (the teacher must have just returned to the classroom doorway after hunting down the truant ERIC)</td>
+<td class="comment-1" rowspan="1">Jump if so (the teacher must have just returned to the classroom doorway after hunting down the truant ERIC)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61577"></span>61577</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,C</td>
-<td class="comment-11" rowspan="2">Restore the event indicator to <span class="register">A</span>, and signal that the lesson has started</td>
+<td class="comment-1" rowspan="2">Restore the event indicator to <span class="register">A</span>, and signal that the lesson has started</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61578"></span>61578</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="31896.html">31896</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61581"></span>61581</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's character number</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=teacher's character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61582"></span>61582</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB 109</td>
-<td class="comment-11" rowspan="2"><span class="register">E</span>=<a href="60814.html">92</a>, <a href="60822.html">93</a>, <a href="60835.html">94</a> or <a href="60859.html">95</a> (appropriate SIT DOWN message for this teacher)</td>
+<td class="comment-1" rowspan="2"><span class="register">E</span>=<a href="60814.html">92</a>, <a href="60822.html">93</a>, <a href="60835.html">94</a> or <a href="60859.html">95</a> (appropriate SIT DOWN message for this teacher)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61584"></span>61584</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61585"></span>61585</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,27144</td>
-<td class="comment-11" rowspan="2">Redirect control to the routine at <a href="27144.html">27144</a> (make character speak) and then return to <a href="61555.html#61591">61591</a> (below)</td>
+<td class="comment-1" rowspan="2">Redirect control to the routine at <a href="27144.html">27144</a> (make character speak) and then return to <a href="61555.html#61591">61591</a> (below)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="61588"></span>61588</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25503.html">25503</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="61591"></span>61591</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="25484.html">25484</a></td>
-<td class="comment-11" rowspan="1">Move to the next command in the command list</td>
+<td class="comment-1" rowspan="1">Move to the next command in the command list</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="61554.html">61554</a></span></td>
+<td class="prev">
+Prev: <a href="61554.html">61554</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#61555">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="61594.html">61594</a></span></td>
+<td class="next">
+Next: <a href="61594.html">61594</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F073.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

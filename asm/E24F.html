@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at E24F</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="E24D.html">E24D</a></span></td>
+<td class="prev">
+Prev: <a href="E24D.html">E24D</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#e24f">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="E256.html">E256</a></span></td>
+<td class="next">
+Next: <a href="E256.html">E256</a>
+</td>
 </tr>
 </table>
 <div class="description">E24F: Check whether buffer 0xD6 is being used</div>
@@ -29,67 +32,47 @@
 Used by the routines at <a href="5EE8.html">5EE8</a> and <a href="F99A.html">F99A</a>. Returns to the main loop if buffer 0xD6 is already in use (by ERIC's catapult pellet, water or sherry fired from the pistol or falling from a cup, a plant, the conker, or a desk lid); otherwise returns to the caller.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="e24f"></span>E24F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($D612)</td>
-<td class="comment-11" rowspan="2">Is there an uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the buffer in page 0xD6?</td>
+<td class="comment-1" rowspan="2">Is there an uninterruptible subcommand routine address in bytes 0x11 and 0x12 of the buffer in page 0xD6?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e252"></span>E252</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e253"></span>E253</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if not (the buffer is free)</td>
+<td class="comment-1" rowspan="1">Return if not (the buffer is free)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e254"></span>E254</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="2">Otherwise drop the return address from the stack and return to the main loop</td>
+<td class="comment-1" rowspan="2">Otherwise drop the return address from the stack and return to the main loop</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="e255"></span>E255</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="E24D.html">E24D</a></span></td>
+<td class="prev">
+Prev: <a href="E24D.html">E24D</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#e24f">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="E256.html">E256</a></span></td>
+<td class="next">
+Next: <a href="E256.html">E256</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/57935.html">Switch to decimal</a>.</div>
 </footer>
 </body>

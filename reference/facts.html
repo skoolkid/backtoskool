@@ -4,7 +4,6 @@
 <title>Back to Skool: Trivia</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Facts">
 <table class="header">
@@ -100,47 +99,47 @@ corresponding section of code looks like this:
 <tr>
 <td class="address-1" colspan="1" rowspan="1">71C4</td>
 <td class="instruction" colspan="1" rowspan="1">IN A,($1F)</td>
-<td class="comment-11" colspan="1" rowspan="1"></td>
+<td class="comment-1" colspan="1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1" colspan="1" rowspan="1">71C6</td>
 <td class="instruction" colspan="1" rowspan="1">AND $1F</td>
-<td class="comment-11" colspan="1" rowspan="1">Any input from the joystick?</td>
+<td class="comment-1" colspan="1" rowspan="1">Any input from the joystick?</td>
 </tr>
 <tr>
 <td class="address-1" colspan="1" rowspan="1">71C8</td>
 <td class="instruction" colspan="1" rowspan="1">JR Z,$71E2</td>
-<td class="comment-11" colspan="1" rowspan="1">Jump if not</td>
+<td class="comment-1" colspan="1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="address-1" colspan="1" rowspan="1">71CA</td>
 <td class="instruction" colspan="1" rowspan="1">LD L,$4F</td>
-<td class="comment-11" colspan="1" rowspan="1">0x4F='O' (LEFT)</td>
+<td class="comment-1" colspan="1" rowspan="1">0x4F='O' (LEFT)</td>
 </tr>
 <tr>
 <td class="address-1" colspan="1" rowspan="1">71CC</td>
 <td class="instruction" colspan="1" rowspan="1">RRCA</td>
-<td class="comment-11" colspan="1" rowspan="1"></td>
+<td class="comment-1" colspan="1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1" colspan="1" rowspan="1">71CD</td>
 <td class="instruction" colspan="1" rowspan="1">JR C,$71DF</td>
-<td class="comment-11" colspan="1" rowspan="1">Jump if the joystick was moved right</td>
+<td class="comment-1" colspan="1" rowspan="1">Jump if the joystick was moved right</td>
 </tr>
 <tr>
 <td class="address-1" colspan="1" rowspan="1">71CF</td>
 <td class="instruction" colspan="1" rowspan="1">INC L</td>
-<td class="comment-11" colspan="1" rowspan="1"><span class="register">L</span>=0x50='P' (RIGHT)</td>
+<td class="comment-1" colspan="1" rowspan="1"><span class="register">L</span>=0x50='P' (RIGHT)</td>
 </tr>
 <tr>
 <td class="address-1" colspan="1" rowspan="1">71D0</td>
 <td class="instruction" colspan="1" rowspan="1">RRCA</td>
-<td class="comment-11" colspan="1" rowspan="1"></td>
+<td class="comment-1" colspan="1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="address-1" colspan="1" rowspan="1">71D1</td>
 <td class="instruction" colspan="1" rowspan="1">JR C,$71DF</td>
-<td class="comment-11" colspan="1" rowspan="1">Jump if the joystick was moved left</td>
+<td class="comment-1" colspan="1" rowspan="1">Jump if the joystick was moved left</td>
 </tr>
 </table>
 </div>
@@ -758,9 +757,9 @@ To adjust the hit zone (and the range) of the catapult, see
 </div>
 </div>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/reference/facts.html">Switch to decimal</a>.</div>
 </footer>
 </body>

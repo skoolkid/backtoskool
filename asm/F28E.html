@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at F28E</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F28C.html">F28C</a></span></td>
+<td class="prev">
+Prev: <a href="F28C.html">F28C</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f28e">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F2DF.html">F2DF</a></span></td>
+<td class="next">
+Next: <a href="F2DF.html">F2DF</a>
+</td>
 </tr>
 </table>
 <div class="description">F28E: Deal with ERIC when he's been knocked over</div>
@@ -29,96 +32,60 @@
 Used by the routine at <a href="F7AD.html">F7AD</a> when bit 7 at <a href="7FFB.html">7FFB</a> is set (by the routine at <a href="74C8.html">74C8</a>). Note that the routine at <a href="663F.html">663F</a> also sets bit 7 at <a href="7FFB.html">7FFB</a> when someone sits in the seat occupied by ERIC, but in that case this routine is not called because bit 2 at <a href="7FFB.html">7FFB</a> is still set (indicating that ERIC is sitting) and takes precedence; this is a <a href="../reference/bugs.html#seat">bug</a>.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f28e"></span>F28E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FDD</td>
-<td class="comment-11" rowspan="1"><a href="7FDD.html">7FDD</a> holds ERIC's knockout delay counter</td>
+<td class="comment-1" rowspan="1"><a href="7FDD.html">7FDD</a> holds ERIC's knockout delay counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f291"></span>F291</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="2">Is this the first time this routine's been called since ERIC was downed?</td>
+<td class="comment-1" rowspan="2">Is this the first time this routine's been called since ERIC was downed?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f292"></span>F292</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f293"></span>F293</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$F2A0</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f295"></span>F295</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="2">Otherwise wait a while before enabling ERIC to stand up again</td>
+<td class="comment-1" rowspan="2">Otherwise wait a while before enabling ERIC to stand up again</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f296"></span>F296</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f297"></span>F297</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$F3</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FF3.html">7FF3</a> (ERIC's main action timer)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7FF3.html">7FF3</a> (ERIC's main action timer)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f299"></span>F299</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$01</td>
-<td class="comment-11" rowspan="1">Set this to 1 so that the keyboard is checked on the next pass through the main loop</td>
+<td class="comment-1" rowspan="1">Set this to 1 so that the keyboard is checked on the next pass through the main loop</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f29b"></span>F29B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$FB</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FFB.html">7FFB</a> (ERIC's status flags)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7FFB.html">7FFB</a> (ERIC's status flags)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f29d"></span>F29D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$04</td>
-<td class="comment-11" rowspan="1">Set bit 2: ERIC is sitting or lying down; the routine at <a href="F2E2.html">F2E2</a> handles ERIC from this point</td>
+<td class="comment-1" rowspan="1">Set bit 2: ERIC is sitting or lying down; the routine at <a href="F2E2.html">F2E2</a> handles ERIC from this point</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f29f"></span>F29F</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -131,130 +98,94 @@ ERIC has just been hit. Determine the manner of his descent to the floor.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f2a0"></span>F2A0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$28</td>
-<td class="comment-11" rowspan="1">Initialise ERIC's knockout delay counter at <a href="7FDD.html">7FDD</a> to 40</td>
+<td class="comment-1" rowspan="1">Initialise ERIC's knockout delay counter at <a href="7FDD.html">7FDD</a> to 40</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2a2"></span>F2A2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">0xD2=ERIC</td>
+<td class="comment-1" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2a4"></span>F2A4</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2a7"></span>F2A7</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save ERIC's coordinates briefly</td>
+<td class="comment-1" rowspan="1">Save ERIC's coordinates briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2a8"></span>F2A8</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save ERIC's current animatory state briefly</td>
+<td class="comment-1" rowspan="1">Save ERIC's current animatory state briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2a9"></span>F2A9</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $04</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#4">0x04</a>: Was ERIC sitting on a chair?</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#4">0x04</a>: Was ERIC sitting on a chair?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2ab"></span>F2AB</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F2B6</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2ad"></span>F2AD</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7D00.html">$7D00</a></td>
-<td class="comment-11" rowspan="1">Get the identifier of ERIC's location</td>
+<td class="comment-1" rowspan="1">Get the identifier of ERIC's location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2b0"></span>F2B0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$05</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#5">0x05</a>: ERIC sitting on the floor</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#5">0x05</a>: ERIC sitting on the floor</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2b2"></span>F2B2</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $06</td>
-<td class="comment-11" rowspan="1">Is ERIC in a classroom in the boys' skool (<span class="register">A</span>=6, 7 or 8)?</td>
+<td class="comment-1" rowspan="1">Is ERIC in a classroom in the boys' skool (<span class="register">A</span>=6, 7 or 8)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2b4"></span>F2B4</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$F2B8</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f2b6"></span>F2B6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$06</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#6">0x06</a>: ERIC lying on his back</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#6">0x06</a>: ERIC lying on his back</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f2b8"></span>F2B8</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1">Restore ERIC's current animatory state to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore ERIC's current animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2b9"></span>F2B9</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore ERIC's coordinates to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore ERIC's coordinates to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2ba"></span>F2BA</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $80</td>
-<td class="comment-11" rowspan="1">Keep only the 'direction' bit (bit 7) of ERIC's current animatory state</td>
+<td class="comment-1" rowspan="1">Keep only the 'direction' bit (bit 7) of ERIC's current animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2bc"></span>F2BC</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,B</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's new animatory state (sitting on the floor or lying on his back)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's new animatory state (sitting on the floor or lying on his back)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2bd"></span>F2BD</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6130.html">$6130</a></td>
-<td class="comment-11" rowspan="1">Update ERIC's animatory state and update the SRB</td>
+<td class="comment-1" rowspan="1">Update ERIC's animatory state and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2c0"></span>F2C0</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="62A0.html">$62A0</a></td>
-<td class="comment-11" rowspan="1">Update the display</td>
+<td class="comment-1" rowspan="1">Update the display</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -267,11 +198,9 @@ Now to initialise the sound effect parameters.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f2c3"></span>F2C3</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$0113</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=0x01 (pitch adjustment), <span class="register">L</span>=0x13 (border colour XOR mask)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=0x01 (pitch adjustment), <span class="register">L</span>=0x13 (border colour XOR mask)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -284,18 +213,14 @@ This entry point is used by the routine at <a href="5D63.html">5D63</a> with <sp
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f2c6"></span>F2C6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$0000</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=0x00 (duration), <span class="register">E</span>=0x00 (initial pitch)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=0x00 (duration), <span class="register">E</span>=0x00 (initial pitch)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2c9"></span>F2C9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$02</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=0x02 (initial border colour)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=0x02 (initial border colour)</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -308,81 +233,49 @@ This entry point is used by the routines at <a href="F2E2.html">F2E2</a> (with <
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f2cb"></span>F2CB</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR L</td>
-<td class="comment-11" rowspan="11">Make a sound effect</td>
+<td class="comment-1" rowspan="11">Make a sound effect</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2cc"></span>F2CC</td>
-<td class="bytes-0"></td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2ce"></span>F2CE</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f2cf"></span>F2CF</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $F2CF</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2d1"></span>F2D1</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2d2"></span>F2D2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2d3"></span>F2D3</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2d4"></span>F2D4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2d5"></span>F2D5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2d6"></span>F2D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2d7"></span>F2D7</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$F2CB</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -395,45 +288,40 @@ This entry point is used by the routine at <a href="5F9D.html">5F9D</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f2d9"></span>F2D9</td>
-<td class="bytes-0"></td>
 <td class="instruction">EI</td>
-<td class="comment-11" rowspan="1">Re-enable interrupts</td>
+<td class="comment-1" rowspan="1">Re-enable interrupts</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2da"></span>F2DA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="2">Reset the border colour to blue</td>
+<td class="comment-1" rowspan="2">Reset the border colour to blue</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2dc"></span>F2DC</td>
-<td class="bytes-0"></td>
 <td class="instruction">OUT ($FE),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f2de"></span>F2DE</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F28C.html">F28C</a></span></td>
+<td class="prev">
+Prev: <a href="F28C.html">F28C</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f28e">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F2DF.html">F2DF</a></span></td>
+<td class="next">
+Next: <a href="F2DF.html">F2DF</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/62094.html">Switch to decimal</a>.</div>
 </footer>
 </body>

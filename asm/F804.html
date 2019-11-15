@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at F804</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F803.html">F803</a></span></td>
+<td class="prev">
+Prev: <a href="F803.html">F803</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f804">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F80D.html">F80D</a></span></td>
+<td class="next">
+Next: <a href="F80D.html">F80D</a>
+</td>
 </tr>
 </table>
 <div class="description">F804: Make ANGELFACE or BOY WANDER hit or fire now and then</div>
@@ -29,7 +32,7 @@
 The address of this continual subcommand routine is placed into bytes 0x17 and 0x18 of BOY WANDER's or ANGELFACE's buffer by command lists <a href="E590.html">0x20</a>, <a href="E59B.html">0x22</a>, <a href="E5AE.html">0x24</a>, <a href="E5BD.html">0x26</a>, <a href="E70F.html">0x28</a>, <a href="E5CC.html">0x2A</a>, <a href="E860.html">0x2E</a>, <a href="E86B.html">0x30</a>, <a href="E87F.html">0x32</a>, <a href="E88A.html">0x34</a>, <a href="E89E.html">0x36</a> and <a href="E8C0.html">0x38</a>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,54 +41,43 @@ The address of this continual subcommand routine is placed into bytes 0x17 and 0
 <td class="register-desc">0xCE (BOY WANDER) or 0xCF (ANGELFACE)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="f804"></span>F804</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="2">Is this ANGELFACE?</td>
+<td class="comment-1" rowspan="2">Is this ANGELFACE?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f805"></span>F805</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $CF</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f807"></span>F807</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP Z,<a href="77F2.html">$77F2</a></td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="f80a"></span>F80A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="775B.html">$775B</a></td>
-<td class="comment-11" rowspan="1">Jump if it's BOY WANDER</td>
+<td class="comment-1" rowspan="1">Jump if it's BOY WANDER</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="F803.html">F803</a></span></td>
+<td class="prev">
+Prev: <a href="F803.html">F803</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#f804">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="F80D.html">F80D</a></span></td>
+<td class="next">
+Next: <a href="F80D.html">F80D</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/63492.html">Switch to decimal</a>.</div>
 </footer>
 </body>

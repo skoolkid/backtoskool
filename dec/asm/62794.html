@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 62794</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="62770.html">62770</a></span></td>
+<td class="prev">
+Prev: <a href="62770.html">62770</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#62794">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="62815.html">62815</a></span></td>
+<td class="next">
+Next: <a href="62815.html">62815</a>
+</td>
 </tr>
 </table>
 <div class="description">62794: Make MR WACKER find the truant ERIC</div>
@@ -29,7 +32,7 @@
 The address of this interruptible subcommand routine is placed into bytes 9 and 10 of MR WACKER's buffer by the routine at <a href="32054.html">32054</a> after ALBERT has spotted ERIC trying to escape and raised the alarm.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,48 +41,31 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <td class="register-desc">200 (MR WACKER)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62794"></span>62794</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,29</td>
-<td class="comment-11" rowspan="2">Set bit 7 of byte 29 of MR WACKER's buffer, making him run</td>
+<td class="comment-1" rowspan="2">Set bit 7 of byte 29 of MR WACKER's buffer, making him run</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62796"></span>62796</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 7,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62798"></span>62798</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,0</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of MR WACKER's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0 of MR WACKER's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62800"></span>62800</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is MR WACKER midstride?</td>
+<td class="comment-1" rowspan="1">Is MR WACKER midstride?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62802"></span>62802</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="25944.html#25950">25950</a></td>
-<td class="comment-11" rowspan="1">Finish the stride if so</td>
+<td class="comment-1" rowspan="1">Finish the stride if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -92,45 +78,40 @@ Now check whether a command list restart has been requested. This request will h
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62805"></span>62805</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,29</td>
-<td class="comment-11" rowspan="2">Has a command list restart been requested (i.e. should MR WACKER end the chase now)?</td>
+<td class="comment-1" rowspan="2">Has a command list restart been requested (i.e. should MR WACKER end the chase now)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62807"></span>62807</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62809"></span>62809</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="32379.html#32399">32399</a></td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62812"></span>62812</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="25944.html">25944</a></td>
-<td class="comment-11" rowspan="1">Otherwise continue the hunt for ERIC</td>
+<td class="comment-1" rowspan="1">Otherwise continue the hunt for ERIC</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="62770.html">62770</a></span></td>
+<td class="prev">
+Prev: <a href="62770.html">62770</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#62794">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="62815.html">62815</a></span></td>
+<td class="next">
+Next: <a href="62815.html">62815</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F54A.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

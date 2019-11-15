@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 5F1C</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="5F08.html">5F08</a></span></td>
+<td class="prev">
+Prev: <a href="5F08.html">5F08</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#5f1c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="5F9C.html">5F9C</a></span></td>
+<td class="next">
+Next: <a href="5F9C.html">5F9C</a>
+</td>
 </tr>
 </table>
 <div class="description">5F1C: 'K' pressed - kiss</div>
@@ -29,7 +32,7 @@
 The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'K' is pressed.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -46,167 +49,108 @@ The address of this routine is found in the table of keypress handling routines 
 <td class="register-desc">ERIC's x-coordinate</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5f1c"></span>5F1C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D100</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of HAYLEY's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x00 of HAYLEY's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f1f"></span>5F1F</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR (HL)</td>
-<td class="comment-11" rowspan="2">Are ERIC and HAYLEY facing the same way?</td>
+<td class="comment-1" rowspan="2">Are ERIC and HAYLEY facing the same way?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f20"></span>5F20</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f21"></span>5F21</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$5F3A</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f23"></span>5F23</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 2,(HL)</td>
-<td class="comment-11" rowspan="1">Is HAYLEY standing up?</td>
+<td class="comment-1" rowspan="1">Is HAYLEY standing up?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f25"></span>5F25</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5F3A</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f27"></span>5F27</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=HAYLEY's animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=HAYLEY's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f28"></span>5F28</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="7"><span class="register">A</span>=x-coordinate of the position two spaces in front of HAYLEY</td>
+<td class="comment-1" rowspan="7"><span class="register">A</span>=x-coordinate of the position two spaces in front of HAYLEY</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f29"></span>5F29</td>
-<td class="bytes-0"></td>
 <td class="instruction">SBC A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f2a"></span>5F2A</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f2b"></span>5F2B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f2c"></span>5F2C</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f2d"></span>5F2D</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f2e"></span>5F2E</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f2f"></span>5F2F</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
-<td class="comment-11" rowspan="1">Does ERIC's x-coordinate match this?</td>
+<td class="comment-1" rowspan="1">Does ERIC's x-coordinate match this?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f30"></span>5F30</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5F3A</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f32"></span>5F32</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f33"></span>5F33</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=HAYLEY's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=HAYLEY's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5f34"></span>5F34</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB D</td>
-<td class="comment-11" rowspan="2">Jump if ERIC's y-coordinate does not match HAYLEY's, or ERIC has used up all his kisses</td>
+<td class="comment-1" rowspan="2">Jump if ERIC's y-coordinate does not match HAYLEY's, or ERIC has used up all his kisses</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f35"></span>5F35</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5F3A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f37"></span>5F37</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$12</td>
-<td class="comment-11" rowspan="2">Set the zero flag if there is no uninterruptible subcommand routine address in HAYLEY's buffer (<span class="register">A</span>=0)</td>
+<td class="comment-1" rowspan="2">Set the zero flag if there is no uninterruptible subcommand routine address in HAYLEY's buffer (<span class="register">A</span>=0)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f39"></span>5F39</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -219,67 +163,49 @@ At this point the zero flag is set if HAYLEY is kissable (i.e. ERIC and HAYLEY a
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5f3a"></span>5F3A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$01</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#1">0x01</a>: ERIC midstride</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#1">0x01</a>: ERIC midstride</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f3c"></span>5F3C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D224</td>
-<td class="comment-11" rowspan="1">At <a href="D224.html">D224</a> lies a RET instruction</td>
+<td class="comment-1" rowspan="1">At <a href="D224.html">D224</a> lies a RET instruction</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f3f"></span>5F3F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="E125.html#e12a">$E12A</a></td>
-<td class="comment-11" rowspan="1">Jump if HAYLEY is not kissable at this time</td>
+<td class="comment-1" rowspan="1">Jump if HAYLEY is not kissable at this time</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f42"></span>5F42</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FE2)</td>
-<td class="comment-11" rowspan="1"><a href="7FE2.html">7FE2</a> holds HAYLEY's kiss counter</td>
+<td class="comment-1" rowspan="1"><a href="7FE2.html">7FE2</a> holds HAYLEY's kiss counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f45"></span>5F45</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Has ERIC used up all his kisses?</td>
+<td class="comment-1" rowspan="1">Has ERIC used up all his kisses?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f46"></span>5F46</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$5F4B</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f48"></span>5F48</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5F08</td>
-<td class="comment-11" rowspan="1"><a href="5F08.html">5F08</a>: hit ERIC</td>
+<td class="comment-1" rowspan="1"><a href="5F08.html">5F08</a>: hit ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5f4b"></span>5F4B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($D111),HL</td>
-<td class="comment-11" rowspan="1">Place the appropriate uninterruptible subcommand routine address (<a href="5F08.html">5F08</a>: hit ERIC, or <a href="D224.html">D224</a>: do nothing) into bytes 0x11 and 0x12 of HAYLEY's buffer</td>
+<td class="comment-1" rowspan="1">Place the appropriate uninterruptible subcommand routine address (<a href="5F08.html">5F08</a>: hit ERIC, or <a href="D224.html">D224</a>: do nothing) into bytes 0x11 and 0x12 of HAYLEY's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f4e"></span>5F4E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$5F34</td>
-<td class="comment-11" rowspan="1">Make HAYLEY hit ERIC if he's used up all his kisses</td>
+<td class="comment-1" rowspan="1">Make HAYLEY hit ERIC if he's used up all his kisses</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -292,290 +218,212 @@ ERIC has scored a kiss.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f50"></span>5F50</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB $07</td>
-<td class="comment-11" rowspan="1">Subtract 7 from the kiss counter</td>
+<td class="comment-1" rowspan="1">Subtract 7 from the kiss counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f52"></span>5F52</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$5F55</td>
-<td class="comment-11" rowspan="1">Jump if that doesn't take it below zero</td>
+<td class="comment-1" rowspan="1">Jump if that doesn't take it below zero</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f54"></span>5F54</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="1">Set it to zero otherwise</td>
+<td class="comment-1" rowspan="1">Set it to zero otherwise</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5f55"></span>5F55</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7FE2),A</td>
-<td class="comment-11" rowspan="1">Store the new kiss count at <a href="7FE2.html">7FE2</a></td>
+<td class="comment-1" rowspan="1">Store the new kiss count at <a href="7FE2.html">7FE2</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f58"></span>5F58</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,($7FE7)</td>
-<td class="comment-11" rowspan="1"><a href="7FE7.html">7FE7</a> holds the lines total (divided by 10)</td>
+<td class="comment-1" rowspan="1"><a href="7FE7.html">7FE7</a> holds the lines total (divided by 10)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f5b"></span>5F5B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,$FF9C</td>
-<td class="comment-11" rowspan="1"><span class="register">BC</span>=-100</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=-100</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f5e"></span>5F5E</td>
-<td class="bytes-0"></td>
 <td class="instruction">XOR A</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f5f"></span>5F5F</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD HL,BC</td>
-<td class="comment-11" rowspan="1">Subtract 1000 from the lines total</td>
+<td class="comment-1" rowspan="1">Subtract 1000 from the lines total</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f60"></span>5F60</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$5F64</td>
-<td class="comment-11" rowspan="1">Jump if the lines total (in <span class="register">HL</span>) is still positive</td>
+<td class="comment-1" rowspan="1">Jump if the lines total (in <span class="register">HL</span>) is still positive</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f62"></span>5F62</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,A</td>
-<td class="comment-11" rowspan="2">Otherwise set <span class="register">HL</span>=0</td>
+<td class="comment-1" rowspan="2">Otherwise set <span class="register">HL</span>=0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f63"></span>5F63</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5f64"></span>5F64</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7FE7),HL</td>
-<td class="comment-11" rowspan="1">Decrease ERIC's lines total by 1000 (or to 0)</td>
+<td class="comment-1" rowspan="1">Decrease ERIC's lines total by 1000 (or to 0)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f67"></span>5F67</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="73CB.html">$73CB</a></td>
-<td class="comment-11" rowspan="1">Print the number of lines</td>
+<td class="comment-1" rowspan="1">Print the number of lines</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f6a"></span>5F6A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$D1</td>
-<td class="comment-11" rowspan="1">0xD1=HAYLEY</td>
+<td class="comment-1" rowspan="1">0xD1=HAYLEY</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f6c"></span>5F6C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for HAYLEY's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for HAYLEY's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f6f"></span>5F6F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$14</td>
-<td class="comment-11" rowspan="2">Save HAYLEY's current animatory state in byte 0x14 of her buffer for later retrieval</td>
+<td class="comment-1" rowspan="2">Save HAYLEY's current animatory state in byte 0x14 of her buffer for later retrieval</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f71"></span>5F71</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f72"></span>5F72</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">Save HAYLEY's current x-coordinate in byte 0x13 of her buffer for later retrieval</td>
+<td class="comment-1" rowspan="2">Save HAYLEY's current x-coordinate in byte 0x13 of her buffer for later retrieval</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f73"></span>5F73</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f74"></span>5F74</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="2">Set HAYLEY's x-coordinate to 224 (out of sight) briefly</td>
+<td class="comment-1" rowspan="2">Set HAYLEY's x-coordinate to 224 (out of sight) briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f76"></span>5F76</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$E0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f78"></span>5F78</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">0xD2=ERIC</td>
+<td class="comment-1" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f7a"></span>5F7A</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for ERIC's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f7d"></span>5F7D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of ERIC's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of ERIC's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f7f"></span>5F7F</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="1">Is ERIC facing right (bit 7 set)?</td>
+<td class="comment-1" rowspan="1">Is ERIC facing right (bit 7 set)?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f80"></span>5F80</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$5F84</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f82"></span>5F82</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f83"></span>5F83</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5f84"></span>5F84</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="1">Move ERIC one space forward for the snog (which pushes ERIC through the closed skool gate if he kisses HAYLEY from behind it; this is a <a href="../reference/bugs.html#kiss">bug</a>)</td>
+<td class="comment-1" rowspan="1">Move ERIC one space forward for the snog (which pushes ERIC through the closed skool gate if he kisses HAYLEY from behind it; this is a <a href="../reference/bugs.html#kiss">bug</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f85"></span>5F85</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$0F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#15">0x0F</a>: ERIC and HAYLEY kissing</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#15">0x0F</a>: ERIC and HAYLEY kissing</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f87"></span>5F87</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="5EB7.html">$5EB7</a></td>
-<td class="comment-11" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="5F1C.html#5f8a">5F8A</a> (below) next time</td>
+<td class="comment-1" rowspan="1">Adjust ERIC's animatory state, update the SRB, and return to <a href="5F1C.html#5f8a">5F8A</a> (below) next time</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5f8a"></span>5F8A</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="F2E2.html#f3c4">$F3C4</a></td>
-<td class="comment-11" rowspan="1">Make a sound effect</td>
+<td class="comment-1" rowspan="1">Make a sound effect</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f8d"></span>5F8D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$D113</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of HAYLEY's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x13 of HAYLEY's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f90"></span>5F90</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up HAYLEY's pre-kiss x-coordinate in <span class="register">E</span></td>
+<td class="comment-1" rowspan="1">Pick up HAYLEY's pre-kiss x-coordinate in <span class="register">E</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f91"></span>5F91</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of HAYLEY's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x02 of HAYLEY's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f93"></span>5F93</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=HAYLEY's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=HAYLEY's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f94"></span>5F94</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="77B3.html#77bd">$77BD</a></td>
-<td class="comment-11" rowspan="1">Restore HAYLEY's pre-kiss coordinates and animatory state and update the SRB</td>
+<td class="comment-1" rowspan="1">Restore HAYLEY's pre-kiss coordinates and animatory state and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f97"></span>5F97</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">0xD2=ERIC</td>
+<td class="comment-1" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5f99"></span>5F99</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="5EC7.html#5ee2">$5EE2</a></td>
-<td class="comment-11" rowspan="1">Detach ERIC from HAYLEY's embrace</td>
+<td class="comment-1" rowspan="1">Detach ERIC from HAYLEY's embrace</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="5F08.html">5F08</a></span></td>
+<td class="prev">
+Prev: <a href="5F08.html">5F08</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#5f1c">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="5F9C.html">5F9C</a></span></td>
+<td class="next">
+Next: <a href="5F9C.html">5F9C</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/24348.html">Switch to decimal</a>.</div>
 </footer>
 </body>

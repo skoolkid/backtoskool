@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 26453</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="26380.html">26380</a></span></td>
+<td class="prev">
+Prev: <a href="26380.html">26380</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#26453">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="26496.html">26496</a></span></td>
+<td class="next">
+Next: <a href="26496.html">26496</a>
+</td>
 </tr>
 </table>
 <div class="description">26453: Get the identifier and coordinates of the blackboard close to a character</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="24133.html">24133</a>, <a href="26513.html">26513</a>, <a href="26752.html">26752</a>, <a href="28658.html">28658</a> and <a href="61696.html">61696</a>. If the character is not standing at a blackboard, the routine returns with the carry flag set. Otherwise the routine returns with the carry flag reset, <span class="register">B</span> holding the blackboard identifier (the LSB of <a href="32596.html">32596</a>, <a href="32602.html">32602</a>, <a href="32608.html">32608</a>, <a href="32614.html">32614</a> or <a href="32620.html">32620</a>), and <span class="register">DE</span> holding the coordinates of the top left-hand square of the board.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,160 +41,111 @@ Used by the routines at <a href="24133.html">24133</a>, <a href="26513.html">265
 <td class="register-desc">Character number (200-204, 206)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26453"></span>26453</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,3</td>
-<td class="comment-11" rowspan="1">There are three blackboards on the top floors</td>
+<td class="comment-1" rowspan="1">There are three blackboards on the top floors</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26455"></span>26455</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,54071</td>
-<td class="comment-11" rowspan="1">The table at <a href="54071.html">54071</a> contains the x-coordinates of the left edges of the blackboards</td>
+<td class="comment-1" rowspan="1">The table at <a href="54071.html">54071</a> contains the x-coordinates of the left edges of the blackboards</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26458"></span>26458</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,2</td>
-<td class="comment-11" rowspan="1">Byte 2 of the character's buffer holds his y-coordinate</td>
+<td class="comment-1" rowspan="1">Byte 2 of the character's buffer holds his y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26460"></span>26460</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick this up in <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Pick this up in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26461"></span>26461</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26462"></span>26462</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP B</td>
-<td class="comment-11" rowspan="1">Is the character on the top floor?</td>
+<td class="comment-1" rowspan="1">Is the character on the top floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26463"></span>26463</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,26472</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26465"></span>26465</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,58</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=<a href="54071.html#54074">54074</a></td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="54071.html#54074">54074</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26467"></span>26467</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC B</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=2 (two blackboards on the middle floors)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=2 (two blackboards on the middle floors)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26468"></span>26468</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 10</td>
-<td class="comment-11" rowspan="1">Is the character on the middle floor?</td>
+<td class="comment-1" rowspan="1">Is the character on the middle floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26470"></span>26470</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,26484</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26472"></span>26472</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the left edge of a blackboard</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the left edge of a blackboard</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26473"></span>26473</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Is the character to the left of this blackboard?</td>
+<td class="comment-1" rowspan="1">Is the character to the left of this blackboard?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26474"></span>26474</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,26484</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26476"></span>26476</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,4</td>
-<td class="comment-11" rowspan="2">Is the character no more than 4 (or 12, if coming from <a href="28658.html">28658</a>) spaces to the right of the left edge of this blackboard?</td>
+<td class="comment-1" rowspan="2">Is the character no more than 4 (or 12, if coming from <a href="28658.html">28658</a>) spaces to the right of the left edge of this blackboard?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26478"></span>26478</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26479"></span>26479</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,26486</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26481"></span>26481</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Next blackboard</td>
+<td class="comment-1" rowspan="1">Next blackboard</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26482"></span>26482</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 26472</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26484"></span>26484</td>
-<td class="bytes-0"></td>
 <td class="instruction">SCF</td>
-<td class="comment-11" rowspan="1">Signal: the character is not standing at a blackboard</td>
+<td class="comment-1" rowspan="1">Signal: the character is not standing at a blackboard</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26485"></span>26485</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -204,78 +158,57 @@ The character is standing close enough to the blackboard (to either write on it 
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26486"></span>26486</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Now <span class="register">HL</span> points to the blackboard info table</td>
+<td class="comment-1" rowspan="1">Now <span class="register">HL</span> points to the blackboard info table</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26487"></span>26487</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the left edge of the blackboard (from the table at <a href="54071.html">54071</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the left edge of the blackboard (from the table at <a href="54071.html">54071</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26488"></span>26488</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26489"></span>26489</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=blackboard identifier (from the table at <a href="54327.html">54327</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=blackboard identifier (from the table at <a href="54327.html">54327</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26490"></span>26490</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26491"></span>26491</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=y-coordinate of the top row of the blackboard (from the table at <a href="54583.html">54583</a>)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=y-coordinate of the top row of the blackboard (from the table at <a href="54583.html">54583</a>)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26492"></span>26492</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1">Pass the x-coordinate to <span class="register">L</span></td>
+<td class="comment-1" rowspan="1">Pass the x-coordinate to <span class="register">L</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26493"></span>26493</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Clear the carry flag to indicate success</td>
+<td class="comment-1" rowspan="1">Clear the carry flag to indicate success</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26494"></span>26494</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=coordinates of the top-left corner of the blackboard</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=coordinates of the top-left corner of the blackboard</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26495"></span>26495</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
-
 <div class="comments">
 <div class="paragraph">
 The contents of the blackboard info tables are as follows:
@@ -326,15 +259,19 @@ The contents of the blackboard info tables are as follows:
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="26380.html">26380</a></span></td>
+<td class="prev">
+Prev: <a href="26380.html">26380</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#26453">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="26496.html">26496</a></span></td>
+<td class="next">
+Next: <a href="26496.html">26496</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/6755.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

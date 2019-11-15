@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 62599</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="62595.html">62595</a></span></td>
+<td class="prev">
+Prev: <a href="62595.html">62595</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#62599">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="62620.html">62620</a></span></td>
+<td class="next">
+Next: <a href="62620.html">62620</a>
+</td>
 </tr>
 </table>
 <div class="description">62599: Jump forward in the command list if the boys' skool door or the gate is closed</div>
@@ -29,7 +32,7 @@
 Used by command list <a href="59724.html">76</a>. Saves ALBERT a trip to the skool gate or the skool door if it's already closed.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,96 +41,72 @@ Used by command list <a href="59724.html">76</a>. Saves ALBERT a trip to the sko
 <td class="register-desc">205 (ALBERT)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62599"></span>62599</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,32756</td>
-<td class="comment-11" rowspan="1"><a href="32756.html">32756</a> holds the door/window status flags</td>
+<td class="comment-1" rowspan="1"><a href="32756.html">32756</a> holds the door/window status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62602"></span>62602</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25213.html">25213</a></td>
-<td class="comment-11" rowspan="1">Collect the next byte (the door identifier) from the command list</td>
+<td class="comment-1" rowspan="1">Collect the next byte (the door identifier) from the command list</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62605"></span>62605</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62606"></span>62606</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND (HL)</td>
-<td class="comment-11" rowspan="1">Set the zero flag if this door is closed</td>
+<td class="comment-1" rowspan="1">Set the zero flag if this door is closed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62607"></span>62607</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62608"></span>62608</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,62617</td>
-<td class="comment-11" rowspan="1">Jump if the specified door is open</td>
+<td class="comment-1" rowspan="1">Jump if the specified door is open</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62610"></span>62610</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,10</td>
-<td class="comment-11" rowspan="3">Move along 10 places in the command list</td>
+<td class="comment-1" rowspan="3">Move along 10 places in the command list</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62612"></span>62612</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25213.html">25213</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="62615"></span>62615</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 62612</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="62617"></span>62617</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="25484.html">25484</a></td>
-<td class="comment-11" rowspan="1">Move to the next command in the command list</td>
+<td class="comment-1" rowspan="1">Move to the next command in the command list</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="62595.html">62595</a></span></td>
+<td class="prev">
+Prev: <a href="62595.html">62595</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#62599">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="62620.html">62620</a></span></td>
+<td class="next">
+Next: <a href="62620.html">62620</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/F487.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 5E45</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="5E44.html">5E44</a></span></td>
+<td class="prev">
+Prev: <a href="5E44.html">5E44</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#5e45">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="5E6F.html">5E6F</a></span></td>
+<td class="next">
+Next: <a href="5E6F.html">5E6F</a>
+</td>
 </tr>
 </table>
 <div class="description">5E45: 'W' pressed - write on a blackboard</div>
@@ -29,159 +32,101 @@
 The address of this routine is found in the table of keypress handling routines at <a href="E550.html">E550</a>. It is called from the main loop at <a href="F6EA.html">F6EA</a> when 'W' is pressed.
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5e45"></span>5E45</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">0xD2=ERIC</td>
+<td class="comment-1" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e47"></span>5E47</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6755.html">$6755</a></td>
-<td class="comment-11" rowspan="1">Collect info about the board ERIC's standing at (if any)</td>
+<td class="comment-1" rowspan="1">Collect info about the board ERIC's standing at (if any)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e4a"></span>5E4A</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-11" rowspan="1">Return if ERIC's not standing at a blackboard</td>
+<td class="comment-1" rowspan="1">Return if ERIC's not standing at a blackboard</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e4b"></span>5E4B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$7FD8</td>
-<td class="comment-11" rowspan="2">Copy the blackboard identifier (0x54, 0x5A, 0x60, 0x66 or 0x6C) from <span class="register">B</span> to <a href="7FD8.html">7FD8</a></td>
+<td class="comment-1" rowspan="2">Copy the blackboard identifier (0x54, 0x5A, 0x60, 0x66 or 0x6C) from <span class="register">B</span> to <a href="7FD8.html">7FD8</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e4e"></span>5E4E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e4f"></span>5E4F</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">While ERIC is writing on the board, <a href="7FD7.html">7FD7</a> will be used to store the ASCII code of the last character written; initialise this with something other than 0x0D (ENTER)</td>
+<td class="comment-1" rowspan="2">While ERIC is writing on the board, <a href="7FD7.html">7FD7</a> will be used to store the ASCII code of the last character written; initialise this with something other than 0x0D (ENTER)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e50"></span>5E50</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e51"></span>5E51</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,B</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the first byte of the blackboard's buffer, which usually holds the number of the next clean pixel column</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the first byte of the blackboard's buffer, which usually holds the number of the next clean pixel column</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e52"></span>5E52</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$01</td>
-<td class="comment-11" rowspan="1">ERIC will start writing at pixel column 1 (regardless of what's already been written on the board)</td>
+<td class="comment-1" rowspan="1">ERIC will start writing at pixel column 1 (regardless of what's already been written on the board)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e54"></span>5E54</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=number of the character who last wrote on this board, or 0 if it's clean</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=number of the character who last wrote on this board, or 0 if it's clean</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e55"></span>5E55</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e56"></span>5E56</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$D2</td>
-<td class="comment-11" rowspan="1">Signal: ERIC wrote on this board</td>
+<td class="comment-1" rowspan="1">Signal: ERIC wrote on this board</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e58"></span>5E58</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,$04</td>
-<td class="comment-11" rowspan="1">There are 4 digits or letters in the bike and storeroom combinations</td>
+<td class="comment-1" rowspan="1">There are 4 digits or letters in the bike and storeroom combinations</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e5a"></span>5E5A</td>
-<td class="bytes-0"></td>
 <td class="instruction">CPL</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=0x80 if the board is clean, 0x00 otherwise</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=0x80 if the board is clean, 0x00 otherwise</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e5b"></span>5E5B</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $80</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5e5d"></span>5E5D</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="3">Prepare 4 spaces in bytes 2-5 of the blackboard buffer for combination letters/numbers, with bit 7 set if the board is clean</td>
+<td class="comment-1" rowspan="3">Prepare 4 spaces in bytes 2-5 of the blackboard buffer for combination letters/numbers, with bit 7 set if the board is clean</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e5e"></span>5E5E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e5f"></span>5E5F</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ $5E5D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e61"></span>5E61</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$FB</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="7FFB.html">7FFB</a> (ERIC's status flags)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7FFB.html">7FFB</a> (ERIC's status flags)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e63"></span>5E63</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$10</td>
-<td class="comment-11" rowspan="1">Set bit 4: ERIC is writing on a blackboard</td>
+<td class="comment-1" rowspan="1">Set bit 4: ERIC is writing on a blackboard</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -194,45 +139,41 @@ This entry point is used by the routine at <a href="5E6F.html">5E6F</a>.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="5e65"></span>5E65</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$D2</td>
-<td class="comment-11" rowspan="1">0xD2=ERIC</td>
+<td class="comment-1" rowspan="1">0xD2=ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e67"></span>5E67</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for ERIC's current animatory state</td>
+<td class="comment-1" rowspan="1">Update the SRB for ERIC's current animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e6a"></span>5E6A</td>
-<td class="bytes-0"></td>
 <td class="instruction">OR $07</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#7">0x07/0x87</a>: ERIC with his arm up (as if writing on a board)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<a href="../graphics/as.html#7">0x07/0x87</a>: ERIC with his arm up (as if writing on a board)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="5e6c"></span>5E6C</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="F2E2.html#f317">$F317</a></td>
-<td class="comment-11" rowspan="1">Update ERIC's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update ERIC's animatory state and location and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="5E44.html">5E44</a></span></td>
+<td class="prev">
+Prev: <a href="5E44.html">5E44</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#5e45">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="5E6F.html">5E6F</a></span></td>
+<td class="next">
+Next: <a href="5E6F.html">5E6F</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/24133.html">Switch to decimal</a>.</div>
 </footer>
 </body>

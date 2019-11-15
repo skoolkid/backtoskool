@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 28877</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="28874.html">28874</a></span></td>
+<td class="prev">
+Prev: <a href="28874.html">28874</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#28877">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="28952.html">28952</a></span></td>
+<td class="next">
+Next: <a href="28952.html">28952</a>
+</td>
 </tr>
 </table>
 <div class="description">28877: Close any temporarily open doors if necessary</div>
@@ -29,110 +32,70 @@
 Used by the routine at <a href="63156.html">63156</a>. Checks the left study door, right study door, and Science Lab storeroom door, and closes any that are open (provided nobody is standing in the doorway).
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28877"></span>28877</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32758)</td>
-<td class="comment-11" rowspan="3">Return unless <a href="32758.html">32758</a> (which is decremented on every pass through the main loop, and cycles through the values 1-15) holds 4 at the moment</td>
+<td class="comment-1" rowspan="3">Return unless <a href="32758.html">32758</a> (which is decremented on every pass through the main loop, and cycles through the values 1-15) holds 4 at the moment</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28880"></span>28880</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 4</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28882"></span>28882</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28883"></span>28883</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32756)</td>
-<td class="comment-11" rowspan="1"><a href="32756.html">32756</a> holds the doors flags</td>
+<td class="comment-1" rowspan="1"><a href="32756.html">32756</a> holds the doors flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28886"></span>28886</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,318</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=1 (left study door), <span class="register">L</span>=62</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=1 (left study door), <span class="register">L</span>=62</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28889"></span>28889</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,A</td>
-<td class="comment-11" rowspan="1">Is the left study door open?</td>
+<td class="comment-1" rowspan="1">Is the left study door open?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28891"></span>28891</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,28908</td>
-<td class="comment-11" rowspan="1">If so, close it if possible</td>
+<td class="comment-1" rowspan="1">If so, close it if possible</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28894"></span>28894</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,576</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=2 (right study door), <span class="register">L</span>=64</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=2 (right study door), <span class="register">L</span>=64</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28897"></span>28897</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 1,A</td>
-<td class="comment-11" rowspan="1">Is the right study door open?</td>
+<td class="comment-1" rowspan="1">Is the right study door open?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28899"></span>28899</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,28908</td>
-<td class="comment-11" rowspan="1">If so, close it if possible</td>
+<td class="comment-1" rowspan="1">If so, close it if possible</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28902"></span>28902</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 2,A</td>
-<td class="comment-11" rowspan="1">Is the Science Lab storeroom door open?</td>
+<td class="comment-1" rowspan="1">Is the Science Lab storeroom door open?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28904"></span>28904</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET Z</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28905"></span>28905</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,1090</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=4 (Science Lab storeroom door), <span class="register">L</span>=66</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=4 (Science Lab storeroom door), <span class="register">L</span>=66</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -145,227 +108,168 @@ At this point <span class="register">H</span> holds the identifier of a door tha
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28908"></span>28908</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the door identifier briefly</td>
+<td class="comment-1" rowspan="1">Save the door identifier briefly</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28909"></span>28909</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,185</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the door location table entry</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the door location table entry</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28911"></span>28911</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the door</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28912"></span>28912</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28913"></span>28913</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=y-coordinate of the door</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=y-coordinate of the door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28914"></span>28914</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC A</td>
-<td class="comment-11" rowspan="4">Set <span class="register">C</span>=X-1 and <span class="register">E</span>=X+2, where X is the x-coordinate of the door; any character whose x-coordinate is in this range will prevent the door from closing</td>
+<td class="comment-1" rowspan="4">Set <span class="register">C</span>=X-1 and <span class="register">E</span>=X+2, where X is the x-coordinate of the door; any character whose x-coordinate is in this range will prevent the door from closing</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28915"></span>28915</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28916"></span>28916</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,3</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28918"></span>28918</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28919"></span>28919</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,46849</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1, <span class="register">H</span>=183 (little girl no. 1)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=1, <span class="register">H</span>=183 (little girl no. 1)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28922"></span>28922</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,32</td>
-<td class="comment-11" rowspan="1">32 game characters (183-214)</td>
+<td class="comment-1" rowspan="1">32 game characters (183-214)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28924"></span>28924</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28925"></span>28925</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP C</td>
-<td class="comment-11" rowspan="1">Is the character to the left of the door?</td>
+<td class="comment-1" rowspan="1">Is the character to the left of the door?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28926"></span>28926</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,28939</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28928"></span>28928</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP E</td>
-<td class="comment-11" rowspan="1">Is the character to the right of the door?</td>
+<td class="comment-1" rowspan="1">Is the character to the right of the door?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28929"></span>28929</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,28939</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28931"></span>28931</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=2</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28932"></span>28932</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,D</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=y-coordinate of the door</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=y-coordinate of the door</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28933"></span>28933</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
-<td class="comment-11" rowspan="1">Subtract the character's y-coordinate</td>
+<td class="comment-1" rowspan="1">Subtract the character's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28934"></span>28934</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28935"></span>28935</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 2</td>
-<td class="comment-11" rowspan="1">Is the character standing in the doorway?</td>
+<td class="comment-1" rowspan="1">Is the character standing in the doorway?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28937"></span>28937</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,28943</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28939"></span>28939</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Next character</td>
+<td class="comment-1" rowspan="1">Next character</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28940"></span>28940</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 28924</td>
-<td class="comment-11" rowspan="1">Jump back until all 32 characters have been checked</td>
+<td class="comment-1" rowspan="1">Jump back until all 32 characters have been checked</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28942"></span>28942</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Reset the carry flag: no one is standing in the doorway</td>
+<td class="comment-1" rowspan="1">Reset the carry flag: no one is standing in the doorway</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="28943"></span>28943</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the door identifier to <span class="register">H</span></td>
+<td class="comment-1" rowspan="1">Restore the door identifier to <span class="register">H</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28944"></span>28944</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1">Copy it to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Copy it to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28945"></span>28945</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL NC,<a href="28736.html">28736</a></td>
-<td class="comment-11" rowspan="1">Close the door if no one's in the way</td>
+<td class="comment-1" rowspan="1">Close the door if no one's in the way</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28948"></span>28948</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(32756)</td>
-<td class="comment-11" rowspan="1">Pick up the doors flags in <span class="register">A</span> before returning (ignored by the caller)</td>
+<td class="comment-1" rowspan="1">Pick up the doors flags in <span class="register">A</span> before returning (ignored by the caller)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="28951"></span>28951</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="28874.html">28874</a></span></td>
+<td class="prev">
+Prev: <a href="28874.html">28874</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#28877">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="28952.html">28952</a></span></td>
+<td class="next">
+Next: <a href="28952.html">28952</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/70CD.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

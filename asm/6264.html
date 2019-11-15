@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 6264</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6262.html">6262</a></span></td>
+<td class="prev">
+Prev: <a href="6262.html">6262</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6264">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="627D.html">627D</a></span></td>
+<td class="next">
+Next: <a href="627D.html">627D</a>
+</td>
 </tr>
 </table>
 <div class="description">6264: Copy two bytes from a command list into a character's buffer</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="61F8.html">61F8</a>, <a href="62D0.html">62D0</a>, <a href="6464.html">6464</a>, <a href="717C.html">717C</a>, <a href="7CE1.html">7CE1</a> and <a href="F7D7.html">F7D7</a>. Copies a routine address or pair of parameters from a character's current command list into his buffer.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -42,187 +45,129 @@ Used by the routines at <a href="61F8.html">61F8</a>, <a href="62D0.html">62D0</
 <td class="register-desc">Destination for the copied bytes</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="6264"></span>6264</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="1">Save <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Save <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6265"></span>6265</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the pointer to the character's buffer</td>
+<td class="comment-1" rowspan="1">Save the pointer to the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6266"></span>6266</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$19</td>
-<td class="comment-11" rowspan="4">Collect into <span class="register">DE</span> the address of the point reached in the command list (stored in bytes 0x19 and 0x1A of the character's buffer)</td>
+<td class="comment-1" rowspan="4">Collect into <span class="register">DE</span> the address of the point reached in the command list (stored in bytes 0x19 and 0x1A of the character's buffer)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6268"></span>6268</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6269"></span>6269</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="626a"></span>626A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="626b"></span>626B</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1">Restore the pointer to the character's buffer</td>
+<td class="comment-1" rowspan="1">Restore the pointer to the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="626c"></span>626C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="3">Collect the first byte from the command list and copy it to the character's buffer</td>
+<td class="comment-1" rowspan="3">Collect the first byte from the command list and copy it to the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="626d"></span>626D</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC DE</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="626e"></span>626E</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="626f"></span>626F</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Move along one byte in the character's buffer</td>
+<td class="comment-1" rowspan="1">Move along one byte in the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6270"></span>6270</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="3">Collect the second byte from the command list and copy it to the character's buffer</td>
+<td class="comment-1" rowspan="3">Collect the second byte from the command list and copy it to the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6271"></span>6271</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC DE</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6272"></span>6272</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6273"></span>6273</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="1">Move back again in the character's buffer</td>
+<td class="comment-1" rowspan="1">Move back again in the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6274"></span>6274</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,L</td>
-<td class="comment-11" rowspan="1">Save <span class="register">L</span> temporarily</td>
+<td class="comment-1" rowspan="1">Save <span class="register">L</span> temporarily</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6275"></span>6275</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$19</td>
-<td class="comment-11" rowspan="4">Update the address reached in the command list (stored in bytes 0x19 and 0x1A of the character's buffer)</td>
+<td class="comment-1" rowspan="4">Update the address reached in the command list (stored in bytes 0x19 and 0x1A of the character's buffer)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6277"></span>6277</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6278"></span>6278</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="6279"></span>6279</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="627a"></span>627A</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="627b"></span>627B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1">Restore <span class="register">L</span></td>
+<td class="comment-1" rowspan="1">Restore <span class="register">L</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="627c"></span>627C</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="6262.html">6262</a></span></td>
+<td class="prev">
+Prev: <a href="6262.html">6262</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#6264">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="627D.html">627D</a></span></td>
+<td class="next">
+Next: <a href="627D.html">627D</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/25188.html">Switch to decimal</a>.</div>
 </footer>
 </body>

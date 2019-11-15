@@ -4,7 +4,6 @@
 <title>Back to Skool: Game status buffer</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="GameStatusBuffer">
 <table class="header">
@@ -16,20 +15,16 @@
 <div class="map-intro"></div>
 <table class="map">
 <tr>
-<th class="map-page-0">Page</th>
-<th class="map-byte-0">Byte</th>
 <th>Address</th>
-<th class="map-length-1">Length</th>
+<th class="map-length">Length</th>
 <th>Description</th>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">0</td>
 <td class="map-g"><span id="32512"></span><a href="../asm/32512.html">32512</a></td>
-<td class="map-length-1">84</td>
+<td class="map-length">84</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32512.html">Screen refresh buffer (SRB)</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/24880.html">24880</a>, <a href="../asm/25248.html">25248</a>, <a href="../asm/26380.html">26380</a>, <a href="../asm/26849.html">26849</a> and <a href="../asm/26910.html">26910</a>. Each byte of the SRB corresponds to a segment of 8 character squares on the screen, the leftmost of which will be at x=0, x=8, x=16 or x=24. Each bit set in an SRB byte corresponds to a character square in the segment that needs refreshing. Bit 7 corresponds to the leftmost character square in the segment, bit 0 to the rightmost character square.
 </div>
@@ -37,13 +32,11 @@ Used by the routines at <a href="../asm/24880.html">24880</a>, <a href="../asm/2
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">84</td>
 <td class="map-g"><span id="32596"></span><a href="../asm/32596.html">32596</a></td>
-<td class="map-length-1">6</td>
+<td class="map-length">6</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32596.html">Buffer for the Blue Room blackboard</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/24175.html">24175</a>, <a href="../asm/26513.html">26513</a>, <a href="../asm/26639.html">26639</a> and <a href="../asm/26752.html">26752</a>.
 </div>
@@ -51,13 +44,11 @@ Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/2
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">90</td>
 <td class="map-g"><span id="32602"></span><a href="../asm/32602.html">32602</a></td>
-<td class="map-length-1">6</td>
+<td class="map-length">6</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32602.html">Buffer for the Yellow Room blackboard</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/24175.html">24175</a>, <a href="../asm/26513.html">26513</a>, <a href="../asm/26639.html">26639</a> and <a href="../asm/26752.html">26752</a>.
 </div>
@@ -65,13 +56,11 @@ Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/2
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">96</td>
 <td class="map-g"><span id="32608"></span><a href="../asm/32608.html">32608</a></td>
-<td class="map-length-1">6</td>
+<td class="map-length">6</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32608.html">Buffer for the blackboard in the top-floor classroom of the girls' skool</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/24175.html">24175</a>, <a href="../asm/26513.html">26513</a>, <a href="../asm/26639.html">26639</a> and <a href="../asm/26752.html">26752</a>.
 </div>
@@ -79,13 +68,11 @@ Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/2
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">102</td>
 <td class="map-g"><span id="32614"></span><a href="../asm/32614.html">32614</a></td>
-<td class="map-length-1">6</td>
+<td class="map-length">6</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32614.html">Buffer for the Science Lab blackboard</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/24175.html">24175</a>, <a href="../asm/26513.html">26513</a>, <a href="../asm/26639.html">26639</a> and <a href="../asm/26752.html">26752</a>.
 </div>
@@ -93,13 +80,11 @@ Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/2
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">108</td>
 <td class="map-g"><span id="32620"></span><a href="../asm/32620.html">32620</a></td>
-<td class="map-length-1">6</td>
+<td class="map-length">6</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32620.html">Buffer for the blackboard in the middle-floor classroom of the girls' skool</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/24175.html">24175</a>, <a href="../asm/26513.html">26513</a>, <a href="../asm/26639.html">26639</a> and <a href="../asm/26752.html">26752</a>.
 </div>
@@ -107,25 +92,20 @@ Used by the routines at <a href="../asm/24133.html">24133</a>, <a href="../asm/2
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">114</td>
 <td class="map-g"><span id="32626"></span><a href="../asm/32626.html">32626</a></td>
-<td class="map-length-1">14</td>
+<td class="map-length">14</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32626.html">Unused</a></div>
-<div class="map-entry-desc-1">
-
+<div class="map-entry-desc">
 </div>
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">128</td>
 <td class="map-g"><span id="32640"></span><a href="../asm/32640.html">32640</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32640.html">Various flags</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Various status flags for the current lesson.
 </div>
@@ -179,13 +159,11 @@ Various status flags for the current lesson.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">129</td>
 <td class="map-g"><span id="32641"></span><a href="../asm/32641.html">32641</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32641.html">Lesson signal flags</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the classroom-based <a href="../asm/59392.html">command lists</a> to indicate that or check whether a teacher has arrived at the classroom door to start the lesson.
 </div>
@@ -225,25 +203,20 @@ Used by the classroom-based <a href="../asm/59392.html">command lists</a> to ind
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">130</td>
 <td class="map-g"><span id="32642"></span><a href="../asm/32642.html">32642</a></td>
-<td class="map-length-1">6</td>
+<td class="map-length">6</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32642.html">Unused</a></div>
-<div class="map-entry-desc-1">
-
+<div class="map-entry-desc">
 </div>
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">136</td>
 <td class="map-t"><span id="32648"></span><a href="../asm/32648.html">32648</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-t-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32648.html">Message 6: '{teacher}'</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/32433.html">32433</a> when printing the top line of text in the lesson box; it is a submessage of message <a href="../asm/59928.html">16</a>.
 </div>
@@ -251,13 +224,11 @@ Used by the routine at <a href="../asm/32433.html">32433</a> when printing the t
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">138</td>
 <td class="map-t"><span id="32650"></span><a href="../asm/32650.html">32650</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-t-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32650.html">Message 5: '{lines recipient}/combination number or letter/{room}'</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/29716.html">29716</a> (as a submessage of message <a href="../asm/59886.html">13</a>), <a href="../asm/29896.html">29896</a> (as a submessage of message <a href="../asm/59897.html">14</a>) and <a href="../asm/32433.html">32433</a> (as a submessage of message <a href="../asm/59928.html">16</a>).
 </div>
@@ -265,13 +236,11 @@ Used by the routines at <a href="../asm/29716.html">29716</a> (as a submessage o
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">140</td>
 <td class="map-t"><span id="32652"></span><a href="../asm/32652.html">32652</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-t-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32652.html">Message 10: '{mountain}/{king}/{animal}/{verb}'</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/61696.html">61696</a> and <a href="../asm/62032.html">62032</a>; it is a submessage of messages <a href="../asm/65136.html">74</a>, <a href="../asm/61418.html">75</a>, <a href="../asm/64633.html">78</a>, <a href="../asm/65531.html">79</a>, <a href="../asm/64608.html">82</a>, <a href="../asm/65392.html">83</a> and <a href="../asm/60861.html">96</a>.
 </div>
@@ -279,13 +248,11 @@ Used by the routines at <a href="../asm/61696.html">61696</a> and <a href="../as
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">142</td>
 <td class="map-t"><span id="32654"></span><a href="../asm/32654.html">32654</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-t-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32654.html">Message 11: '{country}/{year}/{habitat}/{noun}'</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/61696.html">61696</a> and <a href="../asm/62032.html">62032</a>; it is a submessage of messages <a href="../asm/65268.html">73</a>, <a href="../asm/65232.html">76</a>, <a href="../asm/65275.html">77</a>, <a href="../asm/65512.html">80</a>, <a href="../asm/61425.html">81</a>, <a href="../asm/65488.html">84</a> and <a href="../asm/60861.html">96</a>.
 </div>
@@ -293,13 +260,11 @@ Used by the routines at <a href="../asm/61696.html">61696</a> and <a href="../as
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">144</td>
 <td class="map-t"><span id="32656"></span><a href="../asm/32656.html">32656</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-t-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32656.html">Message 7: '{grassee}'</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/61696.html">61696</a> to hold the character number of whoever is being grassed up by EINSTEIN for writing on the board (206=BOY WANDER, or 210=ERIC); it is a submessage of message <a href="../asm/60668.html">88</a>. Note that storing the character number (206 or 210) here is a mistake; it should be the message number of the character's name (<a href="../asm/61345.html">27</a> or <a href="../asm/61397.html">31</a>) instead. In any case, this message (along with parent message <a href="../asm/60668.html">88</a>) is never used, because of a <a href="../reference/bugs.html#noBlackboardTales">bug</a> in the section of code at <a href="../asm/61696.html#61852">61852</a>.
 </div>
@@ -307,25 +272,20 @@ Used by the routine at <a href="../asm/61696.html">61696</a> to hold the charact
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">146</td>
 <td class="map-g"><span id="32658"></span><a href="../asm/32658.html">32658</a></td>
-<td class="map-length-1">10</td>
+<td class="map-length">10</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32658.html">Unused</a></div>
-<div class="map-entry-desc-1">
-
+<div class="map-entry-desc">
 </div>
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">156</td>
 <td class="map-g"><span id="32668"></span><a href="../asm/32668.html">32668</a></td>
-<td class="map-length-1">8</td>
+<td class="map-length">8</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32668.html">Bike and Science Lab storeroom combinations</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/24028.html">24028</a> and <a href="../asm/62910.html">62910</a>.
 </div>
@@ -333,13 +293,11 @@ Used by the routines at <a href="../asm/24028.html">24028</a> and <a href="../as
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">164</td>
 <td class="map-g"><span id="32676"></span><a href="../asm/32676.html">32676</a></td>
-<td class="map-length-1">8</td>
+<td class="map-length">8</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32676.html">Copy of the bike and Science Lab storeroom combinations</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/29896.html#30034">30034</a>. The digits or letters discovered by ERIC have bit 7 set (to indicate that he has already scored points for doing so).
 </div>
@@ -347,25 +305,20 @@ Used by the routine at <a href="../asm/29896.html#30034">30034</a>. The digits o
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">172</td>
 <td class="map-g"><span id="32684"></span><a href="../asm/32684.html">32684</a></td>
-<td class="map-length-1">43</td>
+<td class="map-length">43</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32684.html">Unused</a></div>
-<div class="map-entry-desc-1">
-
+<div class="map-entry-desc">
 </div>
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">215</td>
 <td class="map-g"><span id="32727"></span><a href="../asm/32727.html">32727</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32727.html">Various ERIC-related data (1)</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used in conjunction with the contents of <a href="../asm/32728.html">32728</a>. Holds the ASCII code of the last key pressed while writing on a blackboard (see <a href="../asm/24175.html">24175</a>), or the descent table identifier (252-255; see <a href="../asm/64460.html">64460</a>), or the LSB of the address of a routine (or an entry point to a routine) for dealing either with ERIC or with the result of an action by ERIC (see <a href="../asm/57669.html">57669</a>):
 </div>
@@ -434,13 +387,11 @@ Used in conjunction with the contents of <a href="../asm/32728.html">32728</a>. 
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">216</td>
 <td class="map-g"><span id="32728"></span><a href="../asm/32728.html">32728</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32728.html">Various ERIC-related data (2)</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used in conjunction with the contents of <a href="../asm/32727.html">32727</a>. Holds the identifier of the blackboard ERIC wrote on (see <a href="../asm/24133.html">24133</a>), or the descent table entry pointer (160-180; see <a href="../asm/64460.html">64460</a>), or the MSB of the address of a routine (or an entry point to a routine) for dealing either with ERIC or with the result of an action by ERIC (see <a href="../asm/57669.html">57669</a>, and <a href="../asm/32727.html">32727</a> for a list of the routine and entry point addresses).
 </div>
@@ -448,13 +399,11 @@ Used in conjunction with the contents of <a href="../asm/32727.html">32727</a>. 
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">217</td>
 <td class="map-g"><span id="32729"></span><a href="../asm/32729.html">32729</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32729.html">Last value seen in the system variable FRAMES</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Stores the value of the LSB of the system variable FRAMES as it stood at the end of the last pass through the main loop (see <a href="../asm/63210.html">63210</a>).
 </div>
@@ -462,13 +411,11 @@ Stores the value of the LSB of the system variable FRAMES as it stood at the end
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">218</td>
 <td class="map-g"><span id="32730"></span><a href="../asm/32730.html">32730</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32730.html">ID of the desk containing the water pistol</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/62178.html">62178</a>.
 </div>
@@ -476,13 +423,11 @@ Used by the routine at <a href="../asm/62178.html">62178</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">219</td>
 <td class="map-g"><span id="32731"></span><a href="../asm/32731.html">32731</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32731.html">ID of the desk containing the stinkbombs</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/62178.html">62178</a>.
 </div>
@@ -490,13 +435,11 @@ Used by the routine at <a href="../asm/62178.html">62178</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">220</td>
 <td class="map-g"><span id="32732"></span><a href="../asm/32732.html">32732</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32732.html">ERIC's stand-up delay counter</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/62178.html">62178</a> while in demo mode.
 </div>
@@ -504,13 +447,11 @@ Used by the routine at <a href="../asm/62178.html">62178</a> while in demo mode.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">221</td>
 <td class="map-g"><span id="32733"></span><a href="../asm/32733.html">32733</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32733.html">ERIC's knockout delay counter</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/62094.html">62094</a>.
 </div>
@@ -518,13 +459,11 @@ Used by the routine at <a href="../asm/62094.html">62094</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">222</td>
 <td class="map-g"><span id="32734"></span><a href="../asm/32734.html">32734</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32734.html">Game mode indicator</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/23907.html">23907</a>, <a href="../asm/32433.html">32433</a>, <a href="../asm/62178.html">62178</a> and <a href="../asm/63189.html">63189</a>. Holds 255 if in demo mode, 0 if a game is in progress, or 1 if ERIC has just opened the safe.
 </div>
@@ -532,13 +471,11 @@ Used by the routines at <a href="../asm/23907.html">23907</a>, <a href="../asm/3
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">223</td>
 <td class="map-g"><span id="32735"></span><a href="../asm/32735.html">32735</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32735.html">Current lesson number</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/63309.html">63309</a>. Holds the index (192-255) into the <a href="../asm/46528.html">main timetable</a>. Adjusted by the routine at <a href="../asm/62910.html">62910</a> before starting a new game.
 </div>
@@ -546,13 +483,11 @@ Used by the routine at <a href="../asm/63309.html">63309</a>. Holds the index (1
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">224</td>
 <td class="map-g"><span id="32736"></span><a href="../asm/32736.html">32736</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32736.html">Lesson descriptor</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/32021.html">32021</a>, <a href="../asm/32062.html">32062</a>, <a href="../asm/32433.html">32433</a>, <a href="../asm/61696.html">61696</a> and <a href="../asm/63309.html">63309</a>. The room ID is stored in bits 0-3, and the teacher ID in bits 4-7. See the list of lesson descriptors at <a href="../asm/53797.html">53797</a>.
 </div>
@@ -560,13 +495,11 @@ Used by the routines at <a href="../asm/32021.html">32021</a>, <a href="../asm/3
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">225</td>
 <td class="map-g"><span id="32737"></span><a href="../asm/32737.html">32737</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32737.html">Number of mice caught</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/31462.html">31462</a>, <a href="../asm/31502.html">31502</a> and <a href="../asm/31573.html">31573</a>.
 </div>
@@ -574,13 +507,11 @@ Used by the routines at <a href="../asm/31462.html">31462</a>, <a href="../asm/3
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">226</td>
 <td class="map-g"><span id="32738"></span><a href="../asm/32738.html">32738</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32738.html">Kiss counter</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/24348.html">24348</a> (which decreases the counter by 7 whenever ERIC kisses HAYLEY) and <a href="../asm/30102.html">30102</a> (which decreases the counter by 1 whenever HAYLEY is knocked over). Initialised to 40 by the routine at <a href="../asm/62910.html">62910</a>.
 </div>
@@ -588,13 +519,11 @@ Used by the routines at <a href="../asm/24348.html">24348</a> (which decreases t
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">227</td>
 <td class="map-g"><span id="32739"></span><a href="../asm/32739.html">32739</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32739.html">Lesson clock</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Decremented in the main loop at <a href="../asm/63210.html">63210</a>. When it reaches 0, it is reset to 4096 by the routine at <a href="../asm/63309.html">63309</a>. It is also checked by the routines at <a href="../asm/30102.html">30102</a>, <a href="../asm/32062.html">32062</a>, <a href="../asm/61555.html">61555</a>, <a href="../asm/61631.html">61631</a> and <a href="../asm/61658.html">61658</a>, and modified by the routines at <a href="../asm/30102.html">30102</a>, <a href="../asm/62032.html">62032</a>, <a href="../asm/62770.html">62770</a>, <a href="../asm/62815.html">62815</a> and <a href="../asm/62910.html">62910</a>.
 </div>
@@ -602,13 +531,11 @@ Decremented in the main loop at <a href="../asm/63210.html">63210</a>. When it r
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">229</td>
 <td class="map-g"><span id="32741"></span><a href="../asm/32741.html">32741</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32741.html">Score</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/29621.html">29621</a>.
 </div>
@@ -616,13 +543,11 @@ Used by the routine at <a href="../asm/29621.html">29621</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">231</td>
 <td class="map-g"><span id="32743"></span><a href="../asm/32743.html">32743</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32743.html">Lines total</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/24348.html">24348</a> and <a href="../asm/29643.html">29643</a>.
 </div>
@@ -630,13 +555,11 @@ Used by the routines at <a href="../asm/24348.html">24348</a> and <a href="../as
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">233</td>
 <td class="map-g"><span id="32745"></span><a href="../asm/32745.html">32745</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32745.html">Hi-score</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/62815.html">62815</a>.
 </div>
@@ -644,13 +567,11 @@ Used by the routine at <a href="../asm/62815.html">62815</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">235</td>
 <td class="map-g"><span id="32747"></span><a href="../asm/32747.html">32747</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32747.html">Inventory flags</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/31746.html">31746</a>. Bit set=got, bit reset=haven't.
 </div>
@@ -725,13 +646,11 @@ Used by the routine at <a href="../asm/31746.html">31746</a>. Bit set=got, bit r
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">236</td>
 <td class="map-g"><span id="32748"></span><a href="../asm/32748.html">32748</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32748.html">Input device indicator</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Set by the routine at <a href="../asm/21664.html">21664</a>, and checked by the routine at <a href="../asm/29118.html">29118</a>. Holds 0 if the keyboard is being used, or 1 if the Kempston joystick is being used.
 </div>
@@ -739,13 +658,11 @@ Set by the routine at <a href="../asm/21664.html">21664</a>, and checked by the 
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">237</td>
 <td class="map-g"><span id="32749"></span><a href="../asm/32749.html">32749</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32749.html">ERIC's secondary status flags</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/63405.html">63405</a> to decide how to deal with ERIC when bit 1 is set at <a href="../asm/32763.html">32763</a>.
 </div>
@@ -802,13 +719,11 @@ Used by the routine at <a href="../asm/63405.html">63405</a> to decide how to de
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">238</td>
 <td class="map-g"><span id="32750"></span><a href="../asm/32750.html">32750</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32750.html">Last key pressed while riding the bike</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/29278.html">29278</a>. Holds the value from the <a href="../asm/58624.html">keypress offset table</a> corresponding to the last key pressed while riding the bike.
 </div>
@@ -816,13 +731,11 @@ Used by the routine at <a href="../asm/29278.html">29278</a>. Holds the value fr
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">239</td>
 <td class="map-g"><span id="32751"></span><a href="../asm/32751.html">32751</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32751.html">Counter that determines the bike's speed while ERIC's on it</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/29278.html">29278</a>.
 </div>
@@ -830,13 +743,11 @@ Used by the routine at <a href="../asm/29278.html">29278</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">240</td>
 <td class="map-g"><span id="32752"></span><a href="../asm/32752.html">32752</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32752.html">Bike's momentum</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/29278.html">29278</a>.
 </div>
@@ -844,13 +755,11 @@ Used by the routine at <a href="../asm/29278.html">29278</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">241</td>
 <td class="map-g"><span id="32753"></span><a href="../asm/32753.html">32753</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32753.html">Last key pressed</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Set by the routine at <a href="../asm/63210.html">63210</a>; checked by the routines at <a href="../asm/28114.html">28114</a> and <a href="../asm/28216.html">28216</a>. Holds the value from the <a href="../asm/58624.html">keypress offset table</a> corresponding to the last key pressed.
 </div>
@@ -858,13 +767,11 @@ Set by the routine at <a href="../asm/63210.html">63210</a>; checked by the rout
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">242</td>
 <td class="map-g"><span id="32754"></span><a href="../asm/32754.html">32754</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32754.html">ERIC's midstride/mid-action timer</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Zero unless ERIC is midstride (see <a href="../asm/28114.html">28114</a>) or mid-action (see <a href="../asm/57669.html">57669</a>); if non-zero, the value is copied to the main action timer at <a href="../asm/32755.html">32755</a> after ERIC has been moved from the midstride or mid-action position (see <a href="../asm/63210.html">63210</a>).
 </div>
@@ -872,13 +779,11 @@ Zero unless ERIC is midstride (see <a href="../asm/28114.html">28114</a>) or mid
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">243</td>
 <td class="map-g"><span id="32755"></span><a href="../asm/32755.html">32755</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32755.html">ERIC's main action timer</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Decremented by the main loop at <a href="../asm/63210.html">63210</a>; when it becomes zero, the keyboard is checked and ERIC is moved accordingly. Also used by many routines that deal with ERIC to decide when to change ERIC's animatory state or location, or when to check the keyboard.
 </div>
@@ -886,13 +791,11 @@ Decremented by the main loop at <a href="../asm/63210.html">63210</a>; when it b
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">244</td>
 <td class="map-g"><span id="32756"></span><a href="../asm/32756.html">32756</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32756.html">Door/window status flags</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/28736.html">28736</a>. Bit set=open, bit reset=closed.
 </div>
@@ -940,13 +843,11 @@ Used by the routine at <a href="../asm/28736.html">28736</a>. Bit set=open, bit 
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">245</td>
 <td class="map-g"><span id="32757"></span><a href="../asm/32757.html">32757</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32757.html">Character number of the teacher who last gave ERIC lines</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/32062.html">32062</a>.
 </div>
@@ -954,13 +855,11 @@ Used by the routine at <a href="../asm/32062.html">32062</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">246</td>
 <td class="map-g"><span id="32758"></span><a href="../asm/32758.html">32758</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32758.html">LSB of the lines-giving delay counter</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/32032.html">32032</a>. Also used by the routine at <a href="../asm/28877.html">28877</a> when timing the closing of the left study, right study and Science Lab storeroom doors.
 </div>
@@ -968,13 +867,11 @@ Used by the routine at <a href="../asm/32032.html">32032</a>. Also used by the r
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">247</td>
 <td class="map-g"><span id="32759"></span><a href="../asm/32759.html">32759</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32759.html">MSB of the lines-giving delay counter</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/32032.html">32032</a> and <a href="../asm/32062.html">32062</a>.
 </div>
@@ -982,13 +879,11 @@ Used by the routines at <a href="../asm/32032.html">32032</a> and <a href="../as
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">248</td>
 <td class="map-g"><span id="32760"></span><a href="../asm/32760.html">32760</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32760.html">LSB of the address of the SRB byte corresponding to the lip of the speech bubble</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/26958.html">26958</a>. Holds 0 if no one's speaking.
 </div>
@@ -996,13 +891,11 @@ Used by the routine at <a href="../asm/26958.html">26958</a>. Holds 0 if no one'
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">249</td>
 <td class="map-g"><span id="32761"></span><a href="../asm/32761.html">32761</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32761.html">Speech bubble lip SRB bit</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 The bit set at this byte indicates the bit of the SRB byte (referred to by <a href="../asm/32760.html">32760</a>) that corresponds to the lip of the speech bubble (see <a href="../asm/26958.html">26958</a>).
 </div>
@@ -1010,13 +903,11 @@ The bit set at this byte indicates the bit of the SRB byte (referred to by <a hr
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">250</td>
 <td class="map-g"><span id="32762"></span><a href="../asm/32762.html">32762</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32762.html">Leftmost column of the play area on screen the last time the SRB was updated for the speech bubble</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Holds the column of the play area that was at the far left of the screen the last time the routine at <a href="../asm/26849.html">26849</a> (update the SRB for the speech bubble) was called.
 </div>
@@ -1024,13 +915,11 @@ Holds the column of the play area that was at the far left of the screen the las
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">251</td>
 <td class="map-g"><span id="32763"></span><a href="../asm/32763.html">32763</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32763.html">ERIC's primary status flags</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/63405.html">63405</a> to decide how to deal with ERIC.
 </div>
@@ -1102,13 +991,11 @@ Used by the routine at <a href="../asm/63405.html">63405</a> to decide how to de
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">252</td>
 <td class="map-g"><span id="32764"></span><a href="../asm/32764.html">32764</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32764.html">Number of the character just moved (183-214)</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/25296.html">25296</a>.
 </div>
@@ -1116,13 +1003,11 @@ Used by the routine at <a href="../asm/25296.html">25296</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">253</td>
 <td class="map-g"><span id="32765"></span><a href="../asm/32765.html">32765</a></td>
-<td class="map-length-1">2</td>
+<td class="map-length">2</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32765.html">Random number seed</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/25233.html">25233</a>.
 </div>
@@ -1130,13 +1015,11 @@ Used by the routine at <a href="../asm/25233.html">25233</a>.
 </td>
 </tr>
 <tr>
-<td class="map-page-0">127</td>
-<td class="map-byte-0">255</td>
 <td class="map-g"><span id="32767"></span><a href="../asm/32767.html">32767</a></td>
-<td class="map-length-1">1</td>
+<td class="map-length">1</td>
 <td class="map-g-desc">
 <div class="map-entry-title-11"><a class="map-entry-title" href="../asm/32767.html">x-coordinate of the leftmost column of the play area on screen</a></div>
-<div class="map-entry-desc-1">
+<div class="map-entry-desc">
 <div class="paragraph">
 Modified by the routines at <a href="../asm/25026.html">25026</a> and <a href="../asm/25080.html">25080</a>.
 </div>
@@ -1145,9 +1028,9 @@ Modified by the routines at <a href="../asm/25026.html">25026</a> and <a href=".
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../buffers/gbuffer.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

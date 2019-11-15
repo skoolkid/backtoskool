@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 7A16</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7A14.html">7A14</a></span></td>
+<td class="prev">
+Prev: <a href="7A14.html">7A14</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7a16">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7AE6.html">7AE6</a></span></td>
+<td class="next">
+Next: <a href="7AE6.html">7AE6</a>
+</td>
 </tr>
 </table>
 <div class="description">7A16: Control a mouse</div>
@@ -57,7 +60,7 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 </table>
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -66,223 +69,151 @@ The address of this uninterruptible subcommand routine is placed into bytes 0x11
 <td class="register-desc">Mouse's character number (0xC6, 0xC7, 0xCE-0xD0, 0xD4)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a16"></span>7A16</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=remaining distance to travel</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=remaining distance to travel</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a18"></span>7A18</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a19"></span>7A19</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is this mouse (a) hiding, (b) about to hide, or (c) about to consider a change of direction and distance to travel?</td>
+<td class="comment-1" rowspan="1">Is this mouse (a) hiding, (b) about to hide, or (c) about to consider a change of direction and distance to travel?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a1a"></span>7A1A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7A62</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a1c"></span>7A1C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FF4)</td>
-<td class="comment-11" rowspan="1"><a href="7FF4.html">7FF4</a> holds the door/window status flags</td>
+<td class="comment-1" rowspan="1"><a href="7FF4.html">7FF4</a> holds the door/window status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a1f"></span>7A1F</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1">Save these flags</td>
+<td class="comment-1" rowspan="1">Save these flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a20"></span>7A20</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $3F</td>
-<td class="comment-11" rowspan="2">Reset bits 6 and 7 of the door/window status flags (i.e. pretend that the windows are closed)</td>
+<td class="comment-1" rowspan="2">Reset bits 6 and 7 of the door/window status flags (i.e. pretend that the windows are closed)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a22"></span>7A22</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7FF4),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a25"></span>7A25</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the mouse is travelling right</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the mouse is travelling right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a27"></span>7A27</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="2">Collect the mouse's x-coordinate in <span class="register">E</span></td>
+<td class="comment-1" rowspan="2">Collect the mouse's x-coordinate in <span class="register">E</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a29"></span>7A29</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a2a"></span>7A2A</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7A2E</td>
-<td class="comment-11" rowspan="1">Jump if the mouse is travelling right</td>
+<td class="comment-1" rowspan="1">Jump if the mouse is travelling right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a2c"></span>7A2C</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a2d"></span>7A2D</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a2e"></span>7A2E</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=x-coordinate of the spot in front of the mouse</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=x-coordinate of the spot in front of the mouse</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a2f"></span>7A2F</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x02</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a30"></span>7A30</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=mouse's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=mouse's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a31"></span>7A31</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-11" rowspan="1">Copy this to <span class="register">D</span></td>
+<td class="comment-1" rowspan="1">Copy this to <span class="register">D</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a32"></span>7A32</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $0A</td>
-<td class="comment-11" rowspan="1">Is the mouse on the middle floor?</td>
+<td class="comment-1" rowspan="1">Is the mouse on the middle floor?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a34"></span>7A34</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7A3B</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a36"></span>7A36</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=x-coordinate of the spot in front of the mouse</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=x-coordinate of the spot in front of the mouse</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a37"></span>7A37</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $54</td>
-<td class="comment-11" rowspan="1">Is the mouse at the top of the stairs leading down to the stage?</td>
+<td class="comment-1" rowspan="1">Is the mouse at the top of the stairs leading down to the stage?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a39"></span>7A39</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7A40</td>
-<td class="comment-11" rowspan="1">Turn the mouse round if so</td>
+<td class="comment-1" rowspan="1">Turn the mouse round if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a3b"></span>7A3B</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="7654.html">$7654</a></td>
-<td class="comment-11" rowspan="1">Check for walls and closed doors in the mouse's path</td>
+<td class="comment-1" rowspan="1">Check for walls and closed doors in the mouse's path</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a3e"></span>7A3E</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,$7A48</td>
-<td class="comment-11" rowspan="1">Jump if there are none</td>
+<td class="comment-1" rowspan="1">Jump if there are none</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a40"></span>7A40</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="4">Turn the mouse round without changing the distance remaining to travel</td>
+<td class="comment-1" rowspan="4">Turn the mouse round without changing the distance remaining to travel</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a42"></span>7A42</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a43"></span>7A43</td>
-<td class="bytes-0"></td>
 <td class="instruction">NEG</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a45"></span>7A45</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a46"></span>7A46</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $7A25</td>
-<td class="comment-11" rowspan="1">See what's in front of the mouse in this direction</td>
+<td class="comment-1" rowspan="1">See what's in front of the mouse in this direction</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -295,102 +226,72 @@ There are no walls or closed doors in the mouse's path.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a48"></span>7A48</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="2">Restore the door/window status flags</td>
+<td class="comment-1" rowspan="2">Restore the door/window status flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a49"></span>7A49</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD ($7FF4),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a4c"></span>7A4C</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="61B4.html">$61B4</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the mouse's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the mouse's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a4f"></span>7A4F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="2">Is the mouse travelling right?</td>
+<td class="comment-1" rowspan="2">Is the mouse travelling right?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a51"></span>7A51</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a53"></span>7A53</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7A5B</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a55"></span>7A55</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC (HL)</td>
-<td class="comment-11" rowspan="1">Decrease the distance left to travel</td>
+<td class="comment-1" rowspan="1">Decrease the distance left to travel</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a56"></span>7A56</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1">Move the mouse one space left</td>
+<td class="comment-1" rowspan="1">Move the mouse one space left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a57"></span>7A57</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$2F</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#47">0x2F</a>: animatory state of a mouse travelling left</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#47">0x2F</a>: animatory state of a mouse travelling left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a59"></span>7A59</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $7A5F</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a5b"></span>7A5B</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Decrease the distance left to travel</td>
+<td class="comment-1" rowspan="1">Decrease the distance left to travel</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a5c"></span>7A5C</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC E</td>
-<td class="comment-11" rowspan="1">Move the mouse one space right</td>
+<td class="comment-1" rowspan="1">Move the mouse one space right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a5d"></span>7A5D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$AF</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#175">0xAF</a>: animatory state of a mouse travelling right</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#175">0xAF</a>: animatory state of a mouse travelling right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a5f"></span>7A5F</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="6130.html">$6130</a></td>
-<td class="comment-11" rowspan="1">Update the mouse's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the mouse's animatory state and location and update the SRB</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -403,81 +304,57 @@ Byte 0x13 holds 0, which means (a) the mouse is hiding at the moment, or (b) it'
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a62"></span>7A62</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Pick up byte 0x14 in <span class="register">A</span></td>
+<td class="comment-1" rowspan="2">Pick up byte 0x14 in <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a63"></span>7A63</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a64"></span>7A64</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-11" rowspan="1">Is the mouse already hiding?</td>
+<td class="comment-1" rowspan="1">Is the mouse already hiding?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a65"></span>7A65</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7A8C</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a67"></span>7A67</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Is it time for the mouse to hide temporarily?</td>
+<td class="comment-1" rowspan="1">Is it time for the mouse to hide temporarily?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a68"></span>7A68</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7A73</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a6a"></span>7A6A</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$01</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the mouse's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0x01 of the mouse's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a6c"></span>7A6C</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=mouse's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=mouse's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a6d"></span>7A6D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$16</td>
-<td class="comment-11" rowspan="2">Store this in byte 0x16 of the mouse's buffer for later retrieval</td>
+<td class="comment-1" rowspan="2">Store this in byte 0x16 of the mouse's buffer for later retrieval</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a6f"></span>7A6F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a70"></span>7A70</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="74C8.html#74d3">$74D3</a></td>
-<td class="comment-11" rowspan="1">Make the mouse hide</td>
+<td class="comment-1" rowspan="1">Make the mouse hide</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -490,102 +367,70 @@ It's time for the mouse to consider a change of direction and distance to travel
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a73"></span>7A73</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a74"></span>7A74</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="79AE.html">$79AE</a></td>
-<td class="comment-11" rowspan="1">Make any girls near this mouse start jumping</td>
+<td class="comment-1" rowspan="1">Make any girls near this mouse start jumping</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a77"></span>7A77</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a78"></span>7A78</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=random number</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=random number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a7b"></span>7A7B</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $83</td>
-<td class="comment-11" rowspan="2"><span class="register">A</span>=0x02-0x05 (bit 7 reset) or 0x82-0x85 (bit 7 set)</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=0x02-0x05 (bit 7 reset) or 0x82-0x85 (bit 7 set)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a7d"></span>7A7D</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a7f"></span>7A7F</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=0x02-0x05 (bit 7 reset), with the carry flag holding the previous contents of bit 7</td>
+<td class="comment-1" rowspan="3"><span class="register">A</span>=0x02-0x05 (bit 7 reset), with the carry flag holding the previous contents of bit 7</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a80"></span>7A80</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a81"></span>7A81</td>
-<td class="bytes-0"></td>
 <td class="instruction">RRA</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a82"></span>7A82</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$7A86</td>
-<td class="comment-11" rowspan="1">Jump if bit 7 was set (the new direction is right)</td>
+<td class="comment-1" rowspan="1">Jump if bit 7 was set (the new direction is right)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a84"></span>7A84</td>
-<td class="bytes-0"></td>
 <td class="instruction">NEG</td>
-<td class="comment-11" rowspan="1">The new direction is left</td>
+<td class="comment-1" rowspan="1">The new direction is left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a86"></span>7A86</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$13</td>
-<td class="comment-11" rowspan="2">Set the new direction and distance to travel</td>
+<td class="comment-1" rowspan="2">Set the new direction and distance to travel</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a88"></span>7A88</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a89"></span>7A89</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP $7A1C</td>
-<td class="comment-11" rowspan="1">Start moving</td>
+<td class="comment-1" rowspan="1">Start moving</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -598,95 +443,69 @@ The mouse is currently hiding. Check whether it should transform into a frog bef
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7a8c"></span>7A8C</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=0x15</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x15</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a8d"></span>7A8D</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Is it time for the mouse to come out of hiding?</td>
+<td class="comment-1" rowspan="1">Is it time for the mouse to come out of hiding?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a8e"></span>7A8E</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a8f"></span>7A8F</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,H</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=mouse's character number</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=mouse's character number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a90"></span>7A90</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $D4</td>
-<td class="comment-11" rowspan="1">Was this mouse released by ERIC?</td>
+<td class="comment-1" rowspan="1">Was this mouse released by ERIC?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a92"></span>7A92</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7AC0</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a94"></span>7A94</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FEB)</td>
-<td class="comment-11" rowspan="1"><a href="7FEB.html">7FEB</a> holds the inventory flags</td>
+<td class="comment-1" rowspan="1"><a href="7FEB.html">7FEB</a> holds the inventory flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a97"></span>7A97</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 1,A</td>
-<td class="comment-11" rowspan="1">Has ERIC got the Science Lab storeroom key?</td>
+<td class="comment-1" rowspan="1">Has ERIC got the Science Lab storeroom key?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a99"></span>7A99</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$7AA6</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a9b"></span>7A9B</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,$1D</td>
-<td class="comment-11" rowspan="1"><a href="../graphics/as.html#29">0x1D</a>: animatory state of the frog</td>
+<td class="comment-1" rowspan="1"><a href="../graphics/as.html#29">0x1D</a>: animatory state of the frog</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7a9d"></span>7A9D</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,$0A3B</td>
-<td class="comment-11" rowspan="1">(<span class="register">E</span>,<span class="register">D</span>)=(59,10) (location where the frog enters the game)</td>
+<td class="comment-1" rowspan="1">(<span class="register">E</span>,<span class="register">D</span>)=(59,10) (location where the frog enters the game)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aa0"></span>7AA0</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6130.html">$6130</a></td>
-<td class="comment-11" rowspan="1">Update the frog's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the frog's animatory state and location and update the SRB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aa3"></span>7AA3</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="78BA.html#7955">$7955</a></td>
-<td class="comment-11" rowspan="1">Bring the frog into the game</td>
+<td class="comment-1" rowspan="1">Bring the frog into the game</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -699,102 +518,67 @@ It's time for this mouse to come out of hiding.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7aa6"></span>7AA6</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=random number between 0x05 and 0x14; this determines how long the mouse will hide next time</td>
+<td class="comment-1" rowspan="3"><span class="register">A</span>=random number between 0x05 and 0x14; this determines how long the mouse will hide next time</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aa9"></span>7AA9</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $0F</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aab"></span>7AAB</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$05</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aad"></span>7AAD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-11" rowspan="1">Store this in byte 0x15 of the mouse's buffer</td>
+<td class="comment-1" rowspan="1">Store this in byte 0x15 of the mouse's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aae"></span>7AAE</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6291.html">$6291</a></td>
-<td class="comment-11" rowspan="3"><span class="register">A</span>=random number between 2 and 5; this determines how many changes of direction and distance to travel the mouse will make before hiding again</td>
+<td class="comment-1" rowspan="3"><span class="register">A</span>=random number between 2 and 5; this determines how many changes of direction and distance to travel the mouse will make before hiding again</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab1"></span>7AB1</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $03</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab3"></span>7AB3</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,$02</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab5"></span>7AB5</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC L</td>
-<td class="comment-11" rowspan="2">Store this in byte 0x14 of the mouse's buffer</td>
+<td class="comment-1" rowspan="2">Store this in byte 0x14 of the mouse's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab6"></span>7AB6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab7"></span>7AB7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$16</td>
-<td class="comment-11" rowspan="2"><span class="register">E</span>=x-coordinate of the mouse before it hid</td>
+<td class="comment-1" rowspan="2"><span class="register">E</span>=x-coordinate of the mouse before it hid</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ab9"></span>7AB9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7aba"></span>7ABA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$02</td>
-<td class="comment-11" rowspan="2"><span class="register">D</span>=y-coordinate of the mouse</td>
+<td class="comment-1" rowspan="2"><span class="register">D</span>=y-coordinate of the mouse</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7abc"></span>7ABC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7abd"></span>7ABD</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP $7A5D</td>
-<td class="comment-11" rowspan="1">Unhide the mouse</td>
+<td class="comment-1" rowspan="1">Unhide the mouse</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -807,25 +591,19 @@ This mouse was released by ERIC and is currently hiding. It's due to come out of
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7ac0"></span>7AC0</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$10</td>
-<td class="comment-11" rowspan="1">Byte 0x10 holds the mouse's lifespan counter</td>
+<td class="comment-1" rowspan="1">Byte 0x10 holds the mouse's lifespan counter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ac2"></span>7AC2</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-11" rowspan="1">Is it time for this mouse to disappear for ever?</td>
+<td class="comment-1" rowspan="1">Is it time for this mouse to disappear for ever?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ac3"></span>7AC3</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$7ADB</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -838,88 +616,59 @@ This mouse must die, and return control of the buffer it hijacked (0xC6, 0xC7, 0
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7ac5"></span>7AC5</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$1D</td>
-<td class="comment-11" rowspan="2">Set bits 0 and 7 at byte 0x1D: restart the command list and make the character run</td>
+<td class="comment-1" rowspan="2">Set bits 0 and 7 at byte 0x1D: restart the command list and make the character run</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ac7"></span>7AC7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$81</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ac9"></span>7AC9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0A</td>
-<td class="comment-11" rowspan="2">Remove any interruptible subcommand routine address that may have been in the character's buffer before it was hijacked</td>
+<td class="comment-1" rowspan="2">Remove any interruptible subcommand routine address that may have been in the character's buffer before it was hijacked</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7acb"></span>7ACB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$00</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7acd"></span>7ACD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$0F</td>
-<td class="comment-11" rowspan="2">Pick up from byte 0x0F the animatory state of the character whose buffer the mouse borrowed</td>
+<td class="comment-1" rowspan="2">Pick up from byte 0x0F the animatory state of the character whose buffer the mouse borrowed</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7acf"></span>7ACF</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ad0"></span>7AD0</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND $F0</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=character's base animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ad2"></span>7AD2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$00</td>
-<td class="comment-11" rowspan="2">Restore this character's animatory state to its base value</td>
+<td class="comment-1" rowspan="2">Restore this character's animatory state to its base value</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ad4"></span>7AD4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ad5"></span>7AD5</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="2">Make the character reappear at x-coordinate 32 (which should be off-screen because ERIC cannot release mice in the boys' skool)</td>
+<td class="comment-1" rowspan="2">Make the character reappear at x-coordinate 32 (which should be off-screen because ERIC cannot release mice in the boys' skool)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ad6"></span>7AD6</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),$20</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ad8"></span>7AD8</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="638C.html#6394">$6394</a></td>
-<td class="comment-11" rowspan="1">Terminate this uninterruptible subcommand, thus returning control to the character who normally owns the buffer</td>
+<td class="comment-1" rowspan="1">Terminate this uninterruptible subcommand, thus returning control to the character who normally owns the buffer</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -932,52 +681,46 @@ This mouse (released by ERIC) is about to come out of hiding.
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="7adb"></span>7ADB</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,($7FFF)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=leftmost column of the play area on screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ade"></span>7ADE</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP $90</td>
-<td class="comment-11" rowspan="1">Is at least half of the girls' skool on-screen?</td>
+<td class="comment-1" rowspan="1">Is at least half of the girls' skool on-screen?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ae0"></span>7AE0</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,$7AC5</td>
-<td class="comment-11" rowspan="1">Terminate the mouse if not</td>
+<td class="comment-1" rowspan="1">Terminate the mouse if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ae2"></span>7AE2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,$15</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="7ae4"></span>7AE4</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $7AA6</td>
-<td class="comment-11" rowspan="1">Otherwise make the mouse reappear</td>
+<td class="comment-1" rowspan="1">Otherwise make the mouse reappear</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="7A14.html">7A14</a></span></td>
+<td class="prev">
+Prev: <a href="7A14.html">7A14</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#7a16">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="7AE6.html">7AE6</a></span></td>
+<td class="next">
+Next: <a href="7AE6.html">7AE6</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/31254.html">Switch to decimal</a>.</div>
 </footer>
 </body>

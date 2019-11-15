@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 50B9</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="50AA.html">50AA</a></span></td>
+<td class="prev">
+Prev: <a href="50AA.html">50AA</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#50b9">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="50E2.html">50E2</a></span></td>
+<td class="next">
+Next: <a href="50E2.html">50E2</a>
+</td>
 </tr>
 </table>
 <div class="description">50B9: Print a message centred across the entire screen</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="52A0.html">52A0</a>.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,20 +41,12 @@ Used by the routine at <a href="52A0.html">52A0</a>.
 <td class="register-desc">Message number</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="50b9"></span>50B9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5000</td>
-<td class="comment-11" rowspan="1">5000=display file address</td>
+<td class="comment-1" rowspan="1">5000=display file address</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -64,192 +59,137 @@ This entry point is used by the routines at <a href="51A0.html">51A0</a>, <a hre
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="50bc"></span>50BC</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-11" rowspan="1">Save the display file address</td>
+<td class="comment-1" rowspan="1">Save the display file address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50bd"></span>50BD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,A</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=message number</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=message number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50be"></span>50BE</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,A</td>
-<td class="comment-11" rowspan="1">Is the message number &lt; 0x80?</td>
+<td class="comment-1" rowspan="1">Is the message number &lt; 0x80?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50c0"></span>50C0</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,$50C8</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50c2"></span>50C2</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$50</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the appropriate entry in the message address table at <a href="50F4.html">50F4</a></td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the appropriate entry in the message address table at <a href="50F4.html">50F4</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50c4"></span>50C4</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=LSB of the message address</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=LSB of the message address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50c5"></span>50C5</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the MSB</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the MSB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50c6"></span>50C6</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR $50CC</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="50c8"></span>50C8</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,$FE</td>
-<td class="comment-11" rowspan="1">Use the regular message address table for message numbers &lt; 0x80</td>
+<td class="comment-1" rowspan="1">Use the regular message address table for message numbers &lt; 0x80</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50ca"></span>50CA</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD E,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">E</span>=LSB of the message address</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=LSB of the message address</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50cb"></span>50CB</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at the MSB</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the MSB</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="50cc"></span>50CC</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,(HL)</td>
-<td class="comment-11" rowspan="1">Now <span class="register">DE</span>=address of the message to print</td>
+<td class="comment-1" rowspan="1">Now <span class="register">DE</span>=address of the message to print</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50cd"></span>50CD</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,$5B00</td>
-<td class="comment-11" rowspan="4">Prepare the message in screen-ready form in the buffer at <a href="5B00.html">5B00</a></td>
+<td class="comment-1" rowspan="4">Prepare the message in screen-ready form in the buffer at <a href="5B00.html">5B00</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50d0"></span>50D0</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50d1"></span>50D1</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="6B1B.html">$6B1B</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50d4"></span>50D4</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP HL</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50d5"></span>50D5</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-11" rowspan="1">Restore the display file address to <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Restore the display file address to <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="50d6"></span>50D6</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-11" rowspan="7">Display the message on-screen</td>
+<td class="comment-1" rowspan="7">Display the message on-screen</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50d7"></span>50D7</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,$20</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50d9"></span>50D9</td>
-<td class="bytes-0"></td>
 <td class="instruction">LDIR</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50db"></span>50DB</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP DE</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50dc"></span>50DC</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50dd"></span>50DD</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50df"></span>50DF</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,$50D6</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="50e1"></span>50E1</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="50AA.html">50AA</a></span></td>
+<td class="prev">
+Prev: <a href="50AA.html">50AA</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#50b9">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="50E2.html">50E2</a></span></td>
+<td class="next">
+Next: <a href="50E2.html">50E2</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../dec/asm/20665.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 25944</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25940.html">25940</a></span></td>
+<td class="prev">
+Prev: <a href="25940.html">25940</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25944">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="26062.html">26062</a></span></td>
+<td class="next">
+Next: <a href="26062.html">26062</a>
+</td>
 </tr>
 </table>
 <div class="description">25944: Make a teacher find ERIC</div>
@@ -29,7 +32,7 @@
 Used by the routines at <a href="32379.html">32379</a>, <a href="61595.html">61595</a>, <a href="62794.html">62794</a> and <a href="62815.html">62815</a>. Computes the teacher's next move in the search for ERIC.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,34 +41,22 @@ Used by the routines at <a href="32379.html">32379</a>, <a href="61595.html">615
 <td class="register-desc">Teacher's character number (200-204)</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25944"></span>25944</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,0</td>
-<td class="comment-11" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at byte 0 of the character's buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25946"></span>25946</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Is the teacher midstride?</td>
+<td class="comment-1" rowspan="1">Is the teacher midstride?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25948"></span>25948</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,25963</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -78,60 +69,42 @@ This entry point is used by the routines at <a href="32379.html">32379</a>, <a h
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25950"></span>25950</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25012.html">25012</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the teacher's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the teacher's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25953"></span>25953</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,A</td>
-<td class="comment-11" rowspan="1">Save the animatory state in <span class="register">B</span> temporarily</td>
+<td class="comment-1" rowspan="1">Save the animatory state in <span class="register">B</span> temporarily</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25954"></span>25954</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,15</td>
-<td class="comment-11" rowspan="2">Byte 15 holds the y-coordinate adjustment to make as the teacher finishes this stride: 0 normally, 1 if descending a staircase (see later in this routine)</td>
+<td class="comment-1" rowspan="2">Byte 15 holds the y-coordinate adjustment to make as the teacher finishes this stride: 0 normally, 1 if descending a staircase (see later in this routine)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25956"></span>25956</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25957"></span>25957</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,D</td>
-<td class="comment-11" rowspan="2">Make the appropriate y-coordinate adjustment</td>
+<td class="comment-1" rowspan="2">Make the appropriate y-coordinate adjustment</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25958"></span>25958</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,A</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25959"></span>25959</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,B</td>
-<td class="comment-11" rowspan="1">Restore the animatory state to <span class="register">A</span></td>
+<td class="comment-1" rowspan="1">Restore the animatory state to <span class="register">A</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25960"></span>25960</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="25581.html#25600">25600</a></td>
-<td class="comment-11" rowspan="1">Make the teacher finish his stride</td>
+<td class="comment-1" rowspan="1">Make the teacher finish his stride</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -144,172 +117,122 @@ The teacher is not midstride. Is he close enough to ERIC to stop the chase?
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25963"></span>25963</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="28240.html#28242">28242</a></td>
-<td class="comment-11" rowspan="1">Is the teacher on a staircase?</td>
+<td class="comment-1" rowspan="1">Is the teacher on a staircase?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25966"></span>25966</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,26007</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25968"></span>25968</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,(53761)</td>
-<td class="comment-11" rowspan="1">Pick up ERIC's coordinates in <span class="register">DE</span></td>
+<td class="comment-1" rowspan="1">Pick up ERIC's coordinates in <span class="register">DE</span></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25972"></span>25972</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,0</td>
-<td class="comment-11" rowspan="1">Byte 0 holds the teacher's animatory state</td>
+<td class="comment-1" rowspan="1">Byte 0 holds the teacher's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25974"></span>25974</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Is the teacher facing left?</td>
+<td class="comment-1" rowspan="1">Is the teacher facing left?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25976"></span>25976</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,1</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25978"></span>25978</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,25984</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25980"></span>25980</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,E</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ERIC's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25981"></span>25981</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB (HL)</td>
-<td class="comment-11" rowspan="1">Subtract that of the teacher</td>
+<td class="comment-1" rowspan="1">Subtract that of the teacher</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25982"></span>25982</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 25986</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25984"></span>25984</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=teacher's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25985"></span>25985</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB E</td>
-<td class="comment-11" rowspan="1">Subtract that of ERIC</td>
+<td class="comment-1" rowspan="1">Subtract that of ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25986"></span>25986</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 4</td>
-<td class="comment-11" rowspan="1">Is ERIC less than 4 horizontal spaces in front of the teacher?</td>
+<td class="comment-1" rowspan="1">Is ERIC less than 4 horizontal spaces in front of the teacher?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25988"></span>25988</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,26004</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25990"></span>25990</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=2</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25991"></span>25991</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=teacher's y-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=teacher's y-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25992"></span>25992</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB 4</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25994"></span>25994</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,25999</td>
-<td class="comment-11" rowspan="1">Jump if the teacher's on the top floor</td>
+<td class="comment-1" rowspan="1">Jump if the teacher's on the top floor</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25996"></span>25996</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP D</td>
-<td class="comment-11" rowspan="1">Is ERIC at least 4 vertical spaces above the teacher?</td>
+<td class="comment-1" rowspan="1">Is ERIC at least 4 vertical spaces above the teacher?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="25997"></span>25997</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,26004</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="25999"></span>25999</td>
-<td class="bytes-0"></td>
 <td class="instruction">ADD A,7</td>
-<td class="comment-11" rowspan="2">Set the carry flag if ERIC is at least 4 vertical spaces below the teacher</td>
+<td class="comment-1" rowspan="2">Set the carry flag if ERIC is at least 4 vertical spaces below the teacher</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26001"></span>26001</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP D</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26002"></span>26002</td>
-<td class="bytes-0"></td>
 <td class="instruction">CCF</td>
-<td class="comment-11" rowspan="2">Return if ERIC is within 3 vertical spaces either side of the teacher</td>
+<td class="comment-1" rowspan="2">Return if ERIC is within 3 vertical spaces either side of the teacher</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26003"></span>26003</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -322,32 +245,24 @@ The teacher is not close enough to ERIC yet to stop chasing him. Now to figure o
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26004"></span>26004</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25534.html">25534</a></td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=ERIC's y-coordinate (or the y-coordinate of the floor he's closest to if his feet are not on the floor)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=ERIC's y-coordinate (or the y-coordinate of the floor he's closest to if his feet are not on the floor)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26007"></span>26007</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25843.html">25843</a></td>
-<td class="comment-11" rowspan="1">Work out how the teacher can reach ERIC from here</td>
+<td class="comment-1" rowspan="1">Work out how the teacher can reach ERIC from here</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26010"></span>26010</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,A</td>
-<td class="comment-11" rowspan="1">Is there a closed door in the way?</td>
+<td class="comment-1" rowspan="1">Is there a closed door in the way?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26012"></span>26012</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP NZ,<a href="28814.html#28834">28834</a></td>
-<td class="comment-11" rowspan="1">Open it if so</td>
+<td class="comment-1" rowspan="1">Open it if so</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -360,109 +275,79 @@ There is no closed door in the way. Is the teacher on a staircase?
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26015"></span>26015</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,0</td>
-<td class="comment-11" rowspan="1">Initialise the staircase indicator to 0</td>
+<td class="comment-1" rowspan="1">Initialise the staircase indicator to 0</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26018"></span>26018</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 2</td>
-<td class="comment-11" rowspan="1">Is the teacher descending a staircase?</td>
+<td class="comment-1" rowspan="1">Is the teacher descending a staircase?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26020"></span>26020</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,26023</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26022"></span>26022</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=1 (teacher is descending a staircase)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=1 (teacher is descending a staircase)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26023"></span>26023</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,26026</td>
-<td class="comment-11" rowspan="1">Jump if the teacher is not ascending a staircase</td>
+<td class="comment-1" rowspan="1">Jump if the teacher is not ascending a staircase</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26025"></span>26025</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1"><span class="register">C</span>=-1 (teacher is ascending a staircase)</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=-1 (teacher is ascending a staircase)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26026"></span>26026</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 3</td>
-<td class="comment-11" rowspan="1">Is the teacher on a staircase?</td>
+<td class="comment-1" rowspan="1">Is the teacher on a staircase?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26028"></span>26028</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,26045</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26030"></span>26030</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,0</td>
-<td class="comment-11" rowspan="1">Byte 0 holds the teacher's animatory state</td>
+<td class="comment-1" rowspan="1">Byte 0 holds the teacher's animatory state</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26032"></span>26032</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 4</td>
-<td class="comment-11" rowspan="1">Set the carry flag if the teacher should go left</td>
+<td class="comment-1" rowspan="1">Set the carry flag if the teacher should go left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26034"></span>26034</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Set the zero flag if the teacher is facing left</td>
+<td class="comment-1" rowspan="1">Set the zero flag if the teacher is facing left</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26036"></span>26036</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,26043</td>
-<td class="comment-11" rowspan="1">Jump if the teacher must go left to reach ERIC</td>
+<td class="comment-1" rowspan="1">Jump if the teacher must go left to reach ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26038"></span>26038</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,26045</td>
-<td class="comment-11" rowspan="1">Jump if the teacher is facing right</td>
+<td class="comment-1" rowspan="1">Jump if the teacher is facing right</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26040"></span>26040</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="25581.html#25648">25648</a></td>
-<td class="comment-11" rowspan="1">Turn the teacher round</td>
+<td class="comment-1" rowspan="1">Turn the teacher round</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26043"></span>26043</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,26040</td>
-<td class="comment-11" rowspan="1">Turn the teacher round if he's facing right</td>
+<td class="comment-1" rowspan="1">Turn the teacher round if he's facing right</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -475,87 +360,70 @@ Now <span class="register">BC</span> is still 0 if the teacher is not on a stair
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26045"></span>26045</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,15</td>
-<td class="comment-11" rowspan="2">Set byte 15 of teacher's buffer to 1 if the teacher is descending a staircase, or 0 if he's ascending a staircase or not on one</td>
+<td class="comment-1" rowspan="2">Set byte 15 of teacher's buffer to 1 if the teacher is descending a staircase, or 0 if he's ascending a staircase or not on one</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26047"></span>26047</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),B</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26048"></span>26048</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH BC</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26049"></span>26049</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="25012.html">25012</a></td>
-<td class="comment-11" rowspan="1">Update the SRB for the teacher's current animatory state and location</td>
+<td class="comment-1" rowspan="1">Update the SRB for the teacher's current animatory state and location</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26052"></span>26052</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP BC</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26053"></span>26053</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,C</td>
-<td class="comment-11" rowspan="1">Is the teacher ascending a staircase?</td>
+<td class="comment-1" rowspan="1">Is the teacher ascending a staircase?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26055"></span>26055</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,26058</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26057"></span>26057</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC D</td>
-<td class="comment-11" rowspan="1">Up a stair as the teacher goes midstride</td>
+<td class="comment-1" rowspan="1">Up a stair as the teacher goes midstride</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="26058"></span>26058</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC A</td>
-<td class="comment-11" rowspan="1">One foot forward (midstride)</td>
+<td class="comment-1" rowspan="1">One foot forward (midstride)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="26059"></span>26059</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="24880.html">24880</a></td>
-<td class="comment-11" rowspan="1">Update the teacher's animatory state and location and update the SRB</td>
+<td class="comment-1" rowspan="1">Update the teacher's animatory state and location and update the SRB</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="25940.html">25940</a></span></td>
+<td class="prev">
+Prev: <a href="25940.html">25940</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#25944">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="26062.html">26062</a></span></td>
+<td class="next">
+Next: <a href="26062.html">26062</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/6558.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

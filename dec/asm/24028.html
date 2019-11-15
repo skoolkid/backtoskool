@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 24028</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="24027.html">24027</a></span></td>
+<td class="prev">
+Prev: <a href="24027.html">24027</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#24028">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="24132.html">24132</a></span></td>
+<td class="next">
+Next: <a href="24132.html">24132</a>
+</td>
 </tr>
 </table>
 <div class="description">24028: Compare blackboard contents with combinations</div>
@@ -29,7 +32,7 @@
 Used by the routine at <a href="24175.html">24175</a>. Compares the bike and storeroom combinations with what ERIC has just written on a blackboard. Unchains the bike or gives ERIC the storeroom key if there is a match.
 </div>
 </div>
-<table class="input-1">
+<table class="input">
 <tr class="asm-input-header">
 <th colspan="2">Input</th>
 </tr>
@@ -38,293 +41,198 @@ Used by the routine at <a href="24175.html">24175</a>. Compares the bike and sto
 <td class="register-desc">127</td>
 </tr>
 </table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24028"></span>24028</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD D,H</td>
-<td class="comment-11" rowspan="1"><span class="register">D</span>=127</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=127</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24029"></span>24029</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,251</td>
-<td class="comment-11" rowspan="2">Reset all of ERIC's status flags at <a href="32763.html">32763</a> now that he's no longer writing on the board</td>
+<td class="comment-1" rowspan="2">Reset all of ERIC's status flags at <a href="32763.html">32763</a> now that he's no longer writing on the board</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24031"></span>24031</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24033"></span>24033</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,156</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32668.html">32668</a> (combinations)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32668.html">32668</a> (combinations)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24035"></span>24035</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,2052</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=8 (4 numbers, 4 letters), <span class="register">C</span>=4</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=8 (4 numbers, 4 letters), <span class="register">C</span>=4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24038"></span>24038</td>
-<td class="bytes-0"></td>
 <td class="instruction">RES 7,(HL)</td>
-<td class="comment-11" rowspan="3">Reset bit 7 of each combination number/letter; bit 7 will be set later if there is a match with what ERIC wrote on the board</td>
+<td class="comment-1" rowspan="3">Reset bit 7 of each combination number/letter; bit 7 will be set later if there is a match with what ERIC wrote on the board</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24040"></span>24040</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24041"></span>24041</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 24038</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24043"></span>24043</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,216</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32728.html">32728</a> (which holds the identifier of the blackboard ERIC wrote on)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32728.html">32728</a> (which holds the identifier of the blackboard ERIC wrote on)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24045"></span>24045</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,(HL)</td>
-<td class="comment-11" rowspan="2">Point <span class="register">HL</span> at byte 1 of the relevant blackboard buffer (bytes 2-5 hold the first 4 characters ERIC wrote)</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at byte 1 of the relevant blackboard buffer (bytes 2-5 hold the first 4 characters ERIC wrote)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24046"></span>24046</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24047"></span>24047</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,C</td>
-<td class="comment-11" rowspan="1"><span class="register">B</span>=4</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24048"></span>24048</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="4">Return unless at least four letters were written on the board by ERIC</td>
+<td class="comment-1" rowspan="4">Return unless at least four letters were written on the board by ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24049"></span>24049</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24051"></span>24051</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24052"></span>24052</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 24048</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24054"></span>24054</td>
-<td class="bytes-0"></td>
 <td class="instruction">EX DE,HL</td>
-<td class="comment-11" rowspan="1">Point <span class="register">DE</span> at the last byte of the blackboard buffer</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the last byte of the blackboard buffer</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24055"></span>24055</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,156</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32668.html">32668</a> (combinations)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32668.html">32668</a> (combinations)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24057"></span>24057</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,8</td>
-<td class="comment-11" rowspan="1">4 numbers, 4 letters</td>
+<td class="comment-1" rowspan="1">4 numbers, 4 letters</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24059"></span>24059</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(DE)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=ASCII code of the character written on the board</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=ASCII code of the character written on the board</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24060"></span>24060</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 96</td>
-<td class="comment-11" rowspan="1">Is it upper case?</td>
+<td class="comment-1" rowspan="1">Is it upper case?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24062"></span>24062</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR C,24066</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24064"></span>24064</td>
-<td class="bytes-0"></td>
 <td class="instruction">SUB 32</td>
-<td class="comment-11" rowspan="1">Make lower case characters upper case</td>
+<td class="comment-1" rowspan="1">Make lower case characters upper case</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24066"></span>24066</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-11" rowspan="1">Does the character written on the board match the combination number/letter?</td>
+<td class="comment-1" rowspan="1">Does the character written on the board match the combination number/letter?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24067"></span>24067</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,24073</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24069"></span>24069</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-11" rowspan="1">Point to the next combination number/letter</td>
+<td class="comment-1" rowspan="1">Point to the next combination number/letter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24070"></span>24070</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 24066</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24072"></span>24072</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24073"></span>24073</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC E</td>
-<td class="comment-11" rowspan="1">Point to the next character written on the board</td>
+<td class="comment-1" rowspan="1">Point to the next character written on the board</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24074"></span>24074</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 7,(HL)</td>
-<td class="comment-11" rowspan="1">Signal: matching character</td>
+<td class="comment-1" rowspan="1">Signal: matching character</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24076"></span>24076</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-11" rowspan="1">Next combination letter/number</td>
+<td class="comment-1" rowspan="1">Next combination letter/number</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24077"></span>24077</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,24055</td>
-<td class="comment-11" rowspan="1">Jump back to check the remaining numbers/letters</td>
+<td class="comment-1" rowspan="1">Jump back to check the remaining numbers/letters</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24079"></span>24079</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,156</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32668.html">32668</a> (combinations)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32668.html">32668</a> (combinations)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24081"></span>24081</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,4</td>
-<td class="comment-11" rowspan="1">There are 4 digits in the bike combination</td>
+<td class="comment-1" rowspan="1">There are 4 digits in the bike combination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24083"></span>24083</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the first digit</td>
+<td class="comment-1" rowspan="1">Pick up the first digit</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24084"></span>24084</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND (HL)</td>
-<td class="comment-11" rowspan="3">Bit 7 of <span class="register">A</span> will remain set if all four written characters matched up with the bike combination digits</td>
+<td class="comment-1" rowspan="3">Bit 7 of <span class="register">A</span> will remain set if all four written characters matched up with the bike combination digits</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24085"></span>24085</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24086"></span>24086</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 24084</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24088"></span>24088</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="1">Was there a match?</td>
+<td class="comment-1" rowspan="1">Was there a match?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24089"></span>24089</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NC,24114</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -337,74 +245,52 @@ ERIC has written the bike combination number on a blackboard. Free the bike if i
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24091"></span>24091</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,54017</td>
-<td class="comment-11" rowspan="1"><span class="register">H</span>=211 (bike), <span class="register">L</span>=1</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=211 (bike), <span class="register">L</span>=1</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24094"></span>24094</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1"><span class="register">A</span>=bike's x-coordinate</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=bike's x-coordinate</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24095"></span>24095</td>
-<td class="bytes-0"></td>
 <td class="instruction">CP 224</td>
-<td class="comment-11" rowspan="1">Is the bike already free?</td>
+<td class="comment-1" rowspan="1">Is the bike already free?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24097"></span>24097</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24098"></span>24098</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),100</td>
-<td class="comment-11" rowspan="1">Place the bike at x-coordinate 100</td>
+<td class="comment-1" rowspan="1">Place the bike at x-coordinate 100</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24100"></span>24100</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,57600</td>
-<td class="comment-11" rowspan="2">Alter UDG references in the play area to release the bike from the tree</td>
+<td class="comment-1" rowspan="2">Alter UDG references in the play area to release the bike from the tree</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24103"></span>24103</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="27672.html">27672</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24106"></span>24106</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,100</td>
-<td class="comment-11" rowspan="2">Add 1000 to the score and print it</td>
+<td class="comment-1" rowspan="2">Add 1000 to the score and print it</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24108"></span>24108</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="29621.html">29621</a></td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24111"></span>24111</td>
-<td class="bytes-0"></td>
 <td class="instruction">JP <a href="62178.html#62401">62401</a></td>
-<td class="comment-11" rowspan="1">Print the inventory and make a sound effect</td>
+<td class="comment-1" rowspan="1">Print the inventory and make a sound effect</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -417,101 +303,79 @@ The first four characters written on the board by ERIC didn't match the bike com
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24114"></span>24114</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-11" rowspan="1">Pick up the first combination letter</td>
+<td class="comment-1" rowspan="1">Pick up the first combination letter</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24115"></span>24115</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,4</td>
-<td class="comment-11" rowspan="1">There are 4 letters in the storeroom combination</td>
+<td class="comment-1" rowspan="1">There are 4 letters in the storeroom combination</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="24117"></span>24117</td>
-<td class="bytes-0"></td>
 <td class="instruction">AND (HL)</td>
-<td class="comment-11" rowspan="3">Bit 7 of <span class="register">A</span> will remain set if all four written characters matched up with the storeroom combination letters</td>
+<td class="comment-1" rowspan="3">Bit 7 of <span class="register">A</span> will remain set if all four written characters matched up with the storeroom combination letters</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24118"></span>24118</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24119"></span>24119</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 24117</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24121"></span>24121</td>
-<td class="bytes-0"></td>
 <td class="instruction">RLCA</td>
-<td class="comment-11" rowspan="1">Was there a match?</td>
+<td class="comment-1" rowspan="1">Was there a match?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24122"></span>24122</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NC</td>
-<td class="comment-11" rowspan="1">Return if not</td>
+<td class="comment-1" rowspan="1">Return if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24123"></span>24123</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD L,235</td>
-<td class="comment-11" rowspan="1"><span class="register">HL</span>=<a href="32747.html">32747</a> (which holds the inventory flags)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="32747.html">32747</a> (which holds the inventory flags)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24125"></span>24125</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 1,(HL)</td>
-<td class="comment-11" rowspan="1">Has ERIC already got the storeroom key?</td>
+<td class="comment-1" rowspan="1">Has ERIC already got the storeroom key?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24127"></span>24127</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET NZ</td>
-<td class="comment-11" rowspan="1">Return if so</td>
+<td class="comment-1" rowspan="1">Return if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24128"></span>24128</td>
-<td class="bytes-0"></td>
 <td class="instruction">SET 1,(HL)</td>
-<td class="comment-11" rowspan="1">Otherwise give ERIC the key to the storeroom</td>
+<td class="comment-1" rowspan="1">Otherwise give ERIC the key to the storeroom</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="24130"></span>24130</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR 24106</td>
-<td class="comment-11" rowspan="1">Add 1000 to the score, print the inventory, and make a sound effect</td>
+<td class="comment-1" rowspan="1">Add 1000 to the score, print the inventory, and make a sound effect</td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="24027.html">24027</a></span></td>
+<td class="prev">
+Prev: <a href="24027.html">24027</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#24028">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="24132.html">24132</a></span></td>
+<td class="next">
+Next: <a href="24132.html">24132</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/5DDC.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

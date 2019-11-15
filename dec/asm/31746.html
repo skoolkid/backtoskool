@@ -4,7 +4,6 @@
 <title>Back to Skool: Routine at 31746</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-
 </head>
 <body class="Asm-c">
 <table class="header">
@@ -15,9 +14,13 @@
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31733.html">31733</a></span></td>
+<td class="prev">
+Prev: <a href="31733.html">31733</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31746">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31843.html">31843</a></span></td>
+<td class="next">
+Next: <a href="31843.html">31843</a>
+</td>
 </tr>
 </table>
 <div class="description">31746: Print the inventory</div>
@@ -29,389 +32,271 @@
 Used by the routines at <a href="23863.html">23863</a>, <a href="23907.html">23907</a>, <a href="30804.html">30804</a>, <a href="62178.html">62178</a> and <a href="63586.html">63586</a>. Prints the safe key, Science Lab storeroom key, frog, water pistol and stinkbombs, depending on which of these items ERIC has in his possession. (The mouse inventory is handled separately at <a href="31573.html#31682">31682</a>.)
 </div>
 </div>
-<table class="input-0">
-<tr class="asm-input-header">
-<th colspan="2">Input</th>
-</tr>
-
-</table>
-<table class="output-0">
-<tr class="asm-output-header">
-<th colspan="2">Output</th>
-</tr>
-
-</table>
 </td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31746"></span>31746</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32746</td>
-<td class="comment-11" rowspan="1"><span class="register">L</span>=234 (LSB of the display file address for the first slot in the inventory: 20714)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=234 (LSB of the display file address for the first slot in the inventory: 20714)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31749"></span>31749</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD C,6</td>
-<td class="comment-11" rowspan="9">Clear the six slots in the current on-screen inventory</td>
+<td class="comment-1" rowspan="9">Clear the six slots in the current on-screen inventory</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31751"></span>31751</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,80</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31753"></span>31753</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD B,8</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31755"></span>31755</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD (HL),0</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31757"></span>31757</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC H</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31758"></span>31758</td>
-<td class="bytes-0"></td>
 <td class="instruction">DJNZ 31755</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31760"></span>31760</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC L</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31761"></span>31761</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC C</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31762"></span>31762</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,31751</td>
-<td class="comment-01" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31764"></span>31764</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD DE,20714</td>
-<td class="comment-11" rowspan="1"><span class="register">DE</span>=display file address for the first slot in the inventory</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=display file address for the first slot in the inventory</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31767"></span>31767</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD BC,39144</td>
-<td class="comment-11" rowspan="1">The safe key UDG is at <a href="39144.html">39144</a></td>
+<td class="comment-1" rowspan="1">The safe key UDG is at <a href="39144.html">39144</a></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31770"></span>31770</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD HL,32747</td>
-<td class="comment-11" rowspan="1"><a href="32747.html">32747</a> holds the inventory flags</td>
+<td class="comment-1" rowspan="1"><a href="32747.html">32747</a> holds the inventory flags</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31773"></span>31773</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,6</td>
-<td class="comment-11" rowspan="1">INK 6</td>
+<td class="comment-1" rowspan="1">INK 6</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31775"></span>31775</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 0,(HL)</td>
-<td class="comment-11" rowspan="1">Has ERIC got the safe key?</td>
+<td class="comment-1" rowspan="1">Has ERIC got the safe key?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31777"></span>31777</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,<a href="31844.html">31844</a></td>
-<td class="comment-11" rowspan="1">Print it if so</td>
+<td class="comment-1" rowspan="1">Print it if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31780"></span>31780</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"><span class="register">BC</span>=<a href="39400.html">39400</a>: Science Lab storeroom key UDG</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="39400.html">39400</a>: Science Lab storeroom key UDG</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31781"></span>31781</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,7</td>
-<td class="comment-11" rowspan="1">INK 7</td>
+<td class="comment-1" rowspan="1">INK 7</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31783"></span>31783</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 1,(HL)</td>
-<td class="comment-11" rowspan="1">Has ERIC got the Science Lab storeroom key?</td>
+<td class="comment-1" rowspan="1">Has ERIC got the Science Lab storeroom key?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31785"></span>31785</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,<a href="31844.html">31844</a></td>
-<td class="comment-11" rowspan="1">Print it if so</td>
+<td class="comment-1" rowspan="1">Print it if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31788"></span>31788</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,4</td>
-<td class="comment-11" rowspan="1">INK 4</td>
+<td class="comment-1" rowspan="1">INK 4</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31790"></span>31790</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"><span class="register">BC</span>=<a href="39656.html">39656</a>: frog UDG</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="39656.html">39656</a>: frog UDG</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31791"></span>31791</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 2,(HL)</td>
-<td class="comment-11" rowspan="1">Has ERIC got the frog?</td>
+<td class="comment-1" rowspan="1">Has ERIC got the frog?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31793"></span>31793</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL NZ,<a href="31844.html">31844</a></td>
-<td class="comment-11" rowspan="1">Print it if so</td>
+<td class="comment-1" rowspan="1">Print it if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31796"></span>31796</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"><span class="register">BC</span>=<a href="39912.html">39912</a>: water pistol UDG (left half)</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="39912.html">39912</a>: water pistol UDG (left half)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31797"></span>31797</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 3,(HL)</td>
-<td class="comment-11" rowspan="1">Has ERIC got the water pistol?</td>
+<td class="comment-1" rowspan="1">Has ERIC got the water pistol?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31799"></span>31799</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,31819</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31801"></span>31801</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,5</td>
-<td class="comment-11" rowspan="1">INK 5 for the water-filled pistol</td>
+<td class="comment-1" rowspan="1">INK 5 for the water-filled pistol</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31803"></span>31803</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 4,(HL)</td>
-<td class="comment-11" rowspan="1">Has ERIC got the water pistol with sherry in it?</td>
+<td class="comment-1" rowspan="1">Has ERIC got the water pistol with sherry in it?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31805"></span>31805</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,31809</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31807"></span>31807</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,67</td>
-<td class="comment-11" rowspan="1">INK 3: BRIGHT 1 for the sherry-filled pistol</td>
+<td class="comment-1" rowspan="1">INK 3: BRIGHT 1 for the sherry-filled pistol</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31809"></span>31809</td>
-<td class="bytes-0"></td>
 <td class="instruction">PUSH AF</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31810"></span>31810</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="31844.html">31844</a></td>
-<td class="comment-11" rowspan="1">Print the left half of the water pistol</td>
+<td class="comment-1" rowspan="1">Print the left half of the water pistol</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31813"></span>31813</td>
-<td class="bytes-0"></td>
 <td class="instruction">POP AF</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31814"></span>31814</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"><span class="register">BC</span>=<a href="40168.html">40168</a>: water pistol UDG (right half)</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="40168.html">40168</a>: water pistol UDG (right half)</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31815"></span>31815</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="31844.html">31844</a></td>
-<td class="comment-11" rowspan="1">Print the right half of the water pistol</td>
+<td class="comment-1" rowspan="1">Print the right half of the water pistol</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31818"></span>31818</td>
-<td class="bytes-0"></td>
 <td class="instruction">DEC B</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31819"></span>31819</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31820"></span>31820</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"><span class="register">BC</span>=<a href="40424.html">40424</a>: 3 stinkbombs UDG</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="40424.html">40424</a>: 3 stinkbombs UDG</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31821"></span>31821</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD A,7</td>
-<td class="comment-11" rowspan="1">INK 7</td>
+<td class="comment-1" rowspan="1">INK 7</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31823"></span>31823</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 5,(HL)</td>
-<td class="comment-11" rowspan="1">Has ERIC got 3 stinkbombs?</td>
+<td class="comment-1" rowspan="1">Has ERIC got 3 stinkbombs?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31825"></span>31825</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,31837</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31827"></span>31827</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"><span class="register">BC</span>=<a href="40680.html">40680</a>: 2 stinkbombs UDG</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="40680.html">40680</a>: 2 stinkbombs UDG</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31828"></span>31828</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 6,(HL)</td>
-<td class="comment-11" rowspan="1">Has ERIC got 2 stinkbombs?</td>
+<td class="comment-1" rowspan="1">Has ERIC got 2 stinkbombs?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31830"></span>31830</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR NZ,31837</td>
-<td class="comment-11" rowspan="1">Jump if so</td>
+<td class="comment-1" rowspan="1">Jump if so</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31832"></span>31832</td>
-<td class="bytes-0"></td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-11" rowspan="1">Has ERIC got 1 stinkbomb?</td>
+<td class="comment-1" rowspan="1">Has ERIC got 1 stinkbomb?</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31834"></span>31834</td>
-<td class="bytes-0"></td>
 <td class="instruction">JR Z,31840</td>
-<td class="comment-11" rowspan="1">Jump if not</td>
+<td class="comment-1" rowspan="1">Jump if not</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31836"></span>31836</td>
-<td class="bytes-0"></td>
 <td class="instruction">INC B</td>
-<td class="comment-11" rowspan="1"><span class="register">BC</span>=<a href="40936.html">40936</a>: 1 stinkbomb UDG</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=<a href="40936.html">40936</a>: 1 stinkbomb UDG</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31837"></span>31837</td>
-<td class="bytes-0"></td>
 <td class="instruction">CALL <a href="31844.html">31844</a></td>
-<td class="comment-11" rowspan="1">Print the stinkbombs</td>
+<td class="comment-1" rowspan="1">Print the stinkbombs</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-2"><span id="31840"></span>31840</td>
-<td class="bytes-0"></td>
 <td class="instruction">LD H,210</td>
-<td class="comment-11" rowspan="1">210=ERIC</td>
+<td class="comment-1" rowspan="1">210=ERIC</td>
 </tr>
 <tr>
-<td class="asm-label-0"></td>
 <td class="address-1"><span id="31842"></span>31842</td>
-<td class="bytes-0"></td>
 <td class="instruction">RET</td>
-<td class="comment-11" rowspan="1"></td>
+<td class="comment-1" rowspan="1"></td>
 </tr>
 </table>
 <table class="asm-navigation">
 <tr>
-<td class="prev"><span class="prev-1">Prev: <a href="31733.html">31733</a></span></td>
+<td class="prev">
+Prev: <a href="31733.html">31733</a>
+</td>
 <td class="up">Up: <a href="../maps/all.html#31746">Map</a></td>
-<td class="next"><span class="next-1">Next: <a href="31843.html">31843</a></span></td>
+<td class="next">
+Next: <a href="31843.html">31843</a>
+</td>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20190617</div>
+<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 7.2.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
 <div><a href="../../asm/7C02.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>
