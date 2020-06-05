@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2019 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2020 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @replace=/#BUG(?![A-Z])/#LINK:Bugs
@@ -13,7 +13,7 @@
 ; https://skoolkit.ca
 ;
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2019 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2020 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -2378,6 +2378,35 @@ c25296 CALL 25302    ; Move one character
 ; { #R61463    | #D61463 }
 ; { #R61595    | #D61595 }
 ; { #R62794    | #D62794 }
+; TABLE#
+; .
+; The address of one of the following primary command routines (or an entry
+; point thereof) may be present in bytes #b3 and #b4 of the character's buffer:
+; .
+; #TABLE(default,centre,:w)
+; { =h Address | =h Description }
+; { #R25700    | #D25700 }
+; { #R25815    | #D25815 }
+; { #R26304    | #D26304 }
+; { #R27904    | #D27904 }
+; { #R29052    | #D29052 }
+; { #R31952    | #D31952 }
+; { #R31969    | #D31969 }
+; { #R32497    | #D32497 }
+; { #R53796    | #D53796 }
+; { #R61440    | #D61440 }
+; { #R61555    | #D61555 }
+; { #R61624    | #D61624 }
+; { #R61631    | #D61631 }
+; { #R61658    | #D61658 }
+; { #R61696    | #D61696 }
+; { #R62032    | #D62032 }
+; { #R62560    | #D62560 }
+; { #R62572    | #D62572 }
+; { #R62599    | #D62599 }
+; { #R62620    | #D62620 }
+; { #R63447    | #D63447 }
+; { #R63501    | #D63501 }
 ; TABLE#
 *25409 LD L,18       ; {Jump if there is an uninterruptible subcommand routine
  25411 LD A,(HL)     ; address in bytes #b17 and #b18 of the character's buffer
