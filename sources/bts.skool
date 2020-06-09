@@ -782,6 +782,7 @@ c23808 AND 15        ; Retain only bits 0-3 (the animatory state)
 ; Used by the routine at #R63405 when bit 6 at #R32749 is set on its own by the
 ; routine at #R29194 because ERIC has hit a wall, a closed door, or the closed
 ; skool gate while standing on the saddle of the bike.
+@refs=63405
 @label=OFFSADDLE
 @ssub=LD A,(53760+1)
 c23843 LD A,(53761)  ; #REGa=ERIC's x-coordinate
@@ -798,6 +799,7 @@ c23843 LD A,(53761)  ; #REGa=ERIC's x-coordinate
 ;
 ; Used by the routine at #R63405 when bit 5 at #R32749 is set by the routine at
 ; #R64259 because ERIC has jumped out of the top-floor window.
+@refs=63405
 @label=BIGFALL
 c23859 LD L,255      ; Use descent table number #R64460#dt255(#b255)
  23861 JR 23854      ; Begin the descent
@@ -807,6 +809,7 @@ c23859 LD L,255      ; Use descent table number #R64460#dt255(#b255)
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'T' is
 ; pressed.
+@refs=63210
 @label=THROW
 c23863 LD A,(32747)  ; #R32747 holds the inventory flags
  23866 AND 24        ; Has ERIC got the water pistol (bit 3 or 4 set)?
@@ -817,7 +820,7 @@ c23863 LD A,(32747)  ; #R32747 holds the inventory flags
  23874 JP 57642      ; this point on, update ERIC's animatory state, and update
                      ; the SRB}
 ; This is where we deal with ERIC after 'T' has been pressed:
-@label=*
+@refs=57669
 *23877 LD HL,32747   ; {Reset bits 3 and 4 of the inventory flags at #R32747,
  23880 LD A,(HL)     ; thus dropping the water pistol
  23881 AND 231       ;
@@ -829,6 +832,7 @@ c23863 LD A,(32747)  ; #R32747 holds the inventory flags
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'J' or
 ; 'L' is pressed.
+@refs=63210
 @label=JUMP
 c23887 CALL 28240    ; Is ERIC on a staircase?
  23890 RET C         ; Return if so
@@ -848,6 +852,7 @@ c23887 CALL 28240    ; Is ERIC on a staircase?
 ; Called by the routine at #R63405 when bit 0 at #R32763 is set (by the routine
 ; at #R23887). Checks whether ERIC has jumped onto a plant pot, up to the safe,
 ; or up to the drinks cabinet.
+@refs=63405
 @label=JUMPING
 c23907 LD HL,32755   ; #R32755 holds ERIC's main action timer
  23910 DEC (HL)      ; Is it time for ERIC to land?
@@ -1033,6 +1038,7 @@ s24132 DEFB 0
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'W' is
 ; pressed.
+@refs=63210
 @label=WRITE
 c24133 LD H,210      ; #b210=ERIC
  24135 CALL 26453    ; Collect info about the board ERIC's standing at (if any)
@@ -1073,6 +1079,7 @@ c24133 LD H,210      ; #b210=ERIC
 ;
 ; This routine is called by the routine at #R63405 when bit 4 at #R32763 is set
 ; (by the routine at #R24133).
+@refs=63405
 @label=WRITING
 c24175 LD HL,32755   ; #R32755 holds ERIC's main action timer
  24178 DEC (HL)      ; Is it time to deal with ERIC yet?
@@ -1117,6 +1124,7 @@ s24236 DEFB 0
 ;
 ; This routine is called by the routine at #R63405 when bit 5 at #R32763 is set
 ; (by the routine at #R24247).
+@refs=63405
 @label=MIDFHK
 c24237 LD HL,32755   ; #R32755 holds ERIC's main action timer
  24240 DEC (HL)      ; Is it time to deal with ERIC yet?
@@ -1146,6 +1154,7 @@ c24247 LD HL,32755   ; {Initialise ERIC's main action timer at #R32755 to 5
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'H' is
 ; pressed.
+@refs=63210
 @label=HIT
 c24263 CALL 28240    ; Is ERIC on a staircase?
  24266 RET C         ; Return if so
@@ -1153,7 +1162,7 @@ c24263 CALL 28240    ; Is ERIC on a staircase?
  24269 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24272 (below) when it's time to deal with
                      ; ERIC again
-@label=*
+@refs=57669
 *24272 LD HL,53760   ; Point #REGhl at byte #b0 of ERIC's buffer
  24275 LD A,(HL)     ; #REGa=ERIC's animatory state
  24276 RRCA          ; Is ERIC raising his fist (#REGa=#AS8(#b8/#b136))?
@@ -1167,6 +1176,7 @@ c24263 CALL 28240    ; Is ERIC on a staircase?
                      ; return to #R24290 (below) when it's time to deal with
                      ; ERIC again
 ; This entry point is used by the routine at #R24348.
+@refs=57669
 *24290 XOR A         ; #REGa=0 (prepare to clear all status flags)
  24291 JP 23925      ; Clear all of ERIC's status flags now that he's finished
                      ; firing, hitting or kissing, update his animatory state
@@ -1181,6 +1191,7 @@ s24294 DEFS 2
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'F' or
 ; '0' (zero) is pressed.
+@refs=63210
 @label=FIRE
 c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
                      ; already in use
@@ -1188,14 +1199,14 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
  24301 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24304 (below) when it's time to deal with
                      ; ERIC again
-@label=*
+@refs=57669
 *24304 LD A,2        ; Message #R64578(#b2): NO CATAPULTS
  24306 CALL 63640    ; Make any nearby teachers give ERIC lines
  24309 LD A,11       ; #AS11: ERIC firing the catapult
  24311 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24314 (below) when it's time to deal with
                      ; ERIC again
-@label=*
+@refs=57669
 *24314 LD B,214      ; ERIC's catapult pellet uses buffer #b214
  24316 CALL 63861    ; Prepare the pellet's buffer and make a catapult sound
                      ; effect
@@ -1203,7 +1214,7 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
  24321 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24324 (below) when it's time to deal with
                      ; ERIC again
-@label=*
+@refs=57669
 *24324 LD A,10       ; #AS10: ERIC lowering the catapult
 @nowarn
 @ofix=JR 24287       ; Update ERIC's animatory state and update the SRB
@@ -1218,6 +1229,7 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
 ; A #IF({asm}<3)[#b95 (MSB of the address of this routine),MSB of the address
 ; . of this routine]
 ; H #b209 (HAYLEY)
+@refs=25296
 @label=HITERIC
 c24328 LD (32755),A  ; Place a large value into ERIC's main action timer at
                      ; #R32755 to ensure that he will not have time to escape
@@ -1243,6 +1255,7 @@ c24328 LD (32755),A  ; Place a large value into ERIC's main action timer at
 ; A ERIC's animatory state
 ; D ERIC's y-coordinate
 ; E ERIC's x-coordinate
+@refs=63210
 @label=KISS
 c24348 LD HL,53504   ; Point #REGhl at byte #b0 of HAYLEY's buffer
  24351 XOR (HL)      ; {Are ERIC and HAYLEY facing the same way?
@@ -1321,7 +1334,7 @@ c24348 LD HL,53504   ; Point #REGhl at byte #b0 of HAYLEY's buffer
  24453 LD A,15       ; #AS15: ERIC and HAYLEY kissing
  24455 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24458 (below) next time
-@label=*
+@refs=57669
 *24458 CALL 62404    ; Make a sound effect
 @ssub=LD HL,53504+19
  24461 LD HL,53523   ; Point #REGhl at byte #b19 of HAYLEY's buffer
@@ -2710,6 +2723,7 @@ c25554 CALL 28067    ; Divert back to the calling routine with #REGa=#b192 and
 ; negotiating any staircases.
 ;
 ; H Character number (#b183-#b214)
+@refs=25296
 @label=WALK
 c25581 LD L,12       ; Point #REGhl at byte #b12 of the character's buffer
  25583 LD (HL),8     ; Initialise this to 8
@@ -2804,6 +2818,7 @@ c25581 LD L,12       ; Point #REGhl at byte #b12 of the character's buffer
 ; and #b10 of a character's buffer by the routine at #R25700.
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=ASCEND
 c25656 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
  25658 BIT 0,(HL)    ; Is the character midstride?
@@ -2826,6 +2841,7 @@ c25656 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
 ; and #b10 of a character's buffer by the routine at #R25700.
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=DESCEND
 c25677 LD L,0        ; Point #REGhl at byte #b0 of the character's buffer
  25679 BIT 0,(HL)    ; Is the character midstride?
@@ -2859,6 +2875,7 @@ s25699 DEFB 0
 ; specified place.
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=GOTO
 c25700 LD L,5        ; {Copy the destination coordinates from the command list
  25702 CALL 25188    ; into bytes #b5 and #b6 of the character's buffer}
@@ -3038,6 +3055,7 @@ s25812 DEFS 3
 ; #b36 of the character's buffer.
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=GOTORAND
 c25815 LD L,36       ; Point #REGhl at byte #b36 of the character's buffer
  25817 LD E,(HL)     ; Pick up the contents in #REGe
@@ -3514,6 +3532,7 @@ s26223 DEFB 0
 ; been knocked out of a chair.
 ;
 ; H Dethroned character's number (#b183-#b209)
+@refs=25296
 @label=UNSEAT1
 c26224 LD L,19       ; {Set the parameter controlling the delay before the
  26226 LD (HL),4     ; character gets up to look for another seat}
@@ -3535,6 +3554,7 @@ c26224 LD L,19       ; {Set the parameter controlling the delay before the
 ; #b17 and #b18 of a character's buffer by the routine at #R26224.
 ;
 ; H Dethroned character's number (#b183-#b209)
+@refs=25296
 @label=UNSEAT2
 c26239 LD L,19       ; Byte #b19 of the character's buffer holds the delay
                      ; counter
@@ -3569,6 +3589,7 @@ c26239 LD L,19       ; Byte #b19 of the character's buffer holds the delay
 ; the same one, in EINSTEIN's case), or by the routine at #R26304.
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=FINDSEAT2
 c26263 LD L,0        ; Byte #b0 holds the character's animatory state
  26265 BIT 0,(HL)    ; Is the character midstride?
@@ -3607,6 +3628,7 @@ s26303 DEFB 0
 ; Makes a character start looking for a seat.
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=FINDSEAT1
 c26304 LD L,4        ; {Remove the address of this primary command routine from
  26306 LD (HL),0     ; bytes #b3 and #b4 of the character's buffer}
@@ -3979,6 +4001,7 @@ s26637 DEFS 2
 ; and #b10 of the teacher's buffer by the routine at #R61696.
 ;
 ; H Teacher's character number (#b201-#b204)
+@refs=25296
 @label=WIPE
 c26639 CALL 28658    ; Collect information about the board
  26642 LD L,11       ; {32 distinct actions are needed to wipe the board; store
@@ -4077,6 +4100,7 @@ s26750 DEFS 2
 ; and #b10 of the character's buffer by the routines at #R32497 and #R61696.
 ;
 ; H Character number (#b201-#b204, #b206)
+@refs=25296
 @label=WRITEBRD
 c26752 CALL 26453    ; Collect information about the board
  26755 INC B         ; {Point #REGbc at the second byte of the board's buffer
@@ -4446,6 +4470,7 @@ s27143 DEFB 0
 ;
 ; E Message number
 ; H Character number (#b200-#b204, #b208)
+@refs=25296
 @label=SPEAK
 c27144 LD L,11       ; {Store the message number in byte #b11 of the
  27146 LD (HL),E     ; character's buffer}
@@ -5253,6 +5278,7 @@ s27903 DEFB 0
 ; assembly is finished.
 ;
 ; H Boy's character number (#b190-#b199, #b206-#b208)
+@refs=25296
 @label=INASSEMBLY
 c27904 LD A,H        ; {Determine the x-coordinate at which this boy will sit
  27905 AND 3         ; during assembly based on his character number (#REGh)
@@ -5283,8 +5309,9 @@ c27904 LD A,H        ; {Determine the x-coordinate at which this boy will sit
                      ; place the address of the entry point at #R27941 (below)
                      ; into bytes #b17 and #b18 of the character buffer
 ; This entry point is used after the boy has sat down facing the stage.
+@refs=25296
 @label=SITASSEM
- 27941 LD A,(32640)  ; {Check bit 7 of #R32640 (set by #R61658, reset by
+*27941 LD A,(32640)  ; {Check bit 7 of #R32640 (set by #R61658, reset by
  27944 RLCA          ; #R62032): has assembly finished yet?}
  27945 RET C         ; Return if not
  27946 LD L,18       ; {Remove the address of this routine's entry point
@@ -5793,6 +5820,7 @@ c28315 LD A,E        ; #REGa=x-coordinate of the spot in front of ERIC
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'P' or
 ; '8' is pressed.
+@refs=63210
 @label=RIGHT
 c28436 LD A,(53760)  ; #REGa=ERIC's animatory state
  28439 BIT 7,A       ; Is ERIC facing left?
@@ -5812,6 +5840,7 @@ c28436 LD A,(53760)  ; #REGa=ERIC's animatory state
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'O' or
 ; '5' is pressed.
+@refs=63210
 @label=LEFT
 c28460 LD A,(53760)  ; #REGa=ERIC's animatory state
  28463 BIT 7,A       ; Is ERIC facing right?
@@ -5831,6 +5860,7 @@ c28460 LD A,(53760)  ; #REGa=ERIC's animatory state
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'Q' or
 ; '7' is pressed.
+@refs=63210
 @label=UP
 c28484 CALL 28240    ; Check whether ERIC is on a staircase
  28487 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
@@ -5902,6 +5932,7 @@ c28484 CALL 28240    ; Check whether ERIC is on a staircase
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'A' or
 ; '6' is pressed.
+@refs=63210
 @label=DOWN
 c28576 CALL 28240    ; Check whether ERIC is on a staircase
  28579 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
@@ -6210,6 +6241,7 @@ c28814 CALL 28767    ; Check for closed doors in the character's path
 ; #b17 and #b18 of the character's buffer by the routine at #R28814.
 ;
 ; H Character number (#b200-#b205)
+@refs=25296
 @label=CHRMVDOOR
 c28855 LD L,18       ; {Remove the address of this routine from bytes #b17 and
  28857 LD (HL),0     ; #b18 of the character's buffer}
@@ -6328,6 +6360,7 @@ c28978 CALL 25012    ; Update the SRB for the character's current animatory
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'D' or
 ; 'U' is pressed.
+@refs=63210
 @label=DROPSBOMB
 c28992 LD A,(32747)  ; #R32747 holds the inventory flags
  28995 RLCA          ; Does ERIC have any stinkbombs?
@@ -6410,6 +6443,7 @@ s29050 DEFS 2
 ; TABLE#
 ;
 ; H #b204 (MISS TAKE) or #b205 (ALBERT)
+@refs=25296
 @label=MOVEDOOR
 c29052 LD L,3        ; {Replace the address of this routine in bytes #b3 and
 @ssub=LD (HL),29061%256
@@ -6543,6 +6577,7 @@ s29192 DEFS 2
 ; #b17 and #b18 of the bike's buffer by the routine at #R29278. It controls the
 ; bike when it is wheeling along on its own (after ERIC has dismounted), or
 ; when ERIC is standing on the saddle.
+@refs=25296
 @label=WHEELBIKE
 c29194 LD HL,32752   ; #R32752 holds the bike's momentum
  29197 LD A,(HL)     ; Pick this up in #REGa
@@ -6611,6 +6646,7 @@ s29277 DEFB 0
 ; Called by the routine at #R63405 when bit 0 at #R32749 is set (by the routine
 ; at #R29462). Listens for and responds appropriately to keypresses while ERIC
 ; is sitting on the saddle of the bike.
+@refs=63405
 @label=RIDINGBIKE
 c29278 LD HL,32755   ; #R32755 holds ERIC's main action timer
  29281 DEC (HL)      ; Is it time to deal with ERIC yet?
@@ -6753,6 +6789,7 @@ c29278 LD HL,32755   ; #R32755 holds ERIC's main action timer
 ; Called by the routine at #R63405 when bit 7 at #R32749 is set (by the routine
 ; at #R29278). Listens for and responds appropriately to keypresses while ERIC
 ; is standing on the saddle of the bike.
+@refs=63405
 @label=ONSADDLE
 c29462 LD HL,32755   ; #R32755 holds ERIC's main action timer
  29465 DEC (HL)      ; Is it time to deal with ERIC yet?
@@ -6849,6 +6886,7 @@ c29568 CALL 29903    ; Remove the uninterruptible subcommand routine address
 ; A ERIC's animatory state
 ; D ERIC's y-coordinate
 ; E ERIC's x-coordinate
+@refs=63210
 @label=MOUNTBIKE
 c29574 AND 128       ; #REGa=#b0 if ERIC's facing left, #b128 if facing right
  29576 ADD A,25      ; #REGa=#AS25(#b25/#b153): bike standing upright
@@ -7185,6 +7223,7 @@ s29895 DEFB 0
 ; conker or a drop of water or sherry.
 ;
 ; H Falling object's character number (#b213 or #b214)
+@refs=25296
 @label=OBJFALL
 c29896 LD L,2        ;
  29898 LD A,(HL)     ; #REGa=y-coordinate of the falling object
@@ -7353,6 +7392,7 @@ s30096 DEFS 6
 ; (if he's a teacher), and then makes him get up.
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=KNOCKED
 c30102 LD L,19       ; Byte #b19 of the character's buffer holds the knockout
                      ; delay counter
@@ -7609,6 +7649,7 @@ c30292 PUSH HL       ;
 ; any collisions with cups, trees, other characters, and teachers' heads.
 ;
 ; H #b213 (BOY WANDER's pellet) or #b214 (ERIC's pellet)
+@refs=25296
 @label=PELLET
 c30380 LD L,19       ; Byte #b19 of the pellet's buffer holds the distance left
                      ; to travel
@@ -7778,6 +7819,7 @@ c30543 LD L,2        ; Byte #b2 of the character's buffer holds his
 ; action under way if so.
 ;
 ; H #b206 (BOY WANDER)
+@refs=25296
 @label=CATTY
 @ssub=LD A,(54528+18)
 c30555 LD A,(54546)  ; Pick up byte #b18 of buffer #b213 (BOY WANDER's pellet)
@@ -7870,6 +7912,7 @@ c30555 LD A,(54546)  ; Pick up byte #b18 of buffer #b213 (BOY WANDER's pellet)
 ; lowering the catapult.
 ;
 ; H #b206 (BOY WANDER)
+@refs=25296
 @label=BWFIRING
 c30643 CALL 25012    ; Update the SRB for BOY WANDER's current animatory state
  30646 DEC A         ; #REGa=#AS26(#b26 or #b154): BOY WANDER lowering his arm
@@ -7977,6 +8020,7 @@ c30706 LD L,0        ; Byte #b0 of ANGELFACE's buffer holds his animatory state
 ; unfortunate kid whose face comes into contact with the fist.
 ;
 ; H #b207 (ANGELFACE)
+@refs=25296
 @label=HITTING
 c30739 CALL 25012    ; Update the SRB for ANGELFACE's current animatory state
                      ; and location
@@ -8040,6 +8084,7 @@ c30786 LD A,H        ; #REGa=pellet's character number
 ; pellet has knocked the frog out of a cup. It controls the frog up to the
 ; point where it hits the floor, and deals with any collision with MISS TAKE's
 ; head on the way.
+@refs=25296
 @label=FROGFALL
 c30804 LD A,(32747)  ; #R32747 holds the inventory flags
  30807 RRCA          ; Has ERIC got the safe key already?
@@ -8121,6 +8166,7 @@ c30804 LD A,(32747)  ; #R32747 holds the inventory flags
 ; whether to stay put or take a hop.
 ;
 ; H #b212 (frog)
+@refs=25296
 @label=MVFROG
 @ssub=LD DE,(53760+1)
 c30906 LD DE,(53761) ; Pick up ERIC's coordinates in #REGde
@@ -8278,6 +8324,7 @@ s31076 DEFS 2
 ; jumping up and down (to evade a mouse).
 ;
 ; H Character number (#b183-#b189, #b204 or #b209)
+@refs=25296
 @label=GIRLJPING1
 c31078 LD L,19       ; Byte #b19 of the character's buffer holds a counter
                      ; determining how much longer she will continue jumping
@@ -8300,6 +8347,7 @@ s31091 DEFB 0
 ; on a chair (if there's one beside her) or start jumping up and down.
 ;
 ; H Character number (#b183-#b189, #b204 or #b209)
+@refs=25296
 @label=STARTJPING
 c31092 LD L,17       ; {Replace the address of this routine in bytes #b17 and
 @ssub=LD (HL),31078%256
@@ -8519,6 +8567,7 @@ s31252 DEFS 2
 ; TABLE#
 ;
 ; H Mouse's character number (#b198, #b199, #b206-#b208, #b212)
+@refs=25296
 @label=MVMOUSE
 c31254 LD L,19       ; {#REGa=remaining distance to travel
  31256 LD A,(HL)     ; }
@@ -8672,6 +8721,7 @@ c31254 LD L,19       ; {#REGa=remaining distance to travel
 ; 10) and #b206-#b208 (BOY WANDER, ANGELFACE and EINSTEIN).
 ;
 ; H #b210 (ERIC)
+@refs=57669
 @label=DROPMICE
 c31462 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  31465 CP 144        ; Is at least half of the girls' skool on-screen?
@@ -8779,6 +8829,7 @@ s31572 DEFB 0
 ; free for ERIC to catch.
 ;
 ; H #b210 (ERIC)
+@refs=57669
 @label=CATCHMORF
 c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
  31575 LD A,(HL)     ; #REGa=ERIC's animatory state
@@ -9219,6 +9270,7 @@ c31915 LD L,6        ; {Pick up the event identifier in #REGa
 ; or when a teacher arrives at the doorway of the classroom.
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=MVTILL
 c31952 CALL 25213    ; Get the next byte (the event identifier) from the
                      ; command list
@@ -9240,6 +9292,7 @@ c31952 CALL 25213    ; Get the next byte (the event identifier) from the
 ; certain number of walkabouts have been performed.
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=WALKABOUT
 c31969 LD L,6        ; {Collect the event ID (always 0, denoting the end of the
  31971 CALL 25188    ; lesson) and the maximum walkabout count from the command
@@ -9347,6 +9400,7 @@ c32032 LD HL,32758   ; {Decrement the LSB of the lines-giving delay counter at
 ; bytes #b27 and #b28 of MR WACKER's buffer by the routine at #R62668.
 ;
 ; H #b200 (MR WACKER)
+@refs=25296
 @nowarn
 @label=STALKERIC
 c32054 LD BC,62794   ; {Place the address of the interruptible subcommand
@@ -9656,6 +9710,7 @@ w32371 DEFW 32373    ; Make MISS TAKE chase ERIC
 ; The address of this routine is found in the command list at #R32371, the
 ; address of which is placed into bytes #b27 and #b28 of MISS TAKE's buffer by
 ; the routine at #R32062.
+@refs=25296
 @nowarn
 @label=HERDERIC1
 c32373 LD BC,32379   ; {Place the address of the interruptible subcommand
@@ -9670,6 +9725,7 @@ c32373 LD BC,32379   ; {Place the address of the interruptible subcommand
 ; on guard by the skool gate if ERIC is on the boys' side.
 ;
 ; H #b204 (MISS TAKE)
+@refs=25296
 @label=HERDERIC2
 c32379 LD L,29       ; Point #REGhl at byte #b29 of MISS TAKE's buffer
  32381 LD A,205      ; #b205=ALBERT
@@ -9792,6 +9848,7 @@ u32495 DEFB 120,120
 ; or the board is dirty.
 ;
 ; H #b206 (BOY WANDER)
+@refs=25296
 @label=BWWRITE
 c32497 CALL 25213    ; Collect the event identifier parameter from the command
                      ; list
@@ -14913,6 +14970,7 @@ b53760 DEFS 32
 ; #R58768(#b32), #R58779(#b34), #R59488(#b46), #R59499(#b48), #R59519(#b50) and
 ; #R59530(#b52) to make a character do nothing. The #S/RET/ instruction is
 ; located in ERIC's buffer at byte #b36, which is otherwise unused.
+@refs=25296
 @label=DONOWT
 c53796 RET           ; Return having done nothing
 
@@ -16229,6 +16287,7 @@ b57600 DEFB 18,100,153,132,18,101,171,132,18,102,189,132
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'C' is
 ; pressed.
+@refs=63210
 @label=CATCH
 c57637 LD A,39       ; #AS39=ERIC bending over, facing left
 @nowarn
@@ -16264,6 +16323,7 @@ c57637 LD A,39       ; #AS39=ERIC bending over, facing left
 ; away the water pistol, release a mouse, or catch a mouse or the frog),
 ; dropping a stinkbomb, firing the water pistol, or moving forward as if to
 ; kiss.
+@refs=63405
 @label=BENDING
 c57669 XOR A         ; {Reset all flags at #R32763, indicating that ERIC has
  57670 LD (32763),A  ; finished bending over, dropping a stinkbomb etc.}
@@ -16371,6 +16431,7 @@ b57856 DEFB 18,100,214,196,18,101,215,196,18,102,216,196
 ; pressed.
 ;
 ; H #b210 (ERIC)
+@refs=63210
 @label=RELEASE
 c57893 CALL 30543    ; Is ERIC on a staircase or the assembly hall stage?
  57896 RET NZ        ; Return if so
@@ -18402,6 +18463,7 @@ t61425 DEFB 3             ; #R59840(#b3): 'Please Sir I cannot tell a lie . . '
 ; Controls EINSTEIN from the moment after he sits down until the lesson ends.
 ;
 ; H #b208 (EINSTEIN)
+@refs=25296
 @label=GRASSETC
 c61440 LD A,(32640)  ; {Bit 3 of #R32640 is set by the routine at #R61463 when
  61443 BIT 3,A       ; it's EINSTEIN's turn to speak in class; is it his turn
@@ -18434,6 +18496,7 @@ s61462 DEFB 0
 ;
 ; E Message number
 ; H Teacher's character number (#b201-#b203)
+@refs=25296
 @label=SWOTSPK
 c61463 LD A,E        ; #REGa=message number for EINSTEIN
 @ssub=LD (53248+11),A
@@ -18556,6 +18619,7 @@ s61554 DEFB 0
 ; teacher tell the kids to sit down.
 ;
 ; H Teacher's character number (#b201-#b204)
+@refs=25296
 @label=RSTTELLSIT
 @ssub=LD A,(32739+1)
 c61555 LD A,(32740)  ; Collect the MSB of the lesson clock (which starts at
@@ -18594,6 +18658,7 @@ s61594 DEFB 0
 ; dinner hall, the assembly hall, or the classroom).
 ;
 ; H Teacher's character number (#b201-#b203)
+@refs=25296
 @label=SEEKERIC
 c61595 LD L,29       ; {Set bit 7 of byte #b29 of the teacher's buffer, making
  61597 SET 7,(HL)    ; him run}
@@ -18630,6 +18695,7 @@ s61623 DEFB 0
 ; #R59663(#b64), #R59673(#b66), #R59677(#b68), #R59681(#b70) and #R59765(#b78).
 ;
 ; H Character number (#b183-#b209)
+@refs=25296
 @label=RESTART
 c61624 LD L,29       ; {Set bit 0 of byte #b29 of the character's buffer,
  61626 SET 0,(HL)    ; indicating to the routine at #R25296 that the command
@@ -18643,6 +18709,7 @@ c61624 LD L,29       ; {Set bit 0 of byte #b29 of the character's buffer,
 ; ERIC until he goes to the dinner hall.
 ;
 ; H #b200 (MR WACKER) or #b201 (MR WITHIT)
+@refs=25296
 @label=DINDUTY
 @ssub=LD DE,32739+1
 c61631 LD DE,32740   ; Point #REGde at the MSB of the lesson clock (which
@@ -18674,6 +18741,7 @@ s61657 DEFB 0
 ; WITHIT).
 ;
 ; H Teacher's character number (#b201-#b203)
+@refs=25296
 @label=ASSEMDUTY
 @ssub=LD A,(32739+1)
 c61658 LD A,(32740)  ; Collect the MSB of the lesson clock (which starts off at
@@ -18710,6 +18778,7 @@ s61693 DEFS 3
 ; having walked to the edge of the blackboard).
 ;
 ; H Teacher's character number (#b201-#b204)
+@refs=25296
 @label=DOCLASS
 c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
  61699 AND 240       ; {Keep only the teacher-identifying bits and shift them
@@ -18970,6 +19039,7 @@ s62028 DEFS 4
 ; random noun and verb) and makes MR WACKER deliver it.
 ;
 ; H #b200 (MR WACKER)
+@refs=25296
 @label=DETENTION
 c62032 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  62035 CP 48         ; Is the stage off-screen to the right?
@@ -19029,6 +19099,7 @@ s62092 DEFS 2
 ; someone sits in the seat occupied by ERIC, but in that case this routine is
 ; not called because bit 2 at #R32763 is still set (indicating that ERIC is
 ; sitting) and takes precedence; this is a #BUG#seat(bug).
+@refs=63405
 @label=ERICHIT
 c62094 LD HL,32733   ; #R32733 holds ERIC's knockout delay counter
  62097 LD A,(HL)     ; {Is this the first time this routine's been called since
@@ -19105,6 +19176,7 @@ s62175 DEFS 3
 ; Used by the routine at #R63405 when bit 2 at #R32763 is set (by the routine
 ; at #R62094, #R62423 or #R64460). Makes ERIC stand up if 'S' is pressed, or
 ; open a desk (and collect any contents) if 'O' is pressed.
+@refs=63405
 @label=ERICSITLIE
 c62178 LD HL,32755   ; #R32755 holds ERIC's main action timer
  62181 DEC (HL)      ; Is it time to deal with ERIC yet?
@@ -19279,7 +19351,8 @@ c62178 LD HL,32755   ; #R32755 holds ERIC's main action timer
                      ; buffer
 ; The address of this entry point is placed into bytes #b17 and #b18 of the
 ; desk lid's buffer by the instruction above.
-@label=*DESKLID
+@refs=25296
+@label=DESKLID
 *62386 LD L,19       ; Byte #b19 of the desk lid's buffer holds the delay
                      ; counter that determines when the desk lid will shut
  62388 DEC (HL)      ; Decrement this counter
@@ -19315,6 +19388,7 @@ s62420 DEFS 3
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'S' is
 ; pressed.
+@refs=63210
 @label=SIT
 c62423 CALL 28240    ; Is ERIC on a staircase?
  62426 RET C         ; Return if so
@@ -19447,6 +19521,7 @@ c62483 LD A,(32734)  ; #REGa=#b255 if we're in demo mode, #b0 otherwise
 ; restart from this point instead of the actual beginning.
 ;
 ; H #b204 (MISS TAKE) or #b205 (ALBERT)
+@refs=25296
 @label=CLSTART
 c62560 LD L,25       ; {Copy the address reached in the current command list
  62562 LD D,H        ; from bytes #b25 and #b26 into bytes #b27 and #b28 (where
@@ -19463,6 +19538,7 @@ c62560 LD L,25       ; {Copy the address reached in the current command list
 ; command list.
 ;
 ; H #b204 (MISS TAKE)
+@refs=25296
 @label=RSTDROPEN
 c62572 LD A,(32756)  ; #R32756 holds the door/window status flags
  62575 BIT 3,A       ; Is the boys' skool door closed?
@@ -19486,6 +19562,7 @@ s62595 DEFS 4
 ; the skool door if it's already closed.
 ;
 ; H #b205 (ALBERT)
+@refs=25296
 @label=CLISTJR10
 c62599 LD DE,32756   ; #R32756 holds the door/window status flags
  62602 CALL 25213    ; Collect the next byte (the door identifier) from the
@@ -19506,6 +19583,7 @@ c62599 LD DE,32756   ; #R32756 holds the door/window status flags
 ; of the gate and all the male characters are to his left.
 ;
 ; H #b205 (ALBERT)
+@refs=25296
 @label=WAITDOOR
 c62620 LD L,1        ; Point #REGhl at byte #b1 of ALBERT's buffer
  62622 LD E,(HL)     ; #REGe=ALBERT's x-coordinate
@@ -19561,6 +19639,7 @@ s62667 DEFB 0
 ; danger zone.
 ;
 ; H #b205 (ALBERT)
+@refs=25296
 @label=WATCHERIC
 c62668 LD L,0        ; Point #REGhl at byte #b0 of ALBERT's buffer
  62670 LD A,(HL)     ; #REGa=ALBERT's animatory state
@@ -19670,6 +19749,7 @@ c62770 LD HL,32640   ; #R32640 holds various game status flags
 ; spotted ERIC trying to escape and raised the alarm.
 ;
 ; H #b200 (MR WACKER)
+@refs=25296
 @label=FINDTRUANT
 c62794 LD L,29       ; {Set bit 7 of byte #b29 of MR WACKER's buffer, making
  62796 SET 7,(HL)    ; him run}
@@ -19691,6 +19771,7 @@ c62794 LD L,29       ; {Set bit 7 of byte #b29 of MR WACKER's buffer, making
 ; the routine at #R62770.
 ;
 ; H #b200 (MR WACKER)
+@refs=25296
 @label=FINDEXPEL
 c62815 LD L,29       ; {Set bit 7 of byte #b29 of MR WACKER's buffer, making
  62817 SET 7,(HL)    ; him run}
@@ -20210,6 +20291,7 @@ s63404 DEFB 0
 ; TABLE#
 ;
 ; H #b127
+@refs=25296
 @label=HANDLEERIC
 @ssub=LD L,32749%256
 c63405 LD L,237      ; #REGhl=#R32749 (ERIC's secondary status flags)
@@ -20267,6 +20349,7 @@ s63446 DEFB 0
 ; TABLE#
 ;
 ; H Character number (#b205-#b207)
+@refs=25296
 @label=ADDR2CBUF
 c63447 LD L,23       ; {Collect the routine address from the command list and
  63449 CALL 25188    ; place it into bytes #b23 and #b24 of the character's
@@ -20281,6 +20364,7 @@ c63447 LD L,23       ; {Collect the routine address from the command list and
 ; chance of knocking her out with a random punch.
 ;
 ; H #b207 (ANGELFACE)
+@refs=25296
 @label=HITHAYLEY
 @ssub=LD DE,53504+29
 c63455 LD DE,53533   ; Point #REGde at byte #b29 of HAYLEY's buffer
@@ -20320,6 +20404,7 @@ s63491 DEFB 0
 ; #R59550(#b54) and #R59584(#b56).
 ;
 ; H #b206 (BOY WANDER) or #b207 (ANGELFACE)
+@refs=25296
 @label=HITFIRE
 c63492 LD A,H        ; {Is this ANGELFACE?
  63493 CP 207        ; }
@@ -20332,6 +20417,7 @@ c63492 LD A,H        ; {Is this ANGELFACE?
 ; WACKER go back up to his study) unless it's time to start assembly.
 ;
 ; H #b200 (MR WACKER)
+@refs=25296
 @label=RSTORASSEM
 @ssub=LD A,(32739+1)
 c63501 LD A,(32740)  ; #REGa=MSB of the lesson clock (which starts off at #b16)
@@ -20439,6 +20525,7 @@ c63576 LD L,128      ; #REGhl=#R32640
 ; when ERIC drops a stinkbomb. It creates a stinkbomb cloud and deals with it
 ; until it has dissipated, which includes checking whether MR WACKER and a
 ; closed window are nearby, and making the former set off for the latter if so.
+@refs=57669
 @label=CLOUD
 c63586 LD HL,32747   ; #R32747 holds the inventory flags
  63589 LD A,(HL)     ; Pick these up in #REGa
@@ -20477,7 +20564,8 @@ c63586 LD HL,32747   ; #R32747 holds the inventory flags
                      ; of the cloud's buffer
 ; The address of the entry point below is placed into bytes #b17 and #b18 of
 ; the cloud's buffer by the instruction above.
-@label=*SBCLOUD
+@refs=25296
+@label=SBCLOUD
 *63627 LD L,19       ; Byte #b19 of the cloud's buffer holds the counter that
                      ; determines how much longer the cloud will stick around
                      ; (which starts off at #b29)
@@ -20569,8 +20657,9 @@ c63586 LD HL,32747   ; #R32747 holds the inventory flags
                      ; of MR WACKER's buffer and update his animatory state
 ; The address of the entry point below is placed into bytes #b17 and #b18 of MR
 ; WACKER's buffer by the instruction above.
+@refs=25296
 @label=HEAD2WIN
- 63733 LD L,0        ; Point #REGhl at byte #b0 of MR WACKER's buffer
+*63733 LD L,0        ; Point #REGhl at byte #b0 of MR WACKER's buffer
  63735 BIT 0,(HL)    ; Is MR WACKER midstride?
  63737 JP NZ,25597   ; Finish his stride if so
  63740 JP 63801      ; Otherwise set MR WACKER off on his journey to the window
@@ -20711,6 +20800,7 @@ c63878 LD DE,40956   ; Point #REGde at the plant-pot y-coordinate table at
 ; The address of this routine is found in the table of keypress handling
 ; routines at #R58704. It is called from the main loop at #R63210 when 'G' is
 ; pressed.
+@refs=63210
 @label=FIREWP
 c63898 LD A,(32747)  ; #R32747 holds the inventory flags
  63901 AND 24        ; Keep only bits 3 and 4 (the pistol bits)
@@ -20728,6 +20818,7 @@ c63898 LD A,(32747)  ; #R32747 holds the inventory flags
 ; at #R63898. In the following, 'water' may refer to either water or sherry.
 ;
 ; H #b210 (ERIC)
+@refs=57669
 @label=WATER
 c63915 LD B,84       ; #AS84: water fired from the pistol, phase 1 (facing
                      ; left)
@@ -20771,8 +20862,9 @@ c63915 LD B,84       ; #AS84: water fired from the pistol, phase 1 (facing
 ; water's buffer by the instruction above just after the water has been fired
 ; from the pistol, and is used throughout the water's lifespan. First, check
 ; whether the water has hit a cup, a plant, or the floor.
+@refs=25296
 @label=WATERFALL
- 63960 LD L,19       ; {Increment the water animation phase identifier (which
+*63960 LD L,19       ; {Increment the water animation phase identifier (which
  63962 INC (HL)      ; starts off at #b151) held in byte #b19 of the buffer}
  63963 LD B,(HL)     ; Pick up this identifier (#b152-#b156) in #REGb
  63964 LD C,255      ; Point #REGbc at the appropriate entry in the water
@@ -20993,8 +21085,9 @@ c64077 DEC A         ; Is the water at the right phase to fill a cup?
 ; The address of this entry point is placed into bytes #b17 and #b18 of the
 ; plant's buffer by the instruction above just after the plant has been
 ; watered.
+@refs=25296
 @label=GROWPLANT
- 64175 LD L,19       ; Byte #b19 holds the counter that determines the phases
+*64175 LD L,19       ; Byte #b19 holds the counter that determines the phases
                      ; of growth (and death) of the plant
  64177 DEC (HL)      ; Is the plant ready to die?
  64178 JR NZ,64195   ; Jump if not
@@ -21074,6 +21167,7 @@ c64242 LD A,12       ; Bits 2 and 3 set (ERIC is stepping off a fully grown
 ; { 3      | ERIC is now falling (but not from the top-floor window) }
 ; { 5      | ERIC is now falling out of the top-floor window }
 ; TABLE#
+@refs=63405
 @label=STEPPEDOFF
 c64259 LD HL,32755   ; #R32755 holds ERIC's main action timer
  64262 DEC (HL)      ; Is it time to deal with ERIC yet?
@@ -21126,6 +21220,7 @@ c64259 LD HL,32755   ; #R32755 holds ERIC's main action timer
 ; { 2 & 3     | ERIC is stepping off a fully grown plant in the direction of an
 ;               open window or the closed skool gate }
 ; TABLE#
+@refs=63405
 @label=ONPLANT
 c64316 LD HL,32755   ; #R32755 holds ERIC's main action timer
  64319 DEC (HL)      ; Is it time to deal with ERIC yet?
@@ -21214,6 +21309,7 @@ c64316 LD HL,32755   ; #R32755 holds ERIC's main action timer
 ;
 ; Used by the routine at #R63405 when bit 3 at #R32749 is set (by the routine
 ; at #R64259 or #R64316).
+@refs=63405
 @label=LANDING
 c64416 LD HL,32755   ; #R32755 holds ERIC's main action timer
  64419 DEC (HL)      ; Is it time to deal with ERIC yet?
@@ -21256,6 +21352,7 @@ c64416 LD HL,32755   ; #R32755 holds ERIC's main action timer
 ; at #R29194, #R29278 or #R64077). On entry, bit 6 at #R32749 is also set if
 ; ERIC has already begun his descent (i.e. we've already made the first pass
 ; through this routine).
+@refs=63405
 @label=FALLING
 c64460 LD HL,32749   ; #R32749 holds ERIC's secondary status flags
  64463 BIT 6,(HL)    ; Has ERIC already begun his descent?
