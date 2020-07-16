@@ -1,7 +1,13 @@
-; Copyright 2008-2015, 2017-2019 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017-2020 Richard Dymond (rjdymond@gmail.com)
 
 [Page:Changelog]
 SectionType=BulletPoints
+
+[Changelog:YYYYMMDD]
+-
+
+- Added a list of primary command routines to the entry at #R25296
+- Added <i>@refs</i> directives
 
 [Changelog:20191115]
 -
