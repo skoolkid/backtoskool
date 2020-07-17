@@ -13,9 +13,6 @@ Release=The complete Back to Skool RAM disassembly 20191115
 Copyright=&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.
 AddressAnchor={address#IF({base}==16)(:04x)}
 
-[ImageWriter]
-DefaultAnimationFormat=png
-
 [Links]
 DataMap=[Data] (just the data)
 Graphics=Other graphics
