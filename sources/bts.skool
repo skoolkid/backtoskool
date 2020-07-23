@@ -2,9 +2,9 @@
 
 @start
 @expand=#DEFINE2,1(LOGO,#UDGARRAY(8,#IF({0}||{1}==0)(31,24),2,8,tindex=4,alpha=#IF({1})(0,255));59200-59335-1-64({{ImagePath}}/{2}|Back to Skool))
-@replace=/#BUG(?![A-Z])/#LINK:Bugs
-@replace=/#FACT(?![A-Z])/#LINK:Facts
-@replace=/#POKE(?![A-Z])/#LINK:Pokes
+@expand=#DEFINE0(BUG,#LINK:Bugs)
+@expand=#DEFINE0(FACT,#LINK:Facts)
+@expand=#DEFINE0(POKE,#LINK:Pokes)
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
