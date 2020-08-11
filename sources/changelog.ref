@@ -3,7 +3,7 @@
 [Page:Changelog]
 SectionType=BulletPoints
 
-[Changelog:YYYYMMDD]
+[Changelog:20200811]
 -
 
 - Added a list of primary command routines to the entry at #R25296
