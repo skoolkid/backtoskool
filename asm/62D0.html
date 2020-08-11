@@ -8,7 +8,7 @@
 <body class="Asm-c">
 <table class="header">
 <tr>
-<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo.png" /></a></td>
+<td class="logo"><a href="../index.html"><img alt="Back to Skool" src="../images/logo-hex.png" /></a></td>
 <td class="page-header">Routines</td>
 </tr>
 </table>
@@ -685,6 +685,105 @@ The address of one of the following interruptible subcommand routines (or an ent
 </tr>
 </table>
 </div>
+<div class="paragraph">
+The address of one of the following primary command routines (or an entry point thereof) may be present in bytes 0x03 and 0x04 of the character's buffer:
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Address</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="6464.html">6464</a></td>
+<td class="" colspan="1" rowspan="1">Make a character go to a location</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="64D7.html">64D7</a></td>
+<td class="" colspan="1" rowspan="1">Make a character go to a random location</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="66C0.html">66C0</a></td>
+<td class="" colspan="1" rowspan="1">Make a character find a seat</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="6D00.html">6D00</a></td>
+<td class="" colspan="1" rowspan="1">Control a boy during assembly</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="717C.html">717C</a></td>
+<td class="" colspan="1" rowspan="1">Make a character open or close a door</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="7CD0.html">7CD0</a></td>
+<td class="" colspan="1" rowspan="1">Make a character walk up and down until a certain time</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="7CE1.html">7CE1</a></td>
+<td class="" colspan="1" rowspan="1">Make a character walk up and down a few times or until a certain time</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="7EF1.html">7EF1</a></td>
+<td class="" colspan="1" rowspan="1">Make BOY WANDER write on a blackboard</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="D224.html">D224</a></td>
+<td class="" colspan="1" rowspan="1">Make a character do nothing</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F000.html">F000</a></td>
+<td class="" colspan="1" rowspan="1">Control EINSTEIN during class</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F073.html">F073</a></td>
+<td class="" colspan="1" rowspan="1">Restart the command list or make a teacher tell the kids to sit down</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F0B8.html">F0B8</a></td>
+<td class="" colspan="1" rowspan="1">Restart the command list</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F0BF.html">F0BF</a></td>
+<td class="" colspan="1" rowspan="1">Make a teacher find ERIC if he's absent during dinner</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F0DA.html">F0DA</a></td>
+<td class="" colspan="1" rowspan="1">Control a teacher during assembly</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F100.html">F100</a></td>
+<td class="" colspan="1" rowspan="1">Make a teacher conduct a class</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F250.html">F250</a></td>
+<td class="" colspan="1" rowspan="1">Make MR WACKER put the kids in detention</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F460.html">F460</a></td>
+<td class="" colspan="1" rowspan="1">Make the next command be the start of the command list</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F46C.html">F46C</a></td>
+<td class="" colspan="1" rowspan="1">Restart the command list unless the boys' skool door is closed</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F487.html">F487</a></td>
+<td class="" colspan="1" rowspan="1">Jump forward in the command list if the boys' skool door or the gate is closed</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F49C.html">F49C</a></td>
+<td class="" colspan="1" rowspan="1">Wait till everyone has gone past the gate or the boys' skool door</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F7D7.html">F7D7</a></td>
+<td class="" colspan="1" rowspan="1">Place a continual subcommand routine address into a character's buffer</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1"><a href="F80D.html">F80D</a></td>
+<td class="" colspan="1" rowspan="1">Restart the command list unless it's time for assembly</td>
+</tr>
+</table>
+</div>
 </div>
 </td>
 </tr>
@@ -988,9 +1087,9 @@ Next: <a href="638C.html">638C</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20191115</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2019 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.0.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20200811</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2020 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.2.</div>
 <div><a href="../dec/asm/25296.html">Switch to decimal</a>.</div>
 </footer>
 </body>
