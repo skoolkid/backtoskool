@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2020 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2021 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @expand=#DEFINE2,1(LOGO,#UDGARRAY(8,#IF({0}||{1}==0)(31,24),2,8,tindex=4,alpha=#IF({1})(0,255));59200-59335-1-64({{ImagePath}}/{2}|Back to Skool))
@@ -14,7 +14,7 @@
 ; https://skoolkit.ca
 ;
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2020 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2021 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -7099,7 +7099,7 @@ c29716 PUSH AF       ; Save the lines recipient's character number briefly
                      ; number in #REGde
  29781 POP DE        ; Restore the attribute file address for the top left
                      ; corner of the lines message box to #REGde
- 29782 POP BC        ; Restore the lines reprimand number to #REGb. and the
+ 29782 POP BC        ; Restore the lines reprimand number to #REGb, and the
                      ; attribute byte for the lines message to #REGc
  29783 PUSH BC       ; Save them again
  29784 PUSH DE       ;
@@ -7119,7 +7119,7 @@ c29716 PUSH AF       ; Save the lines recipient's character number briefly
  29808 POP AF        ; #REGa=PAPER colour of the lines message
  29809 POP DE        ; Restore the attribute file address for the top left
                      ; corner of the lines message box to #REGde
- 29810 POP BC        ; Restore the lines reprimand number to #REGb. and the
+ 29810 POP BC        ; Restore the lines reprimand number to #REGb, and the
                      ; attribute byte for the lines message to #REGc
 ; This entry point is used by the routines at #R29896 (with #REGa=#b6,
 ; #REGb=#R59897(#b14), #REGc=#b70) and #R62668 (with #REGa=#b2,
