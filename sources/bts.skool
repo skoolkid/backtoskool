@@ -5,6 +5,7 @@
 @expand=#DEFINE0(BUG,#LINK:Bugs)
 @expand=#DEFINE0(FACT,#LINK:Facts)
 @expand=#DEFINE0(POKE,#LINK:Pokes)
+@expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
@@ -3740,9 +3741,9 @@ c26380 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  26404 RLCA          ; character square to be refreshed)
  26405 RLCA          ; }
  26406 LD E,A        ; Store this in #REGe temporarily
- 26407 AND 56        ; {Set the instruction at #R26428 below to #S/SET n,(HL)/
- 26409 CPL           ; where n is the appropriate bit in the SRB byte
- 26410 DEC A         ;
+ 26407 AND 56        ; {Set the instruction at #R26428 below to #S/SET/
+ 26409 CPL           ; n,#S/(HL)/ where n is the appropriate bit in the SRB
+ 26410 DEC A         ; byte
 @ssub=LD (26428+1),A
  26411 LD (26429),A  ; }
  26414 PUSH AF       ;
@@ -3772,8 +3773,9 @@ c26380 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  26441 LD A,254      ; Otherwise set bit 7 in this SRB byte
 *26443 OR 192        ;
 @ssub=LD (26448+1),A
- 26445 LD (26449),A  ; Set the instruction at #R26448 below to #S/SET m,(HL)/
-                     ; where m is the appropriate bit in the SRB byte
+ 26445 LD (26449),A  ; Set the instruction at #R26448 below to #S/SET/
+                     ; m,#S/(HL)/ where m is the appropriate bit in the SRB
+                     ; byte
 @label=BOARDSRB2
  26448 SET 0,(HL)    ; Set the appropriate bit in the SRB byte for the
                      ; rightmost character square that needs refreshing; this
@@ -3935,8 +3937,8 @@ c26513 CALL 26318    ; #REGa=ASCII code of the next character from the message
  26570 LD E,A        ; next character will be written}
  26571 CALL 26380    ; Update the SRB for this blackboard
  26574 LD A,(BC)     ; #REGa=current pixel column number on the blackboard
- 26575 AND 7         ; {Modify the #S/RES n,(HL)/ instruction at #R26609 below
- 26577 ADD A,A       ; to reset the appropriate bit for the current pixel
+ 26575 AND 7         ; {Modify the #S/RES/ n,#S/(HL)/ instruction at #R26609
+ 26577 ADD A,A       ; below to reset the appropriate bit for the current pixel
  26578 ADD A,A       ; column
  26579 ADD A,A       ;
  26580 CPL           ;
@@ -3975,9 +3977,9 @@ c26513 CALL 26318    ; #REGa=ASCII code of the next character from the message
 *26611 INC H         ; Next row of the blackboard tile UDG
  26612 DJNZ 26606    ; Jump back until all 8 rows are done
 @ssub=LD A,(26609+1)
- 26614 LD A,(26610)  ; {Change the #S/RES n,(HL)/ instruction at #R26609 above
- 26617 OR 64         ; to #S/RES n-1,(HL)/ if n>0, or #S/RES 7,(HL)/ if n=0
- 26619 SUB 8         ;
+ 26614 LD A,(26610)  ; {Change the #S/RES/ n,#S/(HL)/ instruction at #R26609
+ 26617 OR 64         ; above to #S/RES/ n-1,#S/(HL)/ if n>0, or #S/RES 7,(HL)/
+ 26619 SUB 8         ; if n=0
  26621 AND 191       ;
 @ssub=LD (26609+1),A
  26623 LD (26610),A  ; }

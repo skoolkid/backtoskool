@@ -1,4 +1,4 @@
-# Copyright 2008-2015, 2017-2019 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015, 2017-2019, 2021 Richard Dymond (rjdymond@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -18,7 +18,7 @@ import html
 from skoolkit.graphics import Frame, Udg as BaseUdg
 from skoolkit.skoolhtml import HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
-from skoolkit.skoolmacro import parse_ints, parse_brackets, parse_strings
+from skoolkit.skoolmacro import parse_ints, parse_brackets
 
 def parse_as(text, index):
     end, state = parse_ints(text, index, 1, (None,))
@@ -29,10 +29,6 @@ def parse_lesson(text, index):
     end, lesson = parse_ints(text, index, 1)
     end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(lesson))
     return end, lesson, link_text
-
-def parse_s(text, index, case):
-    end, s = parse_strings(text, index, 1)
-    return end, s.lower() if case == 1 else s
 
 class BackToSkoolHtmlWriter(HtmlWriter):
     def init(self):
@@ -382,10 +378,6 @@ class BackToSkoolHtmlWriter(HtmlWriter):
         link = self.format_link(href, link_text)
         return end, link
 
-    def expand_s(self, text, index, cwd):
-        # #S/text/
-        return parse_s(text, index, self.case)
-
     def get_skool_udg(self, y, x, show_chars=False):
         q_addr = x + 46336
         q = self.snapshot[q_addr]
@@ -561,10 +553,6 @@ class BackToSkoolAsmWriter(AsmWriter):
         # #LESSONnum[(link text)]
         end, lesson, link_text = parse_lesson(text, index)
         return end, link_text
-
-    def expand_s(self, text, index):
-        # #S/text/
-        return parse_s(text, index, self.case)
 
 class Udg(BaseUdg):
     def __init__(self, attr, data, mask=None, attr_addr=None, q_addr=None, q=None, ref_addr=None, ref=None, udg_page=None, x=None, y=None):

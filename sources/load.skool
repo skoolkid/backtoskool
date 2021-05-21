@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2013, 2015, 2017-2019 Richard Dymond
+; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021 Richard Dymond
 
 @defs=16384:6144
 @defb=16643:60,0,124,60,66,120,60,66,62,126,126,0,66,60,124
@@ -120,12 +120,14 @@ c23831 DI            ; Disable interrupts
  23858 JP (HL)       ; Jump to #R32815
 
 @start
+@expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 @writer=:backtoskool.BackToSkoolAsmWriter
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2013, 2015, 2017-2019 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021 Richard Dymond (this
+; disassembly)
 @org
 
 ; Collect one bit from tape
