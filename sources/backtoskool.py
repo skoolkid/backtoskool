@@ -20,11 +20,6 @@ from skoolkit.skoolhtml import HtmlWriter, join
 from skoolkit.skoolasm import AsmWriter
 from skoolkit.skoolmacro import parse_ints, parse_brackets
 
-def parse_as(text, index):
-    end, state = parse_ints(text, index, 1, (None,))
-    end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(state))
-    return end, state, link_text
-
 def parse_lesson(text, index):
     end, lesson = parse_ints(text, index, 1)
     end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(lesson))
@@ -362,14 +357,6 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             cbuffer_bytes.append(self.format_template('cbuffer_bytes', subs))
         return self.format_template('cbuffer', {'m_cbuffer_bytes': '\n'.join(cbuffer_bytes)})
 
-    def expand_as(self, text, index, cwd):
-        # #AS[state][(link text)]
-        end, state, link_text = parse_as(text, index)
-        as_file = self.relpath(cwd, self.paths['AnimatoryStates'])
-        anchor = '#{}'.format(state) if state is not None else ''
-        link = self.format_link(as_file + anchor, link_text)
-        return end, link
-
     def expand_lesson(self, text, index, cwd):
         # #LESSONnum[(link text)]
         end, lesson, link_text = parse_lesson(text, index)
@@ -544,11 +531,6 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             self.place_char(cwd, char_num, 200)
 
 class BackToSkoolAsmWriter(AsmWriter):
-    def expand_as(self, text, index):
-        # #AS[state][(link text)]
-        end, state, link_text = parse_as(text, index)
-        return end, link_text
-
     def expand_lesson(self, text, index):
         # #LESSONnum[(link text)]
         end, lesson, link_text = parse_lesson(text, index)
