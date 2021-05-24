@@ -7,11 +7,11 @@
 @expand=#DEFINE0(POKE,#LINK:Pokes)
 @expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
 @expand=#DEFINE1,1,3(-1)(#N({0},,,1)(0x))(AS,#LINK#(:AnimatoryStates#IF({0}>=0)(#{0}))({1}))
+@expand=#DEFINE1,1,2(#N({0},,,1)(0x))(LESSON,#LINK:Lesson{0}({1}))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
-@writer=:backtoskool.BackToSkoolAsmWriter
 ; Back to Skool disassembly
 ; https://skoolkit.ca
 ;

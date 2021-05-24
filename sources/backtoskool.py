@@ -16,14 +16,7 @@
 import html
 
 from skoolkit.graphics import Frame, Udg as BaseUdg
-from skoolkit.skoolhtml import HtmlWriter, join
-from skoolkit.skoolasm import AsmWriter
-from skoolkit.skoolmacro import parse_ints, parse_brackets
-
-def parse_lesson(text, index):
-    end, lesson = parse_ints(text, index, 1)
-    end, link_text = parse_brackets(text, end, '#N({},,,1)(0x)'.format(lesson))
-    return end, lesson, link_text
+from skoolkit.skoolhtml import HtmlWriter
 
 class BackToSkoolHtmlWriter(HtmlWriter):
     def init(self):
@@ -357,14 +350,6 @@ class BackToSkoolHtmlWriter(HtmlWriter):
             cbuffer_bytes.append(self.format_template('cbuffer_bytes', subs))
         return self.format_template('cbuffer', {'m_cbuffer_bytes': '\n'.join(cbuffer_bytes)})
 
-    def expand_lesson(self, text, index, cwd):
-        # #LESSONnum[(link text)]
-        end, lesson, link_text = parse_lesson(text, index)
-        page_id = 'Lesson{0}'.format(lesson)
-        href = self.relpath(cwd, self.paths[page_id])
-        link = self.format_link(href, link_text)
-        return end, link
-
     def get_skool_udg(self, y, x, show_chars=False):
         q_addr = x + 46336
         q = self.snapshot[q_addr]
@@ -529,12 +514,6 @@ class BackToSkoolHtmlWriter(HtmlWriter):
     def hide_chars(self, cwd=None):
         for char_num in range(183, 215):
             self.place_char(cwd, char_num, 200)
-
-class BackToSkoolAsmWriter(AsmWriter):
-    def expand_lesson(self, text, index):
-        # #LESSONnum[(link text)]
-        end, lesson, link_text = parse_lesson(text, index)
-        return end, link_text
 
 class Udg(BaseUdg):
     def __init__(self, attr, data, mask=None, attr_addr=None, q_addr=None, q=None, ref_addr=None, ref=None, udg_page=None, x=None, y=None):
