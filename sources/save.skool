@@ -95,8 +95,8 @@
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
 ; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021 Richard Dymond (this
 ; disassembly)
-@org
 
+@org
 ; Save Back to Skool to tape
 ;
 ; #UDGTABLE

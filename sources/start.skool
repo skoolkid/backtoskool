@@ -1,4 +1,5 @@
-; Copyright 2008-2013, 2015, 2017, 2018 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2013, 2015, 2017, 2018, 2021 Richard Dymond
+; (rjdymond@gmail.com)
 
 @start
 @remote=main:20709
@@ -6,9 +7,9 @@
 @remote=main:21920
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2008-2013, 2015, 2017, 2018 Richard Dymond (this disassembly)
-@org
+; Copyright 2008-2013, 2015, 2017, 2018, 2021 Richard Dymond (this disassembly)
 
+@org
 ; Start
 ;
 ; We jump here from the load routine at #R32815@load.
@@ -41,4 +42,3 @@ c33204 LD SP,23806   ; Put the stack somewhere safe
  33265 LD HL,23296   ; overwriting this routine)
  33268 INC B         ; }
  33269 JP 21920      ;
-@end
