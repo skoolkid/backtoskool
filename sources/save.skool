@@ -87,7 +87,7 @@
 @defb=22496:255
 @defb=23264:184
 @start
-@expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
+@expand=#DEF(#S #FORMAT({mode[case]}))
 @replace=/#FACT(?![A-Z])/#LINK:Facts
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)

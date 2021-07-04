@@ -1,11 +1,11 @@
 ; Copyright 2001, 2008-2021 Richard Dymond (rjdymond@gmail.com)
 
 @start
-@expand=#DEFINE2,1(LOGO,#UDGARRAY(8,#IF({0}||{1}==0)(31,24),2,8,tindex=4,alpha=#IF({1})(0,255));59200-59335-1-64({{ImagePath}}/{2}|Back to Skool))
-@expand=#DEFINE0(BUG,#LINK:Bugs)
-@expand=#DEFINE0(FACT,#LINK:Facts)
-@expand=#DEFINE0(POKE,#LINK:Pokes)
-@expand=#DEFINE0(S,#FORMAT({{mode[case]}}&1))
+@expand=#DEF(#LOGO(dark,trans)(fname) #UDGARRAY(8,31+7*($dark-$trans),2,8,tindex=4,alpha=(1-$trans)*255);59200-59335-1-64({ImagePath}/$fname|Back to Skool))
+@expand=#DEF(#BUG #LINK:Bugs)
+@expand=#DEF(#FACT #LINK:Facts)
+@expand=#DEF(#POKE #LINK:Pokes)
+@expand=#DEF(#S #FORMAT({mode[case]}&1))
 @expand=#DEF(#AS(s=-1)(t=#N($s,,,1)(0x)) #LINK#(:AnimatoryStates#IF($s>=0)(#$s))($t))
 @expand=#DEF(#LESSON(n)(t=#N($n,,,1)(0x)) #LINK:Lesson$n($t))
 @replace=/#n\i/#N\1,,,1($)

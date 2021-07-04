@@ -120,7 +120,7 @@ c23831 DI            ; Disable interrupts
  23858 JP (HL)       ; Jump to #R32815
 
 @start
-@expand=#DEFINE0(S,#FORMAT({{mode[case]}}))
+@expand=#DEF(#S #FORMAT({mode[case]}))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
