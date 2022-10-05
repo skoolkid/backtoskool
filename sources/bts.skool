@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2021 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2022 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @expand=#DEF(#LOGO(dark,trans)(fname) #UDGARRAY(8,31+7*($dark-$trans),2,8,tindex=4,alpha=(1-$trans)*255);59200-59335-1-64({ImagePath}/$fname|Back to Skool))
@@ -16,7 +16,7 @@
 ; https://skoolkit.ca
 ;
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2021 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2022 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -1357,6 +1357,8 @@ s24476 DEFB 0
 ;
 ; Used by the routine at #R62910. The main entry point is used to play the
 ; theme tune.
+; .
+; #HTML(#AUDIO1(tune.wav)(#INCLUDE(ThemeTune)))
 @label=PLAYTUNE
 @nowarn
 @ignoreua
@@ -1367,6 +1369,8 @@ c24477 LD HL,23611   ; {Reset bit 5 at #w23611, clearing the record of any
  24482 LD HL,56384   ; The theme tune data starts at #R56385
 ; This entry point is used by the routine at #R23907 with #REGhl=#R56364-1 (the
 ; up-a-year tune data starts at #R56364).
+; .
+; #HTML(#AUDIO1(up-a-year.wav)(#INCLUDE(UpAYearTune)))
 *24485 DI            ; Disable interrupts
 *24486 INC HL        ; Point #REGhl at the next tune datum
  24487 LD A,(HL)     ; Pick it up
