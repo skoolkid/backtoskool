@@ -12,6 +12,7 @@
 @replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
+@set-handle-unsupported-macros=1
 ; Back to Skool disassembly
 ; https://skoolkit.ca
 ;
@@ -1358,7 +1359,7 @@ s24476 DEFB 0
 ; Used by the routine at #R62910. The main entry point is used to play the
 ; theme tune.
 ; .
-; #HTML(#AUDIO1(tune.wav)(#INCLUDE(ThemeTune)))
+; #AUDIO1(tune.wav)(#INCLUDE(ThemeTune))
 @label=PLAYTUNE
 @nowarn
 @ignoreua
@@ -1370,7 +1371,7 @@ c24477 LD HL,23611   ; {Reset bit 5 at #w23611, clearing the record of any
 ; This entry point is used by the routine at #R23907 with #REGhl=#R56364-1 (the
 ; up-a-year tune data starts at #R56364).
 ; .
-; #HTML(#AUDIO1(up-a-year.wav)(#INCLUDE(UpAYearTune)))
+; #AUDIO1(up-a-year.wav)(#INCLUDE(UpAYearTune))
 *24485 DI            ; Disable interrupts
 *24486 INC HL        ; Point #REGhl at the next tune datum
  24487 LD A,(HL)     ; Pick it up
@@ -9838,6 +9839,9 @@ c32433 LD HL,32734   ; #R32734 holds the current game mode
  32481 LD C,87       ; INK 7: PAPER 2: BRIGHT 1
  32483 CALL 27462    ; Print the lesson
 @keep
+; And finally, ring the bell.
+; .
+; #AUDIO3(bell.wav)([[1694]*255, 1705]*15, [1694]*255)
  32486 LD BC,32784   ; {Set the parameters for the bell sound effect
  32489 LD D,C        ;
  32490 LD A,1        ; }

@@ -1,4 +1,4 @@
 GAME=bts
 SRCFILES=$(echo {bts,load,save,start}.skool {bts,bugs,changelog,data,facts,glossary,graphics,pages,pokes}.ref {bts,dark,green,plum}.css tiles.js backtoskool.py COPYING)
 SKOOL2BINOPTS=-i
-WAVCONVERT="tune.wav up-a-year.wav"
+WAVCONVERT="bell.wav tune.wav up-a-year.wav"
