@@ -7151,6 +7151,7 @@ c29716 PUSH AF       ; Save the lines recipient's character number briefly
 @rsub=!29834
 s29834 DEFS 2
 
+@assemble=2
 ; Make a sound effect
 ;
 ; Used by the routines at #R28952, #R29716, #R29896, #R30804 and #R32433.
@@ -7175,6 +7176,7 @@ c29836 PUSH HL       ;
  29854 POP HL        ;
  29855 RET           ;
 
+@assemble=1
 ; Check whether any adults were hit by the pellet, water, sherry or conker
 ;
 ; Used by the routine at #R29896. Returns with the zero flag set if a character
@@ -8125,10 +8127,13 @@ c30804 LD A,(32747)  ; #R32747 holds the inventory flags
  30841 JR NZ,30889   ; Jump if they don't match
 ; ERIC's pellet has knocked the frog out of the cup and onto MISS TAKE's head.
 ; Celebrate!
+; .
+; #AUDIO7(safe-key.wav)(30853,30872)
  30843 LD HL,32747   ; #R32747 holds the inventory flags
  30846 SET 0,(HL)    ; Give ERIC the safe key
  30848 LD A,200      ; {Add 2000 to the score and print it
  30850 CALL 29621    ; }
+@assemble=2
  30853 LD HL,768     ; {Make the safe-key-getting celebratory sound effect
 *30856 LD D,1        ;
  30858 LD A,L        ;
@@ -8140,6 +8145,7 @@ c30804 LD A,(32747)  ; #R32747 holds the inventory flags
  30866 CALL 29836    ;
  30869 DEC L         ;
  30870 JR NZ,30856   ; }
+@assemble=1
 @rsub=!30872-30874
  30872 NOP           ; {
  30873 NOP           ;
