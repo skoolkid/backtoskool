@@ -6329,6 +6329,8 @@ c28877 LD A,(32758)  ; {Return unless #R32758 (which is decremented on every
 ; Score 100 points and make the sound of a mouse being caught
 ;
 ; Used by the routine at #R31573.
+; .
+; #AUDIO3(mouse.wav)(#INCLUDE(Mouse))
 ;
 ; A #b10
 @label=CATCHMOUSE
