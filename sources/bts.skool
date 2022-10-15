@@ -7116,6 +7116,8 @@ c29716 PUSH AF       ; Save the lines recipient's character number briefly
  29787 CALL 27462    ; Print the lines message
 ; The lines message (e.g. '100 LINES ERIC') has been printed. Now for the
 ; accompanying sound effect.
+; .
+; #AUDIO3(lines1.wav)([[290]*255,301]*39,[290]*255)
  29790 LD A,(58408)  ; #REGa=attribute byte for the lines message
  29793 LD DE,10240   ; Set the duration parameter for the beep
  29796 RRCA          ; {The border colour for the beep will be the same as the
@@ -7133,6 +7135,8 @@ c29716 PUSH AF       ; Save the lines recipient's character number briefly
 ; This entry point is used by the routines at #R29896 (with #REGa=#b6,
 ; #REGb=#R59897(#b14), #REGc=#b70) and #R62668 (with #REGa=#b2,
 ; #REGb=#R60937(#b98), #REGc=#b50).
+; .
+; #AUDIO3(lines2.wav)([[680]*255,691]*19,[680]*255)
 *29811 PUSH DE       ;
  29812 PUSH AF       ;
  29813 LD A,B        ; #REGa=#R59897(#b14), #R60937(#b98), or a reprimand
