@@ -7306,6 +7306,9 @@ c29896 LD L,2        ;
                      ; hit
  29967 CALL 29621    ; Add 100 to the score and print it
  29970 PUSH DE       ;
+; Celebrate the conkering of ANGELFACE or EINSTEIN with a sound effect.
+; .
+; #AUDIO3(conker.wav)([[550]*255,561]*39,[550]*255)
  29971 LD D,40       ; {Make a sound effect with #REGa=#b7 and #REGc=#b18
  29973 LD BC,10258   ; (border alternating white and cyan)
  29976 LD A,7        ;
