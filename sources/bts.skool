@@ -6389,6 +6389,8 @@ c28992 LD A,(32747)  ; #R32747 holds the inventory flags
 ;
 ; Used by the routines at #R21920, #R28114, #R28160, #R28216, #R29574, #R62178,
 ; #R62438, #R64242 and #R64259.
+; .
+; #AUDIO3(walking.wav)(#FOR1,12,,3(n,[2532]*6,560000))
 @label=WALKSOUND
 c29012 PUSH BC       ;
  29013 LD A,1        ; The border will be blue
