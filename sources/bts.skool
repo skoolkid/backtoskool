@@ -19396,6 +19396,8 @@ c62178 LD HL,32755   ; #R32755 holds ERIC's main action timer
 ; This entry point is used by the routines at #R24028, #R29462 and #R29568.
 *62401 CALL 31746    ; Print the inventory
 ; This entry point is used by the routine at #R24348.
+; .
+; #AUDIO2(bingo.wav)(#FOR(1,5,,3)(m,(#FOR(3365,76,-13,1)(n,n),65),83))
 *62404 LD C,5        ; {Make a celebratory sound effect (ERIC has achieved
 *62406 LD B,3        ; something rather handy)
 @keep
