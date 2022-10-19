@@ -20775,6 +20775,8 @@ c63801 LD L,21       ; {Pick up the x-coordinate of the window to be opened
 ; Prepare the buffer for ERIC's catapult pellet and make a sound effect
 ;
 ; Used by the routine at #R24296.
+; .
+; #AUDIO2(fire.wav)(#FOR(1,4,,3)(m,#FOR(3378,258,-104,1)(n,n),154))
 ;
 ; B #b214 (ERIC's catapult pellet)
 @label=PREPCATTY
