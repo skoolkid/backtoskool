@@ -19169,6 +19169,8 @@ c62094 LD HL,32733   ; #R32733 holds ERIC's knockout delay counter
  62141 CALL 24880    ; Update ERIC's animatory state and update the SRB
  62144 CALL 25248    ; Update the display
 ; Now to initialise the sound effect parameters.
+; .
+; #AUDIO2(knockout.wav)(3378,#FOR(63,3352,13,1)(n,n))
 *62147 LD HL,275     ; #REGh=#b1 (pitch adjustment), #REGl=#b19 (border colour
                      ; #S/XOR/ mask)
 ; This entry point is used by the routine at #R23907 with #REGh=#b2 and
