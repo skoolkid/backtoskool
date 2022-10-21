@@ -1,7 +1,6 @@
 ; Copyright 2001, 2008-2022 Richard Dymond (rjdymond@gmail.com)
 
 @start
-@expand=#DEF(#LOGO(dark,trans)(fname) #UDGARRAY(8,31+7*($dark-$trans),2,8,tindex=4,alpha=(1-$trans)*255);59200-59335-1-64({ImagePath}/$fname|Back to Skool))
 @expand=#DEF(#BUG #LINK:Bugs)
 @expand=#DEF(#FACT #LINK:Facts)
 @expand=#DEF(#POKE #LINK:Pokes)
