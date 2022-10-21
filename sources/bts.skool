@@ -919,6 +919,9 @@ c23907 LD HL,32755   ; #R32755 holds ERIC's main action timer
  23981 JR Z,23945    ; Jump if not
  23983 SET 4,(HL)    ; Signal: ERIC now has a sherry-filled water pistol
  23985 CALL 31746    ; Print the inventory
+; Acknowledge the sherry-filled water pistol with a sound effect.
+; .
+; #AUDIO2(sherry.wav)(3378,#FOR(76,3378,26,1)(n,n),#FOR(76,3326,26,1)(n,n))
  23988 LD HL,534     ; {Make a sound effect
  23991 CALL 62150    ; }
  23994 JR 23945      ; Bring ERIC back to the floor
