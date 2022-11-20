@@ -9857,10 +9857,10 @@ c32433 LD HL,32734   ; #R32734 holds the current game mode
 *32478 LD DE,23216   ; #REGde=base display file address for the lesson box
  32481 LD C,87       ; INK 7: PAPER 2: BRIGHT 1
  32483 CALL 27462    ; Print the lesson
-@keep
 ; And finally, ring the bell.
 ; .
 ; #AUDIO3(bell.wav)([[1694]*255, 1705]*15, [1694]*255)
+@keep
  32486 LD BC,32784   ; {Set the parameters for the bell sound effect
  32489 LD D,C        ;
  32490 LD A,1        ; }
