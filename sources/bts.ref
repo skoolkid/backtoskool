@@ -2,7 +2,7 @@
 
 [Config]
 Expand=#INCLUDE(Expand)
-RefFiles=bugs.ref;changelog.ref;data.ref;facts.ref;glossary.ref;graphics.ref;pages.ref;pokes.ref
+RefFiles=bugs.ref;changelog.ref;data.ref;facts.ref;glossary.ref;graphics.ref;pages.ref;pokes.ref;sound.ref
 HtmlWriterClass=:backtoskool.BackToSkoolHtmlWriter
 GameDir=back_to_skool
 
@@ -97,6 +97,7 @@ InitialAnimatoryStates=graphics/asstart.html
 AnimatoryStates=graphics/as.html
 AnimatoryStateTiles=graphics/astiles.html
 AnimatoryStateTileImagePath={ImagePath}/astiles
+Sound=sound/sound.html
 CharacterBuffers=buffers/cbuffer.html
 Keys=tables/keys.html
 PersonalTimetables=lessons/timetables.html
@@ -131,7 +132,7 @@ Lesson59=lessons/#N59.html
 
 [OtherCode:start]
 
-[Index:Graphics:Graphics]
+[Index:Graphics:Graphics and sound]
 PlayArea
 PlayAreaTiles
 InitialAnimatoryStates
@@ -139,6 +140,7 @@ AnimatoryStates
 AnimatoryStateTiles
 Graphics
 GraphicGlitches
+Sound
 
 [Index:DataTables:Data tables and buffers]
 GameStatusBuffer

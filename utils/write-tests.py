@@ -16,7 +16,7 @@ SKOOL = 'bts.skool'
 
 SNAPSHOT = 'build/back_to_skool.z80'
 
-OUTPUT = """Using ref files: bts.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref
+OUTPUT = """Using ref files: bts.ref, bugs.ref, changelog.ref, data.ref, facts.ref, glossary.ref, graphics.ref, pages.ref, pokes.ref, sound.ref
 Parsing bts.skool
 Output directory: {odir}/back_to_skool
 Copying {SKOOLKIT_HOME}/skoolkit/resources/skoolkit.css to skoolkit.css
@@ -67,6 +67,7 @@ Writing lessons/#N57.html
 Writing lessons/#N58.html
 Writing lessons/#N59.html
 Writing tables/keys.html
+Writing sound/sound.html
 Parsing load.skool
 Writing load/load.html
 Writing disassembly files in load
