@@ -1,4 +1,4 @@
-; Copyright 2008-2015, 2017, 2019 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017, 2019, 2022 Richard Dymond (rjdymond@gmail.com)
 
 [Fact:boy10:The importance of little boy no. 10]
 In demo mode, ERIC bases his every move on where little boy no. 10 is and what
@@ -380,6 +380,26 @@ Back to Skool (or be given lines for it), you may find consolation in evidence
 that suggests it was possible at some point while the game was being developed:
 the lost lines message at #R60480. Unused, but never purged. Feel any better
 now?
+
+[Fact:aggressiveUnseating:Aggressive unseating]
+If ERIC is pushed out of a seat in a classroom in the girls' skool, he lies
+flat on his back as if knocked out by a punch or a catapult pellet, instead of
+just sitting on the floor (as he would if he were pushed out of a seat in the
+boys' skool).
+
+Now, this fact is impossible to verify in an unmodified game because ERIC is
+incapable of being pushed out of his seat to begin with. But even if he were,
+it's still difficult to verify because the girls won't sit down until MISS TAKE
+arrives at the classroom doorway and tells them to, and she won't do that until
+the boys' skool door is closed. On top of that, if she spots ERIC, she'll chase
+him down instead of conducting the class. So to fix all of these problems:
+
+<div>POKE 26211,54: POKE 26212,128 - Fix the #BUG#seat() bug</div>
+<div>POKE 62577,195 - Make MISS TAKE not care about the boys' skool door</div>
+<div>POKE 32258,24 - Prevent MISS TAKE from chasing ERIC</div>
+
+The logic behind this difference in the unseating arrangements between the two
+skools can be found in the section of code at #R62112.
 
 [Fact:pelletVsLid:ERIC's pellet v. water v. plant v. desk lid]
 RAM is in short supply in Back to Skool. For example, ERIC's catapult pellet is
