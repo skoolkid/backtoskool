@@ -1,4 +1,4 @@
-; Copyright 2008-2013, 2015, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2013, 2015, 2017, 2022 Richard Dymond (rjdymond@gmail.com)
 
 [Bug:fire:Catapult animation]
 When ERIC fires his catapult, he should go through the following sequence of
@@ -142,6 +142,10 @@ ERIC doesn't get pushed to the floor when someone sits in his seat (see
 
 <div>POKE 26211,54</div>
 <div>POKE 26212,128</div>
+
+Note that even with these POKEs in place, ERIC can still share a chair with
+another boy by punching him out of the seat first, and then sitting down on it
+before the boy gets back up.
 
 [Bug:whatsInTheDesk:What's in the desk?]
 The desk lid animatory state that is used when ERIC finds the water pistol

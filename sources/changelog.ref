@@ -7,6 +7,8 @@ SectionType=BulletPoints
 -
 
 - Added the #LINK:Sound() page
+- Added a note to #BUG#seat() about how to share a chair with someone even when
+  the bug is fixed
 
 [Changelog:20200811]
 -
