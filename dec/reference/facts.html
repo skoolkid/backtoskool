@@ -41,6 +41,7 @@
 <li><a href="#heroineLines">HAYLEY's lines count too</a></li>
 <li><a href="#hungryHayley">Hungry HAYLEY?</a></li>
 <li><a href="#lostLinesMessage">The lost lines message</a></li>
+<li><a href="#aggressiveUnseating">Aggressive unseating</a></li>
 <li><a href="#pelletVsLid">ERIC's pellet v. water v. plant v. desk lid</a></li>
 <li><a href="#pelletVsStinkbomb">BOY WANDER's pellet v. stinkbomb</a></li>
 <li><a href="#allAboutMice">All about mice</a></li>
@@ -649,8 +650,35 @@ the lost lines message at <a href="../asm/60480.html">60480</a>. Unused, but nev
 now?
 </div>
 </div>
-<div><span id="pelletVsLid"></span></div>
+<div><span id="aggressiveUnseating"></span></div>
 <div class="box box-1">
+<div class="box-title">Aggressive unseating</div>
+<div class="paragraph">
+If ERIC is pushed out of a seat in a classroom in the girls' skool, he lies
+flat on his back as if knocked out by a punch or a catapult pellet, instead of
+just sitting on the floor (as he would if he were pushed out of a seat in the
+boys' skool).
+</div>
+<div class="paragraph">
+Now, this fact is impossible to verify in an unmodified game because ERIC is
+incapable of being pushed out of his seat to begin with. But even if he were,
+it's still difficult to verify because the girls won't sit down until MISS TAKE
+arrives at the classroom doorway and tells them to, and she won't do that until
+the boys' skool door is closed. On top of that, if she spots ERIC, she'll chase
+him down instead of conducting the class. So to fix all of these problems:
+</div>
+<div class="paragraph">
+<div>POKE 26211,54: POKE 26212,128 - Fix the <a href="bugs.html#seat">Undethronable ERIC</a> bug</div>
+<div>POKE 62577,195 - Make MISS TAKE not care about the boys' skool door</div>
+<div>POKE 32258,24 - Prevent MISS TAKE from chasing ERIC</div>
+</div>
+<div class="paragraph">
+The logic behind this difference in the unseating arrangements between the two
+skools can be found in the section of code at <a href="../asm/62094.html#62112">62112</a>.
+</div>
+</div>
+<div><span id="pelletVsLid"></span></div>
+<div class="box box-2">
 <div class="box-title">ERIC's pellet v. water v. plant v. desk lid</div>
 <div class="paragraph">
 RAM is in short supply in Back to Skool. For example, ERIC's catapult pellet is
@@ -663,7 +691,7 @@ while his catapult pellet is still airborne.
 </div>
 </div>
 <div><span id="pelletVsStinkbomb"></span></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">BOY WANDER's pellet v. stinkbomb</div>
 <div class="paragraph">
 As already mentioned, RAM is in short supply in Back to Skool. So much so that
@@ -676,7 +704,7 @@ drop a stinkbomb and watch the pellet die young. See <a href="../asm/57910.html"
 </div>
 </div>
 <div><span id="allAboutMice"></span></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">All about mice</div>
 <div class="paragraph">
 Did I mention that RAM is in short supply in Back to Skool? So much so that
@@ -717,7 +745,7 @@ on-screen out of thin air at x-coordinate 10, 88 or 170.
 </div>
 </div>
 <div><span id="conkerAndClock"></span></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">The conker and the clock</div>
 <div class="paragraph">
 Ever stood at the top-floor window of the boys' skool (as ERIC, naturally),
@@ -732,7 +760,7 @@ section of code at <a href="../asm/30102.html#30145">30145</a>.
 </div>
 </div>
 <div><span id="wackerAndClock"></span></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">WACKER and the clock</div>
 <div class="paragraph">
 When assembly finishes (that is, when MR WACKER has finished speaking), the
@@ -742,7 +770,7 @@ speech. See <a href="../asm/62032.html">62032</a>.
 </div>
 </div>
 <div><span id="inferiorCatapult"></span></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Inferior catapult</div>
 <div class="paragraph">
 The catapult in Back to Skool is not quite so handy as the one in Skool
@@ -757,9 +785,9 @@ To adjust the hit zone (and the range) of the catapult, see
 </div>
 </div>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20200811</div>
-<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2020 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.2.</div>
+<div class="release">The complete Back to Skool RAM disassembly 20221122</div>
+<div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2022 Richard Dymond.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.8.</div>
 <div><a href="../../reference/facts.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>
