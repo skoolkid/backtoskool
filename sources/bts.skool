@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2022 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2023 Richard Dymond (rjdymond@gmail.com)
 
 @start
 @expand=#DEF(#BUG #LINK:Bugs)
@@ -16,7 +16,7 @@
 ; https://skoolkit.ca
 ;
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2022 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2023 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -735,7 +735,7 @@ i23561 DEFB 35       ; Set REPDEL to 35
 i23563 DEFS 48
 
 ; System variable FLAGS
-i23611 DEFB 8        ; Set bit 3 so that the keyboard is read in 'L' mode
+i23611 DEFB 205      ; Bit 3 is set so that the keyboard is read in 'L' mode
 
 @defs=23612:196
 i23612 DEFS 196
@@ -9892,6 +9892,8 @@ c32497 CALL 25213    ; Collect the event identifier parameter from the command
 *32509 JP 25484      ; Move to the next command in the command list
 
 @org
+@defs=32512:253 ; Clear the game status buffer (except for the random number
+@defs=32767:1   ; seed at 32765)
 ; Screen refresh buffer (SRB)
 ;
 ; Used by the routines at #R24880, #R25248, #R26380, #R26849 and #R26910. Each
