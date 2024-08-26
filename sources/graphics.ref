@@ -1,4 +1,4 @@
-; Copyright 2008-2014, 2017 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2014, 2017, 2024 Richard Dymond (rjdymond@gmail.com)
 
 [GraphicGlitch:einsteinHead:EINSTEIN's head]
 The line just above EINSTEIN's head contains a transparent pixel (shown in
@@ -14,7 +14,7 @@ To make the pixel blank:
 #POKES47249,252
 #UDGTABLE(gallery)
 { #CALL:as_img(49,4) | #CALL:as_img(51,4) }
-{ =c2 POKE 47249,252 }
+{ =c2 #WRITEPOKE(eh1) }
 TABLE#
 #POPS
 
@@ -30,7 +30,7 @@ To make the line transparent:
 #POKES47254,255
 #UDGTABLE(gallery)
 { #CALL:as_img(54,4) }
-{ POKE 47254,255 }
+{ #WRITEPOKE(eh2) }
 TABLE#
 #POPS
 
@@ -47,7 +47,7 @@ To make the line transparent:
 #POKES47265,255
 #UDGTABLE(gallery)
 { #CALL:as_img(21,4) }
-{ POKE 47265,255 }
+{ #WRITEPOKE(bwh) }
 TABLE#
 #POPS
 
@@ -65,7 +65,7 @@ To make the ear always blank:
 #POKES53356,171
 #UDGTABLE(gallery)
 { #CALL:as_img(105,4) }
-{ POKE 53356,171 }
+{ #WRITEPOKE(ce) }
 TABLE#
 #POPS
 
@@ -85,7 +85,7 @@ To fill in the blank pixel:
 #POKES52089,30;52345,222
 #UDGTABLE(gallery)
 { #CALL:as_img(111,4) }
-{ <div>POKE 52089,30</div><div>POKE 52345,222</div> }
+{ #WRITEPOKES(ch) }
 TABLE#
 #POPS
 
@@ -102,7 +102,7 @@ To make these pixels blank:
 #POKES53896,228
 #UDGTABLE(gallery)
 { #CALL:as_img(80,4) | #CALL:as_img(82,4) | #CALL:as_img(87,4) }
-{ =c3 POKE 53896,228 }
+{ =c3 #WRITEPOKE(wt) }
 TABLE#
 #POPS
 
@@ -122,10 +122,7 @@ To make these pixels transparent:
 #UDGTABLE(gallery)
 { #CALL:as_img(89,4) | #CALL:as_img(121,4) |
   #CALL:as_img(91,4) | #CALL:as_img(123,4) }
-{ =c2 <div>POKE 53461,95</div>
-      <div>POKE 53973,95</div>
-      <div>POKE 54485,223</div> |
-  =c2 POKE 54487,250 }
+{ =c2 #WRITEPOKES(was[:3]) | =c2 #WRITEPOKE(was[3]) }
 TABLE#
 #POPS
 
@@ -142,7 +139,7 @@ To make these pixels transparent:
 #POKES51417,235
 #UDGTABLE(gallery)
 { #CALL:as_img(95,4) | #CALL:as_img(119,4) }
-{ =c2 POKE 51417,235 }
+{ =c2 #WRITEPOKE(wth) }
 TABLE#
 #POPS
 
@@ -162,10 +159,7 @@ To remove these differences:
 #POKES53692,46;53948,174;54204,54;54460,182;54716,53;54972,181
 #UDGTABLE(gallery)
 { #CALL:as_img(103,4) }
-{ <div>POKE 51644,232</div><div>POKE 51900,232</div><div>POKE 52668,36</div>
-  <div>POKE 52924,164</div><div>POKE 53180,44</div><div>POKE 53436,172</div>
-  <div>POKE 53692,46</div><div>POKE 53948,174</div><div>POKE 54204,54</div>
-  <div>POKE 54460,182</div><div>POKE 54716,53</div><div>POKE 54972,181</div> }
+{ #WRITEPOKES(rc) }
 TABLE#
 #POPS
 
@@ -182,7 +176,7 @@ To make the pixel transparent:
 #POKES53853,223
 #UDGTABLE(gallery)
 { #CALL:as_img(120,4) | #CALL:as_img(122,4) | #CALL:as_img(127,4) }
-{ =c3 POKE 53853,223 }
+{ =c3 #WRITEPOKE(aw) }
 TABLE#
 #POPS
 
@@ -200,7 +194,7 @@ To make these pixels transparent:
 #POKES52316,191;54876,191
 #UDGTABLE(gallery)
 { #CALL:as_img(120,4) | #CALL:as_img(122,4) | #CALL:as_img(127,4) }
-{ =c3 <div>POKE 52316,191</div><div>POKE 54876,191</div> }
+{ =c3 #WRITEPOKES(ah) }
 TABLE#
 #POPS
 
@@ -218,7 +212,7 @@ To make the pixel blank:
 #POKES54865,127
 #UDGTABLE(gallery)
 { #CALL:as_img(127,4) }
-{ POKE 54865,127 }
+{ #WRITEPOKE(aa) }
 TABLE#
 #POPS
 
@@ -246,7 +240,7 @@ To make the extraneous blank pixel transparent:
 #UDGTABLE(gallery)
 { #CALL:as_img(1,4) | #CALL:as_img(17,4) | #CALL:as_img(33,4) |
   #CALL:as_img(49,4) | #CALL:as_img(65,4) }
-{ =c5 POKE 47209,231 }
+{ =c5 #WRITEPOKE(bh) }
 TABLE#
 #POPS
 
@@ -272,7 +266,7 @@ To fix the mask:
 #POKES50877,238
 #UDGTABLE(gallery)
 { #CALL:as_img(56,4) | #CALL:as_img(72,4) | #CALL:as_img(63,4) }
-{ =c3 POKE 50877,238 }
+{ =c3 #WRITEPOKE(gs1) }
 TABLE#
 #POPS
 
@@ -289,7 +283,7 @@ To make this blank pixel transparent:
 #POKES49864,239
 #UDGTABLE(gallery)
 { #CALL:as_img(59,4) | #CALL:as_img(75,4) }
-{ =c2 POKE 49864,239 }
+{ =c2 #WRITEPOKE(gs2) }
 TABLE#
 #POPS
 
@@ -316,7 +310,7 @@ To fix the masks:
 #UDGTABLE(gallery)
 { #CALL:as_img(1,4) | #CALL:as_img(17,4) | #CALL:as_img(33,4) |
   #CALL:as_img(49,4) | #CALL:as_img(65,4) }
-{ =c5 POKE 50281,222 }
+{ =c5 #WRITEPOKE(bs) }
 TABLE#
 #POPS
 
@@ -334,7 +328,7 @@ To shift it one pixel to the right:
 #POKES59001,204
 #UDGTABLE(gallery)
 { #UDGARRAY8,31,4,8;58944-58951;59008-59015;59072-59079(score_box_fixed_x4) }
-{ POKE 59001,204 }
+{ #WRITEPOKE(sb) }
 TABLE#
 #POPS
 
