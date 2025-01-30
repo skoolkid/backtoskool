@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021 Richard Dymond
+; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021, 2025 Richard Dymond
 
 @defs=16384:6144
 @defs=22528:768,56
@@ -88,12 +88,12 @@
 @defb=23264:184
 @start
 @expand=#DEF(#S #FORMAT({mode[case]}))
-@replace=/#FACT(?![A-Z])/#LINK:Facts
+@replace=/#FACT\(([^(]*)\)/#LINK(Facts#\1)
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021 Richard Dymond (this
+; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021, 2025 Richard Dymond (this
 ; disassembly)
 
 @org
@@ -101,7 +101,7 @@
 ;
 ; #UDGTABLE
 ; { #SCR(saver) | This is the program used to save the fast code block for Back
-; to Skool. See '#FACT#saverPokes()' for a discussion of the two POKEs that
+; to Skool. See '#FACT(saverPokes)()' for a discussion of the two POKEs that
 ; appear in line 33 of the program. }
 ; TABLE#
 ; .

@@ -1,7 +1,7 @@
-; Copyright 2008-2015, 2017, 2019 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017, 2019, 2025 Richard Dymond (rjdymond@gmail.com)
 
 [Page:PlayArea]
-PageContent=<div>#CALL:play_area(play_area,0,0,192,21,2,0,8)</div>
+PageContent=<div>#CALL(play_area(play_area,0,0,192,21,2,0,8))</div>
 
 [Page:PlayAreaTiles]
 JavaScript=tiles.js
@@ -96,11 +96,11 @@ The eight graphic bytes for a tile are located thus:
 Any given tile (identified by <i>udg_addr</i>) may appear at more than one
 location in the play area.
 </p>
-#CALL:play_area_tiles(192,21)
-#CALL:mutable_tiles(doors,56893,57344,56832,57405,64000,56320)
-#CALL:mutable_tiles(windows,55296,55808)
-#CALL:mutable_tiles(tree,57856)
-#CALL:mutable_tiles(cups,56694,56699,56950,56955,57206,57211,57462,57467)
+#CALL(play_area_tiles(192,21))
+#CALL(mutable_tiles(doors,56893,57344,56832,57405,64000,56320))
+#CALL(mutable_tiles(windows,55296,55808))
+#CALL(mutable_tiles(tree,57856))
+#CALL(mutable_tiles(cups,56694,56699,56950,56955,57206,57211,57462,57467))
 
 [Template:play_area_tiles]
 <table class="tiles">
@@ -255,10 +255,10 @@ PageContent=#INCLUDE(InitialAnimatoryStates)
 
 [InitialAnimatoryStates]
 #PUSHS
-#CALL:adjust_mutable(57405)
-#CALL:adjust_mutable(64000)
-#CALL:adjust_mutable(57856)
-<div>#CALL:play_area(initial_as,0,0,192,21,2,1,8)</div>
+#CALL(adjust_mutable(57405))
+#CALL(adjust_mutable(64000))
+#CALL(adjust_mutable(57856))
+<div>#CALL(play_area(initial_as,0,0,192,21,2,1,8))</div>
 #POPS
 
 [Page:AnimatoryStates]
@@ -266,7 +266,7 @@ PageContent=#INCLUDE(AnimatoryStatesPage)
 
 [AnimatoryStatesPage]
 <table class="animatoryStates">
-#CALL:animatory_states()
+#CALL(animatory_states())
 </table>
 
 [Template:animatory_state_row]
@@ -425,7 +425,7 @@ state N-#b128 (see #R24576).
 </p>
 </div>
 <table class="asTiles">
-#CALL:astiles()
+#CALL(astiles())
 </table>
 
 [Template:astiles_row]
@@ -504,8 +504,8 @@ PageContent=#INCLUDE(CharacterBuffers)
 <p>The character buffers occupy bytes #b0-#b36 in pages #b183-#b214. The
 buffers in pages #b198, #b199, #b206, #b207 and #b208 may be used by mice
 released by ERIC.</p>
-#CALL:cast()
-#CALL:cbuffer()
+#CALL(cast())
+#CALL(cbuffer())
 
 [Template:cast]
 #TABLE(cbuffer,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter,transparent,cbufPage,cbufAddress,cbufCharacter)
@@ -562,7 +562,7 @@ PageContent=#INCLUDE(PersonalTimetables)
 <th>No.</th>
 <th>Character</th>
 </tr>
-#CALL:personal_timetables()
+#CALL(personal_timetables())
 </table>
 
 [Template:personal_timetable]
@@ -580,7 +580,7 @@ PageContent=#INCLUDE(LessonIndex)
 <th>ID</th>
 <th>Lesson</th>
 </tr>
-#CALL:lesson_index()
+#CALL(lesson_index())
 </table>
 
 [Template:lesson_type]
@@ -590,73 +590,73 @@ PageContent=#INCLUDE(LessonIndex)
 </tr>
 
 [Page:Lesson37]
-PageContent=#CALL:lesson(37)
+PageContent=#CALL(lesson(37))
 
 [Page:Lesson38]
-PageContent=#CALL:lesson(38)
+PageContent=#CALL(lesson(38))
 
 [Page:Lesson39]
-PageContent=#CALL:lesson(39)
+PageContent=#CALL(lesson(39))
 
 [Page:Lesson40]
-PageContent=#CALL:lesson(40)
+PageContent=#CALL(lesson(40))
 
 [Page:Lesson41]
-PageContent=#CALL:lesson(41)
+PageContent=#CALL(lesson(41))
 
 [Page:Lesson42]
-PageContent=#CALL:lesson(42)
+PageContent=#CALL(lesson(42))
 
 [Page:Lesson43]
-PageContent=#CALL:lesson(43)
+PageContent=#CALL(lesson(43))
 
 [Page:Lesson44]
-PageContent=#CALL:lesson(44)
+PageContent=#CALL(lesson(44))
 
 [Page:Lesson45]
-PageContent=#CALL:lesson(45)
+PageContent=#CALL(lesson(45))
 
 [Page:Lesson46]
-PageContent=#CALL:lesson(46)
+PageContent=#CALL(lesson(46))
 
 [Page:Lesson47]
-PageContent=#CALL:lesson(47)
+PageContent=#CALL(lesson(47))
 
 [Page:Lesson48]
-PageContent=#CALL:lesson(48)
+PageContent=#CALL(lesson(48))
 
 [Page:Lesson49]
-PageContent=#CALL:lesson(49)
+PageContent=#CALL(lesson(49))
 
 [Page:Lesson50]
-PageContent=#CALL:lesson(50)
+PageContent=#CALL(lesson(50))
 
 [Page:Lesson51]
-PageContent=#CALL:lesson(51)
+PageContent=#CALL(lesson(51))
 
 [Page:Lesson52]
-PageContent=#CALL:lesson(52)
+PageContent=#CALL(lesson(52))
 
 [Page:Lesson53]
-PageContent=#CALL:lesson(53)
+PageContent=#CALL(lesson(53))
 
 [Page:Lesson54]
-PageContent=#CALL:lesson(54)
+PageContent=#CALL(lesson(54))
 
 [Page:Lesson55]
-PageContent=#CALL:lesson(55)
+PageContent=#CALL(lesson(55))
 
 [Page:Lesson56]
-PageContent=#CALL:lesson(56)
+PageContent=#CALL(lesson(56))
 
 [Page:Lesson57]
-PageContent=#CALL:lesson(57)
+PageContent=#CALL(lesson(57))
 
 [Page:Lesson58]
-PageContent=#CALL:lesson(58)
+PageContent=#CALL(lesson(58))
 
 [Page:Lesson59]
-PageContent=#CALL:lesson(59)
+PageContent=#CALL(lesson(59))
 
 [Template:lesson]
 <table class="asm-navigation">
@@ -665,7 +665,7 @@ PageContent=#CALL:lesson(59)
 <span class="prev-{prev_lesson[exists]}">Prev:
 <a href="{prev_lesson[href]}">{prev_lesson[num]}</a></span>
 </td>
-<td class="up">Up: #LINK:LessonIndex(Index)</td>
+<td class="up">Up: #LINK(LessonIndex)(Index)</td>
 <td class="next">
 <span class="next-{next_lesson[exists]}">Next:
 <a href="{next_lesson[href]}">{next_lesson[num]}</a></span>
@@ -687,7 +687,7 @@ PageContent=#CALL:lesson(59)
 <span class="prev-{prev_lesson[exists]}">Prev:
 <a href="{prev_lesson[href]}">{prev_lesson[num]}</a></span>
 </td>
-<td class="up">Up: #LINK:LessonIndex(Index)</td>
+<td class="up">Up: #LINK(LessonIndex)(Index)</td>
 <td class="next">
 <span class="next-{next_lesson[exists]}">Next:
 <a href="{next_lesson[href]}">{next_lesson[num]}</a></span>
@@ -728,7 +728,7 @@ Lookup = Offset + #w58624 (points to an entry in the table at #R58704)
 <th>Routine</th>
 <th>Purpose</th>
 </tr>
-#CALL:keypress_table_rows()
+#CALL(keypress_table_rows())
 </table>
 
 [Template:keypress_table_row]

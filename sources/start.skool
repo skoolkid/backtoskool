@@ -1,4 +1,4 @@
-; Copyright 2008-2013, 2015, 2017, 2018, 2021 Richard Dymond
+; Copyright 2008-2013, 2015, 2017, 2018, 2021, 2025 Richard Dymond
 ; (rjdymond@gmail.com)
 
 @start
@@ -7,7 +7,8 @@
 @remote=main:21920
 @replace=/#w\i/#N(\1,4)/ (word)
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2008-2013, 2015, 2017, 2018, 2021 Richard Dymond (this disassembly)
+; Copyright 2008-2013, 2015, 2017, 2018, 2021, 2025 Richard Dymond (this
+; disassembly)
 
 @org
 ; Start
@@ -36,7 +37,7 @@ c33204 LD SP,23806   ; Put the stack somewhere safe
  33256 LD B,252      ;
 @label=LOOP
  33258 LD (DE),A     ; {Zero out addresses #w32512 to #w32763 (the
- 33259 INC E         ; #LINK:GameStatusBuffer(game status buffer))
+ 33259 INC E         ; #LINK(GameStatusBuffer)(game status buffer))
  33260 DJNZ 33258    ; }
  33262 LD DE,33024   ; {Prepare to copy 256 bytes from #w23296 to #w33024 (thus
  33265 LD HL,23296   ; overwriting this routine)

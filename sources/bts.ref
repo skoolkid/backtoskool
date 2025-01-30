@@ -1,4 +1,4 @@
-; Copyright 2008-2015, 2017-2020, 2022, 2024
+; Copyright 2008-2015, 2017-2020, 2022, 2024, 2025
 ; Richard Dymond (rjdymond@gmail.com)
 
 [Config]
@@ -175,7 +175,7 @@ Includes=32648,32650,32652,32654,32656
 
 [Expand]
 #DEF(#LOGO(dark,trans)(fname)
-  #UDGARRAY(8,31+7*($dark-$trans),2,8,tindex=4,alpha=(1-$trans)*255);59200-59335-1-64({ImagePath}/$fname|Back to Skool)
+  #UDGARRAY(8,31+7*($dark-$trans),2,8,tindex=4,alpha=(1-$trans)*255)(59200-59335-1-64)({ImagePath}/$fname|Back to Skool)
 )
 
 #DEF(#WRITEPOKE()(name) #FOREACH(POKE$name)(p,p))

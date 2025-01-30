@@ -1,4 +1,5 @@
-; Copyright 2008-2015, 2017, 2019, 2022 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017, 2019, 2022, 2025
+; Richard Dymond (rjdymond@gmail.com)
 
 [Fact:boy10:The importance of little boy no. 10]
 In demo mode, ERIC bases his every move on where little boy no. 10 is and what
@@ -66,7 +67,7 @@ will be standing on the stage, and only when the screen stops scrolling will he
 begin his detention speech.
 
 (Hanging around on the outskirts of the assembly hall during assembly is a fine
-way to get lines, so you might want to use the #POKE#noLines(no lines POKE)
+way to get lines, so you might want to use the #POKE(noLines)(no lines POKE)
 before trying this for yourself.)
 
 The reason for this uncharacteristically patient behaviour is the routine at
@@ -206,7 +207,7 @@ some exercise and fresh air by playing truant once in a while.
 [Fact:unusedDoor:The usable unused door]
 Though the left study door is never used in a normal game, there is support
 built in for opening and closing it (see #R56893, for example). To bring the
-door into service, try #POKE#leftStudyDoor(these POKEs).
+door into service, try #POKE(leftStudyDoor)(these POKEs).
 
 [Fact:bottomlessBoxes:Bottomless boxes]
 Play area tiles #b1, #b11, #b21 and #b30 in base page #b144 are unused:
@@ -240,9 +241,9 @@ were used instead of tile 40? Here are the 'before' and 'after' pictures:
 
 #PUSHS
 #UDGTABLE(gallery)
-{ #CALL:play_area(bottomless_boxes1,86,9,8,8,2) |
+{ #CALL(play_area(bottomless_boxes1,86,9,8,8,2)) |
   #POKES44626,1;44627,11;44628,21;44629,30
-  #CALL:play_area(bottomless_boxes2,86,9,8,8,2) }
+  #CALL(play_area(bottomless_boxes2,86,9,8,8,2)) }
 { Before | After }
 TABLE#
 
@@ -253,10 +254,10 @@ So why were tiles #b1, #b11, #b21 and #b30 left unused? Probably because when
 they <em>are</em> used, the bottoms of the boxes appear under the feet of any
 characters walking past, which looks a bit wrong:
 
-#CALL:hide_chars()
-#CALL:place_char(210,88,10)
+#CALL(hide_chars())
+#CALL(place_char(210,88,10))
 #UDGTABLE
-{ #CALL:play_area(bottomless_boxes3,86,9,8,8,2,1) }
+{ #CALL(play_area(bottomless_boxes3,86,9,8,8,2,1)) }
 TABLE#
 #POPS
 
@@ -268,7 +269,7 @@ POKE 44626,1: POKE 44627,11: POKE 44628,21: POKE 44629,30
 The '/' (slash) character in the Back to Skool font has a bit missing:
 
 #UDGTABLE
-{ #CALL:font(55087,1,4,slash_dot) }
+{ #CALL(font(55087,1,4,slash_dot)) }
 TABLE#
 
 Interestingly, the corresponding bit is also missing from the slash character
@@ -279,7 +280,7 @@ To complete the symmetry, the '\' (backslash) character has the same bit
 missing:
 
 #UDGTABLE
-{ #CALL:font(55132,1,4,backslash_dot) }
+{ #CALL(font(55132,1,4,backslash_dot)) }
 TABLE#
 
 [Fact:invisibleStatues:Invisible statues]
@@ -333,12 +334,12 @@ for not being in class while at the same time preventing him from getting
 there.
 
 #PUSHS
-#CALL:hide_chars()
-#CALL:place_char(200,93,17,210)
-#CALL:place_char(210,96,17,130)
-#CALL:place_char(205,100,17,127)
+#CALL(hide_chars())
+#CALL(place_char(200,93,17,210))
+#CALL(place_char(210,96,17,130))
+#CALL(place_char(205,100,17,127))
 #UDGTABLE
-{ #CALL:play_area(trapped,92,15,12,6,2,1) }
+{ #CALL(play_area(trapped,92,15,12,6,2,1)) }
 TABLE#
 #POPS
 
@@ -394,7 +395,7 @@ arrives at the classroom doorway and tells them to, and she won't do that until
 the boys' skool door is closed. On top of that, if she spots ERIC, she'll chase
 him down instead of conducting the class. So to fix all of these problems:
 
-<div>POKE 26211,54: POKE 26212,128 - Fix the #BUG#seat() bug</div>
+<div>POKE 26211,54: POKE 26212,128 - Fix the #BUG(seat)() bug</div>
 <div>POKE 62577,195 - Make MISS TAKE not care about the boys' skool door</div>
 <div>POKE 32258,24 - Prevent MISS TAKE from chasing ERIC</div>
 
@@ -447,9 +448,10 @@ The aforementioned 'main' mouse always begins life in a new game at coordinates
 (17,3) in the Blue Room (see #R54305).
 
 One more thing: when ERIC catches a mouse, a new one is supposed to materialise
-somewhere else off-screen. However, because of a #BUG#rematerialisingMouse(bug)
-in the mouse placement code, the new mouse can sometimes be spotted appearing
-on-screen out of thin air at x-coordinate 10, 88 or 170.
+somewhere else off-screen. However, because of a
+#BUG(rematerialisingMouse)(bug) in the mouse placement code, the new mouse can
+sometimes be spotted appearing on-screen out of thin air at x-coordinate 10, 88
+or 170.
 
 [Fact:conkerAndClock:The conker and the clock]
 Ever stood at the top-floor window of the boys' skool (as ERIC, naturally),
@@ -476,4 +478,4 @@ the last 7). So in Back to Skool, ERIC has to be further away from his target
 in order to hit it.
 
 To adjust the hit zone (and the range) of the catapult, see
-#POKE#superCatty(these POKEs).
+#POKE(superCatty)(these POKEs).

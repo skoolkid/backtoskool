@@ -1,11 +1,11 @@
-; Copyright 2008-2014, 2017, 2024 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2014, 2017, 2024, 2025 Richard Dymond (rjdymond@gmail.com)
 
 [GraphicGlitch:einsteinHead:EINSTEIN's head]
 The line just above EINSTEIN's head contains a transparent pixel (shown in
 green) that should be blank:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(49,4) | #CALL:as_img(51,4) }
+{ #CALL(as_img(49,4)) | #CALL(as_img(51,4)) }
 TABLE#
 
 To make the pixel blank:
@@ -13,7 +13,7 @@ To make the pixel blank:
 #PUSHSeh1
 #POKES47249,252
 #UDGTABLE(gallery)
-{ #CALL:as_img(49,4) | #CALL:as_img(51,4) }
+{ #CALL(as_img(49,4)) | #CALL(as_img(51,4)) }
 { =c2 #WRITEPOKE(eh1) }
 TABLE#
 #POPS
@@ -21,7 +21,7 @@ TABLE#
 Also, when EINSTEIN is lying down, the line above his head is entirely blank:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(54,4) }
+{ #CALL(as_img(54,4)) }
 TABLE#
 
 To make the line transparent:
@@ -29,7 +29,7 @@ To make the line transparent:
 #PUSHSeh2
 #POKES47254,255
 #UDGTABLE(gallery)
-{ #CALL:as_img(54,4) }
+{ #CALL(as_img(54,4)) }
 { #WRITEPOKE(eh2) }
 TABLE#
 #POPS
@@ -38,7 +38,7 @@ TABLE#
 When BOY WANDER is sitting on the floor, there is a blank line above his head:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(21,4) }
+{ #CALL(as_img(21,4)) }
 TABLE#
 
 To make the line transparent:
@@ -46,7 +46,7 @@ To make the line transparent:
 #PUSHSbwh
 #POKES47265,255
 #UDGTABLE(gallery)
-{ #CALL:as_img(21,4) }
+{ #CALL(as_img(21,4)) }
 { #WRITEPOKE(bwh) }
 TABLE#
 #POPS
@@ -56,7 +56,7 @@ MR CREAK's ear is transparent when he's midstride, which means it will appear
 filled in or blank depending on the background:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(105,4) }
+{ #CALL(as_img(105,4)) }
 TABLE#
 
 To make the ear always blank:
@@ -64,7 +64,7 @@ To make the ear always blank:
 #PUSHSce
 #POKES53356,171
 #UDGTABLE(gallery)
-{ #CALL:as_img(105,4) }
+{ #CALL(as_img(105,4)) }
 { #WRITEPOKE(ce) }
 TABLE#
 #POPS
@@ -76,7 +76,7 @@ standing or walking (below, left). This difference is most noticeable when MR
 CREAK is wiping or writing on a blackboard.
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(104,4) | #CALL:as_img(111,4) }
+{ #CALL(as_img(104,4)) | #CALL(as_img(111,4)) }
 TABLE#
 
 To fill in the blank pixel:
@@ -84,7 +84,7 @@ To fill in the blank pixel:
 #PUSHSch
 #POKES52089,30;52345,222
 #UDGTABLE(gallery)
-{ #CALL:as_img(111,4) }
+{ #CALL(as_img(111,4)) }
 { #WRITEPOKES(ch) }
 TABLE#
 #POPS
@@ -93,7 +93,7 @@ TABLE#
 There are two transparent pixels in the crutch of MR WACKER's trousers:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(80,4) | #CALL:as_img(82,4) | #CALL:as_img(87,4) }
+{ #CALL(as_img(80,4)) | #CALL(as_img(82,4)) | #CALL(as_img(87,4)) }
 TABLE#
 
 To make these pixels blank:
@@ -101,7 +101,7 @@ To make these pixels blank:
 #PUSHSwt
 #POKES53896,228
 #UDGTABLE(gallery)
-{ #CALL:as_img(80,4) | #CALL:as_img(82,4) | #CALL:as_img(87,4) }
+{ #CALL(as_img(80,4)) | #CALL(as_img(82,4)) | #CALL(as_img(87,4)) }
 { =c3 #WRITEPOKE(wt) }
 TABLE#
 #POPS
@@ -111,8 +111,8 @@ There are blank pixels near MR WITHIT's and ALBERT's shoes that should be
 transparent:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(89,4) | #CALL:as_img(121,4) |
-  #CALL:as_img(91,4) | #CALL:as_img(123,4) }
+{ #CALL(as_img(89,4)) | #CALL(as_img(121,4)) |
+  #CALL(as_img(91,4)) | #CALL(as_img(123,4)) }
 TABLE#
 
 To make these pixels transparent:
@@ -120,8 +120,8 @@ To make these pixels transparent:
 #PUSHSwas
 #POKES53461,95;53973,95;54485,223;54487,250
 #UDGTABLE(gallery)
-{ #CALL:as_img(89,4) | #CALL:as_img(121,4) |
-  #CALL:as_img(91,4) | #CALL:as_img(123,4) }
+{ #CALL(as_img(89,4)) | #CALL(as_img(121,4)) |
+  #CALL(as_img(91,4)) | #CALL(as_img(123,4)) }
 { =c2 #WRITEPOKES(was[:3]) | =c2 #WRITEPOKE(was[3]) }
 TABLE#
 #POPS
@@ -130,7 +130,7 @@ TABLE#
 There are two blank pixels poking out of MR WITHIT's and MISS TAKE's hand:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(95,4) | #CALL:as_img(119,4) }
+{ #CALL(as_img(95,4)) | #CALL(as_img(119,4)) }
 TABLE#
 
 To make these pixels transparent:
@@ -138,7 +138,7 @@ To make these pixels transparent:
 #PUSHSwth
 #POKES51417,235
 #UDGTABLE(gallery)
-{ #CALL:as_img(95,4) | #CALL:as_img(119,4) }
+{ #CALL(as_img(95,4)) | #CALL(as_img(119,4)) }
 { =c2 #WRITEPOKE(wth) }
 TABLE#
 #POPS
@@ -149,7 +149,7 @@ walking (below, left) and when his arm is raised (below, right). The
 differences are most noticeable when he is wiping or writing on a blackboard.
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(96,4) | #CALL:as_img(103,4) }
+{ #CALL(as_img(96,4)) | #CALL(as_img(103,4)) }
 TABLE#
 
 To remove these differences:
@@ -158,7 +158,7 @@ To remove these differences:
 #POKES51644,232;51900,232;52668,36;52924,164;53180,44;53436,172
 #POKES53692,46;53948,174;54204,54;54460,182;54716,53;54972,181
 #UDGTABLE(gallery)
-{ #CALL:as_img(103,4) }
+{ #CALL(as_img(103,4)) }
 { #WRITEPOKES(rc) }
 TABLE#
 #POPS
@@ -167,7 +167,7 @@ TABLE#
 There is an extraneous blank pixel near ALBERT's waist:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(120,4) | #CALL:as_img(122,4) | #CALL:as_img(127,4) }
+{ #CALL(as_img(120,4)) | #CALL(as_img(122,4)) | #CALL(as_img(127,4)) }
 TABLE#
 
 To make the pixel transparent:
@@ -175,7 +175,7 @@ To make the pixel transparent:
 #PUSHSaw
 #POKES53853,223
 #UDGTABLE(gallery)
-{ #CALL:as_img(120,4) | #CALL:as_img(122,4) | #CALL:as_img(127,4) }
+{ #CALL(as_img(120,4)) | #CALL(as_img(122,4)) | #CALL(as_img(127,4)) }
 { =c3 #WRITEPOKE(aw) }
 TABLE#
 #POPS
@@ -185,7 +185,7 @@ There are two extraneous blank pixels at the back of ALBERT's head, one at the
 top and one at the bottom:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(120,4) | #CALL:as_img(122,4) | #CALL:as_img(127,4) }
+{ #CALL(as_img(120,4)) | #CALL(as_img(122,4)) | #CALL(as_img(127,4)) }
 TABLE#
 
 To make these pixels transparent:
@@ -193,7 +193,7 @@ To make these pixels transparent:
 #PUSHSah
 #POKES52316,191;54876,191
 #UDGTABLE(gallery)
-{ #CALL:as_img(120,4) | #CALL:as_img(122,4) | #CALL:as_img(127,4) }
+{ #CALL(as_img(120,4)) | #CALL(as_img(122,4)) | #CALL(as_img(127,4)) }
 { =c3 #WRITEPOKES(ah) }
 TABLE#
 #POPS
@@ -203,7 +203,7 @@ There is a transparent pixel that should be blank near ALBERT's armpit when his
 arm is raised:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(127,4) }
+{ #CALL(as_img(127,4)) }
 TABLE#
 
 To make the pixel blank:
@@ -211,7 +211,7 @@ To make the pixel blank:
 #PUSHSaa
 #POKES54865,127
 #UDGTABLE(gallery)
-{ #CALL:as_img(127,4) }
+{ #CALL(as_img(127,4)) }
 { #WRITEPOKE(aa) }
 TABLE#
 #POPS
@@ -222,15 +222,15 @@ right hands in the images below) contains an extraneous blank pixel that looks
 amiss in the little boy's sprite (rightmost image):
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(1,4) | #CALL:as_img(17,4) | #CALL:as_img(33,4) |
-  #CALL:as_img(49,4) | #CALL:as_img(65,4) }
+{ #CALL(as_img(1,4)) | #CALL(as_img(17,4)) | #CALL(as_img(33,4)) |
+  #CALL(as_img(49,4)) | #CALL(as_img(65,4)) }
 TABLE#
 
 The corresponding pixel is transparent in phases 1 (shown below), 3 and 4:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(0,4) | #CALL:as_img(16,4) | #CALL:as_img(32,4) |
-  #CALL:as_img(48,4) | #CALL:as_img(64,4) }
+{ #CALL(as_img(0,4)) | #CALL(as_img(16,4)) | #CALL(as_img(32,4)) |
+  #CALL(as_img(48,4)) | #CALL(as_img(64,4)) }
 TABLE#
 
 To make the extraneous blank pixel transparent:
@@ -238,8 +238,8 @@ To make the extraneous blank pixel transparent:
 #PUSHSbh
 #POKES47209,231
 #UDGTABLE(gallery)
-{ #CALL:as_img(1,4) | #CALL:as_img(17,4) | #CALL:as_img(33,4) |
-  #CALL:as_img(49,4) | #CALL:as_img(65,4) }
+{ #CALL(as_img(1,4)) | #CALL(as_img(17,4)) | #CALL(as_img(33,4)) |
+  #CALL(as_img(49,4)) | #CALL(as_img(65,4)) }
 { =c5 #WRITEPOKE(bh) }
 TABLE#
 #POPS
@@ -250,14 +250,14 @@ HAYLEY's hitting sprite, the tip of the shoe is filled in, as shown in these
 unmasked graphics:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(56,4,0) | #CALL:as_img(72,4,0) | #CALL:as_img(63,4,0) }
+{ #CALL(as_img(56,4,0)) | #CALL(as_img(72,4,0)) | #CALL(as_img(63,4,0)) }
 TABLE#
 
 But the mask erases the tip of the shoe, and does not blank out the pixel
 behind the shoe:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(56,4) | #CALL:as_img(72,4) | #CALL:as_img(63,4) }
+{ #CALL(as_img(56,4)) | #CALL(as_img(72,4)) | #CALL(as_img(63,4)) }
 TABLE#
 
 To fix the mask:
@@ -265,7 +265,7 @@ To fix the mask:
 #PUSHSgs1
 #POKES50877,238
 #UDGTABLE(gallery)
-{ #CALL:as_img(56,4) | #CALL:as_img(72,4) | #CALL:as_img(63,4) }
+{ #CALL(as_img(56,4)) | #CALL(as_img(72,4)) | #CALL(as_img(63,4)) }
 { =c3 #WRITEPOKE(gs1) }
 TABLE#
 #POPS
@@ -274,7 +274,7 @@ Also, in phase 4 of HAYLEY's and the little girls' walking animations, there is
 an extraneous blank pixel near the back foot that should be transparent:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(59,4) | #CALL:as_img(75,4) }
+{ #CALL(as_img(59,4)) | #CALL(as_img(75,4)) }
 TABLE#
 
 To make this blank pixel transparent:
@@ -282,7 +282,7 @@ To make this blank pixel transparent:
 #PUSHSgs2
 #POKES49864,239
 #UDGTABLE(gallery)
-{ #CALL:as_img(59,4) | #CALL:as_img(75,4) }
+{ #CALL(as_img(59,4)) | #CALL(as_img(75,4)) }
 { =c2 #WRITEPOKE(gs2) }
 TABLE#
 #POPS
@@ -292,15 +292,15 @@ In phase 2 of the boys' walking animations, the shoes are filled in, as shown
 in these unmasked graphics:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(1,4,0) | #CALL:as_img(17,4,0) | #CALL:as_img(33,4,0) |
-  #CALL:as_img(49,4,0) | #CALL:as_img(65,4,0) }
+{ #CALL(as_img(1,4,0)) | #CALL(as_img(17,4,0)) | #CALL(as_img(33,4,0)) |
+  #CALL(as_img(49,4,0)) | #CALL(as_img(65,4,0)) }
 TABLE#
 
 But the mask erases the body of the shoe:
 
 #UDGTABLE(gallery)
-{ #CALL:as_img(1,4) | #CALL:as_img(17,4) | #CALL:as_img(33,4) |
-  #CALL:as_img(49,4) | #CALL:as_img(65,4) }
+{ #CALL(as_img(1,4)) | #CALL(as_img(17,4)) | #CALL(as_img(33,4)) |
+  #CALL(as_img(49,4)) | #CALL(as_img(65,4)) }
 TABLE#
 
 To fix the masks:
@@ -308,8 +308,8 @@ To fix the masks:
 #PUSHSbs
 #POKES50281,222
 #UDGTABLE(gallery)
-{ #CALL:as_img(1,4) | #CALL:as_img(17,4) | #CALL:as_img(33,4) |
-  #CALL:as_img(49,4) | #CALL:as_img(65,4) }
+{ #CALL(as_img(1,4)) | #CALL(as_img(17,4)) | #CALL(as_img(33,4)) |
+  #CALL(as_img(49,4)) | #CALL(as_img(65,4)) }
 { =c5 #WRITEPOKE(bs) }
 TABLE#
 #POPS
@@ -319,7 +319,7 @@ The base of the 'o' in the word 'Score' in the score box is shifted one pixel
 to the left:
 
 #UDGTABLE(gallery)
-{ #UDGARRAY8,31,4,8;58944-58951;59008-59015;59072-59079(score_box_x4) }
+{ #UDGARRAY8,31,4,8(58944-58951;59008-59015;59072-59079)(score_box_x4) }
 TABLE#
 
 To shift it one pixel to the right:
@@ -327,7 +327,7 @@ To shift it one pixel to the right:
 #PUSHSsb
 #POKES59001,204
 #UDGTABLE(gallery)
-{ #UDGARRAY8,31,4,8;58944-58951;59008-59015;59072-59079(score_box_fixed_x4) }
+{ #UDGARRAY8,31,4,8(58944-58951;59008-59015;59072-59079)(score_box_fixed_x4) }
 { #WRITEPOKE(sb) }
 TABLE#
 #POPS
@@ -339,53 +339,53 @@ PageContent=#INCLUDE(Graphics)
 <h3>Doors</h3>
 <table cellpadding="5">
 <tr>
-<td>#CALL:mutable(56637,1)</td>
-<td>#CALL:mutable(56893,1)</td>
+<td>#CALL(mutable(56637,1))</td>
+<td>#CALL(mutable(56893,1))</td>
 <td>Left study door</td>
 </tr>
 <tr>
-<td>#CALL:mutable(57088,1)</td>
-<td>#CALL:mutable(57344,1)</td>
+<td>#CALL(mutable(57088,1))</td>
+<td>#CALL(mutable(57344,1))</td>
 <td>Right study door</td>
 </tr>
 <tr>
-<td>#CALL:mutable(56576,1)</td>
-<td>#CALL:mutable(56832,1)</td>
+<td>#CALL(mutable(56576,1))</td>
+<td>#CALL(mutable(56832,1))</td>
 <td>Science Lab storeroom door</td>
 </tr>
 <tr>
-<td>#CALL:mutable(57149,1)</td>
-<td>#CALL:mutable(57405,1)</td>
+<td>#CALL(mutable(57149,1))</td>
+<td>#CALL(mutable(57405,1))</td>
 <td>Boys' skool door</td>
 </tr>
 <tr>
-<td>#CALL:mutable(63744,1)</td>
-<td>#CALL:mutable(64000,1)</td>
+<td>#CALL(mutable(63744,1))</td>
+<td>#CALL(mutable(64000,1))</td>
 <td>Skool gate</td>
 </tr>
 <tr>
-<td>#CALL:mutable(56064,1)</td>
-<td>#CALL:mutable(56320,1)</td>
+<td>#CALL(mutable(56064,1))</td>
+<td>#CALL(mutable(56320,1))</td>
 <td>Drinks cabinet door</td>
 </tr>
 </table>
 <h3>Windows</h3>
 <table cellpadding="5">
 <tr>
-<td>#CALL:mutable(55040,1)</td>
-<td>#CALL:mutable(55296,1)</td>
+<td>#CALL(mutable(55040,1))</td>
+<td>#CALL(mutable(55296,1))</td>
 <td>Top floor window</td>
 </tr>
 <tr>
-<td>#CALL:mutable(55552,1)</td>
-<td>#CALL:mutable(55808,1)</td>
+<td>#CALL(mutable(55552,1))</td>
+<td>#CALL(mutable(55808,1))</td>
 <td>Middle floor window</td></tr>
 </table>
 <h3>Bike</h3>
 <table cellpadding="5">
 <tr>
-<td>#CALL:mutable(57600,1)</td>
-<td>#CALL:mutable(57856,1)</td>
+<td>#CALL(mutable(57600,1))</td>
+<td>#CALL(mutable(57856,1))</td>
 <td>Tree without/with bike</td>
 </tr>
 </table>
@@ -394,7 +394,7 @@ PageContent=#INCLUDE(Graphics)
 <tr>
 <td>
 <table>
-<tr><td>#CALL:mutable(56081,1)</td></tr>
+<tr><td>#CALL(mutable(56081,1))</td></tr>
 </table>
 </td>
 <td>All cups on the shelf in the boys' skool (empty)</td>
@@ -403,8 +403,8 @@ PageContent=#INCLUDE(Graphics)
 <td>
 <table>
 <tr>
-<td>#CALL:mutable(56694,1)</td>
-<td>#CALL:mutable(56699,1)</td>
+<td>#CALL(mutable(56694,1))</td>
+<td>#CALL(mutable(56699,1))</td>
 </tr>
 </table>
 </td>
@@ -414,8 +414,8 @@ PageContent=#INCLUDE(Graphics)
 <td>
 <table>
 <tr>
-<td>#CALL:mutable(56950,1)</td>
-<td>#CALL:mutable(56955,1)</td>
+<td>#CALL(mutable(56950,1))</td>
+<td>#CALL(mutable(56955,1))</td>
 </tr>
 </table>
 </td>
@@ -425,8 +425,8 @@ PageContent=#INCLUDE(Graphics)
 <td>
 <table>
 <tr>
-<td>#CALL:mutable(57206,1)</td>
-<td>#CALL:mutable(57211,1)</td>
+<td>#CALL(mutable(57206,1))</td>
+<td>#CALL(mutable(57211,1))</td>
 </tr>
 </table>
 </td>
@@ -436,9 +436,9 @@ PageContent=#INCLUDE(Graphics)
 <td>
 <table>
 <tr>
-<td>#CALL:mutable(56337,1)</td>
-<td>#CALL:mutable(57462,1)</td>
-<td>#CALL:mutable(57467,1)</td>
+<td>#CALL(mutable(56337,1))</td>
+<td>#CALL(mutable(57462,1))</td>
+<td>#CALL(mutable(57467,1))</td>
 </tr>
 </table>
 </td>
@@ -460,11 +460,11 @@ PageContent=#INCLUDE(Graphics)
 <td>Frog</td>
 </tr>
 <tr>
-<td>#UDGARRAY2,5;39912;40168(pistol_water)</td>
+<td>#UDGARRAY2,5(39912;40168)(pistol_water)</td>
 <td>Water pistol (water)</td>
 </tr>
 <tr>
-<td>#UDGARRAY2,3;39912;40168(pistol_sherry)</td>
+<td>#UDGARRAY2,3(39912;40168)(pistol_sherry)</td>
 <td>Water pistol (sherry)</td>
 </tr>
 <tr>
@@ -487,11 +487,11 @@ PageContent=#INCLUDE(Graphics)
 <h3>Score box and speech bubble</h3>
 <table cellpadding="5">
 <tr>
-<td>#UDGARRAY8,31,,8;58944-58951;59008-59015;59072-59079(score_box)</td>
+<td>#UDGARRAY8,31,,8(58944-58951;59008-59015;59072-59079)(score_box)</td>
 <td>Score box</td>
 </tr>
 <tr>
-<td>#UDGARRAY8;39392;39648x6;39904;40160;40416x6;40672(bubble)</td>
+<td>#UDGARRAY8(39392;39648x6;39904;40160;40416x6;40672)(bubble)</td>
 <td>Speech bubble</td>
 </tr>
 <tr>
@@ -500,4 +500,4 @@ PageContent=#INCLUDE(Graphics)
 </tr>
 </table>
 <h3>Font</h3>
-<div>#CALL:font(55072)</div>
+<div>#CALL(font(55072))</div>

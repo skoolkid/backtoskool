@@ -1,12 +1,13 @@
-; Copyright 2008-2013, 2015, 2017, 2022 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2013, 2015, 2017, 2022, 2025
+; Richard Dymond (rjdymond@gmail.com)
 
 [Bug:fire:Catapult animation]
 When ERIC fires his catapult, he should go through the following sequence of
 animation phases:
 
 #UDGTABLE
-{ #CALL:as_img(128) | #CALL:as_img(138) | #CALL:as_img(139) |
-  #CALL:as_img(138) | #CALL:as_img(128) }
+{ #CALL(as_img(128)) | #CALL(as_img(138)) | #CALL(as_img(139)) |
+  #CALL(as_img(138)) | #CALL(as_img(128)) }
 TABLE#
 
 However, the fourth phase in this sequence (lowering the arm after firing) is
@@ -96,7 +97,7 @@ the skool door (if MR WACKER hasn't done so already after being alerted) and
 the skool gate.
 
 If you want to check this for yourself but can't bear to wait for playtime to
-come, try the POKEs that enable ERIC to #POKE#ringBell(ring the bell).
+come, try the POKEs that enable ERIC to #POKE(ringBell)(ring the bell).
 
 [Bug:wackerBusy:Keeping MR WACKER busy]
 After closing the skool door, ALBERT paces up and down underneath the tree
@@ -111,7 +112,7 @@ raise his arm and the alarm. Which means MR WACKER will come looking for ERIC
 and shadow him until playtime is over.
 
 If you want to check this for yourself but can't bear to wait for playtime to
-come, try the POKEs that enable ERIC to #POKE#ringBell(ring the bell).
+come, try the POKEs that enable ERIC to #POKE(ringBell)(ring the bell).
 
 [Bug:waitingForEinstein:Waiting for EINSTEIN]
 Before wiping the board and getting a lesson under way, ERIC's teacher will
@@ -152,7 +153,7 @@ The desk lid animatory state that is used when ERIC finds the water pistol
 makes it look as if the desk contains stinkbombs:
 
 #UDGTABLE
-{ #CALL:as_img(45) }
+{ #CALL(as_img(45)) }
 TABLE#
 
 And the desk lid animatory state that is used when ERIC finds the stinkbombs
@@ -160,7 +161,7 @@ And the desk lid animatory state that is used when ERIC finds the stinkbombs
 on the right):
 
 #UDGTABLE
-{ #CALL:as_img(46) | #CALL:as_img(175) }
+{ #CALL(as_img(46)) | #CALL(as_img(175)) }
 TABLE#
 
 At the very least, these desk lid animatory states should be used the other way
@@ -309,13 +310,13 @@ conduct the rest of the lesson from behind the wall until the bell rings, and
 later reappear through the far right wall of the girls' skool (if the class is
 in the Blue Room).</div>
 
-You can confirm (b) by making use of the #BUG#farLeft(far left scroll bug) to
+You can confirm (b) by making use of the #BUG(farLeft)(far left scroll bug) to
 scroll the screen left until the girls' skool is in view. Or you can follow the
 teacher through the 'no man's land' between the two skools by using the POKEs
-given #POKE#throughWalls(here) (which enable ERIC to walk through walls).
+given #POKE(throughWalls)(here) (which enable ERIC to walk through walls).
 
 [Bug:tripleWipe:Triple wipe]
-If you exploit the #BUG#doubleWipe(double wipe bug) twice in one lesson - to
+If you exploit the #BUG(doubleWipe)(double wipe bug) twice in one lesson - to
 make the teacher wipe the board for a third time - some of the play area
 graphics become corrupted. Specifically, the non-blackboard tiles at the
 following locations are wiped blank and show up as black squares:
@@ -346,8 +347,8 @@ following locations are wiped blank and show up as black squares:
 #POKES32901,255,8,256;32903,255,8,256;32957,255,8,256
 #POKES32965,255,8,256;33014,255,8,256;33022,255,8,256
 #UDGTABLE
-{ #CALL:play_area(triple_wipe1,0,0,96,21,1,0,8) }
-{ #CALL:play_area(triple_wipe2,96,0,96,21,1,0,8) }
+{ #CALL(play_area(triple_wipe1,0,0,96,21,1,0,8)) }
+{ #CALL(play_area(triple_wipe2,96,0,96,21,1,0,8)) }
 TABLE#
 #POPS
 
@@ -361,7 +362,7 @@ getting wiped instead.
 
 This bug can be hard to reproduce because the bell usually rings before you get
 a chance to make the teacher begin the third wipe; to improve your chances, try
-the #POKE#lessonLength(lesson length POKEs) to extend the lesson.
+the #POKE(lessonLength)(lesson length POKEs) to extend the lesson.
 
 [Bug:665360Lines:YOU HAVE 665360 LINES ERIC]
 If ERIC has 10000 lines or more, but manages to jump up to the safe (while
@@ -387,10 +388,10 @@ x-coordinate 23 (even though he appears to be entirely outside the classroom at
 that location):
 
 #PUSHS
-#CALL:hide_chars()
-#CALL:place_char(210,23,3)
+#CALL(hide_chars())
+#CALL(place_char(210,23,3))
 #UDGTABLE
-{ #CALL:play_area(deceptive_doorways1,16,0,16,7,2,1,8) }
+{ #CALL(play_area(deceptive_doorways1,16,0,16,7,2,1,8)) }
 TABLE#
 #POPS
 
@@ -402,10 +403,10 @@ Similarly, the Yellow Room extends beyond its right-hand doorway, all the way
 up to and including x-coordinate 63:
 
 #PUSHS
-#CALL:hide_chars()
-#CALL:place_char(210,63,3)
+#CALL(hide_chars())
+#CALL(place_char(210,63,3))
 #UDGTABLE
-{ #CALL:play_area(deceptive_doorways2,56,0,16,7,2,1,8) }
+{ #CALL(play_area(deceptive_doorways2,56,0,16,7,2,1,8)) }
 TABLE#
 #POPS
 
@@ -414,10 +415,10 @@ stands at x-coordinate 40, he is regarded as absent (even though he appears to
 be entirely inside the classroom):
 
 #PUSHS
-#CALL:hide_chars()
-#CALL:place_char(210,40,3)
+#CALL(hide_chars())
+#CALL(place_char(210,40,3))
 #UDGTABLE
-{ #CALL:play_area(deceptive_doorways3,32,0,16,7,2,1,8) }
+{ #CALL(play_area(deceptive_doorways3,32,0,16,7,2,1,8)) }
 TABLE#
 #POPS
 
@@ -431,10 +432,10 @@ to the right of its doorway. Which means that if ERIC stands at x-coordinate
 inside the classroom):
 
 #PUSHS
-#CALL:hide_chars()
-#CALL:place_char(210,30,10)
+#CALL(hide_chars())
+#CALL(place_char(210,30,10))
 #UDGTABLE
-{ #CALL:play_area(deceptive_doorways4,24,7,16,7,2,1,8) }
+{ #CALL(play_area(deceptive_doorways4,24,7,16,7,2,1,8)) }
 TABLE#
 #POPS
 

@@ -1,12 +1,12 @@
-; Copyright 2001, 2008-2023 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2001, 2008-2023, 2025 Richard Dymond (rjdymond@gmail.com)
 
 @start
-@expand=#DEF(#BUG #LINK:Bugs)
-@expand=#DEF(#FACT #LINK:Facts)
-@expand=#DEF(#POKE #LINK:Pokes)
+@expand=#DEF(#BUG()(a) #LINK(Bugs#$a))
+@expand=#DEF(#FACT()(a) #LINK(Facts#$a))
+@expand=#DEF(#POKE()(a) #LINK(Pokes#$a))
 @expand=#DEF(#S #FORMAT({mode[case]}&1))
-@expand=#DEF(#AS(s=-1)(t=#N($s,,,1)(0x)) #LINK#(:AnimatoryStates#IF($s>=0)(#$s))($t))
-@expand=#DEF(#LESSON(n)(t=#N($n,,,1)(0x)) #LINK:Lesson$n($t))
+@expand=#DEF(#AS(s=-1)(t=#N($s,,,1)(0x)) #LINK#((AnimatoryStates#IF($s>=0)(#$s)))($t))
+@expand=#DEF(#LESSON(n)(t=#N($n,,,1)(0x)) #LINK(Lesson$n)($t))
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#nn\i/#N(\1,4,,1)($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
@@ -16,7 +16,7 @@
 ; https://skoolkit.ca
 ;
 ; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2023 Richard Dymond (this disassembly)
+; Copyright 2001, 2008-2023, 2025 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -487,7 +487,7 @@ c21664 CALL 29154    ; {Wait for a keypress, and collect its ASCII code in
 ; Used by the routine at #R33204@start. Copies 256 bytes from eight 32-byte
 ; segments. The routine is called three times with the values in #REGde and
 ; #REGhl shown below. The 24 32-byte segments are used later on as
-; #LINK:CharacterBuffers(character buffers).
+; #LINK(CharacterBuffers)(character buffers).
 ;
 @ignoreua
 ; DE #w23808, #w24064 or #w24320
@@ -1224,7 +1224,7 @@ c24296 CALL 57935    ; Give up right now if the catapult pellet's buffer is
 *24324 LD A,10       ; #AS10: ERIC lowering the catapult
 @nowarn
 @ofix=JR 24287       ; Update ERIC's animatory state and update the SRB
- 24326 JR 24289      ; This is a #BUG#fire(bug); it should be #S/JR/ #R24287
+ 24326 JR 24289      ; This is a #BUG(fire)(bug); it should be #S/JR/ #R24287
 
 ; Make HAYLEY hit ERIC
 ;
@@ -1336,7 +1336,7 @@ c24348 LD HL,53504   ; Point #REGhl at byte #b0 of HAYLEY's buffer
  24451 DEC (HL)      ;
 *24452 INC (HL)      ; Move ERIC one space forward for the snog (which pushes
                      ; ERIC through the closed skool gate if he kisses HAYLEY
-                     ; from behind it; this is a #BUG#kiss(bug))
+                     ; from behind it; this is a #BUG(kiss)(bug))
  24453 LD A,15       ; #AS15: ERIC and HAYLEY kissing
  24455 CALL 24247    ; Adjust ERIC's animatory state, update the SRB, and
                      ; return to #R24458 (below) next time
@@ -3517,7 +3517,7 @@ c26175 LD D,183      ; #b183=little girl no. 1
                      ; that he's been knocked to the floor; however, bit 7 is
                      ; ignored by the routine at #R63405 (because bit 2 is also
                      ; set), so ERIC actually stays in his seat (which is a
-                     ; #BUG#seat(bug))
+                     ; #BUG(seat)(bug))
  26213 EX DE,HL      ; Restore the number of the character looking for a seat
                      ; to #REGh
  26214 RET           ;
@@ -5499,7 +5499,7 @@ c28067 LD BC,46651   ; #REGb=#b182, #REGc=#b59
 ; the zero flag was set (by chance) upon entering the routine at #R25534, or
 ; (b) bits 1 and 2 of ERIC's status flags at #R32749 are both reset. Returns
 ; with #REGd=#b17 if the zero flag is set upon entry (regardless of which floor
-; ERIC is on, which is a #BUG#jumpAbsent(bug)); otherwise returns with
+; ERIC is on, which is a #BUG(jumpAbsent)(bug)); otherwise returns with
 ; #REGd=#b3, #b10, #b14 or #b17, indicating which floor ERIC is directly above.
 ;
 ; D ERIC's y-coordinate
@@ -5511,7 +5511,7 @@ c28085 LD A,D        ; #REGa=ERIC's y-coordinate
 @bfix=/              ; Return with #REGd=#b17 if so
  28088 RET Z         ; Return with #REGd=#b17 if the zero flag was set upon
                      ; entry (regardless of which floor ERIC is on, which is a
-                     ; #BUG#jumpAbsent(bug))
+                     ; #BUG(jumpAbsent)(bug))
  28089 LD D,3        ; #b3=top floor
  28091 CP 4          ; Is ERIC directly above the top floor?
  28093 RET C         ; Return with #REGd=#b3 if so
@@ -5604,7 +5604,7 @@ c28160 LD H,210      ; #b210=ERIC
 @bfix=|RET P         ; }
  28193 CP 235        ; screen (no need to scroll); note that this doesn't
  28195 RET NC        ; handle the case where ERIC's x-coordinate is 0, which is
-                     ; a #BUG#farLeft(bug)}
+                     ; a #BUG(farLeft)(bug)}
  28196 CALL 25248    ; Update the display
  28199 JP 25026      ; Scroll the screen to the left
 ; ERIC is facing left. Check whether the screen should be scrolled right.
@@ -7294,7 +7294,7 @@ c29896 LD L,2        ;
 ; end up checking pages #b17-#b222. In that range, only pages #b183-#b214
 ; contain character buffers; treating the other pages in RAM as if they
 ; contained character buffers could lead to data/code corruption. Needless to
-; say, this is a #BUG#conkerMD(bug).||
+; say, this is a #BUG(conkerMD)(bug).||
 @rfix=>LD D,206      ; #b206=BOY WANDER
 @rfix=>LD B,4        ; There are four main kids to check
  29947 CALL 27820    ; Check whether anyone was hit by the conker
@@ -7749,7 +7749,7 @@ c30380 LD L,19       ; Byte #b19 of the pellet's buffer holds the distance left
  30474 JR NZ,30477   ; Jump if not (having raised the pellet one level)
  30476 INC D         ; #REGd=1; this makes the pellet hover just below the
                      ; ceiling on the top floor before disappearing, which is a
-                     ; #BUG#pelletHover(bug)
+                     ; #BUG(pelletHover)(bug)
 *30477 CALL 30534    ; Replace the address of this routine in bytes #b17 and
                      ; #b18 of the pellet's buffer with #R30480 (the address of
                      ; the next instruction)
@@ -8903,7 +8903,7 @@ c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
 ; the contents of #w32522 or #w32600 (instead of X at #R32767) may be compared
 ; with 128. Thus it is possible for the new free mouse to appear at
 ; x-coordinate 170 even when X>=128, which means it could appear on-screen.
-; This is a #BUG#rematerialisingMouse(bug).|R=0 or 1. The next section of code
+; This is a #BUG(rematerialisingMouse)(bug).|R=0 or 1. The next section of code
 ; sets the x-coordinate for the the new free mouse to 170 provided that X<128,
 ; or tries again with a new random number (R) if X>=128.||
 @ignoreua
@@ -8929,7 +8929,7 @@ c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
 ; contents of #w32522 or #w32600 (instead of X) may be compared with 56 and
 ; 104. Thus it is possible for the new free mouse to appear at x-coordinate 88
 ; even when 56<=X<104, which means it could appear on-screen. This is a
-; #BUG#rematerialisingMouse(bug).|R=2, 3 or 4. The next section of code sets
+; #BUG(rematerialisingMouse)(bug).|R=2, 3 or 4. The next section of code sets
 ; the x-coordinate for the new free mouse to 88 provided that X<56 or X>=104,
 ; or tries again with a new random number (R) if 56<=X<104.||
  31633 CP 56         ;
@@ -8946,7 +8946,7 @@ c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
 ; hold #w32522 or #w32600 instead of #R32767, and so the contents of #w32522 or
 ; #w32600 (instead of X) may be compared with 56. Thus it is possible for the
 ; new free mouse to appear at x-coordinate 10 even when X<56, which means it
-; could appear on-screen. This is a #BUG#rematerialisingMouse(bug).|R=5, 6 or
+; could appear on-screen. This is a #BUG(rematerialisingMouse)(bug).|R=5, 6 or
 ; 7. The next section of code sets the x-coordinate for the new free mouse to
 ; 10 provided that X>=56, or tries again with a new random number (R) if
 ; X<56.||
@@ -9583,7 +9583,7 @@ c32062 AND A         ; Is ERIC in a forbidden zone?
  32203 BIT 2,(HL)    ; Is ERIC sitting (facing left) or lying down?
 @bfix=/JR NZ,32232   ; Tell ERIC to sit facing the stage if so
  32205 JR Z,32232    ; Tell ERIC to sit facing the stage if not (this is a
-                     ; #BUG#assemblySit(bug))
+                     ; #BUG(assemblySit)(bug))
  32207 JR 32228      ; Otherwise tell ERIC to sit down
 ; This lesson takes place in a classroom, and ERIC is present. Check whether
 ; ERIC is sitting in a chair.
@@ -10052,8 +10052,8 @@ t32654 DEFB 0        ; The message number for the country, year (last three
 ; that storing the character number (#b206 or #b210) here is a mistake; it
 ; should be the message number of the character's name (#R61345(#b27) or
 ; #R61397(#b31)) instead. In any case, this message (along with parent message
-; #R60668(#b88)) is never used, because of a #BUG#noBlackboardTales(bug) in the
-; section of code at #R61852./Used by the routine at #R61696 to hold the
+; #R60668(#b88)) is never used, because of a #BUG(noBlackboardTales)(bug) in
+; the section of code at #R61852./Used by the routine at #R61696 to hold the
 ; message number of the name of the character who is being grassed up by
 ; EINSTEIN for writing on the board (#R61345(#b27)=BOY WANDER, or
 ; #R61397(#b31)=ERIC); it is a submessage of message #R60668(#b88).//
@@ -12137,7 +12137,7 @@ b46335 DEFB 32       ; Entry #b20 in descent table #R64460#dt255(#b255)
 ; and 29 have the same Q value (#b27).
 ; .
 ; #UDGTABLE
-; { #CALL:play_area(qvalues1,0,0,32,21,1,0,4) }
+; { #CALL(play_area(qvalues1,0,0,32,21,1,0,4)) }
 ; TABLE#
 @label=QVALUES
 b46336 DEFB 0,1,2,3,4,5,6,7                 ; {0<=x<=31
@@ -12148,7 +12148,7 @@ b46336 DEFB 0,1,2,3,4,5,6,7                 ; {0<=x<=31
 ; in this range have the same Q value.
 ; .
 ; #UDGTABLE
-; { #CALL:play_area(qvalues2,32,0,32,21,1,0,4) }
+; { #CALL(play_area(qvalues2,32,0,32,21,1,0,4)) }
 ; TABLE#
  46368 DEFB 30,31,32,33,34,35,36,37         ; {32<=x<=63
  46376 DEFB 38,39,40,41,42,43,44,45         ;
@@ -12159,7 +12159,7 @@ b46336 DEFB 0,1,2,3,4,5,6,7                 ; {0<=x<=31
 ; 65, 67 and 69 have the same Q value (#b63).
 ; .
 ; #UDGTABLE
-; { #CALL:play_area(qvalues3,64,0,32,21,1,0,4) }
+; { #CALL(play_area(qvalues3,64,0,32,21,1,0,4)) }
 ; TABLE#
  46400 DEFB 62,63,62,63,62,63,64,65         ; {64<=x<=95
  46408 DEFB 66,67,68,69,70,71,72,73         ;
@@ -12169,7 +12169,7 @@ b46336 DEFB 0,1,2,3,4,5,6,7                 ; {0<=x<=31
 ; x-coordinates 110, 112-120 and 122-127 have the same Q value (#b104).
 ; .
 ; #UDGTABLE
-; { #CALL:play_area(qvalues4,96,0,32,21,1,0,4) }
+; { #CALL(play_area(qvalues4,96,0,32,21,1,0,4)) }
 ; TABLE#
  46432 DEFB 90,91,92,93,94,95,96,97         ; {96<=x<=127
  46440 DEFB 98,99,100,101,102,103,104,105   ;
@@ -12179,7 +12179,7 @@ b46336 DEFB 0,1,2,3,4,5,6,7                 ; {0<=x<=31
 ; x-coordinates 128-130, 138-146 and 148-157 have the same Q value (#b104).
 ; .
 ; #UDGTABLE
-; { #CALL:play_area(qvalues5,128,0,32,21,1,0,4) }
+; { #CALL(play_area(qvalues5,128,0,32,21,1,0,4)) }
 ; TABLE#
  46464 DEFB 104,104,104,107,108,109,110,111 ; {128<=x<=159
  46472 DEFB 112,113,104,104,104,104,104,104 ;
@@ -12190,7 +12190,7 @@ b46336 DEFB 0,1,2,3,4,5,6,7                 ; {0<=x<=31
 ; x-coordinates 170, 172 and 174 have the same Q value (#b127).
 ; .
 ; #UDGTABLE
-; { #CALL:play_area(qvalues6,160,0,32,21,1,0,4) }
+; { #CALL(play_area(qvalues6,160,0,32,21,1,0,4)) }
 ; TABLE#
  46496 DEFB 117,118,119,120,121,122,123,124 ; {160<=x<=191
  46504 DEFB 125,126,127,126,127,126,127,126 ;
@@ -12202,7 +12202,7 @@ b46336 DEFB 0,1,2,3,4,5,6,7                 ; {0<=x<=31
 ; Used by the routine at #R63309.
 @label=TIMETABLE
 b46528 DEFB 59       ; #b192: #LESSON59(PLAYTIME) (this is an
-                     ; #FACT#initialPlaytimes(initial playtime))
+                     ; #FACT(initialPlaytimes)(initial playtime))
  46529 DEFB 37       ; #b193: #LESSON37(MR CREAK - BLUE ROOM)
  46530 DEFB 52       ; #b194: #LESSON52(ASSEMBLY)
  46531 DEFB 41       ; #b195: #LESSON41(MR WITHIT - BLUE ROOM)
@@ -12211,7 +12211,7 @@ b46528 DEFB 59       ; #b192: #LESSON59(PLAYTIME) (this is an
  46534 DEFB 45       ; #b198: #LESSON45(MR WITHIT - SCIENCE LAB)
  46535 DEFB 53       ; #b199: #LESSON53(REVISION LIBRARY)
  46536 DEFB 56       ; #b200: #LESSON56(PLAYTIME) (this is an
-                     ; #FACT#initialPlaytimes(initial playtime))
+                     ; #FACT(initialPlaytimes)(initial playtime))
  46537 DEFB 38       ; #b201: #LESSON38(MR CREAK - BLUE ROOM)
  46538 DEFB 54       ; #b202: #LESSON54(REVISION LIBRARY)
  46539 DEFB 50       ; #b203: #LESSON50(DINNER (MR WACKER))
@@ -12220,7 +12220,7 @@ b46528 DEFB 59       ; #b192: #LESSON59(PLAYTIME) (this is an
  46542 DEFB 52       ; #b206: #LESSON52(ASSEMBLY)
  46543 DEFB 46       ; #b207: #LESSON46(MR WITHIT - SCIENCE LAB)
  46544 DEFB 59       ; #b208: #LESSON59(PLAYTIME) (this is an
-                     ; #FACT#initialPlaytimes(initial playtime))
+                     ; #FACT(initialPlaytimes)(initial playtime))
  46545 DEFB 40       ; #b209: #LESSON40(MR CREAK - YELLOW ROOM)
  46546 DEFB 52       ; #b210: #LESSON52(ASSEMBLY)
  46547 DEFB 48       ; #b211: #LESSON48(MR ROCKITT - SCIENCE LAB)
@@ -12229,7 +12229,7 @@ b46528 DEFB 59       ; #b192: #LESSON59(PLAYTIME) (this is an
  46550 DEFB 49       ; #b214: #LESSON49(MR ROCKITT - SCIENCE LAB)
  46551 DEFB 37       ; #b215: #LESSON37(MR CREAK - BLUE ROOM)
  46552 DEFB 58       ; #b216: #LESSON58(PLAYTIME) (this is an
-                     ; #FACT#initialPlaytimes(initial playtime))
+                     ; #FACT(initialPlaytimes)(initial playtime))
  46553 DEFB 48       ; #b217: #LESSON48(MR ROCKITT - SCIENCE LAB)
  46554 DEFB 54       ; #b218: #LESSON54(REVISION LIBRARY)
  46555 DEFB 51       ; #b219: #LESSON51(DINNER (MR WITHIT))
@@ -12238,7 +12238,7 @@ b46528 DEFB 59       ; #b192: #LESSON59(PLAYTIME) (this is an
  46558 DEFB 52       ; #b222: #LESSON52(ASSEMBLY)
  46559 DEFB 39       ; #b223: #LESSON39(MR CREAK - YELLOW ROOM)
  46560 DEFB 59       ; #b224: #LESSON59(PLAYTIME) (this is an
-                     ; #FACT#initialPlaytimes(initial playtime))
+                     ; #FACT(initialPlaytimes)(initial playtime))
  46561 DEFB 53       ; #b225: #LESSON53(REVISION LIBRARY)
  46562 DEFB 49       ; #b226: #LESSON49(MR ROCKITT - SCIENCE LAB)
  46563 DEFB 52       ; #b227: #LESSON52(ASSEMBLY)
@@ -12247,7 +12247,7 @@ b46528 DEFB 59       ; #b192: #LESSON59(PLAYTIME) (this is an
  46566 DEFB 54       ; #b230: #LESSON54(REVISION LIBRARY)
  46567 DEFB 47       ; #b231: #LESSON47(MR ROCKITT - SCIENCE LAB)
  46568 DEFB 55       ; #b232: #LESSON55(PLAYTIME) (this is an
-                     ; #FACT#initialPlaytimes(initial playtime))
+                     ; #FACT(initialPlaytimes)(initial playtime))
  46569 DEFB 48       ; #b233: #LESSON48(MR ROCKITT - SCIENCE LAB)
  46570 DEFB 40       ; #b234: #LESSON40(MR CREAK - YELLOW ROOM)
  46571 DEFB 54       ; #b235: #LESSON54(REVISION LIBRARY)
@@ -12256,7 +12256,7 @@ b46528 DEFB 59       ; #b192: #LESSON59(PLAYTIME) (this is an
  46574 DEFB 52       ; #b238: #LESSON52(ASSEMBLY)
  46575 DEFB 44       ; #b239: #LESSON44(MR WITHIT - YELLOW ROOM)
  46576 DEFB 59       ; #b240: #LESSON59(PLAYTIME) (this is an
-                     ; #FACT#initialPlaytimes(initial playtime))
+                     ; #FACT(initialPlaytimes)(initial playtime))
  46577 DEFB 49       ; #b241: #LESSON49(MR ROCKITT - SCIENCE LAB)
  46578 DEFB 37       ; #b242: #LESSON37(MR CREAK - BLUE ROOM)
  46579 DEFB 52       ; #b243: #LESSON52(ASSEMBLY)
@@ -12265,7 +12265,7 @@ b46528 DEFB 59       ; #b192: #LESSON59(PLAYTIME) (this is an
  46582 DEFB 53       ; #b246: #LESSON53(REVISION LIBRARY)
  46583 DEFB 40       ; #b247: #LESSON40(MR CREAK - YELLOW ROOM)
  46584 DEFB 57       ; #b248: #LESSON57(PLAYTIME) (this is an
-                     ; #FACT#initialPlaytimes(initial playtime))
+                     ; #FACT(initialPlaytimes)(initial playtime))
  46585 DEFB 46       ; #b249: #LESSON46(MR WITHIT - SCIENCE LAB)
  46586 DEFB 48       ; #b250: #LESSON48(MR ROCKITT - SCIENCE LAB)
  46587 DEFB 53       ; #b251: #LESSON53(REVISION LIBRARY)
@@ -12297,8 +12297,8 @@ b46592 DEFB 0,128,64,192,32,160,96,224,16,144,80,208,48,176,112,240
 @defs=46848:32
 ; Character buffer for little girl no. 1 (#b183)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R46885.
 @label=GIRL1CBUF
 b46848 DEFS 32
@@ -12387,8 +12387,8 @@ b46924 DEFB 32,0,69,49,112,16,0,224,224,224,0,1,8,0,0,0
 @defs=47104:32
 ; Character buffer for little girl no. 2 (#b184)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R47141.
 b47104 DEFS 32
  47136 DEFB 200      ; Initial animatory state: #AS200 (see #R62910)
@@ -12480,8 +12480,8 @@ b47180 DEFB 47,255,69,53,116,215,254,255,255,255,255,255,235,243,255,255
 @defs=47360:32
 ; Character buffer for little girl no. 3 (#b185)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R47397.
 b47360 DEFS 32
  47392 DEFB 72       ; Initial animatory state: #AS72 (see #R62910)
@@ -12574,8 +12574,8 @@ b47436 DEFB 32,0,50,203,139,16,1,192,192,192,0,3,20,12,0,0
 @defs=47616:32
 ; Character buffer for little girl no. 4 (#b186)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R47653.
 b47616 DEFS 32
  47648 DEFB 200      ; Initial animatory state: #AS200 (see #R62910)
@@ -12665,8 +12665,8 @@ b47692 DEFB 47,127,178,203,139,214,253,255,255,255,255,255,213,237,255,255
 @defs=47872:32
 ; Character buffer for little girl no. 5 (#b187)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R47909.
 b47872 DEFS 32
  47904 DEFB 72       ; Initial animatory state: #AS72 (see #R62910)
@@ -12752,8 +12752,8 @@ b47948 DEFB 160,128,74,4,4,9,2,128,132,128,0,7,36,18,0,0
 @defs=48128:32
 ; Character buffer for little girl no. 6 (#b188)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R48165.
 b48128 DEFS 32
  48160 DEFB 200      ; Initial animatory state: #AS200 (see #R62910)
@@ -12842,8 +12842,8 @@ b48204 DEFB 175,191,74,52,116,223,250,243,149,255,255,255,165,210,255,251
 @defs=48384:32
 ; Character buffer for little girl no. 7 (#b189)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R48421.
 b48384 DEFS 32
  48416 DEFB 72       ; Initial animatory state: #AS72 (see #R62910)
@@ -12956,8 +12956,8 @@ b48460 DEFB 64,64,90,28,4,6,2,12,42,0,12,0,42,34,0,4
 @defs=48640:32
 ; Character buffer for little boy no. 1 (#b190)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R48677.
 b48640 DEFS 32
  48672 DEFB 64       ; Initial animatory state: #AS64 (see #R62910)
@@ -13072,8 +13072,8 @@ b48716 DEFB 95,95,90,221,245,246,250,205,42,255,255,255,170,162,63,244
 @defs=48896:32
 ; Character buffer for little boy no. 2 (#b191)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R48933.
 b48896 DEFS 32
  48928 DEFB 192      ; Initial animatory state: #AS192 (see #R62910)
@@ -13186,8 +13186,8 @@ b48972 DEFB 64,160,38,34,6,2,7,62,84,0,30,0,36,76,192,15
 @defs=49152:32
 ; Character buffer for little boy no. 3 (#b192)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R49189.
 b49152 DEFS 32
  49184 DEFB 64       ; Initial animatory state: #AS64 (see #R62910)
@@ -13300,8 +13300,8 @@ b49228 DEFB 95,175,166,162,54,250,247,190,85,255,255,255,165,77,195,239
 @defs=49408:32
 ; Character buffer for little boy no. 4 (#b193)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R49445.
 b49408 DEFS 32
  49440 DEFB 192      ; Initial animatory state: #AS192 (see #R62910)
@@ -13414,8 +13414,8 @@ b49484 DEFB 128,32,36,66,197,2,8,0,40,0,60,0,80,80,252,3
 @defs=49664:32
 ; Character buffer for little boy no. 5 (#b194)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R49701.
 b49664 DEFS 32
  49696 DEFB 64       ; Initial animatory state: #AS64 (see #R62910)
@@ -13529,8 +13529,8 @@ b49740 DEFB 191,47,165,90,213,250,232,193,171,255,255,255,83,83,252,243
 @defs=49920:32
 ; Character buffer for little boy no. 6 (#b195)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R49957.
 b49920 DEFS 32
  49952 DEFB 192      ; Initial animatory state: #AS192 (see #R62910)
@@ -13643,8 +13643,8 @@ b49996 DEFB 0,144,20,71,40,1,8,0,20,0,120,0,80,32,3,4
 @defs=50176:32
 ; Character buffer for little boy no. 7 (#b196)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R50213.
 b50176 DEFS 32
  50208 DEFB 64       ; Initial animatory state: #AS64 (see #R62910)
@@ -13758,8 +13758,8 @@ b50252 DEFB 127,151,213,87,42,253,235,255,213,255,255,255,87,175,3,244
 @defs=50432:32
 ; Character buffer for little boy no. 8 (#b197)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R50469.
 b50432 DEFS 32
  50464 DEFB 192      ; Initial animatory state: #AS192 (see #R62910)
@@ -13852,8 +13852,8 @@ b50508 DEFB 0,144,8,137,40,0,16,0,8,0,240,0,32,0,0,0
 @defs=50688:32
 ; Character buffer for little boy no. 9 (#b198)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R50725.
 b50688 DEFS 32
  50720 DEFB 64       ; Initial animatory state: #AS64 (see #R62910)
@@ -13947,8 +13947,8 @@ b50764 DEFB 127,151,235,169,170,254,215,255,235,255,255,255,175,223,252,251
 @defs=50944:32
 ; Character buffer for little boy no. 10 (#b199)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R50981.
 @label=BOY10CBUF
 b50944 DEFS 32
@@ -14042,8 +14042,8 @@ b51017 DEFB 16,1,0,0,8,0,8,128,28,0,0,243,204,0,7,1
 @defs=51200:32
 ; Character buffer for MR WACKER (#b200)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R51237.
 @label=WACKERCBUF
 b51200 DEFS 32
@@ -14140,8 +14140,8 @@ b51273 DEFB 215,253,255,255,235,255,235,191,156,207,127,243,205,31,247,253
 @defs=51456:32
 ; Character buffer for MR WITHIT (#b201)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R51493.
 b51456 DEFS 32
  51488 DEFB 216      ; Initial animatory state: #AS216 (see #R62910)
@@ -14230,8 +14230,8 @@ b51529 DEFB 16,2,0,0,4,0,8,128,113,48,0,226,18,224,7,3
 @defs=51712:32
 ; Character buffer for MR ROCKITT (#b202)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R51749.
 b51712 DEFS 32
  51744 DEFB 96       ; Initial animatory state: #AS96 (see #R62910)
@@ -14320,8 +14320,8 @@ b51785 DEFB 215,250,255,135,245,255,235,191,113,183,255,226,18,231,247,251
 @defs=51968:32
 ; Character buffer for MR CREAK (#b203)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R52005.
 b51968 DEFS 32
  52000 DEFB 232      ; Initial animatory state: #AS232 (see #R62910)
@@ -14409,8 +14409,8 @@ b52041 DEFB 16,4,0,120,2,0,4,64,177,40,0,182,18,24,7,3
 @defs=52224:32
 ; Character buffer for MISS TAKE (#b204)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R52261.
 @label=TAKECBUF
 b52224 DEFS 32
@@ -14506,8 +14506,8 @@ b52297 DEFB 215,245,254,121,250,255,245,95,177,168,255,182,18,27,247,251
 @defs=52480:32
 ; Character buffer for ALBERT (#b205)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R52517.
 @label=ALBERTCBUF
 b52480 DEFS 32
@@ -14602,8 +14602,8 @@ b52553 DEFB 16,4,1,134,1,0,4,64,50,47,0,158,33,28,3,3
 @defs=52736:32
 ; Character buffer for BOY WANDER (#b206)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R52773.
 b52736 DEFS 32
  52768 DEFB 144      ; Initial animatory state: #AS144 (see #R62910)
@@ -14704,8 +14704,8 @@ b52809 DEFB 215,245,249,134,253,127,245,95,50,175,255,158,33,29,251,251
 @defs=52992:32
 ; Character buffer for ANGELFACE (#b207)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R53029.
 @label=BULLYCBUF
 b52992 DEFS 32
@@ -14807,8 +14807,8 @@ b53065 DEFB 16,8,6,1,0,128,2,0,62,16,0,254,233,92,3,3
 @defs=53248:32
 ; Character buffer for EINSTEIN (#b208)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R53285.
 @label=SWOTCBUF
 b53248 DEFS 32
@@ -14898,8 +14898,8 @@ b53321 DEFB 215,235,230,121,254,191,250,191,62,208,255,254,233,93,251,251
 @defs=53504:32
 ; Character buffer for HAYLEY (#b209)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used. This character's personal
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used. This character's personal
 ; timetable follows at #R53541.
 @label=HAYLEYCBUF
 b53504 DEFS 32
@@ -14986,8 +14986,8 @@ b53577 DEFB 16,8,24,0,0,64,2,0,126,8,0,254,233,20,3,3
 @defs=53760:32
 ; Character buffer for ERIC (#b210)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used.
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used.
 @label=ERICCBUF
 b53760 DEFS 32
  53792 DEFB 128      ; Initial animatory state: #AS128 (see #R62910)
@@ -15095,8 +15095,8 @@ b53833 DEFB 215,235,153,254,255,95,250,255,126,232,255,254,233,21,251,251
 @defs=54016:32
 ; Character buffer for the bike (#b211)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used.
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used.
 @label=BIKECBUF
 b54016 DEFS 32
  54048 DEFB 24       ; Initial animatory state: #AS24 (see #R62910)
@@ -15204,8 +15204,8 @@ b54089 DEFB 16,8,96,0,0,32,1,0,255,7,0,254,249,132,1,3
 @defs=54272:32
 ; Character buffer for the frog or mouse (#b212)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used.
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used.
 @label=ANIMALCBUF
 b54272 DEFS 32
  54304 DEFB 47       ; Initial animatory state: #AS47 (see #R62910)
@@ -15310,8 +15310,8 @@ b54345 DEFB 215,235,103,255,255,175,253,255,255,247,255,254,249,133,253,251
 @defs=54528:32
 ; Character buffer for the stinkbomb cloud or BOY WANDER's pellet (#b213)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used.
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used.
 @label=CBUF213
 b54528 DEFS 32
  54560 DEFB 0        ; Initial animatory state: #AS0 (see #R62910)
@@ -15420,8 +15420,8 @@ b54601 DEFB 16,16,128,0,0,16,1,0,127,0,0,252,241,8,1,7
 ; Character buffer for water/sherry, plant, conker, desk lid or ERIC's pellet
 ; (#b214)
 ;
-; See the #LINK:CharacterBuffers(character buffer documentation) for details of
-; how bytes #b0-#b31 of the buffer are used.
+; See the #LINK(CharacterBuffers)(character buffer documentation) for details
+; of how bytes #b0-#b31 of the buffer are used.
 @label=CBUF214
 b54784 DEFS 32
  54816 DEFB 0        ; Initial animatory state: #AS0 (see #R62910)
@@ -15516,7 +15516,7 @@ b54857 DEFB 215,215,159,255,255,215,253,255,255,248,255,253,241,11,253,247
 ; window when open is at #R55296.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(55040) }
+; { #CALL(mutable(55040)) }
 ; TABLE#
 @label=URTTFWSHUT
 b55040 DEFB 2,93,48,132
@@ -15569,7 +15569,7 @@ b55168 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ; window when shut is at #R55040.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(55296) }
+; { #CALL(mutable(55296)) }
 ; TABLE#
 @label=URTTFWOPEN
 b55296 DEFB 2,93,48,132
@@ -15621,7 +15621,7 @@ b55424 DEFB 96,103,96,103,96,0,0,140,96,136,96,125,240,240,224,225
 ; window when open is at #R55808.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(55552) }
+; { #CALL(mutable(55552)) }
 ; TABLE#
 @label=URTMFWSHUT
 b55552 DEFB 8,95,80,142
@@ -15684,7 +15684,7 @@ b55680 DEFB 97,104,97,104,112,0,0,141,132,137,130,126,241,241,141,226
 ; window when shut is at #R55552.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(55808) }
+; { #CALL(mutable(55808)) }
 ; TABLE#
 @label=URTMFWOPEN
 b55808 DEFB 8,95,80,142
@@ -15753,7 +15753,7 @@ b55936 DEFB 0,105,0,110,113,117,122,0,133,133,0,0,235,235,0,227
 ; cabinet door when open is at #R56320.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56064) }
+; { #CALL(mutable(56064)) }
 ; TABLE#
 @label=URTDCDSHUT
 b56064 DEFB 2,190,136,198,2,191,150,204
@@ -15766,7 +15766,7 @@ b56064 DEFB 2,190,136,198,2,191,150,204
 ; Used by the routine at #R27672.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56081) }
+; { #CALL(mutable(56081)) }
 ; TABLE#
 @label=URTBSCUPSE
 b56081 DEFB 14,25,186,7 ; Leftmost cup
@@ -15838,7 +15838,7 @@ b56192 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ; cabinet door when shut is at #R56064.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56320) }
+; { #CALL(mutable(56320)) }
 ; TABLE#
 @label=URTDCDOPEN
 b56320 DEFB 2,190,162,198,2,191,163,198
@@ -15850,7 +15850,7 @@ b56320 DEFB 2,190,162,198,2,191,163,198
 ; Used by the routine at #R27860.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56337) }
+; { #CALL(mutable(56337)) }
 ; TABLE#
 @label=URTCUP4E
 b56337 DEFB 14,186,102,199
@@ -15981,7 +15981,7 @@ b56448 DEFB 98,106,98,106,98,0,0,98,98,138,98,127,242,242,98,228
 ; storeroom door when open is at #R56832.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56576) }
+; { #CALL(mutable(56576)) }
 ; TABLE#
 @label=URTSLSSHUT
 b56576 DEFB 9,54,50,71,9,55,55,69,9,56,61,69
@@ -15997,7 +15997,7 @@ b56576 DEFB 9,54,50,71,9,55,55,69,9,56,61,69
 ; door when open is at #R56893.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56637) }
+; { #CALL(mutable(56637)) }
 ; TABLE#
 @label=URTLSDSHUT
 b56637 DEFB 2,72,128,71,2,73,135,71
@@ -16013,7 +16013,7 @@ b56637 DEFB 2,72,128,71,2,73,135,71
 ; Used by the routine at #R27672.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56694) }
+; { #CALL(mutable(56694)) }
 ; TABLE#
 @label=URTCUP1W
 b56694 DEFB 14,25,186,5
@@ -16025,7 +16025,7 @@ b56694 DEFB 14,25,186,5
 ; Used by the routine at #R27672.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56699) }
+; { #CALL(mutable(56699)) }
 ; TABLE#
 @label=URTCUP1S
 b56699 DEFB 14,25,186,11
@@ -16063,7 +16063,7 @@ b56704 DEFB 99,107,99,107,114,118,0,99,134,139,128,128,243,246,99,229
 ; storeroom door when shut is at #R56576.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56832) }
+; { #CALL(mutable(56832)) }
 ; TABLE#
 @label=URTSLSOPEN
 b56832 DEFB 9,54,166,199,9,55,167,199,9,56,168,199
@@ -16079,7 +16079,7 @@ b56832 DEFB 9,54,166,199,9,55,167,199,9,56,168,199
 ; door when shut is at #R56637.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56893) }
+; { #CALL(mutable(56893)) }
 ; TABLE#
 @label=URTLSDOPEN
 b56893 DEFB 2,72,128,71,2,73,175,192
@@ -16095,7 +16095,7 @@ b56893 DEFB 2,72,128,71,2,73,175,192
 ; Used by the routine at #R27672.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56950) }
+; { #CALL(mutable(56950)) }
 ; TABLE#
 @label=URTCUP2W
 b56950 DEFB 14,27,191,5
@@ -16107,7 +16107,7 @@ b56950 DEFB 14,27,191,5
 ; Used by the routine at #R27672.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(56955) }
+; { #CALL(mutable(56955)) }
 ; TABLE#
 @label=URTCUP2S
 b56955 DEFB 14,27,191,11
@@ -16144,7 +16144,7 @@ b56960 DEFB 100,108,109,111,115,119,123,100,135,135,100,100,244,247,100,230
 ; door when open is at #R57344.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57088) }
+; { #CALL(mutable(57088)) }
 ; TABLE#
 @label=URTRSDSHUT
 b57088 DEFB 2,84,211,68,2,85,103,6,2,86,81,6
@@ -16160,7 +16160,7 @@ b57088 DEFB 2,84,211,68,2,85,103,6,2,86,81,6
 ; door when open is at #R57405.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57149) }
+; { #CALL(mutable(57149)) }
 ; TABLE#
 @label=URTBSDSHUT
 b57149 DEFB 16,93,57,134,16,94,152,78,16,95,86,140
@@ -16176,7 +16176,7 @@ b57149 DEFB 16,93,57,134,16,94,152,78,16,95,86,140
 ; Used by the routine at #R27672.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57206) }
+; { #CALL(mutable(57206)) }
 ; TABLE#
 @label=URTCUP3W
 b57206 DEFB 14,30,186,5
@@ -16188,7 +16188,7 @@ b57206 DEFB 14,30,186,5
 ; Used by the routine at #R27672.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57211) }
+; { #CALL(mutable(57211)) }
 ; TABLE#
 @label=URTCUP3S
 b57211 DEFB 14,30,186,11
@@ -16225,7 +16225,7 @@ b57216 DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ; door when shut is at #R57088.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57344) }
+; { #CALL(mutable(57344)) }
 ; TABLE#
 @label=URTRSDOPEN
 b57344 DEFB 2,84,185,196,2,85,186,198,2,86,187,198
@@ -16241,7 +16241,7 @@ b57344 DEFB 2,84,185,196,2,85,186,198,2,86,187,198
 ; door when shut is at #R57149.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57405) }
+; { #CALL(mutable(57405)) }
 ; TABLE#
 @label=URTBSDOPEN
 b57405 DEFB 16,93,196,198,16,94,197,206,16,95,198,196
@@ -16257,7 +16257,7 @@ b57405 DEFB 16,93,196,198,16,94,197,206,16,95,198,196
 ; Used by the routine at #R27672.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57462) }
+; { #CALL(mutable(57462)) }
 ; TABLE#
 @label=URTCUP4W
 b57462 DEFB 14,186,102,197
@@ -16269,7 +16269,7 @@ b57462 DEFB 14,186,102,197
 ; Used by the routine at #R27672.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57467) }
+; { #CALL(mutable(57467)) }
 ; TABLE#
 @label=URTCUP4S
 b57467 DEFB 14,186,102,203
@@ -16306,7 +16306,7 @@ b57472 DEFB 101,0,101,0,101,0,0,101,101,101,101,101,0,0,101,0
 ; bike attached is at #R57856.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57600) }
+; { #CALL(mutable(57600)) }
 ; TABLE#
 @label=URTTREE
 b57600 DEFB 18,100,153,132,18,101,171,132,18,102,189,132
@@ -16448,7 +16448,7 @@ b57728 DEFB 102,0,102,0,116,120,0,102,102,102,131,129,245,245,102,0
 ; bike attached is at #R57600.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(57856) }
+; { #CALL(mutable(57856)) }
 ; TABLE#
 @label=URTBIKE
 b57856 DEFB 18,100,214,196,18,101,215,196,18,102,216,196
@@ -16665,7 +16665,7 @@ b58408 DEFS 24       ; The attributes go here
 ;
 ; Used by the routine at #R29178. Each non-zero entry in this table corresponds
 ; to a game key, and points to an entry in the table of keypress-handling
-; routine addresses at #R58704. For more details, see the #LINK:Keys(keypress
+; routine addresses at #R58704. For more details, see the #LINK(Keys)(keypress
 ; table).
 @label=KEYTABLE
 @ssub=DEFB 58728%256
@@ -16796,7 +16796,7 @@ b58624 DEFB 104      ; '0': Fire catapult
 ;
 ; Used by the main loop at #R63210, and by the routine at #R29178. Each
 ; non-zero entry in the keypress offset table at #R58624 points to a routine
-; address in this table. For more details, see the #LINK:Keys(keypress table).
+; address in this table. For more details, see the #LINK(Keys)(keypress table).
 @label=K_LEFTF
 w58704 DEFW 28460    ; #b80: Left (fast)
 @label=K_RIGHTF
@@ -16992,7 +16992,7 @@ u58913 DEFM "UADRATI"
 ; Used by the routine at #R62910.
 ; .
 ; #UDGTABLE
-; { #UDGARRAY8,31,,8;58944-58951;59008-59015;59072-59079(score_box) }
+; { #UDGARRAY8,31,,8(58944-58951;59008-59015;59072-59079)(score_box) }
 ; TABLE#
 @label=SCOREBOX
 b58920 DEFB 31,31,31,31,31,31,31,31 ; {Attributes (PAPER 3: INK 7)
@@ -18076,7 +18076,7 @@ t60657 DEFB 3         ; #R59840(#b3): 'Please Sir I cannot tell a lie . . '
 ; board{9sp}'
 ;
 ; Used by the routine at #R61696. #IF({fix}<3)//This message is never actually
-; used in the game, because of a #BUG#noBlackboardTales(bug) in the section of
+; used in the game, because of a #BUG(noBlackboardTales)(bug) in the section of
 ; code at #R61852.//
 @label=MSG088
 t60668 DEFB 3            ; #R59840(#b3): 'Please Sir I cannot tell a lie . . '
@@ -18913,7 +18913,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 ; the character is standing within four spaces of the left edge of the
 ; blackboard, which is not the case when the teacher is waiting for EINSTEIN to
 ; grass (teachers stand at the right edge of the blackboard for that, more than
-; four spaces away). This is a #BUG#noBlackboardTales(bug).||
+; four spaces away). This is a #BUG(noBlackboardTales)(bug).||
 @rfix=CALL 28658
 *61852 CALL 26453    ; Collect information about the blackboard
 @rfix=               ; {Point #REGbc at the second byte of the blackboard's
@@ -18965,7 +18965,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
 ; The next section of code makes the teacher wipe the board. Note that the
 ; teacher may already have wiped the board at this point, and therefore will
 ; not be standing at the right edge of the board (the correct location to begin
-; wiping); this is a #BUG#doubleWipe(bug).
+; wiping); this is a #BUG(doubleWipe)(bug).
 @nowarn
 *61899 LD BC,26639   ; {Redirect control to the routine at #R26639 (wipe board)
  61902 CALL 25503    ; and return to #R61905 (below) when done}
@@ -19130,7 +19130,7 @@ s62092 DEFS 2
 ; at #R29896). Note that the routine at #R26175 also sets bit 7 at #R32763 when
 ; someone sits in the seat occupied by ERIC, but in that case this routine is
 ; not called because bit 2 at #R32763 is still set (indicating that ERIC is
-; sitting) and takes precedence; this is a #BUG#seat(bug).
+; sitting) and takes precedence; this is a #BUG(seat)(bug).
 @refs=63405
 @label=ERICHIT
 c62094 LD HL,32733   ; #R32733 holds ERIC's knockout delay counter
@@ -19880,7 +19880,7 @@ c62910 LD H,135      ; {The blackboards use UDGs #b0-#b79 (#b0-#b15 for the
  62923 DEC H         ;
  62924 DEC C         ;
  62925 JR NZ,62915   ; }
-; Next, clean up the #LINK:GameStatusBuffer(game status buffer).
+; Next, clean up the #LINK(GameStatusBuffer)(game status buffer).
 @ssub=LD L,32512%256
  62927 LD L,0        ; {Clear the first 222 bytes of the game status buffer
  62929 LD B,222      ;
@@ -20711,7 +20711,7 @@ s63743 DEFB 0
 ; when open is at #R64000.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(63744) }
+; { #CALL(mutable(63744)) }
 ; TABLE#
 @label=URTSGSHUT
 b63744 DEFB 17,132,81,4,17,133,81,4,17,134,254,132,17,135,3,196
@@ -20964,7 +20964,7 @@ s63996 DEFS 4
 ; when shut is at #R63744.
 ; .
 ; #UDGTABLE
-; { #CALL:mutable(64000) }
+; { #CALL(mutable(64000)) }
 ; TABLE#
 @rem=This table must be 256 bytes after the UDG reference table for the skool
 @rem=gate when shut
@@ -21134,7 +21134,7 @@ c64077 DEC A         ; Is the water at the right phase to fill a cup?
  64185 JR NZ,64192   ; Jump if not
  64187 LD A,16       ; {Set bit 4 at #R32749, indicating that ERIC is going to
  64189 LD (32749),A  ; take a fall (even if ERIC's standing on a different
-                     ; plant pot; this is a #BUG#plant(bug))}
+                     ; plant pot; this is a #BUG(plant)(bug))}
 *64192 JP 29903      ; Kill the plant
 ; The plant is not dead yet. Plan its next move.
 *64195 LD A,(HL)     ; Pick up the plant lifespan counter in #REGa

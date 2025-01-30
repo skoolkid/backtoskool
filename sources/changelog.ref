@@ -1,4 +1,5 @@
-; Copyright 2008-2015, 2017-2020, 2022 Richard Dymond (rjdymond@gmail.com)
+; Copyright 2008-2015, 2017-2020, 2022, 2025
+; Richard Dymond (rjdymond@gmail.com)
 
 [Page:Changelog]
 SectionType=BulletPoints
@@ -6,10 +7,10 @@ SectionType=BulletPoints
 [Changelog:20221122]
 -
 
-- Added the #LINK:Sound() page
-- Added a trivia entry: #FACT#aggressiveUnseating()
-- Added a note to #BUG#seat() about how to share a chair with someone even when
-  the bug is fixed
+- Added the #LINK(Sound)() page
+- Added a trivia entry: #FACT(aggressiveUnseating)()
+- Added a note to #BUG(seat)() about how to share a chair with someone even
+  when the bug is fixed
 
 [Changelog:20200811]
 -
@@ -49,12 +50,12 @@ SectionType=BulletPoints
 [Changelog:20150415]
 -
 
-- Documented a bug: #BUG#665360Lines() (thanks Welling)
+- Documented a bug: #BUG(665360Lines)() (thanks Welling)
 - Added trivia entries:
-  - #FACT#invulnerableMoments()
-  - #FACT#initialPlaytimes()
-  - #FACT#playtimeDistribution()
-  - #FACT#pointsForAPOrAP()
+  - #FACT(invulnerableMoments)()
+  - #FACT(initialPlaytimes)()
+  - #FACT(playtimeDistribution)()
+  - #FACT(pointsForAPOrAP)()
 
 [Changelog:20140614]
 -
@@ -66,45 +67,45 @@ SectionType=BulletPoints
 -
 
 - Added trivia entries:
-  - #FACT#closedDoorAndCaretaker()
-  - #FACT#pitchImperfect()
+  - #FACT(closedDoorAndCaretaker)()
+  - #FACT(pitchImperfect)()
 - Added CSS files to complete the 'dark', 'green', 'plum' and 'spectrum' themes
 
 [Changelog:20121119]
 -
 
 - Added POKEs:
-  - #POKE#someLines()
-  - #POKE#silentSnitch()
-  - #POKE#silentCaretaker()
+  - #POKE(someLines)()
+  - #POKE(silentSnitch)()
+  - #POKE(silentCaretaker)()
 
 [Changelog:20120718]
 -
 
-- Added a trivia entry: #FACT#mouseMetamorphosis()
-- Added a POKE: #POKE#freeTheFrog()
+- Added a trivia entry: #FACT(mouseMetamorphosis)()
+- Added a POKE: #POKE(freeTheFrog)()
 
 [Changelog:20120627]
 -
 
-- Added a trivia entry: #FACT#slashDot()
-- In the #FACT#saverPokes() trivia entry, added an explanation of line 33 of
+- Added a trivia entry: #FACT(slashDot)()
+- In the #FACT(saverPokes)() trivia entry, added an explanation of line 33 of
   the BASIC saver program
 - Fixed the entries for the characters '#CHR8593' (code #b94) and '#CHR163'
-  (code #b96) in the #LINK:Keys(keypress table) and the #R58624(keypress offset
-  table)
+  (code #b96) in the #LINK(Keys)(keypress table) and the #R58624(keypress
+  offset table)
 
 [Changelog:20120411]
 -
 
 - Ported the disassembly to SkoolKit 3
-- In the #FACT#bottomlessBoxes() trivia entry, added an explanation of why the
+- In the #FACT(bottomlessBoxes)() trivia entry, added an explanation of why the
   unused tiles were left unused
 
 [Changelog:20120201]
 -
 
-- Added a trivia entry: #FACT#bottomlessBoxes()
+- Added a trivia entry: #FACT(bottomlessBoxes)()
 - Added images of unused play area tiles in base page #b144 to the entry at
   #R36864
 - Added comments to the entries containing graphic data for play area tiles
@@ -120,13 +121,13 @@ SectionType=BulletPoints
 -
 
 - Added trivia entries:
-  - #FACT#timetableStats()
-  - #FACT#playtimeProbabilities()
+  - #FACT(timetableStats)()
+  - #FACT(playtimeProbabilities)()
 
 [Changelog:20111031]
 -
 
-- Documented a bug: #BUG#whatsInTheDesk()
+- Documented a bug: #BUG(whatsInTheDesk)()
 
 [Changelog:20110510]
 Included in SkoolKit 2.2.
@@ -139,8 +140,8 @@ Included in SkoolKit 2.1.
 
 - Added message numbers to the message address table entries at #R65024,
   #R65152, #R65280 and #R65408
-- Added animatory state images to the #BUG#fire() bug entry
-- Made corrections to the #FACT#pelletVsLid() trivia entry
+- Added animatory state images to the #BUG(fire)() bug entry
+- Made corrections to the #FACT(pelletVsLid)() trivia entry
 
 [Changelog:20101123]
 Included in SkoolKit 2.0.
@@ -163,14 +164,14 @@ Included in SkoolKit 1.4.
 Included in SkoolKit 1.3.
 
 - New graphic glitches:
-  - #LINK:GraphicGlitches#rockittCoat(MR ROCKITT's coat)
-  - #LINK:GraphicGlitches#creakHand(MR CREAK's hand)
-  - #LINK:GraphicGlitches#boysHands(Boys' hands)
-  - #LINK:GraphicGlitches#girlsShoes(Girls' shoes)
-  - ALBERT's #LINK:GraphicGlitches#albertWaist(waist),
-    #LINK:GraphicGlitches#albertHead(head), and
-    #LINK:GraphicGlitches#albertArmpit(armpit)
-- Added a trivia entry: #FACT#skoolTunes() (thanks Ben and urbanupstart's
+  - #LINK(GraphicGlitches#rockittCoat)(MR ROCKITT's coat)
+  - #LINK(GraphicGlitches#creakHand)(MR CREAK's hand)
+  - #LINK(GraphicGlitches#boysHands)(Boys' hands)
+  - #LINK(GraphicGlitches#girlsShoes)(Girls' shoes)
+  - ALBERT's #LINK(GraphicGlitches#albertWaist)(waist),
+    #LINK(GraphicGlitches#albertHead)(head), and
+    #LINK(GraphicGlitches#albertArmpit)(armpit)
+- Added a trivia entry: #FACT(skoolTunes)() (thanks Ben and urbanupstart's
   brother)
 
 [Changelog:20100503]
@@ -178,57 +179,57 @@ Included in SkoolKit 1.2.
 
 - Fixed the description of the kiss counter at #R32738
 - Made minor corrections to some other comments and descriptions
-- Added a trivia entry: #FACT#apprehensiveAmphibian()
+- Added a trivia entry: #FACT(apprehensiveAmphibian)()
 
 [Changelog:20100225]
 Included in SkoolKit 1.1.
 
 - Fixed the addresses of the last 7 DEFB statements in the entry at #R48956
-- Documented a bug: #BUG#deceptiveDoorways()
+- Documented a bug: #BUG(deceptiveDoorways)()
 
 [Changelog:20100128]
 Included in SkoolKit 1.0.
 
 - Tweaked the CSS so that the disassembly looks the same in Internet Explorer
   as it does in other browsers
-- Added images to the entry for the #BUG#tripleWipe() bug
-- Expanded the entry for the #BUG#speechQueue() bug
+- Added images to the entry for the #BUG(tripleWipe)() bug
+- Expanded the entry for the #BUG(speechQueue)() bug
 
 [Changelog:20100111]
 -
 
 - Documented bugs:
-  - #BUG#rematerialisingMouse()
-  - #BUG#assemblyDuty()
-  - #BUG#assemblySit2()
-- Added a trivia entry: #FACT#assemblyWait()
-- Added the #LINK:PlayAreaTiles(Play area tiles) page
-- Added the #LINK:AnimatoryStateTiles(Animatory state tiles) page
+  - #BUG(rematerialisingMouse)()
+  - #BUG(assemblyDuty)()
+  - #BUG(assemblySit2)()
+- Added a trivia entry: #FACT(assemblyWait)()
+- Added the #LINK(PlayAreaTiles)(Play area tiles) page
+- Added the #LINK(AnimatoryStateTiles)(Animatory state tiles) page
 - Added the first eight graphic glitches:
-  - #LINK:GraphicGlitches#einsteinHead(EINSTEIN's head)
-  - #LINK:GraphicGlitches#boyWanderHead(BOY WANDER's head)
-  - #LINK:GraphicGlitches#creakEar(MR CREAK's ear)
-  - #LINK:GraphicGlitches#wackerTrousers(MR WACKER's trousers)
-  - #LINK:GraphicGlitches#withitAlbertShoes(MR WITHIT's and ALBERT's shoes)
-  - #LINK:GraphicGlitches#withitTakeHand(MR WITHIT's and MISS TAKE's hand)
-  - #LINK:GraphicGlitches#boysShoes(Boys' shoes)
-  - #LINK:GraphicGlitches#scoreBox(Score box)
+  - #LINK(GraphicGlitches#einsteinHead)(EINSTEIN's head)
+  - #LINK(GraphicGlitches#boyWanderHead)(BOY WANDER's head)
+  - #LINK(GraphicGlitches#creakEar)(MR CREAK's ear)
+  - #LINK(GraphicGlitches#wackerTrousers)(MR WACKER's trousers)
+  - #LINK(GraphicGlitches#withitAlbertShoes)(MR WITHIT's and ALBERT's shoes)
+  - #LINK(GraphicGlitches#withitTakeHand)(MR WITHIT's and MISS TAKE's hand)
+  - #LINK(GraphicGlitches#boysShoes)(Boys' shoes)
+  - #LINK(GraphicGlitches#scoreBox)(Score box)
 
 [Changelog:20091221]
 -
 
 - Documented bugs:
-  - #BUG#albertBusy() (thanks Alex)
-  - #BUG#wackerBusy() (thanks Alex)
-  - #BUG#waitingForEinstein()
-  - #BUG#tripleWipe()
-- Added a fix for the four #BUG#jumpAbsent(jump bugs)
+  - #BUG(albertBusy)() (thanks Alex)
+  - #BUG(wackerBusy)() (thanks Alex)
+  - #BUG(waitingForEinstein)()
+  - #BUG(tripleWipe)()
+- Added a fix for the four #BUG(jumpAbsent)(jump bugs)
 - Added POKEs:
-  - #POKE#linesLimit()
-  - #POKE#lessonLength()
-  - #POKE#ringBell()
-  - #POKE#alwaysRun()
-- Supplied missing entries to the #LINK:CharacterBuffers(character buffer
+  - #POKE(linesLimit)()
+  - #POKE(lessonLength)()
+  - #POKE(ringBell)()
+  - #POKE(alwaysRun)()
+- Supplied missing entries to the #LINK(CharacterBuffers)(character buffer
   documentation) for bytes #b11-#b14, #b19, #b21 and #b22
 - Added command list usage info to the command list entries (e.g. see command
   list #R58828(#b42))
@@ -244,60 +245,60 @@ Included in SkoolKit 1.0.
 
 - Added disassembly pages for data blocks
 - Added trivia entries:
-  - #FACT#teachersFreshAir()
-  - #FACT#unusedDoor()
-  - #FACT#invisibleStatues()
-  - #FACT#fastWays()
-  - #FACT#violenceAndKisses()
-  - #FACT#hungryHayley()
-  - #FACT#lostLinesMessage()
-  - #FACT#pelletVsStinkbomb()
-  - #FACT#allAboutMice()
-  - #FACT#conkerAndClock()
-  - #FACT#wackerAndClock()
-  - #FACT#inferiorCatapult()
+  - #FACT(teachersFreshAir)()
+  - #FACT(unusedDoor)()
+  - #FACT(invisibleStatues)()
+  - #FACT(fastWays)()
+  - #FACT(violenceAndKisses)()
+  - #FACT(hungryHayley)()
+  - #FACT(lostLinesMessage)()
+  - #FACT(pelletVsStinkbomb)()
+  - #FACT(allAboutMice)()
+  - #FACT(conkerAndClock)()
+  - #FACT(wackerAndClock)()
+  - #FACT(inferiorCatapult)()
 - Documented bugs:
-  - #BUG#pelletDoor() (thanks Alex)
-  - #BUG#conkerMD() (thanks Alex)
-  - #BUG#noBlackboardTales()
-- Added a POKE: #POKE#leftStudyDoor()
+  - #BUG(pelletDoor)() (thanks Alex)
+  - #BUG(conkerMD)() (thanks Alex)
+  - #BUG(noBlackboardTales)()
+- Added a POKE: #POKE(leftStudyDoor)()
 - Bloated HTML 'image' tables replaced by PNGs
 - Added Prev/Up/Next links in various places for easier navigation
 - #AS()(Animatory state images) now show the outline masks
-- Added the #LINK:Graphics(Other graphics) page
+- Added the #LINK(Graphics)(Other graphics) page
 
 [Changelog:20090820]
 -
 
 - A few corrections to code comments
 - Documented bugs:
-  - #BUG#farLeft() (thanks Ben)
-  - #BUG#talkGarbage() (thanks Ben)
-  - #BUG#jumpAbsent() (thanks Ben)
-  - #BUG#pelletHover()
-  - #BUG#pelletWall() (thanks Alex)
-  - #BUG#jumpDinner()
-  - #BUG#jumpAssembly()
-  - #BUG#jump4Spaces()
-  - #BUG#doubleWipe()
-  - #BUG#speechQueue()
-  - #BUG#assemblySit()
+  - #BUG(farLeft)() (thanks Ben)
+  - #BUG(talkGarbage)() (thanks Ben)
+  - #BUG(jumpAbsent)() (thanks Ben)
+  - #BUG(pelletHover)()
+  - #BUG(pelletWall)() (thanks Alex)
+  - #BUG(jumpDinner)()
+  - #BUG(jumpAssembly)()
+  - #BUG(jump4Spaces)()
+  - #BUG(doubleWipe)()
+  - #BUG(speechQueue)()
+  - #BUG(assemblySit)()
 - Added POKEs:
-  - #POKE#noLines()
-  - #POKE#infiniteKisses()
-  - #POKE#superCatty()
-  - #POKE#throughDoors()
-  - #POKE#throughWalls()
-- Added #LINK:PersonalTimetables(personal timetable) pages
+  - #POKE(noLines)()
+  - #POKE(infiniteKisses)()
+  - #POKE(superCatty)()
+  - #POKE(throughDoors)()
+  - #POKE(throughWalls)()
+- Added #LINK(PersonalTimetables)(personal timetable) pages
 - Added the first eight trivia entries:
-  - #FACT#boy10()
-  - #FACT#saverPokes()
-  - #FACT#lesson43()
-  - #FACT#teacherRooms()
-  - #FACT#bullySwotConker()
-  - #FACT#bullyHeroine()
-  - #FACT#heroineLines()
-  - #FACT#pelletVsLid()
+  - #FACT(boy10)()
+  - #FACT(saverPokes)()
+  - #FACT(lesson43)()
+  - #FACT(teacherRooms)()
+  - #FACT(bullySwotConker)()
+  - #FACT(bullyHeroine)()
+  - #FACT(heroineLines)()
+  - #FACT(pelletVsLid)()
 
 [Changelog:20090705]
 -
