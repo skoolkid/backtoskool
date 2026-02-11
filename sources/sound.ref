@@ -1,4 +1,4 @@
-; Copyright 2022 Richard Dymond (rjdymond@gmail.com)
+; © 2022, 2026 Richard Dymond (rjdymond@gmail.com)
 
 [Page:Sound]
 SectionPrefix=Audio
@@ -7,17 +7,17 @@ SectionPrefix=Audio
 This tune is played by the routine at #R24477 before a new game or demo mode
 starts.
 
-#AUDIO1(tune.wav)(#INCLUDE(ThemeTune))
+#AUDIO0,,,,1(tune.wav)(#INCLUDE(ThemeTune))
 
 [Audio:upayear:Up-a-year tune]
 This tune is played by the routine at #R24477 when ERIC opens the safe.
 
-#AUDIO1(up-a-year.wav)(#INCLUDE(UpAYearTune))
+#AUDIO0,,,,1(up-a-year.wav)(#INCLUDE(UpAYearTune))
 
 [Audio:bell:Bell]
 The bell sound effect is produced by the routine at #R32433.
 
-#AUDIO3(bell.wav)([[1694]*255, 1705]*15, [1694]*255)
+#AUDIO0,,,1,1(bell.wav)([[1694]*255, 1705]*15, [1694]*255)
 
 [Audio:lines:Lines]
 These sound effects are produced by the routine at #R29716 when a teacher is
@@ -26,27 +26,27 @@ sound effect is also used when a teacher reveals a combination letter or number
 (see #R30034), and when ALBERT is telling MR WACKER that ERIC is escaping (see
 #R62711).
 
-#AUDIO3(lines1.wav)([[290]*255,301]*39,[290]*255)
+#AUDIO0,,,1,1(lines1.wav)([[290]*255,301]*39,[290]*255)
 
-#AUDIO3(lines2.wav)([[680]*255,691]*19,[680]*255)
+#AUDIO0,,,1,1(lines2.wav)([[680]*255,691]*19,[680]*255)
 
 [Audio:catapult:Catapult/water pistol]
 This sound effect is produced by the routine at #R63861 when ERIC fires the
 catapult or the water pistol.
 
-#AUDIO2(fire.wav)(#FOR(1,4,,3)(m,#FOR(3378,258,-104,1)(n,n),154))
+#AUDIO0,,,1(fire.wav)(#FOR(1,4,,3)(m,#FOR(3378,258,-104,1)(n,n),154))
 
 [Audio:mouse:Mouse]
 This sound effect is produced by the routine at #R28952 when ERIC catches a
 mouse.
 
-#AUDIO3(mouse.wav)(#INCLUDE(Mouse))
+#AUDIO0,,,1,1(mouse.wav)(#INCLUDE(Mouse))
 
 [Audio:conker:Conker]
 This sound effect is produced when ANGELFACE or EINSTEIN is hit by a conker
 (see #R29971).
 
-#AUDIO3(conker.wav)([[550]*255,561]*39,[550]*255)
+#AUDIO0,,,1,1(conker.wav)([[550]*255,561]*39,[550]*255)
 
 [Audio:celebration:Celebration]
 This sound effect is produced when ERIC finds a water pistol or stinkbombs in a
@@ -54,26 +54,26 @@ desk (see #R62377), writes the bike combination number or storeroom combination
 letters on a blackboard (see #R24028), catches the frog (see #R29568), places
 the frog in a cup (see #R29517), or kisses HAYLEY (see #R24400).
 
-#AUDIO2(bingo.wav)(#FOR(1,5,,3)(m,(#FOR(3365,76,-13,1)(n,n),65),83))
+#AUDIO0,,,1(bingo.wav)(#FOR(1,5,,3)(m,(#FOR(3365,76,-13,1)(n,n),65),83))
 
 [Audio:sherry:Sherry]
 This sound effect is produced when ERIC fills the water pistol with sherry (see
 #R23973).
 
-#AUDIO2(sherry.wav)(3378,#FOR(76,3378,26,1)(n,n),#FOR(76,3326,26,1)(n,n))
+#AUDIO0,,,1(sherry.wav)(3378,#FOR(76,3378,26,1)(n,n),#FOR(76,3326,26,1)(n,n))
 
 [Audio:safekey:Safe key]
 This sound effect is produced when ERIC obtains the safe key (see #R30843).
 
-#AUDIO7(safe-key.wav)(30853,30872)
+#AUDIO1,30853,30872,2,1(safe-key.wav)
 
 [Audio:knockout:Knocked out]
 This sound effect is produced when ERIC is knocked over (see #R62094).
 
-#AUDIO2(knockout.wav)(3378,#FOR(63,3352,13,1)(n,n))
+#AUDIO0,,,1(knockout.wav)(3378,#FOR(63,3352,13,1)(n,n))
 
 [Audio:walk:Walking]
 These sound effects are produced by the routine at #R29012 each time ERIC takes
 a step.
 
-#AUDIO3(walking.wav)(#FOR1,12,,3(n,[2532]*6,560000))
+#AUDIO0,,,1,1(walking.wav)(#FOR1,12,,3(n,[2532]*6,560000))

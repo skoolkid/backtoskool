@@ -1,6 +1,7 @@
-; Copyright 2001, 2008-2023, 2025 Richard Dymond (rjdymond@gmail.com)
+; © 2001, 2008-2023, 2025, 2026 Richard Dymond (rjdymond@gmail.com)
 
 @start
+@rom
 @expand=#DEF(#BUG()(a) #LINK(Bugs#$a))
 @expand=#DEF(#FACT()(a) #LINK(Facts#$a))
 @expand=#DEF(#POKE()(a) #LINK(Pokes#$a))
@@ -15,8 +16,8 @@
 ; Back to Skool disassembly
 ; https://skoolkit.ca
 ;
-; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2023, 2025 Richard Dymond (this disassembly)
+; © 1985 Microsphere Computer Services Ltd (Back to Skool)
+; © 2001, 2008-2023, 2025, 2026 Richard Dymond (this disassembly)
 @ofix+begin
 ;
 ; This disassembly contains fixes for the following bugs:
@@ -920,7 +921,7 @@ c23907 LD HL,32755   ; #R32755 holds ERIC's main action timer
  23985 CALL 31746    ; Print the inventory
 ; Acknowledge the sherry-filled water pistol with a sound effect.
 ; .
-; #AUDIO2(sherry.wav)(3378,#FOR(76,3378,26,1)(n,n),#FOR(76,3326,26,1)(n,n))
+; #AUDIO0,,,1(sherry.wav)(3378,#FOR(76,3378,26,1)(n,n),#FOR(76,3326,26,1)(n,n))
  23988 LD HL,534     ; {Make a sound effect
  23991 CALL 62150    ; }
  23994 JR 23945      ; Bring ERIC back to the floor
@@ -1361,7 +1362,7 @@ s24476 DEFB 0
 ; Used by the routine at #R62910. The main entry point is used to play the
 ; theme tune.
 ; .
-; #AUDIO1(tune.wav)(#INCLUDE(ThemeTune))
+; #AUDIO0,,,,1(tune.wav)(#INCLUDE(ThemeTune))
 @label=PLAYTUNE
 @nowarn
 @ignoreua
@@ -1373,7 +1374,7 @@ c24477 LD HL,23611   ; {Reset bit 5 at #w23611, clearing the record of any
 ; This entry point is used by the routine at #R23907 with #REGhl=#R56364-1 (the
 ; up-a-year tune data starts at #R56364).
 ; .
-; #AUDIO1(up-a-year.wav)(#INCLUDE(UpAYearTune))
+; #AUDIO0,,,,1(up-a-year.wav)(#INCLUDE(UpAYearTune))
 *24485 DI            ; Disable interrupts
 *24486 INC HL        ; Point #REGhl at the next tune datum
  24487 LD A,(HL)     ; Pick it up
@@ -6332,7 +6333,7 @@ c28877 LD A,(32758)  ; {Return unless #R32758 (which is decremented on every
 ;
 ; Used by the routine at #R31573.
 ; .
-; #AUDIO3(mouse.wav)(#INCLUDE(Mouse))
+; #AUDIO0,,,1,1(mouse.wav)(#INCLUDE(Mouse))
 ;
 ; A #b10
 @label=CATCHMOUSE
@@ -6392,7 +6393,7 @@ c28992 LD A,(32747)  ; #R32747 holds the inventory flags
 ; Used by the routines at #R21920, #R28114, #R28160, #R28216, #R29574, #R62178,
 ; #R62438, #R64242 and #R64259.
 ; .
-; #AUDIO3(walking.wav)(#FOR1,12,,3(n,[2532]*6,560000))
+; #AUDIO0,,,1,1(walking.wav)(#FOR1,12,,3(n,[2532]*6,560000))
 @label=WALKSOUND
 c29012 PUSH BC       ;
  29013 LD A,1        ; The border will be blue
@@ -7121,7 +7122,7 @@ c29716 PUSH AF       ; Save the lines recipient's character number briefly
 ; The lines message (e.g. '100 LINES ERIC') has been printed. Now for the
 ; accompanying sound effect.
 ; .
-; #AUDIO3(lines1.wav)([[290]*255,301]*39,[290]*255)
+; #AUDIO0,,,1,1(lines1.wav)([[290]*255,301]*39,[290]*255)
  29790 LD A,(58408)  ; #REGa=attribute byte for the lines message
  29793 LD DE,10240   ; Set the duration parameter for the beep
  29796 RRCA          ; {The border colour for the beep will be the same as the
@@ -7140,7 +7141,7 @@ c29716 PUSH AF       ; Save the lines recipient's character number briefly
 ; #REGb=#R59897(#b14), #REGc=#b70) and #R62668 (with #REGa=#b2,
 ; #REGb=#R60937(#b98), #REGc=#b50).
 ; .
-; #AUDIO3(lines2.wav)([[680]*255,691]*19,[680]*255)
+; #AUDIO0,,,1,1(lines2.wav)([[680]*255,691]*19,[680]*255)
 *29811 PUSH DE       ;
  29812 PUSH AF       ;
  29813 LD A,B        ; #REGa=#R59897(#b14), #R60937(#b98), or a reprimand
@@ -7312,7 +7313,7 @@ c29896 LD L,2        ;
  29970 PUSH DE       ;
 ; Celebrate the conkering of ANGELFACE or EINSTEIN with a sound effect.
 ; .
-; #AUDIO3(conker.wav)([[550]*255,561]*39,[550]*255)
+; #AUDIO0,,,1,1(conker.wav)([[550]*255,561]*39,[550]*255)
  29971 LD D,40       ; {Make a sound effect with #REGa=#b7 and #REGc=#b18
  29973 LD BC,10258   ; (border alternating white and cyan)
  29976 LD A,7        ;
@@ -8141,7 +8142,7 @@ c30804 LD A,(32747)  ; #R32747 holds the inventory flags
 ; ERIC's pellet has knocked the frog out of the cup and onto MISS TAKE's head.
 ; Celebrate!
 ; .
-; #AUDIO7(safe-key.wav)(30853,30872)
+; #AUDIO1,30853,30872,2,1(safe-key.wav)
  30843 LD HL,32747   ; #R32747 holds the inventory flags
  30846 SET 0,(HL)    ; Give ERIC the safe key
  30848 LD A,200      ; {Add 2000 to the score and print it
@@ -9859,7 +9860,7 @@ c32433 LD HL,32734   ; #R32734 holds the current game mode
  32483 CALL 27462    ; Print the lesson
 ; And finally, ring the bell.
 ; .
-; #AUDIO3(bell.wav)([[1694]*255, 1705]*15, [1694]*255)
+; #AUDIO0,,,1,1(bell.wav)([[1694]*255, 1705]*15, [1694]*255)
 @keep
  32486 LD BC,32784   ; {Set the parameters for the bell sound effect
  32489 LD D,C        ;
@@ -19174,7 +19175,7 @@ c62094 LD HL,32733   ; #R32733 holds ERIC's knockout delay counter
  62144 CALL 25248    ; Update the display
 ; Now to initialise the sound effect parameters.
 ; .
-; #AUDIO2(knockout.wav)(3378,#FOR(63,3352,13,1)(n,n))
+; #AUDIO0,,,1(knockout.wav)(3378,#FOR(63,3352,13,1)(n,n))
 *62147 LD HL,275     ; #REGh=#b1 (pitch adjustment), #REGl=#b19 (border colour
                      ; #S/XOR/ mask)
 ; This entry point is used by the routine at #R23907 with #REGh=#b2 and
@@ -19403,7 +19404,7 @@ c62178 LD HL,32755   ; #R32755 holds ERIC's main action timer
 *62401 CALL 31746    ; Print the inventory
 ; This entry point is used by the routine at #R24348.
 ; .
-; #AUDIO2(bingo.wav)(#FOR(1,5,,3)(m,(#FOR(3365,76,-13,1)(n,n),65),83))
+; #AUDIO0,,,1(bingo.wav)(#FOR(1,5,,3)(m,(#FOR(3365,76,-13,1)(n,n),65),83))
 *62404 LD C,5        ; {Make a celebratory sound effect (ERIC has achieved
 *62406 LD B,3        ; something rather handy)
 @keep
@@ -20782,7 +20783,7 @@ c63801 LD L,21       ; {Pick up the x-coordinate of the window to be opened
 ;
 ; Used by the routine at #R24296.
 ; .
-; #AUDIO2(fire.wav)(#FOR(1,4,,3)(m,#FOR(3378,258,-104,1)(n,n),154))
+; #AUDIO0,,,1(fire.wav)(#FOR(1,4,,3)(m,#FOR(3378,258,-104,1)(n,n),154))
 ;
 ; B #b214 (ERIC's catapult pellet)
 @label=PREPCATTY
