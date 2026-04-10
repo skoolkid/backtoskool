@@ -1,8 +1,12 @@
-; Copyright 2008-2015, 2017-2020, 2022, 2025
-; Richard Dymond (rjdymond@gmail.com)
+; © 2008-2015, 2017-2020, 2022, 2025, 2026 Richard Dymond (rjdymond@gmail.com)
 
 [Page:Changelog]
 SectionType=BulletPoints
+
+[Changelog:20260410]
+-
+
+- Ported the disassembly to SkoolKit 10
 
 [Changelog:20221122]
 -

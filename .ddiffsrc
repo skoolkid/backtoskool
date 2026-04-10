@@ -1,6 +1,6 @@
 # rc file for check-asms, check-bins, disassembly-diff, skooldiff, write-files
 
-OLD_VERSION=20221122
-SK_OLD_VERSION=8.8
+OLD_VERSION=20260410
+SK_OLD_VERSION=10.0
 SKOOL2BIN_START=20631
 SNAPSHOT=$BACKTOSKOOL_HOME/build/back_to_skool.z80
