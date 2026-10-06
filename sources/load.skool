@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021 Richard Dymond
+; © 2001, 2008-2013, 2015, 2017-2019, 2021, 2026 Richard Dymond
 
 @defs=16384:6144
 @defb=16643:60,0,124,60,66,120,60,66,62,126,126,0,66,60,124
@@ -124,8 +124,8 @@ c23831 DI            ; Disable interrupts
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
-; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021 Richard Dymond (this
+; © 1985 Microsphere Computer Services Ltd (Back to Skool)
+; © 2001, 2008-2013, 2015, 2017-2019, 2021, 2026 Richard Dymond (this
 ; disassembly)
 
 @org
@@ -291,7 +291,7 @@ c32815 LD SP,33020   ; Put the stack somewhere safe
  32947 LD A,H        ; {Update the (ultimately unused) parity byte against the
  32948 XOR L         ; byte just read from the tape
  32949 LD H,A        ; }
- 32950 LD A,D        ; {Set the zero flag if the the byte counter has reached 0
+ 32950 LD A,D        ; {Set the zero flag if the byte counter has reached 0
  32951 OR E          ; (which never happens)}
  32952 JR NZ,32907   ; Jump back to load another byte from the tape
  32954 RET           ; (We never get here)

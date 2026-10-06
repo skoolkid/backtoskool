@@ -1,5 +1,4 @@
-; Copyright 2008-2013, 2015, 2017, 2022, 2025
-; Richard Dymond (rjdymond@gmail.com)
+; © 2008-2013, 2015, 2017, 2022, 2025, 2026 Richard Dymond (rjdymond@gmail.com)
 
 [Bug:fire:Catapult animation]
 When ERIC fires his catapult, he should go through the following sequence of
@@ -56,7 +55,7 @@ ERIC lines at regular intervals after MR WACKER has finished speaking,
 though. But that just makes the hovering feel rather creepy.)
 
 [Bug:assemblySit:Assembly sitting confusion]
-During assembly, if ERIC is standing a teacher will scream 'SIT FACING THE
+During assembly, if ERIC is standing, a teacher will scream 'SIT FACING THE
 STAGE', but if he's sitting down facing left (away from the stage), a teacher
 will scream 'NOW SIT DOWN'. This is the wrong way round.
 

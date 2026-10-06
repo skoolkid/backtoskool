@@ -1,4 +1,4 @@
-; Copyright 2008-2014, 2017, 2024, 2025 Richard Dymond (rjdymond@gmail.com)
+; © 2008-2014, 2017, 2024, 2025, 2026 Richard Dymond (rjdymond@gmail.com)
 
 [GraphicGlitch:einsteinHead:EINSTEIN's head]
 The line just above EINSTEIN's head contains a transparent pixel (shown in
@@ -374,12 +374,12 @@ PageContent=#INCLUDE(Graphics)
 <tr>
 <td>#CALL(mutable(55040,1))</td>
 <td>#CALL(mutable(55296,1))</td>
-<td>Top floor window</td>
+<td>Top-floor window</td>
 </tr>
 <tr>
 <td>#CALL(mutable(55552,1))</td>
 <td>#CALL(mutable(55808,1))</td>
-<td>Middle floor window</td></tr>
+<td>Middle-floor window</td></tr>
 </table>
 <h3>Bike</h3>
 <table cellpadding="5">

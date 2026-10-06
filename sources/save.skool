@@ -1,4 +1,4 @@
-; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021, 2025 Richard Dymond
+; © 2001, 2008-2013, 2015, 2017-2019, 2021, 2025, 2026 Richard Dymond
 
 @defs=16384:6144
 @defs=22528:768,56
@@ -92,8 +92,8 @@
 @replace=/#n\i/#N\1,,,1($)
 @replace=/#b\i/#N(\1,,,1)(0x)/ (byte)
 @replace=/#w\i/#N(\1,4)/ (word)
-; Copyright 1985 Microsphere Computer Services Ltd (Back to Skool)
-; Copyright 2001, 2008-2013, 2015, 2017-2019, 2021, 2025 Richard Dymond (this
+; © 1985 Microsphere Computer Services Ltd (Back to Skool)
+; © 2001, 2008-2013, 2015, 2017-2019, 2021, 2025, 2026 Richard Dymond (this
 ; disassembly)
 
 @org
@@ -161,7 +161,7 @@ c33013 LD HL,33204   ; #R33204@start is where the game starts after loading
  33079 JP 33091      ; Jump forward to save the flag byte
 ; This is the main byte-saving loop.
 @label=B1_LOOP
-*33082 LD A,D        ; {In the analagous ROM routine, the second instruction
+*33082 LD A,D        ; {In the analogous ROM routine, the second instruction
  33083 LD A,D        ; here is '#S/OR E/', to check whether it's time to save
                      ; the last byte (the parity byte)}
  33084 JR Z,33098    ; This jump (to save the parity byte) is never made

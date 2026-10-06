@@ -1,5 +1,4 @@
-; Copyright 2008-2015, 2017, 2019, 2022, 2025
-; Richard Dymond (rjdymond@gmail.com)
+; © 2008-2015, 2017, 2019, 2022, 2025, 2026 Richard Dymond (rjdymond@gmail.com)
 
 [Fact:boy10:The importance of little boy no. 10]
 In demo mode, ERIC bases his every move on where little boy no. 10 is and what
@@ -435,7 +434,7 @@ which shares its buffer with the frog, again owing to RAM limitations - mice
 released by ERIC eventually die (either from old age, or by ERIC leaving the
 vicinity of the girls' skool). When a released mouse expires, the character
 whose buffer it hijacked will rematerialise at x-coordinate 32 on whichever
-floor the mouse was on when it passed away. That is deep enough into the boys
+floor the mouse was on when it passed away. That is deep enough into the boys'
 skool that you will never notice it happening. No matter how fast you run from
 the girls' skool after releasing a bunch of mice, they'll all be dead before
 you reach the far left end of the boys' skool. See #R31254.
