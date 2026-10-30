@@ -19629,14 +19629,14 @@ c62620 LD L,1        ; Point #REGhl at byte #b1 of ALBERT's buffer
  62623 LD H,209      ; #b209=HAYLEY
  62625 LD A,(HL)     ; #REGa=HAYLEY's x-coordinate
  62626 LD H,182      ;
- 62628 LD B,4        ; There are 4 little girls (#b183-#b186) who sometimes
-                     ; venture past the skool gate
+ 62628 LD B,4        ; In addition to HAYLEY there are 3 little girls
+                     ; (#b183-#b185) who sometimes venture past the skool gate
  62630 JR 62633      ;
 *62632 LD A,(HL)     ; #REGa=girl's x-coordinate
 *62633 CP 136        ; Is this girl on the right side of the gate?
  62635 RET C         ; Return if not
  62636 INC H         ; Next girl
- 62637 DJNZ 62632    ; Jump back until HAYLEY and girls 1-4 have been checked
+ 62637 DJNZ 62632    ; Jump back until HAYLEY and girls 1-3 have been checked
 ; The female characters are safely on the right side of the gate. Now check the
 ; male characters.
  62639 LD A,E        ; #REGa=ALBERT's x-coordinate
