@@ -344,8 +344,10 @@ TABLE#
 
 [Fact:pointsForAPOrAP:Points for a punching or a pelleting]
 ANGELFACE is unique among the cast of characters in that if ERIC knocks him
-over with a punch or a catapult pellet, 30 points are awarded (see #R30773 and
-#R30796). No points are awarded for knocking anyone else over in this fashion.
+over with a punch, 30 points are awarded (see #R30773). Similarly, EINSTEIN is
+unique among the cast of characters in that if ERIC knocks him over with a
+catapult pellet, 30 points are awarded (see #R30796). No points are awarded for
+knocking anyone else over by these methods.
 
 [Fact:bullySwotConker:ANGELFACE and EINSTEIN are conkerable]
 If EINSTEIN or ANGELFACE is hit by a conker, he is knocked out, you get 100

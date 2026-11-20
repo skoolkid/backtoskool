@@ -228,11 +228,11 @@ disappearing (see #R30459).
 [Bug:pelletWall:Pellet through the wall]
 If ERIC stands against the far wall of the Science Lab storeroom while facing
 it, and then fires his catapult, the pellet will travel through the wall. See
-the routine at #R28315 (which lets ERIC reach x-coordinate 63 - rather too
+the routine at #R28315 (which lets ERIC reach x-coordinate 62 - rather too
 close to that far wall), and the routine at #R30292 (which takes that far wall
 to be at x-coordinate 62).
 
-<div>POKE 28375,62 (to stop ERIC at x-coordinate 62 instead of 63), or...</div>
+<div>POKE 28375,62 (to stop ERIC at x-coordinate 61 instead of 62), or...</div>
 <div>POKE 30348,63 (to check for the wall in front of the pellet at
 x-coordinate 63 instead of 62)</div>
 

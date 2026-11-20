@@ -3,6 +3,14 @@
 [Page:Changelog]
 SectionType=BulletPoints
 
+[Changelog:YYYYMMDD]
+-
+
+- Fixed the #FACT(pointsForAPOrAP)() trivia entry and the description and
+  comments in the routine at #R30786 (30 points are awarded when EINSTEIN, not
+  ANGELFACE, is knocked over by ERIC's catapult pellet)
+- Fixed the stated x-coordinate values in #BUG(pelletWall)()
+
 [Changelog:20260410]
 -
 

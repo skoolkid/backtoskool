@@ -1682,7 +1682,7 @@ c24684 PUSH HL       ;
  24743 LD A,E        ; #REGa=Q (#b0<=Q<=#b143)
  24744 AND 3         ; #REGa=0, 1, 2 or 3
  24746 JR NZ,24750   ; Jump if the INK is blue, red, or magenta
- 24748 ADD A,2       ; A=2: INK 2 (red)
+ 24748 ADD A,2       ; #REGa=2: INK 2 (red)
 *24750 OR L          ; #S/OR/ on the PAPER colour and BRIGHT status
  24751 DEC H         ; #REGh=Y+#b160
  24752 JR 24774      ; Jump forward to transfer the attribute byte in #REGa
@@ -2741,7 +2741,7 @@ c25581 LD L,12       ; Point #REGhl at byte #b12 of the character's buffer
 ; Byte #b12 is used to count the number of paces the character has taken while
 ; under the control of this routine. It is decremented on each pass (at #R25618
 ; below). If it reaches 0, the address of this routine is removed from bytes
-; #b9 and #b10 of the character's buffer. This has the effect of allowing the
+; #b9 and #b10 of the character's buffer. This has the effect of giving the
 ; character-moving routine at #R25296 the chance to check whether a command
 ; list restart (bit 0 of byte #b29 set) has been requested in the meantime.
 ; This ensures that the character does not proceed all the way to the
@@ -3802,7 +3802,7 @@ c26380 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
 ; #R32608, #R32614 or #R32620), and #REGde holding the coordinates of the top
 ; left-hand square of the board.
 ;
-; H Character number (#b200-#b204, #b206)
+; H Character number (#b200-#b204, #b206, #b210)
 @label=BOARDID
 c26453 LD B,3        ; There are three blackboards on the top floors
  26455 LD DE,54071   ; The table at #R54071 contains the x-coordinates of the
@@ -4346,7 +4346,7 @@ c26958 LD A,(32767)  ; {#REGb=leftmost column of the play area on screen
  26988 AND 3         ;
  26990 LD E,A        ; }
  26991 LD A,H        ; #REGa=number of the character about to speak
- 26992 INC L         ; #REGl=2, which byte holds the character's y-coordinate
+ 26992 INC L         ; #REGl=#b2, which byte holds the character's y-coordinate
  26993 CP 208        ; {#REGa=0 for EINSTEIN, -1 for a teacher
  26995 SBC A,A       ; }
  26996 ADD A,(HL)    ; #REGa=y-coordinate of the lip of the speech bubble
@@ -6987,7 +6987,7 @@ c29621 PUSH DE       ;
 @label=ADDLINES
 c29643 PUSH DE       ;
  29644 PUSH HL       ;
- 29645 LD E,A        ; {#REGde=number of lines to add
+ 29645 LD E,A        ; {#REGde=number of lines to add (divided by 10)
  29646 LD D,0        ; }
  29648 LD HL,(32743) ; #REGhl=current lines total (divided by 10)
 @keep
@@ -7663,7 +7663,7 @@ c30292 PUSH HL       ;
  30370 JR Z,30331    ; Jump if the mouse/frog/pellet is facing this door
  30372 LD D,16       ; Set bit 4: skool gate
  30374 CP 133        ; This is the x-coordinate of the skool gate
- 30376 JR Z,30331    ; Jump if the mouse/frog/pellet is facing this
+ 30376 JR Z,30331    ; Jump if the mouse/frog/pellet is facing the gate
  30378 JR 30363      ; Otherwise it's all clear
 
 ; Control the flight of a catapult pellet
@@ -8087,7 +8087,7 @@ s30785 DEFB 0
 ;
 ; Used by the routine at #R30380. Knocks down a main kid that was hit by a
 ; catapult pellet. Also adds 30 to the score if the pellet was ERIC's and the
-; victim was ANGELFACE.
+; victim was EINSTEIN.
 ;
 ; D Kid's character number (#b206-#b210)
 ; H Pellet's character number (#b213 or #b214)
@@ -8096,9 +8096,9 @@ c30786 LD A,H        ; #REGa=pellet's character number
  30787 CP 214        ; Is this ERIC's catapult pellet?
  30789 JR NZ,30801   ; Jump if not (it's BOY WANDER's)
  30791 LD A,D        ; #REGa=character number of the kid hit by the pellet
- 30792 CP 208        ; Did the pellet hit ANGELFACE?
+ 30792 CP 208        ; Did the pellet hit EINSTEIN?
  30794 JR NZ,30801   ; Jump if not
- 30796 LD A,3        ; {ERIC's pellet hit ANGELFACE; add 30 to the score and
+ 30796 LD A,3        ; {ERIC's pellet hit EINSTEIN; add 30 to the score and
  30798 CALL 29621    ; print it}
 *30801 JP 29982      ; Terminate the pellet and knock the kid over
 
@@ -8458,10 +8458,10 @@ c31150 LD A,(32767)  ; #REGa=leftmost column of the play area on screen
  31167 LD B,7        ; There are 7 little girls to check
  31169 CALL 31181    ; Make them start jumping if necessary
  31172 LD H,204      ; #b204=MISS TAKE
- 31174 INC B         ; B=1
+ 31174 INC B         ; #REGb=1
  31175 CALL 31181    ; Make MISS TAKE start jumping if necessary
  31178 LD H,209      ; #b209=HAYLEY
- 31180 INC B         ; B=1
+ 31180 INC B         ; #REGb=1
 ; At this point #REGh holds the number of the first female character to check,
 ; and #REGb the number of characters to check (for proximity to a mouse).
 *31181 LD L,2        ; Point #REGhl at byte #b2 of the female character's
@@ -8866,9 +8866,9 @@ c31573 LD L,0        ; Point #REGhl at byte #b0 of ERIC's buffer
  31577 SBC A,A       ; facing right
  31578 ADD A,A       ;
  31579 CPL           ; }
- 31580 INC L         ; #REGl=1
+ 31580 INC L         ; #REGl=#b1
  31581 ADD A,(HL)    ; Now #REGa=x-coordinate of the spot in front of ERIC
- 31582 INC L         ; #REGl=2
+ 31582 INC L         ; #REGl=#b2
 @ssub=LD DE,(54272+1)
  31583 LD DE,(54273) ; Pick up the coordinates of the animal using buffer #b212
                      ; (mouse or frog)
@@ -9423,7 +9423,7 @@ c32032 LD HL,32758   ; {Decrement the LSB of the lines-giving delay counter at
 *32049 CALL 32000    ; #REGa=#R25554#ericLocTable(location identifier) for ERIC
  32052 JR 32062      ; Skip over the routine at #R32054
 
-; Make MR WACKER find the truant ERIC
+; Make MR WACKER find the truant ERIC (1)
 ;
 ; Used by the command list at #R62766, the address of which is placed into
 ; bytes #b27 and #b28 of MR WACKER's buffer by the routine at #R62668.
@@ -9452,7 +9452,7 @@ s32060 DEFS 2
 ; { 2     | Various places in the boys' skool outside classrooms }
 ; { 3     | Assembly hall }
 ; { 4     | Dining hall }
-; { 5     | Revision Library, just outside the Yellow Room door }
+; { 5     | Revision Library, outside the Yellow Room door }
 ; { 6     | Science Lab }
 ; { 7     | Blue Room }
 ; { 8     | Yellow Room }
@@ -9834,7 +9834,7 @@ c32433 LD HL,32734   ; #R32734 holds the current game mode
                      ; (#R61024(#b129)) or DINNER (#R61033(#b130))?
  32454 JR C,32470    ; Jump if so
  32456 LD E,135      ; Message #R61082(#b135): REVISION
- 32458 JR Z,32470    ; Jump if it's REVISION LIBRARY (D=#R61040(#b131):
+ 32458 JR Z,32470    ; Jump if it's REVISION LIBRARY (#REGd=#R61040(#b131):
                      ; LIBRARY)
 ; Next, figure out what to print (if anything) in the top row of the lesson box
 ; (the teacher's name, or 'REVISION').
@@ -10001,7 +10001,7 @@ g32641 DEFB 0
 @label=GSBUNUSED
 g32642 DEFS 6
 
-; Message 6: '{teacher}'
+; Message #b6: '{teacher}'
 ;
 ; Used by the routine at #R32433 when printing the top line of text in the
 ; lesson box; it is a submessage of message #R59928(#b16).
@@ -10011,7 +10011,7 @@ t32648 DEFB 0        ; The teacher message number (#R61280(#b22),
                      ; here
  32649 DEFB 0        ; End marker
 
-; Message 5: '{lines recipient}/combination number or letter/{room}'
+; Message #b5: '{lines recipient}/combination number or letter/{room}'
 ;
 ; Used by the routines at #R29716 (as a submessage of message #R59886(#b13)),
 ; #R29896 (as a submessage of message #R59897(#b14)) and #R32433 (as a
@@ -10026,7 +10026,7 @@ t32650 DEFB 0        ; The message number of the lines recipient
                      ; #R61070(#b134)) goes here
  32651 DEFB 0        ; End marker
 
-; Message 10: '{mountain}/{king}/{animal}/{verb}'
+; Message #b10: '{mountain}/{king}/{animal}/{verb}'
 ;
 ; Used by the routines at #R61696 and #R62032; it is a submessage of messages
 ; #R65136(#b74), #R61418(#b75), #R64633(#b78), #R65531(#b79), #R64608(#b82),
@@ -10036,7 +10036,7 @@ t32652 DEFB 0        ; The message number for the mountain, king, animal or
                      ; verb goes here
  32653 DEFB 0        ; End marker
 
-; Message 11: '{country}/{year}/{habitat}/{noun}'
+; Message #b11: '{country}/{year}/{habitat}/{noun}'
 ;
 ; Used by the routines at #R61696 and #R62032; it is a submessage of messages
 ; #R65268(#b73), #R65232(#b76), #R65275(#b77), #R65512(#b80), #R61425(#b81),
@@ -10046,7 +10046,7 @@ t32654 DEFB 0        ; The message number for the country, year (last three
                      ; digits), habitat or noun goes here
  32655 DEFB 0        ; End marker
 
-; Message 7: '{grassee}'
+; Message #b7: '{grassee}'
 ;
 ; #IF({fix}<3)//Used by the routine at #R61696 to hold the character number of
 ; whoever is being grassed up by EINSTEIN for writing on the board (#b206=BOY
@@ -11162,7 +11162,7 @@ u40442 DEFS 2
 ; water animation table (see the entry for phase 6+ at #R40188, and the routine
 ; at #R63915).
 @label=WANIM7
- 40444 DEFB 124      ; #AS124: water fired from pistol (phase 5+)
+ 40444 DEFB 124      ; #AS124: water fired from the pistol (phase 5+)
  40445 DEFB 0        ; 0: x-coordinate increment
  40446 DEFB 1        ; +1: y-coordinate increment
  40447 DEFB 2        ; 2=may hit a plant or the ground at this phase
@@ -15848,7 +15848,7 @@ b56320 DEFB 2,190,162,198,2,191,163,198
  56328 DEFB 3,190,164,206,3,191,165,198
  56336 DEFB 255                         ; End marker
 
-; UDG reference table for the cup (empty) on the shelf in the girls' kitchen
+; UDG reference table for the cup (empty) on the shelf in the girls' skool
 ;
 ; Used by the routine at #R27860.
 ; .
@@ -19032,7 +19032,7 @@ c61696 LD A,(32736)  ; #R32736 holds the current lesson descriptor
                      ; animal or king
  61989 LD (DE),A     ; Place this into #R32652 (message #R32652(#b10))
  61990 ADD A,8       ; Set #REGa to the message number of the corresponding
-                     ; country, habitat or date
+                     ; country, habitat or year
 @ssub=LD E,32654%256
  61992 LD E,142      ; {Place this into #R32654 (the first byte of message
  61994 LD (DE),A     ; #R32654(#b11))}
@@ -19781,7 +19781,7 @@ c62770 LD HL,32640   ; #R32640 holds various game status flags
  62791 SET 0,(HL)    ; triggering a command list restart (at #R62768)}
  62793 RET           ;
 
-; Make MR WACKER find the truant ERIC
+; Make MR WACKER find the truant ERIC (2)
 ;
 ; The address of this interruptible subcommand routine is placed into bytes #b9
 ; and #b10 of MR WACKER's buffer by the routine at #R32054 after ALBERT has
@@ -20779,7 +20779,7 @@ c63801 LD L,21       ; {Pick up the x-coordinate of the window to be opened
  63854 LD L,18       ; {Remove the routine address (#R63838 above) from bytes
  63856 LD (HL),0     ; #b17 and #b18 of MR WACKER's buffer}
  63858 JP 30112      ; Restore MR WACKER's original animatory state and update
-                     ; SRB
+                     ; the SRB
 
 ; Prepare the buffer for ERIC's catapult pellet and make a sound effect
 ;
@@ -21997,7 +21997,7 @@ b65024 DEFB 239      ; Message #R65007(#b0): 'ONTO{ THE }^NEXT YEAR'
 @ssub=DEFB 32648%256
  65030 DEFB 136      ; Message #R32648(#b6): '{teacher}'
 @ssub=DEFB 32656%256
- 65031 DEFB 144      ; Message #R32656(#b7): '{character name}'
+ 65031 DEFB 144      ; Message #R32656(#b7): '{grassee}'
 @ssub=DEFB 59923%256
  65032 DEFB 19       ; Message #R59923(#b8): 'THE '
 @ssub=DEFB 59975%256
@@ -22007,7 +22007,7 @@ b65024 DEFB 239      ; Message #R65007(#b0): 'ONTO{ THE }^NEXT YEAR'
                      ; '{mountain}/{king}/{animal}/{verb}'
 @ssub=DEFB 32654%256
  65035 DEFB 142      ; Message #R32654(#b11):
-                     ; '{country}/{date}/{habitat}/{noun}'
+                     ; '{country}/{year}/{habitat}/{noun}'
 @ssub=DEFB 58112%256
  65036 DEFB 0        ; Message #R58112(#b12): score/lines total/hi-score/number
                      ; of lines being given
@@ -22450,7 +22450,7 @@ b65280 DEFB 253      ; Message #R65007(#b0): 'ONTO{ THE }^NEXT YEAR'
 @ssub=DEFB 32648/256
  65286 DEFB 127      ; Message #R32648(#b6): '{teacher}'
 @ssub=DEFB 32656/256
- 65287 DEFB 127      ; Message #R32656(#b7): '{character name}'
+ 65287 DEFB 127      ; Message #R32656(#b7): '{grassee}'
 @ssub=DEFB 59923/256
  65288 DEFB 234      ; Message #R59923(#b8): 'THE '
 @ssub=DEFB 59975/256
@@ -22460,7 +22460,7 @@ b65280 DEFB 253      ; Message #R65007(#b0): 'ONTO{ THE }^NEXT YEAR'
                      ; '{mountain}/{king}/{animal}/{verb}'
 @ssub=DEFB 32654/256
  65291 DEFB 127      ; Message #R32654(#b11):
-                     ; '{country}/{date}/{habitat}/{noun}'
+                     ; '{country}/{year}/{habitat}/{noun}'
 @ssub=DEFB 58112/256
  65292 DEFB 227      ; Message #R58112(#b12): score/lines total/hi-score/number
                      ; of lines being given
