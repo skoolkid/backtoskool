@@ -384,6 +384,18 @@ to expel ERIC only when the lines total reaches or exceeds 10000 for the first
 time, and moving on to the next year makes MR WACKER completely forget his
 expulsion duties.
 
+[Bug:under10000Lines:YOU HAVE UNDER 10000 LINES ERIC]
+If ERIC has 10000 lines or more, but manages to kiss HAYLEY and reduce that
+total to under 10000 lines before MR WACKER finds him, MR WACKER will continue
+the hunt for ERIC, unashamedly accuse him of having 10000 lines, and then expel
+him anyway.
+
+The reason for this is that the routine at #R62770 sends MR WACKER on his way
+to expel ERIC when the lines total reaches or exceeds 10000. But the routine at
+#R24348, which reduces the lines total by 1000 when ERIC kisses HAYLEY, doesn't
+even check whether the new total is under 10000, and so MR WACKER carries on
+regardless.
+
 [Bug:deceptiveDoorways:Deceptive doorways]
 It would be reasonable to assume that the doorway to a classroom in the boys'
 skool marks the boundary beyond which ERIC may be regarded as either absent
