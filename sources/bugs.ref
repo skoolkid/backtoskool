@@ -237,13 +237,22 @@ to be at x-coordinate 62).
 x-coordinate 63 instead of 62)</div>
 
 [Bug:pelletDoor:Pellet through the door]
-If ERIC stands against the right study door while facing it, and then fires his
-catapult, the pellet will travel through the door. See the routine at #R30292,
-which checks for the presence of the right study door at x-coordinate 84 in
-front of the pellet. But when ERIC is standing up against the door, he is
-already at x-coordinate 84, which is where the pellet will be launched from; so
-at launch time, the x-coordinate of the spot in front of the pellet is 83, and
-the door check fails.
+If ERIC stands against the right side of the right study door while facing it,
+and then fires his catapult, the pellet will travel through the door. See the
+routine at #R30292, which checks for the presence of the right study door at
+x-coordinate 84 in front of the pellet. But when ERIC is standing up against
+the door, he is already at x-coordinate 84, which is where the pellet will be
+launched from; so at launch time, the x-coordinate of the spot in front of the
+pellet is 83, and the door check fails.
+
+Similarly, if ERIC stands against the left side of the Science Lab storeroom
+door while facing it, and then fires his catapult, the pellet will travel
+through the door. Again, see the routine at #R30292, which checks for the
+presence of the storeroom door at x-coordinate 53 in front of the pellet. But
+when ERIC is standing up against the door, he is already at x-coordinate 53,
+which is where the pellet will be launched from; so at launch time, the
+x-coordinate of the spot in front of the pellet is 54, and the door check
+fails.
 
 [Bug:conkerMD:Conker of mass destruction]
 The section of code at #R29943 was probably meant to check whether any of the

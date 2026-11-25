@@ -10,6 +10,8 @@ SectionType=BulletPoints
   comments in the routine at #R30786 (30 points are awarded when EINSTEIN, not
   ANGELFACE, is knocked over by ERIC's catapult pellet)
 - Fixed the stated x-coordinate values in #BUG(pelletWall)()
+- In #BUG(pelletDoor)(), added a paragraph about firing a catapult pellet
+  through the Science Lab storeroom door
 
 [Changelog:20260410]
 -
