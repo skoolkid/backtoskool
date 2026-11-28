@@ -10,7 +10,7 @@ GameDir=back_to_skool
 Game=Back to Skool
 Logo=#LOGO0,0(logo)
 StyleSheet=skoolkit.css;bts.css
-Release=The complete Back to Skool RAM disassembly 20260410
+Release=The complete Back to Skool RAM disassembly 20261128
 Copyright=&#169; 1985 Microsphere Computer Services Ltd. &#169; 2026 Richard Dymond.
 AddressAnchor={address#IF({base}==16)(:04x)}
 

@@ -1,7 +1,7 @@
 # rc file for check-asms, check-bins, disassembly-diff, skooldiff, write-files
 
-OLD_VERSION=20260410
+OLD_VERSION=20261128
 RZX=$SPECTRUM_RZX/b/bak2skool.rzx
-SK_OLD_VERSION=10.0
+SK_OLD_VERSION=10.2
 SKOOL2BIN_START=20631
 SNAPSHOT=$BACKTOSKOOL_HOME/build/back_to_skool.z80
