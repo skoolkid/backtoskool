@@ -3,6 +3,7 @@
 <head>
 <title>Back to Skool: Routine at 7B55</title>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body class="Asm-c">
@@ -73,7 +74,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> by the r
 <tr>
 <td class="address-1"><span id="7b5c"></span>7B5C</td>
 <td class="instruction">INC L</td>
-<td class="comment-1" rowspan="1"><span class="register">L</span>=1</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x01</td>
 </tr>
 <tr>
 <td class="address-1"><span id="7b5d"></span>7B5D</td>
@@ -83,7 +84,7 @@ The address of this routine is placed into <a href="7FD7.html">7FD7</a> by the r
 <tr>
 <td class="address-1"><span id="7b5e"></span>7B5E</td>
 <td class="instruction">INC L</td>
-<td class="comment-1" rowspan="1"><span class="register">L</span>=2</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=0x02</td>
 </tr>
 <tr>
 <td class="address-1"><span id="7b5f"></span>7B5F</td>
@@ -198,7 +199,7 @@ Determine where to release another mouse.
 <span id="7b84"></span>
 <div class="comments">
 <div class="paragraph">
-R=0 or 1. The next section of code is intended to set the x-coordinate for the the new free mouse to 170 provided that X&lt;128, or try again with a new random number (R) if X&gt;=128. However, at this point <span class="register">HL</span> may have been set to 7F0A (byte 0x0A of the <a href="7F00.html">screen refresh buffer</a>) or 7F58 (byte 4 of the <a href="7F54.html">buffer for the Blue Room blackboard</a>) by the LD L,$0A or LD L,$58 instruction below, and so the contents of 7F0A or 7F58 (instead of X at <a href="7FFF.html">7FFF</a>) may be compared with 128. Thus it is possible for the new free mouse to appear at x-coordinate 170 even when X&gt;=128, which means it could appear on-screen. This is a <a href="../reference/bugs.html#rematerialisingMouse">bug</a>.
+R=0 or 1. The next section of code is intended to set the x-coordinate for the new free mouse to 170 provided that X&lt;128, or try again with a new random number (R) if X&gt;=128. However, at this point <span class="register">HL</span> may have been set to 7F0A (byte 0x0A of the <a href="7F00.html">screen refresh buffer</a>) or 7F58 (byte 4 of the <a href="7F54.html">buffer for the Blue Room blackboard</a>) by the LD L,$0A or LD L,$58 instruction below, and so the contents of 7F0A or 7F58 (instead of X at <a href="7FFF.html">7FFF</a>) may be compared with 128. Thus it is possible for the new free mouse to appear at x-coordinate 170 even when X&gt;=128, which means it could appear on-screen. This is a <a href="../reference/bugs.html#rematerialisingMouse">bug</a>.
 </div>
 </div>
 </td>
@@ -530,9 +531,9 @@ Next: <a href="7BE8.html">7BE8</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20260410</div>
+<div class="release">The complete Back to Skool RAM disassembly 20261128</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2026 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.0.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div><a href="../dec/asm/31573.html">Switch to decimal</a>.</div>
 </footer>
 </body>

@@ -3,6 +3,7 @@
 <head>
 <title>Back to Skool: Routine at 6791</title>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body class="Asm-c">
@@ -100,7 +101,7 @@ This entry point is used by the routine at <a href="5E6F.html">5E6F</a> when ERI
 <tr>
 <td class="address-2"><span id="67a0"></span>67A0</td>
 <td class="instruction">LD (BC),A</td>
-<td class="comment-1" rowspan="1">Set the first byte of the blackboard's buffer to 0xFF if the message is finished, or the the pixel column number for the next letter to be written otherwise</td>
+<td class="comment-1" rowspan="1">Set the first byte of the blackboard's buffer to 0xFF if the message is finished, or the pixel column number for the next letter to be written otherwise</td>
 </tr>
 <tr>
 <td class="address-1"><span id="67a1"></span>67A1</td>
@@ -305,7 +306,7 @@ The next character to be written is printable (as opposed to newline).
 <tr>
 <td class="address-1"><span id="67db"></span>67DB</td>
 <td class="instruction">ADD A,(HL)</td>
-<td class="comment-1" rowspan="1">Add the bit-width of character to be written</td>
+<td class="comment-1" rowspan="1">Add the bit-width of the character to be written</td>
 </tr>
 <tr>
 <td class="address-1"><span id="67dc"></span>67DC</td>
@@ -473,9 +474,9 @@ Next: <a href="680D.html">680D</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20260410</div>
+<div class="release">The complete Back to Skool RAM disassembly 20261128</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2026 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.0.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div><a href="../dec/asm/26513.html">Switch to decimal</a>.</div>
 </footer>
 </body>

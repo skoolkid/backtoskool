@@ -3,6 +3,7 @@
 <head>
 <title>Back to Skool: Routine at 25581</title>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body class="Asm-c">
@@ -58,7 +59,7 @@ The address of this interruptible subcommand routine is placed into bytes 9 and 
 <span id="25585"></span>
 <div class="comments">
 <div class="paragraph">
-Byte 12 is used to count the number of paces the character has taken while under the control of this routine. It is decremented on each pass (at <a href="25581.html#25618">25618</a> below). If it reaches 0, the address of this routine is removed from bytes 9 and 10 of the character's buffer. This has the effect of allowing the character-moving routine at <a href="25296.html">25296</a> the chance to check whether a command list restart (bit 0 of byte 29 set) has been requested in the meantime. This ensures that the character does not proceed all the way to the (intermediate) destination before responding to some important event, such as the start of a new lesson (important for every character), ERIC playing truant (important for MR WACKER), or ERIC being present in the girls' skool when it's not playtime (important for MISS TAKE). If no command list restart has been requested in the meantime, the address of this routine will be placed into bytes 9 and 10 of the character's buffer again by the routine at <a href="25700.html">25700</a>, and the character will continue towards his destination.
+Byte 12 is used to count the number of paces the character has taken while under the control of this routine. It is decremented on each pass (at <a href="25581.html#25618">25618</a> below). If it reaches 0, the address of this routine is removed from bytes 9 and 10 of the character's buffer. This has the effect of giving the character-moving routine at <a href="25296.html">25296</a> the chance to check whether a command list restart (bit 0 of byte 29 set) has been requested in the meantime. This ensures that the character does not proceed all the way to the (intermediate) destination before responding to some important event, such as the start of a new lesson (important for every character), ERIC playing truant (important for MR WACKER), or ERIC being present in the girls' skool when it's not playtime (important for MISS TAKE). If no command list restart has been requested in the meantime, the address of this routine will be placed into bytes 9 and 10 of the character's buffer again by the routine at <a href="25700.html">25700</a>, and the character will continue towards his destination.
 </div>
 </div>
 </td>
@@ -347,9 +348,9 @@ Next: <a href="25656.html">25656</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20260410</div>
+<div class="release">The complete Back to Skool RAM disassembly 20261128</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2026 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.0.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div><a href="../../asm/63ED.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

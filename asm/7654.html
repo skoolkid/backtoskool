@@ -3,6 +3,7 @@
 <head>
 <title>Back to Skool: Routine at 7654</title>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body class="Asm-c">
@@ -29,7 +30,7 @@ Next: <a href="76AC.html">76AC</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Used by the routines at <a href="76AC.html">76AC</a>, <a href="7854.html">7854</a> and <a href="7A16.html">7A16</a>. Returns with the carry flag set if there is a wall, closed door or closed window blocking the path of the mouse, frog or pellet
+Used by the routines at <a href="76AC.html">76AC</a>, <a href="7854.html">7854</a> and <a href="7A16.html">7A16</a>. Returns with the carry flag set if there is a wall, closed door or closed window blocking the path of the mouse, frog or pellet.
 </div>
 </div>
 <table class="input">
@@ -311,7 +312,7 @@ The mouse/frog/pellet is on the bottom floor.
 <tr>
 <td class="address-1"><span id="76a2"></span>76A2</td>
 <td class="instruction">JR Z,$767B</td>
-<td class="comment-1" rowspan="1">Jump if mouse/frog/pellet is facing this door</td>
+<td class="comment-1" rowspan="1">Jump if the mouse/frog/pellet is facing this door</td>
 </tr>
 <tr>
 <td class="address-1"><span id="76a4"></span>76A4</td>
@@ -326,7 +327,7 @@ The mouse/frog/pellet is on the bottom floor.
 <tr>
 <td class="address-1"><span id="76a8"></span>76A8</td>
 <td class="instruction">JR Z,$767B</td>
-<td class="comment-1" rowspan="1">Jump if the mouse/frog/pellet is facing this</td>
+<td class="comment-1" rowspan="1">Jump if the mouse/frog/pellet is facing the gate</td>
 </tr>
 <tr>
 <td class="address-1"><span id="76aa"></span>76AA</td>
@@ -346,9 +347,9 @@ Next: <a href="76AC.html">76AC</a>
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20260410</div>
+<div class="release">The complete Back to Skool RAM disassembly 20261128</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2026 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.0.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div><a href="../dec/asm/30292.html">Switch to decimal</a>.</div>
 </footer>
 </body>

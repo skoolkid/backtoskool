@@ -3,6 +3,7 @@
 <head>
 <title>Back to Skool: Bugs</title>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body class="Bugs">
@@ -35,6 +36,7 @@
 <li><a href="#doubleWipe">Double wipe</a></li>
 <li><a href="#tripleWipe">Triple wipe</a></li>
 <li><a href="#665360Lines">YOU HAVE 665360 LINES ERIC</a></li>
+<li><a href="#under10000Lines">YOU HAVE UNDER 10000 LINES ERIC</a></li>
 <li><a href="#deceptiveDoorways">Deceptive doorways</a></li>
 <li><a href="#speechQueue">Speech queue hogs</a></li>
 <li><a href="#jumpAbsent">Jump out of class</a></li>
@@ -130,7 +132,7 @@ though. But that just makes the hovering feel rather creepy.)
 <div class="box box-2">
 <div class="box-title">Assembly sitting confusion</div>
 <div class="paragraph">
-During assembly, if ERIC is standing a teacher will scream 'SIT FACING THE
+During assembly, if ERIC is standing, a teacher will scream 'SIT FACING THE
 STAGE', but if he's sitting down facing left (away from the stage), a teacher
 will scream 'NOW SIT DOWN'. This is the wrong way round.
 </div>
@@ -365,12 +367,12 @@ disappearing (see <a href="../asm/30380.html#30459">30459</a>).
 <div class="paragraph">
 If ERIC stands against the far wall of the Science Lab storeroom while facing
 it, and then fires his catapult, the pellet will travel through the wall. See
-the routine at <a href="../asm/28315.html">28315</a> (which lets ERIC reach x-coordinate 63 - rather too
+the routine at <a href="../asm/28315.html">28315</a> (which lets ERIC reach x-coordinate 62 - rather too
 close to that far wall), and the routine at <a href="../asm/30292.html">30292</a> (which takes that far wall
 to be at x-coordinate 62).
 </div>
 <div class="paragraph">
-<div>POKE 28375,62 (to stop ERIC at x-coordinate 62 instead of 63), or...</div>
+<div>POKE 28375,62 (to stop ERIC at x-coordinate 61 instead of 62), or...</div>
 <div>POKE 30348,63 (to check for the wall in front of the pellet at
 x-coordinate 63 instead of 62)</div>
 </div>
@@ -379,13 +381,23 @@ x-coordinate 63 instead of 62)</div>
 <div class="box box-1">
 <div class="box-title">Pellet through the door</div>
 <div class="paragraph">
-If ERIC stands against the right study door while facing it, and then fires his
-catapult, the pellet will travel through the door. See the routine at <a href="../asm/30292.html">30292</a>,
-which checks for the presence of the right study door at x-coordinate 84 in
-front of the pellet. But when ERIC is standing up against the door, he is
-already at x-coordinate 84, which is where the pellet will be launched from; so
-at launch time, the x-coordinate of the spot in front of the pellet is 83, and
-the door check fails.
+If ERIC stands against the right side of the right study door while facing it,
+and then fires his catapult, the pellet will travel through the door. See the
+routine at <a href="../asm/30292.html">30292</a>, which checks for the presence of the right study door at
+x-coordinate 84 in front of the pellet. But when ERIC is standing up against
+the door, he is already at x-coordinate 84, which is where the pellet will be
+launched from; so at launch time, the x-coordinate of the spot in front of the
+pellet is 83, and the door check fails.
+</div>
+<div class="paragraph">
+Similarly, if ERIC stands against the left side of the Science Lab storeroom
+door while facing it, and then fires his catapult, the pellet will travel
+through the door. Again, see the routine at <a href="../asm/30292.html">30292</a>, which checks for the
+presence of the storeroom door at x-coordinate 53 in front of the pellet. But
+when ERIC is standing up against the door, he is already at x-coordinate 53,
+which is where the pellet will be launched from; so at launch time, the
+x-coordinate of the spot in front of the pellet is 54, and the door check
+fails.
 </div>
 </div>
 <div><span id="conkerMD"></span></div>
@@ -552,8 +564,25 @@ time, and moving on to the next year makes MR WACKER completely forget his
 expulsion duties.
 </div>
 </div>
-<div><span id="deceptiveDoorways"></span></div>
+<div><span id="under10000Lines"></span></div>
 <div class="box box-1">
+<div class="box-title">YOU HAVE UNDER 10000 LINES ERIC</div>
+<div class="paragraph">
+If ERIC has 10000 lines or more, but manages to kiss HAYLEY and reduce that
+total to under 10000 lines before MR WACKER finds him, MR WACKER will continue
+the hunt for ERIC, unashamedly accuse him of having 10000 lines, and then expel
+him anyway.
+</div>
+<div class="paragraph">
+The reason for this is that the routine at <a href="../asm/62770.html">62770</a> sends MR WACKER on his way
+to expel ERIC when the lines total reaches or exceeds 10000. But the routine at
+<a href="../asm/24348.html">24348</a>, which reduces the lines total by 1000 when ERIC kisses HAYLEY, doesn't
+even check whether the new total is under 10000, and so MR WACKER carries on
+regardless.
+</div>
+</div>
+<div><span id="deceptiveDoorways"></span></div>
+<div class="box box-2">
 <div class="box-title">Deceptive doorways</div>
 <div class="paragraph">
 It would be reasonable to assume that the doorway to a classroom in the boys'
@@ -627,7 +656,7 @@ aligned with the apparent boundaries, see the location identifier tables at
 </div>
 </div>
 <div><span id="speechQueue"></span></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Speech queue hogs</div>
 <div class="paragraph">
 ERIC's teacher and EINSTEIN can hog the 'speech queue' for several rounds of a
@@ -698,7 +727,7 @@ buffer) on their turns to be moved.
 </div>
 </div>
 <div><span id="jumpAbsent"></span></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Jump out of class</div>
 <div class="paragraph">
 If ERIC jumps continuously (hold 'J' down) during class, EINSTEIN will tell the
@@ -715,7 +744,7 @@ POKE 28086,254
 </div>
 </div>
 <div><span id="jumpDinner"></span></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">Jump into the dinner hall</div>
 <div class="paragraph">
 During dinner, go to the Yellow Room or the Science Lab, directly above the
@@ -734,7 +763,7 @@ POKE 28086,254
 </div>
 </div>
 <div><span id="jumpAssembly"></span></div>
-<div class="box box-1">
+<div class="box box-2">
 <div class="box-title">Jump into the assembly hall</div>
 <div class="paragraph">
 During assembly, go to the area between the Yellow Room and the head's
@@ -753,7 +782,7 @@ POKE 28086,254
 </div>
 </div>
 <div><span id="jump4Spaces"></span></div>
-<div class="box box-2">
+<div class="box box-1">
 <div class="box-title">One more jump bug</div>
 <div class="paragraph">
 Play truant during class, somewhere on the top or middle floor. (The toilets
@@ -775,9 +804,9 @@ POKE 28086,254
 </div>
 </div>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20260410</div>
+<div class="release">The complete Back to Skool RAM disassembly 20261128</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2026 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.0.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div><a href="../../reference/bugs.html">Switch to hexadecimal</a>.</div>
 </footer>
 </body>

@@ -3,6 +3,7 @@
 <head>
 <title>Back to Skool: Game status buffer</title>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body class="GameStatusBuffer">
@@ -215,7 +216,7 @@ Used by the classroom-based <a href="../asm/E800.html">command lists</a> to indi
 <td class="map-t"><span id="7f88"></span><a href="../asm/7F88.html">7F88</a></td>
 <td class="map-length">2</td>
 <td class="map-t-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F88.html">Message 6: '{teacher}'</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F88.html">Message 0x06: '{teacher}'</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/7EB1.html">7EB1</a> when printing the top line of text in the lesson box; it is a submessage of message <a href="../asm/EA18.html">0x10</a>.
@@ -227,7 +228,7 @@ Used by the routine at <a href="../asm/7EB1.html">7EB1</a> when printing the top
 <td class="map-t"><span id="7f8a"></span><a href="../asm/7F8A.html">7F8A</a></td>
 <td class="map-length">2</td>
 <td class="map-t-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F8A.html">Message 5: '{lines recipient}/combination number or letter/{room}'</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F8A.html">Message 0x05: '{lines recipient}/combination number or letter/{room}'</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/7414.html">7414</a> (as a submessage of message <a href="../asm/E9EE.html">0x0D</a>), <a href="../asm/74C8.html">74C8</a> (as a submessage of message <a href="../asm/E9F9.html">0x0E</a>) and <a href="../asm/7EB1.html">7EB1</a> (as a submessage of message <a href="../asm/EA18.html">0x10</a>).
@@ -239,7 +240,7 @@ Used by the routines at <a href="../asm/7414.html">7414</a> (as a submessage of 
 <td class="map-t"><span id="7f8c"></span><a href="../asm/7F8C.html">7F8C</a></td>
 <td class="map-length">2</td>
 <td class="map-t-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F8C.html">Message 10: '{mountain}/{king}/{animal}/{verb}'</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F8C.html">Message 0x0A: '{mountain}/{king}/{animal}/{verb}'</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/F100.html">F100</a> and <a href="../asm/F250.html">F250</a>; it is a submessage of messages <a href="../asm/FE70.html">0x4A</a>, <a href="../asm/EFEA.html">0x4B</a>, <a href="../asm/FC79.html">0x4E</a>, <a href="../asm/FFFB.html">0x4F</a>, <a href="../asm/FC60.html">0x52</a>, <a href="../asm/FF70.html">0x53</a> and <a href="../asm/EDBD.html">0x60</a>.
@@ -251,7 +252,7 @@ Used by the routines at <a href="../asm/F100.html">F100</a> and <a href="../asm/
 <td class="map-t"><span id="7f8e"></span><a href="../asm/7F8E.html">7F8E</a></td>
 <td class="map-length">2</td>
 <td class="map-t-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F8E.html">Message 11: '{country}/{year}/{habitat}/{noun}'</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F8E.html">Message 0x0B: '{country}/{year}/{habitat}/{noun}'</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
 Used by the routines at <a href="../asm/F100.html">F100</a> and <a href="../asm/F250.html">F250</a>; it is a submessage of messages <a href="../asm/FEF4.html">0x49</a>, <a href="../asm/FED0.html">0x4C</a>, <a href="../asm/FEFB.html">0x4D</a>, <a href="../asm/FFE8.html">0x50</a>, <a href="../asm/EFF1.html">0x51</a>, <a href="../asm/FFD0.html">0x54</a> and <a href="../asm/EDBD.html">0x60</a>.
@@ -263,7 +264,7 @@ Used by the routines at <a href="../asm/F100.html">F100</a> and <a href="../asm/
 <td class="map-t"><span id="7f90"></span><a href="../asm/7F90.html">7F90</a></td>
 <td class="map-length">2</td>
 <td class="map-t-desc">
-<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F90.html">Message 7: '{grassee}'</a></div>
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/7F90.html">Message 0x07: '{grassee}'</a></div>
 <div class="map-entry-desc">
 <div class="paragraph">
 Used by the routine at <a href="../asm/F100.html">F100</a> to hold the character number of whoever is being grassed up by EINSTEIN for writing on the board (0xCE=BOY WANDER, or 0xD2=ERIC); it is a submessage of message <a href="../asm/ECFC.html">0x58</a>. Note that storing the character number (0xCE or 0xD2) here is a mistake; it should be the message number of the character's name (<a href="../asm/EFA1.html">0x1B</a> or <a href="../asm/EFD5.html">0x1F</a>) instead. In any case, this message (along with parent message <a href="../asm/ECFC.html">0x58</a>) is never used, because of a <a href="../reference/bugs.html#noBlackboardTales">bug</a> in the section of code at <a href="../asm/F100.html#f19c">F19C</a>.
@@ -1028,9 +1029,9 @@ Modified by the routines at <a href="../asm/61C2.html">61C2</a> and <a href="../
 </tr>
 </table>
 <footer>
-<div class="release">The complete Back to Skool RAM disassembly 20260410</div>
+<div class="release">The complete Back to Skool RAM disassembly 20261128</div>
 <div class="copyright">&#169; 1985 Microsphere Computer Services Ltd. &#169; 2026 Richard Dymond.</div>
-<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.0.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div><a href="../dec/buffers/gbuffer.html">Switch to decimal</a>.</div>
 </footer>
 </body>
